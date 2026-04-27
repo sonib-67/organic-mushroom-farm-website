@@ -355,8 +355,8 @@ const CompanyProfile = () => {
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-start/20 blur-[100px] rounded-full group-hover:bg-primary-start/30 transition-all"></div>
             
             <div className="flex items-center gap-6 mb-10">
-              <div className="w-20 h-20 rounded-[2rem] gradient-bg flex items-center justify-center text-white font-black text-3xl shadow-2xl">
-                O
+              <div className="w-20 h-20 rounded-[2rem] overflow-hidden shadow-2xl">
+                <img src="/gallery/organicmushroomlogo-.jpg" alt="Organic Mushroom Farm Logo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white mb-1">Organic Mushroom Farm</h2>
@@ -559,8 +559,8 @@ const Navbar = () => {
       <nav className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 glass py-3 md:py-4 px-4 md:px-10 transition-all duration-300 ${isScrolled ? 'shadow-2xl translate-y-[-2px]' : ''}`}>
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 md:gap-3 group">
-            <div className="w-9 h-9 md:w-11 md:h-11 rounded-xl gradient-bg flex items-center justify-center font-bold text-base md:text-lg text-white shadow-lg group-hover:scale-110 transition-transform">
-              O
+            <div className="w-9 h-9 md:w-11 md:h-11 rounded-xl overflow-hidden shadow-lg group-hover:scale-110 transition-transform">
+              <img src="/gallery/organicmushroomlogo-.jpg" alt="Organic Mushroom Farm Logo" className="w-full h-full object-cover" />
             </div>
             <span className="text-lg md:text-xl font-bold tracking-tight text-white whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
@@ -705,8 +705,8 @@ const Navbar = () => {
                 className="flex items-center justify-between p-7 w-full border-b border-white/5 bg-white/5 relative z-10"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold text-white shadow-lg">
-                    O
+                  <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg">
+                    <img src="/gallery/organicmushroomlogo-.jpg" alt="Organic Mushroom Farm Logo" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-xl font-bold tracking-tight text-white">
                     Organic <span className="gradient-text">Mushroom Farm</span>
