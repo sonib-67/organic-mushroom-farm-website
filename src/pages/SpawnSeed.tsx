@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sprout, TestTube, ThermometerSnowflake, ShieldCheck, ShoppingCart, CheckCircle2, FlaskConical, Box, Factory as FactoryIcon, Wind, ArrowRight, ChevronDown, ChevronUp, User, Mail, Send, Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Sprout, TestTube, ThermometerSnowflake, ShieldCheck, ShoppingCart, CheckCircle2, FlaskConical, Box, Factory as FactoryIcon, Wind, ArrowRight, ChevronDown, ChevronUp, User, Mail, Send, Home, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const FAQItem = ({ question, answer }: { question: string, answer: React.ReactNode }) => {
@@ -199,22 +200,35 @@ const SpawnSeedPage = () => {
                       </div>
                   </div>
              </section>
-
              {/* Bulk Order Highlight Section */}
              <section className="section-padding text-center pt-0">
-                 <div className="max-w-4xl mx-auto p-12 rounded-[3rem] border border-primary-start/30 bg-primary-start/5 relative">
-                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">Bulk Orders Available</h2>
-                     <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
-                         Best pricing for commercial farms and large-scale growers. Ensure consistent supply for your operations.
-                     </p>
-                     <a 
-                         href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         className="btn-primary px-10 py-4 rounded-xl text-lg font-bold inline-flex items-center justify-center gap-3"
-                     >
-                         Order Now <ArrowRight size={20} />
-                     </a>
+                 <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+                     <div className="p-10 rounded-[3rem] border border-primary-start/30 bg-primary-start/5 relative text-left">
+                         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">Bulk Orders</h2>
+                         <p className="text-slate-300 text-sm mb-8">
+                             Best pricing for commercial farms and large-scale growers. Ensure consistent supply.
+                         </p>
+                         <a 
+                             href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                             target="_blank"
+                             rel="noopener noreferrer"
+                             className="btn-primary px-8 py-3 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2"
+                         >
+                             Order Now <ArrowRight size={18} />
+                         </a>
+                     </div>
+                     <div className="p-10 rounded-[3rem] border border-white/5 bg-white/2 relative text-left">
+                         <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">Need Training?</h2>
+                         <p className="text-slate-400 text-sm mb-8">
+                             Learn how to use spawn correctly to maximize your yield per kg of substrate.
+                         </p>
+                         <Link 
+                             to="/training"
+                             className="btn-outline px-8 py-3 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2"
+                         >
+                             Start Learning <BookOpen size={18} />
+                         </Link>
+                     </div>
                  </div>
              </section>
 

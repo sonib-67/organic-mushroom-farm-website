@@ -456,7 +456,7 @@ const NAV_ITEMS = [
     isExternal: false, 
     icon: Layers,
     subMenu: [
-      { name: "Spawn Supply", href: "/services/spawn-supply" },
+      { name: "Spawn Supply", href: "/spawn-seed" },
       { name: "Compost Production", href: "/services/compost-production" },
       { name: "Consultancy", href: "/services/consultancy" },
       { name: "Marketing Support", href: "/services/marketing-support" },
@@ -1744,7 +1744,7 @@ const Footer = () => {
               {[
                 { name: "Business Plan", href: "/business-plan" },
                 { name: "Government Subsidy", href: "/subsidy" },
-                { name: "Success Stories", href: "/success-stories" },
+                { name: "Spawn Supply", href: "/spawn-seed" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
                 { name: "Contact", href: "/contact" },
@@ -1853,16 +1853,36 @@ const FloatingButtons = () => {
       {/* Mobile Horizontal Sticky Bottom Bar */}
       <div className="fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
         <div className="overflow-x-auto scrollbar-hide snap-x flex items-center gap-3 p-4">
-          {mobileNavItems.map((item, i) => (
-            <a 
-              key={i} 
-              href={item.href}
-              className="snap-start shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border border-white/10 hover:border-primary-start/50 transition-all active:scale-95"
-            >
-              <item.icon size={14} className="text-primary-start" />
-              <span className="text-[11px] font-bold text-white whitespace-nowrap tracking-tight">{item.label}</span>
-            </a>
-          ))}
+          {mobileNavItems.map((item, i) => {
+            const isExternal = item.href.startsWith('tel:') || item.href.startsWith('http');
+            const className = "snap-start shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border border-white/10 hover:border-primary-start/50 transition-all active:scale-95";
+            
+            if (isExternal) {
+              return (
+                <a 
+                  key={i} 
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={className}
+                >
+                  <item.icon size={14} className="text-primary-start" />
+                  <span className="text-[11px] font-bold text-white whitespace-nowrap tracking-tight">{item.label}</span>
+                </a>
+              );
+            }
+
+            return (
+              <Link 
+                key={i} 
+                to={item.href}
+                className={className}
+              >
+                <item.icon size={14} className="text-primary-start" />
+                <span className="text-[11px] font-bold text-white whitespace-nowrap tracking-tight">{item.label}</span>
+              </Link>
+            );
+          })}
           <div className="shrink-0 w-4"></div> {/* Spacer for scroll end */}
         </div>
         {/* Safe area padding for iPhones */}
@@ -1990,6 +2010,20 @@ const MushroomTraining = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </div>
+
+      <div className="section-padding bg-white/5">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="badge mx-auto mb-6">Farming Essentials</div>
+          <h3 className="text-2xl md:text-4xl font-bold text-white mb-6 uppercase tracking-tight">Need High-Yield <span className="gradient-text">Mushroom Seed?</span></h3>
+          <p className="text-slate-400 mb-10 max-w-2xl mx-auto">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders.</p>
+          <Link 
+            to="/spawn-seed"
+            className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
+          >
+            Explore Spawn & Seeds <Sprout size={20} />
+          </Link>
         </div>
       </div>
 
@@ -2910,6 +2944,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />
             <Route path="/services/:id" element={<ServiceDetailPage />} />
             <Route path="/process/:id" element={<ProcessDetailPage />} />
             <Route path="/model-details" element={<ModelDetailsPage />} />
