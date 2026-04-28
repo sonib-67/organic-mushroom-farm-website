@@ -559,9 +559,11 @@ const Navbar = () => {
       <nav className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 glass py-3 md:py-4 px-4 md:px-10 transition-all duration-300 ${isScrolled ? 'shadow-2xl translate-y-[-2px]' : ''}`}>
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 md:gap-3 group">
-            <div className="w-9 h-9 md:w-11 md:h-11 rounded-xl gradient-bg flex items-center justify-center font-bold text-base md:text-lg text-white shadow-lg group-hover:scale-110 transition-transform">
-              O
-            </div>
+            <img 
+              src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
+              alt="Organic Mushroom Farm Logo" 
+              className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform" 
+            />
             <span className="text-lg md:text-xl font-bold tracking-tight text-white whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
@@ -1704,9 +1706,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold text-white shadow-lg">
-                O
-              </div>
+              <img 
+                src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
+                alt="Organic Mushroom Farm Logo" 
+                className="w-14 h-14 object-contain" 
+              />
               <span className="text-lg font-bold tracking-tight text-white">
                 Organic <span className="gradient-text">Mushroom Farm</span>
               </span>
