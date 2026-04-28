@@ -2345,7 +2345,7 @@ const HomePage = () => {
                       rel="noopener noreferrer"
                       className="relative aspect-video rounded-2xl overflow-hidden mb-4 group cursor-pointer inline-block w-full"
                     >
-                      <img loading="lazy" src="training images/trainingmushroom.jpg" alt="Training" className="w-full h-full object-cover opacity-60" />
+                      <img loading="lazy" src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg" alt="Training" className="w-full h-full object-cover opacity-60" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center pl-1 shadow-2xl">
                           <Play size={20} fill="currentColor" />
@@ -2701,15 +2701,15 @@ const GalleryPage = () => {
     window.scrollTo(0, 0);
   }, []);
   const images = [
-    { src: "training images/infracture.jpg", category: "Infrastructure" },
-    { src: "gallery/alltypesmushroom.jpg", category: "All Types Mushroom" },
-    { src: "gallery/mushroomharvest.jpg", category: "Mushroom Harvesting" },
-    { src: "gallery/enoki.jpg", category: "Enoki" },
-    { src: "training images/spawn.jpg", category: "Spawn" },
-    { src: "training images/studentslearningfarming.jpg", category: "Training" },
-    { src: "training images/harvest.jpg", category: "Harvest" },
-    { src: "training images/infracture.jpg", category: "Infrastructure" },
-    { src: "training images/mushroomspawn.jpg", category: "Spawn" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png", category: "Infrastructure" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg", category: "All Types Mushroom" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png", category: "Mushroom Harvesting" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png", category: "Enoki" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378183/Screenshot_2026-01-17_141353_v8rgpt.png", category: "Spawn" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png", category: "Training" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png", category: "Harvest" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378144/img_9856_er5mbe.png", category: "Infrastructure" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378148/img_6985_inr8qh.png", category: "Compost" },
   ];
 
   return (
