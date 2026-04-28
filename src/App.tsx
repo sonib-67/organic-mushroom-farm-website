@@ -368,8 +368,8 @@ const CompanyProfile = () => {
               {[
                 { label: "Founder", value: "Tanish Soni" },
                 { label: "Established", value: "2021" },
-                { label: "Business Type", value: "Exporter & Service Provider" },
-                { label: "Base", value: "Central India" },
+                { label: "Business Type", value: "Leading Exporter, Manufacturer & Service Provider of Mushroom Farming, Spawn Supply, Training & Turnkey Farm Setup in India" },
+                { label: "Base", value: "Pan India" },
               ].map((item, i) => (
                 <div key={i} className="space-y-1">
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
@@ -1906,11 +1906,11 @@ const MushroomTraining = () => {
   ];
 
   const galleryImages = [
-    { src: "training images/mushroomfarmingsetup.jpg", alt: "Mushroom farming setup" },
-    { src: "training images/trainingsession.jpg", alt: "Training session" },
-    { src: "training images/studentslearningfarming.jpg", alt: "Students learning farming" },
-    { src: "training images/mushroomgrowth.jpg", alt: "Mushroom growth" },
-    { src: "training images/indoormushroomfarm.jpg", alt: "Indoor mushroom farm" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png", alt: "Mushroom farming setup" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382178/Screenshot_2026-04-24_201138_wcjrml.png", alt: "Training session" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png", alt: "Students learning farming" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378181/Screenshot_2026-02-22_165318_cyla5n.png", alt: "Mushroom growth" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png", alt: "Indoor mushroom farm" },
   ];
 
   return (
