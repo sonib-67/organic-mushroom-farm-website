@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Layers, ShieldCheck, Thermometer, Wind, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -90,9 +91,9 @@ const CompostUnitSpecsPage = () => {
             <div className="glass p-10 rounded-[3rem] border border-primary-start/20 space-y-6 md:col-span-2 text-center">
                 <h3 className="text-2xl font-bold text-white">Start Building Your Compost Unit</h3>
                 <p className="text-slate-400 max-w-xl mx-auto">Skip the trial-and-error. Deploy proven infrastructure designed for large-scale mushroom farming success.</p>
-                <a href="/contact-form" className="btn-primary px-8 py-4 rounded-xl font-bold inline-flex justify-center items-center gap-2 mx-auto mt-4">
+                <Link to="/contact-form" className="btn-primary px-8 py-4 rounded-xl font-bold inline-flex justify-center items-center gap-2 mx-auto mt-4">
                     Get a Quote <ArrowRight size={18}/>
-                </a>
+                </Link>
             </div>
         </div>
       </section>

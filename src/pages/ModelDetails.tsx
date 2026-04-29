@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Target, Layers, ShoppingCart, Zap, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -77,9 +78,9 @@ const ModelDetailsPage = () => {
             <div className="glass p-10 rounded-[3rem] border border-primary-start/20 space-y-6">
                 <h3 className="text-2xl font-bold text-white">Ready for a detailed consultation?</h3>
                 <p className="text-slate-400">Our engineering team can customize this model to fit your specific available space and budget.</p>
-                <a href="/contact-form" className="btn-primary w-full py-4 rounded-xl font-bold inline-flex justify-center items-center gap-2">
+                <Link to="/contact-form" className="btn-primary w-full py-4 rounded-xl font-bold inline-flex justify-center items-center gap-2">
                     Start Custom Project <ArrowRight size={18}/>
-                </a>
+                </Link>
             </div>
         </div>
       </section>

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, User, CheckCircle2, Send, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const ContactFormPage = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const [submitted, setSubmitted] = React.useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,8 +35,8 @@ const ContactFormPage = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
-                title="Consult with Expert | Start Your Project" 
-                description="Contact our team for consultation on your commercial mushroom farming project." 
+                title="Custom Mushroom Farming Project Consultation | Organic Mushroom Farm" 
+                description="Get a free consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
              />
 
              <section className="section-padding text-center">
@@ -94,6 +98,22 @@ const ContactFormPage = () => {
                                      </div>
                                  </div>
                                  <div className="space-y-3">
+                                     <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Phone Number *</label>
+                                     <div className="relative">
+                                         <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
+                                         <input 
+                                             type="tel" 
+                                             name="phone"
+                                             required
+                                             placeholder="+91 98765 43210"
+                                             className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                         />
+                                     </div>
+                                 </div>
+                             </div>
+                             
+                             <div className="grid md:grid-cols-2 gap-6">
+                                 <div className="space-y-3">
                                      <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Email Address *</label>
                                      <div className="relative">
                                          <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
@@ -105,6 +125,41 @@ const ContactFormPage = () => {
                                              className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                          />
                                      </div>
+                                 </div>
+                                 <div className="space-y-3">
+                                     <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">City / State *</label>
+                                     <input 
+                                         type="text" 
+                                         name="location"
+                                         required
+                                         placeholder="e.g., Indore, Madhya Pradesh"
+                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                     />
+                                 </div>
+                             </div>
+
+                             <div className="grid md:grid-cols-2 gap-6">
+                                 <div className="space-y-3">
+                                     <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Farm Size (in sq. ft.)</label>
+                                     <input 
+                                         type="text" 
+                                         name="farmSize"
+                                         placeholder="e.g., 2000 sq ft"
+                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                     />
+                                 </div>
+                                 <div className="space-y-3">
+                                     <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Budget Range</label>
+                                     <select 
+                                         name="budget"
+                                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-slate-300 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all appearance-none"
+                                         style={{ backgroundImage: 'none' }}
+                                     >
+                                         <option value="Under 1 Lakh">Under ₹1 Lakh</option>
+                                         <option value="1 - 5 Lakhs">₹1 Lakh - ₹5 Lakhs</option>
+                                         <option value="5 - 10 Lakhs">₹5 Lakhs - ₹10 Lakhs</option>
+                                         <option value="10 Lakhs +">Above ₹10 Lakhs</option>
+                                     </select>
                                  </div>
                              </div>
 
@@ -119,10 +174,23 @@ const ContactFormPage = () => {
                                  ></textarea>
                              </div>
 
-                             <div className="pt-4">
+                             <div className="pt-4 space-y-4">
                                  <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
                                      Submit Form <Send size={18} />
                                  </button>
+                                 <div className="relative flex items-center py-2">
+                                    <div className="flex-grow border-t border-white/10"></div>
+                                    <span className="flex-shrink-0 mx-4 text-slate-500 text-xs font-medium uppercase tracking-widest">Or</span>
+                                    <div className="flex-grow border-t border-white/10"></div>
+                                 </div>
+                                 <a 
+                                     href="https://wa.me/919203544140?text=Hi,%20I'm%20interested%20in%20a%20custom%20mushroom%20farming%20project." 
+                                     target="_blank" 
+                                     rel="noopener noreferrer" 
+                                     className="w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-white bg-[#25D366] hover:bg-[#128C7E] transition-all"
+                                 >
+                                     Chat on WhatsApp
+                                 </a>
                              </div>
                          </form>
                      </motion.div>
