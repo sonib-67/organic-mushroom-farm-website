@@ -1,0 +1,141 @@
+# ========================================
+# robots.txt - organicmushroomfarm.shop
+# Organic Mushroom Farm - Pan India
+# Last Updated: 2025
+# ========================================
+
+# ----------------------------------------
+# ALL SEARCH ENGINES - ALLOW EVERYTHING
+# ----------------------------------------
+User-agent: *
+Allow: /
+
+# Block useless pages (saves crawl budget)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /draft/
+Disallow: /test/
+Disallow: /404
+Disallow: /error
+Disallow: /?utm_
+Disallow: /?ref=
+Disallow: /?source=
+Disallow: /?fbclid=
+Disallow: /?gclid=
+
+# ----------------------------------------
+# GOOGLE MAIN BOT - FULL ACCESS
+# ----------------------------------------
+User-agent: Googlebot
+Allow: /
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /products/
+Allow: /mushroom-spawn/
+Allow: /mushroom-training/
+Allow: /blog/
+Crawl-delay: 1
+
+# ----------------------------------------
+# GOOGLE IMAGE BOT
+# (Important for mushroom product photos)
+# ----------------------------------------
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /*.gif$
+
+# ----------------------------------------
+# GOOGLE MOBILE BOT
+# (India mein 90% mobile users hain!)
+# ----------------------------------------
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 1
+
+# ----------------------------------------
+# GOOGLE NEWS BOT
+# (Blog posts index honge)
+# ----------------------------------------
+User-agent: Googlebot-News
+Allow: /blog/
+Allow: /news/
+Allow: /articles/
+Crawl-delay: 1
+
+# ----------------------------------------
+# BING BOT
+# ----------------------------------------
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# ----------------------------------------
+# YAHOO BOT
+# ----------------------------------------
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# ----------------------------------------
+# DUCKDUCKGO BOT
+# ----------------------------------------
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# ----------------------------------------
+# SOCIAL MEDIA BOTS
+# (Facebook, WhatsApp, Twitter previews)
+# ----------------------------------------
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# ----------------------------------------
+# BAD BOTS BLOCK
+# (SEO spam bots - block karein)
+# ----------------------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: spbot
+Disallow: /
+
+User-agent: Exabot
+Disallow: /
+
+# ----------------------------------------
+# SITEMAP LOCATIONS
+# ----------------------------------------
+Sitemap: https://organicmushroomfarm.shop/sitemap.xml
