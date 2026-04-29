@@ -1424,10 +1424,10 @@ const CTASection = () => {
 
 const TrainingPage = () => {
   useEffect(() => {
-    document.title = "Professional Mushroom Training in MP | Organic Mushroom Farm";
+    document.title = "Professional Mushroom Farming Training India | Online & Offline";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Join professional mushroom training in Madhya Pradesh. Learn button mushroom farming in Jabalpur with hands-on workshops and online courses for just ₹399.");
+      metaDescription.setAttribute("content", "Join our certified mushroom farming training online or offline. Learn button, oyster, and milky mushroom cultivation from India's leading experts. Enroll now!");
     }
     window.scrollTo(0, 0);
   }, []);
@@ -1456,10 +1456,10 @@ const TrainingPage = () => {
 
 const ContactPage = () => {
   useEffect(() => {
-    document.title = "Contact Organic Mushroom Farm Katangi | Jabalpur MP";
+    document.title = "Contact Us for Mushroom Setup & Consultancy | Pan India";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Get in touch with Organic Mushroom Farm in Katangi Road, Jabalpur. Expert consultation for button mushroom farming setups and professional training queries.");
+      metaDescription.setAttribute("content", "Get a free consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India.");
     }
     window.scrollTo(0, 0);
   }, []);
@@ -2117,10 +2117,10 @@ const MushroomTraining = () => {
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = "Mushroom Farming in India | Farm Setup & Training Experts";
+    document.title = "Organic Mushroom Farm | Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom - Pan India";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Start a profitable button mushroom farming business in India. We provide expert mushroom training in MP, farm setup in UP, Bihar, Maharashtra, and Pan India turnkey solutions.");
+      metaDescription.setAttribute("content", "Buy mushroom spawn, join mushroom farming training online/offline, get fresh & dry mushrooms delivered Pan India. Complete mushroom setup available. Based in Jabalpur, MP.");
     }
     const hash = window.location.hash;
     if (hash) {
@@ -2395,10 +2395,10 @@ const PageHero = ({ title, description, badge }: { title: string; description: s
 
 const AboutPage = () => {
   useEffect(() => {
-    document.title = "About Us | Organic Mushroom Farm Katangi Jabalpur";
+    document.title = "About Organic Mushroom Farm | Leading Infrastructure & Training Partner";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Organic Mushroom Farm is dedicated to promoting organic agriculture and helping people start profitable mushroom businesses in Jabalpur and beyond.");
+      metaDescription.setAttribute("content", "Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide.");
     }
     window.scrollTo(0, 0);
   }, []);
@@ -2577,7 +2577,7 @@ const AboutPage = () => {
 
 const ServicesPage = () => {
   useEffect(() => {
-    document.title = "Mushroom Farming Services & Solutions | Organic Mushroom Farm";
+    document.title = "Mushroom Farming Services & Solutions | Pan India Experts";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "Explore our end-to-end mushroom farming services: hybrid spawn supply, industrial compost production, and technical consultancy in India.");
@@ -2631,7 +2631,7 @@ const ServicesPage = () => {
 
 const TurnkeyProjectsPage = () => {
   useEffect(() => {
-    document.title = "Turnkey Mushroom Farm Setup India | Professional Consultants";
+    document.title = "Turnkey Mushroom Farm Setup India | Complete Setup Service";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "Build your industrial mushroom unit with our turnkey solutions. Expert project setups for button mushroom farming in Jabalpur and across India.");
@@ -2693,7 +2693,7 @@ const TurnkeyProjectsPage = () => {
 
 const GalleryPage = () => {
   useEffect(() => {
-    document.title = "Farm Gallery | Organic Mushroom Farm Photos & Projects";
+    document.title = "Organic Mushroom Farm Gallery | Project Photos & Setup";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "View photos of our button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful farming project setups across India.");
@@ -2748,7 +2748,7 @@ const GalleryPage = () => {
 
 const FAQPage = () => {
   useEffect(() => {
-    document.title = "FAQ | Mushroom Farming in India & Training Support";
+    document.title = "Mushroom Farming FAQ | Training & Farm Setup Help";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", "Find answers to frequently asked questions about mushroom farming in India. Learn about setup costs, training in MP, UP, Bihar, Maharashtra, and how to start a profitable business.");

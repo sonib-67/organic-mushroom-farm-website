@@ -19,8 +19,8 @@ export const SERVICES_DATA: DetailPageContent[] = [
   {
     id: 'spawn-supply',
     title: 'Spawn Supply',
-    metaTitle: 'Quality Mushroom Spawn Supply India | Hybrid Button Mushroom Seeds',
-    metaDescription: 'Get premium hybrid mushroom spawn with high yield guarantee. We supply top-quality button mushroom seeds across Madhya Pradesh, Maharashtra, UP, and Bihar.',
+    metaTitle: 'Mushroom Spawn Supplier Pan India | Quality Hybrid Seeds',
+    metaDescription: 'Buy premium hybrid mushroom spawn online. We are a trusted mushroom spawn supplier Pan India, delivering high-yield seeds optimized for the Indian climate.',
     h1: 'Premium Mushroom Spawn Supply in India',
     h2: 'High-Yield Hybrid Genetics for Professional Farming',
     description: 'Spawn (seed) is the foundation of a successful mushroom crop. We provide laboratory-verified, high-quality hybrid spawn optimized for the Indian climate.',
@@ -65,8 +65,8 @@ export const SERVICES_DATA: DetailPageContent[] = [
   {
     id: 'consultancy',
     title: 'Consultancy',
-    metaTitle: 'Mushroom Farm Consultancy India | Expertise from Setup to Harvest',
-    metaDescription: 'Expert mushroom farm consultancy for turnkey project setup, ROI analysis, and troubleshooting. Serving MP, Maharashtra, Rajasthan, and North India.',
+    metaTitle: 'Mushroom Farming Training Online & Offline | Professional Farm Setup',
+    metaDescription: 'Join our mushroom farming training online or offline. Get expert consultancy for complete mushroom setup, ROI analysis, and clinical production SOPs India-wide.',
     h1: 'Technical Mushroom Farm Consultancy',
     h2: 'Bridging the Gap Between Concept and Commercial Success',
     description: 'Avoid costly errors with our expert consultancy. We provide layouts, climate control specs, and operational mentorship tailored to your location.',

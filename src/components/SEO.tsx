@@ -10,7 +10,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
   const defaultKeywords =
-    "mushroom farming in India, mushroom training in India, mushroom farm setup India, button mushroom farming business, organic mushroom farm";
+    "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
   const siteUrl = "https://organicmushroomfarm.shop";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
@@ -32,7 +32,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
-      <meta property="og:image" content="https://organicmushroomfarm.shop/" />
+      <meta property="og:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" />
 
       {/* Twitter (no image as per your requirement) */}
       <meta name="twitter:card" content="summary" />
