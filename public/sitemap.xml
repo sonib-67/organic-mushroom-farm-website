@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- MAIN PAGES -->
-  <url><loc>https://organicmushroomfarm.shop/</loc><lastmod>2025-01-01</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://organicmushroomfarm.shop/about</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://organicmushroomfarm.shop/contact</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://organicmushroomfarm.shop/blog</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/</loc><lastmod>2026-04-30</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/about</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/contact</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/blog</loc><lastmod>2026-04-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/gallery</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/faq</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/turnkey-projects</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/privacy-policy</loc><lastmod>2026-04-30</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/terms-of-service</loc><lastmod>2026-04-30</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- SERVICES -->
+  <url><loc>https://organicmushroomfarm.shop/services</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/spawn-supply</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/compost-production</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/consultancy</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/marketing-support</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/cold-chain</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/government-subsidy</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/services/grow-tech-equipment</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- PRODUCTS -->
   <url><loc>https://organicmushroomfarm.shop/mushroom-spawn</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
@@ -21,10 +36,21 @@
 
   <!-- TRAINING -->
   <url><loc>https://organicmushroomfarm.shop/mushroom-training</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-training-mumbai</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-training-bangalore</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-training-hyderabad</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-training-pune</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-training-chennai</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-training-kolkata</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://organicmushroomfarm.shop/mushroom-farming-training-india</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://organicmushroomfarm.shop/oyster-mushroom-farming-training</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://organicmushroomfarm.shop/mushroom-cultivation-course</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://organicmushroomfarm.shop/online-mushroom-training</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- LEARNING -->
+  <url><loc>https://organicmushroomfarm.shop/learning/training-programs</loc><lastmod>2026-04-30</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/learning/mushroom-types</loc><lastmod>2026-04-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/learning/business-plan</loc><lastmod>2026-04-30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 
   <!-- SEO KEYWORD PAGES -->
   <url><loc>https://organicmushroomfarm.shop/buy-mushroom-spawn-online-india</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
@@ -96,7 +122,7 @@
 
   <!-- WEST BENGAL & ODISHA -->
   <url><loc>https://organicmushroomfarm.shop/mushroom-spawn-west-bengal</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://organicmushroomfarm.shop/mushroom-spawn-kolkata</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/mushroom-spawn-kolkata</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</priority>0.8</priority></url>
   <url><loc>https://organicmushroomfarm.shop/mushroom-spawn-odisha</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://organicmushroomfarm.shop/mushroom-spawn-bhubaneswar</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
@@ -145,6 +171,12 @@
   <url><loc>https://organicmushroomfarm.shop/mushroom-spawn-srinagar</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- BLOG SEO PAGES -->
+  <url><loc>https://organicmushroomfarm.shop/blog/button-mushroom-farming-guide</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/blog/milky-mushroom-farming-hindi</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/blog/mushroom-business-plan-india</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/blog/government-subsidy-mushroom-farming</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/blog/mushroom-shed-setup-cost</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://organicmushroomfarm.shop/blog/oyster-mushroom-price-india</loc><lastmod>2026-04-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://organicmushroomfarm.shop/blog/mushroom-ki-kheti-kaise-kare</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://organicmushroomfarm.shop/blog/oyster-mushroom-farming-guide-hindi</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://organicmushroomfarm.shop/blog/mushroom-spawn-kaise-banaye</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
