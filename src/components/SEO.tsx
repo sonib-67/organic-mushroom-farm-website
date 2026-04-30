@@ -12,7 +12,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
-  const siteUrl = "https://organicmushroomfarm.shop";
+  const siteUrl = "https://mushroomtraining.online";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
 
   return (
