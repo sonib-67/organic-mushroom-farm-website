@@ -1,5 +1,5 @@
 # ========================================
-# robots.txt - mushroomtraining.online
+# robots.txt - organicmushroomfarm.shop
 # Organic Mushroom Farm - Pan India
 # ========================================
 
@@ -64,4 +64,4 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-Sitemap: https://mushroomtraining.online/sitemap.xml
+Sitemap: https://organicmushroomfarm.shop/sitemap.xml

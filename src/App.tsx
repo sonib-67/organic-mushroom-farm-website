@@ -1513,8 +1513,8 @@ const ContactPage = () => {
                 { 
                   icon: Mail, 
                   label: "Email Support", 
-                  values: ["support@mushroomtraining.online"],
-                  href: "mailto:support@mushroomtraining.online"
+                  values: ["support@organicmushroomfarm.shop"],
+                  href: "mailto:support@organicmushroomfarm.shop"
                 }
               ].map((item, i) => (
                 <a 
@@ -2933,7 +2933,7 @@ const PrivacyPolicyPage = () => {
             <p className="text-slate-400">Our website uses cookies to enhance your browsing experience and analyze site traffic. You can choose to disable cookies in your browser settings.</p>
             
             <h2 className="text-white mt-10">6. Contact Info</h2>
-            <p className="text-slate-400">If you have any questions regarding your privacy, please contact us at support@mushroomtraining.online or call us at +91 9203544140.</p>
+            <p className="text-slate-400">If you have any questions regarding your privacy, please contact us at support@organicmushroomfarm.shop or call us at +91 9203544140.</p>
           </div>
         </div>
       </section>

@@ -53,7 +53,7 @@ const LocationsPage = () => {
                 </div>
                 <div>
                   <p className="text-slate-500 uppercase font-black text-xs tracking-widest mb-2">Email Support</p>
-                  <p className="text-white font-bold flex items-center gap-2"><Mail size={16} className="text-primary-start" /> support@mushroomtraining.online</p>
+                  <p className="text-white font-bold flex items-center gap-2"><Mail size={16} className="text-primary-start" /> support@organicmushroomfarm.shop</p>
                 </div>
               </div>
               <div>
