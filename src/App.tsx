@@ -1725,6 +1725,21 @@ const Footer = () => {
                 </span>
               ))}
             </div>
+
+            <div className="flex flex-wrap gap-3 mt-8">
+              <a href="https://www.youtube.com/@organicmushroomfarm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 rounded-lg text-sm text-slate-300 hover:text-white transition-all group">
+                <Youtube size={16} className="text-red-500 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">YouTube</span>
+              </a>
+              <a href="https://www.google.com/maps/place/Organic+Mushroom+Farm+Jabalpur/data=!4m2!3m1!1s0x398195413dca528d:0xf300f41d92f31068?sa=X&ved=1t:242&hl=en-IN&ictx=111" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-blue-500/10 border border-white/5 hover:border-blue-500/30 rounded-lg text-sm text-slate-300 hover:text-white transition-all group">
+                <MapPin size={16} className="text-blue-500 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">Find Us on Google Maps</span>
+              </a>
+              <a href="https://www.exportersindia.com/organic-mushroom-farm-jabalpur/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 rounded-lg text-sm text-slate-300 hover:text-white transition-all group">
+                <Briefcase size={16} className="text-amber-500 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">Exporters India</span>
+              </a>
+            </div>
           </div>
           <div>
             <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Pages</h4>
@@ -1768,7 +1783,6 @@ const Footer = () => {
             {[
               { label: "Insta", href: "https://www.instagram.com/organic_mushroom_farm_jabalpur" },
               { label: "FB", href: "https://www.facebook.com/organic.mushroom.farm0" },
-              { label: "YT", href: "https://www.youtube.com/@organicmushroomfarm" },
             ].map(social => (
               <a 
                 key={social.label} 
