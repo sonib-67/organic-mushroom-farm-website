@@ -724,7 +724,7 @@ const Navbar = () => {
               </div>
 
               <div 
-                className="flex-1 w-full flex flex-col items-center justify-center gap-2 px-8 py-10 overflow-y-auto relative z-10"
+                className="flex-1 w-full flex flex-col items-center justify-start gap-2 px-8 py-10 overflow-y-auto relative z-10"
               >
                 {NAV_ITEMS.map((item, i) => {
                   const isHashLink = item.href.includes('#');
