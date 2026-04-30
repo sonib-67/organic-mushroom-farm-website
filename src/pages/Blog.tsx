@@ -11,9 +11,9 @@ const blogPosts = [
     color: "text-blue-500",
     bg: "bg-blue-500/5",
     posts: [
-      { id: 1, title: "How to Start Mushroom Farming at Home", excerpt: "A beginner's guide to growing your first batch of mushrooms in small spaces.", date: "April 15, 2026" },
-      { id: 2, title: "Top 5 Mistakes New Mushroom Farmers Make", excerpt: "Avoid these common pitfalls that often lead to crop failure in the first cycle.", date: "April 10, 2026" },
-      { id: 3, title: "How to Prepare the Perfect Substrate", excerpt: "Master the art of pasteurization and moisture levels for high-yield harvests.", date: "April 02, 2026" }
+      { id: 1, title: "How to Start Mushroom Farming at Home", excerpt: "A beginner's guide to growing your first batch of mushrooms in small spaces.", date: "April 15, 2027" },
+      { id: 2, title: "Top 5 Mistakes New Mushroom Farmers Make", excerpt: "Avoid these common pitfalls that often lead to crop failure in the first cycle.", date: "April 10, 2027" },
+      { id: 3, title: "How to Prepare the Perfect Substrate", excerpt: "Master the art of pasteurization and moisture levels for high-yield harvests.", date: "April 02, 2027" }
     ]
   },
   {
@@ -22,9 +22,9 @@ const blogPosts = [
     color: "text-red-500",
     bg: "bg-red-500/5",
     posts: [
-      { id: 4, title: "The Brain-Boosting Secrets of Lion’s Mane", excerpt: "Scientific insights into how this mushroom improves focus and memory.", date: "March 28, 2026" },
-      { id: 5, title: "Mushrooms vs Meat: The Ultimate Protein Showdown", excerpt: "Comprehensive comparison of nutritional density and environmental impact.", date: "March 20, 2026" },
-      { id: 6, title: "Vitamin D Deficiency? Eat Button Mushrooms", excerpt: "How to maximize Vitamin D absorption from your daily mushroom intake.", date: "March 12, 2026" }
+      { id: 4, title: "The Brain-Boosting Secrets of Lion’s Mane", excerpt: "Scientific insights into how this mushroom improves focus and memory.", date: "March 28, 2027" },
+      { id: 5, title: "Mushrooms vs Meat: The Ultimate Protein Showdown", excerpt: "Comprehensive comparison of nutritional density and environmental impact.", date: "March 20, 2027" },
+      { id: 6, title: "Vitamin D Deficiency? Eat Button Mushrooms", excerpt: "How to maximize Vitamin D absorption from your daily mushroom intake.", date: "March 12, 2027" }
     ]
   },
   {
@@ -33,9 +33,10 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
-      { id: 7, title: "Future of Mushroom Farming in India 2026", excerpt: "Analyzing the market shifts and the move towards medicinal mushrooms.", date: "March 05, 2026" },
-      { id: 8, title: "Selling Harvest in Local Mandis: A Practical Guide", excerpt: "Tips for negotiation and bulk logistics for first-time mushroom sellers.", date: "Feb 28, 2026" },
-      { id: 9, title: "Government Subsidies in MP: Step-by-Step Guide", excerpt: "How to navigate the MP state portal for horticulture grants.", date: "Feb 15, 2026" }
+      { id: 10, title: "Mushroom Farming in India 2027 — Complete Guide", excerpt: "Your ultimate guide to mushroom spawn, training, setup kits, and supply across 28 states of India.", date: "April 30, 2027" },
+      { id: 7, title: "Future of Mushroom Farming in India 2027", excerpt: "Analyzing the market shifts and the move towards medicinal mushrooms.", date: "March 05, 2027" },
+      { id: 8, title: "Selling Harvest in Local Mandis: A Practical Guide", excerpt: "Tips for negotiation and bulk logistics for first-time mushroom sellers.", date: "Feb 28, 2027" },
+      { id: 9, title: "Government Subsidies in MP: Step-by-Step Guide", excerpt: "How to navigate the MP state portal for horticulture grants.", date: "Feb 15, 2027" }
     ]
   }
 ];
