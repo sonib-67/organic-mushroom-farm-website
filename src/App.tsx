@@ -1812,6 +1812,7 @@ const FloatingButtons = () => {
   }, []);
 
   const mobileNavItems = [
+    { label: "Book Consultant", href: "https://calendly.com/tanmaysomi/30min", icon: Calendar },
     { label: "Spawn (Seed)", href: "/spawn-seed", icon: Sprout },
     { label: "Training", href: "/training", icon: BookOpen },
     { label: "Setup (Turnkey)", href: "/#farming-models", icon: Home },
@@ -1823,37 +1824,36 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className="fixed bottom-24 right-4 md:right-8 z-[100] flex flex-col gap-4 items-end">
+      <div className="fixed bottom-24 right-4 md:right-8 z-[100] flex flex-col gap-3 md:gap-4 items-end">
         
-        {/* Book a Free Consultation Button (Calendly) - Right next to WhatsApp */}
-        <div className="flex items-center gap-3">
-          <motion.a 
-            href="https://calendly.com/tanmaysomi/30min" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.05 }}
-            className="hidden md:flex px-6 h-14 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border border-white/10 font-bold tracking-wide whitespace-nowrap gap-2"
-          >
-            <Calendar size={20} />
-            Book a Free Consultation
-          </motion.a>
+        {/* Book a Free Consultation Button (Calendly) */}
+        <motion.a 
+          href="https://calendly.com/tanmaysomi/30min" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.05 }}
+          className="flex px-4 md:px-6 h-12 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border border-white/10 font-bold tracking-wide whitespace-nowrap gap-2 text-[10px] md:text-base order-1 md:order-none"
+        >
+          <Calendar size={18} className="md:w-5 md:h-5" />
+          <span className="hidden md:inline">Book a Free Consultation</span>
+          <span className="md:hidden">Book Now</span>
+        </motion.a>
 
-          {/* WhatsApp Button with Glow & Pulse */}
-          <motion.a 
-            href="https://wa.me/919203544140" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0"
-          >
-            <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></div>
-            <MessageCircle size={28} className="relative z-10" />
-          </motion.a>
-        </div>
+        {/* WhatsApp Button with Glow & Pulse */}
+        <motion.a 
+          href="https://wa.me/919203544140" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0 order-2 md:order-none"
+        >
+          <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></div>
+          <MessageCircle size={28} className="relative z-10" />
+        </motion.a>
 
         {/* Scroll To Top (Desktop) */}
         {showScrollTop && (
