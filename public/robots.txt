@@ -50,8 +50,6 @@ Disallow: /private/
 Disallow: /*.json$
 Disallow: /src/
 
-# ── CRAWL SPEED ─────────────────────
-Crawl-delay: 1
 
 # ── SITEMAPS ────────────────────────
 Sitemap: https://organicmushroomfarm.shop/sitemap.xml
