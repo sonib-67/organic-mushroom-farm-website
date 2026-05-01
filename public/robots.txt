@@ -1,4 +1,57 @@
 User-agent: *
 Allow: /
 
+# ── MAIN PAGES ──────────────────────
+Allow: /about
+Allow: /about/our-story
+Allow: /success-stories
+Allow: /locations
+Allow: /contact
+Allow: /gallery
+Allow: /faq
+Allow: /blog
+Allow: /turnkey-projects
+Allow: /privacy-policy
+Allow: /terms-of-service
+
+# ── SERVICES ────────────────────────
+Allow: /services
+Allow: /spawn-seed
+Allow: /services/compost-production
+Allow: /services/consultancy
+Allow: /services/marketing-support
+Allow: /services/cold-chain
+Allow: /subsidy
+Allow: /equipment
+
+# ── LEARNING ────────────────────────
+Allow: /training
+Allow: /mushroom-types
+Allow: /business-plan
+Allow: /learning/training-programs
+Allow: /learning/mushroom-types
+Allow: /learning/business-plan
+
+# ── RESOURCES ───────────────────────
+Allow: /business-plan
+Allow: /subsidy
+Allow: /spawn-seed
+Allow: /blog
+Allow: /faq
+Allow: /terms
+Allow: /privacy
+
+# ── BLOCK UNWANTED ──────────────────
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /src/
+
+# ── CRAWL SPEED ─────────────────────
+Crawl-delay: 1
+
+# ── SITEMAPS ────────────────────────
 Sitemap: https://organicmushroomfarm.shop/sitemap.xml
