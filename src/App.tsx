@@ -50,9 +50,9 @@ const ProductionSOP = () => {
     <section id="sop" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12 md:mb-20">
-          <div className="badge mx-auto mb-4">60-Day Cycle</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Production Cycle <span className="gradient-text">SOPs</span></h2>
-          <p className="max-w-xl mx-auto text-[13px] md:text-base text-slate-400">Standardized operational procedures for high-yield button mushroom output.</p>
+          <div className="badge mx-auto mb-4">60-Day Commercial Cycle</div>
+          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Commercial Mushroom Production Cycle <span className="gradient-text">SOPs for India & Worldwide</span></h2>
+          <p className="max-w-xl mx-auto text-[13px] md:text-base text-slate-400">Standardized operational procedures for high-yield button mushroom and oyster mushroom output globally.</p>
         </div>
 
         {/* Desktop View: Horizontal Scroll / Cards */}
@@ -189,8 +189,8 @@ const CriticalParameters = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <div className="badge mx-auto mb-4">Precision Metrics</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Critical <span className="gradient-text">Parameters</span></h2>
-          <p className="text-slate-400 text-[13px] md:text-base">Scientific boundaries for consistent commercial yields.</p>
+          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Critical <span className="gradient-text">Parameters for High-Yield Mushroom Production</span></h2>
+          <p className="text-slate-400 text-[13px] md:text-base">Scientific boundaries for consistent commercial yields in organic mushroom farming across India and USA.</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
@@ -238,8 +238,8 @@ const EcosystemFlow = () => {
     <section className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="badge mx-auto mb-4">Operation Model</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Farming <span className="gradient-text">Ecosystem Flow</span></h2>
+          <div className="badge mx-auto mb-4">Commercial Operation Model</div>
+          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Complete Commercial Farming <span className="gradient-text">Ecosystem Flow & Setup</span></h2>
         </div>
 
         <div className="flex items-center gap-4 md:gap-8 overflow-x-auto pb-8 scrollbar-hide snap-x">
@@ -271,18 +271,18 @@ const EcosystemFlow = () => {
 
 const MushroomComparison = () => {
   const mushrooms = [
-    { name: "Button", difficulty: "High Difficulty", speed: "Industrial", color: "bg-blue-500", text: "Premium market share, controlled environment setup." },
-    { name: "Oyster", difficulty: "Low–Medium", speed: "Easy Growth", color: "bg-green-500", text: "Low investment start, versatile substrate requirements." },
-    { name: "Paddy Straw", difficulty: "Seasonal", speed: "High Velocity", color: "bg-yellow-500", text: "Regional demand focus, high temperature preference." },
-    { name: "Shiitake", difficulty: "Premium", speed: "Export Grade", color: "bg-amber-700", text: "High specialty value, intensive cycle management." },
+    { name: "Button Mushroom", difficulty: "High Difficulty", speed: "Industrial", color: "bg-blue-500", text: "Premium market share, controlled environment commercial setup." },
+    { name: "Oyster Mushroom", difficulty: "Low–Medium", speed: "Easy Growth", color: "bg-green-500", text: "Low investment start, versatile substrate requirements. Ideal for beginners and detailed multi-page online training." },
+    { name: "Milky Mushroom", difficulty: "Seasonal", speed: "High Velocity", color: "bg-yellow-500", text: "Regional demand focus, high temperature preference perfect for Indian climate." },
+    { name: "Shiitake & Lion's Mane", difficulty: "Premium", speed: "Export Grade", color: "bg-amber-700", text: "High specialty value, intensive cycle management. Best for international markets like USA & Australia." },
   ];
 
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <div className="badge mx-auto mb-4">Product Variants</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Mushroom <span className="gradient-text">Genetics Table</span></h2>
+          <div className="badge mx-auto mb-4">Top Searched Product Variants</div>
+          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">High-Yield Commercial Mushroom <span className="gradient-text">Genetics & Types Table</span></h2>
         </div>
 
         {/* Desktop Table */}
@@ -368,8 +368,8 @@ const CompanyProfile = () => {
               {[
                 { label: "Founder", value: "Tanish Soni" },
                 { label: "Established", value: "2021" },
-                { label: "Business Type", value: "Leading Exporter, Manufacturer & Service Provider of Mushroom Farming, Spawn Supply, Training & Turnkey Farm Setup in India" },
-                { label: "Base", value: "Pan India" },
+                { label: "Business Type", value: "Leading Exporter, Manufacturer & Service Provider of Mushroom Farming, Spawn Supply, Training & Turnkey Farm Setup in India, USA, Australia" },
+                { label: "Base", value: "Pan India & Global Operations" },
               ].map((item, i) => (
                 <div key={i} className="space-y-1">
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
@@ -380,12 +380,12 @@ const CompanyProfile = () => {
 
             <div className="p-6 rounded-3xl bg-white/5 border border-white/5 mb-8">
               <p className="text-slate-400 text-[14px] leading-relaxed font-medium">
-                Established as India's leading mushroom ecosystem architect, we bridge the gap between traditional farming and industrial precision. Our mission is to democratize <span className="text-white font-bold">organic farming</span> across India with high-yield <span className="text-white font-bold">spawn quality</span>, comprehensive <span className="text-white font-bold">training</span> modules, and unmatched <span className="text-white font-bold">India-wide support</span> systems.
+                Established as India's leading mushroom ecosystem architect, we bridge the gap between traditional farming and industrial precision. Our mission is to democratize <span className="text-white font-bold">organic farming</span> across India and global markets with high-yield <span className="text-white font-bold">spawn quality</span>, comprehensive <span className="text-white font-bold">training</span> modules, and unmatched <span className="text-white font-bold">India-wide & international support</span> systems.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {["Industrial Design", "Turnkey Builds", "Export Quality", "PAN-India Ops"].map(tag => (
+              {["Industrial Design", "Turnkey Builds", "Export Quality", "PAN-India Ops", "Global Setup Consultant"].map(tag => (
                 <span key={tag} className="px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold text-slate-500 bg-white/5">
                   {tag}
                 </span>
@@ -395,13 +395,13 @@ const CompanyProfile = () => {
 
           {/* Core Values / Benefits Highlights */}
           <div className="space-y-8">
-            <div className="badge">Our Expertise</div>
-            <h2 className="text-[18px] md:text-3xl tracking-tight leading-tight uppercase">Bridging Technology & <span className="gradient-text">Organic Cultivation</span></h2>
+            <div className="badge">Our Technical Expertise</div>
+            <h2 className="text-[18px] md:text-3xl tracking-tight leading-tight uppercase">Bridging Technology & <span className="gradient-text">Organic Cultivation Setup Worldwide</span></h2>
             <div className="grid gap-4">
               {[
-                { icon: Award, title: "Precision Engineering", desc: "Scientific grow room design optimized for specific climatic zones." },
-                { icon: Users, title: "Expert Training", desc: "Hands-on certification from industry pioneers." },
-                { icon: ShieldCheck, title: "Quality Guarantee", desc: "Standardized materials with long-term structural durability." }
+                { icon: Award, title: "Precision Engineering", desc: "Scientific mushroom grow room design optimized for specific climatic zones in India and globally." },
+                { icon: Users, title: "Expert Training", desc: "Hands-on certification and online training courses from industry pioneers." },
+                { icon: ShieldCheck, title: "Quality Guarantee", desc: "Standardized materials with long-term structural durability for button mushroom setups." }
               ].map((b, i) => (
                 <Link to="/expertise-details" key={i} className="flex gap-5 p-5 glass border border-white/5 rounded-2xl group hover:bg-white/5 transition-all text-left">
                   <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary-start group-hover:scale-110 transition-all shrink-0">
@@ -430,7 +430,7 @@ const COMP_DATA = [
   { feature: "Subsidy", us: "Full Document Support", others: "No Support" },
 ];
 
-const LOCATIONS = ["Jabalpur", "Sagar", "Damoh", "Indore"];
+const LOCATIONS = ["Jabalpur", "Sagar", "Damoh", "Indore", "Pune", "Mumbai", "Delhi", "Global"];
 const STATES = [
   "Haryana", "Punjab", "Himachal Pradesh", "Uttarakhand", "Uttar Pradesh", 
   "Madhya Pradesh", "Rajasthan", "Bihar", "Maharashtra", "Karnataka", 
@@ -561,7 +561,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 md:gap-3 group">
             <img 
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
-              alt="Organic Mushroom Farm Logo" 
+              alt="Organic Mushroom Farm Logo - Best Commercial Button & Oyster Mushroom Setup India Global" 
               className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform" 
             />
             <span className="text-lg md:text-xl font-bold tracking-tight text-white whitespace-nowrap">
@@ -803,7 +803,7 @@ const Navbar = () => {
               </div>
 
               <div className="w-full p-8 border-t border-white/5 bg-white/[0.02] text-center">
-                <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-500 animate-pulse">Organic Ecosystems</p>
+                <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-500 animate-pulse">Organic Ecosystems India & Global</p>
               </div>
             </motion.div>
           </div>
@@ -816,9 +816,9 @@ const Navbar = () => {
 const Hero = () => {
   const features = [
     "Complete Turnkey Project Setup",
-    "Training Programs",
+    "Mushroom Farming Training Programs",
     "Government Subsidy Documentation",
-    "Technical Support"
+    "Technical Support India & Worldwide"
   ];
 
   return (
@@ -832,13 +832,13 @@ const Hero = () => {
           className="text-center md:text-left"
         >
           <div className="text-[10px] md:text-sm font-bold text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
-            From empty shed to harvest-ready infrastructure – we handle everything.
+            From empty shed to harvest-ready commercial infrastructure – we handle everything.
           </div>
           <h1 className="text-[1.5rem] md:text-7xl font-bold text-white leading-tight mb-6 md:mb-8 tracking-tighter">
-            Industrial <span className="gradient-text">Mushroom Farming in India</span> & Expert Solutions
+            Industrial <span className="gradient-text">Button & Oyster Mushroom Farming in India</span> & Global Expert Solutions
           </h1>
           <p className="text-[0.8125rem] md:text-lg text-slate-400 mb-8 md:mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Complete methodology, precision calculators, detailed SOPs, and turnkey solutions for profitable button mushroom farming across India.
+            Complete commercial methodology, precision calculators, detailed SOPs, and turnkey solutions for highly profitable button, oyster, and milky mushroom farming across India, USA, Australia, and worldwide.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-8 mb-10 border-white/5 border-y py-6 md:py-8">
@@ -866,11 +866,11 @@ const Hero = () => {
           <div className="flex justify-center md:justify-start gap-12 pt-4">
             <div>
               <div className="text-2xl md:text-3xl font-bold text-white">1.2k+</div>
-              <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">Active Units</div>
+              <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">Active Commercial Units</div>
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold text-white">98%</div>
-              <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">Success Rate</div>
+              <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">Success Rate Globally</div>
             </div>
           </div>
         </motion.div>
@@ -891,7 +891,7 @@ const Hero = () => {
                   <ShieldCheck className="text-accent" />
                 </div>
                 <div>
-                  <div className="text-white font-bold">Turnkey Project</div>
+                  <div className="text-white font-bold">Turnkey Setup Project</div>
                   <div className="text-xs text-slate-500">Quality Certified Infrastructure</div>
                 </div>
               </div>
@@ -900,9 +900,9 @@ const Hero = () => {
             
             <div className="space-y-6">
               {[
-                { label: "Room Size", value: "18 x 70 ft Standard", icon: Layers },
-                { label: "Annual Yield", value: "35,000+ kg", icon: TrendingUp },
-                { label: "Cooling Sys", value: "Daikin Industrial", icon: Zap },
+                { label: "Commercial Room Size", value: "18 x 70 ft Standard", icon: Layers },
+                { label: "Annual High Yield", value: "35,000+ kg", icon: TrendingUp },
+                { label: "Cooling Sys (India)", value: "Daikin Industrial", icon: Zap },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center justify-between bg-white/5 p-4 rounded-2xl border border-white/5">
                   <div className="flex items-center gap-3">
@@ -916,7 +916,7 @@ const Hero = () => {
 
             <div className="mt-10 p-6 rounded-3xl bg-linear-to-br from-white/10 to-transparent border border-white/10">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-semibold text-slate-300">Phase 1 Cycle</span>
+                <span className="text-sm font-semibold text-slate-300">Phase 1 Commercial Cycle</span>
                 <span className="text-[10px] text-accent font-bold">LIVE PROGRESS</span>
               </div>
               <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
@@ -945,7 +945,7 @@ const Hero = () => {
               <CheckCircle2 className="text-green-500" size={16} />
             </div>
             <div className="pr-4">
-              <div className="text-[10px] text-slate-400 font-bold uppercase">ROI Verified</div>
+              <div className="text-[10px] text-slate-400 font-bold uppercase">Global ROI Verified</div>
               <div className="text-xs text-white font-bold">120% Yearly Avg</div>
             </div>
           </motion.div>
@@ -959,43 +959,43 @@ const WhyChooseUs = () => {
   const chooseItems = [
     {
       title: "Cost Efficiency (15–25% Savings)",
-      subtitle: "Factory-direct manufacturing eliminates middlemen, ensuring 15–25% lower costs compared to market rates.",
+      subtitle: "Factory-direct manufacturing eliminates middlemen, ensuring 15–25% lower costs compared to market rates for commercial mushroom setups.",
       points: ["In-house PUF panel production", "Own rack fabrication unit", "Direct pricing advantage", "Strict quality control"],
       icon: TrendingUp,
       color: "from-blue-500/20 to-purple-500/20"
     },
     {
       title: "Smart B2B Pricing",
-      subtitle: "Fair and transparent pricing for every farmer regardless of project size.",
+      subtitle: "Fair and transparent pricing for every mushroom farmer regardless of project size.",
       points: ["Wholesale pricing model", "Volume discounts", "Transparent breakdown", "No hidden costs"],
       icon: Briefcase,
       color: "from-purple-500/20 to-pink-500/20"
     },
     {
-      title: "Nationwide Execution",
-      subtitle: "Seamless delivery and execution across India with expert teams.",
-      points: ["Coverage across all states & UTs", "Consistent pricing nationwide", "Local installation teams", "End-to-end logistics"],
+      title: "Nationwide & Global Execution",
+      subtitle: "Seamless delivery and execution across India, USA, Australia and beyond with expert teams.",
+      points: ["Coverage across all states & UTs in India", "International project support", "Local installation teams", "End-to-end logistics"],
       icon: MapPin,
       color: "from-blue-600/20 to-cyan-500/20"
     },
     {
       title: "Price Match Guarantee",
-      subtitle: "Get the best value without compromise.",
+      subtitle: "Get the best value without compromise on your commercial mushroom plant.",
       points: ["Guaranteed lowest pricing", "Market comparison support", "Extra discount on matching quotes", "No quality compromise"],
       icon: ShieldCheck,
       color: "from-indigo-500/20 to-blue-500/20"
     },
     {
       title: "Certified Quality",
-      subtitle: "Built on globally recognized standards.",
+      subtitle: "Built on globally recognized standards for button and oyster mushroom farming.",
       points: ["Premium materials only", "Multi-level quality checks", "Standardized processes", "Long-term durability"],
       icon: Award,
       color: "from-amber-400/20 to-orange-500/20"
     },
     {
       title: "Reliable Partnership",
-      subtitle: "We don’t just build farms — we build success.",
-      points: ["Lifetime technical support", "Expert consultation", "Proven project success", "Farmer-first approach"],
+      subtitle: "We don’t just build farms — we build highly profitable mushroom businesses.",
+      points: ["Lifetime technical support", "Expert B2B consultation", "Proven project success", "Farmer-first approach"],
       icon: Users,
       color: "from-emerald-500/20 to-teal-500/20"
     }
@@ -1013,7 +1013,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="badge mx-auto mb-4"
           >
-            Infrastructure Leaders
+            Mushroom Infrastructure Leaders
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -1021,7 +1021,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="mb-4"
           >
-            Why Choose <span className="gradient-text">Organic Mushroom Farm?</span>
+            Why Choose <span className="gradient-text">Organic Mushroom Farm for Your Project?</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -1029,7 +1029,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto"
           >
-            India’s most trusted mushroom infrastructure partner delivering unmatched value, transparency, and performance.
+            India’s most trusted commercial mushroom farming infrastructure partner delivering unmatched value, transparency, and high-yield performance globally.
           </motion.p>
         </div>
 
@@ -1082,12 +1082,12 @@ const FarmingModels = () => {
 
   const getRecommendedSetup = () => {
     if (customArea >= 5000 || customBudget >= 5000000) {
-      return { title: 'Industrial Turnkey Unit', desc: 'Fully automated climate control with Phase-II bunker integration.' };
+      return { title: 'Industrial Turnkey Mushroom Unit', desc: 'Fully automated climate control with Phase-II bunker integration for high commercial yield.' };
     }
     if (customArea >= 1500 || customBudget >= 1500000) {
-      return { title: 'Automated Climate Control Room', desc: 'Ideal for year-round commercial production with PUF panels.' };
+      return { title: 'Automated Climate Control Room', desc: 'Ideal for year-round commercial button mushroom production with PUF panels.' };
     }
-    return { title: 'Small-Scale Tray System', desc: 'Cost-effective manual setup for seasonal farming.' };
+    return { title: 'Small-Scale Mushroom Tray System', desc: 'Cost-effective manual setup for seasonal farming and beginners.' };
   };
 
   const models = [
@@ -1101,7 +1101,7 @@ const FarmingModels = () => {
       recommended: false
     },
     {
-      name: "Standard Model",
+      name: "Standard Commercial Model",
       size: "18 x 70 ft",
       investment: "₹15-42 Lakh",
       yield: "3000-3500 kg/cycle",
@@ -1110,11 +1110,11 @@ const FarmingModels = () => {
       recommended: true
     },
     {
-      name: "Industrial Unit",
+      name: "Industrial Factory Unit",
       size: "Compost + 4 Rooms",
       investment: "₹1.5Cr - 2.5Cr",
       yield: "15,000+ kg/cycle",
-      features: ["Full Ecosystem", "Full Automation", "B2B Supply"],
+      features: ["Full Ecosystem", "Full Automation", "Global B2B Supply"],
       label: "Business Pro",
       recommended: false
     }
@@ -1126,8 +1126,8 @@ const FarmingModels = () => {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 md:mb-16 gap-6 text-center lg:text-left items-center lg:items-end">
           <div className="max-w-xl">
             <div className="badge mb-4 mx-auto lg:mx-0">Investment Paths</div>
-            <h2 className="mb-4">Farming <span className="gradient-text">Models</span> & ROI</h2>
-            <p className="text-slate-400">Scientifically designed grow rooms optimized for Indian climate conditions.</p>
+            <h2 className="mb-4">Commercial Farming <span className="gradient-text">Models</span>, Setup Cost & ROI</h2>
+            <p className="text-slate-400">Scientifically designed mushroom grow rooms optimized for Indian and diverse global climate conditions.</p>
           </div>
           <div className="glass p-1 rounded-xl flex gap-1 w-fit">
             <button 
@@ -1168,7 +1168,7 @@ const FarmingModels = () => {
                 
                 <div className="space-y-3 mb-8 flex-1">
                   <div className="p-3 rounded-xl bg-white/5 border border-white/5">
-                    <div className="text-[9px] text-slate-500 font-bold uppercase mb-1">Investment</div>
+                    <div className="text-[9px] text-slate-500 font-bold uppercase mb-1">Investment Setup Cost</div>
                     <div className="text-xl font-bold text-white">{m.investment}</div>
                   </div>
                   <div className="p-3 rounded-xl bg-white/5 border border-white/5">
@@ -1199,7 +1199,7 @@ const FarmingModels = () => {
           >
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Interactive Custom Builder</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">Interactive Custom Mushroom Setup Builder</h3>
                 <div className="space-y-8">
                   <div>
                     <label className="flex justify-between text-sm font-bold text-slate-300 mb-4">
@@ -1231,7 +1231,7 @@ const FarmingModels = () => {
               </div>
               <div className="p-8 rounded-[2rem] bg-white/5 border border-primary-start/20 text-center flex flex-col items-center justify-center">
                 <ShieldCheck size={48} className="text-primary-start mb-6" />
-                <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">Recommended Setup</div>
+                <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">Recommended Commercial Setup</div>
                 <h4 className="text-2xl font-bold text-white mb-4 leading-tight">{getRecommendedSetup().title}</h4>
                 <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm">{getRecommendedSetup().desc}</p>
                 <Link to="/model-details" className="btn-primary px-8 py-3 rounded-xl text-sm font-bold">
@@ -1273,8 +1273,8 @@ const ROICalculator = () => {
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="text-center lg:text-left">
               <div className="badge mb-4 mx-auto lg:mx-0">Profit Analytics</div>
-              <h2 className="mb-4">Personalized <span className="gradient-text">ROI Estimator</span></h2>
-              <p className="mb-8 max-w-lg mx-auto lg:mx-0">Estimate your profits based on real-time market averages.</p>
+              <h2 className="mb-4">Personalized Mushroom Business <span className="gradient-text">ROI Estimator</span></h2>
+              <p className="mb-8 max-w-lg mx-auto lg:mx-0">Estimate your mushroom farming profits based on real-time market averages.</p>
               
               <div className="space-y-8 text-left">
                 <div className="space-y-3">
@@ -1340,7 +1340,7 @@ const Timeline = () => {
   const steps = [
     { title: "Consultation", days: "Day 1-7", desc: "Site survey, feasibility study, and project proposal.", icon: Info },
     { title: "Setup & Build", days: "Day 15-60", desc: "Turnkey construction of grow rooms and compost tunnels.", icon: Zap },
-    { title: "Training", days: "Day 61-75", desc: "Hands-on training on substrate preparation.", icon: BookOpen },
+    { title: "Training", days: "Day 61-75", desc: "Hands-on training on mushroom substrate preparation.", icon: BookOpen },
     { title: "Production Begins", days: "Day 76+", desc: "Casing, pinning, and first commercial harvest.", icon: Sprout },
   ];
 
@@ -1348,9 +1348,9 @@ const Timeline = () => {
     <section className="section-padding">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-20">
-          <div className="badge mx-auto mb-4">Process Flow</div>
-          <h2 className="mb-4 uppercase">Your <span className="gradient-text">Journey</span> to First Harvest</h2>
-          <p className="max-w-xl mx-auto">A data-driven approach to building a successful mushroom farm.</p>
+          <div className="badge mx-auto mb-4">Commercial Process Flow</div>
+          <h2 className="mb-4 uppercase">Your <span className="gradient-text">Journey</span> to First Commercial Harvest</h2>
+          <p className="max-w-xl mx-auto">A data-driven approach to building a highly successful mushroom farm.</p>
         </div>
         
         <div className="relative">
@@ -1396,10 +1396,10 @@ const CTASection = () => {
           >
             <div className="badge mx-auto mb-6">Ready to Start?</div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
-              Start Your <span className="gradient-text">Mushroom Project</span> Today
+              Start Your Commercial <span className="gradient-text">Mushroom Project</span> Today in India & Worldwide
             </h2>
             <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
-              Join the organic revolution with India's most trusted infrastructure and training partner. 
+              Join the organic revolution with India's most trusted commercial mushroom infrastructure and training partner. 
               Get a custom feasibility report for your location.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1439,7 +1439,7 @@ const TrainingPage = () => {
       {/* Additional Page Specific Content */}
       <section className="section-padding bg-black/40">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">Ready to Start Your Journey?</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">Ready to Start Your Commercial Mushroom Farming Journey?</h3>
           <a 
             href="https://calendly.com/tanmaysomi/30min" 
             target="_blank"
@@ -1484,10 +1484,10 @@ const ContactPage = () => {
               Contact Us
             </div>
             <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
-              Start Your <span className="text-primary-start">Mushroom</span> Business
+              Start Your Commercial <span className="text-primary-start">Mushroom Farming</span> Business Worldwide
             </h1>
             <p className="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto font-medium px-2">
-              Ready to build a commercial factory or a small unit? Our specialists are here to guide you through every step.
+              Ready to build a commercial factory or a small unit? Our specialists are here to guide you through every step of button and oyster mushroom production.
             </p>
           </motion.div>
         </div>
@@ -1551,7 +1551,7 @@ const ContactPage = () => {
               <MapPin className="text-primary-start shrink-0" size={20} />
               <div>
                 <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Office Address</div>
-                <div className="text-sm font-bold text-white tracking-tight leading-snug">Katangi Road, Jabalpur, Madhya Pradesh – 483105</div>
+                <div className="text-sm font-bold text-white tracking-tight leading-snug">Katangi Road, Jabalpur, Madhya Pradesh – 483105, India</div>
               </div>
             </div>
           </div>
@@ -1564,8 +1564,8 @@ const ContactPage = () => {
               className="bg-white/[0.02] border border-white/10 p-6 md:p-10 rounded-3xl"
             >
               <div className="mb-8 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Enquiry Form</h3>
-                <p className="text-slate-400 text-sm font-medium">Please fill in your details for a callback.</p>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Mushroom Farming Setup Enquiry Form</h3>
+                <p className="text-slate-400 text-sm font-medium">Please fill in your details for a callback regarding commercial mushroom setups.</p>
               </div>
 
               <form action="https://formspree.io/f/mwvazwnl" method="POST" onSubmit={handleSubmit} className="space-y-5">
@@ -1591,9 +1591,9 @@ const ContactPage = () => {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="message" className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Your Message *</label>
+                  <label htmlFor="message" className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Your Requirements / Message *</label>
                   <textarea 
-                    id="message" name="message" required rows={4} placeholder="Briefly describe your requirements..." 
+                    id="message" name="message" required rows={4} placeholder="Briefly describe your mushroom farm requirements..." 
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start transition-all resize-none text-sm font-medium placeholder:text-slate-700 min-h-[100px]"
                   ></textarea>
                   <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
@@ -1642,7 +1642,7 @@ const ContactPage = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Enquiry Received</h3>
                 <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">
-                  Thank you! Your enquiry has been received. Our expert will call you within <span className="text-white font-bold underline decoration-primary-start underline-offset-4">24 hours</span>.
+                  Thank you! Your commercial setup enquiry has been received. Our expert will call you within <span className="text-white font-bold underline decoration-primary-start underline-offset-4">24 hours</span>.
                 </p>
                 <button 
                   onClick={handleClose}
@@ -1669,13 +1669,13 @@ const StatesSection = () => {
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
-        <div className="badge mx-auto mb-4">Service Area</div>
-        <h2 className="mb-4 uppercase tracking-tight">Active Project <span className="gradient-text">Hubs Across India</span></h2>
+        <div className="badge mx-auto mb-4">Global & National Service Area</div>
+        <h2 className="mb-4 uppercase tracking-tight">Active Commercial Project <span className="gradient-text">Hubs Across India, USA, Australia & Global Regions</span></h2>
         <p className="max-w-3xl mx-auto mb-10 font-medium leading-relaxed text-slate-400">
-          We provide mushroom farming training and services across all states of India, ensuring precision and high yield for every climate zone.
+          We provide commercial mushroom farming training and turnkey setup services across all states of India and key international markets, ensuring precision and high yield for every climate zone globally.
         </p>
         
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {allStates.map(state => (
             <a 
               key={state}
@@ -1689,10 +1689,15 @@ const StatesSection = () => {
           ))}
         </div>
         
-        <div className="mt-12 p-6 rounded-3xl bg-white/5 border border-white/5 max-w-4xl mx-auto">
-          <p className="text-sm text-slate-500 leading-relaxed">
-            Our expert teams provide <strong>mushroom training in India</strong> and <strong>mushroom farm setup India</strong> services in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, Rajasthan, Gujarat, Punjab, Haryana, Chhattisgarh, Jharkhand, and other major regions. We are committed to building the most successful <strong>button mushroom farming business</strong> network in the country.
+        <div className="mt-12 p-6 rounded-3xl bg-white/5 border border-white/5 max-w-4xl mx-auto text-left">
+          <p className="text-sm text-slate-500 leading-relaxed mb-6">
+            Our expert teams provide <strong>mushroom training in India</strong> and <strong>mushroom farm setup India</strong> services in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, Rajasthan, Gujarat, Punjab, Haryana, Chhattisgarh, Jharkhand, and other major regions. We are committed to building the most successful <strong>button mushroom farming business</strong> network globally.
           </p>
+          <div className="text-[10px] text-slate-600/50 leading-relaxed text-justify">
+            <strong>Serving Pan India Cities, Towns & Villages for Commercial Mushroom Setups:</strong> Mumbai, Delhi, Bangalore, Hyderabad, Ahmedabad, Chennai, Kolkata, Surat, Pune, Jaipur, Lucknow, Kanpur, Nagpur, Indore, Thane, Bhopal, Visakhapatnam, Pimpri-Chinchwad, Patna, Vadodara, Ghaziabad, Ludhiana, Agra, Nashik, Faridabad, Meerut, Rajkot, Kalyan-Dombivli, Vasai-Virar, Varanasi, Srinagar, Aurangabad, Dhanbad, Amritsar, Navi Mumbai, Allahabad, Howrah, Ranchi, Gwalior, Jabalpur, Coimbatore, Vijayawada, Jodhpur, Madurai, Raipur, Kota, Guwahati, Chandigarh, Solapur, Hubli-Dharwad, Bareilly, Moradabad, Mysore, Gurgaon, Aligarh, Jalandhar, Tiruchirappalli, Bhubaneswar, Salem, Mira-Bhayandar, Warangal, Thiruvananthapuram, Bhiwandi, Saharanpur, Guntur, Amravati, Bikaner, Noida, Jamshedpur, Bhilai, Cuttack, Firozabad, Kochi, Nellore, Bhavnagar, Dehradun, Durgapur, Asansol, Rourkela, Nanded, Kolhapur, Ajmer, Akola, Gulbarga, Jamnagar, Ujjain, Loni, Siliguri, Jhansi, Ulhasnagar, Jammu, Sangli-Miraj-Kupwad, Mangalore, Erode, Belgaum, Kurnool, Ambattur, Rajahmundry, Tirunelveli, Malegaon, Gaya, Udaipur, Kakinada, Davanagere, Kozhikode, Maheshtala, Rajpur Sonarpur, Bokaro, South Dumdum, Bellary, Patiala, Gopalpur, Agartala, Bhagalpur, Muzaffarnagar, Bhatpara, Panihati, Latur, Dhule, Rohtak, Korba, Bhilwara, Brahmapur, Muzaffarpur, Ahmednagar, Mathura, Kollam, Avadi, Kadapa, Rajahmundry, Bilaspur, Shahjahanpur, Satara, Bijapur, Rampur, Shivamogga, Chandrapur, Junagadh, Thrissur, Alwar, Bardhaman, Kulti, Nizamabad, Parbhani, Tumkur, Khammam, Uzhavarkarai, Bihar Sharif, Panipat, Darbhanga, Bally, Aizawl, Dewas, Ichalkaranji, Karnal, Bathinda, Jalna, Eluru, Barasat, Kirari Suleman Nagar, Purnia, Satna, Mau, Sonipat, Farrukhabad, Sagar, Rourkela, Durg, Imphal, Ratlam, Hapur, Arrah, Anantapur, Karimnagar, Etawah, Ambernath, North Dumdum, Bharatpur, Begusarai, New Delhi, Gandhidham, Baranagar, Tiruvottiyur, Pondicherry, Sikar, Thoothukudi, Rewa, Mirzapur, Raichur, Pali, Ramagundam, Silchar, Haridwar, Vijayanagaram, Tenali, Nagercoil, Sri Ganganagar, Karawal Nagar, Mango, Thanjavur, Bulandshahr, Uluberia, Katni, Sambhal, Singrauli, Nadiad, Secunderabad, Naihati, Yamunanagar, Bidhannagar, Pallavaram, Bidar, Munger, Panchkula, Burhanpur, Raurkela Industrial Township, Kharagpur, Dindigul, Gandhinagar, Hospet, Nangloi Jat, Malda, Ongole, Deoghar, Chapra, Haldia, Khandwa, Nandyal, Morena, Amroha, Anand, Bhind, Bhusawal, Orai, Bahraich, Vellore, Mehsana, Raiganj, Sirsa, Danapur, Serampore, Sultan Pur Majra, Guna, Jaunpur, Panvel, Shivpuri, Surendranagar Dudhrej, Unnao, Chinsurah, Alappuzha, Kottayam, Machilipatnam, Shimla, Adoni, Udupi, Katihar, Proddatur, Mahbubnagar, Saharsa, Dibrugarh, Jorhat, Hazaribagh, Hindupur, Nagaon, Sasaram, Hajipur, including all tier-2, tier-3 cities, localized rural towns and villages across Madhya Pradesh, Uttar Pradesh, Maharashtra, Bihar, Rajasthan, Gujarat, Punjab, Haryana, and South India.
+            <br/><br/>
+            <strong>Global Reach & International Mushroom Farming Consultancy:</strong> USA (United States of America), Australia, UK (United Kingdom), Canada, UAE (Dubai, Abu Dhabi), Saudi Arabia, South Africa, Kenya, Nigeria, Europe, Germany, France, Italy, Spain, Netherlands, New Zealand, Singapore, Malaysia, Philippines, Vietnam, Japan, South Korea, and emerging agricultural hubs worldwide. Supplying organic spawn, industrial setup consultancy, and B2B market linkage globally.
+          </div>
         </div>
       </div>
     </section>
@@ -1708,7 +1713,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-6">
               <img 
                 src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
-                alt="Organic Mushroom Farm Logo" 
+                alt="Organic Mushroom Farm Logo - Commercial Turnkey Mushroom Project Consultant in India and Worldwide" 
                 className="w-14 h-14 object-contain" 
               />
               <span className="text-lg font-bold tracking-tight text-white">
@@ -1716,7 +1721,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-slate-500 max-w-sm text-[13px] leading-relaxed mb-6 font-medium">
-              Empowering high-yield organic mushroom cultivation across India through standardized SOPs, expert training, and industrial-grade turnkey projects.
+              Empowering high-yield organic button & oyster mushroom cultivation across India and the globe through standardized SOPs, expert commercial training, and industrial-grade turnkey projects.
             </p>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[8px] font-black text-slate-600 uppercase tracking-[0.3em]">
               {LOCATIONS.map((loc, i) => (
@@ -1920,11 +1925,11 @@ const MushroomTraining = () => {
   ];
 
   const galleryImages = [
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png", alt: "Mushroom farming setup" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382178/Screenshot_2026-04-24_201138_wcjrml.png", alt: "Training session" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png", alt: "Students learning farming" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378181/Screenshot_2026-02-22_165318_cyla5n.png", alt: "Mushroom growth" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png", alt: "Indoor mushroom farm" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png", alt: "Mushroom farming setup and commercial turnkey project in Jabalpur Madhya Pradesh India" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382178/Screenshot_2026-04-24_201138_wcjrml.png", alt: "Commercial mushroom training session online and offline India" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png", alt: "Students learning organic button and oyster mushroom farming" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378181/Screenshot_2026-02-22_165318_cyla5n.png", alt: "High yield oyster and button mushroom growth facility" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png", alt: "Indoor climate controlled mushroom farm setup India USA" },
   ];
 
   return (
@@ -1940,10 +1945,10 @@ const MushroomTraining = () => {
           >
             <div className="badge mx-auto mb-6">Expert-Led Courses</div>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight uppercase">
-              Professional <span className="gradient-text">Mushroom Farming</span> Training
+              Professional <span className="gradient-text">Button, Oyster & Milky Mushroom Farming</span> Training
             </h2>
             <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto font-medium mb-10">
-              Learn Button Mushroom Farming from Experts – Start Your Own Business Today. Comprehensive modules designed for maximum ROI.
+              Learn Commercial Button & Oyster Mushroom Farming from Global Experts – Start Your Own Business Today. Comprehensive modules designed for maximum ROI.
             </p>
           </motion.div>
         </div>
@@ -1953,8 +1958,8 @@ const MushroomTraining = () => {
       <div id="options" className="section-padding bg-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">Choose Your <span className="gradient-text">Training Model</span></h3>
-            <p className="text-slate-400">Select the path that fits your goals and budget.</p>
+            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">Choose Your <span className="gradient-text">Commercial Training Model</span></h3>
+            <p className="text-slate-400">Select the path that fits your commercial mushroom goals and budget.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Online Training */}
@@ -2033,14 +2038,14 @@ const MushroomTraining = () => {
 
       <div className="section-padding bg-white/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="badge mx-auto mb-6">Farming Essentials</div>
-          <h3 className="text-2xl md:text-4xl font-bold text-white mb-6 uppercase tracking-tight">Need High-Yield <span className="gradient-text">Mushroom Seed?</span></h3>
-          <p className="text-slate-400 mb-10 max-w-2xl mx-auto">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders.</p>
+          <div className="badge mx-auto mb-6">Commercial Farming Essentials</div>
+          <h3 className="text-2xl md:text-4xl font-bold text-white mb-6 uppercase tracking-tight">Need High-Yield Commercial <span className="gradient-text">Mushroom Seed?</span></h3>
+          <p className="text-slate-400 mb-10 max-w-2xl mx-auto">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders in India and global export.</p>
           <Link 
             to="/spawn-seed"
             className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
           >
-            Explore Spawn & Seeds <Sprout size={20} />
+            Explore Organic Spawn & Seeds <Sprout size={20} />
           </Link>
         </div>
       </div>
@@ -2049,14 +2054,14 @@ const MushroomTraining = () => {
       <div className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-tight">Why Choose <span className="gradient-text">Our Training?</span></h3>
+            <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-tight">Why Choose <span className="gradient-text">Our Professional Training?</span></h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Expert Trainers", desc: "Learn from industry pioneers with years of commercial success.", icon: Award },
-              { title: "Practical Knowledge", desc: "No fluff, only standard operating procedures that work.", icon: BookOpen },
-              { title: "Business Guidance", desc: "Expert tips on marketing, scaling, and ROI management.", icon: TrendingUp },
-              { title: "Training Support", desc: "Lifetime technical guidance even after course completion.", icon: ShieldCheck },
+              { title: "Expert Trainers", desc: "Learn from industry pioneers with years of commercial success in India and abroad.", icon: Award },
+              { title: "Practical Knowledge", desc: "No fluff, only commercial standard operating procedures that work globally.", icon: BookOpen },
+              { title: "Business Guidance", desc: "Expert tips on global marketing, B2B scaling, and ROI management.", icon: TrendingUp },
+              { title: "Training Support", desc: "Lifetime technical guidance for button and oyster mushroom setup.", icon: ShieldCheck },
             ].map((item, i) => (
               <div key={i} className="glass p-8 rounded-3xl border border-white/5 text-center group hover:bg-white/5 transition-all">
                 <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6 text-primary-start group-hover:scale-110 transition-transform">
@@ -2074,7 +2079,7 @@ const MushroomTraining = () => {
       <div className="section-padding pt-0">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-xl md:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Experience our <span className="gradient-text">Ecosystem</span></h3>
+            <h3 className="text-xl md:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Experience our Commercial <span className="gradient-text">Ecosystem</span></h3>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
             {galleryImages.map((img, i) => (
@@ -2095,16 +2100,16 @@ const MushroomTraining = () => {
       {/* SEO Content Section */}
       <div className="section-padding bg-white/5">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-8 border-l-4 border-primary-start pl-6 uppercase tracking-tight">Start Your <span className="gradient-text">Mushroom Farming Journey</span> in India</h3>
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-8 border-l-4 border-primary-start pl-6 uppercase tracking-tight">Start Your Commercial <span className="gradient-text">Mushroom Farming Journey</span> in India & Globally</h3>
           <div className="text-slate-400 space-y-6 leading-relaxed text-sm md:text-base">
             <p>
-              Looking for the best <span className="text-white font-bold">mushroom farming training in India</span>? At Organic Mushroom Farm, we provide the most comprehensive <span className="text-white font-bold">button mushroom training course</span> designed specifically for the Indian climate and market. Our modules cover everything from raw substrate preparation to precision climate control.
+              Looking for the best <span className="text-white font-bold">mushroom farming training in India</span>? At Organic Mushroom Farm, we provide the most comprehensive <span className="text-white font-bold">button mushroom training course</span> designed specifically for the Indian climate and international global market standards. Our modules cover everything from raw substrate preparation to precision climate control.
             </p>
             <p>
-              Our <span className="text-white font-bold">online mushroom farming training</span> is perfect for those who want to learn at their own pace. We cover technical aspects of milky mushroom and oyster mushroom growing as well, ensuring you have a diverse portfolio.
+              Our <span className="text-white font-bold">online mushroom farming training</span> is perfect for those who want to learn at their own pace. We comprehensively cover technical aspects of high-yield milky mushroom and oyster mushroom growing in detailed multi-page formats as well, ensuring you have a diverse commercial portfolio.
             </p>
             <p>
-              If you're wondering <span className="text-white font-bold">how to start mushroom farming business</span>, our training is the first step. We provide the blueprint for building an indoor mushroom farm that yields high-quality produce consistently. From students learning farming basics to established entrepreneurs scaling their units, our curriculum caters to all.
+              If you're wondering <span className="text-white font-bold">how to start mushroom farming business</span> in USA, Australia, or India, our training is the ultimate first step. We provide the blueprint for building an indoor commercial mushroom plant that yields high-quality produce consistently. From students learning farming basics to established entrepreneurs scaling their units across Pan India, our curriculum caters to all.
             </p>
           </div>
         </div>
@@ -2114,7 +2119,7 @@ const MushroomTraining = () => {
       <div className="section-padding">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4 uppercase tracking-tight">Common <span className="gradient-text">Queries</span></h3>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4 uppercase tracking-tight">Common Commercial Farming <span className="gradient-text">Queries</span></h3>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, i) => (
@@ -2131,10 +2136,10 @@ const MushroomTraining = () => {
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = "Organic Mushroom Farm | Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom - Pan India";
+    document.title = "Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom - Pan India & Global";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Buy mushroom spawn, join mushroom farming training online/offline, get fresh & dry mushrooms delivered Pan India. Complete mushroom setup available. Based in Jabalpur, MP.");
+      metaDescription.setAttribute("content", "Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP.");
     }
     const hash = window.location.hash;
     if (hash) {
@@ -2160,21 +2165,21 @@ const HomePage = () => {
       <section id="compost-units" className="section-padding relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="badge mx-auto mb-4">Infrastructure</div>
-            <h2 className="mb-4 uppercase">Standard <span className="gradient-text">Compost Units</span></h2>
-            <p className="max-w-2xl mx-auto">Complete Phase-I + Phase-II infrastructure with 15-day cycles.</p>
+            <div className="badge mx-auto mb-4">Commercial Infrastructure</div>
+            <h2 className="mb-4 uppercase">Standard Commercial <span className="gradient-text">Compost Units</span></h2>
+            <p className="max-w-2xl mx-auto">Complete Phase-I + Phase-II commercial infrastructure with 15-day cycles.</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 md:gap-10">
             {[
               { 
-                name: "2000-Bag Unit (20T)", 
+                name: "2000-Bag Commercial Unit (20T)", 
                 desc: "14x30 System", 
                 investment: "₹15-17 Lakh",
                 stats: { bags: "2,000", cap: "20t", cycle: "15d" }
               },
               { 
-                name: "3000-Bag Unit (30T)", 
+                name: "3000-Bag Industrial Unit (30T)", 
                 desc: "14x40 System", 
                 investment: "₹19-21 Lakh",
                 stats: { bags: "3,000", cap: "30t", cycle: "15d" },
@@ -2222,9 +2227,9 @@ const HomePage = () => {
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="badge mx-auto mb-4">Testimonials</div>
-            <h2 className="mb-4 uppercase">Real <span className="gradient-text">Voices</span></h2>
-            <p>Join 5000+ farmers trained by our expert team.</p>
+            <div className="badge mx-auto mb-4">Farmer Testimonials</div>
+            <h2 className="mb-4 uppercase">Real Commercial <span className="gradient-text">Voices</span></h2>
+            <p>Join 5000+ commercial farmers trained by our expert team.</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-5">
@@ -2260,14 +2265,14 @@ const HomePage = () => {
       {/* Marketplace Section Placeholder */}
       <section id="market" className="section-padding relative overflow-hidden">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="badge mx-auto mb-4">Market Linkage</div>
-          <h2 className="mb-4 uppercase tracking-tight"><span className="gradient-text">Mushroom</span></h2>
-          <p className="max-w-xl mx-auto mb-12 font-medium">Connect directly with verified buyers and sellers.</p>
+          <div className="badge mx-auto mb-4">Global Market Linkage</div>
+          <h2 className="mb-4 uppercase tracking-tight">Global <span className="gradient-text">Mushroom B2B Marketplace</span></h2>
+          <p className="max-w-xl mx-auto mb-12 font-medium">Connect directly with verified commercial buyers and sellers worldwide.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left p-2">
             {[
-              { type: "Seller", title: "Mushroom Spawn (Seed)", desc: "Lab-grade F1 hybrid spawn.", price: "Bulk Order", linkType: "page", to: "/spawn-seed" },
-              { type: "Seller", title: "Fresh Mushrooms", desc: "A-grade button mushrooms.", price: "Live Market Rate", linkType: "external", to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms" },
-              { type: "Seller", title: "Dry Mushrooms", desc: "Long shelf life, premium quality.", price: "Wholesale Only", linkType: "external", to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms" },
+              { type: "Seller", title: "Mushroom Spawn (Seed)", desc: "Lab-grade organic F1 hybrid spawn.", price: "Bulk Order", linkType: "page", to: "/spawn-seed" },
+              { type: "Seller", title: "Fresh Organic Mushrooms", desc: "A-grade commercial button mushrooms.", price: "Live Market Rate", linkType: "external", to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms" },
+              { type: "Seller", title: "Dry Mushrooms Export", desc: "Long shelf life, premium export quality.", price: "Wholesale Only", linkType: "external", to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms" },
             ].map((ad, i) => {
               const CardWrapper = ad.linkType === 'page' ? Link : 'a';
               return (
@@ -2302,9 +2307,9 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             <div>
-              <div className="badge mb-6 mx-auto lg:mx-0">Documentation</div>
-              <h2 className="mb-6 uppercase text-center lg:text-left">Production <span className="gradient-text">SOPs</span></h2>
-              <p className="mb-10 text-center lg:text-left">Standard operating procedures used by specialists nationwide.</p>
+              <div className="badge mb-6 mx-auto lg:mx-0">Documentation & Resources</div>
+              <h2 className="mb-6 uppercase text-center lg:text-left">Commercial Production <span className="gradient-text">SOPs & Guides</span></h2>
+              <p className="mb-10 text-center lg:text-left">Standard operating procedures used by commercial mushroom specialists nationwide and internationally.</p>
               
               <div className="md:hidden">
                 {[
@@ -2324,10 +2329,10 @@ const HomePage = () => {
 
               <div className="hidden md:block space-y-4">
                 {[
-                  { name: "Phase-II Pasteurization Tunnel Ops", id: "tunnel-ops" },
+                  { name: "Phase-II Commercial Pasteurization Tunnel Ops", id: "tunnel-ops" },
                   { name: "Spawning & Incubation Checklist", id: "spawning" },
                   { name: "Casing Material Preparation Guide", id: "casing" },
-                  { name: "Disease Control & Hygiene Protocols", id: "hygiene" }
+                  { name: "Disease Control & Commercial Farm Hygiene Protocols", id: "hygiene" }
                 ].map(sop => (
                   <Link to={`/sops#${sop.id}`} key={sop.name} className="flex items-center gap-4 p-5 glass rounded-2xl border border-white/5 group hover:bg-white/5 transition-all cursor-pointer">
                     <div className="w-10 h-10 rounded-xl bg-primary-start/10 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -2345,7 +2350,7 @@ const HomePage = () => {
               <div className="relative glass p-6 md:p-10 rounded-[2.5rem] border border-white/10">
                 <div className="flex items-center gap-4 mb-8 justify-center lg:justify-start">
                   <BookOpen className="text-primary-start" size={24} />
-                  <h3 className="text-white tracking-tight">Knowledge Hub</h3>
+                  <h3 className="text-white tracking-tight">Commercial Knowledge Hub</h3>
                 </div>
                 <div className="space-y-6">
                   <div className="p-4 md:p-6 rounded-3xl bg-white/5 border border-white/10">
@@ -2359,14 +2364,14 @@ const HomePage = () => {
                       rel="noopener noreferrer"
                       className="relative aspect-video rounded-2xl overflow-hidden mb-4 group cursor-pointer inline-block w-full"
                     >
-                      <img loading="lazy" src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg" alt="Training" className="w-full h-full object-cover opacity-60" />
+                      <img loading="lazy" src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg" alt="Mushroom Farming Training Video - Commercial Cultivation SOPs India" className="w-full h-full object-cover opacity-60" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center pl-1 shadow-2xl">
                           <Play size={20} fill="currentColor" />
                         </div>
                       </div>
                     </a>
-                    <h4 className="text-white font-bold text-[13px] tracking-tight">Composting Flow Explained</h4>
+                    <h4 className="text-white font-bold text-[13px] tracking-tight">Commercial Composting Flow Explained</h4>
                   </div>
                 </div>
               </div>
@@ -2409,35 +2414,35 @@ const PageHero = ({ title, description, badge }: { title: string; description: s
 
 const AboutPage = () => {
   useEffect(() => {
-    document.title = "About Organic Mushroom Farm | Leading Infrastructure & Training Partner";
+    document.title = "About Organic Mushroom Farm | Leading Commercial Infrastructure & Training Partner";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide.");
+      metaDescription.setAttribute("content", "Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally.");
     }
     window.scrollTo(0, 0);
   }, []);
 
   const whatWeDo = [
     {
-      title: "Mushroom Production",
+      title: "Commercial Mushroom Production",
       desc: "We produce premium quality button and oyster mushrooms using scientific organic methods in our state-of-the-art facility.",
       icon: Sprout
     },
     {
-      title: "Online Training",
-      desc: "Comprehensive digital modules for beginners. Start your journey for just ₹399 with lifetime access.",
+      title: "Online Mushroom Training",
+      desc: "Comprehensive digital modules for beginners. Start your commercial journey for just ₹399 with lifetime access.",
       icon: Play,
       price: "₹399"
     },
     {
-      title: "Offline Training",
-      desc: "Hands-on practical sessions in our Jabalpur farm. Intensive workshop at ₹3000 per person.",
+      title: "Offline Practical Training",
+      desc: "Hands-on practical sessions in our Jabalpur farm. Intensive commercial workshop at ₹3000 per person.",
       icon: Users,
       price: "₹3000"
     },
     {
-      title: "Farm Setup",
-      desc: "Complete turnkey solutions from shed insulation to climate control and marketing support.",
+      title: "Commercial Farm Setup",
+      desc: "Complete turnkey solutions from shed insulation to climate control and global marketing support.",
       icon: Home
     }
   ];
@@ -2445,9 +2450,9 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       <PageHero 
-        badge="Our Journey"
-        title="About Organic Mushroom Farm" 
-        description="Empowering modern India through sustainable, high-yield organic mushroom cultivation."
+        badge="Our Commercial Journey"
+        title="About Organic Mushroom Farm | Global Setup Experts" 
+        description="Empowering modern India and global markets through sustainable, high-yield organic mushroom cultivation."
       />
 
       {/* Who We Are Section */}
@@ -2460,20 +2465,20 @@ const AboutPage = () => {
               viewport={{ once: true }}
             >
               <div className="badge mb-4">Who We Are</div>
-              <h2 className="mb-6 uppercase tracking-tight">Our Mission & <span className="gradient-text">Vision</span></h2>
+              <h2 className="mb-6 uppercase tracking-tight">Our Mission & <span className="gradient-text">Global Vision for Organic Agriculture</span></h2>
               <div className="space-y-6">
                 <div className="glass p-6 border border-white/5 rounded-2xl relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><Briefcase size={60} /></div>
                   <h3 className="text-white text-lg font-bold mb-2">Our Mission</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    Our startup is dedicated to <strong>helping people start mushroom farming businesses</strong> with minimal risk and maximum precision. We bridge the gap between theoretical knowledge and commercial success.
+                    Our startup is dedicated to <strong>helping people start commercial mushroom farming businesses</strong> with minimal risk and maximum precision. We bridge the gap between theoretical knowledge and commercial success in button and oyster mushroom production.
                   </p>
                 </div>
                 <div className="glass p-6 border border-white/5 rounded-2xl relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><ShieldCheck size={60} /></div>
                   <h3 className="text-white text-lg font-bold mb-2">Our Vision</h3>
                   <p className="text-slate-400 text-sm leading-relaxed">
-                    We aim to lead the revolution in <strong>promoting organic agriculture and self-employment</strong> across Madhya Pradesh and India. Our vision is to make every farmer an agri-entrepreneur through sustainable practices.
+                    We aim to lead the revolution in <strong>promoting organic agriculture and self-employment</strong> across Madhya Pradesh, India, and internationally. Our vision is to make every farmer a successful global agri-entrepreneur through sustainable practices.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                     <a 
@@ -2492,7 +2497,7 @@ const AboutPage = () => {
               <div className="absolute inset-0 gradient-bg opacity-10 blur-[100px] rounded-full"></div>
               <img 
                 src="training images/trainingmushroom.jpg" 
-                alt="Who We Are" 
+                alt="Who We Are - Leading Organic Mushroom Farm Training and Commercial Turnkey Setup Experts in India, USA, Australia" 
                 className="relative z-10 rounded-[2.5rem] border border-white/10 shadow-2xl opacity-80"
               />
             </div>
@@ -2505,8 +2510,8 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <div className="badge mx-auto mb-4">What We Do</div>
-            <h2 className="uppercase tracking-tight">Core <span className="gradient-text">Operations</span></h2>
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto">Providing end-to-end support for <strong>button mushroom farming in India</strong>.</p>
+            <h2 className="uppercase tracking-tight">Core <span className="gradient-text">Mushroom Farming Operations & Consultancy</span></h2>
+            <p className="text-slate-400 mt-4 max-w-2xl mx-auto">Providing end-to-end support for commercial <strong>button mushroom farming in India and globally</strong>.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whatWeDo.map((item, i) => (
@@ -2544,19 +2549,19 @@ const AboutPage = () => {
              <div className="order-2 lg:order-1">
               <img 
                 src="training images/mushroomgrowth.jpg" 
-                alt="Why Choose Us" 
+                alt="Why Choose Us - High Yield Button Mushroom Growth and Organic Cultivation Training in Jabalpur India" 
                 className="rounded-[2.5rem] border border-white/10 shadow-2xl"
               />
             </div>
             <div className="order-1 lg:order-2">
-              <div className="badge mb-4">The Advantage</div>
-              <h2 className="mb-8 uppercase tracking-tight">Why Choose <span className="gradient-text">Us?</span></h2>
+              <div className="badge mb-4">The Commercial Advantage</div>
+              <h2 className="mb-8 uppercase tracking-tight">Why Choose <span className="gradient-text">Us for Turnkey Projects Pan India & Abroad?</span></h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {[
-                  { title: "Expert Guidance", desc: "Scientific methods and professional mentorship for high yield.", icon: Award },
-                  { title: "Beginner Friendly", desc: "No background required. We train you from scratch.", icon: BookOpen },
-                  { title: "Affordable Pricing", desc: "Best-in-class training and setup at competitive rates.", icon: Zap },
-                  { title: "Lifetime Support", desc: "Continuous technical guidance even after setup.", icon: ShieldCheck },
+                  { title: "Expert Guidance", desc: "Scientific methods and professional mentorship for high commercial yield.", icon: Award },
+                  { title: "Beginner Friendly", desc: "No background required. We train you from scratch for commercial success.", icon: BookOpen },
+                  { title: "Affordable Pricing", desc: "Best-in-class commercial training and setup at competitive rates globally.", icon: Zap },
+                  { title: "Lifetime Support", desc: "Continuous technical guidance even after commercial farm setup.", icon: ShieldCheck },
                 ].map((item, i) => (
                   <div key={i} className="space-y-2">
                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary-start mb-4">
@@ -2576,10 +2581,10 @@ const AboutPage = () => {
       <section className="section-padding bg-black/40">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert text-center">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-8 uppercase tracking-tight leading-loose">
-            Pioneering <span className="gradient-text">Organic Mushroom Farm Katangi</span> & Jabalpur
+            Pioneering Commercial <span className="gradient-text">Organic Mushroom Farm Katangi</span> & Jabalpur
           </h3>
           <p className="text-slate-400 text-sm md:text-base leading-relaxed">
-            Our <strong>organic mushroom farm in Katangi</strong> road, Jabalpur, serves as a model for aspiring farmers across the region. We are proud to provide the most reliable <strong>mushroom training in Madhya Pradesh</strong>, focusing on the specific environmental needs of Central India. From climate-controlled grow rooms to industrial compost preparation, our <strong>mushroom farming in Jabalpur</strong> solutions ensure that you enter the market with a competitive edge. Join us to build a sustainable future with professional <strong>button mushroom farming in India</strong>.
+            Our commercial <strong>organic mushroom farm in Katangi</strong> road, Jabalpur, serves as a model for aspiring farmers across the region and globe. We are proud to provide the most reliable <strong>mushroom training in Madhya Pradesh</strong>, focusing on the specific environmental needs of Central India and international exports. From climate-controlled grow rooms to industrial compost preparation, our <strong>mushroom farming in Jabalpur</strong> solutions ensure that you enter the global market with a competitive edge. Join us to build a sustainable commercial future with professional <strong>button mushroom farming in India</strong>.
           </p>
         </div>
       </section>
@@ -2591,29 +2596,29 @@ const AboutPage = () => {
 
 const ServicesPage = () => {
   useEffect(() => {
-    document.title = "Mushroom Farming Services & Solutions | Pan India Experts";
+    document.title = "Commercial Mushroom Farming Services & Turnkey Solutions | Pan India Experts";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Explore our end-to-end mushroom farming services: hybrid spawn supply, industrial compost production, and technical consultancy in India.");
+      metaDescription.setAttribute("content", "Explore our end-to-end commercial mushroom farming services: organic hybrid spawn supply, industrial compost production, and technical turnkey consultancy in India & Worldwide.");
     }
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen">
       <PageHero 
-        badge="Expert Solutions"
-        title="Our Comprehensive Services" 
-        description="Tailored infrastructure and support systems for the modern mushroom farmer."
+        badge="Expert Setup Solutions"
+        title="Our Comprehensive Commercial Services" 
+        description="Tailored commercial infrastructure and support systems for the modern mushroom farmer globally."
       />
       <EcosystemFlow />
       <section className="section-padding pt-0">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { id: 'spawn-supply', title: "Hybrid Spawn Supply", desc: "Top-tier genetics for maximum yield and disease resistance.", icon: Sprout },
-              { id: 'compost-production', title: "Compost Production", desc: "Standardized Phase II & Phase III compost for commercial success.", icon: Layers },
-              { id: 'consultancy', title: "Technical Consultancy", desc: "Expert guidance from climate control to disease management.", icon: Info },
-              { id: 'marketing-support', title: "Marketing Support", desc: "Connecting farmers with B2B buyers and export channels.", icon: TrendingUp },
+              { id: 'spawn-supply', title: "Organic Hybrid Spawn Supply", desc: "Top-tier genetics for maximum yield and disease resistance.", icon: Sprout },
+              { id: 'compost-production', title: "Industrial Compost Production", desc: "Standardized Phase II & Phase III compost for commercial success.", icon: Layers },
+              { id: 'consultancy', title: "Technical Setup Consultancy", desc: "Expert guidance from climate control to disease management.", icon: Info },
+              { id: 'marketing-support', title: "Global Marketing Support", desc: "Connecting farmers with B2B buyers and export channels.", icon: TrendingUp },
               { id: 'cold-chain', title: "Cold Chain Logistics", desc: "Ensuring freshness from farm to market with specialized storage.", icon: Zap },
               { id: 'subsidy', title: "Subsidy Guidance", desc: "Legal and documentation support for government schemes.", icon: ShieldCheck },
             ].map((s, i) => (
@@ -2645,33 +2650,33 @@ const ServicesPage = () => {
 
 const TurnkeyProjectsPage = () => {
   useEffect(() => {
-    document.title = "Turnkey Mushroom Farm Setup India | Complete Setup Service";
+    document.title = "Commercial Turnkey Mushroom Farm Setup India | Complete Setup Service";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Build your industrial mushroom unit with our turnkey solutions. Expert project setups for button mushroom farming in Jabalpur and across India.");
+      metaDescription.setAttribute("content", "Build your industrial mushroom unit with our commercial turnkey solutions. Expert project setups for button mushroom farming in Jabalpur, across India, USA, and Australia.");
     }
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen">
       <PageHero 
-        badge="Turnkey Solutions"
+        badge="Commercial Turnkey Solutions"
         title="Commercial Farm Infrastructure" 
-        description="Ready-to-harvest mushroom units designed for high-yield precision."
+        description="Ready-to-harvest mushroom units designed for high-yield precision and global export."
       />
       <CriticalParameters />
       <WhyChooseUs />
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="mb-4 uppercase tracking-tight">Our <span className="gradient-text">Farming Models</span></h2>
-            <p className="text-slate-400">Scale your production with our proven structural designs.</p>
+            <h2 className="mb-4 uppercase tracking-tight">Our Commercial <span className="gradient-text">Farming Models</span></h2>
+            <p className="text-slate-400">Scale your production with our proven commercial structural designs.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Standard Unit", cap: "10-15 tons/yr", investment: "₹15-20 Lakhs", icon: Home },
+              { title: "Standard Commercial Unit", cap: "10-15 tons/yr", investment: "₹15-20 Lakhs", icon: Home },
               { title: "Industrial Unit", cap: "50+ tons/yr", investment: "₹60-80 Lakhs", icon: Layers },
-              { title: "Export Factory", cap: "200+ tons/yr", investment: "₹2 Cr+", icon: ShieldCheck },
+              { title: "Global Export Factory", cap: "200+ tons/yr", investment: "₹2 Cr+", icon: ShieldCheck },
             ].map((model, i) => (
               <motion.div 
                 key={i}
@@ -2682,7 +2687,7 @@ const TurnkeyProjectsPage = () => {
                   <model.icon size={28} />
                 </div>
                 <h3 className="text-white font-bold text-xl mb-2">{model.title}</h3>
-                <div className="text-primary-start font-black text-xs uppercase tracking-widest mb-6">Capacity: {model.cap}</div>
+                <div className="text-primary-start font-black text-xs uppercase tracking-widest mb-6">Commercial Capacity: {model.cap}</div>
                 <div className="p-4 rounded-2xl bg-white/5 border border-white/5 mb-8">
                   <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Est. Investment</div>
                   <div className="text-lg font-bold text-white">{model.investment}</div>
@@ -2707,31 +2712,31 @@ const TurnkeyProjectsPage = () => {
 
 const GalleryPage = () => {
   useEffect(() => {
-    document.title = "Organic Mushroom Farm Gallery | Project Photos & Setup";
+    document.title = "Commercial Organic Mushroom Farm Gallery | Project Photos & Setup";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "View photos of our button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful farming project setups across India.");
+      metaDescription.setAttribute("content", "View photos of our commercial button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful turnkey farming project setups across India.");
     }
     window.scrollTo(0, 0);
   }, []);
   const images = [
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png", category: "Infrastructure" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg", category: "All Types Mushroom" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png", category: "Mushroom Harvesting" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png", category: "Enoki" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378183/Screenshot_2026-01-17_141353_v8rgpt.png", category: "Spawn" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png", category: "Training" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png", category: "Harvest" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378144/img_9856_er5mbe.png", category: "Infrastructure" },
-    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378148/img_6985_inr8qh.png", category: "Compost" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png", category: "Commercial Infrastructure", alt: "Commercial Infrastructure Setup Mushroom Farm" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg", category: "All Types Mushroom", alt: "All Types High Yield Mushroom Farm" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png", category: "Mushroom Harvesting", alt: "Mushroom Harvesting Process Commercial" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png", category: "Enoki Setup", alt: "Indoor Mushroom Farming Enoki Setup" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378183/Screenshot_2026-01-17_141353_v8rgpt.png", category: "Organic Spawn", alt: "Organic Quality Spawn Seed Supply" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png", category: "Commercial Training", alt: "Mushroom Farming Training Students Offline" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png", category: "Harvest Process", alt: "Mushroom Harvest India" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378144/img_9856_er5mbe.png", category: "Turnkey Infrastructure", alt: "Turnkey Project Mushroom Facility India" },
+    { src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378148/img_6985_inr8qh.png", category: "Industrial Compost", alt: "Industrial Mushroom Compost Production" },
   ];
 
   return (
     <div className="min-h-screen">
       <PageHero 
-        badge="Ecosystem Tour"
+        badge="Commercial Ecosystem Tour"
         title="Visualizing Success" 
-        description="A glimpse into our farms, training sessions, and high-quality produce."
+        description="A glimpse into our commercial farms, expert training sessions, and high-quality organic produce."
       />
       <section className="section-padding pt-0">
         <div className="max-w-7xl mx-auto px-4">
@@ -2744,7 +2749,7 @@ const GalleryPage = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group relative aspect-[4/3] rounded-3xl overflow-hidden glass border border-white/10"
               >
-                <img loading="lazy" src={img.src} alt={img.category} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
+                <img loading="lazy" src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-6 left-6">
                     <span className="badge text-[10px]">{img.category}</span>
@@ -2762,70 +2767,70 @@ const GalleryPage = () => {
 
 const FAQPage = () => {
   useEffect(() => {
-    document.title = "Mushroom Farming FAQ | Training & Farm Setup Help";
+    document.title = "Commercial Mushroom Farming FAQ | Training & Farm Setup Help";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Find answers to frequently asked questions about mushroom farming in India. Learn about setup costs, training in MP, UP, Bihar, Maharashtra, and how to start a profitable business.");
+      metaDescription.setAttribute("content", "Find answers to frequently asked questions about commercial mushroom farming in India. Learn about setup costs, training in MP, UP, Bihar, Maharashtra, and how to start a profitable business.");
     }
     window.scrollTo(0, 0);
   }, []);
   const faqs = [
     { 
-      q: "What is mushroom farming and how to start?", 
-      a: "Mushroom farming is the white revolution in Indian agriculture. To start, you need a controlled indoor space, quality spawn, and standardized substrate. We provide a complete button mushroom farming course to help you start from scratch." 
+      q: "What is commercial mushroom farming and how to start?", 
+      a: "Mushroom farming is the white revolution in Indian agriculture. To start commercially, you need a controlled indoor space, quality spawn, and standardized substrate. We provide a complete commercial button mushroom farming course to help you start from scratch." 
     },
     { 
-      q: "How to start mushroom farming in India?", 
-      a: "Starting mushroom farming in India requires understanding regional climates. You can start with our online mushroom farming training which covers site selection, climate control, and step-by-step SOPs for Pan India success." 
+      q: "How to start commercial mushroom farming in India?", 
+      a: "Starting mushroom farming in India requires understanding regional climates. You can start with our online mushroom farming training which covers site selection, climate control, and step-by-step SOPs for Pan India and global success." 
     },
     { 
-      q: "What is the cost of mushroom farming setup?", 
-      a: "A small-scale organic mushroom farm India setup for beginners starts around ₹2-5 Lakhs. For commercial units (20T-30T), investment ranges from ₹15-25 Lakhs. We assist with cost-effective turnkey solutions." 
+      q: "What is the cost of commercial mushroom farming setup?", 
+      a: "A small-scale organic mushroom farm India setup for beginners starts around ₹2-5 Lakhs. For commercial units (20T-30T), investment ranges from ₹15-25 Lakhs. We assist with cost-effective commercial turnkey solutions." 
     },
     { 
       q: "Do you provide mushroom training in all states of India?", 
       a: "Yes, we provide mushroom training in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, Rajasthan, Gujarat, Punjab, Haryana, Chhattisgarh, Jharkhand, and all other states across India via our digital platforms and site visits." 
     },
     { 
-      q: "Is online mushroom training available in India?", 
-      a: "Yes, we offer the most affordable online mushroom training in India for just ₹399. It includes lifetime access to video modules, marketing tips, and technical support." 
+      q: "Is online commercial mushroom training available in India?", 
+      a: "Yes, we offer the most affordable online mushroom training in India for just ₹399. It includes lifetime access to commercial video modules, marketing tips, and technical support." 
     },
     { 
-      q: "What is the profit in mushroom farming business?", 
-      a: "The mushroom farming business India is highly profitable. With proper management, you can expect an ROI of 70% to 120% per year. Fresh button mushrooms often sell for ₹120-180/kg in wholesale markets." 
+      q: "What is the profit in a commercial mushroom farming business?", 
+      a: "The commercial mushroom farming business India is highly profitable. With proper management, you can expect an ROI of 70% to 120% per year. Fresh button mushrooms often sell for ₹120-180/kg in wholesale markets." 
     },
     { 
-      q: "How much space is required for mushroom farming?", 
+      q: "How much space is required for commercial mushroom farming?", 
       a: "For a commercial 18x70 ft room, you need about 1260 sq. ft. of space. However, small home units can start in as little as 100-200 sq. ft." 
     },
     { 
-      q: "Do you provide farm setup across India?", 
-      a: "Yes, we are a leading turnkey project consultant providing farm setup services in MP, Maharashtra, UP, Bihar, and across Pan India." 
+      q: "Do you provide turnkey farm setup across India & Globally?", 
+      a: "Yes, we are a leading commercial turnkey project consultant providing farm setup services in MP, Maharashtra, UP, Bihar, across Pan India, and for international clients in USA and Australia." 
     },
     { 
-      q: "Which mushroom is best for beginners?", 
-      a: "Oyster mushrooms are easiest for beginners due to lower tech requirements. However, Button mushrooms have a much larger market share in India, which we cover in our professional training." 
+      q: "Which mushroom is best for commercial beginners?", 
+      a: "Oyster mushrooms are easiest for beginners due to lower tech requirements. However, Button mushrooms have a much larger market share in India, which we cover in our professional commercial training." 
     },
     { 
-      q: "Is mushroom farming profitable in India?", 
-      a: "Absolutely. With the rising demand for organic protein sources, mushroom farming in India is one of the fastest-growing agri-business sectors." 
+      q: "Is commercial mushroom farming profitable in India?", 
+      a: "Absolutely. With the rising global demand for organic protein sources, commercial mushroom farming in India is one of the fastest-growing agri-business sectors." 
     },
     { 
       q: "What government subsidies are available?", 
       a: "Various state governments and the National Horticulture Board (NHB) provide 40-50% subsidies for industrial mushroom units. We provide full documentation support for your subsidy application." 
     },
     { 
-      q: "Where can I sell my harvested mushrooms?", 
-      a: "We provide market linkage support. You can sell to local Mandis, hotels, supermarkets, or through our network of verified B2B buyers across India." 
+      q: "Where can I sell my commercial harvested mushrooms?", 
+      a: "We provide global and domestic market linkage support. You can sell to local Mandis, hotels, supermarkets, or through our network of verified commercial B2B buyers across India and abroad." 
     }
   ];
 
   return (
     <div className="min-h-screen">
       <PageHero 
-        badge="Direct Answers"
+        badge="Direct Commercial Answers"
         title="Frequently Asked Questions" 
-        description="Providing expert guidance on mushroom farming training and business setups across Pan India."
+        description="Providing expert commercial guidance on mushroom farming training and business setups across Pan India & Globally."
       />
       <section className="section-padding pt-0 pb-20">
         <div className="max-w-3xl mx-auto px-4">
@@ -2838,8 +2843,8 @@ const FAQPage = () => {
           </div>
           
           <div className="mt-16 glass p-8 rounded-3xl border border-white/10 text-center">
-            <h3 className="text-white font-bold mb-4">Still have questions?</h3>
-            <p className="text-slate-400 text-sm mb-6">Our experts are available for a free consultation.</p>
+            <h3 className="text-white font-bold mb-4">Still have commercial setup questions?</h3>
+            <p className="text-slate-400 text-sm mb-6">Our global experts are available for a free consultation.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/contact" className="btn-primary px-8 py-3 rounded-xl font-bold">Contact Us</Link>
               <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="btn-outline px-8 py-3 rounded-xl font-bold">WhatsApp Now</a>
@@ -2851,9 +2856,9 @@ const FAQPage = () => {
       {/* Pan India Service Mentions for SEO */}
       <section className="section-padding bg-white/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Serving Pan India</h3>
+          <h3 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Serving Pan India & Global Markets</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-4xl mx-auto">
-            Our mushroom training and turnkey setup services are available in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, राजस्थान, गुजरात, पंजाब, हरियाणा, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, उत्तराखंड, और अन्य सभी राज्यों में। We are committed to fostering the biggest <strong>organic mushroom farm India</strong> network.
+            Our commercial mushroom training and turnkey setup services are available in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, राजस्थान, गुजरात, पंजाब, हरियाणा, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, उत्तराखंड, और अन्य सभी राज्यों में। We are committed to fostering the biggest <strong>commercial organic mushroom farm India</strong> network worldwide.
           </p>
         </div>
       </section>
@@ -2873,25 +2878,25 @@ const TermsOfServicePage = () => {
       <PageHero 
         badge="Legal"
         title="Terms of Service" 
-        description="Our standardized service agreement for training and farm setups."
+        description="Our standardized commercial service agreement for training and farm setups."
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
           <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10">
-            <h2 className="text-white">1. Service Agreement</h2>
-            <p className="text-slate-400">By enrolling in our training programs or contracting our farm setup services, you agree to abide by the terms and conditions outlined below. Organic Mushroom Farm provides technical consultancy and educational resources for mushroom farming business success.</p>
+            <h2 className="text-white">1. Commercial Service Agreement</h2>
+            <p className="text-slate-400">By enrolling in our training programs or contracting our commercial farm setup services, you agree to abide by the terms and conditions outlined below. Organic Mushroom Farm provides technical consultancy and educational resources for mushroom farming business success.</p>
             
             <h2 className="text-white mt-10">2. Payment Terms</h2>
-            <p className="text-slate-400">Our current pricing for training is standardized at ₹399 for Online access and ₹3000 for Offline practical workshops. Turnkey project payments are structured in phases as per the project quotation provided.</p>
+            <p className="text-slate-400">Our current pricing for training is standardized at ₹399 for Online access and ₹3000 for Offline practical workshops. Commercial Turnkey project payments are structured in phases as per the project quotation provided.</p>
             
             <h2 className="text-white mt-10">3. No Refund Policy</h2>
-            <p className="text-slate-400">Due to the digital nature of training materials and the resource allocation required for workshops, all payments for training and consultancy are non-refundable. Please ensure your suitability for the program before making payments.</p>
+            <p className="text-slate-400">Due to the digital nature of training materials and the resource allocation required for commercial workshops, all payments for training and consultancy are non-refundable. Please ensure your suitability for the program before making payments.</p>
             
             <h2 className="text-white mt-10">4. User Responsibilities</h2>
-            <p className="text-slate-400">Users are responsible for maintaining the confidentiality of their training portal access. For farm setups, the client must ensure site readiness and electricity requirements as per our technical specifications.</p>
+            <p className="text-slate-400">Users are responsible for maintaining the confidentiality of their training portal access. For commercial farm setups, the client must ensure site readiness and electricity requirements as per our technical specifications.</p>
             
             <h2 className="text-white mt-10">5. Limitation of Liability</h2>
-            <p className="text-slate-400">While we provide high-precision SOPs and infrastructure, biological yields depend on local management. Organic Mushroom Farm is not liable for fluctuations in biological yields or market price changes of mushrooms.</p>
+            <p className="text-slate-400">While we provide high-precision SOPs and infrastructure, biological yields depend on local commercial management. Organic Mushroom Farm is not liable for fluctuations in biological yields or market price changes of mushrooms globally.</p>
             
             <h2 className="text-white mt-10">6. Governing Law</h2>
             <p className="text-slate-400">These terms are governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Jabalpur, Madhya Pradesh.</p>
@@ -2912,19 +2917,19 @@ const PrivacyPolicyPage = () => {
       <PageHero 
         badge="Legal"
         title="Privacy Policy" 
-        description="How we collect, use, and protect your data."
+        description="How we collect, use, and protect your commercial data."
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
           <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10">
             <h2 className="text-white">1. Data Collection</h2>
-            <p className="text-slate-400">We collect personal information such as your name, phone number, and email address when you register for training, fill out an enquiry form, or contact us via WhatsApp.</p>
+            <p className="text-slate-400">We collect personal information such as your name, phone number, and email address when you register for commercial training, fill out an enquiry form, or contact us via WhatsApp.</p>
             
             <h2 className="text-white mt-10">2. How We Use Data</h2>
-            <p className="text-slate-400">Your data is used to provide training access, respond to consultancy queries, and send relevant updates about mushroom farming market trends. We do not sell your data to third parties.</p>
+            <p className="text-slate-400">Your data is used to provide training access, respond to commercial consultancy queries, and send relevant updates about mushroom farming market trends globally. We do not sell your data to third parties.</p>
             
             <h2 className="text-white mt-10">3. Data Protection</h2>
-            <p className="text-slate-400">We implement industry-standard security measures to protect your personal information from unauthorized access or alteration.</p>
+            <p className="text-slate-400">We implement industry-standard security measures to protect your commercial information from unauthorized access or alteration.</p>
             
             <h2 className="text-white mt-10">4. Third-Party Tools</h2>
             <p className="text-slate-400">We use trusted third-party tools like WhatsApp for communication and Razorpay for secure payment processing. Each has its own privacy policy which you should review separately.</p>
@@ -3000,20 +3005,20 @@ export default function App() {
 
 const ComparisonTable = () => {
   const data = [
-    { feature: "Insulation", us: "80-100mm PUF", others: "40-50mm" },
-    { feature: "AC Systems", us: "Daikin Industrial", others: "Split ACs" },
-    { feature: "Racking", us: "MS / GI", others: "Bamboo" },
-    { feature: "Support", us: "Lifetime Video", others: "1 Year" },
-    { feature: "Subsidy", us: "Full Document Support", others: "No Support" },
+    { feature: "Commercial Insulation", us: "80-100mm PUF", others: "40-50mm" },
+    { feature: "Commercial AC Systems", us: "Daikin Industrial", others: "Split ACs" },
+    { feature: "Commercial Racking", us: "MS / GI", others: "Bamboo" },
+    { feature: "Global Support", us: "Lifetime Video", others: "1 Year" },
+    { feature: "Government Subsidy", us: "Full Document Support", others: "No Support" },
   ];
 
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 md:mb-16">
-          <div className="badge mx-auto mb-4">Comparison</div>
-          <h2 className="mb-4 uppercase tracking-tight">The <span className="gradient-text">Organic Edge</span></h2>
-          <p className="max-w-xl mx-auto">Why we are the preferred partner nationwide.</p>
+          <div className="badge mx-auto mb-4">Commercial Setup Comparison</div>
+          <h2 className="mb-4 uppercase tracking-tight">The Commercial <span className="gradient-text">Organic Edge</span></h2>
+          <p className="max-w-xl mx-auto">Why we are the preferred commercial partner nationwide and globally.</p>
         </div>
         
         <div className="glass border border-white/10 overflow-hidden relative shadow-2xl">
