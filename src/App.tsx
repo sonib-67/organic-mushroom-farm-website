@@ -31,6 +31,7 @@ import Blog from './pages/Blog';
 import ArticlePage from './pages/ArticlePage';
 import SuccessStories from './pages/SuccessStories';
 import ProjectSpecsPage from './pages/ProjectSpecs';
+import ArticleBeginnerGuide from './pages/ArticleBeginnerGuide';
 import SEO from './components/SEO';
 
 // --- Constants & Types ---
@@ -2353,6 +2354,15 @@ const HomePage = () => {
                   <h3 className="text-white tracking-tight">Commercial Knowledge Hub</h3>
                 </div>
                 <div className="space-y-6">
+                  <Link to="/articles/mushroom-farming-beginner-guide-india-2026-2027" className="p-4 md:p-6 rounded-3xl bg-primary-start/10 border border-primary-start/20 block group hover:scale-[1.02] transition-transform">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[9px] text-primary-start font-black uppercase tracking-widest">Ultimate Guide 2026-2027</span>
+                      <div className="px-2 py-0.5 rounded bg-green-500/20 text-green-500 text-[8px] font-black uppercase">Article</div>
+                    </div>
+                    <h4 className="text-white font-bold text-lg mb-2">Mushroom Farming Beginner Guide India 2026-2027</h4>
+                    <p className="text-slate-400 text-xs leading-relaxed">Complete guide on how to start mushroom farming (mushroom ki kheti) from scratch for beginners.</p>
+                  </Link>
+
                   <div className="p-4 md:p-6 rounded-3xl bg-white/5 border border-white/10">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">Featured</span>
@@ -2983,6 +2993,7 @@ export default function App() {
             <Route path="/locations" element={<Locations />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<ArticlePage />} />
+            <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />

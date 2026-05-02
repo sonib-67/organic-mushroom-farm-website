@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "mushroom-farming-beginner-guide-india-2026-2027", isExternalPage: true, title: "What is Mushroom Farming? Complete Beginner Guide India 2026-2027", excerpt: "Mushroom farming in India 2026-2027: Complete beginner guide for mushroom cultivation (mushroom ki kheti), training, spawn, and business plan.", date: "May 02, 2026" },
       { id: 10, title: "Mushroom Farming in India 2027 — Complete Guide", excerpt: "Your ultimate guide to mushroom spawn, training, setup kits, and supply across 28 states of India.", date: "April 30, 2027" },
       { id: 7, title: "Future of Mushroom Farming in India 2027", excerpt: "Analyzing the market shifts and the move towards medicinal mushrooms.", date: "March 05, 2027" },
       { id: 8, title: "Selling Harvest in Local Mandis: A Practical Guide", excerpt: "Tips for negotiation and bulk logistics for first-time mushroom sellers.", date: "Feb 28, 2027" },
@@ -90,7 +91,10 @@ const BlogPage = () => {
                   <p className="text-slate-500 text-sm leading-relaxed mb-10 flex-grow">
                     {post.excerpt}
                   </p>
-                  <Link to={`/blog/${post.id}`} className="text-primary-start font-bold text-xs uppercase tracking-widest flex items-center gap-2 mt-auto w-fit border-b border-primary-start/20 pb-1">
+                  <Link 
+                    to={post.isExternalPage ? `/articles/${post.id}` : `/blog/${post.id}`} 
+                    className="text-primary-start font-bold text-xs uppercase tracking-widest flex items-center gap-2 mt-auto w-fit border-b border-primary-start/20 pb-1"
+                  >
                     Read Article <ArrowRight size={14} />
                   </Link>
                 </motion.div>
