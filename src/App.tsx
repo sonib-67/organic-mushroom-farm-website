@@ -32,6 +32,7 @@ import ArticlePage from './pages/ArticlePage';
 import SuccessStories from './pages/SuccessStories';
 import ProjectSpecsPage from './pages/ProjectSpecs';
 import ArticleBeginnerGuide from './pages/ArticleBeginnerGuide';
+import ArticleOysterMushroomCultivation from './pages/ArticleOysterMushroomCultivation';
 import SEO from './components/SEO';
 
 // --- Constants & Types ---
@@ -251,7 +252,7 @@ const EcosystemFlow = () => {
                   whileHover={{ scale: 1.05 }}
                   className="flex flex-col items-center gap-4 min-w-[140px] md:min-w-[160px] snap-center shrink-0 cursor-pointer group"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl glass border dark:border-white/10 border-black/10 flex items-center justify-center text-primary-start shadow-xl group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
+                  <div className="icon-box w-16 h-16 md:w-20 md:h-20 rounded-3xl flex items-center justify-center transition-all">
                     <s.icon size={32} />
                   </div>
                   <span className="text-[11px] md:text-[14px] font-bold dark:text-slate-300 text-slate-700 text-center uppercase tracking-wider group-hover:dark:text-white text-slate-900 transition-colors">{s.label}</span>
@@ -259,7 +260,7 @@ const EcosystemFlow = () => {
               </Link>
               {i < steps.length - 1 && (
                 <div className="shrink-0 flex items-center justify-center mx-2 md:mx-4">
-                  <ArrowRight size={24} className="dark:text-white text-slate-900/10" />
+                  <ArrowRight size={24} className="text-slate-400 dark:text-white/80" />
                 </div>
               )}
             </React.Fragment>
@@ -515,9 +516,9 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ t
 
 const Background3D = () => (
   <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div className="blob blob-1 absolute w-[400px] h-[400px] bg-[#312e81] top-[-100px] left-[-100px] blur-[80px] opacity-40 rounded-full"></div>
-    <div className="blob blob-2 absolute w-[350px] h-[350px] bg-[#4c1d95] bottom-[-50px] right-[-50px] blur-[80px] opacity-40 rounded-full"></div>
-    <div className="absolute inset-0 bg-[#020617]"></div>
+    <div className="blob blob-1 absolute w-[600px] h-[600px] bg-primary-start/10 top-[-100px] left-[-100px] blur-[120px] rounded-full"></div>
+    <div className="blob blob-2 absolute w-[500px] h-[500px] bg-accent/10 bottom-[-50px] right-[-100px] blur-[120px] rounded-full"></div>
+    <div className="blob blob-1 absolute w-[400px] h-[400px] bg-primary-start/5 top-[40%] left-[20%] blur-[100px] rounded-full"></div>
   </div>
 );
 
@@ -644,7 +645,7 @@ const Navbar = () => {
                   </Link>
                   {hasSubMenu && (
                     <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-[100]">
-                      <div className="dark:bg-slate-900 bg-slate-100/95 backdrop-blur-xl p-2 min-w-[200px] rounded-xl border dark:border-white/10 border-black/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
+                      <div className="glass p-2 min-w-[200px] rounded-xl border dark:border-white/10 border-black/10 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)]">
                         {(item as any).subMenu!.map((sub: any) => (
                           <Link 
                             key={sub.name} 
@@ -702,7 +703,7 @@ const Navbar = () => {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: '100%', opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-linear-to-b from-[#0f172a] via-[#10192e] to-[#020617] backdrop-blur-[20px] shadow-[-15px_0_50px_rgba(0,0,0,0.8)] rounded-l-[30px] border-l border-white/15 flex flex-col items-center overflow-hidden z-[9999]"
+              className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-white/60 dark:bg-black/60 backdrop-blur-[20px] shadow-[-15px_0_50px_rgba(124,58,237,0.15)] rounded-l-[30px] border-l border-white/20 flex flex-col items-center overflow-hidden z-[9999]"
             >
               <div 
                 className="flex items-center justify-between p-7 w-full border-b dark:border-white/5 border-black/5 dark:bg-white/5 bg-black/5 relative z-10"
@@ -1636,7 +1637,7 @@ const ContactPage = () => {
                initial={{ opacity: 0, scale: 0.9, y: 10 }}
                animate={{ opacity: 1, scale: 1, y: 0 }}
                exit={{ opacity: 0, scale: 0.9, y: 10 }}
-               className="relative bg-zinc-900 p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 max-w-md w-full text-center shadow-2xl"
+               className="relative glass p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 max-w-md w-full text-center shadow-2xl"
              >
                 <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-6 border border-green-500/30">
                   <CheckCircle2 size={32} />
@@ -1647,7 +1648,7 @@ const ContactPage = () => {
                 </p>
                 <button 
                   onClick={handleClose}
-                  className="w-full py-4 rounded-xl bg-white text-black font-bold text-xs uppercase tracking-widest hover:bg-slate-200 transition-all shadow-xl"
+                  className="w-full py-4 rounded-xl btn-primary font-bold text-xs uppercase tracking-widest transition-all shadow-xl"
                 >
                   Close
                 </button>
@@ -2994,6 +2995,7 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<ArticlePage />} />
             <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
+            <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />

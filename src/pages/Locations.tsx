@@ -90,7 +90,7 @@ const LocationsPage = () => {
                 <p className="text-white/80 text-sm leading-relaxed mb-8">
                     We welcome serious agripreneurs to our facility. Please book an appointment before visiting to ensure an expert is available for your consultation.
                 </p>
-                <a href="https://calendly.com/tanmaysomi/30min" target="_blank" rel="noopener noreferrer" className="w-full bg-white text-black py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-all">
+                <a href="https://calendly.com/tanmaysomi/30min" target="_blank" rel="noopener noreferrer" className="w-full btn-primary py-4 rounded-2xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-all">
                     Book Appointment <ArrowRight size={18} />
                 </a>
             </div>

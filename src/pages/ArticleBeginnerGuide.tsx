@@ -320,10 +320,10 @@ const ArticleBeginnerGuide = () => {
                                 Start your commercial mushroom journey with <strong>Organic Mushroom Farm Jabalpur</strong>. Quality spawn, turn-key setups, and expert mentorship.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                                <a href="tel:+919203544140" className="bg-white text-black px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                <a href="tel:+919203544140" className="btn-primary px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
                                     <Phone size={18} /> Call Now: 9203544140
                                 </a>
-                                <a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer" className="bg-black dark:text-white text-slate-900 px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all border border-white/20">
+                                <a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer" className="btn-outline px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
                                     Visit Shop <ArrowRight size={18} />
                                 </a>
                             </div>

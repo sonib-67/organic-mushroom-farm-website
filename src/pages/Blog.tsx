@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "oyster-mushroom-cultivation-india", isExternalPage: true, title: "Oyster Mushroom Cultivation: Complete Guide for India", excerpt: "Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) aaj India ka sabse fast-growing agribusiness ban chuka hai.", date: "May 05, 2026" },
       { id: "mushroom-farming-beginner-guide-india-2026-2027", isExternalPage: true, title: "What is Mushroom Farming? Complete Beginner Guide India 2026-2027", excerpt: "Mushroom farming in India 2026-2027: Complete beginner guide for mushroom cultivation (mushroom ki kheti), training, spawn, and business plan.", date: "May 02, 2026" },
       { id: 10, title: "Mushroom Farming in India 2027 — Complete Guide", excerpt: "Your ultimate guide to mushroom spawn, training, setup kits, and supply across 28 states of India.", date: "April 30, 2027" },
       { id: 7, title: "Future of Mushroom Farming in India 2027", excerpt: "Analyzing the market shifts and the move towards medicinal mushrooms.", date: "March 05, 2027" },
@@ -113,10 +114,10 @@ const BlogPage = () => {
                   <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" />
               <style type="text/css">
                     {`#mc_embed_signup{background:transparent; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%; max-width: 600px; margin: 0 auto;}
-                    #mc_embed_signup label, #mc_embed_signup .indicates-required {color: white;}
-                    #mc_embed_signup h2 {color: white;}
-                    #mc_embed_signup input.email {border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.5); color: white;}
-                    #mc_embed_signup input.button {background-color: var(--primary-start); color: white; border-radius: 8px;}
+                    #mc_embed_signup label, #mc_embed_signup .indicates-required {color: var(--text-heading);}
+                    #mc_embed_signup h2 {color: var(--text-heading);}
+                    #mc_embed_signup input.email {border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-alt); color: var(--text-heading);}
+                    #mc_embed_signup input.button {background-color: var(--color-primary-start); color: white; border-radius: 8px;}
                     `}
             </style>
             <div id="mc_embed_signup">
