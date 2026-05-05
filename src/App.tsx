@@ -53,7 +53,7 @@ const ProductionSOP = () => {
         <div className="text-center mb-12 md:mb-20">
           <div className="badge mx-auto mb-4">60-Day Commercial Cycle</div>
           <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Commercial Mushroom Production Cycle <span className="gradient-text">SOPs for India & Worldwide</span></h2>
-          <p className="max-w-xl mx-auto text-[13px] md:text-base text-slate-400">Standardized operational procedures for high-yield button mushroom and oyster mushroom output globally.</p>
+          <p className="max-w-xl mx-auto text-[13px] md:text-base dark:text-slate-400 text-slate-600">Standardized operational procedures for high-yield button mushroom and oyster mushroom output globally.</p>
         </div>
 
         {/* Desktop View: Horizontal Scroll / Cards */}
@@ -62,17 +62,17 @@ const ProductionSOP = () => {
             <motion.div 
               key={i}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="min-w-[300px] snap-center glass border border-white/5 p-6 rounded-3xl relative group transition-all"
+              className="min-w-[300px] snap-center glass border dark:border-white/5 border-black/5 p-6 rounded-3xl relative group transition-all"
             >
               <div className="absolute top-0 right-0 p-4 font-black text-slate-800 text-4xl -z-10 group-hover:text-primary-start/10 transition-colors">{i + 1}</div>
-              <div className="w-12 h-12 rounded-2xl bg-primary-start/10 flex items-center justify-center mb-6 text-primary-start group-hover:bg-primary-start group-hover:text-white transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-primary-start/10 flex items-center justify-center mb-6 text-primary-start group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
                 <s.icon size={20} />
               </div>
-              <h3 className="text-white font-bold text-lg mb-4">{s.title}</h3>
+              <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-4">{s.title}</h3>
               <div className="space-y-3 mb-8">
                 <div className="flex justify-between text-[11px] font-bold">
                   <span className="text-slate-500 uppercase tracking-widest">Duration</span>
-                  <span className="text-white">{s.days}</span>
+                  <span className="dark:text-white text-slate-900">{s.days}</span>
                 </div>
                 <div className="flex justify-between text-[11px] font-bold">
                   <span className="text-slate-500 uppercase tracking-widest">Temperature</span>
@@ -94,7 +94,7 @@ const ProductionSOP = () => {
               <div className="grid grid-cols-2 gap-4 py-2">
                 <div>
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Duration</div>
-                  <div className="text-white font-bold">{s.days}</div>
+                  <div className="dark:text-white text-slate-900 font-bold">{s.days}</div>
                 </div>
                 <div>
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">Temp</div>
@@ -113,10 +113,10 @@ const ProductionSOP = () => {
         <div className="flex items-center justify-between mt-12 max-w-3xl mx-auto px-4">
           {steps.map((_, i) => (
             <React.Fragment key={i}>
-              <div className="w-6 h-6 rounded-full gradient-bg flex items-center justify-center text-[10px] font-bold text-white shadow-lg">
+              <div className="w-6 h-6 rounded-full gradient-bg flex items-center justify-center text-[10px] font-bold dark:text-white text-slate-900 shadow-lg">
                 {i + 1}
               </div>
-              {i < steps.length - 1 && <div className="flex-1 h-px bg-white/10 mx-2"></div>}
+              {i < steps.length - 1 && <div className="flex-1 h-px dark:bg-white/10 bg-black/10 mx-2"></div>}
             </React.Fragment>
           ))}
         </div>
@@ -170,7 +170,7 @@ const Counter = ({ value, duration = 1.5 }: { value: string; duration?: number }
       ref={nodeRef}
       initial={{ opacity: 0, y: 10 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      className="text-2xl md:text-4xl font-bold text-white tracking-tighter"
+      className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 tracking-tighter"
     >
       {displayValue}
     </motion.span>
@@ -191,7 +191,7 @@ const CriticalParameters = () => {
         <div className="text-center mb-12">
           <div className="badge mx-auto mb-4">Precision Metrics</div>
           <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">Critical <span className="gradient-text">Parameters for High-Yield Mushroom Production</span></h2>
-          <p className="text-slate-400 text-[13px] md:text-base">Scientific boundaries for consistent commercial yields in organic mushroom farming across India and USA.</p>
+          <p className="dark:text-slate-400 text-slate-600 text-[13px] md:text-base">Scientific boundaries for consistent commercial yields in organic mushroom farming across India and USA.</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
@@ -199,9 +199,9 @@ const CriticalParameters = () => {
             <motion.div 
               key={i}
               whileHover={{ translateZ: 20 }}
-              className="glass p-6 md:p-10 rounded-[2.5rem] border border-white/5 text-center group"
+              className="glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
+              <div className="w-12 h-12 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
                 <p.icon size={22} className={p.color} />
               </div>
               <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2">{p.label}</div>
@@ -209,7 +209,7 @@ const CriticalParameters = () => {
                 <Counter value={p.value} />
                 <span className="text-[14px] font-black text-slate-500">{p.unit}</span>
               </div>
-              <div className="mt-4 h-1 w-12 bg-white/10 rounded-full mx-auto overflow-hidden">
+              <div className="mt-4 h-1 w-12 dark:bg-white/10 bg-black/10 rounded-full mx-auto overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: '100%' }}
@@ -251,15 +251,15 @@ const EcosystemFlow = () => {
                   whileHover={{ scale: 1.05 }}
                   className="flex flex-col items-center gap-4 min-w-[140px] md:min-w-[160px] snap-center shrink-0 cursor-pointer group"
                 >
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl glass border border-white/10 flex items-center justify-center text-primary-start shadow-xl group-hover:bg-primary-start group-hover:text-white transition-all">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl glass border dark:border-white/10 border-black/10 flex items-center justify-center text-primary-start shadow-xl group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
                     <s.icon size={32} />
                   </div>
-                  <span className="text-[11px] md:text-[14px] font-bold text-slate-300 text-center uppercase tracking-wider group-hover:text-white transition-colors">{s.label}</span>
+                  <span className="text-[11px] md:text-[14px] font-bold dark:text-slate-300 text-slate-700 text-center uppercase tracking-wider group-hover:dark:text-white text-slate-900 transition-colors">{s.label}</span>
                 </motion.div>
               </Link>
               {i < steps.length - 1 && (
                 <div className="shrink-0 flex items-center justify-center mx-2 md:mx-4">
-                  <ArrowRight size={24} className="text-white/10" />
+                  <ArrowRight size={24} className="dark:text-white text-slate-900/10" />
                 </div>
               )}
             </React.Fragment>
@@ -287,9 +287,9 @@ const MushroomComparison = () => {
         </div>
 
         {/* Desktop Table */}
-        <div className="hidden md:block glass border border-white/5 rounded-3xl overflow-hidden">
+        <div className="hidden md:block glass border dark:border-white/5 border-black/5 rounded-3xl overflow-hidden">
           <table className="w-full text-left">
-            <thead className="bg-white/5 border-b border-white/10">
+            <thead className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10">
               <tr>
                 <th className="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">Mushroom Type</th>
                 <th className="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">Difficulty</th>
@@ -303,11 +303,11 @@ const MushroomComparison = () => {
                   <td className="px-8 py-5">
                     <div className="flex items-center gap-3">
                       <div className={`w-3 h-3 rounded-full ${m.color}`}></div>
-                      <span className="font-bold text-white text-sm">{m.name}</span>
+                      <span className="font-bold dark:text-white text-slate-900 text-sm">{m.name}</span>
                     </div>
                   </td>
-                  <td className="px-8 py-5 text-[12px] text-slate-400 font-medium">{m.difficulty}</td>
-                  <td className="px-8 py-5 text-[12px] text-slate-400 font-medium">{m.speed}</td>
+                  <td className="px-8 py-5 text-[12px] dark:text-slate-400 text-slate-600 font-medium">{m.difficulty}</td>
+                  <td className="px-8 py-5 text-[12px] dark:text-slate-400 text-slate-600 font-medium">{m.speed}</td>
                   <td className="px-8 py-5 text-[12px] text-slate-500 leading-relaxed font-medium">{m.text}</td>
                 </tr>
               ))}
@@ -318,22 +318,22 @@ const MushroomComparison = () => {
         {/* Mobile Swipe Cards */}
         <div className="md:hidden flex gap-4 overflow-x-auto pb-6 snap-x scrollbar-hide">
           {mushrooms.map((m, i) => (
-            <div key={i} className="min-w-[280px] snap-center glass border border-white/10 p-6 rounded-2xl">
+            <div key={i} className="min-w-[280px] snap-center glass border dark:border-white/10 border-black/10 p-6 rounded-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <div className={`w-4 h-4 rounded-full ${m.color} shadow-lg shadow-black/50`}></div>
-                <h3 className="text-white font-bold text-lg">{m.name}</h3>
+                <h3 className="dark:text-white text-slate-900 font-bold text-lg">{m.name}</h3>
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
                   <div className="text-[8px] font-black text-slate-500 uppercase mb-1">Difficulty</div>
-                  <div className="text-[11px] font-bold text-slate-300">{m.difficulty}</div>
+                  <div className="text-[11px] font-bold dark:text-slate-300 text-slate-700">{m.difficulty}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/5">
+                <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
                   <div className="text-[8px] font-black text-slate-500 uppercase mb-1">Scale</div>
-                  <div className="text-[11px] font-bold text-slate-300">{m.speed}</div>
+                  <div className="text-[11px] font-bold dark:text-slate-300 text-slate-700">{m.speed}</div>
                 </div>
               </div>
-              <p className="text-[13px] text-slate-400 leading-relaxed font-medium">{m.text}</p>
+              <p className="text-[13px] dark:text-slate-400 text-slate-600 leading-relaxed font-medium">{m.text}</p>
             </div>
           ))}
         </div>
@@ -351,16 +351,16 @@ const CompanyProfile = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass border border-white/10 rounded-[3rem] p-8 md:p-12 relative shadow-2xl group overflow-hidden"
+            className="glass border dark:border-white/10 border-black/10 rounded-[3rem] p-8 md:p-12 relative shadow-2xl group overflow-hidden"
           >
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-start/20 blur-[100px] rounded-full group-hover:bg-primary-start/30 transition-all"></div>
             
             <div className="flex items-center gap-6 mb-10">
-              <div className="w-20 h-20 rounded-[2rem] gradient-bg flex items-center justify-center text-white font-black text-3xl shadow-2xl">
+              <div className="w-20 h-20 rounded-[2rem] gradient-bg flex items-center justify-center dark:text-white text-slate-900 font-black text-3xl shadow-2xl">
                 O
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white mb-1">Organic Mushroom Farm</h2>
+                <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-1">Organic Mushroom Farm</h2>
                 <p className="text-primary-start font-black text-[10px] uppercase tracking-[0.3em]">Premium Infrastructure Partner</p>
               </div>
             </div>
@@ -374,20 +374,20 @@ const CompanyProfile = () => {
               ].map((item, i) => (
                 <div key={i} className="space-y-1">
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
-                  <div className="text-sm font-bold text-white">{item.value}</div>
+                  <div className="text-sm font-bold dark:text-white text-slate-900">{item.value}</div>
                 </div>
               ))}
             </div>
 
-            <div className="p-6 rounded-3xl bg-white/5 border border-white/5 mb-8">
-              <p className="text-slate-400 text-[14px] leading-relaxed font-medium">
-                Established as India's leading mushroom ecosystem architect, we bridge the gap between traditional farming and industrial precision. Our mission is to democratize <span className="text-white font-bold">organic farming</span> across India and global markets with high-yield <span className="text-white font-bold">spawn quality</span>, comprehensive <span className="text-white font-bold">training</span> modules, and unmatched <span className="text-white font-bold">India-wide & international support</span> systems.
+            <div className="p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 mb-8">
+              <p className="dark:text-slate-400 text-slate-600 text-[14px] leading-relaxed font-medium">
+                Established as India's leading mushroom ecosystem architect, we bridge the gap between traditional farming and industrial precision. Our mission is to democratize <span className="dark:text-white text-slate-900 font-bold">organic farming</span> across India and global markets with high-yield <span className="dark:text-white text-slate-900 font-bold">spawn quality</span>, comprehensive <span className="dark:text-white text-slate-900 font-bold">training</span> modules, and unmatched <span className="dark:text-white text-slate-900 font-bold">India-wide & international support</span> systems.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3">
               {["Industrial Design", "Turnkey Builds", "Export Quality", "PAN-India Ops", "Global Setup Consultant"].map(tag => (
-                <span key={tag} className="px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold text-slate-500 bg-white/5">
+                <span key={tag} className="px-4 py-2 rounded-full border dark:border-white/10 border-black/10 text-[10px] font-bold text-slate-500 dark:bg-white/5 bg-black/5">
                   {tag}
                 </span>
               ))}
@@ -404,12 +404,12 @@ const CompanyProfile = () => {
                 { icon: Users, title: "Expert Training", desc: "Hands-on certification and online training courses from industry pioneers." },
                 { icon: ShieldCheck, title: "Quality Guarantee", desc: "Standardized materials with long-term structural durability for button mushroom setups." }
               ].map((b, i) => (
-                <Link to="/expertise-details" key={i} className="flex gap-5 p-5 glass border border-white/5 rounded-2xl group hover:bg-white/5 transition-all text-left">
-                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-primary-start group-hover:scale-110 transition-all shrink-0">
+                <Link to="/expertise-details" key={i} className="flex gap-5 p-5 glass border dark:border-white/5 border-black/5 rounded-2xl group hover:dark:bg-white/5 bg-black/5 transition-all text-left">
+                  <div className="w-12 h-12 rounded-xl dark:bg-white/5 bg-black/5 flex items-center justify-center text-primary-start group-hover:scale-110 transition-all shrink-0">
                     <b.icon size={22} />
                   </div>
                   <div>
-                    <h4 className="text-white font-bold text-[14px] mb-1">{b.title}</h4>
+                    <h4 className="dark:text-white text-slate-900 font-bold text-[14px] mb-1">{b.title}</h4>
                     <p className="text-slate-500 text-[12px] leading-snug">{b.desc}</p>
                   </div>
                 </Link>
@@ -489,10 +489,10 @@ const NAV_ITEMS = [
 const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="glass border border-white/5 mb-3 overflow-hidden">
+    <div className="glass border dark:border-white/5 border-black/5 mb-3 overflow-hidden">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 text-left font-bold text-sm text-white"
+        className="w-full flex items-center justify-between p-4 text-left font-bold text-sm dark:text-white text-slate-900"
       >
         <span>{title}</span>
         {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -503,7 +503,7 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ t
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="p-4 pt-0 text-[13px] text-slate-400 border-t border-white/5"
+            className="p-4 pt-0 text-[13px] dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
           >
             {children}
           </motion.div>
@@ -562,10 +562,10 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 md:gap-3 group">
             <img 
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
-              alt="Organic Mushroom Farm Logo - Best Commercial Button & Oyster Mushroom Setup India Global" 
+              alt="Organic Mushroom Farm" 
               className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform" 
             />
-            <span className="text-lg md:text-xl font-bold tracking-tight text-white whitespace-nowrap">
+            <span className="text-lg md:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
           </Link>
@@ -609,14 +609,14 @@ const Navbar = () => {
                     {location.pathname === '/' ? (
                       <a 
                         {...linkProps}
-                        className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? 'text-white bg-white/5' : 'text-slate-400 hover:text-white'}`}
+                        className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? 'dark:text-white text-slate-900 dark:bg-white/5 bg-black/5' : 'dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900'}`}
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link 
                         to={item.href}
-                        className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? 'text-white bg-white/5' : 'text-slate-400 hover:text-white'}`}
+                        className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? 'dark:text-white text-slate-900 dark:bg-white/5 bg-black/5' : 'dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900'}`}
                       >
                         {item.name}
                       </Link>
@@ -637,19 +637,19 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   <Link 
                     to={item.href} 
-                    className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? 'text-white bg-white/5' : 'text-slate-400 hover:text-white'}`}
+                    className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? 'dark:text-white text-slate-900 dark:bg-white/5 bg-black/5' : 'dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900'}`}
                   >
                     {item.name}
                     {hasSubMenu && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform" />}
                   </Link>
                   {hasSubMenu && (
                     <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-[100]">
-                      <div className="bg-slate-900/95 backdrop-blur-xl p-2 min-w-[200px] rounded-xl border border-white/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
+                      <div className="dark:bg-slate-900 bg-slate-100/95 backdrop-blur-xl p-2 min-w-[200px] rounded-xl border dark:border-white/10 border-black/10 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
                         {(item as any).subMenu!.map((sub: any) => (
                           <Link 
                             key={sub.name} 
                             to={sub.href} 
-                            className="block px-4 py-2.5 text-[12px] font-bold text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-all"
+                            className="block px-4 py-2.5 text-[12px] font-bold dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900 hover:dark:bg-white/10 bg-black/10 rounded-lg transition-all"
                           >
                             {sub.name}
                           </Link>
@@ -677,7 +677,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(true)} 
-            className="lg:hidden text-white p-2 focus:outline-none"
+            className="lg:hidden dark:text-white text-slate-900 p-2 focus:outline-none"
             aria-label="Open Menu"
           >
             <Menu size={24} />
@@ -705,19 +705,19 @@ const Navbar = () => {
               className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-linear-to-b from-[#0f172a] via-[#10192e] to-[#020617] backdrop-blur-[20px] shadow-[-15px_0_50px_rgba(0,0,0,0.8)] rounded-l-[30px] border-l border-white/15 flex flex-col items-center overflow-hidden z-[9999]"
             >
               <div 
-                className="flex items-center justify-between p-7 w-full border-b border-white/5 bg-white/5 relative z-10"
+                className="flex items-center justify-between p-7 w-full border-b dark:border-white/5 border-black/5 dark:bg-white/5 bg-black/5 relative z-10"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold text-white shadow-lg">
+                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold dark:text-white text-slate-900 shadow-lg">
                     O
                   </div>
-                  <span className="text-xl font-bold tracking-tight text-white">
+                  <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">
                     Organic <span className="gradient-text">Mushroom Farm</span>
                   </span>
                 </div>
                 <button 
                   onClick={() => setMobileMenuOpen(false)} 
-                  className="text-white p-2.5 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300"
+                  className="dark:text-white text-slate-900 p-2.5 dark:bg-white/10 bg-black/10 rounded-full hover:bg-white/20 transition-all duration-300"
                   aria-label="Close Menu"
                 >
                   <X size={24} />
@@ -763,9 +763,9 @@ const Navbar = () => {
                               window.history.pushState(null, '', `/#${hash}`);
                             }
                           }} 
-                          className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:bg-white/5 ${isActive ? 'bg-white/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'text-slate-300 hover:text-white'}`}
+                          className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? 'dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900'}`}
                         >
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start text-white shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'bg-white/5 text-slate-500 group-hover:text-primary-start group-hover:bg-white/10'}`}>
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10'}`}>
                             {item.icon && <item.icon size={20} />}
                           </div>
                           <span className={isActive ? 'gradient-text' : ''}>{item.name}</span>
@@ -775,9 +775,9 @@ const Navbar = () => {
                           <Link 
                             to={item.href} 
                             onClick={() => setMobileMenuOpen(false)} 
-                            className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:bg-white/5 ${isActive ? 'bg-white/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'text-slate-300 hover:text-white'}`}
+                            className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? 'dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900'}`}
                           >
-                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start text-white shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'bg-white/5 text-slate-500 group-hover:text-primary-start group-hover:bg-white/10'}`}>
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10'}`}>
                               {item.icon && <item.icon size={20} />}
                             </div>
                             <span className={isActive ? 'gradient-text' : ''}>{item.name}</span>
@@ -803,7 +803,7 @@ const Navbar = () => {
                 })}
               </div>
 
-              <div className="w-full p-8 border-t border-white/5 bg-white/[0.02] text-center">
+              <div className="w-full p-8 border-t dark:border-white/5 border-black/5 bg-white/[0.02] text-center">
                 <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-500 animate-pulse">Organic Ecosystems India & Global</p>
               </div>
             </motion.div>
@@ -835,14 +835,14 @@ const Hero = () => {
           <div className="text-[10px] md:text-sm font-bold text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
             From empty shed to harvest-ready commercial infrastructure – we handle everything.
           </div>
-          <h1 className="text-[1.5rem] md:text-7xl font-bold text-white leading-tight mb-6 md:mb-8 tracking-tighter">
+          <h1 className="text-[1.5rem] md:text-7xl font-bold dark:text-white text-slate-900 leading-tight mb-6 md:mb-8 tracking-tighter">
             Industrial <span className="gradient-text">Button & Oyster Mushroom Farming in India</span> & Global Expert Solutions
           </h1>
-          <p className="text-[0.8125rem] md:text-lg text-slate-400 mb-8 md:mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
+          <p className="text-[0.8125rem] md:text-lg dark:text-slate-400 text-slate-600 mb-8 md:mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
             Complete commercial methodology, precision calculators, detailed SOPs, and turnkey solutions for highly profitable button, oyster, and milky mushroom farming across India, USA, Australia, and worldwide.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-8 mb-10 border-white/5 border-y py-6 md:py-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-8 mb-10 dark:border-white/5 border-black/5 border-y py-6 md:py-8">
             {features.map((f, i) => (
               <div key={i} className="flex items-center gap-3 justify-center md:justify-start">
                 <CheckCircle2 size={16} className="text-primary-start" />
@@ -866,11 +866,11 @@ const Hero = () => {
           </div>
           <div className="flex justify-center md:justify-start gap-12 pt-4">
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-white">1.2k+</div>
+              <div className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">1.2k+</div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">Active Commercial Units</div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold text-white">98%</div>
+              <div className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">98%</div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">Success Rate Globally</div>
             </div>
           </div>
@@ -892,7 +892,7 @@ const Hero = () => {
                   <ShieldCheck className="text-accent" />
                 </div>
                 <div>
-                  <div className="text-white font-bold">Turnkey Setup Project</div>
+                  <div className="dark:text-white text-slate-900 font-bold">Turnkey Setup Project</div>
                   <div className="text-xs text-slate-500">Quality Certified Infrastructure</div>
                 </div>
               </div>
@@ -905,22 +905,22 @@ const Hero = () => {
                 { label: "Annual High Yield", value: "35,000+ kg", icon: TrendingUp },
                 { label: "Cooling Sys (India)", value: "Daikin Industrial", icon: Zap },
               ].map((stat, i) => (
-                <div key={i} className="flex items-center justify-between bg-white/5 p-4 rounded-2xl border border-white/5">
+                <div key={i} className="flex items-center justify-between dark:bg-white/5 bg-black/5 p-4 rounded-2xl border dark:border-white/5 border-black/5">
                   <div className="flex items-center gap-3">
-                    <stat.icon className="text-slate-400" size={18} />
-                    <span className="text-sm text-slate-300 font-medium">{stat.label}</span>
+                    <stat.icon className="dark:text-slate-400 text-slate-600" size={18} />
+                    <span className="text-sm dark:text-slate-300 text-slate-700 font-medium">{stat.label}</span>
                   </div>
-                  <span className="text-sm text-white font-bold">{stat.value}</span>
+                  <span className="text-sm dark:text-white text-slate-900 font-bold">{stat.value}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10 p-6 rounded-3xl bg-linear-to-br from-white/10 to-transparent border border-white/10">
+            <div className="mt-10 p-6 rounded-3xl bg-linear-to-br from-white/10 to-transparent border dark:border-white/10 border-black/10">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-sm font-semibold text-slate-300">Phase 1 Commercial Cycle</span>
+                <span className="text-sm font-semibold dark:text-slate-300 text-slate-700">Phase 1 Commercial Cycle</span>
                 <span className="text-[10px] text-accent font-bold">LIVE PROGRESS</span>
               </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div className="h-2 w-full dark:bg-white/5 bg-black/5 rounded-full overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: '65%' }}
@@ -946,8 +946,8 @@ const Hero = () => {
               <CheckCircle2 className="text-green-500" size={16} />
             </div>
             <div className="pr-4">
-              <div className="text-[10px] text-slate-400 font-bold uppercase">Global ROI Verified</div>
-              <div className="text-xs text-white font-bold">120% Yearly Avg</div>
+              <div className="text-[10px] dark:text-slate-400 text-slate-600 font-bold uppercase">Global ROI Verified</div>
+              <div className="text-xs dark:text-white text-slate-900 font-bold">120% Yearly Avg</div>
             </div>
           </motion.div>
         </motion.div>
@@ -1044,14 +1044,14 @@ const WhyChooseUs = () => {
               transition={{ delay: i * 0.1 }}
               className="group relative"
             >
-              <div className="glass h-full card-padding rounded-2xl border border-white/5 flex flex-col shadow-2xl relative overflow-hidden">
+              <div className="glass h-full card-padding rounded-2xl border dark:border-white/5 border-black/5 flex flex-col shadow-2xl relative overflow-hidden">
                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-linear-to-br ${item.color} blur-[50px] pointer-events-none opacity-20`}></div>
                 
-                <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 flex items-center justify-center mb-6">
                   <item.icon className="text-primary-start" size={24} />
                 </div>
                 
-                <h3 className="text-lg md:text-xl font-bold text-white mb-3">
+                <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-3">
                   {item.title}
                 </h3>
                 
@@ -1061,7 +1061,7 @@ const WhyChooseUs = () => {
                 
                 <ul className="space-y-2">
                   {item.points.map((pt, j) => (
-                    <li key={j} className="flex items-center gap-2 text-[12px] md:text-xs font-semibold text-slate-400">
+                    <li key={j} className="flex items-center gap-2 text-[12px] md:text-xs font-semibold dark:text-slate-400 text-slate-600">
                       <div className="w-1 h-1 rounded-full bg-primary-start"></div>
                       {pt}
                     </li>
@@ -1128,18 +1128,18 @@ const FarmingModels = () => {
           <div className="max-w-xl">
             <div className="badge mb-4 mx-auto lg:mx-0">Investment Paths</div>
             <h2 className="mb-4">Commercial Farming <span className="gradient-text">Models</span>, Setup Cost & ROI</h2>
-            <p className="text-slate-400">Scientifically designed mushroom grow rooms optimized for Indian and diverse global climate conditions.</p>
+            <p className="dark:text-slate-400 text-slate-600">Scientifically designed mushroom grow rooms optimized for Indian and diverse global climate conditions.</p>
           </div>
           <div className="glass p-1 rounded-xl flex gap-1 w-fit">
             <button 
               onClick={() => setActiveTab('fixed')}
-              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === 'fixed' ? 'bg-white/10 text-white' : 'text-slate-500 hover:text-white'}`}
+              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === 'fixed' ? 'dark:bg-white/10 bg-black/10 dark:text-white text-slate-900' : 'text-slate-500 hover:dark:text-white text-slate-900'}`}
             >
               Fixed Models
             </button>
             <button 
               onClick={() => setActiveTab('custom')}
-              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === 'custom' ? 'bg-white/10 text-white' : 'text-slate-500 hover:text-white'}`}
+              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === 'custom' ? 'dark:bg-white/10 bg-black/10 dark:text-white text-slate-900' : 'text-slate-500 hover:dark:text-white text-slate-900'}`}
             >
               Custom Build
             </button>
@@ -1154,33 +1154,33 @@ const FarmingModels = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className={`relative glass card-padding flex flex-col ${m.recommended ? 'border-primary-mid/40 shadow-2xl lg:scale-105 z-10' : 'border-white/5'}`}
+                className={`relative glass card-padding flex flex-col ${m.recommended ? 'border-primary-mid/40 shadow-2xl lg:scale-105 z-10' : 'dark:border-white/5 border-black/5'}`}
               >
                 {m.recommended && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full btn-primary text-[9px] font-black uppercase tracking-widest text-white shadow-xl">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full btn-primary text-[9px] font-black uppercase tracking-widest dark:text-white text-slate-900 shadow-xl">
                     Recommended Model
                   </div>
                 )}
                 <div className="mb-6">
                   <div className="text-primary-start text-[9px] font-black uppercase tracking-[0.2em] mb-2">{m.label}</div>
-                  <h3 className="text-white tracking-tight">{m.name}</h3>
+                  <h3 className="dark:text-white text-slate-900 tracking-tight">{m.name}</h3>
                   <div className="mt-2 text-slate-500 text-[12px] font-medium">{m.size} Space Required</div>
                 </div>
                 
                 <div className="space-y-3 mb-8 flex-1">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/5">
+                  <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
                     <div className="text-[9px] text-slate-500 font-bold uppercase mb-1">Investment Setup Cost</div>
-                    <div className="text-xl font-bold text-white">{m.investment}</div>
+                    <div className="text-xl font-bold dark:text-white text-slate-900">{m.investment}</div>
                   </div>
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/5">
+                  <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
                     <div className="text-[9px] text-slate-500 font-bold uppercase mb-1">Expected Yield</div>
-                    <div className="text-xl font-bold text-white">{m.yield}</div>
+                    <div className="text-xl font-bold dark:text-white text-slate-900">{m.yield}</div>
                   </div>
                 </div>
 
                 <ul className="space-y-3 mb-8">
                   {m.features.map(f => (
-                    <li key={f} className="flex items-center gap-2 text-slate-400 text-[12px] md:text-sm">
+                    <li key={f} className="flex items-center gap-2 dark:text-slate-400 text-slate-600 text-[12px] md:text-sm">
                       <CheckCircle2 size={14} className="text-primary-start" /> {f}
                     </li>
                   ))}
@@ -1196,14 +1196,14 @@ const FarmingModels = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass p-8 md:p-12 rounded-[3rem] border border-white/10"
+            className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10"
           >
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-6">Interactive Custom Mushroom Setup Builder</h3>
+                <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">Interactive Custom Mushroom Setup Builder</h3>
                 <div className="space-y-8">
                   <div>
-                    <label className="flex justify-between text-sm font-bold text-slate-300 mb-4">
+                    <label className="flex justify-between text-sm font-bold dark:text-slate-300 text-slate-700 mb-4">
                       <span>Available Area</span>
                       <span className="text-primary-start">{customArea} sq. ft.</span>
                     </label>
@@ -1216,7 +1216,7 @@ const FarmingModels = () => {
                     />
                   </div>
                   <div>
-                    <label className="flex justify-between text-sm font-bold text-slate-300 mb-4">
+                    <label className="flex justify-between text-sm font-bold dark:text-slate-300 text-slate-700 mb-4">
                       <span>Available Budget</span>
                       <span className="text-primary-start">₹{(customBudget / 100000).toFixed(1)} Lakhs</span>
                     </label>
@@ -1230,11 +1230,11 @@ const FarmingModels = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-8 rounded-[2rem] bg-white/5 border border-primary-start/20 text-center flex flex-col items-center justify-center">
+              <div className="p-8 rounded-[2rem] dark:bg-white/5 bg-black/5 border border-primary-start/20 text-center flex flex-col items-center justify-center">
                 <ShieldCheck size={48} className="text-primary-start mb-6" />
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">Recommended Commercial Setup</div>
-                <h4 className="text-2xl font-bold text-white mb-4 leading-tight">{getRecommendedSetup().title}</h4>
-                <p className="text-slate-400 text-sm leading-relaxed mb-8 max-w-sm">{getRecommendedSetup().desc}</p>
+                <h4 className="text-2xl font-bold dark:text-white text-slate-900 mb-4 leading-tight">{getRecommendedSetup().title}</h4>
+                <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-8 max-w-sm">{getRecommendedSetup().desc}</p>
                 <Link to="/model-details" className="btn-primary px-8 py-3 rounded-xl text-sm font-bold">
                   View Detailed Specs
                 </Link>
@@ -1268,7 +1268,7 @@ const ROICalculator = () => {
   return (
     <section id="roi-calculator" className="section-padding overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="glass card-padding border border-white/10 relative">
+        <div className="glass card-padding border dark:border-white/10 border-black/10 relative">
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[400px] h-[400px] bg-primary-start/10 blur-[120px] rounded-full pointer-events-none"></div>
           
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -1281,49 +1281,49 @@ const ROICalculator = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
                     <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Number of Bags/Beds</label>
-                    <span className="text-xl font-bold text-white">{bags}</span>
+                    <span className="text-xl font-bold dark:text-white text-slate-900">{bags}</span>
                   </div>
                   <input 
                     type="range" min="500" max="10000" step="500" value={bags} 
                     onChange={(e) => setBags(Number(e.target.value))}
-                    className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
+                    className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
                   />
                 </div>
 
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
                     <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Market Selling Price (₹/kg)</label>
-                    <span className="text-xl font-bold text-white">₹{sellingPrice}</span>
+                    <span className="text-xl font-bold dark:text-white text-slate-900">₹{sellingPrice}</span>
                   </div>
                   <input 
                     type="range" min="80" max="250" step="5" value={sellingPrice} 
                     onChange={(e) => setSellingPrice(Number(e.target.value))}
-                    className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
+                    className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
                   />
                 </div>
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
                     <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Labor/Electricity Cost (₹/kg)</label>
-                    <span className="text-xl font-bold text-white">₹{operatingCost}</span>
+                    <span className="text-xl font-bold dark:text-white text-slate-900">₹{operatingCost}</span>
                   </div>
                   <input 
                     type="range" min="20" max="80" step="2" value={operatingCost} 
                     onChange={(e) => setOperatingCost(Number(e.target.value))}
-                    className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-purple"
+                    className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-brand-purple"
                   />
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="glass p-8 rounded-3xl border border-white/10 text-center">
+              <div className="glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
                  <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">Cycle Net Profit</div>
                  <div className={monthlyProfit > 0 ? "text-4xl font-black text-green-400" : "text-4xl font-black text-red-400"}>
                      ₹{monthlyProfit.toLocaleString()}
                  </div>
               </div>
-              <div className="glass p-8 rounded-3xl border border-white/10 text-center">
+              <div className="glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
                  <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">Estimated Payback Period</div>
                  <div className="text-4xl font-black text-primary-start">
                      {paybackPeriod > 0 ? `${paybackPeriod.toFixed(1)} Months` : 'N/A'}
@@ -1355,7 +1355,7 @@ const Timeline = () => {
         </div>
         
         <div className="relative">
-          <div className="hidden lg:block absolute top-[3.5rem] left-0 right-0 h-px bg-white/5 z-0"></div>
+          <div className="hidden lg:block absolute top-[3.5rem] left-0 right-0 h-px dark:bg-white/5 bg-black/5 z-0"></div>
           <div className="grid lg:grid-cols-4 gap-8 md:gap-12 relative z-10">
             {steps.map((s, i) => (
               <motion.div 
@@ -1367,10 +1367,10 @@ const Timeline = () => {
                 className="text-center group"
               >
                 <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-brand-blue/30 transition-transform">
-                  <s.icon className="text-white" size={24} />
+                  <s.icon className="dark:text-white text-slate-900" size={24} />
                 </div>
                 <div className="text-primary-start text-[9px] font-black uppercase mb-1 tracking-widest">{s.days}</div>
-                <h3 className="text-white mb-3 tracking-tight tracking-tight">{s.title}</h3>
+                <h3 className="dark:text-white text-slate-900 mb-3 tracking-tight tracking-tight">{s.title}</h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed max-w-xs mx-auto">{s.desc}</p>
               </motion.div>
             ))}
@@ -1386,7 +1386,7 @@ const CTASection = () => {
     <section className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 gradient-bg opacity-5 -z-10 blur-[120px]"></div>
       <div className="max-w-5xl mx-auto px-4">
-        <div className="glass p-8 md:p-16 rounded-[3rem] border border-white/10 text-center relative overflow-hidden group">
+        <div className="glass p-8 md:p-16 rounded-[3rem] border dark:border-white/10 border-black/10 text-center relative overflow-hidden group">
           <div className="absolute -top-24 -left-24 w-60 h-60 bg-primary-start/10 blur-[80px] rounded-full group-hover:bg-primary-start/20 transition-all duration-700"></div>
           <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-brand-purple/10 blur-[80px] rounded-full group-hover:bg-brand-purple/20 transition-all duration-700"></div>
           
@@ -1396,10 +1396,10 @@ const CTASection = () => {
             viewport={{ once: true }}
           >
             <div className="badge mx-auto mb-6">Ready to Start?</div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight">
               Start Your Commercial <span className="gradient-text">Mushroom Project</span> Today in India & Worldwide
             </h2>
-            <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="dark:text-slate-400 text-slate-600 text-lg mb-10 max-w-2xl mx-auto">
               Join the organic revolution with India's most trusted commercial mushroom infrastructure and training partner. 
               Get a custom feasibility report for your location.
             </p>
@@ -1440,7 +1440,7 @@ const TrainingPage = () => {
       {/* Additional Page Specific Content */}
       <section className="section-padding bg-black/40">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">Ready to Start Your Commercial Mushroom Farming Journey?</h3>
+          <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-8">Ready to Start Your Commercial Mushroom Farming Journey?</h3>
           <a 
             href="https://calendly.com/tanmaysomi/30min" 
             target="_blank"
@@ -1484,10 +1484,10 @@ const ContactPage = () => {
             <div className="inline-block px-4 py-1.5 rounded-full bg-primary-start/10 border border-primary-start/20 text-[10px] font-black text-primary-start uppercase tracking-widest mb-4">
               Contact Us
             </div>
-            <h1 className="text-3xl md:text-6xl font-bold text-white mb-4 tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-6xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight">
               Start Your Commercial <span className="text-primary-start">Mushroom Farming</span> Business Worldwide
             </h1>
-            <p className="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto font-medium px-2">
+            <p className="dark:text-slate-400 text-slate-600 text-sm md:text-lg max-w-2xl mx-auto font-medium px-2">
               Ready to build a commercial factory or a small unit? Our specialists are here to guide you through every step of button and oyster mushroom production.
             </p>
           </motion.div>
@@ -1523,21 +1523,21 @@ const ContactPage = () => {
                   href={item.href}
                   target={item.isWhatsApp ? "_blank" : undefined}
                   rel={item.isWhatsApp ? "noopener noreferrer" : undefined}
-                  className={`flex items-center gap-4 p-5 bg-white/[0.03] border border-white/10 rounded-2xl group transition-all hover:bg-white/[0.06] ${item.isWhatsApp ? 'ring-1 ring-green-500/30' : ''}`}
+                  className={`flex items-center gap-4 p-5 bg-white/[0.03] border dark:border-white/10 border-black/10 rounded-2xl group transition-all hover:bg-white/[0.06] ${item.isWhatsApp ? 'ring-1 ring-green-500/30' : ''}`}
                 >
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.isWhatsApp ? 'bg-green-500/20 text-green-400' : 'bg-primary-start/20 text-primary-start'}`}>
                     <item.icon size={22} className={item.isWhatsApp ? 'animate-pulse' : ''} />
                   </div>
                   <div>
                     <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none mb-1">{item.label}</div>
-                    <div className="text-sm md:text-base font-bold text-white tracking-tight">{item.values[0]}</div>
+                    <div className="text-sm md:text-base font-bold dark:text-white text-slate-900 tracking-tight">{item.values[0]}</div>
                   </div>
                 </a>
               ))}
             </div>
 
             {/* Google Map Optimized for Mobile */}
-            <div className="rounded-2xl border border-white/10 overflow-hidden h-44 md:h-64 bg-white/5 relative">
+            <div className="rounded-2xl border dark:border-white/10 border-black/10 overflow-hidden h-44 md:h-64 dark:bg-white/5 bg-black/5 relative">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.6593645366115!2d79.86616429726563!3d23.186307199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981ae1a0dbcbb97%3A0x15f3810ec56063b4!2sJabalpur%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1713881900000!5m2!1sen!2sin" 
                 width="100%" 
@@ -1548,11 +1548,11 @@ const ContactPage = () => {
               ></iframe>
             </div>
             
-            <div className="p-5 bg-white/[0.03] border border-white/10 rounded-2xl flex items-start gap-4">
+            <div className="p-5 bg-white/[0.03] border dark:border-white/10 border-black/10 rounded-2xl flex items-start gap-4">
               <MapPin className="text-primary-start shrink-0" size={20} />
               <div>
                 <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">Office Address</div>
-                <div className="text-sm font-bold text-white tracking-tight leading-snug">Katangi Road, Jabalpur, Madhya Pradesh – 483105, India</div>
+                <div className="text-sm font-bold dark:text-white text-slate-900 tracking-tight leading-snug">Katangi Road, Jabalpur, Madhya Pradesh – 483105, India</div>
               </div>
             </div>
           </div>
@@ -1562,11 +1562,11 @@ const ContactPage = () => {
             <motion.div 
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white/[0.02] border border-white/10 p-6 md:p-10 rounded-3xl"
+              className="bg-white/[0.02] border dark:border-white/10 border-black/10 p-6 md:p-10 rounded-3xl"
             >
               <div className="mb-8 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Mushroom Farming Setup Enquiry Form</h3>
-                <p className="text-slate-400 text-sm font-medium">Please fill in your details for a callback regarding commercial mushroom setups.</p>
+                <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Mushroom Farming Setup Enquiry Form</h3>
+                <p className="dark:text-slate-400 text-slate-600 text-sm font-medium">Please fill in your details for a callback regarding commercial mushroom setups.</p>
               </div>
 
               <form action="https://formspree.io/f/mwvazwnl" method="POST" onSubmit={handleSubmit} className="space-y-5">
@@ -1574,28 +1574,28 @@ const ContactPage = () => {
                 <input type="hidden" name="_date" value={new Date().toLocaleDateString()} />
                 
                 <div className="space-y-1.5">
-                  <label htmlFor="name" className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Name *</label>
+                  <label htmlFor="name" className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1">Full Name *</label>
                   <input 
                     id="name" name="name" required type="text" placeholder="Your Name" 
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
                   />
                   <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
                 </div>
                 
                 <div className="space-y-1.5">
-                  <label htmlFor="email" className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Email Address *</label>
+                  <label htmlFor="email" className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1">Email Address *</label>
                   <input 
                     id="email" name="email" required type="email" placeholder="yourname@example.com" 
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
                   />
                   <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="message" className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Your Requirements / Message *</label>
+                  <label htmlFor="message" className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1">Your Requirements / Message *</label>
                   <textarea 
                     id="message" name="message" required rows={4} placeholder="Briefly describe your mushroom farm requirements..." 
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start transition-all resize-none text-sm font-medium placeholder:text-slate-700 min-h-[100px]"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all resize-none text-sm font-medium placeholder:text-slate-700 min-h-[100px]"
                   ></textarea>
                   <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
                 </div>
@@ -1603,7 +1603,7 @@ const ContactPage = () => {
                 <button 
                   type="submit" 
                   disabled={state.submitting}
-                  className={`w-full py-5 rounded-xl bg-primary-start text-white text-[12px] uppercase tracking-widest font-black transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 ${state.submitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-5 rounded-xl bg-primary-start dark:text-white text-slate-900 text-[12px] uppercase tracking-widest font-black transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 ${state.submitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {state.submitting ? (
                     <>
@@ -1636,14 +1636,14 @@ const ContactPage = () => {
                initial={{ opacity: 0, scale: 0.9, y: 10 }}
                animate={{ opacity: 1, scale: 1, y: 0 }}
                exit={{ opacity: 0, scale: 0.9, y: 10 }}
-               className="relative bg-zinc-900 p-8 md:p-12 rounded-3xl border border-white/10 max-w-md w-full text-center shadow-2xl"
+               className="relative bg-zinc-900 p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 max-w-md w-full text-center shadow-2xl"
              >
                 <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-6 border border-green-500/30">
                   <CheckCircle2 size={32} />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Enquiry Received</h3>
-                <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">
-                  Thank you! Your commercial setup enquiry has been received. Our expert will call you within <span className="text-white font-bold underline decoration-primary-start underline-offset-4">24 hours</span>.
+                <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Enquiry Received</h3>
+                <p className="dark:text-slate-400 text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+                  Thank you! Your commercial setup enquiry has been received. Our expert will call you within <span className="dark:text-white text-slate-900 font-bold underline decoration-primary-start underline-offset-4">24 hours</span>.
                 </p>
                 <button 
                   onClick={handleClose}
@@ -1672,7 +1672,7 @@ const StatesSection = () => {
       <div className="max-w-7xl mx-auto text-center">
         <div className="badge mx-auto mb-4">Global & National Service Area</div>
         <h2 className="mb-4 uppercase tracking-tight">Active Commercial Project <span className="gradient-text">Hubs Across India, USA, Australia & Global Regions</span></h2>
-        <p className="max-w-3xl mx-auto mb-10 font-medium leading-relaxed text-slate-400">
+        <p className="max-w-3xl mx-auto mb-10 font-medium leading-relaxed dark:text-slate-400 text-slate-600">
           We provide commercial mushroom farming training and turnkey setup services across all states of India and key international markets, ensuring precision and high yield for every climate zone globally.
         </p>
         
@@ -1683,14 +1683,14 @@ const StatesSection = () => {
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(state + ' India')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 glass border border-white/5 rounded-full text-[10px] font-bold text-slate-500 hover:text-white hover:border-primary-start hover:bg-primary-start/20 transition-all"
+              className="px-4 py-2 glass border dark:border-white/5 border-black/5 rounded-full text-[10px] font-bold text-slate-500 hover:dark:text-white text-slate-900 hover:border-primary-start hover:bg-primary-start/20 transition-all"
             >
               {state}
             </a>
           ))}
         </div>
         
-        <div className="mt-12 p-6 rounded-3xl bg-white/5 border border-white/5 max-w-4xl mx-auto text-left">
+        <div className="mt-12 p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 max-w-4xl mx-auto text-left">
           <p className="text-sm text-slate-500 leading-relaxed mb-6">
             Our expert teams provide <strong>mushroom training in India</strong> and <strong>mushroom farm setup India</strong> services in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, Rajasthan, Gujarat, Punjab, Haryana, Chhattisgarh, Jharkhand, and other major regions. We are committed to building the most successful <strong>button mushroom farming business</strong> network globally.
           </p>
@@ -1707,17 +1707,17 @@ const StatesSection = () => {
 
 const Footer = () => {
   return (
-    <footer className="pt-20 pb-24 md:pb-12 bg-black/50 border-t border-white/5">
+    <footer className="pt-20 pb-24 md:pb-12 bg-black/50 border-t dark:border-white/5 border-black/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img 
                 src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
-                alt="Organic Mushroom Farm Logo - Commercial Turnkey Mushroom Project Consultant in India and Worldwide" 
+                alt="Organic Mushroom Farm" 
                 className="w-14 h-14 object-contain" 
               />
-              <span className="text-lg font-bold tracking-tight text-white">
+              <span className="text-lg font-bold tracking-tight dark:text-white text-slate-900">
                 Organic <span className="gradient-text">Mushroom Farm</span>
               </span>
             </div>
@@ -1727,28 +1727,28 @@ const Footer = () => {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[8px] font-black text-slate-600 uppercase tracking-[0.3em]">
               {LOCATIONS.map((loc, i) => (
                 <span key={loc} className="flex items-center gap-2">
-                  {loc} {i !== LOCATIONS.length - 1 && <div className="w-1 h-1 rounded-full bg-white/10"></div>}
+                  {loc} {i !== LOCATIONS.length - 1 && <div className="w-1 h-1 rounded-full dark:bg-white/10 bg-black/10"></div>}
                 </span>
               ))}
             </div>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              <a href="https://www.youtube.com/@organicmushroomfarm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/30 rounded-lg text-sm text-slate-300 hover:text-white transition-all group">
+              <a href="https://www.youtube.com/@organicmushroomfarm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-red-500/10 border dark:border-white/5 border-black/5 hover:border-red-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
                 <Youtube size={16} className="text-red-500 group-hover:scale-110 transition-transform" />
                 <span className="font-medium">YouTube</span>
               </a>
-              <a href="https://www.google.com/maps/place/Organic+Mushroom+Farm+Jabalpur/data=!4m2!3m1!1s0x398195413dca528d:0xf300f41d92f31068?sa=X&ved=1t:242&hl=en-IN&ictx=111" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-blue-500/10 border border-white/5 hover:border-blue-500/30 rounded-lg text-sm text-slate-300 hover:text-white transition-all group">
+              <a href="https://www.google.com/maps/place/Organic+Mushroom+Farm+Jabalpur/data=!4m2!3m1!1s0x398195413dca528d:0xf300f41d92f31068?sa=X&ved=1t:242&hl=en-IN&ictx=111" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-blue-500/10 border dark:border-white/5 border-black/5 hover:border-blue-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
                 <MapPin size={16} className="text-blue-500 group-hover:scale-110 transition-transform" />
                 <span className="font-medium">Find Us on Google Maps</span>
               </a>
-              <a href="https://www.exportersindia.com/organic-mushroom-farm-jabalpur/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-amber-500/10 border border-white/5 hover:border-amber-500/30 rounded-lg text-sm text-slate-300 hover:text-white transition-all group">
+              <a href="https://www.exportersindia.com/organic-mushroom-farm-jabalpur/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-amber-500/10 border dark:border-white/5 border-black/5 hover:border-amber-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
                 <Briefcase size={16} className="text-amber-500 group-hover:scale-110 transition-transform" />
                 <span className="font-medium">Exporters India</span>
               </a>
             </div>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Pages</h4>
+            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Pages</h4>
             <ul className="space-y-3">
               {[
                 { name: "About Us", href: "/about" },
@@ -1758,13 +1758,13 @@ const Footer = () => {
                 { name: "Gallery", href: "/gallery" },
               ].map(item => (
                 <li key={item.name}>
-                  <Link to={item.href} className="text-slate-500 hover:text-white transition-colors text-sm font-medium">{item.name}</Link>
+                  <Link to={item.href} className="text-slate-500 hover:dark:text-white text-slate-900 transition-colors text-sm font-medium">{item.name}</Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Resources</h4>
+            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Resources</h4>
             <ul className="space-y-3">
               {[
                 { name: "Business Plan", href: "/business-plan" },
@@ -1777,13 +1777,13 @@ const Footer = () => {
                 { name: "Privacy Policy", href: "/privacy" },
               ].map(item => (
                 <li key={item.name}>
-                  <Link to={item.href} className="text-slate-500 hover:text-white transition-colors text-sm font-medium">{item.name}</Link>
+                  <Link to={item.href} className="text-slate-500 hover:dark:text-white text-slate-900 transition-colors text-sm font-medium">{item.name}</Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between border-t border-white/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
+        <div className="flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
           <div className="mb-6 md:mb-0">© 2026 Organic Mushroom Farm. All Rights Reserved.</div>
           <div className="flex gap-8">
             {[
@@ -1840,7 +1840,7 @@ const FloatingButtons = () => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.05 }}
-          className="flex px-4 md:px-6 h-12 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border border-white/10 font-bold tracking-wide whitespace-nowrap gap-2 text-[10px] md:text-base order-1 md:order-none"
+          className="flex px-4 md:px-6 h-12 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 dark:text-white text-slate-900 items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-2 text-[10px] md:text-base order-1 md:order-none"
         >
           <Calendar size={18} className="md:w-5 md:h-5" />
           <span className="hidden md:inline">Book a Free Consultation</span>
@@ -1855,7 +1855,7 @@ const FloatingButtons = () => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 text-white flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0 order-2 md:order-none"
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 dark:text-white text-slate-900 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0 order-2 md:order-none"
         >
           <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></div>
           <MessageCircle size={28} className="relative z-10" />
@@ -1867,7 +1867,7 @@ const FloatingButtons = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-12 h-12 glass rounded-full text-slate-400 flex items-center justify-center hover:bg-white/10 transition-all hidden md:flex"
+            className="w-12 h-12 glass rounded-full dark:text-slate-400 text-slate-600 flex items-center justify-center hover:dark:bg-white/10 bg-black/10 transition-all hidden md:flex"
           >
             <ChevronUp size={20} />
           </motion.button>
@@ -1875,11 +1875,11 @@ const FloatingButtons = () => {
       </div>
 
       {/* Mobile Horizontal Sticky Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+      <div className="fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t dark:border-white/10 border-black/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
         <div className="overflow-x-auto scrollbar-hide snap-x flex items-center gap-3 p-4">
           {mobileNavItems.map((item, i) => {
             const isExternal = item.href.startsWith('tel:') || item.href.startsWith('http');
-            const className = "snap-start shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border border-white/10 hover:border-primary-start/50 transition-all active:scale-95";
+            const className = "snap-start shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border dark:border-white/10 border-black/10 hover:border-primary-start/50 transition-all active:scale-95";
             
             if (isExternal) {
               return (
@@ -1891,7 +1891,7 @@ const FloatingButtons = () => {
                   className={className}
                 >
                   <item.icon size={14} className="text-primary-start" />
-                  <span className="text-[11px] font-bold text-white whitespace-nowrap tracking-tight">{item.label}</span>
+                  <span className="text-[11px] font-bold dark:text-white text-slate-900 whitespace-nowrap tracking-tight">{item.label}</span>
                 </a>
               );
             }
@@ -1903,7 +1903,7 @@ const FloatingButtons = () => {
                 className={className}
               >
                 <item.icon size={14} className="text-primary-start" />
-                <span className="text-[11px] font-bold text-white whitespace-nowrap tracking-tight">{item.label}</span>
+                <span className="text-[11px] font-bold dark:text-white text-slate-900 whitespace-nowrap tracking-tight">{item.label}</span>
               </Link>
             );
           })}
@@ -1945,10 +1945,10 @@ const MushroomTraining = () => {
             viewport={{ once: true }}
           >
             <div className="badge mx-auto mb-6">Expert-Led Courses</div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-tight uppercase">
+            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight uppercase">
               Professional <span className="gradient-text">Button, Oyster & Milky Mushroom Farming</span> Training
             </h2>
-            <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto font-medium mb-10">
+            <p className="dark:text-slate-400 text-slate-600 text-base md:text-lg max-w-2xl mx-auto font-medium mb-10">
               Learn Commercial Button & Oyster Mushroom Farming from Global Experts – Start Your Own Business Today. Comprehensive modules designed for maximum ROI.
             </p>
           </motion.div>
@@ -1956,17 +1956,17 @@ const MushroomTraining = () => {
       </div>
 
       {/* Training Options Section */}
-      <div id="options" className="section-padding bg-white/5">
+      <div id="options" className="section-padding dark:bg-white/5 bg-black/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">Choose Your <span className="gradient-text">Commercial Training Model</span></h3>
-            <p className="text-slate-400">Select the path that fits your commercial mushroom goals and budget.</p>
+            <h3 className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 mb-4">Choose Your <span className="gradient-text">Commercial Training Model</span></h3>
+            <p className="dark:text-slate-400 text-slate-600">Select the path that fits your commercial mushroom goals and budget.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             {/* Online Training */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="glass p-8 md:p-12 rounded-[3rem] border border-white/10 relative overflow-hidden"
+              className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
             >
               <a 
                 href="https://youtube.com/shorts/wxLiU3nNZmM?si=6VmH86DPYKoQ72P6" 
@@ -1977,7 +1977,7 @@ const MushroomTraining = () => {
                 <Play size={120} />
               </a>
               <div className="badge mb-6">Self-Paced</div>
-              <h4 className="text-3xl font-bold text-white mb-2">Online Training</h4>
+              <h4 className="text-3xl font-bold dark:text-white text-slate-900 mb-2">Online Training</h4>
               <div className="text-4xl font-black gradient-text mb-6">₹399</div>
               <ul className="space-y-4 mb-10">
                 {[
@@ -1986,7 +1986,7 @@ const MushroomTraining = () => {
                   "Lifetime Access",
                   "Beginner Friendly"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-300 font-bold">
+                  <li key={i} className="flex items-center gap-3 dark:text-slate-300 text-slate-700 font-bold">
                     <CheckCircle2 size={20} className="text-primary-start" /> {item}
                   </li>
                 ))}
@@ -2004,13 +2004,13 @@ const MushroomTraining = () => {
             {/* Offline Training */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="glass p-8 md:p-12 rounded-[3rem] border border-white/10 relative overflow-hidden"
+              className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-5">
                 <Users size={120} />
               </div>
               <div className="badge mb-6">Hands-on Workshop</div>
-              <h4 className="text-3xl font-bold text-white mb-2">Offline Training</h4>
+              <h4 className="text-3xl font-bold dark:text-white text-slate-900 mb-2">Offline Training</h4>
               <div className="text-4xl font-black gradient-text mb-6">₹3000</div>
               <ul className="space-y-4 mb-10">
                 {[
@@ -2019,7 +2019,7 @@ const MushroomTraining = () => {
                   "Setup Guidance",
                   "Marketing & Selling Tips"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-300 font-bold">
+                  <li key={i} className="flex items-center gap-3 dark:text-slate-300 text-slate-700 font-bold">
                     <CheckCircle2 size={20} className="text-green-500" /> {item}
                   </li>
                 ))}
@@ -2028,7 +2028,7 @@ const MushroomTraining = () => {
                 <a href="tel:9203544140" className="btn-outline py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-xs">
                   <Phone size={16} /> Call Now
                 </a>
-                <a href="https://wa.me/919203544140" className="bg-[#25D366] hover:bg-[#128C7E] text-white py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-xs transition-colors">
+                <a href="https://wa.me/919203544140" className="bg-[#25D366] hover:bg-[#128C7E] dark:text-white text-slate-900 py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-xs transition-colors">
                   <MessageCircle size={16} /> WhatsApp
                 </a>
               </div>
@@ -2037,11 +2037,11 @@ const MushroomTraining = () => {
         </div>
       </div>
 
-      <div className="section-padding bg-white/5">
+      <div className="section-padding dark:bg-white/5 bg-black/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="badge mx-auto mb-6">Commercial Farming Essentials</div>
-          <h3 className="text-2xl md:text-4xl font-bold text-white mb-6 uppercase tracking-tight">Need High-Yield Commercial <span className="gradient-text">Mushroom Seed?</span></h3>
-          <p className="text-slate-400 mb-10 max-w-2xl mx-auto">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders in India and global export.</p>
+          <h3 className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 mb-6 uppercase tracking-tight">Need High-Yield Commercial <span className="gradient-text">Mushroom Seed?</span></h3>
+          <p className="dark:text-slate-400 text-slate-600 mb-10 max-w-2xl mx-auto">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders in India and global export.</p>
           <Link 
             to="/spawn-seed"
             className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
@@ -2055,7 +2055,7 @@ const MushroomTraining = () => {
       <div className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h3 className="text-xl md:text-3xl font-bold text-white uppercase tracking-tight">Why Choose <span className="gradient-text">Our Professional Training?</span></h3>
+            <h3 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight">Why Choose <span className="gradient-text">Our Professional Training?</span></h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -2064,11 +2064,11 @@ const MushroomTraining = () => {
               { title: "Business Guidance", desc: "Expert tips on global marketing, B2B scaling, and ROI management.", icon: TrendingUp },
               { title: "Training Support", desc: "Lifetime technical guidance for button and oyster mushroom setup.", icon: ShieldCheck },
             ].map((item, i) => (
-              <div key={i} className="glass p-8 rounded-3xl border border-white/5 text-center group hover:bg-white/5 transition-all">
-                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6 text-primary-start group-hover:scale-110 transition-transform">
+              <div key={i} className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 text-center group hover:dark:bg-white/5 bg-black/5 transition-all">
+                <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 text-primary-start group-hover:scale-110 transition-transform">
                   <item.icon size={28} />
                 </div>
-                <h4 className="text-white font-bold text-lg mb-3">{item.title}</h4>
+                <h4 className="dark:text-white text-slate-900 font-bold text-lg mb-3">{item.title}</h4>
                 <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -2080,7 +2080,7 @@ const MushroomTraining = () => {
       <div className="section-padding pt-0">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-xl md:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Experience our Commercial <span className="gradient-text">Ecosystem</span></h3>
+            <h3 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-4 uppercase tracking-tight">Experience our Commercial <span className="gradient-text">Ecosystem</span></h3>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
             {galleryImages.map((img, i) => (
@@ -2089,7 +2089,7 @@ const MushroomTraining = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
-                className="aspect-square rounded-2xl overflow-hidden glass border border-white/10"
+                className="aspect-square rounded-2xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
                 <img loading="lazy" src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform hover:scale-110 duration-500" />
               </motion.div>
@@ -2099,18 +2099,18 @@ const MushroomTraining = () => {
       </div>
 
       {/* SEO Content Section */}
-      <div className="section-padding bg-white/5">
+      <div className="section-padding dark:bg-white/5 bg-black/5">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-8 border-l-4 border-primary-start pl-6 uppercase tracking-tight">Start Your Commercial <span className="gradient-text">Mushroom Farming Journey</span> in India & Globally</h3>
-          <div className="text-slate-400 space-y-6 leading-relaxed text-sm md:text-base">
+          <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 border-l-4 border-primary-start pl-6 uppercase tracking-tight">Start Your Commercial <span className="gradient-text">Mushroom Farming Journey</span> in India & Globally</h3>
+          <div className="dark:text-slate-400 text-slate-600 space-y-6 leading-relaxed text-sm md:text-base">
             <p>
-              Looking for the best <span className="text-white font-bold">mushroom farming training in India</span>? At Organic Mushroom Farm, we provide the most comprehensive <span className="text-white font-bold">button mushroom training course</span> designed specifically for the Indian climate and international global market standards. Our modules cover everything from raw substrate preparation to precision climate control.
+              Looking for the best <span className="dark:text-white text-slate-900 font-bold">mushroom farming training in India</span>? At Organic Mushroom Farm, we provide the most comprehensive <span className="dark:text-white text-slate-900 font-bold">button mushroom training course</span> designed specifically for the Indian climate and international global market standards. Our modules cover everything from raw substrate preparation to precision climate control.
             </p>
             <p>
-              Our <span className="text-white font-bold">online mushroom farming training</span> is perfect for those who want to learn at their own pace. We comprehensively cover technical aspects of high-yield milky mushroom and oyster mushroom growing in detailed multi-page formats as well, ensuring you have a diverse commercial portfolio.
+              Our <span className="dark:text-white text-slate-900 font-bold">online mushroom farming training</span> is perfect for those who want to learn at their own pace. We comprehensively cover technical aspects of high-yield milky mushroom and oyster mushroom growing in detailed multi-page formats as well, ensuring you have a diverse commercial portfolio.
             </p>
             <p>
-              If you're wondering <span className="text-white font-bold">how to start mushroom farming business</span> in USA, Australia, or India, our training is the ultimate first step. We provide the blueprint for building an indoor commercial mushroom plant that yields high-quality produce consistently. From students learning farming basics to established entrepreneurs scaling their units across Pan India, our curriculum caters to all.
+              If you're wondering <span className="dark:text-white text-slate-900 font-bold">how to start mushroom farming business</span> in USA, Australia, or India, our training is the ultimate first step. We provide the blueprint for building an indoor commercial mushroom plant that yields high-quality produce consistently. From students learning farming basics to established entrepreneurs scaling their units across Pan India, our curriculum caters to all.
             </p>
           </div>
         </div>
@@ -2120,12 +2120,12 @@ const MushroomTraining = () => {
       <div className="section-padding">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4 uppercase tracking-tight">Common Commercial Farming <span className="gradient-text">Queries</span></h3>
+            <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-4 uppercase tracking-tight">Common Commercial Farming <span className="gradient-text">Queries</span></h3>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, i) => (
               <Collapsible key={i} title={faq.q}>
-                <p className="text-slate-400 leading-relaxed">{faq.a}</p>
+                <p className="dark:text-slate-400 text-slate-600 leading-relaxed">{faq.a}</p>
               </Collapsible>
             ))}
           </div>
@@ -2192,24 +2192,24 @@ const HomePage = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className={`glass card-padding rounded-3xl border border-white/5 relative ${comp.recommended ? 'shadow-2xl shadow-brand-blue/10 border-primary-mid/30' : ''}`}
+                className={`glass card-padding rounded-3xl border dark:border-white/5 border-black/5 relative ${comp.recommended ? 'shadow-2xl shadow-brand-blue/10 border-primary-mid/30' : ''}`}
               >
                 {comp.recommended && <div className="absolute top-4 right-5 badge text-[8px]">Best Value</div>}
-                <h3 className="text-white mb-2">{comp.name}</h3>
+                <h3 className="dark:text-white text-slate-900 mb-2">{comp.name}</h3>
                 <div className="text-slate-500 mb-6 font-medium text-[13px]">{comp.desc}</div>
                 
                 <div className="grid grid-cols-3 gap-3 mb-6">
                   {Object.entries(comp.stats).map(([k, v]) => (
-                    <div key={k} className="p-2 md:p-4 rounded-xl bg-white/5 border border-white/5 text-center">
+                    <div key={k} className="p-2 md:p-4 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-center">
                       <div className="text-[8px] text-slate-500 font-bold uppercase mb-1">{k}</div>
-                      <div className="text-sm md:text-lg font-bold text-white">{v}</div>
+                      <div className="text-sm md:text-lg font-bold dark:text-white text-slate-900">{v}</div>
                     </div>
                   ))}
                 </div>
                 
-                <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 shadow shadow-brand-blue/10 ring-1 ring-white/10 ring-inset mb-6">
-                  <span className="text-[11px] font-semibold text-slate-400">Est. CapEx</span>
-                  <span className="text-lg font-bold text-white">{comp.investment}</span>
+                <div className="flex items-center justify-between p-4 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 shadow shadow-brand-blue/10 ring-1 ring-white/10 ring-inset mb-6">
+                  <span className="text-[11px] font-semibold dark:text-slate-400 text-slate-600">Est. CapEx</span>
+                  <span className="text-lg font-bold dark:text-white text-slate-900">{comp.investment}</span>
                 </div>
                 
                 <Link 
@@ -2244,16 +2244,16 @@ const HomePage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="glass p-6 rounded-3xl border border-white/5 flex flex-col h-full"
+                className="glass p-6 rounded-3xl border dark:border-white/5 border-black/5 flex flex-col h-full"
               >
                 <Quote size={20} className="text-primary-start mb-4 opacity-40" />
-                <p className="text-slate-300 text-[13px] italic mb-6 leading-relaxed flex-1">"{t.text}"</p>
+                <p className="dark:text-slate-300 text-slate-700 text-[13px] italic mb-6 leading-relaxed flex-1">"{t.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full gradient-bg flex items-center justify-center font-bold text-white text-[10px] shadow-lg">
+                  <div className="w-9 h-9 rounded-full gradient-bg flex items-center justify-center font-bold dark:text-white text-slate-900 text-[10px] shadow-lg">
                     {t.avatar}
                   </div>
                   <div>
-                    <div className="text-white font-bold text-[12px] tracking-tight">{t.name}</div>
+                    <div className="dark:text-white text-slate-900 font-bold text-[12px] tracking-tight">{t.name}</div>
                     <div className="text-[8px] text-slate-500 font-black uppercase tracking-widest">{t.location}</div>
                   </div>
                 </div>
@@ -2283,16 +2283,16 @@ const HomePage = () => {
                   href={ad.linkType === 'external' ? ad.to : undefined}
                   target={ad.linkType === 'external' ? "_blank" : undefined}
                   rel={ad.linkType === 'external' ? "noopener noreferrer" : undefined}
-                  className="glass p-5 rounded-2xl border border-white/5 relative group cursor-pointer block"
+                  className="glass p-5 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
                 >
                   <div className={`absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400`}>
                     {ad.type}
                   </div>
-                  <h3 className="text-white mb-1 mt-4 tracking-tight">{ad.title}</h3>
+                  <h3 className="dark:text-white text-slate-900 mb-1 mt-4 tracking-tight">{ad.title}</h3>
                   <div className="text-[12px] text-slate-500 mb-6">{ad.desc}</div>
                   <div className="flex items-center justify-between">
-                    <span className="text-white font-bold text-sm bg-white/5 px-3 py-2 rounded-xl">{ad.price}</span>
-                    <button className="w-9 h-9 rounded-lg bg-white/5 text-slate-400 flex items-center justify-center group-hover:bg-primary-start group-hover:text-white transition-all">
+                    <span className="dark:text-white text-slate-900 font-bold text-sm dark:bg-white/5 bg-black/5 px-3 py-2 rounded-xl">{ad.price}</span>
+                    <button className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
                       <ArrowRight size={16} />
                     </button>
                   </div>
@@ -2335,11 +2335,11 @@ const HomePage = () => {
                   { name: "Casing Material Preparation Guide", id: "casing" },
                   { name: "Disease Control & Commercial Farm Hygiene Protocols", id: "hygiene" }
                 ].map(sop => (
-                  <Link to={`/sops#${sop.id}`} key={sop.name} className="flex items-center gap-4 p-5 glass rounded-2xl border border-white/5 group hover:bg-white/5 transition-all cursor-pointer">
+                  <Link to={`/sops#${sop.id}`} key={sop.name} className="flex items-center gap-4 p-5 glass rounded-2xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all cursor-pointer">
                     <div className="w-10 h-10 rounded-xl bg-primary-start/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <BookOpen size={18} className="text-primary-start" />
                     </div>
-                    <span className="text-sm font-bold text-slate-300">{sop.name}</span>
+                    <span className="text-sm font-bold dark:text-slate-300 text-slate-700">{sop.name}</span>
                     <ArrowRight className="ml-auto text-slate-700 group-hover:translate-x-1 transition-transform" size={16} />
                   </Link>
                 ))}
@@ -2348,10 +2348,10 @@ const HomePage = () => {
             
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-10 blur-[80px] rounded-full"></div>
-              <div className="relative glass p-6 md:p-10 rounded-[2.5rem] border border-white/10">
+              <div className="relative glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/10 border-black/10">
                 <div className="flex items-center gap-4 mb-8 justify-center lg:justify-start">
                   <BookOpen className="text-primary-start" size={24} />
-                  <h3 className="text-white tracking-tight">Commercial Knowledge Hub</h3>
+                  <h3 className="dark:text-white text-slate-900 tracking-tight">Commercial Knowledge Hub</h3>
                 </div>
                 <div className="space-y-6">
                   <Link to="/articles/mushroom-farming-beginner-guide-india-2026-2027" className="p-4 md:p-6 rounded-3xl bg-primary-start/10 border border-primary-start/20 block group hover:scale-[1.02] transition-transform">
@@ -2359,11 +2359,11 @@ const HomePage = () => {
                       <span className="text-[9px] text-primary-start font-black uppercase tracking-widest">Ultimate Guide 2026-2027</span>
                       <div className="px-2 py-0.5 rounded bg-green-500/20 text-green-500 text-[8px] font-black uppercase">Article</div>
                     </div>
-                    <h4 className="text-white font-bold text-lg mb-2">Mushroom Farming Beginner Guide India 2026-2027</h4>
-                    <p className="text-slate-400 text-xs leading-relaxed">Complete guide on how to start mushroom farming (mushroom ki kheti) from scratch for beginners.</p>
+                    <h4 className="dark:text-white text-slate-900 font-bold text-lg mb-2">Mushroom Farming Beginner Guide India 2026-2027</h4>
+                    <p className="dark:text-slate-400 text-slate-600 text-xs leading-relaxed">Complete guide on how to start mushroom farming (mushroom ki kheti) from scratch for beginners.</p>
                   </Link>
 
-                  <div className="p-4 md:p-6 rounded-3xl bg-white/5 border border-white/10">
+                  <div className="p-4 md:p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">Featured</span>
                       <div className="px-2 py-0.5 rounded bg-red-500/20 text-red-500 text-[8px] font-black uppercase">Video</div>
@@ -2381,7 +2381,7 @@ const HomePage = () => {
                         </div>
                       </div>
                     </a>
-                    <h4 className="text-white font-bold text-[13px] tracking-tight">Commercial Composting Flow Explained</h4>
+                    <h4 className="dark:text-white text-slate-900 font-bold text-[13px] tracking-tight">Commercial Composting Flow Explained</h4>
                   </div>
                 </div>
               </div>
@@ -2407,14 +2407,14 @@ const PageHero = ({ title, description, badge }: { title: string; description: s
         transition={{ duration: 0.6 }}
       >
         {badge && <div className="badge mx-auto mb-6">{badge}</div>}
-        <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+        <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
           {title.split(' ').map((word, i) => (
             <React.Fragment key={i}>
               {i === 1 ? <span className="gradient-text">{word} </span> : word + ' '}
             </React.Fragment>
           ))}
         </h1>
-        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+        <p className="dark:text-slate-400 text-slate-600 text-lg md:text-xl max-w-2xl mx-auto font-medium">
           {description}
         </p>
       </motion.div>
@@ -2477,17 +2477,17 @@ const AboutPage = () => {
               <div className="badge mb-4">Who We Are</div>
               <h2 className="mb-6 uppercase tracking-tight">Our Mission & <span className="gradient-text">Global Vision for Organic Agriculture</span></h2>
               <div className="space-y-6">
-                <div className="glass p-6 border border-white/5 rounded-2xl relative overflow-hidden group">
+                <div className="glass p-6 border dark:border-white/5 border-black/5 rounded-2xl relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><Briefcase size={60} /></div>
-                  <h3 className="text-white text-lg font-bold mb-2">Our Mission</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <h3 className="dark:text-white text-slate-900 text-lg font-bold mb-2">Our Mission</h3>
+                  <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
                     Our startup is dedicated to <strong>helping people start commercial mushroom farming businesses</strong> with minimal risk and maximum precision. We bridge the gap between theoretical knowledge and commercial success in button and oyster mushroom production.
                   </p>
                 </div>
-                <div className="glass p-6 border border-white/5 rounded-2xl relative overflow-hidden group">
+                <div className="glass p-6 border dark:border-white/5 border-black/5 rounded-2xl relative overflow-hidden group">
                   <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform"><ShieldCheck size={60} /></div>
-                  <h3 className="text-white text-lg font-bold mb-2">Our Vision</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <h3 className="dark:text-white text-slate-900 text-lg font-bold mb-2">Our Vision</h3>
+                  <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
                     We aim to lead the revolution in <strong>promoting organic agriculture and self-employment</strong> across Madhya Pradesh, India, and internationally. Our vision is to make every farmer a successful global agri-entrepreneur through sustainable practices.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -2508,7 +2508,7 @@ const AboutPage = () => {
               <img 
                 src="training images/trainingmushroom.jpg" 
                 alt="Who We Are - Leading Organic Mushroom Farm Training and Commercial Turnkey Setup Experts in India, USA, Australia" 
-                className="relative z-10 rounded-[2.5rem] border border-white/10 shadow-2xl opacity-80"
+                className="relative z-10 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl opacity-80"
               />
             </div>
           </div>
@@ -2521,19 +2521,19 @@ const AboutPage = () => {
           <div className="text-center mb-16">
             <div className="badge mx-auto mb-4">What We Do</div>
             <h2 className="uppercase tracking-tight">Core <span className="gradient-text">Mushroom Farming Operations & Consultancy</span></h2>
-            <p className="text-slate-400 mt-4 max-w-2xl mx-auto">Providing end-to-end support for commercial <strong>button mushroom farming in India and globally</strong>.</p>
+            <p className="dark:text-slate-400 text-slate-600 mt-4 max-w-2xl mx-auto">Providing end-to-end support for commercial <strong>button mushroom farming in India and globally</strong>.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {whatWeDo.map((item, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
-                className="glass p-8 rounded-3xl border border-white/5 text-center flex flex-col"
+                className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 text-center flex flex-col"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary-start/10 text-primary-start flex items-center justify-center mx-auto mb-6">
                   <item.icon size={26} />
                 </div>
-                <h3 className="text-white font-bold text-lg mb-3">{item.title}</h3>
+                <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-3">{item.title}</h3>
                 <p className="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">{item.desc}</p>
                 {item.price && (
                   <div className="text-xl font-black gradient-text mb-4">{item.price}</div>
@@ -2560,7 +2560,7 @@ const AboutPage = () => {
               <img 
                 src="training images/mushroomgrowth.jpg" 
                 alt="Why Choose Us - High Yield Button Mushroom Growth and Organic Cultivation Training in Jabalpur India" 
-                className="rounded-[2.5rem] border border-white/10 shadow-2xl"
+                className="rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl"
               />
             </div>
             <div className="order-1 lg:order-2">
@@ -2574,10 +2574,10 @@ const AboutPage = () => {
                   { title: "Lifetime Support", desc: "Continuous technical guidance even after commercial farm setup.", icon: ShieldCheck },
                 ].map((item, i) => (
                   <div key={i} className="space-y-2">
-                    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary-start mb-4">
+                    <div className="w-10 h-10 rounded-xl dark:bg-white/5 bg-black/5 flex items-center justify-center text-primary-start mb-4">
                       <item.icon size={20} />
                     </div>
-                    <h4 className="text-white font-bold text-sm">{item.title}</h4>
+                    <h4 className="dark:text-white text-slate-900 font-bold text-sm">{item.title}</h4>
                     <p className="text-slate-500 text-xs leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
@@ -2590,10 +2590,10 @@ const AboutPage = () => {
       {/* SEO Natural Text Section */}
       <section className="section-padding bg-black/40">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert text-center">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-8 uppercase tracking-tight leading-loose">
+          <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 uppercase tracking-tight leading-loose">
             Pioneering Commercial <span className="gradient-text">Organic Mushroom Farm Katangi</span> & Jabalpur
           </h3>
-          <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+          <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
             Our commercial <strong>organic mushroom farm in Katangi</strong> road, Jabalpur, serves as a model for aspiring farmers across the region and globe. We are proud to provide the most reliable <strong>mushroom training in Madhya Pradesh</strong>, focusing on the specific environmental needs of Central India and international exports. From climate-controlled grow rooms to industrial compost preparation, our <strong>mushroom farming in Jabalpur</strong> solutions ensure that you enter the global market with a competitive edge. Join us to build a sustainable commercial future with professional <strong>button mushroom farming in India</strong>.
           </p>
         </div>
@@ -2635,13 +2635,13 @@ const ServicesPage = () => {
               <motion.div 
                 key={i}
                 whileHover={{ y: -10 }}
-                className="glass p-8 rounded-3xl border border-white/5 group hover:bg-white/5 transition-all"
+                className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary-start/10 text-primary-start flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <s.icon size={26} />
                 </div>
-                <h3 className="text-white font-bold text-xl mb-4">{s.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">{s.desc}</p>
+                <h3 className="dark:text-white text-slate-900 font-bold text-xl mb-4">{s.title}</h3>
+                <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-6 font-medium">{s.desc}</p>
                 <Link 
                   to={`/services/${s.id}`}
                   className="text-primary-start font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
@@ -2680,7 +2680,7 @@ const TurnkeyProjectsPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="mb-4 uppercase tracking-tight">Our Commercial <span className="gradient-text">Farming Models</span></h2>
-            <p className="text-slate-400">Scale your production with our proven commercial structural designs.</p>
+            <p className="dark:text-slate-400 text-slate-600">Scale your production with our proven commercial structural designs.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -2691,16 +2691,16 @@ const TurnkeyProjectsPage = () => {
               <motion.div 
                 key={i}
                 whileHover={{ scale: 1.05 }}
-                className="glass p-8 rounded-[2.5rem] border border-white/5 text-center group"
+                className="glass p-8 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
+                <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
                   <model.icon size={28} />
                 </div>
-                <h3 className="text-white font-bold text-xl mb-2">{model.title}</h3>
+                <h3 className="dark:text-white text-slate-900 font-bold text-xl mb-2">{model.title}</h3>
                 <div className="text-primary-start font-black text-xs uppercase tracking-widest mb-6">Commercial Capacity: {model.cap}</div>
-                <div className="p-4 rounded-2xl bg-white/5 border border-white/5 mb-8">
+                <div className="p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 mb-8">
                   <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Est. Investment</div>
-                  <div className="text-lg font-bold text-white">{model.investment}</div>
+                  <div className="text-lg font-bold dark:text-white text-slate-900">{model.investment}</div>
                 </div>
                 <a 
                   href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details." 
@@ -2757,7 +2757,7 @@ const GalleryPage = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative aspect-[4/3] rounded-3xl overflow-hidden glass border border-white/10"
+                className="group relative aspect-[4/3] rounded-3xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
                 <img loading="lazy" src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
@@ -2847,14 +2847,14 @@ const FAQPage = () => {
           <div className="space-y-4">
             {faqs.map((faq, i) => (
               <Collapsible key={i} title={faq.q}>
-                <p className="text-slate-400 leading-relaxed">{faq.a}</p>
+                <p className="dark:text-slate-400 text-slate-600 leading-relaxed">{faq.a}</p>
               </Collapsible>
             ))}
           </div>
           
-          <div className="mt-16 glass p-8 rounded-3xl border border-white/10 text-center">
-            <h3 className="text-white font-bold mb-4">Still have commercial setup questions?</h3>
-            <p className="text-slate-400 text-sm mb-6">Our global experts are available for a free consultation.</p>
+          <div className="mt-16 glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
+            <h3 className="dark:text-white text-slate-900 font-bold mb-4">Still have commercial setup questions?</h3>
+            <p className="dark:text-slate-400 text-slate-600 text-sm mb-6">Our global experts are available for a free consultation.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/contact" className="btn-primary px-8 py-3 rounded-xl font-bold">Contact Us</Link>
               <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="btn-outline px-8 py-3 rounded-xl font-bold">WhatsApp Now</a>
@@ -2864,9 +2864,9 @@ const FAQPage = () => {
       </section>
       
       {/* Pan India Service Mentions for SEO */}
-      <section className="section-padding bg-white/5">
+      <section className="section-padding dark:bg-white/5 bg-black/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="text-white font-bold mb-8 uppercase tracking-widest text-sm">Serving Pan India & Global Markets</h3>
+          <h3 className="dark:text-white text-slate-900 font-bold mb-8 uppercase tracking-widest text-sm">Serving Pan India & Global Markets</h3>
           <p className="text-slate-500 text-xs leading-relaxed max-w-4xl mx-auto">
             Our commercial mushroom training and turnkey setup services are available in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, राजस्थान, गुजरात, पंजाब, हरियाणा, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, उत्तराखंड, और अन्य सभी राज्यों में। We are committed to fostering the biggest <strong>commercial organic mushroom farm India</strong> network worldwide.
           </p>
@@ -2892,24 +2892,24 @@ const TermsOfServicePage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10">
-            <h2 className="text-white">1. Commercial Service Agreement</h2>
-            <p className="text-slate-400">By enrolling in our training programs or contracting our commercial farm setup services, you agree to abide by the terms and conditions outlined below. Organic Mushroom Farm provides technical consultancy and educational resources for mushroom farming business success.</p>
+          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+            <h2 className="dark:text-white text-slate-900">1. Commercial Service Agreement</h2>
+            <p className="dark:text-slate-400 text-slate-600">By enrolling in our training programs or contracting our commercial farm setup services, you agree to abide by the terms and conditions outlined below. Organic Mushroom Farm provides technical consultancy and educational resources for mushroom farming business success.</p>
             
-            <h2 className="text-white mt-10">2. Payment Terms</h2>
-            <p className="text-slate-400">Our current pricing for training is standardized at ₹399 for Online access and ₹3000 for Offline practical workshops. Commercial Turnkey project payments are structured in phases as per the project quotation provided.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">2. Payment Terms</h2>
+            <p className="dark:text-slate-400 text-slate-600">Our current pricing for training is standardized at ₹399 for Online access and ₹3000 for Offline practical workshops. Commercial Turnkey project payments are structured in phases as per the project quotation provided.</p>
             
-            <h2 className="text-white mt-10">3. No Refund Policy</h2>
-            <p className="text-slate-400">Due to the digital nature of training materials and the resource allocation required for commercial workshops, all payments for training and consultancy are non-refundable. Please ensure your suitability for the program before making payments.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">3. No Refund Policy</h2>
+            <p className="dark:text-slate-400 text-slate-600">Due to the digital nature of training materials and the resource allocation required for commercial workshops, all payments for training and consultancy are non-refundable. Please ensure your suitability for the program before making payments.</p>
             
-            <h2 className="text-white mt-10">4. User Responsibilities</h2>
-            <p className="text-slate-400">Users are responsible for maintaining the confidentiality of their training portal access. For commercial farm setups, the client must ensure site readiness and electricity requirements as per our technical specifications.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">4. User Responsibilities</h2>
+            <p className="dark:text-slate-400 text-slate-600">Users are responsible for maintaining the confidentiality of their training portal access. For commercial farm setups, the client must ensure site readiness and electricity requirements as per our technical specifications.</p>
             
-            <h2 className="text-white mt-10">5. Limitation of Liability</h2>
-            <p className="text-slate-400">While we provide high-precision SOPs and infrastructure, biological yields depend on local commercial management. Organic Mushroom Farm is not liable for fluctuations in biological yields or market price changes of mushrooms globally.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">5. Limitation of Liability</h2>
+            <p className="dark:text-slate-400 text-slate-600">While we provide high-precision SOPs and infrastructure, biological yields depend on local commercial management. Organic Mushroom Farm is not liable for fluctuations in biological yields or market price changes of mushrooms globally.</p>
             
-            <h2 className="text-white mt-10">6. Governing Law</h2>
-            <p className="text-slate-400">These terms are governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Jabalpur, Madhya Pradesh.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">6. Governing Law</h2>
+            <p className="dark:text-slate-400 text-slate-600">These terms are governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Jabalpur, Madhya Pradesh.</p>
           </div>
         </div>
       </section>
@@ -2931,24 +2931,24 @@ const PrivacyPolicyPage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/10">
-            <h2 className="text-white">1. Data Collection</h2>
-            <p className="text-slate-400">We collect personal information such as your name, phone number, and email address when you register for commercial training, fill out an enquiry form, or contact us via WhatsApp.</p>
+          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+            <h2 className="dark:text-white text-slate-900">1. Data Collection</h2>
+            <p className="dark:text-slate-400 text-slate-600">We collect personal information such as your name, phone number, and email address when you register for commercial training, fill out an enquiry form, or contact us via WhatsApp.</p>
             
-            <h2 className="text-white mt-10">2. How We Use Data</h2>
-            <p className="text-slate-400">Your data is used to provide training access, respond to commercial consultancy queries, and send relevant updates about mushroom farming market trends globally. We do not sell your data to third parties.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">2. How We Use Data</h2>
+            <p className="dark:text-slate-400 text-slate-600">Your data is used to provide training access, respond to commercial consultancy queries, and send relevant updates about mushroom farming market trends globally. We do not sell your data to third parties.</p>
             
-            <h2 className="text-white mt-10">3. Data Protection</h2>
-            <p className="text-slate-400">We implement industry-standard security measures to protect your commercial information from unauthorized access or alteration.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">3. Data Protection</h2>
+            <p className="dark:text-slate-400 text-slate-600">We implement industry-standard security measures to protect your commercial information from unauthorized access or alteration.</p>
             
-            <h2 className="text-white mt-10">4. Third-Party Tools</h2>
-            <p className="text-slate-400">We use trusted third-party tools like WhatsApp for communication and Razorpay for secure payment processing. Each has its own privacy policy which you should review separately.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">4. Third-Party Tools</h2>
+            <p className="dark:text-slate-400 text-slate-600">We use trusted third-party tools like WhatsApp for communication and Razorpay for secure payment processing. Each has its own privacy policy which you should review separately.</p>
             
-            <h2 className="text-white mt-10">5. Cookies Usage</h2>
-            <p className="text-slate-400">Our website uses cookies to enhance your browsing experience and analyze site traffic. You can choose to disable cookies in your browser settings.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">5. Cookies Usage</h2>
+            <p className="dark:text-slate-400 text-slate-600">Our website uses cookies to enhance your browsing experience and analyze site traffic. You can choose to disable cookies in your browser settings.</p>
             
-            <h2 className="text-white mt-10">6. Contact Info</h2>
-            <p className="text-slate-400">If you have any questions regarding your privacy, please contact us at support@organicmushroomfarm.shop or call us at +91 9203544140.</p>
+            <h2 className="dark:text-white text-slate-900 mt-10">6. Contact Info</h2>
+            <p className="dark:text-slate-400 text-slate-600">If you have any questions regarding your privacy, please contact us at support@organicmushroomfarm.shop or call us at +91 9203544140.</p>
           </div>
         </div>
       </section>
@@ -2968,7 +2968,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="selection:bg-primary-start/30 selection:text-white bg-black">
+      <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 bg-black">
         <Background3D />
         <Navbar />
         
@@ -3032,21 +3032,21 @@ const ComparisonTable = () => {
           <p className="max-w-xl mx-auto">Why we are the preferred commercial partner nationwide and globally.</p>
         </div>
         
-        <div className="glass border border-white/10 overflow-hidden relative shadow-2xl">
+        <div className="glass border dark:border-white/10 border-black/10 overflow-hidden relative shadow-2xl">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="bg-white/5 border-b border-white/10">
+                <tr className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10">
                   <th className="px-4 md:px-8 py-6 text-[9px] font-black text-slate-500 uppercase tracking-widest">Features</th>
-                  <th className="px-4 md:px-8 py-6 text-[9px] font-black text-white uppercase tracking-widest gradient-bg">Organic</th>
+                  <th className="px-4 md:px-8 py-6 text-[9px] font-black dark:text-white text-slate-900 uppercase tracking-widest gradient-bg">Organic</th>
                   <th className="px-4 md:px-8 py-6 text-[9px] font-black text-slate-500 uppercase tracking-widest">Others</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/5">
                 {data.map((row, i) => (
                   <tr key={i} className="hover:bg-white/[0.02]">
-                    <td className="px-4 md:px-8 py-5 text-[11px] font-bold text-slate-400">{row.feature}</td>
-                    <td className="px-4 md:px-8 py-5 text-[12px] font-bold text-white tracking-tight">{row.us}</td>
+                    <td className="px-4 md:px-8 py-5 text-[11px] font-bold dark:text-slate-400 text-slate-600">{row.feature}</td>
+                    <td className="px-4 md:px-8 py-5 text-[12px] font-bold dark:text-white text-slate-900 tracking-tight">{row.us}</td>
                     <td className="px-4 md:px-8 py-5 text-[12px] font-medium text-slate-500">{row.others}</td>
                   </tr>
                 ))}

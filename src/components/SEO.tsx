@@ -33,11 +33,14 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" />
+      <meta property="og:image:alt" content="Organic Mushroom Farm" />
 
       {/* Twitter (no image as per your requirement) */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" />
+      <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
     </Helmet>
   );
 };

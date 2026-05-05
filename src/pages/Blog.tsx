@@ -57,10 +57,10 @@ const BlogPage = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="badge mx-auto mb-6">Expert Insights</div>
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
             The <span className="gradient-text">Fungi Feed</span>
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="dark:text-slate-400 text-slate-600 text-lg leading-relaxed">
             Your daily dose of educational, financial, and wellness content from the world of mushrooms.
           </p>
         </motion.div>
@@ -69,7 +69,7 @@ const BlogPage = () => {
       <div className="max-w-7xl mx-auto px-4 space-y-24">
         {blogPosts.map((column, idx) => (
           <section key={idx}>
-            <div className={`inline-flex items-center gap-3 mb-10 px-6 py-2 rounded-2xl ${column.bg} border border-white/5 ${column.color}`}>
+            <div className={`inline-flex items-center gap-3 mb-10 px-6 py-2 rounded-2xl ${column.bg} border dark:border-white/5 border-black/5 ${column.color}`}>
               <column.icon size={18} />
               <h2 className="font-black uppercase tracking-widest text-sm">{column.category}</h2>
             </div>
@@ -79,13 +79,13 @@ const BlogPage = () => {
                 <motion.div 
                    key={i}
                    whileHover={{ y: -5 }}
-                   className="glass p-8 rounded-[2.5rem] border border-white/5 flex flex-col h-full hover:bg-white/[0.03] transition-all"
+                   className="glass p-8 rounded-[2.5rem] border dark:border-white/5 border-black/5 flex flex-col h-full hover:bg-white/[0.03] transition-all"
                 >
                   <div className="flex items-center gap-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest mb-6">
                     <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
                     <span className="flex items-center gap-1"><User size={12} /> Expert Team</span>
                   </div>
-                  <h3 className="text-white font-bold text-xl mb-4 leading-tight group-hover:text-primary-start transition-colors">
+                  <h3 className="dark:text-white text-slate-900 font-bold text-xl mb-4 leading-tight group-hover:text-primary-start transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-10 flex-grow">
@@ -106,9 +106,9 @@ const BlogPage = () => {
 
       {/* Newsletter */}
       <section className="section-padding">
-        <div className="max-w-4xl mx-auto glass p-12 rounded-[4rem] border border-white/10 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">Never Miss an Update</h2>
-            <p className="text-slate-400 mb-8 max-w-lg mx-auto">Get the latest market price updates and farming SOPs delivered straight to your inbox.</p>
+        <div className="max-w-4xl mx-auto glass p-12 rounded-[4rem] border dark:border-white/10 border-black/10 text-center">
+            <h2 className="text-3xl font-bold dark:text-white text-slate-900 mb-4">Never Miss an Update</h2>
+            <p className="dark:text-slate-400 text-slate-600 mb-8 max-w-lg mx-auto">Get the latest market price updates and farming SOPs delivered straight to your inbox.</p>
             <div id="mc_embed_shell">
                   <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" />
               <style type="text/css">
