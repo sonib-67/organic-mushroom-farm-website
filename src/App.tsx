@@ -834,10 +834,10 @@ const Hero = () => {
           className="text-center md:text-left"
         >
           <div className="text-[10px] md:text-sm font-bold text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
-            From empty shed to harvest-ready commercial infrastructure – we handle everything.
+            Button, Oyster, Milky, Shiitake & More | Setup, Training & Business Support
           </div>
-          <h1 className="text-[1.5rem] md:text-7xl font-bold dark:text-white text-slate-900 leading-tight mb-6 md:mb-8 tracking-tighter">
-            Industrial <span className="gradient-text">Button & Oyster Mushroom Farming in India</span> & Global Expert Solutions
+          <h1 className="text-[1.5rem] md:text-5xl lg:text-7xl font-bold dark:text-white text-slate-900 leading-tight mb-6 md:mb-8 tracking-tighter">
+            <span className="gradient-text">Mushroom Farming in India & Worldwide</span> <br/>– Complete Solutions for All Mushroom Types
           </h1>
           <p className="text-[0.8125rem] md:text-lg dark:text-slate-400 text-slate-600 mb-8 md:mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
             Complete commercial methodology, precision calculators, detailed SOPs, and turnkey solutions for highly profitable button, oyster, and milky mushroom farming across India, USA, Australia, and worldwide.
