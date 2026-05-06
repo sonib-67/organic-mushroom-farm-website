@@ -80,34 +80,494 @@
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dtpktdkqw/image/upload/w_32,h_32/v1777378065/organicmushroomlogo-_qsflej.png" />
     <link rel="apple-touch-icon" href="https://res.cloudinary.com/dtpktdkqw/image/upload/w_180,h_180/v1777378065/organicmushroomlogo-_qsflej.png" />
 
-    <!-- ✅ Structured Data JSON-LD (Enhanced) -->
+    <!-- ✅ Schema.org JSON-LD — organicmushroomfarm.shop -->
+
+    <!-- 1. HOMEPAGE — LocalBusiness + Organization -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Organic Mushroom Farm",
-      "description": "Premium mushroom spawn supplier, mushroom farming training center, and complete turnkey farm setup provider. Fresh and dry mushrooms available in bulk and retail across India.",
-      "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
-      "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
-      "telephone": "+919203544140",
-      "email": "support@organicmushroomfarm.shop",
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "Store", "FoodEstablishment"],
+          "@id": "https://organicmushroomfarm.shop/#business",
+          "name": "Organic Mushroom Farm",
+          "alternateName": ["Organic Mushroom Farm India", "organicmushroomfarm.shop"],
+          "description": "India's trusted organic mushroom ecosystem — mushroom spawn supply, mushroom farming training, turnkey farm setup, and fresh & dry mushroom sales in bulk and retail. Pan India delivery. Based in Jabalpur, Madhya Pradesh.",
+          "url": "https://organicmushroomfarm.shop",
+          "telephone": "+919203544140",
+          "email": "contact@organicmushroomfarm.shop",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+            "width": 1200,
+            "height": 630
+          },
+          "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jabalpur",
+            "addressLocality": "Jabalpur",
+            "addressRegion": "Madhya Pradesh",
+            "postalCode": "482001",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 23.1815,
+            "longitude": 79.9864
+          },
+          "areaServed": [
+            {
+              "@type": "Country",
+              "name": "India"
+            },
+            {
+              "@type": "Country",
+              "name": "United Arab Emirates"
+            },
+            {
+              "@type": "Country",
+              "name": "United Kingdom"
+            },
+            {
+              "@type": "Country",
+              "name": "United States"
+            },
+            {
+              "@type": "Country",
+              "name": "Canada"
+            },
+            {
+              "@type": "Country",
+              "name": "Nepal"
+            },
+            {
+              "@type": "Country",
+              "name": "Bangladesh"
+            },
+            {
+              "@type": "Country",
+              "name": "Bhutan"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Mushroom Products & Services",
+            "itemListElement": [
+              {
+                "@type": "OfferCatalog",
+                "name": "Mushroom Spawn Supply",
+                "description": "All varieties of mushroom spawn — Oyster, Button, Milky, Shiitake, Reishi, Lion's Mane, Cordyceps, Enoki — bulk and retail, Pan India delivery"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Fresh Mushroom Sales",
+                "description": "Fresh Oyster, Button, Milky, Shiitake, Lion's Mane mushrooms — bulk and retail, Pan India delivery"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Dry Mushroom Sales",
+                "description": "Dried Oyster, Shiitake, Reishi, Lion's Mane, Cordyceps mushrooms and powder — bulk wholesale and retail export"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Mushroom Farming Training",
+                "description": "Online and offline mushroom cultivation training — all varieties, beginner to advanced, certificate provided"
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "Mushroom Farm Setup",
+                "description": "Complete turnkey mushroom farm setup — design, installation, training, spawn supply for commercial and small-scale farms"
+              }
+            ]
+          },
+          "sameAs": [
+            "https://www.organicmushroomfarm.shop"
+          ],
+          "priceRange": "₹₹",
+          "currenciesAccepted": "INR, USD, GBP, AED",
+          "paymentAccepted": "Cash, Credit Card, Debit Card, UPI, Bank Transfer",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "20:00"
+          },
+          "keywords": "mushroom spawn India, mushroom farming training, mushroom cultivation, oyster mushroom, button mushroom, milky mushroom, shiitake mushroom, reishi mushroom, lion's mane, cordyceps, fresh mushroom supplier, dry mushroom wholesale, mushroom farm setup, organic mushroom, Jabalpur, Madhya Pradesh"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://organicmushroomfarm.shop/#organization",
+          "name": "Organic Mushroom Farm",
+          "url": "https://organicmushroomfarm.shop",
+          "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+919203544140",
+            "contactType": "customer service",
+            "areaServed": "IN",
+            "availableLanguage": ["Hindi", "English"]
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- 2. SPAWN PRODUCTS — Product Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Mushroom Spawn — All Varieties",
+      "description": "Buy mushroom spawn (seed) online in India. All varieties available — Oyster, Button, Milky, Shiitake, Reishi, Lion's Mane, Cordyceps. Bulk and retail. Pan India delivery.",
       "url": "https://organicmushroomfarm.shop",
-      "priceRange": "₹₹",
-      "currenciesAccepted": "INR",
-      "paymentAccepted": "Cash, UPI, Bank Transfer",
-      "openingHours": "Mo-Sa 09:00-18:00",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Katangi",
-        "addressLocality": "Jabalpur",
-        "addressRegion": "Madhya Pradesh",
-        "postalCode": "481445",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "23.1815",
-        "longitude": "79.9864"
+      "numberOfItems": 12,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Oyster Mushroom Spawn",
+            "description": "High-yield first-generation Oyster Mushroom Spawn (Pleurotus ostreatus). White, Pink, Grey varieties. Available in 200g, 400g, 1kg, 5kg, bulk 10kg+. Fast colonization, multiple flushes.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "seller": {"@type": "Organization", "name": "Organic Mushroom Farm"},
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "category": "Mushroom Spawn",
+            "keywords": "oyster mushroom spawn, oyster mushroom seed, buy oyster mushroom spawn India, pleurotus spawn"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Button Mushroom Spawn",
+            "description": "Fresh, high-quality Button Mushroom Spawn (Agaricus bisporus). CO2-resilient variety. For commercial and home cultivation. Pan India delivery.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "button mushroom spawn, button mushroom seed India, agaricus bisporus spawn"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Milky Mushroom Spawn",
+            "description": "Milky Mushroom Spawn (Calocybe indica) — premium tropical variety, high yield, heat-tolerant. Ideal for warm Indian climate. Bulk and retail.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "milky mushroom spawn, calocybe indica spawn, milky mushroom seed India"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "name": "Shiitake Mushroom Spawn",
+            "description": "Shiitake Mushroom Spawn (Lentinula edodes) for gourmet and medicinal cultivation. High demand export variety. Sawdust and grain spawn available.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "shiitake mushroom spawn India, lentinula edodes spawn, shiitake seed"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Product",
+            "name": "Reishi / Ganoderma Mushroom Spawn",
+            "description": "Organic Reishi (Ganoderma lucidum) mushroom spawn for medicinal cultivation. High immunity, premium quality. Bulk orders available.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "reishi mushroom spawn, ganoderma spawn India, reishi seed, ganoderma lucidum spawn"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "Product",
+            "name": "Lion's Mane Mushroom Spawn",
+            "description": "Lion's Mane (Hericium erinaceus) mushroom spawn — premium medicinal and gourmet variety. Brain health benefits. Bulk and retail.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "lion's mane mushroom spawn India, hericium erinaceus spawn, lion's mane seed"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "Product",
+            "name": "Cordyceps Militaris Spawn",
+            "description": "High-value Cordyceps Militaris mushroom spawn for medicinal cultivation. Premium export quality. Complete cultivation guidance available.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "cordyceps militaris spawn India, cordyceps spawn, cordyceps mushroom seed"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- 3. TRAINING PAGE — Course Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Mushroom Farming Training Courses",
+      "description": "Mushroom farming training courses — online and offline, all mushroom varieties, beginner to advanced, Hindi and English, certificate provided. Based in Jabalpur, MP.",
+      "url": "https://organicmushroomfarm.shop",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Course",
+            "name": "Oyster Mushroom Cultivation Training",
+            "description": "Complete Oyster Mushroom farming training — substrate preparation, spawn inoculation, incubation, fruiting, harvesting, marketing. Online and offline. Certificate provided.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Organic Mushroom Farm",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "inLanguage": ["hi", "en"],
+            "availableLanguage": ["Hindi", "English"],
+            "courseMode": ["online", "offline", "onsite"],
+            "educationalLevel": "Beginner to Advanced",
+            "teaches": "Oyster mushroom cultivation, substrate preparation, spawn inoculation, farm management, harvesting, marketing",
+            "hasCourseInstance": {
+              "@type": "CourseInstance",
+              "courseMode": ["online", "offline"],
+              "location": {
+                "@type": "Place",
+                "name": "Organic Mushroom Farm Training Center",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Jabalpur",
+                  "addressRegion": "Madhya Pradesh",
+                  "addressCountry": "IN"
+                }
+              }
+            },
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Course",
+            "name": "Button Mushroom Cultivation Training",
+            "description": "Button mushroom farming training — compost preparation, spawning, casing, crop management, harvesting. Commercial production focus. Certificate provided.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Organic Mushroom Farm",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "inLanguage": ["hi", "en"],
+            "courseMode": ["online", "offline"],
+            "educationalLevel": "Beginner to Advanced",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "url": "https://organicmushroomfarm.shop"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Course",
+            "name": "All Varieties Mushroom Farming Course",
+            "description": "Complete all-in-one mushroom cultivation course covering Oyster, Button, Milky, Shiitake, Reishi, Lion's Mane, Cordyceps. Business and marketing module included. Hindi & English.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Organic Mushroom Farm",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "inLanguage": ["hi", "en"],
+            "courseMode": ["online", "offline", "onsite"],
+            "educationalLevel": "Beginner to Advanced",
+            "teaches": "All mushroom varieties cultivation, farm business setup, marketing, value-added products",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- 4. FRESH & DRY MUSHROOM PRODUCTS -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Fresh & Dry Mushrooms — All Varieties",
+      "description": "Buy fresh and dry mushrooms online India — Oyster, Button, Milky, Shiitake, Reishi, Lion's Mane, Cordyceps. Bulk wholesale and retail. Pan India delivery.",
+      "url": "https://organicmushroomfarm.shop",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Fresh Oyster Mushroom",
+            "description": "Fresh organic oyster mushrooms — White, Pink, Grey varieties. Bulk and retail. Pan India delivery. Restaurant and household supply.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "category": "Fresh Mushroom",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "fresh oyster mushroom India, buy oyster mushroom online, oyster mushroom bulk supplier"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Dry Shiitake Mushroom",
+            "description": "Premium quality dried Shiitake mushrooms — whole and sliced. Export grade. Vacuum packed. Bulk wholesale available. Pan India and international delivery.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "category": "Dry Mushroom",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "dry shiitake mushroom India, dried shiitake wholesale, shiitake mushroom export India"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Dry Reishi Mushroom",
+            "description": "Organic dried Reishi / Ganoderma mushroom — whole, sliced, and powder form. Medicinal grade. Bulk orders for export. UAE, UK, USA delivery available.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "category": "Dry Mushroom",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "dry reishi mushroom India, ganoderma mushroom wholesale, reishi mushroom powder India"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "name": "Dry Oyster Mushroom",
+            "description": "Dried Oyster mushrooms — White, Pink, Grey. Food-grade vacuum packed. Bulk wholesale and retail. Pan India and international delivery.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "category": "Dry Mushroom",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "dry oyster mushroom India, dried oyster mushroom wholesale, oyster mushroom export"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Product",
+            "name": "Dry Lion's Mane Mushroom",
+            "description": "Premium dried Lion's Mane mushroom — whole and powder. Medicinal and gourmet grade. High demand export product.",
+            "brand": {"@type": "Brand", "name": "Organic Mushroom Farm"},
+            "category": "Dry Mushroom",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://organicmushroomfarm.shop"
+            },
+            "keywords": "dry lion's mane mushroom India, lion's mane mushroom powder, hericium mushroom wholesale"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- 5. FARM SETUP SERVICE — Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Mushroom Farm Setup Service",
+      "serviceType": "Mushroom Farm Turnkey Setup",
+      "description": "Complete turnkey mushroom farm setup service — farm design, infrastructure installation, equipment procurement, spawn supply, and operational training. For commercial and small-scale mushroom farms across India.",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Organic Mushroom Farm",
+        "url": "https://organicmushroomfarm.shop",
+        "telephone": "+919203544140",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jabalpur",
+          "addressRegion": "Madhya Pradesh",
+          "addressCountry": "IN"
+        }
       },
       "areaServed": {
         "@type": "Country",
@@ -115,20 +575,85 @@
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Mushroom Farm Services",
+        "name": "Farm Setup Services",
         "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mushroom Spawn Supply" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mushroom Farming Training" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Turnkey Farm Setup" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fresh Mushroom Supply" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dry Mushroom Supply" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mushroom Consultancy" } }
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Mushroom Farm Setup", "description": "End-to-end turnkey commercial mushroom farm — 1000 sq ft to 10,000 sq ft. All varieties."}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Small Scale Home Mushroom Farm Setup", "description": "Low-cost home mushroom farm setup for beginners — 200 to 500 sq ft."}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mushroom Farm Consultation", "description": "Expert consultation for mushroom farm planning, variety selection, investment planning, and marketing."}}
         ]
       },
-      "sameAs": [
-        "https://www.instagram.com/organic_mushroom_farm_jabalpur",
-        "https://www.facebook.com/organic.mushroom.farm0",
-        "https://www.youtube.com/@organicmushroomfarm"
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://organicmushroomfarm.shop"
+      },
+      "keywords": "mushroom farm setup India, commercial mushroom farm setup, turnkey mushroom farm, mushroom farm design India, mushroom farming consultation"
+    }
+    </script>
+
+    <!-- 6. FAQ SCHEMA — for SEO rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where can I buy mushroom spawn online in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can buy mushroom spawn online from Organic Mushroom Farm at organicmushroomfarm.shop. We supply all varieties — Oyster, Button, Milky, Shiitake, Reishi, Lion's Mane, Cordyceps — in bulk and retail with Pan India delivery. Contact: +91 9203544140."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I get mushroom farming training in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Organic Mushroom Farm offers online and offline mushroom farming training in Hindi and English. We are based in Jabalpur, Madhya Pradesh and provide training for all mushroom varieties — Oyster, Button, Milky, Shiitake, Reishi, and more. Certificate is provided on completion. Visit organicmushroomfarm.shop or call +91 9203544140."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I set up a mushroom farm in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Organic Mushroom Farm provides complete turnkey mushroom farm setup service across India — including farm design, infrastructure, equipment, training, and spawn supply. We handle commercial farms as well as small home-scale setups. Contact us at organicmushroomfarm.shop or +91 9203544140."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where to buy fresh mushrooms in bulk in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Organic Mushroom Farm supplies fresh mushrooms in bulk and retail across India — Oyster, Button, Milky, Shiitake, and more. We deliver Pan India. For bulk orders contact +91 9203544140 or visit organicmushroomfarm.shop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where to buy dry mushrooms wholesale in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Organic Mushroom Farm supplies premium quality dry mushrooms wholesale — Oyster, Shiitake, Reishi, Lion's Mane, Cordyceps, and mushroom powder. Export quality. Pan India and international delivery. Contact: organicmushroomfarm.shop | +91 9203544140."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which mushroom is best to grow in India for beginners?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oyster mushroom is the best mushroom for beginners in India — low investment, easy to grow, ready in 20-30 days, and high demand in the market. Milky Mushroom is ideal for hot climate regions. Organic Mushroom Farm provides spawn, training, and support for all varieties."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Organic Mushroom Farm deliver outside India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Organic Mushroom Farm exports mushroom spawn and dry mushrooms to UAE, UK, USA, Canada, Nepal, Bhutan, Bangladesh, and Southeast Asia. Contact +91 9203544140 for international orders."
+          }
+        }
       ]
     }
     </script>
