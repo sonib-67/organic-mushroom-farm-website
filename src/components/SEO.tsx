@@ -6,9 +6,10 @@ interface SEOProps {
   description: string;
   keywords?: string;
   url?: string;
+  schemas?: object[];
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas }) => {
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
@@ -41,6 +42,13 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url }) => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" />
       <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
+
+      {/* JSON-LD Schemas */}
+      {schemas && schemas.map((schema, index) => (
+        <script type="application/ld+json" key={index}>
+          {JSON.stringify(schema)}
+        </script>
+      ))}
     </Helmet>
   );
 };
