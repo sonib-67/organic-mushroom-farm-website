@@ -199,4 +199,27 @@ Organic Mushroom Farm is India's specialized mushroom farming consultancy and tr
 - **What about marketing?** We provide commercial guidance on selling fresh and dry mushrooms to B2B wholesalers, local markets, and exporters.
 
 ---
+
+## 💎 Value Addition (New Sections)
+### 💰 Pricing Clarity
+- **Mushroom Farming Masterclass:** Starting at just ₹299 (Online).
+- **Commercial Training & Consultancy:** Custom pricing based on variety and scale.
+- **Farm Setup:** Transparent, tiered pricing for climate-controlled units (18x30 to 18x70 ft).
+
+### 🚀 USP (Unique Selling Proposition)
+- **G1 Premium Quality:** We provide only first-generation, high-yield, contamination-free spawn.
+- **End-to-End Ecosystem:** Unlike others, we don't just sell seeds; we provide the tech, the training, and the market guidance to ensure your success.
+- **Tech-Driven Cultivation:** Use of advanced HVAC, PPGL PUF panels, and automated climate controllers for 365-day production.
+
+### 🌟 Social Proof
+- **Pan-India Presence:** Trusted by thousands of farmers across all 28 states and 8 UTs.
+- **Global Reach:** Active supply chain and consultancy services in the USA, UAE, UK, and South Asia.
+- **Expert Leadership:** Led by Tanish Soni, specializing in climate-controlled mushroom infrastructure and agri-tech innovation.
+
+### 🤖 Agri-Tech Innovation
+- **Automated Learning:** 4:00 PM Daily Simulated Live Webinars for consistent, high-quality training across time zones.
+- **AI-Enabled Support:** Integrating AI-driven assistance to help farmers troubleshoot crop issues in real-time.
+- **Digital-First Approach:** High-performance web platform (Next.js & Supabase) for seamless spawn ordering and course access.
+
+---
 © 2026 Organic Mushroom Farm. All rights reserved.
