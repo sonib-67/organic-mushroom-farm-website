@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "what-is-mushroom-spawn-beginner-guide-india", isExternalPage: true, title: "What is Mushroom Spawn? Complete Beginner Guide (2026–27)", excerpt: "Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India.", date: "May 09, 2026" },
       { id: "oyster-mushroom-cultivation-india", isExternalPage: true, title: "Oyster Mushroom Cultivation: Complete Guide for India", excerpt: "Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) aaj India ka sabse fast-growing agribusiness ban chuka hai.", date: "May 05, 2026" },
       { id: "mushroom-farming-beginner-guide-india-2026-2027", isExternalPage: true, title: "What is Mushroom Farming? Complete Beginner Guide India 2026-2027", excerpt: "Mushroom farming in India 2026-2027: Complete beginner guide for mushroom cultivation (mushroom ki kheti), training, spawn, and business plan.", date: "May 02, 2026" },
       { id: 10, title: "Mushroom Farming in India 2027 — Complete Guide", excerpt: "Your ultimate guide to mushroom spawn, training, setup kits, and supply across 28 states of India.", date: "April 30, 2027" },
