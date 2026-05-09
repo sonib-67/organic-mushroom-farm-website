@@ -33,6 +33,7 @@ import SuccessStories from './pages/SuccessStories';
 import ProjectSpecsPage from './pages/ProjectSpecs';
 import ArticleBeginnerGuide from './pages/ArticleBeginnerGuide';
 import ArticleOysterMushroomCultivation from './pages/ArticleOysterMushroomCultivation';
+import ArticleMushroomSpawn from './pages/ArticleMushroomSpawn';
 import SEO from './components/SEO';
 
 // --- Constants & Types ---
@@ -2996,6 +2997,7 @@ export default function App() {
             <Route path="/blog/:id" element={<ArticlePage />} />
             <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
             <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
+            <Route path="/articles/what-is-mushroom-spawn-beginner-guide-india" element={<ArticleMushroomSpawn />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />
