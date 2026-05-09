@@ -33,6 +33,7 @@ import SuccessStories from './pages/SuccessStories';
 import ProjectSpecsPage from './pages/ProjectSpecs';
 import ArticleBeginnerGuide from './pages/ArticleBeginnerGuide';
 import ArticleOysterMushroomCultivation from './pages/ArticleOysterMushroomCultivation';
+import ArticleWhatIsMushroomSpawn from './pages/ArticleWhatIsMushroomSpawn';
 import SEO from './components/SEO';
 
 // --- Constants & Types ---
@@ -2364,6 +2365,15 @@ const HomePage = () => {
                     <p className="dark:text-slate-400 text-slate-600 text-xs leading-relaxed">Complete guide on how to start mushroom farming (mushroom ki kheti) from scratch for beginners.</p>
                   </Link>
 
+                  <Link to="/articles/what-is-mushroom-spawn" className="p-4 md:p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 block group hover:scale-[1.02] transition-transform">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">Beginner Guide</span>
+                      <div className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-500 text-[8px] font-black uppercase">Article</div>
+                    </div>
+                    <h4 className="dark:text-white text-slate-900 font-bold text-[13px] tracking-tight mb-2">What is Mushroom Spawn? Complete Guide</h4>
+                    <p className="dark:text-slate-400 text-slate-600 text-[11px] leading-relaxed">Everything about mushroom seeds: grain, sawdust, liquid spawn, and profit calculation.</p>
+                  </Link>
+
                   <div className="p-4 md:p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">Featured</span>
@@ -2996,6 +3006,7 @@ export default function App() {
             <Route path="/blog/:id" element={<ArticlePage />} />
             <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
             <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
+            <Route path="/articles/what-is-mushroom-spawn" element={<ArticleWhatIsMushroomSpawn />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />
