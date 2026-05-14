@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "mushroom-farming-business-plan-hindi-2026", isExternalPage: true, title: "Mushroom Farming Business Plan Kya Hota Hai? | What is a Mushroom Farming Business Plan?", excerpt: "India mein 2026 ke liye complete mushroom farming business plan. Low investment mein mushroom ki kheti shuru karein aur acha profit kamayein.", date: "May 14, 2026" },
       { id: "what-is-mushroom-spawn-beginner-guide-india", isExternalPage: true, title: "What is Mushroom Spawn? Complete Beginner Guide (2026–27)", excerpt: "Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India.", date: "May 09, 2026" },
       { id: "oyster-mushroom-cultivation-india", isExternalPage: true, title: "Oyster Mushroom Cultivation: Complete Guide for India", excerpt: "Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) aaj India ka sabse fast-growing agribusiness ban chuka hai.", date: "May 05, 2026" },
       { id: "mushroom-farming-beginner-guide-india-2026-2027", isExternalPage: true, title: "What is Mushroom Farming? Complete Beginner Guide India 2026-2027", excerpt: "Mushroom farming in India 2026-2027: Complete beginner guide for mushroom cultivation (mushroom ki kheti), training, spawn, and business plan.", date: "May 02, 2026" },
