@@ -8,8 +8,8 @@ const ArticleTrainingGuideHindi = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Training — Complete Guide | Mushroom Ki Kheti Sikhein India Mein" 
-        description="Mushroom farming training in India. Learn mushroom ki kheti with complete guidance on spawn, complete farm setup, and profit making from Organic Mushroom Farm." 
+        title="Mushroom Farming Training Complete Guide | India 2026" 
+        description="India mein mushroom farming training kaise aur kahan se lein? Complete guide in Hindi for offline and online mushroom cultivation courses." 
       />
 
       <div className="max-w-4xl mx-auto px-4">
@@ -52,26 +52,28 @@ const ArticleTrainingGuideHindi = () => {
           </p>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kya Hoti Hai? | What is Mushroom Farming Training?</h2>
-          <p>Mushroom Farming Training ek professional course hai jisme aap sikhte hain:</p>
-          <ul className="space-y-3 mt-4 mb-6">
-            <li className="flex items-start gap-2"><CheckCircle2 size={20} className="text-primary-start shrink-0 mt-0.5" /> Mushroom spawn kaise banayein (Oyster, Button, Shiitake, Milky mushroom)</li>
-            <li className="flex items-start gap-2"><CheckCircle2 size={20} className="text-primary-start shrink-0 mt-0.5" /> Growing substrate kaise prepare karein</li>
-            <li className="flex items-start gap-2"><CheckCircle2 size={20} className="text-primary-start shrink-0 mt-0.5" /> Temperature, humidity, aur light control kaise karein</li>
-            <li className="flex items-start gap-2"><CheckCircle2 size={20} className="text-primary-start shrink-0 mt-0.5" /> Mushroom harvesting aur packaging ka sahi tarika</li>
-            <li className="flex items-start gap-2"><CheckCircle2 size={20} className="text-primary-start shrink-0 mt-0.5" /> Market mein mushroom kaise bechein — local, state, national, aur international</li>
-            <li className="flex items-start gap-2"><CheckCircle2 size={20} className="text-primary-start shrink-0 mt-0.5" /> Mushroom se income kaise badhayen — fresh, dried, powder form mein</li>
+          <p>
+            Mushroom Farming Training ek professional course hai jisme aap sikhte hain:
+          </p>
+          <ul className="space-y-3 text-sm my-6">
+            <li className="flex items-start gap-2"><CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" /> <strong>Mushroom spawn kaise banayein</strong> (Oyster, Button, Shiitake, Milky mushroom)</li>
+            <li className="flex items-start gap-2"><CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" /> <strong>Growing substrate kaise prepare karein</strong></li>
+            <li className="flex items-start gap-2"><CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" /> <strong>Temperature, humidity, aur light control kaise karein</strong></li>
+            <li className="flex items-start gap-2"><CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" /> <strong>Mushroom harvesting aur packaging ka sahi tarika</strong></li>
+            <li className="flex items-start gap-2"><CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" /> <strong>Market mein mushroom kaise bechein</strong> — local, state, national, aur international</li>
+            <li className="flex items-start gap-2"><CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" /> <strong>Mushroom se income kaise badhayen</strong> — fresh, dried, powder form mein</li>
           </ul>
           <p>
             Ye training India ke har state mein zaruri hai — whether you are in Uttar Pradesh, Bihar, Rajasthan, Maharashtra, Tamil Nadu, Andhra Pradesh, Telangana, Karnataka, West Bengal, Gujarat, Himachal Pradesh, Uttarakhand, Punjab, Haryana, Odisha, Assam, Jharkhand, Chhattisgarh, Goa, Meghalaya, Manipur, Nagaland, Mizoram, Tripura, Arunachal Pradesh, Sikkim, Jammu & Kashmir, Ladakh ya Madhya Pradesh.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Ke Types | Types of Mushroom Training in India</h2>
-          
+
           <h3 className="text-xl mt-8 mb-3 font-bold">Offline Training — Jabalpur, Madhya Pradesh</h3>
           <p>
             OrganicMushroomFarm.Shop ka headquarter Jabalpur, MP mein hai jahan aap personally aake hands-on training le sakte hain. Ye training specially useful hai:
           </p>
-          <ul className="list-disc pl-6 mb-6 space-y-1">
+          <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li>Kisan jo direct khet se farming seekhna chahte hain</li>
             <li>Students jo agri-business mein career banana chahte hain</li>
             <li>Entrepreneurs jo mushroom startup shuru karna chahte hain</li>
@@ -82,7 +84,7 @@ const ArticleTrainingGuideHindi = () => {
           <p>
             Aap India ke kisi bhi state ya city se — whether Mumbai, Delhi, Chennai, Kolkata, Hyderabad, Bangalore, Pune, Ahmedabad, Lucknow, Surat, Kanpur, Nagpur, Patna, Indore, Bhopal — online mushroom farming training le sakte hain:
           </p>
-          <ul className="list-disc pl-6 mb-6 space-y-1">
+          <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li>Live video sessions</li>
             <li>Pre-recorded modules</li>
             <li>PDF study material</li>
@@ -99,7 +101,7 @@ const ArticleTrainingGuideHindi = () => {
           <p>Ye dekho mushroom farming profit table — India ke alag alag cities mein average earnings:</p>
 
           <div className="overflow-x-auto my-8 border dark:border-white/10 border-black/10 rounded-2xl p-4 glass">
-            <table className="w-full text-left border-collapse min-w-[700px]">
+            <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
                 <tr className="border-b dark:border-white/10 border-black/10 text-primary-start text-sm uppercase tracking-wider">
                   <th className="p-3">Mushroom Type</th>
@@ -126,16 +128,16 @@ const ArticleTrainingGuideHindi = () => {
               </tbody>
             </table>
           </div>
-          <p className="text-sm italic">
+          <p className="text-sm italic text-slate-500">
             <strong>Note:</strong> Profit varies by location — Delhi, Mumbai, Bangalore mein market rate zyada hoti hai vs. rural areas. Training ke baad aap khud apna profit calculate kar sakte hain.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Course Content | Kya Sikhenge Aap?</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-6 my-8">
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-              <h3 className="text-lg font-bold text-primary-start mb-3">Module 1 — Mushroom Biology & Varieties</h3>
-              <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc pl-4">
+              <h3 className="text-lg font-bold mb-3 text-primary-start">Module 1 — Mushroom Biology & Varieties</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>Oyster Mushroom (Pleurotus ostreatus) — sabse popular India mein</li>
                 <li>Button Mushroom (Agaricus bisporus) — restaurant demand zyada</li>
                 <li>Milky Mushroom (Calocybe indica) — hot climate ke liye perfect</li>
@@ -143,41 +145,41 @@ const ArticleTrainingGuideHindi = () => {
                 <li>Reishi Mushroom — medicinal, high value</li>
               </ul>
             </div>
-            
+
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-              <h3 className="text-lg font-bold text-primary-start mb-3">Module 2 — Spawn Production & Supply</h3>
-              <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc pl-4">
+              <h3 className="text-lg font-bold mb-3 text-primary-start">Module 2 — Spawn Production & Supply</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>Spawn kya hota hai aur kaise banate hain</li>
                 <li>Grain spawn vs. sawdust spawn</li>
                 <li>Spawn quality check kaise karein</li>
                 <li>Apna spawn supply business kaise shuru karein</li>
               </ul>
-              <p className="text-xs mt-3 font-bold text-primary-start">OrganicMushroomFarm.Shop — India ka trusted spawn supplier</p>
+              <p className="mt-4 text-xs italic">OrganicMushroomFarm.Shop — India ka trusted spawn supplier — Jabalpur se Pan India delivery.</p>
             </div>
-            
+
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-              <h3 className="text-lg font-bold text-primary-start mb-3">Module 3 — Substrate Preparation</h3>
-              <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc pl-4">
+              <h3 className="text-lg font-bold mb-3 text-primary-start">Module 3 — Substrate Preparation</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>Paddy straw substrate — UP, Bihar, Punjab ke liye perfect</li>
                 <li>Sawdust substrate — MP, Chhattisgarh, Northeast India ke liye</li>
                 <li>Cotton waste substrate — Maharashtra, Gujarat ke liye</li>
                 <li>Pasteurization aur sterilization techniques</li>
               </ul>
             </div>
-            
+
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-              <h3 className="text-lg font-bold text-primary-start mb-3">Module 4 — Farm Setup & Infrastructure</h3>
-              <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc pl-4">
+              <h3 className="text-lg font-bold mb-3 text-primary-start">Module 4 — Farm Setup & Infrastructure</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>Cropping room design — temperature 20-30°C maintain karna</li>
                 <li>Humidity control 80-90% kaise karein</li>
                 <li>Low cost bamboo/poly house setup — rural India ke liye</li>
                 <li>AC room setup — Delhi, Mumbai, Chennai jaise hot cities ke liye</li>
               </ul>
             </div>
-            
+
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-              <h3 className="text-lg font-bold text-primary-start mb-3">Module 5 — Harvesting, Processing & Packaging</h3>
-              <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc pl-4">
+              <h3 className="text-lg font-bold mb-3 text-primary-start">Module 5 — Harvesting & Packaging</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
                 <li>Sahi time par harvest karna</li>
                 <li>Fresh mushroom grading aur packaging</li>
                 <li>Drying techniques — sun dry vs. electric dryer</li>
@@ -185,21 +187,21 @@ const ArticleTrainingGuideHindi = () => {
                 <li>Export quality packaging standards</li>
               </ul>
             </div>
-            
+
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-              <h3 className="text-lg font-bold text-primary-start mb-3">Module 6 — Marketing & Business Development</h3>
-              <ul className="text-sm space-y-2 text-slate-600 dark:text-slate-400 list-disc pl-4">
-                <li>Local mandi mein mushroom bechna — Jabalpur, Bhopal, Indore, Nagpur</li>
-                <li>Restaurants aur hotels ko supply karna — Delhi, Mumbai, Bangalore</li>
+              <h3 className="text-lg font-bold mb-3 text-primary-start">Module 6 — Marketing & Business</h3>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
+                <li>Local mandi mein mushroom bechna — Jabalpur, Bhopal, Indore</li>
+                <li>Restaurants aur hotels ko supply karna — Delhi, Mumbai</li>
                 <li>Online selling — Amazon, Flipkart, JioMart</li>
-                <li>Export — UAE, UK, USA, Canada mein dried mushroom export</li>
+                <li>Export — UAE, UK, USA, Canada mein dried export</li>
                 <li>WhatsApp marketing aur social media se customer banana</li>
               </ul>
             </div>
           </div>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Yeh Training Kiske Liye Hai? | Who Should Join Mushroom Farming Training?</h2>
-          <ul className="space-y-3 mt-4 mb-6 list-disc pl-6 text-slate-700 dark:text-slate-300">
+          <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li><strong>Kisan</strong> — jo apni income double karna chahte hain (MP, UP, Bihar, Maharashtra, AP, Telangana)</li>
             <li><strong>Unemployed Youth</strong> — jo khud ka business shuru karna chahte hain</li>
             <li><strong>Women Entrepreneurs</strong> — SHG members, housewives jo ghar baithe kamana chahte hain</li>
@@ -211,95 +213,92 @@ const ArticleTrainingGuideHindi = () => {
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training — India Ke Har State & City Mein Available</h2>
           <p>Hamari training India ke in sabhi states aur cities ke students ke liye available hai:</p>
 
-          <div className="space-y-4 my-6">
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border dark:border-white/10 border-black/10">
-              <h3 className="text-md font-bold mb-2">North India — Mushroom Training</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Delhi, Noida, Gurgaon, Faridabad, Ghaziabad, Meerut, Agra, Mathura, Aligarh, Bareilly, Kanpur, Lucknow, Varanasi, Prayagraj, Gorakhpur, Jhansi (UP) | Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga, Purnia (Bihar) | Chandigarh, Amritsar, Ludhiana, Jalandhar, Patiala (Punjab) | Ambala, Rohtak, Hisar, Karnal, Panipat (Haryana) | Dehradun, Haridwar, Rishikesh, Nainital, Haldwani (Uttarakhand) | Shimla, Manali, Dharamsala, Solan, Mandi (Himachal Pradesh) | Jammu, Srinagar, Leh (J&K & Ladakh)
+          <div className="space-y-6 my-8">
+            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+              <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">North India</h3>
+              <p className="text-sm dark:text-slate-400 text-slate-600">
+                Delhi, Noida, Gurgaon, Faridabad, Ghaziabad, Meerut, Agra, Mathura, Aligarh, Bareilly, Kanpur, Lucknow, Varanasi, Prayagraj, Gorakhpur, Jhansi (UP) | Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga, Purnia (Bihar) | Chandigarh, Amritsar, Ludhiana, Jalandhar, Patiala (Punjab) | Ambala, Rohtak, Hisar, Karnal, Panipat (Haryana) | Dehradun, Haridwar, Rishikesh, Nainital, Haldwani (Uttarakhand) | Shimla, Manali, Dharamsala, Solan, Mandi (HP) | Jammu, Srinagar, Leh (J&K & Ladakh)
               </p>
             </div>
-            
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border dark:border-white/10 border-black/10">
-              <h3 className="text-md font-bold mb-2">Central India — Mushroom Training (MP & CG)</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Jabalpur, Bhopal, Indore, Gwalior, Ujjain, Sagar, Rewa, Satna, Chhindwara, Betul, Hoshangabad, Balaghat, Mandla, Seoni, Vidisha, Damoh (MP) | Raipur, Bilaspur, Durg, Bhilai, Korba, Jagdalpur, Raigarh, Ambikapur (Chhattisgarh)
+            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+              <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">Central India</h3>
+              <p className="text-sm dark:text-slate-400 text-slate-600">
+                Jabalpur, Bhopal, Indore, Gwalior, Ujjain, Sagar, Rewa, Satna, Chhindwara, Betul, Hoshangabad, Balaghat, Mandla, Seoni, Vidisha, Damoh (MP) | Raipur, Bilaspur, Durg, Bhilai, Korba, Jagdalpur, Raigarh, Ambikapur (CG)
               </p>
             </div>
-
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border dark:border-white/10 border-black/10">
-              <h3 className="text-md font-bold mb-2">West India — Mushroom Training</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+              <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">West India</h3>
+              <p className="text-sm dark:text-slate-400 text-slate-600">
                 Mumbai, Pune, Nashik, Aurangabad, Nagpur, Solapur, Kolhapur, Ahmednagar, Satara, Sangli (Maharashtra) | Ahmedabad, Surat, Vadodara, Rajkot, Bhavnagar, Jamnagar, Gandhinagar, Anand (Gujarat) | Jaipur, Jodhpur, Udaipur, Kota, Bikaner, Ajmer, Sikar, Alwar, Bharatpur (Rajasthan) | Panaji, Margao, Vasco (Goa)
               </p>
             </div>
-
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border dark:border-white/10 border-black/10">
-              <h3 className="text-md font-bold mb-2">South India — Mushroom Training</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+              <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">South India</h3>
+              <p className="text-sm dark:text-slate-400 text-slate-600">
                 Bangalore, Mysore, Hubli, Dharwad, Mangalore, Belgaum, Shimoga (Karnataka) | Chennai, Coimbatore, Madurai, Salem, Trichy, Tirunelveli, Erode, Vellore, Tirupur (Tamil Nadu) | Hyderabad, Warangal, Nizamabad, Karimnagar, Khammam (Telangana) | Visakhapatnam, Vijayawada, Guntur, Tirupati, Kakinada, Nellore, Kurnool (Andhra Pradesh) | Kochi, Thiruvananthapuram, Kozhikode, Thrissur, Kannur (Kerala)
               </p>
             </div>
-
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border dark:border-white/10 border-black/10">
-              <h3 className="text-md font-bold mb-2">East India — Mushroom Training</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Kolkata, Howrah, Durgapur, Asansol, Siliguri, Bardhaman (West Bengal) | Bhubaneswar, Cuttack, Rourkela, Sambalpur, Berhampur (Odisha) | Ranchi, Jamshedpur, Dhanbad, Bokaro, Hazaribagh, Deoghar (Jharkhand) | Guwahati, Dibrugarh, Silchar, Jorhat, Tezpur (Assam) | Imphal, Shillong, Aizawl, Kohima, Agartala, Gangtok, Itanagar (Northeast States)
+            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+              <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">East & Northeast India</h3>
+              <p className="text-sm dark:text-slate-400 text-slate-600">
+                Kolkata, Howrah, Durgapur, Asansol, Siliguri, Bardhaman (WB) | Bhubaneswar, Cuttack, Rourkela, Sambalpur, Berhampur (Odisha) | Ranchi, Jamshedpur, Dhanbad, Bokaro, Hazaribagh, Deoghar (Jharkhand) | Guwahati, Dibrugarh, Silchar, Jorhat, Tezpur (Assam) | Imphal, Shillong, Aizawl, Kohima, Agartala, Gangtok, Itanagar
               </p>
             </div>
-
-            <div className="bg-primary-start/10 p-5 rounded-2xl border border-primary-start/20">
-              <h3 className="text-md font-bold mb-2 text-primary-start">Global Mushroom Farming Training — International</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                UAE (Dubai, Abu Dhabi, Sharjah) | UK (London, Birmingham, Manchester) | USA (New York, Los Angeles, Houston, Chicago) | Canada (Toronto, Vancouver, Calgary) | Australia (Sydney, Melbourne, Brisbane) | Germany, France, Netherlands | Bangladesh, Nepal, Bhutan, Sri Lanka | Southeast Asia — Singapore, Malaysia, Thailand, Philippines, Vietnam | South Africa, Kenya, Tanzania
+            <div className="bg-primary-start/10 p-5 rounded-xl border border-primary-start/20">
+              <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">Global (International)</h3>
+              <p className="text-sm dark:text-slate-400 text-slate-600">
+                UAE (Dubai, Abu Dhabi, Sharjah) | UK (London, Birmingham, Manchester) | USA (New York, Los Angeles, Houston) | Canada (Toronto, Vancouver, Calgary) | Australia (Sydney, Melbourne) | Germany, France, Netherlands | Bangladesh, Nepal, Bhutan, Sri Lanka | Southeast Asia (Singapore, Malaysia) | South Africa, Kenya
               </p>
             </div>
           </div>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kaise Join Karein? | How to Enroll</h2>
           <p>Training join karna bahut simple hai:</p>
-          <ul className="list-disc pl-6 mb-6 space-y-2">
-            <li><strong>Step 1:</strong> OrganicMushroomFarm.Shop visit karein</li>
-            <li><strong>Step 2:</strong> Training section mein apna preferred course choose karein</li>
-            <li><strong>Step 3:</strong> Registration form fill karein</li>
-            <li><strong>Step 4:</strong> Payment karein (flexible payment options available)</li>
-            <li><strong>Step 5:</strong> Training start karein aur apna mushroom farming journey begin karein</li>
+          <ul className="list-decimal pl-6 mb-6 space-y-2 text-sm font-medium">
+            <li>OrganicMushroomFarm.Shop visit karein</li>
+            <li>Training section mein apna preferred course choose karein</li>
+            <li>Registration form fill karein</li>
+            <li>Payment karein (flexible payment options available)</li>
+            <li>Training start karein aur apna mushroom farming journey begin karein</li>
           </ul>
-          <p className="font-bold">Direct contact: Call/WhatsApp — <a href="tel:9203544140">9203544140</a></p>
+          <p>
+            <strong>Direct contact:</strong> Call / WhatsApp — <a href="tel:9203544140" className="font-bold">9203544140</a>
+          </p>
 
           <h2 className="text-2xl mt-16 mb-6 border-b dark:border-white/10 border-black/10 pb-2">Aksar Pooche Jane Wale Sawaal | FAQ — Mushroom Farming Training</h2>
           
           <div className="space-y-6">
             <div>
-              <h3 className="font-bold text-lg">Q1. Mushroom farming training kitne din ki hoti hai?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Hamari basic training 2-3 din ki hoti hai aur advanced training 7-10 din ki. Online modules aap apni speed se complete kar sakte hain.</p>
+              <h4 className="font-bold text-lg">Q1. Mushroom farming training kitne din ki hoti hai?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Hamari basic training 2-3 din ki hoti hai aur advanced training 7-10 din ki. Online modules aap apni speed se complete kar sakte hain.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q2. Training fee kitni hai?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Training fee aapke selected course par depend karti hai. Basic offline training Jabalpur mein affordable rate par available hai. Online training India ke kisi bhi state — UP, Bihar, MP, Maharashtra, Tamil Nadu, Karnataka — se le sakte hain. Exact fees ke liye 9203544140 par call karein.</p>
+              <h4 className="font-bold text-lg">Q2. Training fee kitni hai?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Training fee aapke selected course par depend karti hai. Basic offline training Jabalpur mein affordable rate par available hai. Online training India ke kisi bhi state — UP, Bihar, MP, Maharashtra, Tamil Nadu, Karnataka — se le sakte hain. Exact fees ke liye 9203544140 par call karein.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q3. Kya training ke baad certificate milta hai?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Haan! Training complete karne ke baad OrganicMushroomFarm.Shop ka official Certificate of Completion milta hai jo aapke agri-business portfolio mein kaam aayega.</p>
+              <h4 className="font-bold text-lg">Q3. Kya training ke baad certificate milta hai?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Haan! Training complete karne ke baad OrganicMushroomFarm.Shop ka official Certificate of Completion milta hai jo aapke agri-business portfolio mein kaam aayega.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q4. Kya training ke baad spawn supply aur support milega?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Bilkul! Hum trained students ko preferential spawn supply dete hain aur ongoing WhatsApp support bhi provide karte hain taaki aapka farm successfully chale.</p>
+              <h4 className="font-bold text-lg">Q4. Kya training ke baad spawn supply aur support milega?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Bilkul! Hum trained students ko preferential spawn supply dete hain aur ongoing WhatsApp support bhi provide karte hain taaki aapka farm successfully chale.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q5. Kya women aur housewives ke liye mushroom training suitable hai?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Haan! Mushroom farming India ki sabse suitable ghar-based income source hai for women. Delhi, Mumbai, Jaipur, Lucknow, Bhopal, Jabalpur — har jagah mahilayein successfully mushroom farming kar rahi hain.</p>
+              <h4 className="font-bold text-lg">Q5. Kya women aur housewives ke liye mushroom training suitable hai?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Haan! Mushroom farming India ki sabse suitable ghar-based income source hai for women. Delhi, Mumbai, Jaipur, Lucknow, Bhopal, Jabalpur — har jagah mahilayein successfully mushroom farming kar rahi hain.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q6. Kya global students bhi training le sakte hain?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Haan! UAE, UK, USA, Canada, Australia, Bangladesh, Nepal se bhi log hamari online training le chuke hain aur apne country mein mushroom farming business shuru kiya hai.</p>
+              <h4 className="font-bold text-lg">Q6. Kya global students bhi training le sakte hain?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Haan! UAE, UK, USA, Canada, Australia, Bangladesh, Nepal se bhi log hamari online training le chuke hain aur apne country mein mushroom farming business shuru kiya hai.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q7. Mushroom farming ke liye kitni jagah chahiye?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Sirf 100-200 square feet mein bhi mushroom farming shuru ho sakti hai — even in small cities and villages across India. Large scale ke liye 500-1000 sq ft ideal hai.</p>
+              <h4 className="font-bold text-lg">Q7. Mushroom farming ke liye kitni jagah chahiye?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Sirf 100-200 square feet mein bhi mushroom farming shuru ho sakti hai — even in small cities and villages across India. Large scale ke liye 500-1000 sq ft ideal hai.</p>
             </div>
             <div>
-              <h3 className="font-bold text-lg">Q8. Kya mushroom farming profitable hai India mein 2025 mein?</h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Haan! India mein mushroom ki demand har saal 20-25% badh rahi hai. Fresh mushroom, dried mushroom, aur medicinal mushroom ka market India aur globally growing hai. 2025-2026 mein ye ek highly profitable agri-business opportunity hai.</p>
+              <h4 className="font-bold text-lg">Q8. Kya mushroom farming profitable hai India mein 2025 mein?</h4>
+              <p className="text-slate-500 mt-2 text-sm">Haan! India mein mushroom ki demand har saal 20-25% badh rahi hai. Fresh mushroom, dried mushroom, aur medicinal mushroom ka market India aur globally growing hai. 2025-2026 mein ye ek highly profitable agri-business opportunity hai.</p>
             </div>
           </div>
 
@@ -308,19 +307,19 @@ const ArticleTrainingGuideHindi = () => {
             <p className="dark:text-white/80 text-slate-800 mb-6 max-w-2xl mx-auto">
               Mushroom Farming Training lene ka sahi waqt abhi hai! India ke lakhon kisano, entrepreneurs, aur students ne mushroom farming se apni life badli hai.
             </p>
-            <ul className="text-left dark:text-white text-slate-900/90 max-w-sm mx-auto space-y-2 mb-8">
-              <li className="flex items-center gap-2 font-medium"><CheckCircle2 size={16} /> Complete hands-on training</li>
-              <li className="flex items-center gap-2 font-medium"><CheckCircle2 size={16} /> High quality spawn delivery</li>
-              <li className="flex items-center gap-2 font-medium"><CheckCircle2 size={16} /> Certificate of completion</li>
-              <li className="flex items-center gap-2 font-medium"><CheckCircle2 size={16} /> Lifetime WhatsApp support</li>
+            <ul className="text-left max-w-sm mx-auto mb-8 space-y-2 dark:text-white/90 text-slate-800 text-sm font-medium">
+              <li className="flex items-center gap-2"><CheckCircle2 size={16} /> Complete hands-on training</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={16} /> High quality spawn supply</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={16} /> Farm setup guidance</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={16} /> Certificate & Lifetime support</li>
             </ul>
             <div className="flex flex-wrap justify-center gap-4 text-center">
-              <a href="tel:9203544140" className="inline-flex items-center justify-center bg-white text-primary-start font-bold py-3 px-8 rounded-xl shadow-xl hover:scale-105 transition-transform w-[280px]">
+              <Link to="/training" className="inline-flex items-center justify-center bg-white text-primary-start font-bold py-3 px-8 rounded-xl shadow-xl hover:scale-105 transition-transform w-[280px]">
+                Enroll in Training
+              </Link>
+              <a href="tel:9203544140" className="inline-flex items-center justify-center dark:bg-black/20 bg-white/20 dark:text-white text-slate-900 font-bold py-3 px-8 rounded-xl backdrop-blur border dark:border-white/20 border-black/20 hover:bg-white/30 transition-colors w-[280px]">
                 Call / WhatsApp: 9203544140
               </a>
-              <Link to="/training" className="inline-flex items-center justify-center dark:bg-black/20 bg-white/20 dark:text-white text-slate-900 font-bold py-3 px-8 rounded-xl backdrop-blur border dark:border-white/20 border-black/20 hover:bg-white/30 transition-colors w-[280px]">
-                Explore Training Courses
-              </Link>
             </div>
           </div>
         </article>

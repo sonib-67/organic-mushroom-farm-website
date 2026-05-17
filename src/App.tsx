@@ -3001,7 +3001,7 @@ export default function App() {
             <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
             <Route path="/articles/what-is-mushroom-spawn-beginner-guide-india" element={<ArticleMushroomSpawn />} />
             <Route path="/articles/mushroom-farming-business-plan-hindi-2026" element={<ArticleBusinessPlanHindi />} />
-            <Route path="/articles/mushroom-farming-training-hindi" element={<ArticleTrainingGuideHindi />} />
+            <Route path="/articles/mushroom-farming-training-hindi-india" element={<ArticleTrainingGuideHindi />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />
