@@ -196,20 +196,31 @@ const ConsultantRazorpayPaymentButton = () => {
     }
   }, []);
 
+  const handlePayment = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (formRef.current) {
+      const btn = formRef.current.querySelector('a') || formRef.current.querySelector('button') || formRef.current.querySelector('.razorpay-payment-button');
+      if (btn) {
+        (btn as HTMLElement).click();
+      } else {
+        console.error("Razorpay button not ready");
+      }
+    }
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-md md:rounded-lg group w-full bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all border dark:border-white/10 border-black/10 h-8 md:h-12 flex">
-      <div className="absolute inset-0 flex items-center justify-center font-bold pointer-events-none z-10 px-2 md:px-4 gap-1.5 md:gap-2 whitespace-nowrap text-[9px] md:text-sm">
-        <span>Proceed to Payment</span> <ArrowRight size={10} className="md:w-3 md:h-3" />
-      </div>
-      <div className="absolute inset-0 rounded-md md:rounded-lg bg-blue-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none"></div>
-      <form 
-        ref={formRef} 
-        className="w-full h-full relative z-20 m-0 p-0 flex opacity-0 cursor-pointer" 
-      />
-      <style>{`
-        form .razorpay-payment-button { width: 100%; height: 100%; min-height: 32px; cursor: pointer !important; }
-        form iframe { width: 100% !important; height: 100% !important; cursor: pointer !important; }
-      `}</style>
-    </div>
+    <>
+      <button 
+        onClick={handlePayment}
+        type="button"
+        className="relative overflow-hidden rounded-md md:rounded-lg group w-full bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all border dark:border-white/10 border-black/10 h-8 md:h-12 flex items-center justify-center cursor-pointer"
+      >
+        <div className="absolute inset-0 flex items-center justify-center font-bold z-10 px-2 md:px-4 gap-1.5 md:gap-2 whitespace-nowrap text-[9px] md:text-sm">
+          <span>Proceed to Payment</span> <ArrowRight size={10} className="md:w-3 md:h-3" />
+        </div>
+        <div className="absolute inset-0 rounded-md md:rounded-lg bg-blue-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
+      </button>
+      <form ref={formRef} className="hidden" style={{ display: 'none' }} />
+    </>
   );
 };

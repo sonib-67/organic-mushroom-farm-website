@@ -1825,22 +1825,33 @@ const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }
     }
   }, []);
 
+  const handlePayment = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (formRef.current) {
+      const btn = formRef.current.querySelector('a') || formRef.current.querySelector('button') || formRef.current.querySelector('.razorpay-payment-button');
+      if (btn) {
+        (btn as HTMLElement).click();
+      } else {
+        console.error("Razorpay button not ready");
+      }
+    }
+  };
+
   return (
-    <div className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}>
-      <div className={`font-bold pointer-events-none z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
-        <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
-        <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
-      </div>
-      <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none"></div>
-      <form 
-        ref={formRef} 
-        className="absolute inset-0 z-20 m-0 p-0 flex opacity-0 cursor-pointer" 
-      />
-      <style>{`
-        form .razorpay-payment-button { width: 100%; height: 100%; min-height: 40px; cursor: pointer !important; }
-        form iframe { width: 100% !important; height: 100% !important; cursor: pointer !important; }
-      `}</style>
-    </div>
+    <>
+      <button 
+        onClick={handlePayment}
+        type="button"
+        className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}
+      >
+        <div className={`font-bold z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
+          <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
+          <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
+        </div>
+        <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
+      </button>
+      <form ref={formRef} className="hidden" style={{ display: 'none' }} />
+    </>
   );
 };
 
@@ -2029,23 +2040,32 @@ const RazorpayPaymentButton = () => {
     }
   }, []);
 
+  const handlePayment = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (formRef.current) {
+      const btn = formRef.current.querySelector('a') || formRef.current.querySelector('button') || formRef.current.querySelector('.razorpay-payment-button');
+      if (btn) {
+        (btn as HTMLElement).click();
+      } else {
+        console.error("Razorpay button not ready");
+      }
+    }
+  };
+
   return (
-    <div className="relative overflow-hidden rounded-2xl group w-full bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02]">
-      {/* Custom UI Button that looks good */}
-      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg md:text-xl pointer-events-none z-10 gap-2">
-        Enroll Now - ₹<span className="text-2xl">299</span> <ExternalLink size={20} />
-      </div>
-      
-      {/* Invisible Form wrapper overlay catching the clicks */}
-      <form 
-        ref={formRef} 
-        className="w-full relative z-20 m-0 p-0 flex min-h-[64px] opacity-0 cursor-pointer" 
-      />
-      <style>{`
-        form .razorpay-payment-button { width: 100%; height: 100%; min-height: 64px; cursor: pointer !important; }
-        form iframe { width: 100% !important; height: 100% !important; cursor: pointer !important; }
-      `}</style>
-    </div>
+    <>
+      <button 
+        onClick={handlePayment}
+        type="button"
+        className="relative overflow-hidden rounded-2xl group w-full min-h-[64px] bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02] flex items-center justify-center cursor-pointer"
+      >
+        {/* Custom UI Button that looks good */}
+        <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg md:text-xl z-10 gap-2">
+          Enroll Now - ₹<span className="text-2xl">299</span> <ExternalLink size={20} />
+        </div>
+      </button>
+      <form ref={formRef} className="hidden" style={{ display: 'none' }} />
+    </>
   );
 };
 
