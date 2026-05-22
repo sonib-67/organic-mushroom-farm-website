@@ -25,6 +25,8 @@ import SpawnSeedPage from './pages/SpawnSeed';
 import BusinessPlan from './pages/BusinessPlan';
 import MushroomTypes from './pages/MushroomTypes';
 import Equipment from './pages/Equipment';
+import BookConsultantPage from './pages/BookConsultantPage';
+import PaymentSuccessPage from './pages/PaymentSuccessPage';
 import Subsidy from './pages/Subsidy';
 import Locations from './pages/Locations';
 import Blog from './pages/Blog';
@@ -1445,14 +1447,12 @@ const TrainingPage = () => {
       <section className="section-padding bg-black/40">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-8">Ready to Start Your Commercial Mushroom Farming Journey?</h3>
-          <a 
-            href="https://calendly.com/tanmaysomi/30min" 
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link 
+            to="/book-consultant" 
             className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
           >
             Book a Free Consultation <ArrowRight size={20} />
-          </a>
+          </Link>
         </div>
       </section>
     </div>
@@ -1812,8 +1812,41 @@ const Footer = () => {
   );
 };
 
+const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }) => {
+  const formRef = React.useRef<HTMLFormElement>(null);
+  
+  React.useEffect(() => {
+    if (formRef.current && formRef.current.children.length === 0) {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+      script.async = true;
+      script.setAttribute("data-payment_button_id", "pl_SsHsePqfncXBvY");
+      formRef.current.appendChild(script);
+    }
+  }, []);
+
+  return (
+    <div className={`relative overflow-hidden rounded-full group w-full md:w-auto bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full' : 'h-12 md:h-16'}`}>
+      <div className={`absolute inset-0 flex items-center justify-center font-bold pointer-events-none z-10 px-2 md:px-8 gap-1.5 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[11px]' : 'text-sm md:text-lg px-6'}`}>
+        <BookOpen size={size === 'small' ? 14 : 18} className={size === 'small' ? 'md:w-4 md:h-4' : 'md:w-[22px] md:h-[22px]'} />
+        <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
+      </div>
+      <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none"></div>
+      <form 
+        ref={formRef} 
+        className="w-full h-full relative z-20 m-0 p-0 flex opacity-0 cursor-pointer" 
+      />
+      <style>{`
+        form .razorpay-payment-button { width: 100%; height: 100%; min-height: 40px; cursor: pointer !important; }
+        form iframe { width: 100% !important; height: 100% !important; cursor: pointer !important; }
+      `}</style>
+    </div>
+  );
+};
+
 const FloatingButtons = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 400);
@@ -1821,8 +1854,10 @@ const FloatingButtons = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isTrainingPage = location.pathname === '/training';
+
   const mobileNavItems = [
-    { label: "Book Consultant", href: "https://calendly.com/tanmaysomi/30min", icon: Calendar },
+    { label: "Book Consultant", href: "/book-consultant", icon: Calendar },
     { label: "Spawn (Seed)", href: "/spawn-seed", icon: Sprout },
     { label: "Training", href: "/training", icon: BookOpen },
     { label: "Setup (Turnkey)", href: "/#farming-models", icon: Home },
@@ -1834,36 +1869,64 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className="fixed bottom-24 right-4 md:right-8 z-[100] flex flex-col gap-3 md:gap-4 items-end">
+      <div className={`fixed right-4 md:right-8 z-[100] flex flex-col gap-2 md:gap-4 items-end pointer-events-none ${isTrainingPage ? 'bottom-16 md:bottom-24' : 'bottom-20 md:bottom-24'}`}>
         
-        {/* Book a Free Consultation Button (Calendly) */}
-        <motion.a 
-          href="https://calendly.com/tanmaysomi/30min" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          className="flex px-4 md:px-6 h-12 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 dark:text-white text-slate-900 items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-2 text-[10px] md:text-base order-1 md:order-none"
-        >
-          <Calendar size={18} className="md:w-5 md:h-5" />
-          <span className="hidden md:inline">Book a Free Consultation</span>
-          <span className="md:hidden">Book Now</span>
-        </motion.a>
+        {isTrainingPage ? (
+          <div className="flex flex-col gap-1.5 md:gap-2 items-end pointer-events-auto">
+            <div className="flex gap-1.5 w-full justify-end md:hidden">
+              <Link 
+                to="/book-consultant" 
+                className="flex-1 flex px-3 h-10 md:h-12 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-lg font-bold tracking-wide gap-1 text-[10px]"
+              >
+                <Calendar size={12} /> Consult
+              </Link>
+              <motion.a 
+                href="https://wa.me/919203544140" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                whileHover={{ scale: 1.1 }}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shrink-0"
+              >
+                <MessageCircle size={16} />
+              </motion.a>
+            </div>
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="w-[200px] sm:w-[240px] md:w-auto"
+            >
+              <StickyRazorpayButton size={window.innerWidth < 768 ? 'small' : 'normal'} />
+            </motion.div>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2 md:gap-4 items-end pointer-events-auto">
+            {/* Book a Free Consultation Button (Calendly) */}
+            <Link 
+              to="/book-consultant" 
+              className="flex px-4 md:px-6 h-12 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-2 text-[10px] md:text-base order-1 md:order-none"
+            >
+              <Calendar size={18} className="md:w-5 md:h-5" />
+              <span className="hidden md:inline">Book a Free Consultation</span>
+              <span className="md:hidden">Book Now</span>
+            </Link>
 
-        {/* WhatsApp Button with Glow & Pulse */}
-        <motion.a 
-          href="https://wa.me/919203544140" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.1 }}
-          className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 dark:text-white text-slate-900 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0 order-2 md:order-none"
-        >
-          <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></div>
-          <MessageCircle size={28} className="relative z-10" />
-        </motion.a>
+            {/* WhatsApp Button with Glow & Pulse */}
+            <motion.a 
+              href="https://wa.me/919203544140" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              whileHover={{ scale: 1.1 }}
+              className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 dark:text-white text-slate-900 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0 order-2 md:order-none"
+            >
+              <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></div>
+              <MessageCircle size={28} className="relative z-10" />
+            </motion.a>
+          </div>
+        )}
 
         {/* Scroll To Top (Desktop) */}
         {showScrollTop && (
@@ -1871,7 +1934,7 @@ const FloatingButtons = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-12 h-12 glass rounded-full dark:text-slate-400 text-slate-600 flex items-center justify-center hover:dark:bg-white/10 bg-black/10 transition-all hidden md:flex"
+            className="w-12 h-12 glass rounded-full dark:text-slate-400 text-slate-600 flex items-center justify-center hover:dark:bg-white/10 bg-black/10 transition-all hidden md:flex pointer-events-auto"
           >
             <ChevronUp size={20} />
           </motion.button>
@@ -1879,12 +1942,23 @@ const FloatingButtons = () => {
       </div>
 
       {/* Mobile Horizontal Sticky Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t dark:border-white/10 border-black/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
-        <div className="overflow-x-auto scrollbar-hide snap-x flex items-center gap-3 p-4">
+      <div className={`fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t dark:border-white/10 border-black/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]`}>
+        <div className={`overflow-x-auto scrollbar-hide snap-x flex items-center ${isTrainingPage ? 'gap-1.5 p-2 px-3' : 'gap-3 p-4'}`}>
           {mobileNavItems.map((item, i) => {
             const isExternal = item.href.startsWith('tel:') || item.href.startsWith('http');
-            const className = "snap-start shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border dark:border-white/10 border-black/10 hover:border-primary-start/50 transition-all active:scale-95";
-            
+            const className = `snap-start shrink-0 flex items-center justify-center rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border dark:border-white/10 border-black/10 hover:border-primary-start/50 transition-all active:scale-95 ${
+              isTrainingPage ? 'gap-1.5 px-3 py-1.5' : 'gap-2 px-4 py-2.5'
+            }`;
+
+            const content = (
+              <>
+                <item.icon size={isTrainingPage ? 12 : 14} className="text-primary-start" />
+                <span className={`font-bold dark:text-white text-slate-900 whitespace-nowrap tracking-tight ${isTrainingPage ? 'text-[9px]' : 'text-[11px]'}`}>
+                  {item.label}
+                </span>
+              </>
+            );
+
             if (isExternal) {
               return (
                 <a 
@@ -1894,8 +1968,7 @@ const FloatingButtons = () => {
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className={className}
                 >
-                  <item.icon size={14} className="text-primary-start" />
-                  <span className="text-[11px] font-bold dark:text-white text-slate-900 whitespace-nowrap tracking-tight">{item.label}</span>
+                  {content}
                 </a>
               );
             }
@@ -1906,8 +1979,7 @@ const FloatingButtons = () => {
                 to={item.href}
                 className={className}
               >
-                <item.icon size={14} className="text-primary-start" />
-                <span className="text-[11px] font-bold dark:text-white text-slate-900 whitespace-nowrap tracking-tight">{item.label}</span>
+                {content}
               </Link>
             );
           })}
@@ -1922,11 +1994,65 @@ const FloatingButtons = () => {
 
 // --- Main App ---
 
+const RazorpayPaymentButton = () => {
+  const formRef = React.useRef<HTMLFormElement>(null);
+  
+  React.useEffect(() => {
+    if (formRef.current && formRef.current.children.length === 0) {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
+      script.async = true;
+      script.setAttribute("data-payment_button_id", "pl_SsHsePqfncXBvY");
+      formRef.current.appendChild(script);
+    }
+  }, []);
+
+  return (
+    <div className="relative overflow-hidden rounded-2xl group w-full bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02]">
+      {/* Custom UI Button that looks good */}
+      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg md:text-xl pointer-events-none z-10 gap-2">
+        Enroll Now - ₹<span className="text-2xl">299</span> <ExternalLink size={20} />
+      </div>
+      
+      {/* Invisible Form wrapper overlay catching the clicks */}
+      <form 
+        ref={formRef} 
+        className="w-full relative z-20 m-0 p-0 flex min-h-[64px] opacity-0 cursor-pointer" 
+      />
+      <style>{`
+        form .razorpay-payment-button { width: 100%; height: 100%; min-height: 64px; cursor: pointer !important; }
+        form iframe { width: 100% !important; height: 100% !important; cursor: pointer !important; }
+      `}</style>
+    </div>
+  );
+};
+
 const MushroomTraining = () => {
   const faqs = [
     { q: "What is the duration of training?", a: "Online training is self-paced with lifetime access. Offline training is typically 3-5 days of intensive hands-on workshop." },
     { q: "Is it beginner friendly?", a: "Absolutely! Our courses are designed from scratch, making them perfect for students, entrepreneurs, and hobbyists with zero farming background." },
     { q: "Will I get support after training?", a: "Yes, we provide lifetime technical support for both online and offline students. You also get access to our private community for ongoing guidance." },
+  ];
+
+  const curriculum = [
+    { title: "Oyster Mushroom", desc: "Comprehensive guide to substrates, spawning, incubation, and cropping for high-yield Oyster cultivation." },
+    { title: "Button Mushroom", desc: "Step-by-step commercial method covering composting, casing, pinning, and temperature-controlled harvesting." },
+    { title: "Low-Cost Setup", desc: "Smart, budget-friendly infrastructure designs using locally available materials without compromising yield." },
+    { title: "Fogger System", desc: "Automation of humidity controls, nozzle selection, and installation layouts for maintaining ideal moisture levels." },
+    { title: "Temperature Control", desc: "Efficient insulation techniques and cooling/heating methods tailored for seasonal and round-the-year farming." },
+    { title: "Spawn Making", desc: "Scientific process of grain selection, sterilization, inoculation, and pure culture maintenance for high-quality seeds." },
+    { title: "Marketing", desc: "Strategic insights on target markets, B2B/B2C sales, branding, local vendor tie-ups, and digital positioning." },
+    { title: "Dry Mushroom", desc: "Standard solar and mechanical dehydration protocols to increase shelf-life and maintain premium color/quality." },
+    { title: "Mushroom Powder", desc: "Processing value-added products, grinding standards, packaging, and capturing health-supplement markets." },
+    { title: "Farm Setup", desc: "Commercial layout planning, ventilation design, rack systems, and hygiene protocols to minimize contamination." }
+  ];
+
+  const whatYouGet = [
+    { title: "Lifetime Support", desc: "Continuous community and expert assistance to solve your ongoing farming doubts anytime.", icon: ShieldCheck },
+    { title: "Live Training", desc: "Interactive live sessions with real-time Q&A, plus lifetime access to session recordings.", icon: Play },
+    { title: "WhatsApp Group", desc: "Access to an exclusive, active community of growers for real-time networking and knowledge sharing.", icon: MessageCircle },
+    { title: "Practical Guidance", desc: "Actionable, real-world insights from live farm operations rather than just textbook theory.", icon: TrendingUp },
+    { title: "Farm Setup Help", desc: "Personalized consultancy on designing blueprints and choosing the right equipment for your farm.", icon: Home }
   ];
 
   const galleryImages = [
@@ -1940,19 +2066,19 @@ const MushroomTraining = () => {
   return (
     <section id="training" className="relative pb-24 lg:pb-0 overflow-hidden">
       {/* Tiny bit of Hero style for internal section */}
-      <div className="section-padding pt-16 md:pt-24 text-center">
-        <div className="max-w-7xl mx-auto px-4">
+      <div className="py-4 md:py-24 text-center px-2 md:px-4">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="badge mx-auto mb-6">Expert-Led Courses</div>
-            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight uppercase">
-              Professional <span className="gradient-text">Button, Oyster & Milky Mushroom Farming</span> Training
+            <div className="badge mx-auto mb-3 md:mb-6 text-[10px] md:text-xs">Expert-Led Courses</div>
+            <h2 className="text-lg md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 mb-2 md:mb-6 tracking-tighter leading-snug uppercase max-w-4xl mx-auto">
+              <span className="gradient-text">Button, Oyster & Milky Mushroom Farming</span> Training
             </h2>
-            <p className="dark:text-slate-400 text-slate-600 text-base md:text-lg max-w-2xl mx-auto font-medium mb-10">
+            <p className="dark:text-slate-400 text-slate-600 text-[11px] md:text-lg max-w-2xl mx-auto font-medium mb-4 md:mb-10 leading-tight">
               Learn Commercial Button & Oyster Mushroom Farming from Global Experts – Start Your Own Business Today. Comprehensive modules designed for maximum ROI.
             </p>
           </motion.div>
@@ -1960,80 +2086,75 @@ const MushroomTraining = () => {
       </div>
 
       {/* Training Options Section */}
-      <div id="options" className="section-padding dark:bg-white/5 bg-black/5">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 mb-4">Choose Your <span className="gradient-text">Commercial Training Model</span></h3>
-            <p className="dark:text-slate-400 text-slate-600">Select the path that fits your commercial mushroom goals and budget.</p>
+      <div id="options" className="py-4 md:py-24 dark:bg-white/5 bg-black/5 px-2 md:px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-4 md:mb-16">
+            <h3 className="text-md md:text-4xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-4">Choose Your <span className="gradient-text">Commercial Training Model</span></h3>
+            <p className="dark:text-slate-400 text-slate-600 text-[9px] md:text-base">Select the path that fits your commercial mushroom goals and budget.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-2 gap-2 md:gap-8 lg:gap-12">
             {/* Online Training */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
+              className="glass flex-1 flex flex-col p-4 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
             >
               <a 
                 href="https://youtube.com/shorts/wxLiU3nNZmM?si=6VmH86DPYKoQ72P6" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute top-0 right-0 p-8 opacity-5 hover:opacity-20 transition-opacity"
+                className="absolute top-0 right-0 p-4 md:p-8 opacity-5 hover:opacity-20 hover:scale-105 transition-all cursor-pointer"
               >
-                <Play size={120} />
+                <Play size={80} className="md:w-[120px] md:h-[120px]" />
               </a>
-              <div className="badge mb-6">Self-Paced</div>
-              <h4 className="text-3xl font-bold dark:text-white text-slate-900 mb-2">Online Training</h4>
-              <div className="text-4xl font-black gradient-text mb-6">₹399</div>
-              <ul className="space-y-4 mb-10">
+              <div className="badge mb-2 md:mb-6 self-start text-[10px] md:text-xs">Self-Paced</div>
+              <h4 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-1 md:mb-2 text-left">Online Training</h4>
+              <div className="text-2xl md:text-4xl font-black gradient-text mb-3 md:mb-6 text-left">₹299</div>
+              <ul className="space-y-1.5 md:space-y-4 mb-4 md:mb-10 flex-1 text-[11px] md:text-base text-left">
                 {[
                   "Complete A-Z Mushroom Farming Guide",
-                  "Step-by-Step Video Training",
+                  "Step-by-Step Live Training",
                   "Lifetime Access",
                   "Beginner Friendly"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 dark:text-slate-300 text-slate-700 font-bold">
-                    <CheckCircle2 size={20} className="text-primary-start" /> {item}
+                  <li key={i} className="flex items-center gap-2 md:gap-3 dark:text-slate-300 text-slate-700 font-bold">
+                    <CheckCircle2 size={14} className="text-primary-start shrink-0 md:w-5 md:h-5" /> {item}
                   </li>
                 ))}
               </ul>
-              <a 
-                href="https://pages.razorpay.com/organicmushroomfarmtraining" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-primary w-full py-5 rounded-2xl font-bold text-center flex items-center justify-center gap-2 shadow-lg"
-              >
-                Enroll Now <ExternalLink size={20} />
-              </a>
+              <div className="mt-auto relative z-50 h-[48px] md:h-[56px] w-full">
+                <StickyRazorpayButton size="small" />
+              </div>
             </motion.div>
 
             {/* Offline Training */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
+              className="glass flex-1 flex flex-col p-4 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-5">
-                <Users size={120} />
+              <div className="absolute top-0 right-0 p-4 md:p-8 opacity-5">
+                <Users size={80} className="md:w-[120px] md:h-[120px]" />
               </div>
-              <div className="badge mb-6">Hands-on Workshop</div>
-              <h4 className="text-3xl font-bold dark:text-white text-slate-900 mb-2">Offline Training</h4>
-              <div className="text-4xl font-black gradient-text mb-6">₹3000</div>
-              <ul className="space-y-4 mb-10">
+              <div className="badge mb-2 md:mb-6 self-start text-[10px] md:text-xs">Hands-on Workshop</div>
+              <h4 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-1 md:mb-2 text-left">Offline Training</h4>
+              <div className="text-2xl md:text-4xl font-black gradient-text mb-3 md:mb-6 text-left">₹3000</div>
+              <ul className="space-y-1.5 md:space-y-4 mb-4 md:mb-10 flex-1 text-[11px] md:text-base text-left">
                 {[
                   "Practical Hands-on Training",
                   "Farm Visit & Live Demo",
                   "Setup Guidance",
                   "Marketing & Selling Tips"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 dark:text-slate-300 text-slate-700 font-bold">
-                    <CheckCircle2 size={20} className="text-green-500" /> {item}
+                  <li key={i} className="flex items-center gap-2 md:gap-3 dark:text-slate-300 text-slate-700 font-bold">
+                    <CheckCircle2 size={14} className="text-green-500 shrink-0 md:w-5 md:h-5" /> {item}
                   </li>
                 ))}
               </ul>
-              <div className="grid grid-cols-2 gap-4">
-                <a href="tel:9203544140" className="btn-outline py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-xs">
-                  <Phone size={16} /> Call Now
+              <div className="grid grid-cols-2 gap-2 md:gap-4 mt-auto">
+                <a href="tel:9203544140" className="btn-outline py-3 md:py-4 rounded-xl flex items-center justify-center gap-1.5 md:gap-2 font-bold text-[10px] md:text-xs px-2">
+                  <Phone size={14} className="md:w-4 md:h-4" /> Call Now
                 </a>
-                <a href="https://wa.me/919203544140" className="bg-[#25D366] hover:bg-[#128C7E] dark:text-white text-slate-900 py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-xs transition-colors">
-                  <MessageCircle size={16} /> WhatsApp
+                <a href="https://wa.me/919203544140" className="bg-[#25D366] hover:bg-[#128C7E] text-white py-3 md:py-4 px-2 rounded-xl flex items-center justify-center gap-1.5 md:gap-2 font-bold text-[10px] md:text-xs transition-colors shadow-lg">
+                  <MessageCircle size={14} className="md:w-4 md:h-4" /> WhatsApp
                 </a>
               </div>
             </motion.div>
@@ -2041,39 +2162,90 @@ const MushroomTraining = () => {
         </div>
       </div>
 
-      <div className="section-padding dark:bg-white/5 bg-black/5">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="badge mx-auto mb-6">Commercial Farming Essentials</div>
-          <h3 className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 mb-6 uppercase tracking-tight">Need High-Yield Commercial <span className="gradient-text">Mushroom Seed?</span></h3>
-          <p className="dark:text-slate-400 text-slate-600 mb-10 max-w-2xl mx-auto">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders in India and global export.</p>
+      {/* What You Will Get Section */}
+      <div className="py-4 md:py-16 px-2 md:px-4">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-4 md:mb-12">
+            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">What You Will <span className="gradient-text">Get</span></h3>
+            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-[9px] md:text-base">Everything you need to succeed in commercial mushroom farming.</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-1.5 md:gap-5">
+            {whatYouGet.map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className={`glass p-2 md:p-6 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-colors flex flex-col justify-start ${i === 4 ? 'col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-full' : ''}`}
+              >
+                <div className="w-5 h-5 md:w-14 md:h-14 rounded-md md:rounded-2xl dark:bg-white/10 bg-black/10 flex items-center justify-center mb-1 bg-primary-start/10 text-primary-start group-hover:scale-110 transition-transform">
+                  <item.icon className="w-3 h-3 md:w-6 md:h-6" />
+                </div>
+                <h4 className="text-[10px] md:text-xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-2 leading-tight">{item.title}</h4>
+                <p className="dark:text-slate-400 text-slate-600 text-[8px] md:text-sm leading-tight md:leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Curriculum Section */}
+      <div className="py-4 md:py-16 dark:bg-white/5 bg-black/5 px-2 md:px-4">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-4 md:mb-12">
+            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">Training <span className="gradient-text">Curriculum</span></h3>
+            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-[9px] md:text-base">Master every aspect of the commercial cultivation ecosystem.</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-1.5 md:gap-5">
+            {curriculum.map((item, i) => (
+              <div key={i} className="glass p-2 md:p-6 rounded-lg md:rounded-2xl border dark:border-white/5 border-black/5 flex flex-col md:flex-row gap-1.5 md:gap-4 items-start hover:dark:bg-white/5 hover:bg-black/5 transition-colors">
+                <div className="w-4 h-4 md:w-10 md:h-10 shrink-0 rounded-full dark:bg-white/10 bg-black/10 flex items-center justify-center font-black dark:text-white text-slate-900 opacity-50 text-[8px] md:text-base mb-0 md:mb-0">
+                  {i + 1}
+                </div>
+                <div>
+                  <h4 className="text-[10px] md:text-xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-2 leading-tight">{item.title}</h4>
+                  <p className="dark:text-slate-400 text-slate-600 text-[8px] md:text-sm leading-tight md:leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="py-4 md:py-24">
+        <div className="max-w-7xl mx-auto px-2 md:px-4 text-center">
+          <div className="badge mx-auto mb-1 md:mb-6 text-[8px] md:text-sm">Commercial Farming Essentials</div>
+          <h3 className="text-md md:text-4xl font-bold dark:text-white text-slate-900 mb-1 md:mb-6 uppercase tracking-tight">Need High-Yield Commercial <span className="gradient-text">Mushroom Seed?</span></h3>
+          <p className="dark:text-slate-400 text-slate-600 mb-3 md:mb-10 max-w-2xl mx-auto text-[9px] md:text-base leading-tight">High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Available for bulk orders in India and global export.</p>
           <Link 
             to="/spawn-seed"
-            className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
+            className="btn-primary px-4 md:px-10 py-2 md:py-4 rounded-lg md:rounded-xl text-[10px] md:text-lg inline-flex items-center gap-1.5 md:gap-3"
           >
-            Explore Organic Spawn & Seeds <Sprout size={20} />
+            Explore Organic Spawn & Seeds <Sprout size={12} className="md:w-5 md:h-5" />
           </Link>
         </div>
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="section-padding">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight">Why Choose <span className="gradient-text">Our Professional Training?</span></h3>
+      <div className="py-4 md:py-24">
+        <div className="max-w-7xl mx-auto px-2 md:px-4">
+          <div className="text-center mb-4 md:mb-16">
+            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight">Why Choose <span className="gradient-text">Our Training?</span></h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 md:gap-6">
             {[
               { title: "Expert Trainers", desc: "Learn from industry pioneers with years of commercial success in India and abroad.", icon: Award },
               { title: "Practical Knowledge", desc: "No fluff, only commercial standard operating procedures that work globally.", icon: BookOpen },
               { title: "Business Guidance", desc: "Expert tips on global marketing, B2B scaling, and ROI management.", icon: TrendingUp },
               { title: "Training Support", desc: "Lifetime technical guidance for button and oyster mushroom setup.", icon: ShieldCheck },
             ].map((item, i) => (
-              <div key={i} className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 text-center group hover:dark:bg-white/5 bg-black/5 transition-all">
-                <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 text-primary-start group-hover:scale-110 transition-transform">
-                  <item.icon size={28} />
+              <div key={i} className="glass p-2 md:p-8 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 text-center group hover:dark:bg-white/5 bg-black/5 transition-all">
+                <div className="w-6 h-6 md:w-16 md:h-16 rounded-md md:rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-1.5 md:mb-6 text-primary-start group-hover:scale-110 transition-transform">
+                  <item.icon className="w-3 h-3 md:w-7 md:h-7" />
                 </div>
-                <h4 className="dark:text-white text-slate-900 font-bold text-lg mb-3">{item.title}</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                <h4 className="dark:text-white text-slate-900 font-bold text-[10px] md:text-lg mb-0.5 md:mb-3 leading-tight">{item.title}</h4>
+                <p className="text-slate-500 text-[8px] md:text-sm leading-tight md:leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -2081,19 +2253,19 @@ const MushroomTraining = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="section-padding pt-0">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-4 uppercase tracking-tight">Experience our Commercial <span className="gradient-text">Ecosystem</span></h3>
+      <div className="py-4 md:py-24 pt-0 md:pt-0">
+        <div className="max-w-7xl mx-auto px-2 md:px-4">
+          <div className="text-center mb-3 md:mb-12">
+            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-4 uppercase tracking-tight">Experience our Commercial <span className="gradient-text">Ecosystem</span></h3>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-5 gap-1 md:gap-4 overflow-hidden">
             {galleryImages.map((img, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
-                className="aspect-square rounded-2xl overflow-hidden glass border dark:border-white/10 border-black/10"
+                className="aspect-square rounded-md md:rounded-2xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
                 <img loading="lazy" src={img.src} alt={img.alt} className="w-full h-full object-cover transition-transform hover:scale-110 duration-500" />
               </motion.div>
@@ -2103,10 +2275,10 @@ const MushroomTraining = () => {
       </div>
 
       {/* SEO Content Section */}
-      <div className="section-padding dark:bg-white/5 bg-black/5">
-        <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 border-l-4 border-primary-start pl-6 uppercase tracking-tight">Start Your Commercial <span className="gradient-text">Mushroom Farming Journey</span> in India & Globally</h3>
-          <div className="dark:text-slate-400 text-slate-600 space-y-6 leading-relaxed text-sm md:text-base">
+      <div className="py-4 md:py-24 dark:bg-white/5 bg-black/5 px-2 md:px-4">
+        <div className="max-w-4xl mx-auto prose prose-invert">
+          <h3 className="text-sm md:text-2xl font-bold dark:text-white text-slate-900 mb-2 md:mb-8 border-l-2 md:border-l-4 border-primary-start pl-2 md:pl-6 uppercase tracking-tight">Start Your Commercial <span className="gradient-text">Mushroom Farming Journey</span> in India & Globally</h3>
+          <div className="dark:text-slate-400 text-slate-600 space-y-2 md:space-y-6 leading-tight md:leading-relaxed text-[9px] md:text-base">
             <p>
               Looking for the best <span className="dark:text-white text-slate-900 font-bold">mushroom farming training in India</span>? At Organic Mushroom Farm, we provide the most comprehensive <span className="dark:text-white text-slate-900 font-bold">button mushroom training course</span> designed specifically for the Indian climate and international global market standards. Our modules cover everything from raw substrate preparation to precision climate control.
             </p>
@@ -2121,15 +2293,15 @@ const MushroomTraining = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="section-padding">
-        <div className="max-w-3xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-4 uppercase tracking-tight">Common Commercial Farming <span className="gradient-text">Queries</span></h3>
+      <div className="py-4 md:py-24 px-2 md:px-4">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-4 md:mb-12">
+            <h3 className="text-md md:text-2xl font-bold dark:text-white text-slate-900 mb-1 md:mb-4 uppercase tracking-tight">Common Commercial Farming <span className="gradient-text">Queries</span></h3>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-1.5 md:space-y-4">
             {faqs.map((faq, i) => (
               <Collapsible key={i} title={faq.q}>
-                <p className="dark:text-slate-400 text-slate-600 leading-relaxed">{faq.a}</p>
+                <p className="dark:text-slate-400 text-slate-600 leading-tight md:leading-relaxed text-[9px] md:text-base">{faq.a}</p>
               </Collapsible>
             ))}
           </div>
@@ -2979,6 +3151,8 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/book-consultant" element={<BookConsultantPage />} />
+            <Route path="/payment-success" element={<PaymentSuccessPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />
