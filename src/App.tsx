@@ -1826,15 +1826,15 @@ const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }
   }, []);
 
   return (
-    <div className={`relative overflow-hidden rounded-full group w-full md:w-auto bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full' : 'h-12 md:h-16'}`}>
-      <div className={`absolute inset-0 flex items-center justify-center font-bold pointer-events-none z-10 px-2 md:px-8 gap-1.5 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[11px]' : 'text-sm md:text-lg px-6'}`}>
-        <BookOpen size={size === 'small' ? 14 : 18} className={size === 'small' ? 'md:w-4 md:h-4' : 'md:w-[22px] md:h-[22px]'} />
+    <div className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}>
+      <div className={`font-bold pointer-events-none z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
+        <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
         <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
       </div>
       <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none"></div>
       <form 
         ref={formRef} 
-        className="w-full h-full relative z-20 m-0 p-0 flex opacity-0 cursor-pointer" 
+        className="absolute inset-0 z-20 m-0 p-0 flex opacity-0 cursor-pointer" 
       />
       <style>{`
         form .razorpay-payment-button { width: 100%; height: 100%; min-height: 40px; cursor: pointer !important; }
@@ -1869,10 +1869,32 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className={`fixed right-4 md:right-8 z-[100] flex flex-col gap-2 md:gap-4 items-end pointer-events-none ${isTrainingPage ? 'bottom-16 md:bottom-24' : 'bottom-20 md:bottom-24'}`}>
+      <div className={`fixed right-4 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none ${isTrainingPage ? 'bottom-[80px] md:bottom-[30px]' : 'bottom-[80px] md:bottom-[30px]'}`}>
         
         {isTrainingPage ? (
-          <div className="flex flex-col gap-1.5 md:gap-2 items-end pointer-events-auto">
+          <div className="flex flex-col gap-1.5 md:gap-3 items-end pointer-events-auto">
+            {/* Desktop Stack */}
+            <div className="hidden md:flex flex-col gap-3 items-end">
+              <Link 
+                to="/book-consultant" 
+                className="bg-purple-600/80 backdrop-blur-md border border-purple-500/50 text-white font-bold px-4 py-2 rounded-full text-xs hover:bg-purple-500 transition-all flex items-center gap-2 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40"
+              >
+                <Calendar size={14} /> Book Consultant
+              </Link>
+              <a 
+                href="https://wa.me/919203544140" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] hover:scale-110 transition-all z-10 shrink-0"
+              >
+                <MessageCircle size={24} />
+              </a>
+              <div className="w-[180px] md:w-auto">
+                <StickyRazorpayButton size="normal" />
+              </div>
+            </div>
+
+            {/* Mobile Stack */}
             <div className="flex gap-1.5 w-full justify-end md:hidden">
               <Link 
                 to="/book-consultant" 
@@ -1895,9 +1917,9 @@ const FloatingButtons = () => {
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="w-[200px] sm:w-[240px] md:w-auto"
+              className="h-9 w-auto min-w-[140px] max-w-[180px] md:hidden relative z-[99998]"
             >
-              <StickyRazorpayButton size={window.innerWidth < 768 ? 'small' : 'normal'} />
+              <StickyRazorpayButton size="small" />
             </motion.div>
           </div>
         ) : (
