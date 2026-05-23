@@ -10,6 +10,7 @@ export default function TrainingCheckoutPage() {
     email: ''
   });
   const [loading, setLoading] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled'>('idle');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,9 +18,10 @@ export default function TrainingCheckoutPage() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
     setLoading(true);
+    setPaymentStatus('idle');
 
     try {
       const response = await fetch('/api/checkout-payload', {
@@ -50,6 +52,12 @@ export default function TrainingCheckoutPage() {
         theme: payload.theme,
         handler: function (response: any) {
           window.location.href = '/payment-success?id=' + response.razorpay_payment_id;
+        },
+        modal: {
+          ondismiss: function() {
+            setPaymentStatus('cancelled');
+            setLoading(false);
+          }
         }
       };
 
@@ -57,7 +65,7 @@ export default function TrainingCheckoutPage() {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
-          alert('Payment Failed. Please try again.');
+          setPaymentStatus('cancelled');
           setLoading(false);
         });
         rzp.open();
@@ -99,69 +107,94 @@ export default function TrainingCheckoutPage() {
           {/* subtle top highlight */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-start to-primary-end opacity-50"></div>
 
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-black text-white mb-2">Checkout Details</h1>
-            <p className="text-sm font-medium text-primary-start flex items-center justify-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-primary-start animate-pulse"></span>
-              Mushroom Farming Training - ₹299
-            </p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
-            <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 block">Full Name</label>
-              <div className="relative">
-                <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input 
-                  type="text" 
-                  required
-                  value={formData.name}
-                  onChange={e => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full box-border bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                  placeholder="Enter your full name"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 block">Mobile Number</label>
-              <div className="relative">
-                <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input 
-                  type="tel" 
-                  required
-                  pattern="[0-9]{10}"
-                  value={formData.mobile}
-                  onChange={e => setFormData({ ...formData, mobile: e.target.value })}
-                  className="w-full box-border bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                  placeholder="10-digit mobile number"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 block">Email Address</label>
-              <div className="relative">
-                <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input 
-                  type="email" 
-                  required
-                  value={formData.email}
-                  onChange={e => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full box-border bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                  placeholder="Enter your email"
-                />
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full mt-4 shrink-0 bg-gradient-to-r from-primary-start to-primary-end hover:from-primary-start/90 hover:to-primary-end/90 text-[15px] text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] flex items-center justify-center gap-2"
+          {paymentStatus === 'cancelled' ? (
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-4"
             >
-              {loading ? <Loader2 size={20} className="animate-spin" /> : 'Proceed To Payment - ₹299'}
-            </button>
-          </form>
+              <div className="w-16 h-16 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
+                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+              </div>
+              <h2 className="text-2xl font-black text-white mb-3">Payment Cancelled</h2>
+              <p className="text-slate-400 text-sm mb-8">Your payment was not completed.</p>
+              <button
+                onClick={() => {
+                  setPaymentStatus('idle');
+                  handleSubmit();
+                }}
+                className="w-full bg-gradient-to-r from-primary-start to-primary-end hover:opacity-90 text-[15px] text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] flex items-center justify-center gap-2"
+              >
+                 Try Again - ₹299
+              </button>
+            </motion.div>
+          ) : (
+            <>
+              <div className="text-center mb-8">
+                <h1 className="text-2xl font-black text-white mb-2">Checkout Details</h1>
+                <p className="text-sm font-medium text-primary-start flex items-center justify-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-primary-start animate-pulse"></span>
+                  Mushroom Farming Training - ₹299
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
+                <div>
+                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 block">Full Name</label>
+                  <div className="relative">
+                    <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input 
+                      type="text" 
+                      required
+                      value={formData.name}
+                      onChange={e => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full box-border bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 block">Mobile Number</label>
+                  <div className="relative">
+                    <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input 
+                      type="tel" 
+                      required
+                      pattern="[0-9]{10}"
+                      value={formData.mobile}
+                      onChange={e => setFormData({ ...formData, mobile: e.target.value })}
+                      className="w-full box-border bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                      placeholder="10-digit mobile number"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 block">Email Address</label>
+                  <div className="relative">
+                    <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input 
+                      type="email" 
+                      required
+                      value={formData.email}
+                      onChange={e => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full box-border bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                      placeholder="Enter your email"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full mt-4 shrink-0 bg-gradient-to-r from-primary-start to-primary-end hover:from-primary-start/90 hover:to-primary-end/90 text-[15px] text-white font-bold py-4 rounded-2xl transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] flex items-center justify-center gap-2"
+                >
+                  {loading ? <Loader2 size={20} className="animate-spin" /> : 'Proceed To Payment - ₹299'}
+                </button>
+              </form>
+            </>
+          )}
         </motion.div>
 
         {/* Secure Checkout Badge */}

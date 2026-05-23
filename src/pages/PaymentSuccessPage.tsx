@@ -29,53 +29,30 @@ export default function PaymentSuccessPage() {
 
           {/* Heading */}
           <h1 className="text-2xl md:text-4xl font-black dark:text-white text-slate-900 tracking-tight mb-2 md:mb-3 relative z-10">
-            Payment <span className="text-green-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]">Successful!</span>
+            Payment Successful 🎉
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 text-xs md:text-sm mb-5 md:mb-8 font-medium">Thank you for enrolling. Your journey begins now.</p>
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-2 font-medium">Thank you for joining our Mushroom Farming Training</p>
+          <p className="text-slate-400 dark:text-slate-300 text-xs md:text-sm mb-5 md:mb-8 font-medium">Your registration has been completed successfully.</p>
 
-          {/* Details Card */}
-          <div className="bg-black/20 dark:bg-black/40 rounded-xl p-4 md:p-5 mb-5 md:mb-6 border dark:border-white/5 border-black/5 text-left space-y-3 relative z-10">
-            <div className="flex justify-between items-center border-b dark:border-white/5 border-black/5 pb-2 md:pb-3">
-              <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1"><BookOpen size={12}/> Course</span>
-              <span className="text-xs md:text-sm font-bold dark:text-white text-slate-900 text-right">Live Mushroom Training<br/><span className="text-[10px] text-slate-500 font-medium">(Online Model)</span></span>
-            </div>
-            <div className="flex justify-between items-center border-b dark:border-white/5 border-black/5 pb-2 md:pb-3">
-              <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1"><Zap size={12}/> Price Paid</span>
-              <span className="text-sm md:text-base font-black text-green-500">₹299</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1"><Clock size={12}/> Access</span>
-              <span className="text-xs md:text-sm font-bold dark:text-white text-slate-900">Lifetime Activated</span>
-            </div>
-          </div>
-
-          {/* Primary Action Button */}
-          <motion.a
-            href="https://wa.me/919203544140?text=Hi,%20I%20just%20enrolled%20in%20the%20Mushroom%20Training.%20Please%20add%20me%20to%20the%20VIP%20group."
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full relative overflow-hidden rounded-lg md:rounded-xl group px-4 md:px-6 py-3.5 md:py-4 bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all font-bold text-xs md:text-base flex items-center justify-center gap-2 mb-4 md:mb-5 z-10"
-          >
-            <MessageCircle size={18} className="md:w-5 md:h-5" />
-            Join Exclusive WhatsApp Group <ArrowRight size={14} className="md:w-4 md:h-4" />
-            <div className="absolute inset-0 rounded-lg md:rounded-xl bg-white/20 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-          </motion.a>
-
-          {/* Post Action Info */}
-          <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-3 text-left relative z-10">
-            <p className="text-[9px] md:text-xs text-blue-200 leading-tight">
-              <span className="font-bold text-blue-400">Note:</span> An onboarding email containing your Live Training batch schedule and downloadable PDF notes has been sent to your registered email address. Please check your spam/promotions folder if it doesn't arrive in 5 minutes.
+          {/* Action Info */}
+          <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 md:p-6 mb-5 text-center relative z-10">
+            <p className="text-xs md:text-sm text-green-100 font-medium leading-relaxed mb-3">
+              You will receive joining details on WhatsApp.
             </p>
+            <a href="https://wa.me/919203544140?text=I%20have%20join%20mushroom%20training"
+               target="_blank" rel="noopener noreferrer"
+               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] text-white font-bold rounded-xl hover:scale-105 transition-transform text-sm w-full md:w-auto">
+                <MessageCircle size={18} /> Message on WhatsApp
+            </a>
+            <p className="text-xs mt-4 text-slate-400 font-medium break-words">Number: <span className="text-green-500 font-bold">+91 9203544140</span><br/>Message: "i have join mushroom training"</p>
           </div>
 
           {/* Back to Home */}
           <Link 
             to="/" 
-            className="inline-block mt-5 md:mt-8 text-[10px] md:text-xs font-bold text-slate-500 hover:text-white transition-colors underline decoration-slate-500/30 underline-offset-4 relative z-10"
+            className="inline-flex items-center justify-center w-full px-4 py-3 md:py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold text-slate-300 hover:text-white transition-all text-xs md:text-sm mt-2 relative z-10"
           >
-            Return to Homepage
+            Back to Home
           </Link>
         </motion.div>
       </div>
