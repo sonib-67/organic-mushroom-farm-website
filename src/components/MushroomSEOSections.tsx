@@ -130,7 +130,7 @@ export default function MushroomSEOSections() {
   ];
 
   return (
-    <div id="seo-knowledge-base" className="relative text-white overflow-hidden py-16 md:py-24 bg-black/90">
+    <div id="seo-knowledge-base" className="relative dark:text-white text-slate-900 overflow-hidden py-16 md:py-24 dark:bg-black/90 bg-white/90">
       {/* Dynamic Background Accents */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-blue/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-[#25D366]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -145,9 +145,9 @@ export default function MushroomSEOSections() {
           <h1 className="text-3xl md:text-6xl font-black tracking-tight leading-tight">
             Comprehensive <span className="gradient-text">Mushroom Training in India</span>
           </h1>
-          <p className="text-sm md:text-lg max-w-3xl mx-auto text-slate-400 font-medium">
-            Master scientific cultivation under the <strong className="text-white font-semibold">best mushroom training institute in India</strong>. 
-            We provide expert-curated <strong className="text-white font-semibold">mushroom farming training</strong>, high-yield premium spawn, 
+          <p className="text-sm md:text-lg max-w-3xl mx-auto dark:text-slate-400 text-slate-600 font-medium">
+            Master scientific cultivation under the <strong className="dark:text-white text-slate-900 font-semibold">best mushroom training institute in India</strong>. 
+            We provide expert-curated <strong className="dark:text-white text-slate-900 font-semibold">mushroom farming training</strong>, high-yield premium spawn, 
             and complete turnkey commercial setup consulting across all major states.
           </p>
         </div>
@@ -159,26 +159,26 @@ export default function MushroomSEOSections() {
               <BookOpen size={20} />
               <span className="text-xs font-bold uppercase tracking-widest">Certified Agri-Education</span>
             </div>
-            <h2 className="text-2xl md:text-4xl font-black tracking-tight text-white uppercase">
+            <h2 className="text-2xl md:text-4xl font-black tracking-tight dark:text-white text-slate-900 uppercase">
               About <span className="gradient-text font-serif">Mushroom Training</span> in India
             </h2>
-            <p className="text-slate-400 text-sm md:text-base leading-relaxed font-normal">
-              Farming mushrooms requires an ideal balance of moisture, hygiene, ventilation, and strict temperature protocols. Our institute bridges the gap between traditional agricultural limitations and scientific agro-entrepreneurship. From raw beginners seeking a <strong className="text-white font-semibold">mushroom training near me</strong> to experienced large-scale farmers ready to update their existing commercial infrastructure, we provide the ultimate platform for learning and implementation.
+            <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed font-normal">
+              Farming mushrooms requires an ideal balance of moisture, hygiene, ventilation, and strict temperature protocols. Our institute bridges the gap between traditional agricultural limitations and scientific agro-entrepreneurship. From raw beginners seeking a <strong className="dark:text-white text-slate-900 font-semibold">mushroom training near me</strong> to experienced large-scale farmers ready to update their existing commercial infrastructure, we provide the ultimate platform for learning and implementation.
             </p>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              We cover the full agricultural ecosystem. With customized curriculums matching state climates, we specialize in high-yield <strong className="text-white font-semibold">mushroom cultivation training</strong> designed to convert agricultural wastes directly into consistent high-margin revenue streams. Join a network of thousands of successful farmers operating high-demand projects.
+            <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
+              We cover the full agricultural ecosystem. With customized curriculums matching state climates, we specialize in high-yield <strong className="dark:text-white text-slate-900 font-semibold">mushroom cultivation training</strong> designed to convert agricultural wastes directly into consistent high-margin revenue streams. Join a network of thousands of successful farmers operating high-demand projects.
             </p>
           </div>
-          <div className="glass p-6 md:p-8 rounded-3xl border border-white/5 relative bg-white/[0.02]">
-            <h3 className="text-lg font-bold text-white mb-4">Location-Based Learning Verticals</h3>
-            <p className="text-xs text-slate-500 mb-6">Our modules are calibrated to address climatic conditions, local raw material constraints, and logistics in each key region:</p>
+          <div className="glass p-6 md:p-8 rounded-3xl border dark:border-white/5 border-black/5 relative dark:bg-white/[0.02] bg-black/[0.02]">
+            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-4">Location-Based Learning Verticals</h3>
+            <p className="text-xs dark:text-slate-500 text-slate-600 mb-6">Our modules are calibrated to address climatic conditions, local raw material constraints, and logistics in each key region:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {locations.slice(0, 4).map((loc, i) => (
-                <div key={i} className="flex gap-3 p-3.5 rounded-xl bg-white/5 border border-white/5 hover:border-primary-start/30 transition-all">
+                <div key={i} className="flex gap-3 p-3.5 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 hover:border-primary-start/30 transition-all">
                   <MapPin size={18} className="text-primary-start shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">{loc.name}</h4>
-                    <p className="text-[10px] text-slate-400 mt-0.5">{loc.desc}</p>
+                    <h4 className="text-xs font-bold dark:text-white text-slate-900">{loc.name}</h4>
+                    <p className="text-[10px] dark:text-slate-400 text-slate-600 mt-0.5">{loc.desc}</p>
                   </div>
                 </div>
               ))}
@@ -190,35 +190,35 @@ export default function MushroomSEOSections() {
         </section>
 
         {/* Section 2: Mushroom Farming Business Opportunity */}
-        <section className="bg-white/[0.01] border border-white/5 p-6 md:p-12 rounded-[2.5rem] relative">
+        <section className="dark:bg-white/[0.01] bg-black/[0.01] border dark:border-white/5 border-black/5 p-6 md:p-12 rounded-[2.5rem] relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-[2.5rem] pointer-events-none"></div>
           <div className="max-w-4xl mx-auto space-y-6 text-center">
             <div className="badge bg-green-500/10 text-[#25D366] border border-[#25D366]/20 mx-auto">High Demand Industry</div>
-            <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white uppercase">
+            <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight dark:text-white text-slate-900 uppercase">
               Mushroom Farming <span className="gradient-text">Business Opportunity</span>
             </h2>
-            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-              As consumption grows rapidly across residential households, hotels, and retail outlets, commercial mushroom growing presents a highly scalable, <strong className="text-white font-semibold">low investment farming business</strong> opportunity. Unlike classic crops that require massive acreages of soil and open skies, high-density mushroom setups are stacked vertically in insulated, space-efficient grow rooms.
+            <p className="dark:text-slate-300 text-slate-700 text-sm md:text-base leading-relaxed">
+              As consumption grows rapidly across residential households, hotels, and retail outlets, commercial mushroom growing presents a highly scalable, <strong className="dark:text-white text-slate-900 font-semibold">low investment farming business</strong> opportunity. Unlike classic crops that require massive acreages of soil and open skies, high-density mushroom setups are stacked vertically in insulated, space-efficient grow rooms.
             </p>
             <div className="grid sm:grid-cols-3 gap-4 pt-6 text-left">
-              <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+              <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
                 <div className="text-primary-start font-black text-xl">30% - 45%</div>
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Average Profit Margin</h4>
-                <p className="text-[10px] text-slate-400">High efficiency converting substrate compost blocks directly into premium harvest weights.</p>
+                <h4 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Average Profit Margin</h4>
+                <p className="text-[10px] dark:text-slate-400 text-slate-600">High efficiency converting substrate compost blocks directly into premium harvest weights.</p>
               </div>
-              <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
+              <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
                 <div className="text-[#25D366] font-black text-xl">30-45 Days</div>
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Rapid Crop Rotation Cycle</h4>
-                <p className="text-[10px] text-slate-400">Harvest starts within index cycles of bag shifting, allowing constant cash flows throughout the months.</p>
+                <h4 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Rapid Crop Rotation Cycle</h4>
+                <p className="text-[10px] dark:text-slate-400 text-slate-600">Harvest starts within index cycles of bag shifting, allowing constant cash flows throughout the months.</p>
               </div>
-              <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
-                <div className="text-purple-400 font-black text-xl">Minimal Land</div>
-                <h4 className="text-xs font-bold text-white uppercase tracking-wider">Vertical Cube Yields</h4>
-                <p className="text-[10px] text-slate-400">Stack beds 4 to 6 layers high. Perfect for small farming plots and semi-urban outskirts.</p>
+              <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
+                <div className="text-purple-500 dark:text-purple-400 font-black text-xl">Minimal Land</div>
+                <h4 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Vertical Cube Yields</h4>
+                <p className="text-[10px] dark:text-slate-400 text-slate-600">Stack beds 4 to 6 layers high. Perfect for small farming plots and semi-urban outskirts.</p>
               </div>
             </div>
-            <p className="text-xs text-slate-500 pt-4">
-              Our structured <strong className="text-white font-semibold">mushroom farming business setup training</strong> provides complete blueprints covering building layout plans, compost tunnel design, safety hygiene protocols, and government grant integrations.
+            <p className="text-xs dark:text-slate-500 text-slate-500 pt-4">
+              Our structured <strong className="dark:text-white text-slate-900 font-semibold">mushroom farming business setup training</strong> provides complete blueprints covering building layout plans, compost tunnel design, safety hygiene protocols, and government grant integrations.
             </p>
           </div>
         </section>
@@ -226,32 +226,32 @@ export default function MushroomSEOSections() {
         {/* Section 3: Mushroom Types Covered in Training */}
         <section className="space-y-12">
           <div className="text-center space-y-4">
-            <div className="badge bg-purple-500/10 text-purple-400 border border-purple-500/20 mx-auto">Varieties Showcase</div>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight">
+            <div className="badge bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 mx-auto">Varieties Showcase</div>
+            <h2 className="text-2xl md:text-4xl font-black uppercase dark:text-white text-slate-900 tracking-tight">
               Mushroom Types <span className="gradient-text">Covered In Our Training</span>
             </h2>
-            <p className="text-slate-400 text-sm max-w-2xl mx-auto">
+            <p className="dark:text-slate-400 text-slate-600 text-sm max-w-2xl mx-auto">
               Different mushrooms require unique composting structures, hydration standards, and temperature thresholds. We ensure you master them all.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {mushroomTypes.map((type, i) => (
-              <div key={i} className="glass p-6 md:p-8 rounded-3xl border border-white/5 flex flex-col justify-between hover:border-primary-start/30 transition-all bg-white/[0.01]">
+              <div key={i} className="glass p-6 md:p-8 rounded-3xl border dark:border-white/5 border-black/5 flex flex-col justify-between hover:border-primary-start/30 transition-all dark:bg-white/[0.01] bg-black/[0.02]">
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-primary-start/10 flex items-center justify-center text-primary-start mb-4">
                     <Sprout size={18} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{type.name}</h3>
-                  <p className="text-xs text-slate-400 leading-relaxed mb-4">{type.desc}</p>
+                  <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">{type.name}</h3>
+                  <p className="text-xs dark:text-slate-400 text-slate-600 leading-relaxed mb-4">{type.desc}</p>
                 </div>
-                <div className="pt-4 border-t border-white/5 space-y-2">
+                <div className="pt-4 border-t dark:border-white/5 border-black/5 space-y-2">
                   <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-slate-500 font-bold uppercase">Optimal Temp:</span>
+                    <span className="dark:text-slate-500 text-slate-500 font-bold uppercase">Optimal Temp:</span>
                     <span className="text-primary-start font-bold">{type.temp}</span>
                   </div>
                   <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-slate-500 font-bold uppercase">Climatic Zone:</span>
-                    <span className="text-white font-semibold">{type.margin}</span>
+                    <span className="dark:text-slate-500 text-slate-500 font-bold uppercase">Climatic Zone:</span>
+                    <span className="dark:text-white text-slate-900 font-semibold">{type.margin}</span>
                   </div>
                 </div>
               </div>
@@ -261,26 +261,26 @@ export default function MushroomSEOSections() {
 
         {/* Section 4: Online and Offline Mushroom Training */}
         <section className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 glass p-6 md:p-10 rounded-3xl border border-white/5 bg-white/[0.02]">
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2 justify-center lg:justify-start">
+          <div className="order-2 lg:order-1 glass p-6 md:p-10 rounded-3xl border dark:border-white/5 border-black/5 dark:bg-white/[0.02] bg-black/[0.02]">
+            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-6 flex items-center gap-2 justify-center lg:justify-start">
               <span className="w-2.5 h-2.5 rounded-full bg-primary-start animate-ping"></span>
               Compare Learning Models
             </h3>
             <div className="space-y-4">
-              <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-sky-400"></div> Online Training Program
+              <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
+                <h4 className="text-sm font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-sky-500 dark:bg-sky-400"></div> Online Training Program
                 </h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Start your commercial journey instantly with our certified <strong className="text-white font-semibold">online mushroom training</strong> program. Access 10+ hours step-by-step videos, download high-density compost ratio charts, reference step lists, and join regional expert groups instantly on WhatsApp.
+                <p className="text-xs dark:text-slate-400 text-slate-600 leading-relaxed">
+                  Start your commercial journey instantly with our certified <strong className="dark:text-white text-slate-900 font-semibold">online mushroom training</strong> program. Access 10+ hours step-by-step videos, download high-density compost ratio charts, reference step lists, and join regional expert groups instantly on WhatsApp.
                 </p>
-                <div className="text-[11px] text-sky-400 font-bold uppercase pt-1">Flexible Self-Paced Learning • Lifetime Access</div>
+                <div className="text-[11px] text-sky-600 dark:text-sky-400 font-bold uppercase pt-1">Flexible Self-Paced Learning • Lifetime Access</div>
               </div>
-              <div className="p-5 rounded-2xl bg-black/40 border border-white/5 space-y-2">
-                <h4 className="text-sm font-bold text-white flex items-center gap-2">
+              <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
+                <h4 className="text-sm font-bold dark:text-white text-slate-900 flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-[#25D366]"></div> Practical Physical Academy
                 </h4>
-                <p className="text-xs text-slate-400 leading-relaxed">
+                <p className="text-xs dark:text-slate-400 text-slate-600 leading-relaxed">
                   Hands-on intensive batches at our modern mushroom farm in Madhya Pradesh. Dive into active pasteurization steps, spawn inoculation procedures, humidity calibration settings, casing application depth controls, and disease troubleshooting with our agriculture professors.
                 </p>
                 <div className="text-[11px] text-[#25D366] font-bold uppercase pt-1">On-Farm Composting Sessions • Certificate of Achievement</div>
@@ -292,26 +292,26 @@ export default function MushroomSEOSections() {
               <Target size={20} />
               <span className="text-xs font-bold uppercase tracking-widest">Flexible Modern Formats</span>
             </div>
-            <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-white uppercase leading-tight">
+            <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight dark:text-white text-slate-900 uppercase leading-tight">
               Online and Offline <span className="gradient-text font-serif">Mushroom Training</span> Systems
             </h2>
-            <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+            <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
               We design modern learning systems that deliver high professional value. Our flexible plans are structured for students, active corporate professionals preparing a secondary income channel, or traditional farmers looking to convert agricultural wastes to direct organic income.
             </p>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Whether you choose our flexible <strong className="text-white font-semibold">mushroom cultivation course</strong> online or our intensive physical <strong className="text-white font-semibold">mushroom farming workshop</strong>, you gain access to the same validated commercial composting recipes, clean environment protocols, and reliable F1 seed delivery channels.
+            <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
+              Whether you choose our flexible <strong className="dark:text-white text-slate-900 font-semibold">mushroom cultivation course</strong> online or our intensive physical <strong className="dark:text-white text-slate-900 font-semibold">mushroom farming workshop</strong>, you gain access to the same validated commercial composting recipes, clean environment protocols, and reliable F1 seed delivery channels.
             </p>
           </div>
         </section>
 
         {/* Section 5: Practical Mushroom Farming Training */}
-        <section className="bg-white/[0.01] border border-white/5 p-6 md:p-12 rounded-[2.5rem] space-y-8">
+        <section className="dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 p-6 md:p-12 rounded-[2.5rem] space-y-8">
           <div className="text-center space-y-3">
-            <div className="badge bg-red-500/10 text-red-400 border border-red-500/20 mx-auto">Science & Practice</div>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight">
+            <div className="badge bg-red-500/10 text-red-500 dark:text-red-400 border border-red-500/20 mx-auto">Science & Practice</div>
+            <h2 className="text-2xl md:text-4xl font-black uppercase dark:text-white text-slate-900 tracking-tight">
               Practical <span className="gradient-text">Mushroom Cultivation Course</span>
             </h2>
-            <p className="text-slate-400 text-sm max-w-xl mx-auto">
+            <p className="dark:text-slate-400 text-slate-600 text-sm max-w-xl mx-auto">
               Our training program rejects sterile dry theory and teaches the exact practical skills needed to run high-yield commercial crops successfully.
             </p>
           </div>
@@ -322,38 +322,38 @@ export default function MushroomSEOSections() {
               { id: "03", title: "Casing Preparation", desc: "Prepare casing dirt overlays step-by-step with maximum hydration capacity, sterilization guidelines, and layering depth systems." },
               { id: "04", title: "Pest & Hygiene Care", desc: "Implement clean bio-shield protocols to eliminate white mold, green mold, web disease, and agricultural fly cycles organically." },
             ].map((step, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-black/40 border border-white/5 relative hover:border-primary-start/30 transition-all">
-                <span className="absolute top-4 right-4 text-3xl font-black text-white/5">{step.id}</span>
-                <h4 className="text-sm font-bold text-white mb-2">{step.title}</h4>
-                <p className="text-[11px] text-slate-400 leading-normal">{step.desc}</p>
+              <div key={i} className="p-6 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 relative hover:border-primary-start/30 transition-all">
+                <span className="absolute top-4 right-4 text-3xl font-black dark:text-white/5 text-slate-900/10">{step.id}</span>
+                <h4 className="text-sm font-bold dark:text-white text-slate-900 mb-2">{step.title}</h4>
+                <p className="text-[11px] dark:text-slate-400 text-slate-600 leading-normal">{step.desc}</p>
               </div>
             ))}
           </div>
           <div className="text-center pt-2">
-            <span className="text-xs text-slate-500 font-medium">This comprehensive syllabus is recognized as one of the best <strong className="text-white font-semibold">commercial mushroom farming training</strong> manuals in the country.</span>
+            <span className="text-xs dark:text-slate-500 text-slate-600 font-medium">This comprehensive syllabus is recognized as one of the best <strong className="dark:text-white text-slate-900 font-semibold">commercial mushroom farming training</strong> manuals in the country.</span>
           </div>
         </section>
 
         {/* Section 6: Benefits of Mushroom Cultivation */}
         <section className="space-y-12">
           <div className="text-center space-y-4">
-            <div className="badge bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 mx-auto">Socio-Economic Value</div>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight">
+            <div className="badge bg-yellow-500/10 text-yellow-600 dark:text-yellow-500 border border-yellow-500/20 mx-auto">Socio-Economic Value</div>
+            <h2 className="text-2xl md:text-4xl font-black uppercase dark:text-white text-slate-900 tracking-tight">
               Benefits of <span className="gradient-text">Mushroom Cultivation</span>
             </h2>
-            <p className="text-slate-400 text-sm max-w-2xl mx-auto">
+            <p className="dark:text-slate-400 text-slate-600 text-sm max-w-2xl mx-auto">
               A climate-resilient crop that delivers structural financial advantages over classic agro-business setups.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {benefits.map((benefit, i) => (
-              <div key={i} className="flex gap-4 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-primary-start/30 transition-all">
+              <div key={i} className="flex gap-4 p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:border-primary-start/30 transition-all">
                 <div className="w-12 h-12 rounded-xl bg-primary-start/10 text-primary-start flex items-center justify-center shrink-0">
                   <benefit.icon size={22} className="text-primary-start" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-sm font-bold text-white">{benefit.title}</h3>
-                  <p className="text-xs text-slate-450 leading-relaxed text-slate-400">{benefit.desc}</p>
+                  <h3 className="text-sm font-bold dark:text-white text-slate-900">{benefit.title}</h3>
+                  <p className="text-xs leading-relaxed dark:text-slate-400 text-slate-600">{benefit.desc}</p>
                 </div>
               </div>
             ))}
@@ -361,35 +361,35 @@ export default function MushroomSEOSections() {
         </section>
 
         {/* Section 8: Why Choose Our Mushroom Training Program */}
-        <section className="glass p-6 md:p-12 rounded-[2.5rem] border border-white/5 text-center space-y-6 relative bg-white/[0.02] relative">
+        <section className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center space-y-6 relative dark:bg-white/[0.02] bg-black/[0.02]">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary-start/10 rounded-full blur-[100px] pointer-events-none"></div>
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
             <div className="badge bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 mx-auto">Commercial Authority</div>
-            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight uppercase text-white">
+            <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight uppercase dark:text-white text-slate-900">
               Why Choose Our <span className="gradient-text">Mushroom Training Program</span>?
             </h2>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
               We aren't simple theoreticians or online aggregators. We operate one of the premier physical commercial organic labs and production farms in central India. Sourcing high-grade seed cultures, structuring automated vertical growth rooms, obtaining state agro-subsidies, and closing high-volume commercial vendor deals can be intimidating without expert support.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 text-left">
-              <div className="space-y-1 p-3 rounded-lg bg-black/40 border border-white/5 text-center">
-                <div className="text-lg font-bold text-white">5000+</div>
-                <div className="text-[10px] text-slate-400 uppercase font-black">Farmers Trained</div>
+              <div className="space-y-1 p-3 rounded-lg dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 text-center">
+                <div className="text-lg font-bold dark:text-white text-slate-900">5000+</div>
+                <div className="text-[10px] dark:text-slate-400 text-slate-600 uppercase font-black">Farmers Trained</div>
               </div>
-              <div className="space-y-1 p-3 rounded-lg bg-black/40 border border-white/5 text-center">
-                <div className="text-lg font-bold text-white">F1 Hybrid</div>
-                <div className="text-[10px] text-slate-400 uppercase font-black">Spawn Quality</div>
+              <div className="space-y-1 p-3 rounded-lg dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 text-center">
+                <div className="text-lg font-bold dark:text-white text-slate-900">F1 Hybrid</div>
+                <div className="text-[10px] dark:text-slate-400 text-slate-600 uppercase font-black">Spawn Quality</div>
               </div>
-              <div className="space-y-1 p-3 rounded-lg bg-black/40 border border-white/5 text-center">
-                <div className="text-lg font-bold text-white">Lifetime</div>
-                <div className="text-[10px] text-slate-400 uppercase font-black">WhatsApp Help</div>
+              <div className="space-y-1 p-3 rounded-lg dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 text-center">
+                <div className="text-lg font-bold dark:text-white text-slate-900">Lifetime</div>
+                <div className="text-[10px] dark:text-slate-400 text-slate-600 uppercase font-black">WhatsApp Help</div>
               </div>
-              <div className="space-y-1 p-3 rounded-lg bg-black/40 border border-white/5 text-center">
-                <div className="text-lg font-bold text-white">Turnkey</div>
-                <div className="text-[10px] text-slate-400 uppercase font-black">Setup Experts</div>
+              <div className="space-y-1 p-3 rounded-lg dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 text-center">
+                <div className="text-lg font-bold dark:text-white text-slate-900">Turnkey</div>
+                <div className="text-[10px] dark:text-slate-400 text-slate-600 uppercase font-black">Setup Experts</div>
               </div>
             </div>
-            <p className="text-slate-400 text-xs leading-relaxed">
+            <p className="dark:text-slate-400 text-slate-600 text-xs leading-relaxed">
               Join a scientifically validated coaching program designed structurally for modern agricultural success in all major districts of India.
             </p>
           </div>
@@ -399,10 +399,10 @@ export default function MushroomSEOSections() {
         <section id="seo-faqs" className="space-y-12">
           <div className="text-center space-y-4">
             <div className="badge bg-brand-blue/10 text-brand-blue border border-brand-blue/20 mx-auto">Frequently Asked Questions</div>
-            <h3 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight">
+            <h3 className="text-2xl md:text-4xl font-black uppercase dark:text-white text-slate-900 tracking-tight">
               Cultivation <span className="gradient-text">Knowledge</span>
             </h3>
-            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
+            <p className="dark:text-slate-400 text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto">
               Get detailed answers to highly searched technical, financial, and regulatory questions about starting a modern agriculture business in India.
             </p>
           </div>
@@ -411,17 +411,17 @@ export default function MushroomSEOSections() {
             {faqs.map((faq, idx) => (
               <div 
                 key={idx}
-                className="rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-colors overflow-hidden"
+                className="rounded-2xl border dark:border-white/5 border-black/10 dark:bg-white/[0.01] bg-black/[0.02] hover:dark:bg-white/[0.02] hover:bg-black/[0.04] transition-colors overflow-hidden"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
                   className="w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none transition-colors"
                 >
-                  <span className="text-xs md:text-sm font-bold text-white flex gap-3 items-start">
+                  <span className="text-xs md:text-sm font-bold dark:text-white text-slate-900 flex gap-3 items-start">
                     <span className="text-primary-start font-bold select-none">{idx + 1}.</span>
                     <span>{faq.q}</span>
                   </span>
-                  <div className="shrink-0 ml-4 text-slate-500">
+                  <div className="shrink-0 ml-4 dark:text-slate-500 text-slate-400">
                     {openFaq === idx ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </div>
                 </button>
@@ -434,7 +434,7 @@ export default function MushroomSEOSections() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                     >
-                      <div className="px-5 md:px-6 pb-6 pt-1 border-t border-white/5 text-[11px] md:text-xs text-slate-400 leading-relaxed space-y-2">
+                      <div className="px-5 md:px-6 pb-6 pt-1 border-t dark:border-white/5 border-black/5 text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed space-y-2">
                         <p>{faq.a}</p>
                       </div>
                     </motion.div>
@@ -447,12 +447,12 @@ export default function MushroomSEOSections() {
 
         {/* SEO-friendly CTA section */}
         <section className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-r from-primary-start/20 to-primary-end/20 border border-primary-start/30 p-8 md:p-12 text-center space-y-6">
-          <div className="absolute inset-0 bg-black/40 pointer-events-none"></div>
+          <div className="absolute inset-0 dark:bg-black/40 bg-white/20 pointer-events-none"></div>
           <div className="relative z-10 max-w-3xl mx-auto space-y-4">
-            <h3 className="text-xl md:text-4xl font-extrabold text-white uppercase tracking-tight">
+            <h3 className="text-xl md:text-4xl font-extrabold dark:text-white text-slate-900 uppercase tracking-tight">
               Ready to Start Your High-Yield <span className="gradient-text">Mushroom Farming Journey</span>?
             </h3>
-            <p className="text-slate-350 text-xs md:text-sm text-slate-300">
+            <p className="dark:text-slate-300 text-slate-700 text-xs md:text-sm">
               Stop waiting and start your journey with India's best practical education system. Learn correct composting techniques, buy contaminated-free pure grains, get certified status, and secure maximum local state marketing setup linkages!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -460,16 +460,16 @@ export default function MushroomSEOSections() {
                 to="/training-checkout"
                 className="px-8 py-4 bg-gradient-to-r from-primary-start to-primary-end font-bold rounded-xl text-xs uppercase tracking-wider text-white shadow-lg hover:shadow-primary-start/50 hover:scale-105 transition-all flex items-center justify-center gap-2"
               >
-                Enroll in Training Online - ₹299 <ArrowRight size={14} />
+                Enroll in Training Online <ArrowRight size={14} />
               </Link>
               <Link
                 to="/book-consultant"
-                className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 font-bold rounded-xl text-xs uppercase tracking-wider text-slate-300 hover:text-white transition-all flex items-center justify-center gap-2"
+                className="px-8 py-4 dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 hover:bg-black/10 border dark:border-white/10 border-black/10 font-bold rounded-xl text-xs uppercase tracking-wider dark:text-slate-300 text-slate-700 hover:dark:text-white hover:text-slate-900 transition-all flex items-center justify-center gap-2"
               >
-                Book 1-on-1 Consultation - ₹59 <Zap size={14} />
+                Book 1-on-1 Consultation <Zap size={14} />
               </Link>
             </div>
-            <p className="text-[10px] text-slate-500 font-medium">Looking for <strong className="text-slate-400">mushroom training near me</strong>? We ship lab-grade F1 hybrid spawn safely to every pin code in MP, UP, Bihar, Delhi & all Indian states.</p>
+            <p className="text-[10px] dark:text-slate-500 text-slate-600 font-medium">Looking for <strong className="dark:text-slate-400 text-slate-700">mushroom training near me</strong>? We ship lab-grade F1 hybrid spawn safely to every pin code in MP, UP, Bihar, Delhi & all Indian states.</p>
           </div>
         </section>
         

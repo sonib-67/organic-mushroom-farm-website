@@ -1826,7 +1826,7 @@ const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }
     >
       <div className={`font-bold z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
         <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
-        <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
+        <span>Join Training</span>
       </div>
       <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
     </button>
