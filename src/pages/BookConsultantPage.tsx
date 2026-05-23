@@ -166,7 +166,54 @@ export default function BookConsultantPage() {
 
               {/* Razorpay Conditional Button */}
               {isFormValid ? (
-                <ConsultantRazorpayPaymentButton />
+                <button
+                  type="button"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    // Custom implementation for consultation
+                    try {
+                      const response = await fetch('/api/checkout-payload', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                          name: formData.name, 
+                          mobile: formData.phone, 
+                          email: formData.email, 
+                          productType: 'consultation' 
+                        })
+                      });
+                      
+                      const payload = await response.json();
+                      if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
+
+                      const options = {
+                        key: payload.key_id,
+                        amount: payload.amount,
+                        currency: payload.currency,
+                        name: payload.name,
+                        description: payload.description,
+                        prefill: payload.prefill,
+                        notes: payload.notes,
+                        theme: payload.theme,
+                        handler: function (response: any) {
+                          window.location.href = '/payment-success?id=' + response.razorpay_payment_id;
+                        }
+                      };
+
+                      const rzp = new (window as any).Razorpay(options);
+                      rzp.open();
+                    } catch (error) {
+                      console.error(error);
+                      alert('Error initiating checkout. Please try again.');
+                    }
+                  }}
+                  className="relative overflow-hidden rounded-md md:rounded-lg group w-full bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all border dark:border-white/10 border-black/10 h-8 md:h-12 flex items-center justify-center cursor-pointer"
+                >
+                  <div className="absolute inset-0 flex items-center justify-center font-bold z-10 px-2 md:px-4 gap-1.5 md:gap-2 whitespace-nowrap text-[9px] md:text-sm">
+                    <span>Proceed to Payment</span> <ArrowRight size={10} className="md:w-3 md:h-3" />
+                  </div>
+                  <div className="absolute inset-0 rounded-md md:rounded-lg bg-blue-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                </button>
               ) : (
                 <button 
                   disabled
@@ -182,45 +229,3 @@ export default function BookConsultantPage() {
     </div>
   );
 }
-
-const ConsultantRazorpayPaymentButton = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  
-  useEffect(() => {
-    if (formRef.current && formRef.current.children.length === 0) {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-      script.async = true;
-      script.setAttribute("data-payment_button_id", "pl_SsKGVbjxcDLLMH");
-      formRef.current.appendChild(script);
-    }
-  }, []);
-
-  const handlePayment = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (formRef.current) {
-      const btn = formRef.current.querySelector('a') || formRef.current.querySelector('button') || formRef.current.querySelector('.razorpay-payment-button');
-      if (btn) {
-        (btn as HTMLElement).click();
-      } else {
-        console.error("Razorpay button not ready");
-      }
-    }
-  };
-
-  return (
-    <>
-      <button 
-        onClick={handlePayment}
-        type="button"
-        className="relative overflow-hidden rounded-md md:rounded-lg group w-full bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all border dark:border-white/10 border-black/10 h-8 md:h-12 flex items-center justify-center cursor-pointer"
-      >
-        <div className="absolute inset-0 flex items-center justify-center font-bold z-10 px-2 md:px-4 gap-1.5 md:gap-2 whitespace-nowrap text-[9px] md:text-sm">
-          <span>Proceed to Payment</span> <ArrowRight size={10} className="md:w-3 md:h-3" />
-        </div>
-        <div className="absolute inset-0 rounded-md md:rounded-lg bg-blue-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
-      </button>
-      <form ref={formRef} className="hidden" style={{ display: 'none' }} />
-    </>
-  );
-};

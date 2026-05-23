@@ -18,6 +18,7 @@ import ServiceDetailPage from './pages/ServiceDetailPage';
 import ProcessDetailPage from './pages/ProcessDetailPage';
 import ModelDetailsPage from './pages/ModelDetails';
 import CompostUnitSpecsPage from './pages/CompostUnitSpecs';
+import { CheckoutModal } from './components/CheckoutModal';
 import ContactFormPage from './pages/ContactForm';
 import SopsPage from './pages/Sops';
 import ExpertiseDetailsPage from './pages/ExpertiseDetails';
@@ -1813,34 +1814,12 @@ const Footer = () => {
 };
 
 const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }) => {
-  const formRef = React.useRef<HTMLFormElement>(null);
-  
-  React.useEffect(() => {
-    if (formRef.current && formRef.current.children.length === 0) {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-      script.async = true;
-      script.setAttribute("data-payment_button_id", "pl_SsHsePqfncXBvY");
-      formRef.current.appendChild(script);
-    }
-  }, []);
-
-  const handlePayment = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (formRef.current) {
-      const btn = formRef.current.querySelector('a') || formRef.current.querySelector('button') || formRef.current.querySelector('.razorpay-payment-button');
-      if (btn) {
-        (btn as HTMLElement).click();
-      } else {
-        console.error("Razorpay button not ready");
-      }
-    }
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
       <button 
-        onClick={handlePayment}
+        onClick={() => setIsModalOpen(true)}
         type="button"
         className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}
       >
@@ -1850,7 +1829,11 @@ const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }
         </div>
         <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
       </button>
-      <form ref={formRef} className="hidden" style={{ display: 'none' }} />
+      <CheckoutModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        productType="training" 
+      />
     </>
   );
 };
@@ -2028,34 +2011,12 @@ const FloatingButtons = () => {
 // --- Main App ---
 
 const RazorpayPaymentButton = () => {
-  const formRef = React.useRef<HTMLFormElement>(null);
-  
-  React.useEffect(() => {
-    if (formRef.current && formRef.current.children.length === 0) {
-      const script = document.createElement("script");
-      script.src = "https://checkout.razorpay.com/v1/payment-button.js";
-      script.async = true;
-      script.setAttribute("data-payment_button_id", "pl_SsHsePqfncXBvY");
-      formRef.current.appendChild(script);
-    }
-  }, []);
-
-  const handlePayment = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (formRef.current) {
-      const btn = formRef.current.querySelector('a') || formRef.current.querySelector('button') || formRef.current.querySelector('.razorpay-payment-button');
-      if (btn) {
-        (btn as HTMLElement).click();
-      } else {
-        console.error("Razorpay button not ready");
-      }
-    }
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
       <button 
-        onClick={handlePayment}
+        onClick={() => setIsModalOpen(true)}
         type="button"
         className="relative overflow-hidden rounded-2xl group w-full min-h-[64px] bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02] flex items-center justify-center cursor-pointer"
       >
@@ -2064,7 +2025,11 @@ const RazorpayPaymentButton = () => {
           Enroll Now - ₹<span className="text-2xl">299</span> <ExternalLink size={20} />
         </div>
       </button>
-      <form ref={formRef} className="hidden" style={{ display: 'none' }} />
+      <CheckoutModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        productType="training" 
+      />
     </>
   );
 };
