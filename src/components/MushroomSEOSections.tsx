@@ -399,9 +399,9 @@ export default function MushroomSEOSections() {
         <section id="seo-faqs" className="space-y-12">
           <div className="text-center space-y-4">
             <div className="badge bg-brand-blue/10 text-brand-blue border border-brand-blue/20 mx-auto">Frequently Asked Questions</div>
-            <h2 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight">
-              SEO Cultivation <span className="gradient-text">Knowledgebase & FAQs</span>
-            </h2>
+            <h3 className="text-2xl md:text-4xl font-black uppercase text-white tracking-tight">
+              Cultivation <span className="gradient-text">Knowledge</span>
+            </h3>
             <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto">
               Get detailed answers to highly searched technical, financial, and regulatory questions about starting a modern agriculture business in India.
             </p>

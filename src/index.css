@@ -86,9 +86,11 @@
     min-height: 100vh;
   }
 
-  /* Force override all text colors to fix both modes */
-  .text-white, .dark\:text-white, 
-  .text-slate-900, .dark\:text-slate-900,
+  /* Force override all text colors to fix both modes, but exclude buttons, active markers, and gradient-bg elements */
+  .text-white:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *), 
+  .dark\:text-white:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *),
+  .text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *), 
+  .dark\:text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *),
   .text-slate-800, .dark\:text-slate-800,
   .text-slate-200, .text-slate-300, .dark\:text-slate-300 {
     color: var(--text-heading) !important;
@@ -113,9 +115,21 @@
     background-color: transparent !important;
   }
 
-  h1, h2 { @apply text-[1.25rem] md:text-[2.5rem] font-bold tracking-tight; font-family: var(--font-display); color: var(--text-heading) !important; }
-  h3 { @apply text-[1rem] md:text-2xl font-bold; font-family: var(--font-display); color: var(--text-heading) !important; }
-  h4, h5, h6 { font-family: var(--font-display); color: var(--text-heading) !important; }
+  h1:not(.gradient-text), h2:not(.gradient-text), h1 *:not(.gradient-text), h2 *:not(.gradient-text) { 
+    @apply text-[1.25rem] md:text-[2.5rem] font-bold tracking-tight; 
+    font-family: var(--font-display); 
+    color: var(--text-heading) !important; 
+  }
+  h3:not(.gradient-text), h3 *:not(.gradient-text) { 
+    @apply text-[1rem] md:text-2xl font-bold; 
+    font-family: var(--font-display); 
+    color: var(--text-heading) !important; 
+  }
+  h4:not(.gradient-text), h5:not(.gradient-text), h6:not(.gradient-text),
+  h4 *:not(.gradient-text), h5 *:not(.gradient-text), h6 *:not(.gradient-text) { 
+    font-family: var(--font-display); 
+    color: var(--text-heading) !important; 
+  }
   p { @apply text-[0.8125rem] md:text-base; color: var(--text-body) !important; }
 }
 

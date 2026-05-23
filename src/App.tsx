@@ -566,15 +566,15 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 glass py-3 md:py-4 px-4 md:px-10 transition-all duration-300 ${isScrolled ? 'shadow-2xl translate-y-[-2px]' : ''}`}>
+      <nav className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 glass py-2.5 md:py-4 px-3 sm:px-5 md:px-10 transition-all duration-300 ${isScrolled ? 'shadow-2xl translate-y-[-2px]' : ''}`}>
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-3 group shrink-0">
             <img 
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
               alt="Organic Mushroom Farm" 
-              className="w-10 h-10 md:w-12 md:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform" 
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform" 
             />
-            <span className="text-lg md:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] sm:max-w-none">
+            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
           </Link>
@@ -1836,12 +1836,48 @@ const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }
 const FloatingButtons = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [currentHash, setCurrentHash] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => setShowScrollTop(window.scrollY > 400);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash || '');
+    };
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+
+    const onScroll = () => {
+      if (location.pathname !== '/') return;
+      const sections = ['farming-models', 'compost-units', 'market'];
+      let active = '';
+      for (const section of sections) {
+        const el = document.getElementById(section);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 250 && rect.bottom >= 150) {
+            active = '#' + section;
+            break;
+          }
+        }
+      }
+      if (active) {
+        setCurrentHash(active);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [location.pathname]);
 
   const isTrainingPage = location.pathname === '/training';
 
@@ -1858,7 +1894,7 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className={`fixed right-4 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none ${isTrainingPage ? 'bottom-[80px] md:bottom-[30px]' : 'bottom-[80px] md:bottom-[30px]'}`}>
+      <div className={`fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none ${isTrainingPage ? 'bottom-[80px] md:bottom-[30px]' : 'bottom-[80px] md:bottom-[30px]'}`}>
         
         {isTrainingPage ? (
           <div className="flex flex-col gap-1.5 md:gap-3 items-end pointer-events-auto">
@@ -1883,13 +1919,13 @@ const FloatingButtons = () => {
               </div>
             </div>
 
-            {/* Mobile Stack */}
+            {/* Mobile Stack - Compactly sized to prevent overlapping core text */}
             <div className="flex gap-1.5 w-full justify-end md:hidden">
               <Link 
                 to="/book-consultant" 
-                className="flex-1 flex px-3 h-10 md:h-12 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-lg font-bold tracking-wide gap-1 text-[10px]"
+                className="flex-1 flex px-2.5 h-8.5 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-md font-bold tracking-wide gap-1 text-[9px]"
               >
-                <Calendar size={12} /> Consult
+                <Calendar size={11} /> Consult
               </Link>
               <motion.a 
                 href="https://wa.me/919203544140" 
@@ -1898,32 +1934,32 @@ const FloatingButtons = () => {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shrink-0"
+                className="w-8.5 h-8.5 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-md shrink-0"
               >
-                <MessageCircle size={16} />
+                <MessageCircle size={14} />
               </motion.a>
             </div>
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="h-9 w-auto min-w-[140px] max-w-[180px] md:hidden relative z-[99998]"
+              className="h-8.5 w-auto min-w-[120px] max-w-[150px] md:hidden relative z-[99998]"
             >
               <StickyRazorpayButton size="small" />
             </motion.div>
           </div>
         ) : (
-          <div className="flex flex-col gap-2 md:gap-4 items-end pointer-events-auto">
-            {/* Book a Free Consultation Button (Calendly) */}
+          <div className="flex flex-col gap-1.5 md:gap-4 items-end pointer-events-auto">
+            {/* Book a Free Consultation Button (Calendly) - Compact sizing on mobile */}
             <Link 
               to="/book-consultant" 
-              className="flex px-4 md:px-6 h-12 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-2 text-[10px] md:text-base order-1 md:order-none"
+              className="flex px-3.5 md:px-6 h-9 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[9px] md:text-base order-1 md:order-none"
             >
-              <Calendar size={18} className="md:w-5 md:h-5" />
+              <Calendar size={14} className="md:w-5 md:h-5" />
               <span className="hidden md:inline">Book a Free Consultation</span>
               <span className="md:hidden">Book Now</span>
             </Link>
 
-            {/* WhatsApp Button with Glow & Pulse */}
+            {/* WhatsApp Button - Compact on mobile */}
             <motion.a 
               href="https://wa.me/919203544140" 
               target="_blank" 
@@ -1931,10 +1967,10 @@ const FloatingButtons = () => {
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               whileHover={{ scale: 1.1 }}
-              className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-green-500 dark:text-white text-slate-900 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.4)] relative group shrink-0 order-2 md:order-none"
+              className="w-10.5 h-10.5 md:w-16 md:h-16 rounded-full bg-green-500 dark:text-white text-slate-900 flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)] relative group shrink-0 order-2 md:order-none"
             >
-              <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20 group-hover:opacity-40"></div>
-              <MessageCircle size={28} className="relative z-10" />
+              <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-10 group-hover:opacity-30"></div>
+              <MessageCircle size={20} className="md:w-[28px] md:h-[28px] relative z-10" />
             </motion.a>
           </div>
         )}
@@ -1954,21 +1990,78 @@ const FloatingButtons = () => {
 
       {/* Mobile Horizontal Sticky Bottom Bar */}
       <div className={`fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t dark:border-white/10 border-black/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]`}>
-        <div className={`overflow-x-auto scrollbar-hide snap-x flex items-center ${isTrainingPage ? 'gap-1.5 p-2 px-3' : 'gap-3 p-4'}`}>
+        <div className={`overflow-x-auto scrollbar-hide snap-x flex items-center ${isTrainingPage ? 'gap-1.5 p-2 px-3' : 'gap-2 p-3 px-4'}`}>
           {mobileNavItems.map((item, i) => {
             const isExternal = item.href.startsWith('tel:') || item.href.startsWith('http');
-            const className = `snap-start shrink-0 flex items-center justify-center rounded-full bg-linear-to-r from-blue-600/20 to-purple-600/20 border dark:border-white/10 border-black/10 hover:border-primary-start/50 transition-all active:scale-95 ${
-              isTrainingPage ? 'gap-1.5 px-3 py-1.5' : 'gap-2 px-4 py-2.5'
+            const isHashLink = item.href.includes('#');
+
+            // Find if item is active:
+            let isActive = false;
+            if (isHashLink) {
+              const hash = item.href.split('#')[1];
+              isActive = location.pathname === '/' && currentHash === '#' + hash;
+            } else {
+              isActive = location.pathname === item.href;
+            }
+
+            const className = `snap-start shrink-0 flex items-center justify-center rounded-full border transition-all active:scale-95 ${
+              isActive 
+                ? 'bg-primary-start text-white border-primary-start shadow-md shadow-primary-start/20 font-bold' 
+                : 'bg-linear-to-r from-blue-600/10 to-purple-600/10 dark:border-white/10 border-black/10 dark:text-white text-slate-900 hover:border-primary-start/40'
+            } ${
+              isTrainingPage ? 'gap-1 px-3 py-1.5' : 'gap-1.5 px-3.5 py-2'
             }`;
 
             const content = (
               <>
-                <item.icon size={isTrainingPage ? 12 : 14} className="text-primary-start" />
-                <span className={`font-bold dark:text-white text-slate-900 whitespace-nowrap tracking-tight ${isTrainingPage ? 'text-[9px]' : 'text-[11px]'}`}>
+                <item.icon size={isTrainingPage ? 11 : 13} className={isActive ? 'text-white' : 'text-primary-start'} />
+                <span className={`whitespace-nowrap tracking-tight font-semibold ${isTrainingPage ? 'text-[9px]' : 'text-[10px]'}`}>
                   {item.label}
                 </span>
               </>
             );
+
+            const handleItemClick = (e: React.MouseEvent) => {
+              if (isHashLink) {
+                e.preventDefault();
+                const hash = item.href.split('#')[1];
+                if (location.pathname === '/') {
+                  const element = document.getElementById(hash);
+                  if (element) {
+                    const offset = 100;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = element.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                    setCurrentHash('#' + hash);
+                    window.history.pushState(null, '', `/#${hash}`);
+                  }
+                } else {
+                  navigate('/');
+                  setTimeout(() => {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                      const offset = 100;
+                      const bodyRect = document.body.getBoundingClientRect().top;
+                      const elementRect = element.getBoundingClientRect().top;
+                      const elementPosition = elementRect - bodyRect;
+                      const offsetPosition = elementPosition - offset;
+
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                      setCurrentHash('#' + hash);
+                    }
+                  }, 400);
+                }
+              }
+            };
 
             if (isExternal) {
               return (
@@ -1977,6 +2070,19 @@ const FloatingButtons = () => {
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={className}
+                >
+                  {content}
+                </a>
+              );
+            }
+
+            if (isHashLink) {
+              return (
+                <a 
+                  key={i}
+                  href={item.href}
+                  onClick={handleItemClick}
                   className={className}
                 >
                   {content}
