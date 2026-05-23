@@ -28,6 +28,7 @@ import MushroomTypes from './pages/MushroomTypes';
 import Equipment from './pages/Equipment';
 import BookConsultantPage from './pages/BookConsultantPage';
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
+import ROICalculatorPage from './pages/ROICalculatorPage';
 import Subsidy from './pages/Subsidy';
 import Locations from './pages/Locations';
 import Blog from './pages/Blog';
@@ -484,6 +485,7 @@ const NAV_ITEMS = [
       { name: "Training Programs", href: "/training" },
       { name: "Mushroom Types", href: "/mushroom-types" },
       { name: "Business Plan", href: "/business-plan" },
+      { name: "ROI Calculator", href: "/roi-calculator" },
     ]
   },
   { name: "Turnkey Projects", href: "/turnkey-projects", isExternal: false, icon: ShieldCheck },
@@ -3286,6 +3288,7 @@ export default function App() {
             <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            <Route path="/roi-calculator" element={<ROICalculatorPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/contact" element={<ContactPage />} />
