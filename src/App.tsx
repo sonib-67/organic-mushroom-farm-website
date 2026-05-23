@@ -41,6 +41,7 @@ import ArticleBusinessPlanHindi from './pages/ArticleBusinessPlanHindi';
 import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import SEO from './components/SEO';
 import MetaPixelTracker from './components/MetaPixelTracker';
+import MushroomSEOSections from './components/MushroomSEOSections';
 
 // --- Constants & Types ---
 
@@ -2560,6 +2561,7 @@ const HomePage = () => {
         </div>
       </section>
 
+      <MushroomSEOSections />
       <ComparisonTable />
       <StatesSection />
       <CTASection />
