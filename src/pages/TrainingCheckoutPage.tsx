@@ -28,9 +28,16 @@ export default function TrainingCheckoutPage() {
         body: JSON.stringify({ ...formData, productType: 'training' })
       });
       
-      const payload = await response.json();
+      let payload;
+      const text = await response.text();
+      try {
+        payload = JSON.parse(text);
+      } catch (err) {
+        console.error("Failed to parse JSON response:", text);
+        throw new Error('Invalid JSON response from server');
+      }
       
-      if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
+      if (!response.ok) throw new Error(payload?.error || 'Failed to fetch payload');
 
       const options = {
         key: payload.key_id,
