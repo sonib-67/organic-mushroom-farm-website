@@ -8,6 +8,14 @@ export default function BookConsultantPage() {
   const [whatsappSubmitted, setWhatsappSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
 
+  useEffect(() => {
+    if (paymentStatus === 'success') {
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Purchase', { currency: 'INR', value: 59.00 });
+      }
+    }
+  }, [paymentStatus]);
+
   const initiatePayment = async () => {
     setPaymentStatus('idle');
     try {
@@ -42,6 +50,9 @@ export default function BookConsultantPage() {
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
+        if ((window as any).fbq) {
+          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
+        }
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);

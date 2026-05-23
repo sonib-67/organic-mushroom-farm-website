@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle, ArrowRight, MessageCircle, BookOpen, Clock, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function PaymentSuccessPage() {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Purchase', { currency: "INR", value: 299.00 });
+    }
+  }, []);
+
   return (
     <div className="relative pt-24 pb-32 md:pt-32 lg:pb-0 overflow-hidden min-h-screen selection:bg-green-500/30 flex items-center justify-center">
       <div className="w-full max-w-lg mx-auto px-4 z-10">

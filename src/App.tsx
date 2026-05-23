@@ -40,6 +40,7 @@ import ArticleMushroomSpawn from './pages/ArticleMushroomSpawn';
 import ArticleBusinessPlanHindi from './pages/ArticleBusinessPlanHindi';
 import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import SEO from './components/SEO';
+import MetaPixelTracker from './components/MetaPixelTracker';
 
 // --- Constants & Types ---
 
@@ -3136,6 +3137,7 @@ const ScrollToTop = () => {
 export default function App() {
   return (
     <BrowserRouter>
+      <MetaPixelTracker />
       <ScrollToTop />
       <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 bg-black">
         <Background3D />

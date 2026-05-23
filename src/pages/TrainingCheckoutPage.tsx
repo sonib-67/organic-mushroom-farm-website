@@ -62,6 +62,9 @@ export default function TrainingCheckoutPage() {
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
+        if ((window as any).fbq) {
+          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
+        }
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
