@@ -4,13 +4,59 @@ import { CheckCircle2, TrendingUp, ShieldCheck, MapPin, X, ArrowRight, BookOpen,
 import { Link } from 'react-router-dom';
 
 export default function BookConsultantPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled' | 'success'>('idle');
+  const [whatsappSubmitted, setWhatsappSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
-  const [isFormValid, setIsFormValid] = useState(false);
 
-  useEffect(() => {
-    setIsFormValid(formData.name.trim() !== '' && formData.phone.trim() !== '' && formData.email.trim() !== '');
-  }, [formData]);
+  const initiatePayment = async () => {
+    setPaymentStatus('idle');
+    try {
+      const response = await fetch('/api/checkout-payload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          productType: 'consultation'
+        })
+      });
+      
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
+
+      const options = {
+        key: payload.key_id,
+        amount: payload.amount,
+        currency: payload.currency,
+        name: payload.name,
+        description: payload.description,
+        prefill: payload.prefill,
+        notes: payload.notes,
+        theme: payload.theme,
+        handler: function (response: any) {
+          setPaymentStatus('success');
+        },
+        modal: {
+          ondismiss: function() {
+            setPaymentStatus('cancelled');
+          }
+        }
+      };
+
+      if (typeof window !== "undefined" && (window as any).Razorpay) {
+        const rzp = new (window as any).Razorpay(options);
+        rzp.on('payment.failed', function (response: any) {
+          console.error(response.error);
+          setPaymentStatus('cancelled');
+        });
+        rzp.open();
+      } else {
+        console.error("Razorpay script not loaded properly");
+        alert('Payment system error. Please refresh the page and try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Error initiating checkout. Please try again.');
+    }
+  };
 
   const includedItems = [
     { title: "Custom Project Blueprint", desc: "Tailored strategy based on your target investment, location, and climate.", icon: MapPin },
@@ -46,10 +92,10 @@ export default function BookConsultantPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsModalOpen(true)}
+              onClick={initiatePayment}
               className="relative overflow-hidden rounded-lg md:rounded-2xl group px-4 md:px-12 py-2.5 md:py-5 bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all font-bold text-[11px] md:text-lg inline-flex items-center gap-1.5 md:gap-2"
             >
-              <Zap size={14} className="md:w-6 md:h-6" /> Book Consultation Now
+              <Zap size={14} className="md:w-6 md:h-6" /> Book Consultation Now - ₹59
             </motion.button>
           </motion.div>
         </div>
@@ -103,9 +149,8 @@ export default function BookConsultantPage() {
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
-        {isModalOpen && (
+        {paymentStatus === 'cancelled' && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -116,116 +161,127 @@ export default function BookConsultantPage() {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="glass border dark:border-white/10 border-black/10 rounded-xl md:rounded-3xl p-4 md:p-8 w-full max-w-md relative overflow-hidden"
+              className="glass border dark:border-white/10 border-black/10 rounded-xl md:rounded-3xl p-6 md:p-8 w-full max-w-sm relative overflow-hidden text-center"
             >
               <button 
-                onClick={() => setIsModalOpen(false)}
-                className="absolute top-2 right-2 md:top-4 md:right-4 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors"
+                onClick={() => setPaymentStatus('idle')}
+                className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
               >
-                <X size={14} className="md:w-4 md:h-4" />
+                <X size={16} />
               </button>
               
-              <h3 className="text-sm md:text-2xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-1 mt-1">Your Details</h3>
-              <p className="text-[9px] md:text-sm text-slate-400 mb-3 md:mb-6">Please provide your details to proceed to payment.</p>
-              
-              <div className="space-y-2 md:space-y-4 mb-4 md:mb-6 relative z-10">
-                <div>
-                  <label className="block text-[8px] md:text-xs font-bold text-slate-400 mb-0.5 md:mb-1 uppercase tracking-wider">Full Name</label>
-                  <input 
-                    type="text" 
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-black/20 border border-white/10 rounded-md md:rounded-lg px-2 md:px-4 py-1.5 md:py-3 text-[10px] md:text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Enter your name" 
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-[8px] md:text-xs font-bold text-slate-400 mb-0.5 md:mb-1 uppercase tracking-wider">Mobile Number</label>
-                  <input 
-                    type="tel" 
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full bg-black/20 border border-white/10 rounded-md md:rounded-lg px-2 md:px-4 py-1.5 md:py-3 text-[10px] md:text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Enter WhatsApp number" 
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-[8px] md:text-xs font-bold text-slate-400 mb-0.5 md:mb-1 uppercase tracking-wider">Email Address</label>
-                  <input 
-                    type="email" 
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-black/20 border border-white/10 rounded-md md:rounded-lg px-2 md:px-4 py-1.5 md:py-3 text-[10px] md:text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Enter email address" 
-                    required
-                  />
-                </div>
+              <div className="w-16 h-16 rounded-full bg-red-500/20 text-red-500 flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(239,68,68,0.2)]">
+                <X size={32} />
               </div>
-
-              {/* Razorpay Conditional Button */}
-              {isFormValid ? (
+              <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Payment Cancelled ❌</h3>
+              <p className="text-sm text-slate-400 mb-6">Your consultation booking was not completed.<br/>Please try again to continue.</p>
+              
+              <div className="space-y-3 relative z-10 w-full">
                 <button
-                  type="button"
-                  onClick={async (e) => {
-                    e.preventDefault();
-                    // Custom implementation for consultation
-                    try {
-                      const response = await fetch('/api/checkout-payload', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                          name: formData.name, 
-                          mobile: formData.phone, 
-                          email: formData.email, 
-                          productType: 'consultation' 
-                        })
-                      });
-                      
-                      const payload = await response.json();
-                      if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
-
-                      const options = {
-                        key: payload.key_id,
-                        amount: payload.amount,
-                        currency: payload.currency,
-                        name: payload.name,
-                        description: payload.description,
-                        prefill: payload.prefill,
-                        notes: payload.notes,
-                        theme: payload.theme,
-                        handler: function (response: any) {
-                          window.location.href = '/payment-success?id=' + response.razorpay_payment_id;
-                        }
-                      };
-
-                      if (typeof window !== "undefined" && (window as any).Razorpay) {
-                        const rzp = new (window as any).Razorpay(options);
-                        rzp.open();
-                      } else {
-                        console.error("Razorpay script not loaded properly");
-                        alert('Payment system error. Please refresh the page and try again.');
-                      }
-                    } catch (error) {
-                      console.error(error);
-                      alert('Error initiating checkout. Please try again.');
-                    }
-                  }}
-                  className="relative overflow-hidden rounded-md md:rounded-lg group w-full bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all border dark:border-white/10 border-black/10 h-8 md:h-12 flex items-center justify-center cursor-pointer"
+                  onClick={initiatePayment}
+                  className="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
                 >
-                  <div className="absolute inset-0 flex items-center justify-center font-bold z-10 px-2 md:px-4 gap-1.5 md:gap-2 whitespace-nowrap text-[9px] md:text-sm">
-                    <span>Proceed to Payment</span> <ArrowRight size={10} className="md:w-3 md:h-3" />
+                  <Zap size={18} /> Try Again - ₹59
+                </button>
+                <Link
+                  to="/"
+                  className="w-full inline-flex items-center justify-center px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold text-slate-300 hover:text-white transition-all text-sm"
+                >
+                  Back to Home
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {paymentStatus === 'success' && (
+          <motion.div 
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
+              className="glass-dark border dark:border-white/10 border-black/10 rounded-2xl md:rounded-3xl p-5 md:p-8 w-full max-w-sm relative overflow-hidden text-center"
+            >
+              <button 
+                onClick={() => setPaymentStatus('idle')}
+                className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
+              >
+                <X size={16} />
+              </button>
+              
+              {!whatsappSubmitted ? (
+                <>
+                  <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+                    <CheckCircle2 size={32} />
                   </div>
-                  <div className="absolute inset-0 rounded-md md:rounded-lg bg-blue-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
-                </button>
+                  <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Payment Successful!</h3>
+                  <p className="text-xs md:text-sm text-slate-400 mb-6">Please confirm your details to connect with our consultant.</p>
+                  
+                  <form onSubmit={(e) => {
+                    e.preventDefault();
+                    setWhatsappSubmitted(true);
+                    const message = `New Consultant Booking 🎉\n\nName: ${formData.name}\nMobile: ${formData.phone}\nEmail: ${formData.email}\n\nPayment Status: Paid ₹59`;
+                    const url = `https://wa.me/919203544140?text=${encodeURIComponent(message)}`;
+                    window.open(url, '_blank');
+                  }} className="text-left space-y-4 relative z-10 w-full">
+                    <div>
+                      <label className="block text-[10px] md:text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Full Name</label>
+                      <input 
+                        type="text" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        className="w-full box-border bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500 transition-colors"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] md:text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Mobile Number</label>
+                      <input 
+                        type="tel" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        className="w-full box-border bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500 transition-colors"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] md:text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Email Address</label>
+                      <input 
+                        type="email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className="w-full box-border bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500 transition-colors"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full mt-2 bg-[#25D366] text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
+                    >
+                      Submit Booking
+                    </button>
+                  </form>
+                </>
               ) : (
-                <button 
-                  disabled
-                  className="w-full relative overflow-hidden rounded-md md:rounded-lg group px-3 py-2 md:px-4 md:py-3 bg-slate-800 text-slate-400 transition-all font-bold text-[9px] md:text-sm flex items-center justify-center gap-1.5 md:gap-2 cursor-not-allowed"
-                >
-                  Fill form to Proceed <ArrowRight size={10} className="md:w-3 md:h-3" />
-                </button>
+                <div className="py-6">
+                  <div className="w-20 h-20 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+                    <CheckCircle2 size={40} />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-black text-white mb-3">Consultation Booked Successfully 🎉</h3>
+                  <p className="text-sm text-slate-400 mb-8">Our team will contact you shortly.</p>
+                  
+                  <a 
+                    href={`https://wa.me/919203544140?text=${encodeURIComponent(`New Consultant Booking 🎉\n\nName: ${formData.name}\nMobile: ${formData.phone}\nEmail: ${formData.email}\n\nPayment Status: Paid ₹59`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all hover:scale-[1.02]"
+                  >
+                    <MessageCircle size={20} /> Chat on WhatsApp
+                  </a>
+                </div>
               )}
             </motion.div>
           </motion.div>
