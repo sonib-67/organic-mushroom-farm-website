@@ -200,8 +200,13 @@ export default function BookConsultantPage() {
                         }
                       };
 
-                      const rzp = new (window as any).Razorpay(options);
-                      rzp.open();
+                      if (typeof window !== "undefined" && (window as any).Razorpay) {
+                        const rzp = new (window as any).Razorpay(options);
+                        rzp.open();
+                      } else {
+                        console.error("Razorpay script not loaded properly");
+                        alert('Payment system error. Please refresh the page and try again.');
+                      }
                     } catch (error) {
                       console.error(error);
                       alert('Error initiating checkout. Please try again.');

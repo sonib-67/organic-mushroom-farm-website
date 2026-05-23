@@ -18,7 +18,7 @@ import ServiceDetailPage from './pages/ServiceDetailPage';
 import ProcessDetailPage from './pages/ProcessDetailPage';
 import ModelDetailsPage from './pages/ModelDetails';
 import CompostUnitSpecsPage from './pages/CompostUnitSpecs';
-import { CheckoutModal } from './components/CheckoutModal';
+import TrainingCheckoutPage from './pages/TrainingCheckoutPage';
 import ContactFormPage from './pages/ContactForm';
 import SopsPage from './pages/Sops';
 import ExpertiseDetailsPage from './pages/ExpertiseDetails';
@@ -566,13 +566,13 @@ const Navbar = () => {
     <>
       <nav className={`fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 glass py-3 md:py-4 px-4 md:px-10 transition-all duration-300 ${isScrolled ? 'shadow-2xl translate-y-[-2px]' : ''}`}>
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 md:gap-3 group">
+          <Link to="/" className="flex items-center gap-2 md:gap-3 group shrink-0">
             <img 
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
               alt="Organic Mushroom Farm" 
-              className="w-10 h-10 md:w-12 md:h-12 object-contain group-hover:scale-110 transition-transform" 
+              className="w-10 h-10 md:w-12 md:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform" 
             />
-            <span className="text-lg md:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
+            <span className="text-lg md:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px] sm:max-w-none">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
           </Link>
@@ -1814,27 +1814,20 @@ const Footer = () => {
 };
 
 const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <>
-      <button 
-        onClick={() => setIsModalOpen(true)}
-        type="button"
-        className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}
-      >
-        <div className={`font-bold z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
-          <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
-          <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
-        </div>
-        <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
-      </button>
-      <CheckoutModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        productType="training" 
-      />
-    </>
+    <button 
+      onClick={() => navigate('/training-checkout')}
+      type="button"
+      className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}
+    >
+      <div className={`font-bold z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
+        <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
+        <span>Join Training <span className="md:inline hidden">-</span> ₹299</span>
+      </div>
+      <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
+    </button>
   );
 };
 
@@ -2011,26 +2004,19 @@ const FloatingButtons = () => {
 // --- Main App ---
 
 const RazorpayPaymentButton = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <>
-      <button 
-        onClick={() => setIsModalOpen(true)}
-        type="button"
-        className="relative overflow-hidden rounded-2xl group w-full min-h-[64px] bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02] flex items-center justify-center cursor-pointer"
-      >
-        {/* Custom UI Button that looks good */}
-        <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg md:text-xl z-10 gap-2">
-          Enroll Now - ₹<span className="text-2xl">299</span> <ExternalLink size={20} />
-        </div>
-      </button>
-      <CheckoutModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        productType="training" 
-      />
-    </>
+    <button 
+      onClick={() => navigate('/training-checkout')}
+      type="button"
+      className="relative overflow-hidden rounded-2xl group w-full min-h-[64px] bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02] flex items-center justify-center cursor-pointer"
+    >
+      {/* Custom UI Button that looks good */}
+      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg md:text-xl z-10 gap-2">
+        Enroll Now - ₹<span className="text-2xl">299</span> <ExternalLink size={20} />
+      </div>
+    </button>
   );
 };
 
@@ -2099,11 +2085,11 @@ const MushroomTraining = () => {
             <h3 className="text-md md:text-4xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-4">Choose Your <span className="gradient-text">Commercial Training Model</span></h3>
             <p className="dark:text-slate-400 text-slate-600 text-[9px] md:text-base">Select the path that fits your commercial mushroom goals and budget.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-2 md:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 w-full">
             {/* Online Training */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="glass flex-1 flex flex-col p-4 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
+              className="glass flex flex-col p-6 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden w-full box-border"
             >
               <a 
                 href="https://youtube.com/shorts/wxLiU3nNZmM?si=6VmH86DPYKoQ72P6" 
@@ -2136,7 +2122,7 @@ const MushroomTraining = () => {
             {/* Offline Training */}
             <motion.div 
               whileHover={{ y: -5 }}
-              className="glass flex-1 flex flex-col p-4 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden"
+              className="glass flex flex-col p-6 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden w-full box-border"
             >
               <div className="absolute top-0 right-0 p-4 md:p-8 opacity-5">
                 <Users size={80} className="md:w-[120px] md:h-[120px]" />
@@ -3186,6 +3172,7 @@ export default function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />
+            <Route path="/training-checkout" element={<TrainingCheckoutPage />} />
             <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/faq" element={<FAQPage />} />
