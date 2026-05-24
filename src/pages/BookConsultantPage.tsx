@@ -1,14 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, TrendingUp, ShieldCheck, MapPin, X, ArrowRight, BookOpen, Layers, Users, Zap, Briefcase, Calendar, Phone, MessageCircle, Sprout, Home, ShoppingCart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { trackPurchase, trackInitiateCheckout } from '../utils/analytics';
 
 export default function BookConsultantPage() {
+  const [searchParams] = useSearchParams();
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled' | 'success'>('idle');
   const [whatsappSubmitted, setWhatsappSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
+  const initialName = searchParams.get('name') || '';
+  const initialPhone = searchParams.get('phone') || '';
+  const initialEmail = searchParams.get('email') || '';
+  const [formData, setFormData] = useState({ name: initialName, phone: initialPhone, email: initialEmail });
   const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(initialName || initialPhone || initialEmail ? true : false);
 
   useEffect(() => {
     if (paymentStatus === 'success') {
@@ -16,7 +21,12 @@ export default function BookConsultantPage() {
     }
   }, [paymentStatus]);
 
-  const initiatePayment = async () => {
+  const initiatePayment = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!formData.name || !formData.phone || !formData.email) {
+      alert("Please fill all details.");
+      return;
+    }
     setPaymentStatus('idle');
     setLoading(true);
     try {
@@ -24,7 +34,10 @@ export default function BookConsultantPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          productType: 'consultation'
+          productType: 'consultation',
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email
         })
       });
       
@@ -118,14 +131,69 @@ export default function BookConsultantPage() {
               Get direct, actionable solutions from industry experts to avoid costly mistakes and scale profitably.
             </p>
             
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={initiatePayment}
-              className="relative overflow-hidden rounded-lg md:rounded-2xl group px-4 md:px-12 py-2.5 md:py-5 bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all font-bold text-[11px] md:text-lg inline-flex items-center gap-1.5 md:gap-2"
-            >
-              <Zap size={14} className="md:w-6 md:h-6" /> Book Consultation Now - ₹59
-            </motion.button>
+            {!showForm ? (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowForm(true)}
+                className="relative overflow-hidden rounded-lg md:rounded-2xl group px-4 md:px-12 py-2.5 md:py-5 bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all font-bold text-[11px] md:text-lg inline-flex items-center gap-1.5 md:gap-2"
+              >
+                <Zap size={14} className="md:w-6 md:h-6" /> Book Consultation Now - ₹59
+              </motion.button>
+            ) : (
+              <motion.form 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                onSubmit={initiatePayment} 
+                className="max-w-md mx-auto flex flex-col gap-3 p-4 md:p-6 glass rounded-2xl border dark:border-white/10 border-black/10 text-left"
+              >
+                <div>
+                  <label className="text-xs md:text-sm font-bold dark:text-slate-300 text-slate-700 ml-1 mb-1 block">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={e => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-black/5 dark:bg-white/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 text-sm md:text-base outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs md:text-sm font-bold dark:text-slate-300 text-slate-700 ml-1 mb-1 block">Mobile Number</label>
+                  <input
+                    type="tel"
+                    required
+                    pattern="[0-9]{10}"
+                    value={formData.phone}
+                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full bg-black/5 dark:bg-white/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 text-sm md:text-base outline-none focus:border-blue-500 transition-colors"
+                    placeholder="10-digit mobile number"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs md:text-sm font-bold dark:text-slate-300 text-slate-700 ml-1 mb-1 block">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={e => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-black/5 dark:bg-white/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 text-sm md:text-base outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full mt-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold py-3.5 rounded-xl transition-all flex justify-center items-center gap-2"
+                >
+                  {loading ? (
+                    <span className="animate-spin inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full"></span>
+                  ) : (
+                    <>Proceed to Payment - ₹59 <ArrowRight size={16} /></>
+                  )}
+                </button>
+              </motion.form>
+            )}
           </motion.div>
         </div>
       </div>

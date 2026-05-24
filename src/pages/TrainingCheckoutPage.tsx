@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function TrainingCheckoutPage() {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
-    name: '',
-    mobile: '',
-    email: ''
+    name: searchParams.get('name') || '',
+    mobile: searchParams.get('phone') || '',
+    email: searchParams.get('email') || ''
   });
   const [loading, setLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled'>('idle');

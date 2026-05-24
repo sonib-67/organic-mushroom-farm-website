@@ -43,9 +43,13 @@ export default function PaymentSuccessPage() {
 
           {/* Heading */}
           <h1 className="text-2xl md:text-4xl font-black dark:text-white text-slate-900 tracking-tight mb-2 md:mb-3 relative z-10">
-            Payment Successful 🎉
+            {productType.toLowerCase().includes('consultation') ? 'Consultation Successfully Booked' : 'Payment Successful 🎉'}
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-6 font-medium">Thank you for choosing {productType}</p>
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-6 font-medium">
+            {productType.toLowerCase().includes('consultation') 
+              ? 'Thank you for booking your consultation with Organic Mushroom Farm.' 
+              : `Thank you for choosing ${productType}`}
+          </p>
           
           {/* Payment Summary */}
           <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-100 dark:border-slate-800 text-left relative z-10">
@@ -77,7 +81,9 @@ export default function PaymentSuccessPage() {
           {/* Action Info */}
           <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 md:p-6 mb-5 text-center relative z-10">
             <p className="text-xs md:text-sm text-green-700 dark:text-green-100 font-medium leading-relaxed mb-4">
-              You will receive details shortly on WhatsApp and Email.
+              {productType.toLowerCase().includes('consultation') 
+                ? 'Our expert team will contact you shortly on your registered mobile number or email.' 
+                : 'You will receive details shortly on WhatsApp and Email.'}
             </p>
             <a href={`https://wa.me/919203544140?text=I%20have%20completed%20payment%20for%20${encodeURIComponent(productType)}.%20Order%20ID:%20${orderId}`}
                target="_blank" rel="noopener noreferrer"
