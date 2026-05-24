@@ -2,17 +2,24 @@ import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com",
-  port: 587,
-  secure: false, // Use STARTTLS for 587
-  pool: true, // Optimized for serverless
-  maxConnections: 1,
+  port: 465,
+  secure: true,
+  pool: false, // Ensure pool is false for Serverless environments (Vercel)
   auth: {
-    user: "training@mushroomtraining.online",
+    user: process.env.SMTP_USER || "training@mushroomtraining.online",
     pass: process.env.SMTP_PASS || "Sonib491@",
   },
   tls: {
     rejectUnauthorized: false
   }
+});
+
+console.log("[EmailService] Nodemailer transporter initialized with secure:true (Port 465)");
+
+transporter.verify().then(() => {
+  console.log("[EmailService] Transporter verification successful. Ready to send emails.");
+}).catch(err => {
+  console.error("[EmailService] Transporter verification failed:", err);
 });
 
 const APP_NAME = "Organic Mushroom Farm";
@@ -365,16 +372,23 @@ export const sendSuccessEmail = async (data: any, toEmail: string, isAdmin = fal
     </div>
   `;
   
-  await transporter.sendMail({
-    from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
-    to: toEmail,
-    subject: isAdmin 
-      ? `New Sale Confirmed: ${data.productType} – ${APP_NAME}`
-      : (isConsultation 
-        ? `Consultation Booking Confirmed – ${APP_NAME}` 
-        : `Payment Successful – ${APP_NAME}`),
-    html: buildEmail(content, isAdmin)
-  });
+  console.log(`[EmailService] Sending Success email to ${toEmail}...`);
+  try {
+    await transporter.sendMail({
+      from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+      to: toEmail,
+      subject: isAdmin 
+        ? `New Sale Confirmed: ${data.productType} – ${APP_NAME}`
+        : (isConsultation 
+          ? `Consultation Booking Confirmed 🌱 – ${APP_NAME}` 
+          : `Your Order Has Been Confirmed 🌱 – ${APP_NAME}`),
+      html: buildEmail(content, isAdmin)
+    });
+    console.log(`[EmailService] Success email sent to ${toEmail} successfully.`);
+  } catch (err) {
+    console.error(`[EmailService] Failed to send Success email to ${toEmail}:`, err);
+    throw err;
+  }
 };
 
 export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = false) => {
@@ -435,12 +449,19 @@ export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = fal
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
-    to: toEmail,
-    subject: `Payment Under Verification – ${APP_NAME}`,
-    html: buildEmail(content, isAdmin)
-  });
+  console.log(`[EmailService] Sending Pending email to ${toEmail}...`);
+  try {
+    await transporter.sendMail({
+      from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+      to: toEmail,
+      subject: `Payment Under Verification 🌱 – ${APP_NAME}`,
+      html: buildEmail(content, isAdmin)
+    });
+    console.log(`[EmailService] Pending email sent to ${toEmail} successfully.`);
+  } catch (err) {
+    console.error(`[EmailService] Failed to send Pending email to ${toEmail}:`, err);
+    throw err;
+  }
 };
 
 export const sendFailedEmail = async (data: any, toEmail: string, isAdmin = false) => {
@@ -499,12 +520,19 @@ export const sendFailedEmail = async (data: any, toEmail: string, isAdmin = fals
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
-    to: toEmail,
-    subject: `Payment Interrupted – ${APP_NAME}`,
-    html: buildEmail(content, isAdmin)
-  });
+  console.log(`[EmailService] Sending Failed email to ${toEmail}...`);
+  try {
+    await transporter.sendMail({
+      from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+      to: toEmail,
+      subject: `Payment Interrupted 🌱 – ${APP_NAME}`,
+      html: buildEmail(content, isAdmin)
+    });
+    console.log(`[EmailService] Failed email sent to ${toEmail} successfully.`);
+  } catch (err) {
+    console.error(`[EmailService] Failed to send Failed email to ${toEmail}:`, err);
+    throw err;
+  }
 };
 
 export const sendAbandonedEmail = async (data: any, toEmail: string, isAdmin = false) => {
@@ -551,10 +579,17 @@ export const sendAbandonedEmail = async (data: any, toEmail: string, isAdmin = f
     </div>
   `;
 
-  await transporter.sendMail({
-    from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
-    to: toEmail,
-    subject: `Your Saved Selection – ${APP_NAME}`,
-    html: buildEmail(content, isAdmin)
-  });
+  console.log(`[EmailService] Sending Abandoned email to ${toEmail}...`);
+  try {
+    await transporter.sendMail({
+      from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+      to: toEmail,
+      subject: `Your Saved Selection 🌱 – ${APP_NAME}`,
+      html: buildEmail(content, isAdmin)
+    });
+    console.log(`[EmailService] Abandoned email sent to ${toEmail} successfully.`);
+  } catch (err) {
+    console.error(`[EmailService] Failed to send Abandoned email to ${toEmail}:`, err);
+    throw err;
+  }
 };

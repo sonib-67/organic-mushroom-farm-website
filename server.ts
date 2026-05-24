@@ -108,12 +108,15 @@ app.post('/api/razorpay-webhook', async (req, res) => {
       return res.status(400).send('Invalid signature');
     }
 
+    const eventType = req.body.event;
+    console.log(`[Webhook] Received event: ${eventType} for payment: ${req.body.payload?.payment?.entity?.id || req.body.payload?.order?.entity?.id}`);
+    
     const eventId = req.body.id || req.headers['x-razorpay-event-id'] as string;
 
-    const eventType = req.body.event;
     const paymentEntity = req.body.payload?.payment?.entity || req.body.payload?.order?.entity;
     
     if (!paymentEntity) {
+      console.error("[Webhook] No payment entity found in payload");
       return res.status(200).send('No payment entity');
     }
 
