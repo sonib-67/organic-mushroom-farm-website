@@ -146,20 +146,24 @@ app.post('/api/razorpay-webhook', async (req, res) => {
 
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
 
+    console.log(`[Webhook] Event: ${eventType} received for Payment ID: ${transactionData.paymentId}`);
+    console.log(`[Webhook] Triggering email routines for product: ${transactionData.productType}`);
+
     if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
-      console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
-      await sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+      console.log(`Payment SUCCESS for ${transactionData.paymentId}. Sending emails...`);
+      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false).then(() => console.log('User Success email sent')).catch(e => console.error('User Email failed:', e));
+      await sendSuccessEmail(transactionData, adminEmail, true).then(() => console.log('Admin Success email sent')).catch(e => console.error('Admin Email failed:', e));
     } else if (eventType === 'payment.failed') {
-      console.log(`Payment FAILED for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
-      await sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+      console.log(`Payment FAILED for ${transactionData.paymentId}. Sending emails...`);
+      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false).then(() => console.log('User Failed email sent')).catch(e => console.error('User Email failed:', e));
+      await sendFailedEmail(transactionData, adminEmail, true).then(() => console.log('Admin Failed email sent')).catch(e => console.error('Admin Email failed:', e));
     } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
-      console.log(`Payment PENDING for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
-      await sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+      console.log(`Payment PENDING for ${transactionData.paymentId}. Sending emails...`);
+      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false).then(() => console.log('User Pending email sent')).catch(e => console.error('User Email failed:', e));
+      await sendPendingEmail(transactionData, adminEmail, true).then(() => console.log('Admin Pending email sent')).catch(e => console.error('Admin Email failed:', e));
     }
 
+    console.log(`[Webhook] Event ${eventType} for ${transactionData.paymentId} fully processed.`);
     res.status(200).send('OK');
   } catch (error) {
     console.error("Error processing webhook:", error);
@@ -190,13 +194,17 @@ app.post('/api/abandoned-checkout', async (req, res) => {
     // Save to Google Sheets
     await sheetsService.saveToSheet(transactionData);
 
+    console.log(`[Webhook] Event: abandoned_checkout received for Order ID: ${orderId}`);
+    console.log(`[Webhook] Triggering email routines for product: ${transactionData.productType}`);
+
     // Send Abandoned Checkout Emails
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
     if (transactionData.email) {
-      await sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
+      await sendAbandonedEmail(transactionData, transactionData.email, false).then(() => console.log('User Abandoned email sent')).catch(e => console.error('User Email failed:', e));
     }
-    await sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+    await sendAbandonedEmail(transactionData, adminEmail, true).then(() => console.log('Admin Abandoned email sent')).catch(e => console.error('Admin Email failed:', e));
 
+    console.log(`[Webhook] Event abandoned_checkout for ${orderId} fully processed.`);
     res.status(200).send({ success: true });
   } catch (error) {
     console.error("Error processing abandoned checkout:", error);
@@ -226,4 +234,9 @@ async function startServer() {
   });
 }
 
-startServer();
+// Only start the server natively if we're not running as a Vercel serverless function
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
