@@ -138,27 +138,33 @@ app.post('/api/razorpay-webhook', async (req, res) => {
       return res.status(200).send('Already processed');
     }
 
-    // 1. Save to Database
-    await dbService.saveTransaction(transactionData, eventId);
-
-    // 2. Automate Google Sheets
-    await sheetsService.saveToSheet(transactionData);
+    // Run DB, Sheets, and Emails concurrently to avoid Vercel 10s timeout
+    const dbPromise = dbService.saveTransaction(transactionData, eventId).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const emailPromises: Promise<any>[] = [];
 
     if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
       console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
-      await sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+      if (transactionData.email) emailPromises.push(sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     } else if (eventType === 'payment.failed') {
       console.log(`Payment FAILED for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
-      await sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+      if (transactionData.email) emailPromises.push(sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
       console.log(`Payment PENDING for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
-      await sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+      if (transactionData.email) emailPromises.push(sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     }
+
+    // Await all parallel tasks
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
 
     res.status(200).send('OK');
   } catch (error) {
@@ -184,18 +190,23 @@ app.post('/api/abandoned-checkout', async (req, res) => {
       eventType: 'checkout.abandoned'
     };
 
-    // Save to Database
-    await dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`);
-
-    // Save to Google Sheets
-    await sheetsService.saveToSheet(transactionData);
+    // Executing database, sheets, and emails concurrently for Vercel optimization
+    const dbPromise = dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     // Send Abandoned Checkout Emails
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const emailPromises: Promise<any>[] = [];
     if (transactionData.email) {
-      await sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
+      emailPromises.push(sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
     }
-    await sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+    emailPromises.push(sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
 
     res.status(200).send({ success: true });
   } catch (error) {

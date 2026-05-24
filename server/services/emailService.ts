@@ -2,12 +2,17 @@ import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com",
-  port: 465,
-  secure: true, // Use SSL
+  port: 587,
+  secure: false, // Use STARTTLS for 587
+  pool: true, // Optimized for serverless
+  maxConnections: 1,
   auth: {
     user: "training@mushroomtraining.online",
     pass: process.env.SMTP_PASS || "Sonib491@",
   },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
 const APP_NAME = "Organic Mushroom Farm";
