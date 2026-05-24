@@ -124,7 +124,6 @@ app.post('/api/razorpay-webhook', async (req, res) => {
       amount: paymentEntity.amount,
       paymentId: paymentEntity.id || 'N/A', // Orders might not have paymentId immediately
       orderId: paymentEntity.order_id || paymentEntity.id, 
-      invoiceId: paymentEntity.invoice_id,
       customerName: notes.customerName || paymentEntity.notes?.name || paymentEntity.email || "Customer",
       email: paymentEntity.email || notes.email || "",
       phone: paymentEntity.contact || notes.mobile || "",
@@ -178,7 +177,6 @@ app.post('/api/abandoned-checkout', async (req, res) => {
       amount: amount || 0,
       paymentId: 'abandoned_' + Date.now(),
       orderId: orderId || 'N/A',
-      invoiceId: '',
       customerName: name || "Customer",
       email: email || "",
       phone: phone || "",

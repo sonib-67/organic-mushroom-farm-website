@@ -14,7 +14,6 @@ export interface TransactionData {
   status: string;
   paymentId: string;
   orderId?: string;
-  invoiceId?: string;
   eventType: string;
 }
 
@@ -42,7 +41,6 @@ export const dbService = {
           amount: data.amount,
           status: data.status,
           order_id: data.orderId,
-          invoice_id: data.invoiceId,
           event_type: data.eventType,
           updated_at: new Date().toISOString(),
           purchase_timestamp: new Date().toISOString(),

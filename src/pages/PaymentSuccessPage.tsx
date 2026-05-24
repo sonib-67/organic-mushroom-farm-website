@@ -72,10 +72,6 @@ export default function PaymentSuccessPage() {
                 <span className="font-medium text-slate-900 dark:text-slate-200">{productType}</span>
               </div>
             </div>
-            {/* Download Invoice Button */}
-            <button className="w-full mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-primary-start hover:text-primary-end transition-colors bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg py-2">
-              <FileText size={16} /> Download Invoice
-            </button>
           </div>
 
           {/* Action Info */}

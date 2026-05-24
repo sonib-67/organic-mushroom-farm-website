@@ -151,7 +151,7 @@ const getBaseStyles = () => `
     text-align: center;
     margin: 40px 0;
   }
-  .btn-primary {
+  .btn-premium {
     display: inline-block;
     padding: 16px 36px;
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -226,7 +226,7 @@ const getBaseStyles = () => `
     .details-value { display: block; }
     .trust-marks { padding: 20px; }
     .footer { padding: 30px 20px; }
-    .btn-primary { width: 100%; box-sizing: border-box; }
+    .btn-premium { width: 100%; box-sizing: border-box; }
   }
 `;
 
@@ -277,83 +277,47 @@ export const sendSuccessEmail = async (data: any, toEmail: string, isAdmin = fal
   const currTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
   const custName = data.customerName || "Customer";
   
+  let nextStepsHtml = "";
   const prodMatch = data.productType?.toLowerCase() || '';
-  const isTraining = prodMatch.includes("training");
   const isConsultation = prodMatch.includes("consultation");
   
-  let subject = `Your Order Has Been Confirmed 🌱`;
-  if (isAdmin) {
-    subject = `New Sale Confirmed: ${data.productType} – ${APP_NAME}`;
-  } else if (isTraining) {
-    subject = `Training Enrollment Confirmed 🌱`;
-  } else if (isConsultation) {
-    subject = `Consultation Booking Confirmed 🌱`;
-  }
-
-  let preamble = ``;
-  let postamble = ``;
-  let detailsHeader = `Order Details`;
-
-  if (isTraining) {
-    detailsHeader = `Enrollment Details`;
-    preamble = `
-      Thank you for joining Organic Mushroom Farm 🌱
-      <br/><br/>
-      Your training enrollment has been successfully confirmed.
-      <br/><br/>
-      Our team will soon share your training access details, webinar link, or joining instructions on your registered email or WhatsApp number.
-    `;
-    postamble = `
-      If you need any help before the session starts, feel free to contact our support team anytime.
-    `;
-  } else if (isConsultation) {
-    detailsHeader = `Booking Details`;
-    preamble = `
-      Your consultation request has been successfully confirmed.
-      <br/><br/>
-      Our expert team will contact you shortly using your registered mobile number or email address.
-    `;
-    postamble = `
-      Thank you for choosing Organic Mushroom Farm.
-    `;
+  if (prodMatch.includes("training")) {
+    nextStepsHtml = "Training access details and webinar links will be shared with you shortly.";
+  } else if (prodMatch.includes("consultation")) {
+    nextStepsHtml = "Our expert team will review your request and contact you soon on your registered details.";
+  } else if (prodMatch.includes("spawn")) {
+    nextStepsHtml = "Your high-quality mushroom spawn order is confirmed and our farm team has started preparing your batch.";
+  } else if (prodMatch.includes("fresh")) {
+    nextStepsHtml = "Your fresh mushrooms are being carefully harvested and prepared for dispatch.";
+  } else if (prodMatch.includes("dry")) {
+    nextStepsHtml = "Your dry mushrooms are currently being packed securely and dispatch updates will follow soon.";
   } else {
-    preamble = `
-      Thank you for placing your order with Organic Mushroom Farm.
-      <br/><br/>
-      Your payment has been received successfully and your order is now confirmed.
-    `;
-    postamble = `
-      Our team will soon begin processing your order and further updates will be shared shortly.
-    `;
+    nextStepsHtml = "Your order has been confirmed successfully and we will be in touch shortly.";
   }
 
   const content = `
-    <div class="greeting">Hello ${custName},</div>
+    <div class="greeting">Dear ${custName},</div>
     <div class="message-text">
-      ${preamble}
+      Thank you for your order! We are happy to inform you that your payment for <span class="highlight-phrase">${data.productType}</span> has been successfully processed. 
+      <br/><br/>
+      Thank you for choosing Organic Mushroom Farm. We are excited to assist you on your mushroom farming and wellness journey.
     </div>
 
     <div class="details-box">
-      <div class="details-header">${detailsHeader}</div>
+      <div class="details-header">:${isConsultation ? 'Booking Summary' : 'Order Summary'}</div>
       <div class="details-row">
-        <span class="details-label">Name</span>
-        <span class="details-value">${custName}</span>
+        <span class="details-label">${isConsultation ? 'Name' : 'Product'}</span>
+        <span class="details-value">${isConsultation ? custName : data.productType}</span>
       </div>
-      <div class="details-row">
-        <span class="details-label">Phone Number</span>
-        <span class="details-value">${data.phone || 'N/A'}</span>
-      </div>
-      <div class="details-row">
-        <span class="details-label">Product</span>
-        <span class="details-value">${data.productType}</span>
-      </div>
+      ${!isConsultation ? `
       <div class="details-row">
         <span class="details-label">Amount Paid</span>
         <span class="details-value">₹${amount}</span>
       </div>
+      ` : ''}
       <div class="details-row">
-        <span class="details-label">Payment Status</span>
-        <span class="details-value status-success">Successful</span>
+        <span class="details-label">Status</span>
+        <span class="details-value status-success">${isConsultation ? 'Confirmed' : 'Payment Successful'}</span>
       </div>
       <div class="details-row">
         <span class="details-label">Payment ID</span>
@@ -364,25 +328,46 @@ export const sendSuccessEmail = async (data: any, toEmail: string, isAdmin = fal
         <span class="details-value">${data.orderId || 'N/A'}</span>
       </div>
       <div class="details-row">
+        <span class="details-label">Mobile</span>
+        <span class="details-value">${data.phone || 'N/A'}</span>
+      </div>
+      ${isConsultation ? `
+      <div class="details-row">
+        <span class="details-label">Email Address</span>
+        <span class="details-value">${data.email || 'N/A'}</span>
+      </div>
+      ` : `
+      <div class="details-row">
         <span class="details-label">Date & Time</span>
         <span class="details-value">${currTime}</span>
       </div>
-    </div>
-    
-    <div class="message-text">
-      ${postamble}
+      `}
     </div>
 
-    <div class="message-text" style="margin-top: 30px;">
-      Regards,<br/>
-      <strong>Organic Mushroom Farm Team</strong>
+    <div class="next-steps">
+      <strong>What Happens Next?</strong>
+      <p>${nextStepsHtml}</p>
+    </div>
+    
+    <div class="message-text" style="text-align: center; margin-top: 40px; margin-bottom: 10px;">
+      If you need any assistance, our dedicated farm support team is always here to help you.
+    </div>
+
+    <div class="btn-container">
+      <a href="https://wa.me/91${WHATSAPP_NUMBER}?text=Hello,%20I%20have%20an%20inquiry%20regarding%20my%20confirmed%20Order%20${data.orderId}" class="btn-premium">
+        Join WhatsApp Support
+      </a>
     </div>
   `;
   
   await transporter.sendMail({
     from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
     to: toEmail,
-    subject: subject,
+    subject: isAdmin 
+      ? `New Sale Confirmed: ${data.productType} – ${APP_NAME}`
+      : (isConsultation 
+        ? `Consultation Booking Confirmed – ${APP_NAME}` 
+        : `Payment Successful – ${APP_NAME}`),
     html: buildEmail(content, isAdmin)
   });
 };
@@ -393,25 +378,17 @@ export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = fal
   const custName = data.customerName || "Customer";
 
   const content = `
-    <div class="greeting">Hello ${custName},</div>
+    <div class="greeting">Dear ${custName},</div>
     <div class="message-text">
-      Your payment is currently under verification.
+      We are currently verifying your payment for <span class="highlight-phrase">${data.productType}</span>.
       <br/><br/>
-      Sometimes banks or UPI providers may take a few minutes to confirm the transaction status.
+      Please don't worry, this is a standard verification process that usually gets cleared within a few minutes depending on your bank network. 
       <br/><br/>
-      Please avoid making another payment until the current status is updated.
+      <strong>Kindly avoid making another transaction right now.</strong> As soon as the payment status is updated by your bank, we will send you a confirmation email immediately.
     </div>
 
     <div class="details-box">
-      <div class="details-header">Payment Details</div>
-      <div class="details-row">
-        <span class="details-label">Name</span>
-        <span class="details-value">${custName}</span>
-      </div>
-      <div class="details-row">
-        <span class="details-label">Phone Number</span>
-        <span class="details-value">${data.phone || 'N/A'}</span>
-      </div>
+      <div class="details-header">Payment Verification Details</div>
       <div class="details-row">
         <span class="details-label">Product</span>
         <span class="details-value">${data.productType}</span>
@@ -421,8 +398,8 @@ export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = fal
         <span class="details-value">₹${amount}</span>
       </div>
       <div class="details-row">
-        <span class="details-label">Payment Status</span>
-        <span class="details-value status-pending">Pending</span>
+        <span class="details-label">Status</span>
+        <span class="details-value status-pending">Under Verification</span>
       </div>
       <div class="details-row">
         <span class="details-label">Payment ID</span>
@@ -433,23 +410,22 @@ export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = fal
         <span class="details-value">${data.orderId || 'N/A'}</span>
       </div>
       <div class="details-row">
+        <span class="details-label">Mobile</span>
+        <span class="details-value">${data.phone || 'N/A'}</span>
+      </div>
+      <div class="details-row">
         <span class="details-label">Date & Time</span>
         <span class="details-value">${currTime}</span>
       </div>
     </div>
 
-    <div class="message-text">
-      Once verification is completed, you will automatically receive another update from us.
-    </div>
-
-    <div class="message-text" style="margin-top: 30px;">
-      Regards,<br/>
-      <strong>Organic Mushroom Farm Team</strong>
+    <div class="message-text" style="text-align: center; margin-top: 40px; margin-bottom: 10px;">
+      Our support team is active and monitoring this. If you have any questions, feel free to connect with us.
     </div>
 
     <div class="btn-container">
-      <a href="https://wa.me/91${WHATSAPP_NUMBER}?text=Hello,%20my%20payment%20is%20pending%20verification%20for%20Order%20${data.orderId}" class="btn-primary">
-        WhatsApp Support
+      <a href="https://wa.me/91${WHATSAPP_NUMBER}?text=Hello,%20my%20payment%20is%20pending%20verification%20for%20Order%20${data.orderId}" class="btn-premium">
+        Connect With Support
       </a>
     </div>
   `;
@@ -457,7 +433,7 @@ export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = fal
   await transporter.sendMail({
     from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
     to: toEmail,
-    subject: `Payment Verification In Progress 🌱`,
+    subject: `Payment Under Verification – ${APP_NAME}`,
     html: buildEmail(content, isAdmin)
   });
 };
@@ -467,74 +443,16 @@ export const sendFailedEmail = async (data: any, toEmail: string, isAdmin = fals
   const currTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
   const custName = data.customerName || "Customer";
 
-  const prodMatch = data.productType?.toLowerCase() || '';
-  const isTraining = prodMatch.includes("training");
-  const isConsultation = prodMatch.includes("consultation");
-
-  let subject = `Your Order Payment Could Not Be Completed 🌱`;
-  let preamble = ``;
-  let postamble = ``;
-  let detailsHeader = `Order Details`;
-
-  if (isTraining) {
-    subject = `Your Training Enrollment Is Still Pending 🌱`;
-    detailsHeader = `Enrollment Details`;
-    preamble = `
-      We noticed your training enrollment process could not be completed successfully.
-      <br/><br/>
-      If the payment was interrupted due to network issues, bank timeout, or accidental cancellation, there is no need to worry.
-      <br/><br/>
-      Your details are safely saved in our system.
-    `;
-    postamble = `
-      If you still wish to join the training session, our support team will gladly assist you.
-    `;
-  } else if (isConsultation) {
-    subject = `Your Consultation Request Is Incomplete 🌱`;
-    detailsHeader = `Booking Details`;
-    preamble = `
-      Your consultation booking process was interrupted before confirmation.
-      <br/><br/>
-      If you experienced any issue during payment, our support team is available to assist you personally.
-    `;
-    postamble = `
-      For assistance with your booking, feel free to contact us.
-    `;
-  } else {
-    preamble = `
-      Your payment for ${data.productType} could not be completed successfully.
-      <br/><br/>
-      Possible reasons may include:
-      <ul>
-        <li>Payment interruption</li>
-        <li>Bank timeout</li>
-        <li>UPI issue</li>
-        <li>Network issue</li>
-      </ul>
-      <br/>
-      Your order request is still safely recorded in our system.
-    `;
-    postamble = `
-      For any help, feel free to contact our support team.
-    `;
-  }
-
   const content = `
-    <div class="greeting">Hello ${custName},</div>
+    <div class="greeting">Dear ${custName},</div>
     <div class="message-text">
-      ${preamble}
+      We noticed that your recent payment attempt for <span class="highlight-phrase">${data.productType}</span> could not be completed successfully.
+      <br/><br/>
+      Sometimes network drops or UPI timeouts can interrupt the transaction. Please rest assured that if any amount was deducted, it will be automatically refunded by your bank within a few working days.
     </div>
 
     <div class="details-box">
-      <div class="details-header">${detailsHeader}</div>
-      <div class="details-row">
-        <span class="details-label">Name</span>
-        <span class="details-value">${custName}</span>
-      </div>
-      <div class="details-row">
-        <span class="details-label">Phone Number</span>
-        <span class="details-value">${data.phone || 'N/A'}</span>
-      </div>
+      <div class="details-header">Transaction Overview</div>
       <div class="details-row">
         <span class="details-label">Product</span>
         <span class="details-value">${data.productType}</span>
@@ -544,8 +462,20 @@ export const sendFailedEmail = async (data: any, toEmail: string, isAdmin = fals
         <span class="details-value">₹${amount}</span>
       </div>
       <div class="details-row">
-        <span class="details-label">Payment Status</span>
-        <span class="details-value status-failed">Failed / Cancelled</span>
+        <span class="details-label">Status</span>
+        <span class="details-value status-failed">Process Incomplete</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">Payment ID</span>
+        <span class="details-value">${data.paymentId}</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">Order ID</span>
+        <span class="details-value">${data.orderId || 'N/A'}</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">Mobile</span>
+        <span class="details-value">${data.phone || 'N/A'}</span>
       </div>
       <div class="details-row">
         <span class="details-label">Date & Time</span>
@@ -553,18 +483,13 @@ export const sendFailedEmail = async (data: any, toEmail: string, isAdmin = fals
       </div>
     </div>
 
-    <div class="message-text">
-      ${postamble}
-    </div>
-
-    <div class="message-text" style="margin-top: 30px;">
-      Regards,<br/>
-      <strong>Organic Mushroom Farm Team</strong>
+    <div class="message-text" style="text-align: center; margin-top: 40px; margin-bottom: 10px;">
+      We are here to help you complete your order smoothly. You can reach out to us directly on WhatsApp.
     </div>
 
     <div class="btn-container">
-      <a href="https://wa.me/91${WHATSAPP_NUMBER}?text=Hello,%20I%20need%20help%20with%20my%20incomplete%20payment%20for%20${encodeURIComponent(data.productType)}." class="btn-primary">
-        WhatsApp Support
+      <a href="https://wa.me/91${WHATSAPP_NUMBER}?text=Hello,%20my%20payment%20encountered%20an%20interruption%20for%20Order%20${data.orderId}.%20Kindly%20assist." class="btn-premium">
+        Assistance via WhatsApp
       </a>
     </div>
   `;
@@ -572,11 +497,59 @@ export const sendFailedEmail = async (data: any, toEmail: string, isAdmin = fals
   await transporter.sendMail({
     from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
     to: toEmail,
-    subject: subject,
+    subject: `Payment Interrupted – ${APP_NAME}`,
     html: buildEmail(content, isAdmin)
   });
 };
 
 export const sendAbandonedEmail = async (data: any, toEmail: string, isAdmin = false) => {
-  return sendFailedEmail(data, toEmail, isAdmin);
+  const amount = data.amount / 100;
+  const currTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
+  const custName = data.customerName || "Customer";
+  
+  const content = `
+    <div class="greeting">Dear ${custName},</div>
+    <div class="message-text">
+      We noticed that you left your checkout page for <span class="highlight-phrase">${data.productType}</span> before completing the setup.
+      <br/><br/>
+      We understand you might have busy schedules or unresolved questions about mushroom farming. Your selection has been saved in our farm system so you can easily resume when ready.
+    </div>
+
+    <div class="details-box">
+      <div class="details-header">Reservation Overview</div>
+      <div class="details-row">
+        <span class="details-label">Product</span>
+        <span class="details-value">${data.productType}</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">Amount</span>
+        <span class="details-value">₹${amount}</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">Mobile</span>
+        <span class="details-value">${data.phone || 'N/A'}</span>
+      </div>
+      <div class="details-row">
+        <span class="details-label">Date & Time</span>
+        <span class="details-value">${currTime}</span>
+      </div>
+    </div>
+    
+    <div class="message-text" style="text-align: center; margin-top: 40px; margin-bottom: 10px;">
+      Our team is available to guide you and clear any doubts you may have regarding mushroom farming.
+    </div>
+
+    <div class="btn-container">
+      <a href="https://wa.me/91${WHATSAPP_NUMBER}?text=Hello,%20I%20have%20an%20inquiry%20regarding%20my%20reservation%20for%20${encodeURIComponent(data.productType)}." class="btn-premium">
+        Connect With Our Team
+      </a>
+    </div>
+  `;
+
+  await transporter.sendMail({
+    from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+    to: toEmail,
+    subject: `Your Saved Selection – ${APP_NAME}`,
+    html: buildEmail(content, isAdmin)
+  });
 };

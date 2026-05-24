@@ -43,7 +43,7 @@ export const sheetsService = {
       }
       
       // We assume headers are already set: 
-      // Name, Phone, Email, Product, Amount, Payment Status, Payment ID, Order ID, Invoice ID, Event Type, Date & Time
+      // Name, Phone, Email, Product, Amount, Payment Status, Payment ID, Order ID, Event Type, Date & Time
       await sheet.addRow({
         'Name': data.customerName || 'N/A',
         'Phone': data.phone || 'N/A',
@@ -53,7 +53,6 @@ export const sheetsService = {
         'Payment Status': data.status,
         'Payment ID': data.paymentId,
         'Order ID': data.orderId || 'N/A',
-        'Invoice ID': data.invoiceId || 'N/A',
         'Event Type': data.eventType || 'N/A',
         'Date & Time': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       });
