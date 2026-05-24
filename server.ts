@@ -215,6 +215,8 @@ app.post('/api/abandoned-checkout', async (req, res) => {
   }
 });
 
+export default app;
+
 async function startServer() {
   const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.VERCEL_ENV === "production";
   
@@ -225,16 +227,22 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
+    // Only serve static files if we are running the actual node server outside Vercel
+    if (!process.env.VERCEL) {
+      const distPath = path.join(process.cwd(), 'dist');
+      app.use(express.static(distPath));
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(distPath, 'index.html'));
+      });
+    }
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on port ${PORT} in ${isProd ? 'production' : 'development'} mode`);
-  });
+  // Only start listening if we are not in a Vercel serverless environment
+  if (!process.env.VERCEL) {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT} in ${isProd ? 'production' : 'development'} mode`);
+    });
+  }
 }
 
 startServer();
