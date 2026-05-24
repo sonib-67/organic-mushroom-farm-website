@@ -269,3 +269,56 @@ export const sendPendingEmail = async (data: any, toEmail: string, isAdmin = fal
     html: html
   });
 };
+
+export const sendAbandonedEmail = async (data: any, toEmail: string, isAdmin = false) => {
+  const amount = data.amount / 100;
+  
+  if (isAdmin) {
+    const content = `
+      <div class="status-badge status-pending">⚠️ Checkout Abandoned</div>
+      <p>Hello Admin,</p>
+      <p>A customer started checkout for <strong>${data.productType}</strong> but didn't complete the payment.</p>
+    `;
+
+    const details = `
+      <div class="details-row"><strong>Product:</strong> ${data.productType}</div>
+      <div class="details-row"><strong>Amount:</strong> ₹${amount}</div>
+      <div class="details-row"><strong>Customer Name:</strong> ${data.customerName}</div>
+      <div class="details-row"><strong>Phone:</strong> ${data.phone || 'N/A'}</div>
+      <div class="details-row"><strong>Email:</strong> ${data.email || 'N/A'}</div>
+    `;
+
+    const html = buildHtmlTemplate("Abandoned Checkout", content, details, undefined, true);
+
+    await transporter.sendMail({
+      from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+      to: toEmail,
+      subject: `[ABANDONED] Checkout - ${data.productType}`,
+      html: html
+    });
+  } else {
+    const content = `
+      <div class="status-badge status-pending">⚠️ Complete Your Purchase</div>
+      <p>Hello ${data.customerName},</p>
+      <p>We noticed you didn't complete your payment for <strong>${data.productType}</strong>.</p>
+      <p>If you faced any issues during payment, please feel free to reach out to our support team.</p>
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="https://wa.me/919203544140?text=Hi,%20I%20had%20trouble%20completing%20my%20payment%20for%20${encodeURIComponent(data.productType)}" style="display: inline-block; padding: 12px 24px; background-color: #25D366; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 15px;">Contact Support on WhatsApp</a>
+      </div>
+    `;
+
+    const details = `
+      <div class="details-row"><strong>Product:</strong> ${data.productType}</div>
+      <div class="details-row"><strong>Amount:</strong> ₹${amount}</div>
+    `;
+
+    const html = buildHtmlTemplate("Complete Your Purchase", content, details, undefined, false);
+
+    await transporter.sendMail({
+      from: `"${APP_NAME}" <${SUPPORT_EMAIL}>`,
+      to: toEmail,
+      subject: `Complete your purchase - ${data.productType}`,
+      html: html
+    });
+  }
+};

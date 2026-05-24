@@ -46,6 +46,20 @@ export default function BookConsultantPage() {
         modal: {
           ondismiss: function() {
             setPaymentStatus('cancelled');
+            setLoading(false);
+
+            // Inform backend about abandoned checkout
+            fetch('/api/abandoned-checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                productType: 'Consultation',
+                amount: payload.amount
+              })
+            }).catch(e => console.error(e));
           }
         }
       };

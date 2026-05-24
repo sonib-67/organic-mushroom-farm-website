@@ -4,7 +4,7 @@ import path from 'path';
 import crypto from 'crypto';
 import rateLimit from 'express-rate-limit';
 import { createServer as createViteServer } from 'vite';
-import { sendSuccessEmail, sendFailedEmail, sendPendingEmail } from './server/services/emailService';
+import { sendSuccessEmail, sendFailedEmail, sendPendingEmail, sendAbandonedEmail } from './server/services/emailService';
 import { dbService, TransactionData } from './server/services/dbService';
 import { sheetsService } from './server/services/sheetsService';
 import { getProduct } from './server/config/products';
@@ -149,22 +149,60 @@ app.post('/api/razorpay-webhook', async (req, res) => {
 
     if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
       console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false);
-      await sendSuccessEmail(transactionData, adminEmail, true);
+      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
+      await sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
     } else if (eventType === 'payment.failed') {
       console.log(`Payment FAILED for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false);
-      await sendFailedEmail(transactionData, adminEmail, true);
+      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
+      await sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
     } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
       console.log(`Payment PENDING for ${transactionData.paymentId}`);
-      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false);
-      await sendPendingEmail(transactionData, adminEmail, true);
+      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
+      await sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
     }
 
     res.status(200).send('OK');
   } catch (error) {
     console.error("Error processing webhook:", error);
     res.status(500).send('Webhook Processing Error');
+  }
+});
+
+// Abandoned Checkout Endpoint
+app.post('/api/abandoned-checkout', async (req, res) => {
+  try {
+    const { name, email, phone, productType, amount, orderId } = req.body;
+    
+    const transactionData = {
+      productType: productType || "Website Purchase",
+      amount: amount || 0,
+      paymentId: 'abandoned_' + Date.now(),
+      orderId: orderId || 'N/A',
+      invoiceId: '',
+      customerName: name || "Customer",
+      email: email || "",
+      phone: phone || "",
+      status: 'abandoned',
+      eventType: 'checkout.abandoned'
+    };
+
+    // Save to Database
+    await dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`);
+
+    // Save to Google Sheets
+    await sheetsService.saveToSheet(transactionData);
+
+    // Send Abandoned Checkout Emails
+    const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    if (transactionData.email) {
+      await sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e));
+    }
+    await sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e));
+
+    res.status(200).send({ success: true });
+  } catch (error) {
+    console.error("Error processing abandoned checkout:", error);
+    res.status(500).send('Abandoned Checkout Processing Error');
   }
 });
 
