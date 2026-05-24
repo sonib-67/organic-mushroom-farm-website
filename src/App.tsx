@@ -28,6 +28,7 @@ import MushroomTypes from './pages/MushroomTypes';
 import Equipment from './pages/Equipment';
 import BookConsultantPage from './pages/BookConsultantPage';
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
+import PaymentFailedPage from './pages/PaymentFailedPage';
 import ROICalculatorPage from './pages/ROICalculatorPage';
 import Subsidy from './pages/Subsidy';
 import Locations from './pages/Locations';
@@ -3258,6 +3259,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/book-consultant" element={<BookConsultantPage />} />
             <Route path="/payment-success" element={<PaymentSuccessPage />} />
+            <Route path="/payment-failed" element={<PaymentFailedPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />

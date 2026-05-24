@@ -51,7 +51,7 @@ export default function TrainingCheckoutPage() {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
-          window.location.href = '/payment-success?id=' + response.razorpay_payment_id;
+          window.location.href = '/payment-success?id=' + response.razorpay_payment_id + '&product=Training';
         },
         modal: {
           ondismiss: function() {
@@ -62,14 +62,17 @@ export default function TrainingCheckoutPage() {
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        if ((window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
-        }
+        // Track checkout via analytics module dynamically loaded to avoid SSR/hydration issues
+        import('../utils/analytics').then(({ trackInitiateCheckout }) => {
+          trackInitiateCheckout(payload.amount / 100, payload.currency);
+        }).catch(err => console.warn('Analytics failed to load', err));
+        
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           setPaymentStatus('cancelled');
           setLoading(false);
+          window.location.href = '/payment-failed?retry=' + encodeURIComponent(window.location.pathname);
         });
         rzp.open();
       } else {

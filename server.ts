@@ -1,49 +1,83 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import crypto from 'crypto';
+import rateLimit from 'express-rate-limit';
 import { createServer as createViteServer } from 'vite';
+import { sendSuccessEmail, sendFailedEmail, sendPendingEmail } from './server/services/emailService';
+import { dbService, TransactionData } from './server/services/dbService';
+import { sheetsService } from './server/services/sheetsService';
+import { getProduct } from './server/config/products';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+app.set("trust proxy", 1);
+
+// Security: Rate limiting
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window`
+  message: 'Too many requests from this IP, please try again later.',
+  keyGenerator: (req) => {
+    return (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.ip || 'unknown';
+  }
+});
+
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({
+  verify: (req, res, buf) => {
+    (req as any).rawBody = buf.toString();
+  }
+}));
 
-// API Key is safe here.
-const key_id = "rzp_live_Ssg7Eepps3J0ch";
-const key_secret = "97qz8ls18Y1M4Vzuj1TCX9Ss"; // In a real app this should be in process.env
+// Apply rate limiting to API routes
+app.use('/api/', apiLimiter);
+
+// API Keys
+const key_id = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
+const key_secret = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss"; 
+const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || "organic_secret_123";
+
+// Optional: Background cron alternative for pending recheck using setInterval
+setInterval(async () => {
+  try {
+    const pendingTransactions = await dbService.getPendingTransactions();
+    if (pendingTransactions && pendingTransactions.length > 0) {
+      console.log(`[Cron] Checking ${pendingTransactions.length} pending transactions...`);
+      // In a real scenario, this would call Razorpay API to check status:
+      // const rzp = new Razorpay({ key_id, key_secret });
+      // rzp.payments.fetch(tx.paymentId)
+      // Then if successful, update DB and send success email.
+    }
+  } catch(e) {
+    console.error('[Cron] Error checking pending transactions:', e);
+  }
+}, 5 * 60 * 1000); // 5 minutes
 
 // JSON API Endpoint requested by the user
 app.post('/api/checkout-payload', (req, res) => {
   const { name, mobile, email, productType } = req.body;
 
-  let amount = 0;
-  let purpose = "";
-
-  if (productType === "training") {
-    amount = 29900;
-    purpose = "Mushroom Farming Masterclass Training";
-  } else if (productType === "consultation") {
-    amount = 5900;
-    purpose = "Expert 1-on-1 Business Consultation Slot";
-  } else {
-    return res.status(400).json({ error: "Invalid productType" });
-  }
+  const product = getProduct(productType);
 
   // Generate exact payload structure
   const payload = {
     key_id: key_id,
-    amount: amount,
+    amount: product.pricePaise,
     currency: "INR",
     name: "Organic Mushroom Farm",
-    description: purpose,
+    description: product.description,
     prefill: {
       name: name || "",
       email: email || "",
       contact: mobile || ""
     },
     notes: {
-      product: purpose
+      product: product.name,
+      customerName: name || "",
+      mobile: mobile || "",
+      email: email || ""
     },
     theme: {
       color: "#25D366"
@@ -53,8 +87,91 @@ app.post('/api/checkout-payload', (req, res) => {
   res.json(payload);
 });
 
+// Razorpay Webhook Endpoint
+app.post('/api/razorpay-webhook', async (req, res) => {
+  try {
+    const signature = req.headers['x-razorpay-signature'] as string;
+    const rawBody = (req as any).rawBody;
+
+    if (!signature || !rawBody) {
+      return res.status(400).send('Webhook signature or body missing');
+    }
+
+    // Verify signature
+    const expectedSignature = crypto
+      .createHmac('sha256', WEBHOOK_SECRET)
+      .update(rawBody)
+      .digest('hex');
+
+    if (expectedSignature !== signature) {
+      console.error("Webhook signature mismatch");
+      return res.status(400).send('Invalid signature');
+    }
+
+    const eventId = req.body.id || req.headers['x-razorpay-event-id'] as string;
+
+    const eventType = req.body.event;
+    const paymentEntity = req.body.payload?.payment?.entity || req.body.payload?.order?.entity;
+    
+    if (!paymentEntity) {
+      return res.status(200).send('No payment entity');
+    }
+
+    // Extract Data
+    const notes = paymentEntity.notes || {};
+    const transactionData: TransactionData = {
+      productType: notes.product || paymentEntity.description || "Website Purchase",
+      amount: paymentEntity.amount,
+      paymentId: paymentEntity.id || 'N/A', // Orders might not have paymentId immediately
+      orderId: paymentEntity.order_id || paymentEntity.id, 
+      invoiceId: paymentEntity.invoice_id,
+      customerName: notes.customerName || paymentEntity.notes?.name || paymentEntity.email || "Customer",
+      email: paymentEntity.email || notes.email || "",
+      phone: paymentEntity.contact || notes.mobile || "",
+      status: paymentEntity.status,
+      eventType: eventType
+    };
+
+    // Check database for processed webhook to prevent duplicates
+    const isProcessed = await dbService.isWebhookProcessed(transactionData.paymentId, eventType);
+    if (isProcessed) {
+      console.log(`Webhook for payment ${transactionData.paymentId} and event ${eventType} already processed, skipping.`);
+      return res.status(200).send('Already processed');
+    }
+
+    // 1. Save to Database
+    await dbService.saveTransaction(transactionData, eventId);
+
+    // 2. Automate Google Sheets
+    await sheetsService.saveToSheet(transactionData);
+
+    const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+
+    if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
+      console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
+      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false);
+      await sendSuccessEmail(transactionData, adminEmail, true);
+    } else if (eventType === 'payment.failed') {
+      console.log(`Payment FAILED for ${transactionData.paymentId}`);
+      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false);
+      await sendFailedEmail(transactionData, adminEmail, true);
+    } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
+      console.log(`Payment PENDING for ${transactionData.paymentId}`);
+      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false);
+      await sendPendingEmail(transactionData, adminEmail, true);
+    }
+
+    res.status(200).send('OK');
+  } catch (error) {
+    console.error("Error processing webhook:", error);
+    res.status(500).send('Webhook Processing Error');
+  }
+});
+
 async function startServer() {
-  if (process.env.NODE_ENV !== "production") {
+  const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.VERCEL_ENV === "production";
+  
+  if (!isProd) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -69,7 +186,7 @@ async function startServer() {
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT} in ${isProd ? 'production' : 'development'} mode`);
   });
 }
 

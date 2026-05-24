@@ -2,22 +2,23 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, TrendingUp, ShieldCheck, MapPin, X, ArrowRight, BookOpen, Layers, Users, Zap, Briefcase, Calendar, Phone, MessageCircle, Sprout, Home, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackPurchase, trackInitiateCheckout } from '../utils/analytics';
 
 export default function BookConsultantPage() {
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled' | 'success'>('idle');
   const [whatsappSubmitted, setWhatsappSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (paymentStatus === 'success') {
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Purchase', { currency: 'INR', value: 59.00 });
-      }
+      trackPurchase(59.00, 'INR', [{ item_name: 'Consultation' }]);
     }
   }, [paymentStatus]);
 
   const initiatePayment = async () => {
     setPaymentStatus('idle');
+    setLoading(true);
     try {
       const response = await fetch('/api/checkout-payload', {
         method: 'POST',
@@ -40,7 +41,7 @@ export default function BookConsultantPage() {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
-          setPaymentStatus('success');
+          window.location.href = '/payment-success?id=' + response.razorpay_payment_id + '&product=Consultation';
         },
         modal: {
           ondismiss: function() {
@@ -50,22 +51,25 @@ export default function BookConsultantPage() {
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        if ((window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
-        }
+        trackInitiateCheckout(payload.amount / 100, payload.currency);
+        
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           setPaymentStatus('cancelled');
+          setLoading(false);
+          window.location.href = '/payment-failed?retry=' + encodeURIComponent(window.location.pathname);
         });
         rzp.open();
       } else {
         console.error("Razorpay script not loaded properly");
         alert('Payment system error. Please refresh the page and try again.');
+        setLoading(false);
       }
     } catch (error) {
       console.error(error);
       alert('Error initiating checkout. Please try again.');
+      setLoading(false);
     }
   };
 
