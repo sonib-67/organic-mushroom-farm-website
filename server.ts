@@ -138,32 +138,34 @@ app.post('/api/razorpay-webhook', async (req, res) => {
       return res.status(200).send('Already processed');
     }
 
-    // 1. Save to Database
-    await dbService.saveTransaction(transactionData, eventId);
-
-    // 2. Automate Google Sheets
-    await sheetsService.saveToSheet(transactionData);
+    // Run DB, Sheets, and Emails concurrently to avoid Vercel 10s timeout
+    const dbPromise = dbService.saveTransaction(transactionData, eventId).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
-
-    console.log(`[Webhook] Event: ${eventType} received for Payment ID: ${transactionData.paymentId}`);
-    console.log(`[Webhook] Triggering email routines for product: ${transactionData.productType}`);
+    const emailPromises: Promise<any>[] = [];
 
     if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
-      console.log(`Payment SUCCESS for ${transactionData.paymentId}. Sending emails...`);
-      if (transactionData.email) await sendSuccessEmail(transactionData, transactionData.email, false).then(() => console.log('User Success email sent')).catch(e => console.error('User Email failed:', e));
-      await sendSuccessEmail(transactionData, adminEmail, true).then(() => console.log('Admin Success email sent')).catch(e => console.error('Admin Email failed:', e));
+      console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
+      if (transactionData.email) emailPromises.push(sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     } else if (eventType === 'payment.failed') {
-      console.log(`Payment FAILED for ${transactionData.paymentId}. Sending emails...`);
-      if (transactionData.email) await sendFailedEmail(transactionData, transactionData.email, false).then(() => console.log('User Failed email sent')).catch(e => console.error('User Email failed:', e));
-      await sendFailedEmail(transactionData, adminEmail, true).then(() => console.log('Admin Failed email sent')).catch(e => console.error('Admin Email failed:', e));
+      console.log(`Payment FAILED for ${transactionData.paymentId}`);
+      if (transactionData.email) emailPromises.push(sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
-      console.log(`Payment PENDING for ${transactionData.paymentId}. Sending emails...`);
-      if (transactionData.email) await sendPendingEmail(transactionData, transactionData.email, false).then(() => console.log('User Pending email sent')).catch(e => console.error('User Email failed:', e));
-      await sendPendingEmail(transactionData, adminEmail, true).then(() => console.log('Admin Pending email sent')).catch(e => console.error('Admin Email failed:', e));
+      console.log(`Payment PENDING for ${transactionData.paymentId}`);
+      if (transactionData.email) emailPromises.push(sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     }
 
-    console.log(`[Webhook] Event ${eventType} for ${transactionData.paymentId} fully processed.`);
+    // Await all parallel tasks
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
+
     res.status(200).send('OK');
   } catch (error) {
     console.error("Error processing webhook:", error);
@@ -188,23 +190,24 @@ app.post('/api/abandoned-checkout', async (req, res) => {
       eventType: 'checkout.abandoned'
     };
 
-    // Save to Database
-    await dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`);
-
-    // Save to Google Sheets
-    await sheetsService.saveToSheet(transactionData);
-
-    console.log(`[Webhook] Event: abandoned_checkout received for Order ID: ${orderId}`);
-    console.log(`[Webhook] Triggering email routines for product: ${transactionData.productType}`);
+    // Executing database, sheets, and emails concurrently for Vercel optimization
+    const dbPromise = dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     // Send Abandoned Checkout Emails
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const emailPromises: Promise<any>[] = [];
     if (transactionData.email) {
-      await sendAbandonedEmail(transactionData, transactionData.email, false).then(() => console.log('User Abandoned email sent')).catch(e => console.error('User Email failed:', e));
+      emailPromises.push(sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
     }
-    await sendAbandonedEmail(transactionData, adminEmail, true).then(() => console.log('Admin Abandoned email sent')).catch(e => console.error('Admin Email failed:', e));
+    emailPromises.push(sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
 
-    console.log(`[Webhook] Event abandoned_checkout for ${orderId} fully processed.`);
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
+
     res.status(200).send({ success: true });
   } catch (error) {
     console.error("Error processing abandoned checkout:", error);
@@ -234,9 +237,4 @@ async function startServer() {
   });
 }
 
-// Only start the server natively if we're not running as a Vercel serverless function
-if (!process.env.VERCEL) {
-  startServer();
-}
-
-export default app;
+startServer();

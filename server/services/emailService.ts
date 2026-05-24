@@ -1,24 +1,18 @@
 import nodemailer from "nodemailer";
 
-if (!process.env.SMTP_PASS && process.env.NODE_ENV === "production") {
-  console.error("CRITICAL: SMTP_PASS environment variable is missing in production environment!");
-}
-
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com",
-  port: 465,
-  secure: true, // Use SSL
+  port: 587,
+  secure: false, // Use STARTTLS for 587
+  pool: true, // Optimized for serverless
+  maxConnections: 1,
   auth: {
-    user: process.env.SMTP_USER || "training@mushroomtraining.online",
+    user: "training@mushroomtraining.online",
     pass: process.env.SMTP_PASS || "Sonib491@",
   },
-});
-
-// Verify SMTP connection 
-transporter.verify().then(() => {
-  console.log('SMTP Connection verified successfully');
-}).catch((err) => {
-  console.error('SMTP Connection error:', err);
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
 const APP_NAME = "Organic Mushroom Farm";
@@ -315,7 +309,7 @@ export const sendSuccessEmail = async (data: any, toEmail: string, isAdmin = fal
     </div>
 
     <div class="details-box">
-      <div class="details-header">${isConsultation ? 'Booking Summary' : 'Order Summary'}</div>
+      <div class="details-header">:${isConsultation ? 'Booking Summary' : 'Order Summary'}</div>
       <div class="details-row">
         <span class="details-label">${isConsultation ? 'Name' : 'Product'}</span>
         <span class="details-value">${isConsultation ? custName : data.productType}</span>
