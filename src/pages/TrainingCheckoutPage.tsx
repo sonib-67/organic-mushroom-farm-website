@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 
 export default function TrainingCheckoutPage() {
   const navigate = useNavigate();
@@ -26,6 +27,9 @@ export default function TrainingCheckoutPage() {
     if (e) e.preventDefault();
     setLoading(true);
     setPaymentStatus('idle');
+
+    // Track Form Start/Submit using Pixel Helper BEFORE Razorpay
+    pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: 'Training - Mushroom Cultivation' });
 
     try {
       const response = await fetch('/api/create-order', {
@@ -55,11 +59,38 @@ export default function TrainingCheckoutPage() {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
-          window.location.href = '/payment-success?id=' + response.razorpay_payment_id;
+          trackPaymentStep('Purchase', {
+            value: payload.amount / 100,
+            currency: payload.currency,
+            order_id: payload.order_id,
+            payment_id: response.razorpay_payment_id,
+            content_name: 'Training - Mushroom Cultivation',
+            user_email: formData.email,
+            user_phone: formData.mobile
+          });
+          trackPaymentStep('PaymentSuccess', {
+            value: payload.amount / 100,
+            currency: payload.currency,
+            order_id: payload.order_id,
+            payment_id: response.razorpay_payment_id,
+            content_name: 'Training - Mushroom Cultivation',
+            user_email: formData.email,
+            user_phone: formData.mobile
+          });
+          // small delay to ensure pixel fires before route transition
+          setTimeout(() => {
+             navigate('/payment-success?id=' + response.razorpay_payment_id);
+          }, 400);
         },
         modal: {
           ondismiss: function() {
             setLoading(false);
+            trackPaymentStep('PaymentCancelled', {
+              value: payload.amount / 100,
+              currency: payload.currency,
+              content_name: 'Training - Mushroom Cultivation',
+              user_email: formData.email
+            });
             navigate('/payment-cancelled', { 
               state: { 
                 amount: payload.amount, 
@@ -75,13 +106,22 @@ export default function TrainingCheckoutPage() {
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        if ((window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
-        }
+        trackPaymentStep('InitiateCheckout', {
+          value: payload.amount / 100,
+          currency: payload.currency,
+          content_name: 'Training - Mushroom Cultivation'
+        });
+
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           setLoading(false);
+          trackPaymentStep('PaymentFailed', {
+             value: payload.amount / 100,
+             currency: payload.currency,
+             content_name: 'Training - Mushroom Cultivation',
+             user_email: formData.email
+          });
           navigate('/payment-cancelled', { 
             state: { 
               amount: payload.amount, 

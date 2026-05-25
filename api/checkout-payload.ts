@@ -17,8 +17,8 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: "Invalid productType" });
     }
 
-    // In Vercel, access process.env.RAZORPAY_KEY_ID or fallback to hardcoded
-    const key_id = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
+    // In Vercel, access process.env.RAZORPAY_KEY_ID securely via env vars
+    const key_id = process.env.VITE_RAZORPAY_KEY_ID || process.env.RAZORPAY_KEY_ID;
 
     const payload = {
       key_id: key_id,

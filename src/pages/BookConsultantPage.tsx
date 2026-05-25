@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, ShieldCheck, MapPin, X, Users, Zap, Briefcase, Layers, Calendar, MessageCircle } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 
 export default function BookConsultantPage() {
   const navigate = useNavigate();
@@ -16,16 +17,9 @@ export default function BookConsultantPage() {
     }
   }, [location.state]);
 
-  useEffect(() => {
-    if (modalState === 'success') {
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Purchase', { currency: 'INR', value: 59.00 });
-      }
-    }
-  }, [modalState]);
-
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: 'Consultation' });
     try {
       const response = await fetch('/api/create-order', {
         method: 'POST',
@@ -52,10 +46,34 @@ export default function BookConsultantPage() {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
+          trackPaymentStep('Purchase', {
+            value: payload.amount / 100,
+            currency: payload.currency,
+            order_id: payload.order_id,
+            payment_id: response.razorpay_payment_id,
+            content_name: '1-on-1 Consultation',
+            user_email: formData.email,
+            user_phone: formData.phone
+          });
+          trackPaymentStep('PaymentSuccess', {
+            value: payload.amount / 100,
+            currency: payload.currency,
+            order_id: payload.order_id,
+            payment_id: response.razorpay_payment_id,
+            content_name: '1-on-1 Consultation',
+            user_email: formData.email,
+            user_phone: formData.phone
+          });
           setModalState('success');
         },
         modal: {
           ondismiss: function() {
+            trackPaymentStep('PaymentCancelled', {
+              value: payload.amount / 100,
+              currency: payload.currency,
+              content_name: '1-on-1 Consultation',
+              user_email: formData.email
+            });
             navigate('/payment-cancelled', { 
               state: { 
                 amount: payload.amount, 
@@ -71,12 +89,20 @@ export default function BookConsultantPage() {
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        if ((window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
-        }
+        trackPaymentStep('InitiateCheckout', {
+          value: payload.amount / 100,
+          currency: payload.currency,
+          content_name: '1-on-1 Consultation'
+        });
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
+          trackPaymentStep('PaymentFailed', {
+             value: payload.amount / 100,
+             currency: payload.currency,
+             content_name: '1-on-1 Consultation',
+             user_email: formData.email
+          });
           navigate('/payment-cancelled', { 
             state: { 
               amount: payload.amount, 

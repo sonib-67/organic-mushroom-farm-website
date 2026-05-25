@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, User, CheckCircle2, Send, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { pixelTrackCustom } from '../utils/pixel';
 
 const ContactFormPage = () => {
     useEffect(() => {
@@ -15,18 +16,26 @@ const ContactFormPage = () => {
         const form = e.target as HTMLFormElement;
         const formData = new FormData(form);
         
+        // Track the submission action explicitly
+        pixelTrackCustom('ContactFormSubmitted', { page: '/contact-form' });
+        pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
+
         try {
-            await fetch('https://formspree.io/f/mwvazwnl', {
+            const resp = await fetch('https://formspree.io/f/mwvazwnl', {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
             });
+            if (!resp.ok) throw new Error('Formspree response not OK');
+            
+            pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
             form.reset();
         } catch (error) {
             console.error(error);
+            pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
             // Fallback for formspree
             form.submit();
         }

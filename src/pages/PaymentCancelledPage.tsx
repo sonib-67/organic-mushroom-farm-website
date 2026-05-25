@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { RefreshCw, ArrowLeft, HeadphonesIcon, HelpCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { pixelTrackCustom } from '../utils/pixel';
 
 export default function PaymentCancelledPage() {
   const navigate = useNavigate();
@@ -19,29 +20,20 @@ export default function PaymentCancelledPage() {
     document.title = "Payment Cancelled";
     window.scrollTo(0, 0);
 
-    // Fire Meta Pixel Event
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      console.log('Firing Meta Pixel events for cancelled page...');
-      (window as any).fbq('track', 'PageView');
-      
-      const eventData = {
-        value: state?.amount ? state.amount / 100 : 0,
-        currency: state?.currency || 'INR',
-        content_name: state?.productName || 'Consultation/Training',
-        content_category: 'Service',
-        email: state?.email || ''
-      };
-      
-      // Also fire InitiateCheckout to ensure audience retargeting captures them
-      (window as any).fbq('track', 'InitiateCheckout', eventData);
-      
-      (window as any).fbq('trackCustom', 'PaymentCancelled', eventData);
-    } else {
-      console.log('Meta Pixel fbq not found.');
-    }
+    // Track simply as a page landing. The actual failure/cancel event happens before routing.
+    pixelTrackCustom('PaymentCancelledPage_Viewed', {
+      value: state?.amount ? state.amount / 100 : 0,
+      currency: state?.currency || 'INR',
+      content_name: state?.productName || 'Consultation/Training',
+    });
   }, [state]);
 
   const handleRetry = () => {
+    pixelTrackCustom('PaymentRetry', {
+      content_name: state?.productName,
+      from_page: state?.from
+    });
+
     if (state?.from) {
       navigate(state.from, { state: { retryFormData: state.formData } });
     } else {

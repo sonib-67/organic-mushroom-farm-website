@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle, ArrowRight, MessageCircle, BookOpen, Clock, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { pixelTrackCustom } from '../utils/pixel';
 
 export default function PaymentSuccessPage() {
+  const location = useLocation();
+
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'Purchase', { currency: "INR", value: 299.00 });
-    }
-  }, []);
+    const paymentId = new URLSearchParams(location.search).get('id') || 'unknown';
+    // 'Purchase' is explicitly fired during the Razorpay on_success handler before routing here. 
+    // We just track the page view for funnel completion logging.
+    pixelTrackCustom('PaymentSuccess_Viewed', { payment_id: paymentId });
+  }, [location.search]);
 
   return (
     <div className="relative pt-24 pb-32 md:pt-32 lg:pb-0 overflow-hidden min-h-screen selection:bg-green-500/30 flex items-center justify-center">

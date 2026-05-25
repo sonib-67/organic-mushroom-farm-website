@@ -9,8 +9,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
-    const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
+    const RAZORPAY_KEY_ID = process.env.VITE_RAZORPAY_KEY_ID || process.env.RAZORPAY_KEY_ID;
+    const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET;
+
+    if (!RAZORPAY_KEY_ID || !RAZORPAY_KEY_SECRET) {
+      console.error("Razorpay API keys are missing in environment variables.");
+      return res.status(500).json({ error: "Server configuration error. Payment gateway unavailable." });
+    }
 
     const razorpay = new Razorpay({
       key_id: RAZORPAY_KEY_ID,
@@ -36,6 +41,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       purpose = "Fresh / Dry Mushroom Purchase";
     }
 
+    const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '') as string;
+    const userAgent = req.headers['user-agent'] || '';
+
     const options = {
       amount: amount, 
       currency: "INR",
@@ -45,7 +53,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         customerName: name || "",
         customerEmail: email || "",
         customerPhone: mobile || "",
-        preferredDate: preferredDate || ""
+        preferredDate: preferredDate || "",
+        clientIp: clientIp.split(',')[0],
+        userAgent: userAgent.substring(0, 200)
       }
     };
 
