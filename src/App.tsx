@@ -28,7 +28,6 @@ import MushroomTypes from './pages/MushroomTypes';
 import Equipment from './pages/Equipment';
 import BookConsultantPage from './pages/BookConsultantPage';
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
-import PaymentFailedPage from './pages/PaymentFailedPage';
 import ROICalculatorPage from './pages/ROICalculatorPage';
 import Subsidy from './pages/Subsidy';
 import Locations from './pages/Locations';
@@ -1457,7 +1456,7 @@ const TrainingPage = () => {
             to="/book-consultant" 
             className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
           >
-            Book Consultation <ArrowRight size={20} />
+            Book Consultant <ArrowRight size={20} />
           </Link>
         </div>
       </section>
@@ -1470,7 +1469,7 @@ const ContactPage = () => {
     document.title = "Contact Us for Mushroom Setup & Consultancy | Pan India";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Book a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India.");
+      metaDescription.setAttribute("content", "Get a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India.");
     }
     window.scrollTo(0, 0);
   }, []);
@@ -1952,13 +1951,13 @@ const FloatingButtons = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-1.5 md:gap-4 items-end pointer-events-auto">
-            {/* Book Consultation Button - Compact sizing on mobile */}
+            {/* Book Consultant Button (Calendly) - Compact sizing on mobile */}
             <Link 
               to="/book-consultant" 
               className="flex px-3.5 md:px-6 h-9 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[9px] md:text-base order-1 md:order-none"
             >
               <Calendar size={14} className="md:w-5 md:h-5" />
-              <span className="hidden md:inline">Book Consultation</span>
+              <span className="hidden md:inline">Book Consultant</span>
               <span className="md:hidden">Book Now</span>
             </Link>
 
@@ -3135,7 +3134,7 @@ const FAQPage = () => {
           
           <div className="mt-16 glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
             <h3 className="dark:text-white text-slate-900 font-bold mb-4">Still have commercial setup questions?</h3>
-            <p className="dark:text-slate-400 text-slate-600 text-sm mb-6">Our global experts are available for premium consultation.</p>
+            <p className="dark:text-slate-400 text-slate-600 text-sm mb-6">Our global experts are available for a consultation.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link to="/contact" className="btn-primary px-8 py-3 rounded-xl font-bold">Contact Us</Link>
               <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="btn-outline px-8 py-3 rounded-xl font-bold">WhatsApp Now</a>
@@ -3259,7 +3258,6 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/book-consultant" element={<BookConsultantPage />} />
             <Route path="/payment-success" element={<PaymentSuccessPage />} />
-            <Route path="/payment-failed" element={<PaymentFailedPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />
