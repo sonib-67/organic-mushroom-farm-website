@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, TrendingUp, ShieldCheck, MapPin, X, ArrowRight, BookOpen, Layers, Users, Zap, Briefcase, Calendar, Phone, MessageCircle, Sprout, Home, ShoppingCart } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { trackPurchase, trackInitiateCheckout } from '../utils/analytics';
+import { loadRazorpay } from '../utils/loadRazorpay';
 
 export default function BookConsultantPage() {
   const [searchParams] = useSearchParams();
@@ -76,6 +77,13 @@ export default function BookConsultantPage() {
           }
         }
       };
+
+      const res = await loadRazorpay();
+      if (!res) {
+        alert('Razorpay SDK failed to load. Are you online?');
+        setLoading(false);
+        return;
+      }
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         trackInitiateCheckout(payload.amount / 100, payload.currency);

@@ -3,6 +3,8 @@ import { motion } from 'motion/react';
 import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+import { loadRazorpay } from '../utils/loadRazorpay';
+
 export default function TrainingCheckoutPage() {
   const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
@@ -74,6 +76,13 @@ export default function TrainingCheckoutPage() {
           }
         }
       };
+
+      const res = await loadRazorpay();
+      if (!res) {
+        alert('Razorpay SDK failed to load. Are you online?');
+        setLoading(false);
+        return;
+      }
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         // Track checkout via analytics module dynamically loaded to avoid SSR/hydration issues
