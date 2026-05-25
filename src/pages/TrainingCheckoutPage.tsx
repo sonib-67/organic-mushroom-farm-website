@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function TrainingCheckoutPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -11,12 +13,14 @@ export default function TrainingCheckoutPage() {
   });
   const [loading, setLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled'>('idle');
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Checkout - Organic Mushroom Farm";
     window.scrollTo(0, 0);
-  }, []);
+    if (location.state && (location.state as any).retryFormData) {
+      setFormData((location.state as any).retryFormData);
+    }
+  }, [location.state]);
 
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -55,8 +59,17 @@ export default function TrainingCheckoutPage() {
         },
         modal: {
           ondismiss: function() {
-            setPaymentStatus('cancelled');
             setLoading(false);
+            navigate('/payment-cancelled', { 
+              state: { 
+                amount: payload.amount, 
+                currency: payload.currency, 
+                productName: 'Training - Mushroom Cultivation',
+                email: formData.email,
+                from: '/training-checkout',
+                formData: formData
+              } 
+            });
           }
         }
       };
@@ -68,8 +81,17 @@ export default function TrainingCheckoutPage() {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
-          setPaymentStatus('cancelled');
           setLoading(false);
+          navigate('/payment-cancelled', { 
+            state: { 
+              amount: payload.amount, 
+              currency: payload.currency, 
+              productName: 'Training - Mushroom Cultivation',
+              email: formData.email,
+              from: '/training-checkout',
+              formData: formData
+            } 
+          });
         });
         rzp.open();
       } else {

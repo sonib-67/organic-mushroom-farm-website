@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, ShieldCheck, MapPin, X, Users, Zap, Briefcase, Layers, Calendar, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export default function BookConsultantPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [modalState, setModalState] = useState<'idle' | 'form' | 'cancelled' | 'success'>('idle');
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', preferredDate: '' });
+
+  useEffect(() => {
+    if (location.state && (location.state as any).retryFormData) {
+      setFormData((location.state as any).retryFormData);
+      setModalState('form');
+    }
+  }, [location.state]);
 
   useEffect(() => {
     if (modalState === 'success') {
@@ -47,7 +56,16 @@ export default function BookConsultantPage() {
         },
         modal: {
           ondismiss: function() {
-            setModalState('cancelled');
+            navigate('/payment-cancelled', { 
+              state: { 
+                amount: payload.amount, 
+                currency: payload.currency, 
+                productName: '1-on-1 Consultation',
+                email: formData.email,
+                from: '/book-consultant',
+                formData: formData
+              } 
+            });
           }
         }
       };
@@ -59,7 +77,16 @@ export default function BookConsultantPage() {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
-          setModalState('cancelled');
+          navigate('/payment-cancelled', { 
+            state: { 
+              amount: payload.amount, 
+              currency: payload.currency, 
+              productName: '1-on-1 Consultation',
+              email: formData.email,
+              from: '/book-consultant',
+              formData: formData
+            } 
+          });
         });
         rzp.open();
       } else {
