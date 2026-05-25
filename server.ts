@@ -6,7 +6,7 @@ import rateLimit from 'express-rate-limit';
 import { createServer as createViteServer } from 'vite';
 import { sendSuccessEmail, sendFailedEmail, sendPendingEmail, sendAbandonedEmail } from './server/services/emailService';
 import { dbService, TransactionData } from './server/services/dbService';
-import { sheetsService } from './server/services/sheetsService';
+// import { sheetsService } from './server/services/sheetsService';
 import { getProduct } from './server/config/products';
 
 const app = express();
@@ -141,9 +141,8 @@ app.post('/api/razorpay-webhook', async (req, res) => {
       return res.status(200).send('Already processed');
     }
 
-    // Run DB, Sheets, and Emails concurrently to avoid Vercel 10s timeout
+    // Run DB and Emails concurrently to avoid Vercel 10s timeout
     const dbPromise = dbService.saveTransaction(transactionData, eventId).catch(e => console.error('DB Error:', e));
-    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
     const emailPromises: Promise<any>[] = [];
@@ -165,7 +164,6 @@ app.post('/api/razorpay-webhook', async (req, res) => {
     // Await all parallel tasks
     await Promise.allSettled([
       dbPromise,
-      sheetsPromise,
       ...emailPromises
     ]);
 
@@ -193,9 +191,8 @@ app.post('/api/abandoned-checkout', async (req, res) => {
       eventType: 'checkout.abandoned'
     };
 
-    // Executing database, sheets, and emails concurrently for Vercel optimization
+    // Executing database and emails concurrently for Vercel optimization
     const dbPromise = dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`).catch(e => console.error('DB Error:', e));
-    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     // Send Abandoned Checkout Emails
     const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
@@ -207,7 +204,6 @@ app.post('/api/abandoned-checkout', async (req, res) => {
 
     await Promise.allSettled([
       dbPromise,
-      sheetsPromise,
       ...emailPromises
     ]);
 
