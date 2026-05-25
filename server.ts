@@ -1,18 +1,13 @@
-import express from "express";
-import cors from "cors";
-import path from "path";
-import crypto from "crypto";
-import rateLimit from "express-rate-limit";
-import { createServer as createViteServer } from "vite";
-import {
-  sendSuccessEmail,
-  sendFailedEmail,
-  sendPendingEmail,
-  sendAbandonedEmail,
-} from "./server/services/emailService";
-import { dbService, TransactionData } from "./server/services/dbService";
-import { sheetsService } from "./server/services/sheetsService";
-import { getProduct } from "./server/config/products";
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import crypto from 'crypto';
+import rateLimit from 'express-rate-limit';
+import { createServer as createViteServer } from 'vite';
+import { sendSuccessEmail, sendFailedEmail, sendPendingEmail, sendAbandonedEmail } from './server/services/emailService';
+import { dbService, TransactionData } from './server/services/dbService';
+import { sheetsService } from './server/services/sheetsService';
+import { getProduct } from './server/config/products';
 
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
@@ -22,57 +17,46 @@ app.set("trust proxy", 1);
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // Limit each IP to 100 requests per `window`
-  message: "Too many requests from this IP, please try again later.",
+  message: 'Too many requests from this IP, please try again later.',
   keyGenerator: (req) => {
-    return (
-      (req.headers["x-forwarded-for"] as string)?.split(",")[0] ||
-      req.ip ||
-      "unknown"
-    );
-  },
+    return (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.ip || 'unknown';
+  }
 });
 
+
 app.use(cors());
-app.use(
-  express.json({
-    verify: (req, res, buf) => {
-      (req as any).rawBody = buf.toString();
-    },
-  }),
-);
+app.use(express.json({
+  verify: (req, res, buf) => {
+    (req as any).rawBody = buf.toString();
+  }
+}));
 
 // Apply rate limiting to API routes
-app.use("/api/", apiLimiter);
+app.use('/api/', apiLimiter);
 
 // API Keys
 const key_id = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
-const key_secret =
-  process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
+const key_secret = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss"; 
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || "organic_secret_123";
 
 // Optional: Background cron alternative for pending recheck using setInterval
-setInterval(
-  async () => {
-    try {
-      const pendingTransactions = await dbService.getPendingTransactions();
-      if (pendingTransactions && pendingTransactions.length > 0) {
-        console.log(
-          `[Cron] Checking ${pendingTransactions.length} pending transactions...`,
-        );
-        // In a real scenario, this would call Razorpay API to check status:
-        // const rzp = new Razorpay({ key_id, key_secret });
-        // rzp.payments.fetch(tx.paymentId)
-        // Then if successful, update DB and send success email.
-      }
-    } catch (e) {
-      console.error("[Cron] Error checking pending transactions:", e);
+setInterval(async () => {
+  try {
+    const pendingTransactions = await dbService.getPendingTransactions();
+    if (pendingTransactions && pendingTransactions.length > 0) {
+      console.log(`[Cron] Checking ${pendingTransactions.length} pending transactions...`);
+      // In a real scenario, this would call Razorpay API to check status:
+      // const rzp = new Razorpay({ key_id, key_secret });
+      // rzp.payments.fetch(tx.paymentId)
+      // Then if successful, update DB and send success email.
     }
-  },
-  5 * 60 * 1000,
-); // 5 minutes
+  } catch(e) {
+    console.error('[Cron] Error checking pending transactions:', e);
+  }
+}, 5 * 60 * 1000); // 5 minutes
 
 // JSON API Endpoint requested by the user
-app.post("/api/checkout-payload", (req, res) => {
+app.post('/api/checkout-payload', (req, res) => {
   const { name, mobile, email, productType } = req.body;
 
   const product = getProduct(productType);
@@ -87,219 +71,158 @@ app.post("/api/checkout-payload", (req, res) => {
     prefill: {
       name: name || "",
       email: email || "",
-      contact: mobile || "",
+      contact: mobile || ""
     },
     notes: {
       product: product.name,
       customerName: name || "",
       mobile: mobile || "",
-      email: email || "",
+      email: email || ""
     },
     theme: {
-      color: "#25D366",
-    },
+      color: "#25D366"
+    }
   };
 
   res.json(payload);
 });
 
 // Razorpay Webhook Endpoint
-app.post("/api/razorpay-webhook", async (req, res) => {
+app.post('/api/razorpay-webhook', async (req, res) => {
   try {
-    const signature = req.headers["x-razorpay-signature"] as string;
+    const signature = req.headers['x-razorpay-signature'] as string;
     const rawBody = (req as any).rawBody;
 
     if (!signature || !rawBody) {
-      return res.status(400).send("Webhook signature or body missing");
+      return res.status(400).send('Webhook signature or body missing');
     }
 
     // Verify signature
     const expectedSignature = crypto
-      .createHmac("sha256", WEBHOOK_SECRET)
+      .createHmac('sha256', WEBHOOK_SECRET)
       .update(rawBody)
-      .digest("hex");
+      .digest('hex');
 
     if (expectedSignature !== signature) {
       console.error("Webhook signature mismatch");
-      return res.status(400).send("Invalid signature");
+      return res.status(400).send('Invalid signature');
     }
 
     const eventType = req.body.event;
-    console.log(
-      `[Webhook] Received event: ${eventType} for payment: ${req.body.payload?.payment?.entity?.id || req.body.payload?.order?.entity?.id}`,
-    );
+    console.log(`[Webhook] Received event: ${eventType} for payment: ${req.body.payload?.payment?.entity?.id || req.body.payload?.order?.entity?.id}`);
+    
+    const eventId = req.body.id || req.headers['x-razorpay-event-id'] as string;
 
-    const eventId =
-      req.body.id || (req.headers["x-razorpay-event-id"] as string);
-
-    const paymentEntity =
-      req.body.payload?.payment?.entity || req.body.payload?.order?.entity;
-
+    const paymentEntity = req.body.payload?.payment?.entity || req.body.payload?.order?.entity;
+    
     if (!paymentEntity) {
       console.error("[Webhook] No payment entity found in payload");
-      return res.status(200).send("No payment entity");
+      return res.status(200).send('No payment entity');
     }
 
     // Extract Data
     const notes = paymentEntity.notes || {};
     const transactionData: TransactionData = {
-      productType:
-        notes.product || paymentEntity.description || "Website Purchase",
+      productType: notes.product || paymentEntity.description || "Website Purchase",
       amount: paymentEntity.amount,
-      paymentId: paymentEntity.id || "N/A", // Orders might not have paymentId immediately
-      orderId: paymentEntity.order_id || paymentEntity.id,
-      customerName:
-        notes.customerName ||
-        paymentEntity.notes?.name ||
-        paymentEntity.email ||
-        "Customer",
+      paymentId: paymentEntity.id || 'N/A', // Orders might not have paymentId immediately
+      orderId: paymentEntity.order_id || paymentEntity.id, 
+      customerName: notes.customerName || paymentEntity.notes?.name || paymentEntity.email || "Customer",
       email: paymentEntity.email || notes.email || "",
       phone: paymentEntity.contact || notes.mobile || "",
       status: paymentEntity.status,
-      eventType: eventType,
+      eventType: eventType
     };
 
     // Check database for processed webhook to prevent duplicates
-    const isProcessed = await dbService.isWebhookProcessed(
-      transactionData.paymentId,
-      eventType,
-    );
+    const isProcessed = await dbService.isWebhookProcessed(transactionData.paymentId, eventType);
     if (isProcessed) {
-      console.log(
-        `Webhook for payment ${transactionData.paymentId} and event ${eventType} already processed, skipping.`,
-      );
-      return res.status(200).send("Already processed");
+      console.log(`Webhook for payment ${transactionData.paymentId} and event ${eventType} already processed, skipping.`);
+      return res.status(200).send('Already processed');
     }
 
     // Run DB, Sheets, and Emails concurrently to avoid Vercel 10s timeout
-    const dbPromise = dbService
-      .saveTransaction(transactionData, eventId)
-      .catch((e) => console.error("DB Error:", e));
-    const sheetsPromise = sheetsService
-      .saveToSheet(transactionData)
-      .catch((e) => console.error("Sheets Error:", e));
+    const dbPromise = dbService.saveTransaction(transactionData, eventId).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
-    const adminEmail =
-      process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
     const emailPromises: Promise<any>[] = [];
 
-    if (
-      eventType === "payment.captured" ||
-      eventType === "payment.authorized" ||
-      eventType === "order.paid"
-    ) {
+    if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
       console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
-      if (transactionData.email)
-        emailPromises.push(
-          sendSuccessEmail(transactionData, transactionData.email, false).catch(
-            (e) => console.error("Email failed:", e),
-          ),
-        );
-      emailPromises.push(
-        sendSuccessEmail(transactionData, adminEmail, true).catch((e) =>
-          console.error("Admin Email failed:", e),
-        ),
-      );
-    } else if (eventType === "payment.failed") {
+      if (transactionData.email) emailPromises.push(sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+    } else if (eventType === 'payment.failed') {
       console.log(`Payment FAILED for ${transactionData.paymentId}`);
-      if (transactionData.email)
-        emailPromises.push(
-          sendFailedEmail(transactionData, transactionData.email, false).catch(
-            (e) => console.error("Email failed:", e),
-          ),
-        );
-      emailPromises.push(
-        sendFailedEmail(transactionData, adminEmail, true).catch((e) =>
-          console.error("Admin Email failed:", e),
-        ),
-      );
-    } else if (
-      eventType === "payment.pending" ||
-      eventType === "payment.created"
-    ) {
+      if (transactionData.email) emailPromises.push(sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+    } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
       console.log(`Payment PENDING for ${transactionData.paymentId}`);
-      if (transactionData.email)
-        emailPromises.push(
-          sendPendingEmail(transactionData, transactionData.email, false).catch(
-            (e) => console.error("Email failed:", e),
-          ),
-        );
-      emailPromises.push(
-        sendPendingEmail(transactionData, adminEmail, true).catch((e) =>
-          console.error("Admin Email failed:", e),
-        ),
-      );
+      if (transactionData.email) emailPromises.push(sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
     }
 
     // Await all parallel tasks
-    await Promise.allSettled([dbPromise, sheetsPromise, ...emailPromises]);
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
 
-    res.status(200).send("OK");
+    res.status(200).send('OK');
   } catch (error) {
     console.error("Error processing webhook:", error);
-    res.status(500).send("Webhook Processing Error");
+    res.status(500).send('Webhook Processing Error');
   }
 });
 
 // Abandoned Checkout Endpoint
-app.post("/api/abandoned-checkout", async (req, res) => {
+app.post('/api/abandoned-checkout', async (req, res) => {
   try {
     const { name, email, phone, productType, amount, orderId } = req.body;
-
+    
     const transactionData = {
       productType: productType || "Website Purchase",
       amount: amount || 0,
-      paymentId: "abandoned_" + Date.now(),
-      orderId: orderId || "N/A",
+      paymentId: 'abandoned_' + Date.now(),
+      orderId: orderId || 'N/A',
       customerName: name || "Customer",
       email: email || "",
       phone: phone || "",
-      status: "abandoned",
-      eventType: "checkout.abandoned",
+      status: 'abandoned',
+      eventType: 'checkout.abandoned'
     };
 
     // Executing database, sheets, and emails concurrently for Vercel optimization
-    const dbPromise = dbService
-      .saveTransaction(transactionData, `event_abandoned_${Date.now()}`)
-      .catch((e) => console.error("DB Error:", e));
-    const sheetsPromise = sheetsService
-      .saveToSheet(transactionData)
-      .catch((e) => console.error("Sheets Error:", e));
+    const dbPromise = dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
     // Send Abandoned Checkout Emails
-    const adminEmail =
-      process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
     const emailPromises: Promise<any>[] = [];
     if (transactionData.email) {
-      emailPromises.push(
-        sendAbandonedEmail(transactionData, transactionData.email, false).catch(
-          (e) => console.error("Email failed:", e),
-        ),
-      );
+      emailPromises.push(sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
     }
-    emailPromises.push(
-      sendAbandonedEmail(transactionData, adminEmail, true).catch((e) =>
-        console.error("Admin Email failed:", e),
-      ),
-    );
+    emailPromises.push(sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
 
-    await Promise.allSettled([dbPromise, sheetsPromise, ...emailPromises]);
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
 
     res.status(200).send({ success: true });
   } catch (error) {
     console.error("Error processing abandoned checkout:", error);
-    res.status(500).send("Abandoned Checkout Processing Error");
+    res.status(500).send('Abandoned Checkout Processing Error');
   }
 });
 
 export default app;
 
 async function startServer() {
-  const isProd =
-    process.env.NODE_ENV === "production" ||
-    process.env.VERCEL === "1" ||
-    process.env.VERCEL_ENV === "production";
-
+  const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.VERCEL_ENV === "production";
+  
   if (!isProd) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -309,10 +232,10 @@ async function startServer() {
   } else {
     // Only serve static files if we are running the actual node server outside Vercel
     if (!process.env.VERCEL) {
-      const distPath = path.join(process.cwd(), "dist");
+      const distPath = path.join(process.cwd(), 'dist');
       app.use(express.static(distPath));
-      app.get("*", (req, res) => {
-        res.sendFile(path.join(distPath, "index.html"));
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(distPath, 'index.html'));
       });
     }
   }
@@ -320,9 +243,7 @@ async function startServer() {
   // Only start listening if we are not in a Vercel serverless environment
   if (!process.env.VERCEL) {
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(
-        `Server running on port ${PORT} in ${isProd ? "production" : "development"} mode`,
-      );
+      console.log(`Server running on port ${PORT} in ${isProd ? 'production' : 'development'} mode`);
     });
   }
 }
