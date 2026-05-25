@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 
 // Always instantiate with process.env.RESEND_API_KEY
 // Fallback only for local development robustness if necessary
-const resend = new Resend(process.env.RESEND_API_KEY || "");
+const resend = new Resend(process.env.RESEND_API_KEY || "re_uFiuUdi9_9syr9tUAWPJiRW2tUafdb2dP");
 
 export const SENDER_EMAIL = "training@mushroomtraining.online";
 
