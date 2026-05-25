@@ -9,9 +9,9 @@ export const config = {
   },
 };
 
-const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || "Sonib491@";
-const SUPABASE_URL = process.env.SUPABASE_URL || "https://placeholder-url.supabase.co";
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "placeholder-key";
+const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || process.env.WEBHOOK_SECRET || "";
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || "";
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
 
 async function getRawBody(req: VercelRequest): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -71,10 +71,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       amount: amountStr
     };
 
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    const supabase = createClient(SUPABASE_URL || "https://placeholder-url.supabase.co", SUPABASE_KEY || "placeholder-key");
 
     if (event.event === 'payment.captured') {
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
+        if (SUPABASE_URL && SUPABASE_URL !== "https://placeholder-url.supabase.co") {
             const { data: customer } = await supabase.from('customers').select('*').eq('email', customerEmail).single();
             if (!customer) {
                 await supabase.from('customers').insert([{ name: customerName, email: customerEmail, phone: customerPhone }]);
@@ -114,7 +114,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         await notifyAdmin(`New Payment Collected: ${productType}`, `Order ${payment.order_id || payment.id} was paid successfully for ${amountStr}`);
 
     } else if (event.event === 'payment.failed') {
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
+        if (SUPABASE_URL && SUPABASE_URL !== "https://placeholder-url.supabase.co") {
             await supabase.from('payments').insert([{
                 payment_id: payment.id,
                 order_id: payment.order_id || '',
