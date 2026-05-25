@@ -36,7 +36,7 @@ const ContactFormPage = () => {
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
                 title="Custom Mushroom Farming Project Consultation | Organic Mushroom Farm" 
-                description="Get a free consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
+                description="Book a consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
              />
 
              <section className="section-padding text-center">
