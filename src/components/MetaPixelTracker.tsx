@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { pixelTrack, pixelTrackCustom } from '../utils/pixel';
+import { getUserLocation, type LocationData } from '../utils/location';
 
 // To store session start time
 const SESSION_KEY = 'omf_session_start';
@@ -20,20 +21,30 @@ export default function AnalyticsTracker() {
   const maxScroll = useRef<number>(0);
   const sessionStartTime = useRef<number>(Date.now());
   const clickHistory = useRef<{x: number, y: number, time: number}[]>([]);
+  const userLoc = useRef<LocationData | null>(null);
+
+  useEffect(() => {
+    // Eagerly load location tracking in the background
+    getUserLocation().then((loc) => {
+      userLoc.current = loc;
+    }).catch(() => {});
+  }, []);
 
   // Analytics Helper
   const trackToAll = (eventName: string, data: any = {}) => {
+    const finalData = { ...data, location: userLoc.current };
+
     // 1. Meta Pixel
-    pixelTrackCustom(eventName, data);
+    pixelTrackCustom(eventName, finalData);
 
     // 2. Google Analytics (GA4)
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventName, data);
+      window.gtag('event', eventName, finalData);
     }
 
     // 3. Google Tag Manager (dataLayer)
     if (typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({ event: eventName, ...data });
+      window.dataLayer.push({ event: eventName, ...finalData });
     }
   };
 

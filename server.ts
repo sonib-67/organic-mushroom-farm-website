@@ -197,6 +197,69 @@ app.post('/api/razorpay-webhook', async (req, res) => {
   }
 });
 
+// Location API
+app.get('/api/location', async (req, res) => {
+  try {
+    const geoip = (await import('geoip-lite')).default;
+    const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
+    
+    // Ignore localhost for GeoIP lookup, fallback to a dummy IP for testing if needed
+    const geo = geoip.lookup(clientIp === '::1' || clientIp === '127.0.0.1' ? '8.8.8.8' : clientIp);
+    
+    if (geo) {
+      return res.status(200).json({
+        ip: clientIp,
+        country: geo.country,
+        region: geo.region,
+        city: geo.city,
+        timezone: geo.timezone,
+        lat: geo.ll ? geo.ll[0] : null,
+        lon: geo.ll ? geo.ll[1] : null,
+        source: 'ip'
+      });
+    } else {
+      return res.status(200).json({
+        ip: clientIp,
+        source: 'unknown',
+        error: "GeoIP lookup failed"
+      });
+    }
+  } catch (error) {
+    console.error("Location API Error:", error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Analytics tracking API
+app.post('/api/track', async (req, res) => {
+  try {
+    const { event_name, event_data, session_id, url, user_agent, user_id, utm_params } = req.body;
+    const client_ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0];
+
+    if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
+      const { error } = await supabase.from('analytics_events').insert([{
+        event_name: event_name || 'unknown_event',
+        event_data: event_data || {},
+        session_id: session_id || '',
+        url: url || '',
+        user_agent: user_agent || req.headers['user-agent'] || '',
+        user_id: user_id || null, // null if not logged in / identified
+        utm_params: utm_params || {},
+        client_ip: client_ip,
+        created_at: new Date().toISOString()
+      }]);
+
+      if (error) {
+        console.error("Error inserting analytics event:", error);
+      }
+    }
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("Tracking API Error:", error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

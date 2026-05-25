@@ -1,3 +1,5 @@
+import { getUserLocation } from './location';
+
 export const PIXEL_ID = '925374987123460';
 
 // Type definitions for Meta Pixel
@@ -19,18 +21,21 @@ const logEvent = (action: string, eventName: string, data?: any) => {
   }
 };
 
-const pushEventToDB = (eventName: string, data?: any) => {
+const pushEventToDB = async (eventName: string, data?: any) => {
   if (!isBrowser) return;
   try {
     const sessionId = sessionStorage.getItem('omf_session_start') || '';
     const utms = Object.fromEntries(new URLSearchParams(window.location.search).entries());
+    
+    // Optionally incorporate location if we're not running concurrently
+    const locationData = await getUserLocation().catch(() => null);
     
     fetch('/api/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         event_name: eventName,
-        event_data: data || {},
+        event_data: { ...(data || {}), user_location: locationData },
         session_id: sessionId,
         url: window.location.href,
         user_agent: navigator.userAgent,
