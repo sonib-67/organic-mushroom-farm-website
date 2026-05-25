@@ -107,9 +107,9 @@ const SuccessStoriesPage = () => {
       <section className="section-padding">
         <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-8">Want to be our next success story?</h2>
-            <a href="https://calendly.com/tanmaysomi/30min" target="_blank" rel="noopener noreferrer" className="gradient-bg px-12 py-5 rounded-2xl text-white font-black inline-flex items-center gap-3 hover:scale-105 transition-all">
-                Book Consultant <ArrowRight size={20} />
-            </a>
+            <Link to="/book-consultant" className="gradient-bg px-12 py-5 rounded-2xl text-white font-black inline-flex items-center gap-3 hover:scale-105 transition-all">
+                Book Consultation <ArrowRight size={20} />
+            </Link>
         </div>
       </section>
     </div>

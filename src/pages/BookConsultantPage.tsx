@@ -1,32 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, ShieldCheck, MapPin, X, Users, Zap, Briefcase, Layers, Calendar, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { CheckCircle2, TrendingUp, ShieldCheck, MapPin, X, ArrowRight, BookOpen, Layers, Users, Zap, Briefcase, Calendar, Phone, MessageCircle, Sprout, Home, ShoppingCart } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { trackPurchase, trackInitiateCheckout } from '../utils/analytics';
 
 export default function BookConsultantPage() {
-  const [modalState, setModalState] = useState<'idle' | 'form' | 'cancelled' | 'success'>('idle');
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '', preferredDate: '' });
+  const [searchParams] = useSearchParams();
+  const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled' | 'success'>('idle');
+  const [whatsappSubmitted, setWhatsappSubmitted] = useState(false);
+  const initialName = searchParams.get('name') || '';
+  const initialPhone = searchParams.get('phone') || '';
+  const initialEmail = searchParams.get('email') || '';
+  const [formData, setFormData] = useState({ name: initialName, phone: initialPhone, email: initialEmail });
+  const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(initialName || initialPhone || initialEmail ? true : false);
 
   useEffect(() => {
-    if (modalState === 'success') {
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Purchase', { currency: 'INR', value: 59.00 });
-      }
+    if (paymentStatus === 'success') {
+      trackPurchase(59.00, 'INR', [{ item_name: 'Consultation' }]);
     }
-  }, [modalState]);
+  }, [paymentStatus]);
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const initiatePayment = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!formData.name || !formData.phone || !formData.email) {
+      alert("Please fill all details.");
+      return;
+    }
+    setPaymentStatus('idle');
+    setLoading(true);
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/checkout-payload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           productType: 'consultation',
           name: formData.name,
-          email: formData.email,
-          mobile: formData.phone,
-          preferredDate: formData.preferredDate
+          phone: formData.phone,
+          email: formData.email
         })
       });
       
@@ -37,41 +48,55 @@ export default function BookConsultantPage() {
         key: payload.key_id,
         amount: payload.amount,
         currency: payload.currency,
-        order_id: payload.order_id,
         name: payload.name,
         description: payload.description,
         prefill: payload.prefill,
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
-          setModalState('success');
+          window.location.href = '/payment-success?id=' + response.razorpay_payment_id + '&product=Consultation';
         },
         modal: {
           ondismiss: function() {
-            setModalState('cancelled');
+            setPaymentStatus('cancelled');
+            setLoading(false);
+
+            // Inform backend about abandoned checkout
+            fetch('/api/abandoned-checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                productType: 'Consultation',
+                amount: payload.amount
+              })
+            }).catch(e => console.error(e));
           }
         }
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        if ((window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
-        }
+        trackInitiateCheckout(payload.amount / 100, payload.currency);
+        
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
-          setModalState('cancelled');
+          setPaymentStatus('cancelled');
+          setLoading(false);
+          window.location.href = '/payment-failed?retry=' + encodeURIComponent(window.location.pathname);
         });
         rzp.open();
       } else {
         console.error("Razorpay script not loaded properly");
         alert('Payment system error. Please refresh the page and try again.');
-        setModalState('idle');
+        setLoading(false);
       }
     } catch (error) {
       console.error(error);
       alert('Error initiating checkout. Please try again.');
-      setModalState('idle');
+      setLoading(false);
     }
   };
 
@@ -88,13 +113,9 @@ export default function BookConsultantPage() {
     "Investors building fully automated climate-controlled plants"
   ];
 
-  const generateWhatsappLink = () => {
-    const text = 'New Consultant Booking 🎉\\n\\nName: ' + formData.name + '\\nMobile: ' + formData.phone + '\\nEmail: ' + formData.email + '\\nDate: ' + formData.preferredDate + '\\n\\nPayment Status: Paid ₹59';
-    return 'https://wa.me/919203544140?text=' + encodeURIComponent(text);
-  };
-
   return (
     <div className="relative pb-24 md:pb-0 pt-16 md:pt-32 overflow-hidden min-h-screen selection:bg-blue-500/30">
+      {/* Hero Section */}
       <div className="py-4 md:py-16 text-center px-2 md:px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -110,18 +131,74 @@ export default function BookConsultantPage() {
               Get direct, actionable solutions from industry experts to avoid costly mistakes and scale profitably.
             </p>
             
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setModalState('form')}
-              className="relative overflow-hidden rounded-lg md:rounded-2xl group px-4 md:px-12 py-2.5 md:py-5 bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all font-bold text-[11px] md:text-lg inline-flex items-center gap-1.5 md:gap-2"
-            >
-              <Zap size={14} className="md:w-6 md:h-6" /> Book Consultant Now - ₹59
-            </motion.button>
+            {!showForm ? (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowForm(true)}
+                className="relative overflow-hidden rounded-lg md:rounded-2xl group px-4 md:px-12 py-2.5 md:py-5 bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] transition-all font-bold text-[11px] md:text-lg inline-flex items-center gap-1.5 md:gap-2"
+              >
+                <Zap size={14} className="md:w-6 md:h-6" /> Book Consultation Now - ₹59
+              </motion.button>
+            ) : (
+              <motion.form 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                onSubmit={initiatePayment} 
+                className="max-w-md mx-auto flex flex-col gap-3 p-4 md:p-6 glass rounded-2xl border dark:border-white/10 border-black/10 text-left"
+              >
+                <div>
+                  <label className="text-xs md:text-sm font-bold dark:text-slate-300 text-slate-700 ml-1 mb-1 block">Full Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={e => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-black/5 dark:bg-white/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 text-sm md:text-base outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs md:text-sm font-bold dark:text-slate-300 text-slate-700 ml-1 mb-1 block">Mobile Number</label>
+                  <input
+                    type="tel"
+                    required
+                    pattern="[0-9]{10}"
+                    value={formData.phone}
+                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full bg-black/5 dark:bg-white/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 text-sm md:text-base outline-none focus:border-blue-500 transition-colors"
+                    placeholder="10-digit mobile number"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs md:text-sm font-bold dark:text-slate-300 text-slate-700 ml-1 mb-1 block">Email Address</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={e => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-black/5 dark:bg-white/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 text-sm md:text-base outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full mt-2 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold py-3.5 rounded-xl transition-all flex justify-center items-center gap-2"
+                >
+                  {loading ? (
+                    <span className="animate-spin inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full"></span>
+                  ) : (
+                    <>Proceed to Payment - ₹59 <ArrowRight size={16} /></>
+                  )}
+                </button>
+              </motion.form>
+            )}
           </motion.div>
         </div>
       </div>
 
+      {/* What's Included */}
       <div className="py-4 md:py-16 dark:bg-white/5 bg-black/5 px-2 md:px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-4 md:mb-12">
@@ -149,6 +226,7 @@ export default function BookConsultantPage() {
         </div>
       </div>
 
+      {/* Who is this for */}
       <div className="py-4 md:py-16 px-2 md:px-4">
         <div className="max-w-4xl mx-auto glass p-3 md:p-10 rounded-xl md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden">
            <div className="absolute top-0 right-0 p-2 md:p-10 opacity-5">
@@ -169,79 +247,7 @@ export default function BookConsultantPage() {
       </div>
 
       <AnimatePresence>
-        {modalState === 'form' && (
-          <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-          >
-            <motion.div 
-              initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
-              className="glass border dark:border-white/10 border-black/10 rounded-xl md:rounded-3xl p-6 md:p-8 w-full max-w-md relative overflow-hidden text-left"
-            >
-              <button 
-                onClick={() => setModalState('idle')}
-                className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
-              >
-                <X size={16} />
-              </button>
-              
-              <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Book Consultant</h3>
-              <p className="text-xs md:text-sm text-slate-400 mb-6">Enter your details to proceed to payment.</p>
-              
-              <form onSubmit={handleFormSubmit} className="space-y-4 relative z-10 w-full">
-                <div>
-                  <label className="block text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-300 mb-1.5 uppercase tracking-wider">Full Name</label>
-                  <input 
-                    type="text" 
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full box-border dark:bg-black/40 bg-white border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm dark:text-white text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-300 mb-1.5 uppercase tracking-wider">Email Address</label>
-                  <input 
-                    type="email" 
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full box-border dark:bg-black/40 bg-white border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm dark:text-white text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-300 mb-1.5 uppercase tracking-wider">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full box-border dark:bg-black/40 bg-white border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm dark:text-white text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] md:text-xs font-bold text-slate-500 dark:text-slate-300 mb-1.5 uppercase tracking-wider">Preferred Date</label>
-                  <input 
-                    type="date" 
-                    value={formData.preferredDate}
-                    onChange={(e) => setFormData({...formData, preferredDate: e.target.value})}
-                    className="w-full box-border dark:bg-black/40 bg-white border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm dark:text-white text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
-                    required
-                    min={new Date().toISOString().split('T')[0]}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full mt-2 bg-blue-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
-                >
-                  Proceed to Pay ₹59
-                </button>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-
-        {modalState === 'cancelled' && (
+        {paymentStatus === 'cancelled' && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -255,7 +261,7 @@ export default function BookConsultantPage() {
               className="glass border dark:border-white/10 border-black/10 rounded-xl md:rounded-3xl p-6 md:p-8 w-full max-w-sm relative overflow-hidden text-center"
             >
               <button 
-                onClick={() => setModalState('idle')}
+                onClick={() => setPaymentStatus('idle')}
                 className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
               >
                 <X size={16} />
@@ -269,10 +275,10 @@ export default function BookConsultantPage() {
               
               <div className="space-y-3 relative z-10 w-full">
                 <button
-                  onClick={() => setModalState('form')}
+                  onClick={initiatePayment}
                   className="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
                 >
-                  <Zap size={18} /> Try Again
+                  <Zap size={18} /> Try Again - ₹59
                 </button>
                 <Link
                   to="/"
@@ -284,39 +290,96 @@ export default function BookConsultantPage() {
             </motion.div>
           </motion.div>
         )}
+      </AnimatePresence>
 
-        {modalState === 'success' && (
+      <AnimatePresence>
+        {paymentStatus === 'success' && (
           <motion.div 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           >
             <motion.div 
               initial={{ scale: 0.9, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 20 }}
-              className="glass-dark border border-white/10 rounded-2xl md:rounded-3xl p-5 md:p-8 w-full max-w-sm relative overflow-hidden text-center bg-black"
+              className="glass-dark border dark:border-white/10 border-black/10 rounded-2xl md:rounded-3xl p-5 md:p-8 w-full max-w-sm relative overflow-hidden text-center"
             >
               <button 
-                onClick={() => setModalState('idle')}
+                onClick={() => setPaymentStatus('idle')}
                 className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
               >
                 <X size={16} />
               </button>
               
-              <div className="py-6">
-                <div className="w-20 h-20 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
-                  <CheckCircle2 size={40} />
+              {!whatsappSubmitted ? (
+                <>
+                  <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+                    <CheckCircle2 size={32} />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Payment Successful!</h3>
+                  <p className="text-xs md:text-sm text-slate-400 mb-6">Please confirm your details to connect with our consultant.</p>
+                  
+                  <form onSubmit={(e) => {
+                    e.preventDefault();
+                    setWhatsappSubmitted(true);
+                    const message = `New Consultant Booking 🎉\n\nName: ${formData.name}\nMobile: ${formData.phone}\nEmail: ${formData.email}\n\nPayment Status: Paid ₹59`;
+                    const url = `https://wa.me/919203544140?text=${encodeURIComponent(message)}`;
+                    window.open(url, '_blank');
+                  }} className="text-left space-y-4 relative z-10 w-full">
+                    <div>
+                      <label className="block text-[10px] md:text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Full Name</label>
+                      <input 
+                        type="text" 
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        className="w-full box-border bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500 transition-colors"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] md:text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Mobile Number</label>
+                      <input 
+                        type="tel" 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        className="w-full box-border bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500 transition-colors"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] md:text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Email Address</label>
+                      <input 
+                        type="email" 
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        className="w-full box-border bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-green-500 transition-colors"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full mt-2 bg-[#25D366] text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
+                    >
+                      Submit Booking
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div className="py-6">
+                  <div className="w-20 h-20 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+                    <CheckCircle2 size={40} />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-black text-white mb-3">Consultation Booked Successfully 🎉</h3>
+                  <p className="text-sm text-slate-400 mb-8">Our team will contact you shortly.</p>
+                  
+                  <a 
+                    href={`https://wa.me/919203544140?text=${encodeURIComponent(`New Consultant Booking 🎉\n\nName: ${formData.name}\nMobile: ${formData.phone}\nEmail: ${formData.email}\n\nPayment Status: Paid ₹59`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all hover:scale-[1.02]"
+                  >
+                    <MessageCircle size={20} /> Chat on WhatsApp
+                  </a>
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-white mb-3">Consultation Booked Successfully 🎉</h3>
-                <p className="text-sm text-slate-400 mb-8">Our team will contact you shortly.</p>
-                
-                <a 
-                  href={generateWhatsappLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all hover:scale-[1.02]"
-                >
-                  <MessageCircle size={20} /> Chat on WhatsApp
-                </a>
-              </div>
+              )}
             </motion.div>
           </motion.div>
         )}

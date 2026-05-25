@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function TrainingCheckoutPage() {
+  const [searchParams] = useSearchParams();
   const [formData, setFormData] = useState({
-    name: '',
-    mobile: '',
-    email: ''
+    name: searchParams.get('name') || '',
+    mobile: searchParams.get('phone') || '',
+    email: searchParams.get('email') || ''
   });
   const [loading, setLoading] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled'>('idle');
@@ -24,7 +25,7 @@ export default function TrainingCheckoutPage() {
     setPaymentStatus('idle');
 
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/checkout-payload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, productType: 'training' })
@@ -45,32 +46,47 @@ export default function TrainingCheckoutPage() {
         key: payload.key_id,
         amount: payload.amount,
         currency: payload.currency,
-        order_id: payload.order_id,
         name: payload.name,
         description: payload.description,
         prefill: payload.prefill,
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
-          window.location.href = '/payment-success?id=' + response.razorpay_payment_id;
+          window.location.href = '/payment-success?id=' + response.razorpay_payment_id + '&product=Training';
         },
         modal: {
           ondismiss: function() {
             setPaymentStatus('cancelled');
             setLoading(false);
+            
+            // Inform backend about abandoned checkout
+            fetch('/api/abandoned-checkout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.mobile,
+                productType: 'Training',
+                amount: payload.amount
+              })
+            }).catch(e => console.error(e));
           }
         }
       };
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        if ((window as any).fbq) {
-          (window as any).fbq('track', 'InitiateCheckout', { currency: payload.currency, value: payload.amount / 100 });
-        }
+        // Track checkout via analytics module dynamically loaded to avoid SSR/hydration issues
+        import('../utils/analytics').then(({ trackInitiateCheckout }) => {
+          trackInitiateCheckout(payload.amount / 100, payload.currency);
+        }).catch(err => console.warn('Analytics failed to load', err));
+        
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           setPaymentStatus('cancelled');
           setLoading(false);
+          window.location.href = '/payment-failed?retry=' + encodeURIComponent(window.location.pathname);
         });
         rzp.open();
       } else {

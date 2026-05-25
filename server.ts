@@ -1,300 +1,251 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
-import { createClient } from '@supabase/supabase-js';
-import Razorpay from 'razorpay';
-import { sendEmail, notifyAdmin } from './server/email.js';
+import rateLimit from 'express-rate-limit';
+import { createServer as createViteServer } from 'vite';
+import { sendSuccessEmail, sendFailedEmail, sendPendingEmail, sendAbandonedEmail } from './server/services/emailService';
+import { dbService, TransactionData } from './server/services/dbService';
+import { sheetsService } from './server/services/sheetsService';
+import { getProduct } from './server/config/products';
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+app.set("trust proxy", 1);
+
+// Security: Rate limiting
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window`
+  message: 'Too many requests from this IP, please try again later.',
+  keyGenerator: (req) => {
+    return (req.headers['x-forwarded-for'] as string)?.split(',')[0] || req.ip || 'unknown';
+  }
+});
+
 
 app.use(cors());
-
-// Webhook endpoint needs raw body for signature verification
-app.use('/api/razorpay-webhook', express.raw({ type: 'application/json' }));
-app.use(express.json());
-
-// Secrets 
-const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "";
-const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || process.env.RAZORPAY_SECRET || "";
-const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || process.env.WEBHOOK_SECRET || "";
-
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || "";
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
-const supabase = createClient(SUPABASE_URL || "https://placeholder-url.supabase.co", SUPABASE_KEY || "placeholder-key");
-
-const razorpay = new Razorpay({
-  key_id: RAZORPAY_KEY_ID,
-  key_secret: RAZORPAY_KEY_SECRET,
-});
-
-// Create Order API
-app.post('/api/create-order', async (req, res) => {
-  try {
-    const { name, mobile, email, productType, preferredDate } = req.body;
-
-    let amount = 0;
-    let purpose = "";
-
-    if (productType === "training") {
-      amount = 29900;
-      purpose = "Mushroom Farming Masterclass Training";
-    } else if (productType === "consultation") {
-      amount = 5900;
-      purpose = "Expert 1-on-1 Business Consultation Slot";
-    } else if (productType.includes("spawn")) {
-      amount = 99900;
-      purpose = "Spawn Purchase";
-    } else if (productType.includes("mushroom")) {
-      amount = 49900;
-      purpose = "Fresh / Dry Mushroom Purchase";
-    } else {
-      amount = 5900;
-      purpose = "Order";
-    }
-
-    const options = {
-      amount: amount, // amount in smallest currency unit
-      currency: "INR",
-      receipt: `rct_${Date.now()}`,
-      notes: {
-        productType,
-        customerName: name,
-        customerEmail: email,
-        customerPhone: mobile,
-        preferredDate: preferredDate || ""
-      }
-    };
-
-    const order = await razorpay.orders.create(options);
-
-    res.json({
-      order_id: order.id,
-      amount: order.amount,
-      currency: order.currency,
-      key_id: RAZORPAY_KEY_ID,
-      name: "Organic Mushroom Farm",
-      description: purpose,
-      prefill: {
-        name: name || "",
-        email: email || "",
-        contact: mobile || ""
-      },
-      notes: options.notes,
-      theme: { color: "#25D366" }
-    });
-  } catch (error) {
-    console.error("Error creating Razorpay order:", error);
-    res.status(500).json({ error: "Failed to create order" });
+app.use(express.json({
+  verify: (req, res, buf) => {
+    (req as any).rawBody = buf.toString();
   }
+}));
+
+// Apply rate limiting to API routes
+app.use('/api/', apiLimiter);
+
+// API Keys
+const key_id = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
+const key_secret = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss"; 
+const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET || "organic_secret_123";
+
+// Optional: Background cron alternative for pending recheck using setInterval
+setInterval(async () => {
+  try {
+    const pendingTransactions = await dbService.getPendingTransactions();
+    if (pendingTransactions && pendingTransactions.length > 0) {
+      console.log(`[Cron] Checking ${pendingTransactions.length} pending transactions...`);
+      // In a real scenario, this would call Razorpay API to check status:
+      // const rzp = new Razorpay({ key_id, key_secret });
+      // rzp.payments.fetch(tx.paymentId)
+      // Then if successful, update DB and send success email.
+    }
+  } catch(e) {
+    console.error('[Cron] Error checking pending transactions:', e);
+  }
+}, 5 * 60 * 1000); // 5 minutes
+
+// JSON API Endpoint requested by the user
+app.post('/api/checkout-payload', (req, res) => {
+  const { name, mobile, email, productType } = req.body;
+
+  const product = getProduct(productType);
+
+  // Generate exact payload structure
+  const payload = {
+    key_id: key_id,
+    amount: product.pricePaise,
+    currency: "INR",
+    name: "Organic Mushroom Farm",
+    description: product.description,
+    prefill: {
+      name: name || "",
+      email: email || "",
+      contact: mobile || ""
+    },
+    notes: {
+      product: product.name,
+      customerName: name || "",
+      mobile: mobile || "",
+      email: email || ""
+    },
+    theme: {
+      color: "#25D366"
+    }
+  };
+
+  res.json(payload);
 });
 
-// Webhook endpoint
+// Razorpay Webhook Endpoint
 app.post('/api/razorpay-webhook', async (req, res) => {
-  const signature = req.headers['x-razorpay-signature'];
-
-  if (!signature) {
-    return res.status(400).send('Signature missing');
-  }
-
-  const expectedSignature = crypto
-    .createHmac('sha256', WEBHOOK_SECRET)
-    .update(req.body.toString())
-    .digest('hex');
-
-  if (expectedSignature !== signature) {
-    console.error("Invalid signature");
-    return res.status(400).send('Invalid signature');
-  }
-
   try {
-    const event = JSON.parse(req.body.toString());
-    const payment = event.payload.payment.entity;
-    
-    const notes = payment.notes || {};
-    const productType = notes.productType || "unknown";
-    const customerName = notes.customerName || payment.email;
-    const customerEmail = payment.email || notes.customerEmail;
-    const customerPhone = payment.contact || notes.customerPhone;
-    
-    const amountStr = "INR " + (payment.amount / 100).toString();
+    const signature = req.headers['x-razorpay-signature'] as string;
+    const rawBody = (req as any).rawBody;
 
-    const placeholders = {
-      customerName,
-      customerEmail,
-      customerPhone,
-      orderId: payment.order_id || 'N/A',
-      amount: amountStr
+    if (!signature || !rawBody) {
+      return res.status(400).send('Webhook signature or body missing');
+    }
+
+    // Verify signature
+    const expectedSignature = crypto
+      .createHmac('sha256', WEBHOOK_SECRET)
+      .update(rawBody)
+      .digest('hex');
+
+    if (expectedSignature !== signature) {
+      console.error("Webhook signature mismatch");
+      return res.status(400).send('Invalid signature');
+    }
+
+    const eventType = req.body.event;
+    console.log(`[Webhook] Received event: ${eventType} for payment: ${req.body.payload?.payment?.entity?.id || req.body.payload?.order?.entity?.id}`);
+    
+    const eventId = req.body.id || req.headers['x-razorpay-event-id'] as string;
+
+    const paymentEntity = req.body.payload?.payment?.entity || req.body.payload?.order?.entity;
+    
+    if (!paymentEntity) {
+      console.error("[Webhook] No payment entity found in payload");
+      return res.status(200).send('No payment entity');
+    }
+
+    // Extract Data
+    const notes = paymentEntity.notes || {};
+    const transactionData: TransactionData = {
+      productType: notes.product || paymentEntity.description || "Website Purchase",
+      amount: paymentEntity.amount,
+      paymentId: paymentEntity.id || 'N/A', // Orders might not have paymentId immediately
+      orderId: paymentEntity.order_id || paymentEntity.id, 
+      customerName: notes.customerName || paymentEntity.notes?.name || paymentEntity.email || "Customer",
+      email: paymentEntity.email || notes.email || "",
+      phone: paymentEntity.contact || notes.mobile || "",
+      status: paymentEntity.status,
+      eventType: eventType
     };
 
-    if (event.event === 'payment.captured') {
-        // Save to Supabase (Customers)
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-            const { data: customer } = await supabase.from('customers').select('*').eq('email', customerEmail).single();
-            if (!customer) {
-                await supabase.from('customers').insert([{ name: customerName, email: customerEmail, phone: customerPhone }]);
-            }
-            
-            // Save Payment
-            await supabase.from('payments').insert([{
-                payment_id: payment.id,
-                order_id: payment.order_id || '',
-                customer_name: customerName,
-                customer_email: customerEmail,
-                customer_phone: customerPhone,
-                payment_status: 'success',
-                amount: payment.amount,
-            }]);
-
-            // Save specific booking/order
-            if (productType === "consultation") {
-                await supabase.from('consultant_bookings').insert([{
-                    customer_name: customerName,
-                    customer_email: customerEmail,
-                    customer_phone: customerPhone,
-                    preferred_date: notes.preferredDate || "",
-                    status: 'success',
-                    order_id: payment.order_id
-                }]);
-            } else if (productType === "training") {
-                await supabase.from('training_orders').insert([{
-                    customer_name: customerName,
-                    customer_email: customerEmail,
-                    customer_phone: customerPhone,
-                    status: 'success',
-                    order_id: payment.order_id
-                }]);
-            }
-        }
-
-        // Send Success Email
-        await sendEmail(customerEmail, productType, 'done', placeholders);
-        // Notify Admin
-        await notifyAdmin(`New Payment Collected: ${productType}`, `Order ${payment.order_id} was paid successfully for ${amountStr}`);
-
-    } else if (event.event === 'payment.failed') {
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-            await supabase.from('payments').insert([{
-                payment_id: payment.id,
-                order_id: payment.order_id || '',
-                customer_name: customerName,
-                customer_email: customerEmail,
-                customer_phone: customerPhone,
-                payment_status: 'failed',
-                amount: payment.amount,
-            }]);
-        }
-        await sendEmail(customerEmail, productType, 'failed', placeholders);
+    // Check database for processed webhook to prevent duplicates
+    const isProcessed = await dbService.isWebhookProcessed(transactionData.paymentId, eventType);
+    if (isProcessed) {
+      console.log(`Webhook for payment ${transactionData.paymentId} and event ${eventType} already processed, skipping.`);
+      return res.status(200).send('Already processed');
     }
+
+    // Run DB, Sheets, and Emails concurrently to avoid Vercel 10s timeout
+    const dbPromise = dbService.saveTransaction(transactionData, eventId).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
+
+    const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const emailPromises: Promise<any>[] = [];
+
+    if (eventType === 'payment.captured' || eventType === 'payment.authorized' || eventType === 'order.paid') {
+      console.log(`Payment SUCCESS for ${transactionData.paymentId}`);
+      if (transactionData.email) emailPromises.push(sendSuccessEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendSuccessEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+    } else if (eventType === 'payment.failed') {
+      console.log(`Payment FAILED for ${transactionData.paymentId}`);
+      if (transactionData.email) emailPromises.push(sendFailedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendFailedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+    } else if (eventType === 'payment.pending' || eventType === 'payment.created') {
+      console.log(`Payment PENDING for ${transactionData.paymentId}`);
+      if (transactionData.email) emailPromises.push(sendPendingEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+      emailPromises.push(sendPendingEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+    }
+
+    // Await all parallel tasks
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
 
     res.status(200).send('OK');
   } catch (error) {
-    console.error("Webhook processing error:", error);
-    res.status(500).send('Internal Server Error');
+    console.error("Error processing webhook:", error);
+    res.status(500).send('Webhook Processing Error');
   }
 });
 
-import { GoogleGenAI } from '@google/genai';
-import nodemailer from 'nodemailer';
-
-app.post('/api/send-ai-email', async (req, res) => {
+// Abandoned Checkout Endpoint
+app.post('/api/abandoned-checkout', async (req, res) => {
   try {
-    const { userEmail, userRequest } = req.body;
-
-    if (!userEmail || !userRequest) {
-      return res.status(400).json({ success: false, message: 'userEmail and userRequest are required' });
-    }
-
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-
-    const systemPrompt = `
-You are an expert AI assistant for an online Mushroom Farming Training website. Your job is to help users and automatically draft professional emails based on their requests (like course registration, payment confirmation, or query replies).
-
-When the user asks to send an email or when a specific trigger happens, you must ALWAYS generate the output in a strict JSON format so the backend server can read it and send it via Nodemailer. Do not include any conversational text outside the JSON block if an email needs to be sent.
-
-JSON Format to follow:
-{
-  "emailSubject": "Clear and professional subject line",
-  "emailBodyHTML": "<p>Professional email content in HTML format. Use proper tags like <br>, <b>, etc.</p>"
-}
-
-Context for your website:
-- Website Name: Organic Mushroom Farm (organicmushroomfarm.shop)
-- Main Product: Online Mushroom Farming Masterclass
-- Price: ₹299
-- Key Varieties Taught: Button, Milky, and Lion's Mane mushrooms.
-- Webinar Timing: Daily Simulated Live training at 4:00 PM IST.
-    `;
-
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: `${systemPrompt}\n\nGenerate an email for this request: "${userRequest}". Respond ONLY with the strict JSON format specified in system instructions.`,
-    });
-
-    let aiResponseText = response.text || "";
-    aiResponseText = aiResponseText.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+    const { name, email, phone, productType, amount, orderId } = req.body;
     
-    let emailData;
-    try {
-      emailData = JSON.parse(aiResponseText);
-    } catch (parseError) {
-      console.error("Failed to parse AI response as JSON:", aiResponseText);
-      return res.status(500).json({ success: false, message: "AI response was not valid JSON" });
-    }
-
-    const host = process.env.SMTP_HOST || "smtp.hostinger.com";
-    const port = parseInt(process.env.SMTP_PORT || "465", 10);
-    const user = process.env.SMTP_USER || "training@mushroomtraining.online";
-    const pass = process.env.SMTP_PASS || "Sonib491@.";
-
-    let transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure: port === 465, 
-      auth: { user, pass },
-    });
-
-    let mailOptions = {
-      from: '"Organic Mushroom Farm" <' + user + '>',
-      to: userEmail,
-      subject: emailData.emailSubject,
-      html: emailData.emailBodyHTML,
+    const transactionData = {
+      productType: productType || "Website Purchase",
+      amount: amount || 0,
+      paymentId: 'abandoned_' + Date.now(),
+      orderId: orderId || 'N/A',
+      customerName: name || "Customer",
+      email: email || "",
+      phone: phone || "",
+      status: 'abandoned',
+      eventType: 'checkout.abandoned'
     };
 
-    let info = await transporter.sendMail(mailOptions);
+    // Executing database, sheets, and emails concurrently for Vercel optimization
+    const dbPromise = dbService.saveTransaction(transactionData, `event_abandoned_${Date.now()}`).catch(e => console.error('DB Error:', e));
+    const sheetsPromise = sheetsService.saveToSheet(transactionData).catch(e => console.error('Sheets Error:', e));
 
-    res.status(200).json({
-      success: true,
-      message: "AI Generated Email Sent Successfully!",
-      messageId: info.messageId,
-      preview: nodemailer.getTestMessageUrl(info),
-    });
+    // Send Abandoned Checkout Emails
+    const adminEmail = process.env.ADMIN_EMAIL || "training@mushroomtraining.online";
+    const emailPromises: Promise<any>[] = [];
+    if (transactionData.email) {
+      emailPromises.push(sendAbandonedEmail(transactionData, transactionData.email, false).catch(e => console.error('Email failed:', e)));
+    }
+    emailPromises.push(sendAbandonedEmail(transactionData, adminEmail, true).catch(e => console.error('Admin Email failed:', e)));
+
+    await Promise.allSettled([
+      dbPromise,
+      sheetsPromise,
+      ...emailPromises
+    ]);
+
+    res.status(200).send({ success: true });
   } catch (error) {
-    console.error("Error in AI Email System:", error);
-    res.status(500).json({ success: false, message: "Internal Server Error" });
+    console.error("Error processing abandoned checkout:", error);
+    res.status(500).send('Abandoned Checkout Processing Error');
   }
 });
 
+export default app;
+
 async function startServer() {
-  if (process.env.NODE_ENV !== "production") {
+  const isProd = process.env.NODE_ENV === "production" || process.env.VERCEL === "1" || process.env.VERCEL_ENV === "production";
+  
+  if (!isProd) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
+    // Only serve static files if we are running the actual node server outside Vercel
+    if (!process.env.VERCEL) {
+      const distPath = path.join(process.cwd(), 'dist');
+      app.use(express.static(distPath));
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(distPath, 'index.html'));
+      });
+    }
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  // Only start listening if we are not in a Vercel serverless environment
+  if (!process.env.VERCEL) {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on port ${PORT} in ${isProd ? 'production' : 'development'} mode`);
+    });
+  }
 }
 
 startServer();
