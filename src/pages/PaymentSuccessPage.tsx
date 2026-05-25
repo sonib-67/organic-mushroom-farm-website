@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle, MessageCircle, FileText } from 'lucide-react';
-import { Link, useSearchParams } from 'react-router-dom';
-import { trackPurchase } from '../utils/analytics';
+import { CheckCircle, ArrowRight, MessageCircle, BookOpen, Clock, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function PaymentSuccessPage() {
-  const [searchParams] = useSearchParams();
-  const [productType, setProductType] = useState('Training');
-  const paymentId = searchParams.get('id');
-  const orderId = searchParams.get('order_id') || `OMF-${Math.floor(Math.random() * 1000000)}`;
-
   useEffect(() => {
-    // If we have a product type in URL or local storage
-    const customProduct = searchParams.get('product') || 'Mushroom Farming Training';
-    setProductType(customProduct);
-
-    trackPurchase(299.00, "INR", [{ item_name: customProduct }]);
-  }, [searchParams, paymentId]);
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'Purchase', { currency: "INR", value: 299.00 });
+    }
+  }, []);
 
   return (
     <div className="relative pt-24 pb-32 md:pt-32 lg:pb-0 overflow-hidden min-h-screen selection:bg-green-500/30 flex items-center justify-center">
@@ -25,10 +17,10 @@ export default function PaymentSuccessPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="glass p-5 md:p-8 rounded-2xl md:rounded-[2rem] border dark:border-green-500/20 border-green-500/20 relative overflow-hidden text-center shadow-xl"
+          className="glass p-5 md:p-8 rounded-2xl md:rounded-[2rem] border dark:border-green-500/20 border-green-500/20 relative overflow-hidden text-center"
         >
           {/* Subtle Glow Background */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] bg-green-500/10 blur-[100px] pointer-events-none rounded-full"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[200px] bg-green-500/20 blur-[80px] pointer-events-none rounded-full"></div>
 
           {/* Success Icon */}
           <motion.div
@@ -43,55 +35,28 @@ export default function PaymentSuccessPage() {
 
           {/* Heading */}
           <h1 className="text-2xl md:text-4xl font-black dark:text-white text-slate-900 tracking-tight mb-2 md:mb-3 relative z-10">
-            {productType.toLowerCase().includes('consultation') ? 'Consultation Successfully Booked' : 'Payment Successful 🎉'}
+            Payment Successful 🎉
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-6 font-medium">
-            {productType.toLowerCase().includes('consultation') 
-              ? 'Thank you for booking your consultation with Organic Mushroom Farm.' 
-              : `Thank you for choosing ${productType}`}
-          </p>
-          
-          {/* Payment Summary */}
-          <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 mb-6 border border-slate-100 dark:border-slate-800 text-left relative z-10">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-3 flex items-center">
-              <FileText size={16} className="mr-2 text-primary-start" /> Order Summary
-            </h3>
-            <div className="space-y-2 text-xs md:text-sm">
-              <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-2">
-                <span className="text-slate-500 dark:text-slate-400">Order ID</span>
-                <span className="font-mono font-medium text-slate-900 dark:text-slate-200">{orderId}</span>
-              </div>
-              {paymentId && (
-                <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-700 pb-2">
-                  <span className="text-slate-500 dark:text-slate-400">Payment ID</span>
-                  <span className="font-mono font-medium text-slate-900 dark:text-slate-200">{paymentId}</span>
-                </div>
-              )}
-              <div className="flex justify-between items-center pt-1">
-                <span className="text-slate-500 dark:text-slate-400">Product</span>
-                <span className="font-medium text-slate-900 dark:text-slate-200">{productType}</span>
-              </div>
-            </div>
-          </div>
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-2 font-medium">Thank you for joining our Mushroom Farming Training</p>
+          <p className="text-slate-400 dark:text-slate-300 text-xs md:text-sm mb-5 md:mb-8 font-medium">Your registration has been completed successfully.</p>
 
           {/* Action Info */}
           <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 md:p-6 mb-5 text-center relative z-10">
-            <p className="text-xs md:text-sm text-green-700 dark:text-green-100 font-medium leading-relaxed mb-4">
-              {productType.toLowerCase().includes('consultation') 
-                ? 'Our expert team will contact you shortly on your registered mobile number or email.' 
-                : 'You will receive details shortly on WhatsApp and Email.'}
+            <p className="text-xs md:text-sm text-green-100 font-medium leading-relaxed mb-3">
+              You will receive joining details on WhatsApp.
             </p>
-            <a href={`https://wa.me/919203544140?text=I%20have%20completed%20payment%20for%20${encodeURIComponent(productType)}.%20Order%20ID:%20${orderId}`}
+            <a href="https://wa.me/919203544140?text=I%20have%20join%20mushroom%20training"
                target="_blank" rel="noopener noreferrer"
-               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] text-white font-bold rounded-xl hover:scale-105 transition-transform text-sm w-full">
-                <MessageCircle size={18} /> Contact Support on WhatsApp
+               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] text-white font-bold rounded-xl hover:scale-105 transition-transform text-sm w-full md:w-auto">
+                <MessageCircle size={18} /> Message on WhatsApp
             </a>
+            <p className="text-xs mt-4 text-slate-400 font-medium break-words">Number: <span className="text-green-500 font-bold">+91 9203544140</span><br/>Message: "i have join mushroom training"</p>
           </div>
 
           {/* Back to Home */}
           <Link 
             to="/" 
-            className="inline-flex items-center justify-center w-full px-4 py-3 md:py-4 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 rounded-xl font-bold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all text-xs md:text-sm mt-2 relative z-10"
+            className="inline-flex items-center justify-center w-full px-4 py-3 md:py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold text-slate-300 hover:text-white transition-all text-xs md:text-sm mt-2 relative z-10"
           >
             Back to Home
           </Link>

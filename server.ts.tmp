@@ -1,0 +1,7 @@
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import { createServer as createViteServer } from 'vite';
+import crypto from 'crypto';
+import { createClient } from '@supabase/supabase-js';
+import { sendEmail, notifyAdmin } from './server/email.js'; // Ensure to use .js for ESM imports from TS compilation if handled properly, but since we are running with tsx, this should work. Wait, let's use .ts if we are in tsx or no extension.
