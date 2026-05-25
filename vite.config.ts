@@ -13,13 +13,9 @@ export default defineConfig(({ mode }) => ({
   },
 
   server: {
-    hmr: process.env.NODE_ENV === 'production' ? false : (process.env.DISABLE_HMR === 'true' ? false : {
-      overlay: false,
-      timeout: 5000,
-    }),
-    port: process.env.PORT ? parseInt(process.env.PORT) : 5173,
-    host: '0.0.0.0',
-    open: false, // Don't auto open in environments
+    hmr: process.env.DISABLE_HMR === 'true' ? false : true,
+    port: 5173,
+    open: true,
   },
 
   build: {
