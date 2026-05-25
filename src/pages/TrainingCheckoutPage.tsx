@@ -24,7 +24,7 @@ export default function TrainingCheckoutPage() {
     setPaymentStatus('idle');
 
     try {
-      const response = await fetch('/api/checkout-payload', {
+      const response = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, productType: 'training' })
