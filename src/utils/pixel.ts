@@ -97,7 +97,6 @@ export const trackPaymentStep = (step: 'InitiateCheckout' | 'AddPaymentInfo' | '
   content_category?: string;
   user_email?: string;
   user_phone?: string;
-  [key: string]: any;
 }) => {
   pixelTrackCustom(step, data);
   if (step === 'Purchase') {

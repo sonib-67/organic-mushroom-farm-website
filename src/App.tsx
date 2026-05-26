@@ -29,8 +29,6 @@ import Equipment from './pages/Equipment';
 import BookConsultantPage from './pages/BookConsultantPage';
 import PaymentSuccessPage from './pages/PaymentSuccessPage';
 import PaymentCancelledPage from './pages/PaymentCancelledPage';
-import PaymentFailedPage from './pages/PaymentFailedPage';
-import ProductsPage from './pages/ProductsPage';
 import ROICalculatorPage from './pages/ROICalculatorPage';
 import Subsidy from './pages/Subsidy';
 import Locations from './pages/Locations';
@@ -492,8 +490,7 @@ const NAV_ITEMS = [
     ]
   },
   { name: "Turnkey Projects", href: "/turnkey-projects", isExternal: false, icon: ShieldCheck },
-  { name: "Shop", href: "/products", isExternal: false, icon: ShoppingCart },
-  { name: "Gallery", href: "/gallery", isExternal: false, icon: Layers },
+  { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
   { name: "Contact", href: "/contact", isExternal: false, icon: Phone }
@@ -3260,14 +3257,9 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ProductsPage />} />
             <Route path="/book-consultant" element={<BookConsultantPage />} />
             <Route path="/payment-success" element={<PaymentSuccessPage />} />
-            <Route path="/success" element={<PaymentSuccessPage />} />
             <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
-            <Route path="/cancel" element={<PaymentCancelledPage />} />
-            <Route path="/payment-failed" element={<PaymentFailedPage />} />
-            <Route path="/failed" element={<PaymentFailedPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />
