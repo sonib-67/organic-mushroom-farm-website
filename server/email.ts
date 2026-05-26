@@ -68,7 +68,7 @@ export const emailTemplates = {
 export async function sendEmail(
   to: string, 
   productType: string, 
-  status: 'done' | 'pending' | 'failed', 
+  status: 'done' | 'pending' | 'failed' | 'refunded', 
   placeholders: {
     customerName: string;
     customerEmail: string;
@@ -81,7 +81,16 @@ export async function sendEmail(
   if (productType.includes('spawn')) templateKey = 'spawn';
   if (productType.includes('mushroom')) templateKey = 'produce';
 
-  const template = emailTemplates[templateKey as keyof typeof emailTemplates]?.[status];
+  let template: { subject: string; html: string } | undefined = undefined;
+
+  if (status === 'refunded') {
+    template = {
+      subject: `Refund Processed: Transaction Reassigned & Reverted`,
+      html: `<div style="font-family:sans-serif; background:#F9F9F9; padding:30px; color:#111111;"><div style="background:#FFFFFF; padding:25px; border-radius:8px; border-left:4px solid #0D6EFD;"><h2>Dear [Customer Name],</h2><p>We have successfully initiated or finalized a financial revert operation on your Organic Mushroom Farm account.</p><p>A refund of [Amount] has been securely processed and sent to your issuing payment gateway channel. No further actions are required from your side. Please permit 3-5 bank clearing days for the credit to appear on your ledger.</p><p>Order Registry Reference: [Order ID]</p><p>Sincerely,<br>Organic Mushroom Farm Finance Division</p><hr style="border:none; border-top:1px solid #EEEEEE; margin:20px 0;"><p style="font-size:12px; color:#555555;"><b>Support Assistance:</b> support@mushroomtraining.online | 9203544140</p></div></div>`
+    };
+  } else {
+    template = emailTemplates[templateKey as keyof typeof emailTemplates]?.[status];
+  }
 
   if (!template) {
     console.warn("No email template found for", productType, status);
