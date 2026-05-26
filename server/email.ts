@@ -1,15 +1,21 @@
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
-// Always instantiate with process.env.RESEND_API_KEY
-// Fallback only for preview/development robustness if allowed by user
-const resend = new Resend(process.env.RESEND_API_KEY || "re_UYoZ2eK9_Kdmx5ZDRThH4p52V5m5fs3X8");
+const transporter = nodemailer.createTransport({
+  host: 'smtp.hostinger.com',
+  port: 465,
+  secure: true, // Use SSL/TLS
+  auth: {
+    user: 'training@mushroomtraining.online',
+    pass: 'Sonib491@'
+  }
+});
 
-const FROM_EMAIL = 'no-reply@mushroomtraining.online';
+const FROM_EMAIL = 'Organic Mushroom Farm <training@mushroomtraining.online>';
 
 // --- PRODUCT: training ---
 export async function sendTrainingDoneMail(name: string, email: string, orderId: string, amount: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Order Confirmed: Commercial Mushroom Training',
@@ -34,7 +40,7 @@ export async function sendTrainingDoneMail(name: string, email: string, orderId:
 
 export async function sendTrainingFailedMail(name: string, email: string, orderId: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Transaction Unsuccessful: Training Enrollment Failed',
@@ -56,7 +62,7 @@ export async function sendTrainingFailedMail(name: string, email: string, orderI
 // --- PRODUCT: consultant ---
 export async function sendConsultantDoneMail(name: string, email: string, orderId: string, amount: string, phone: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Confirmation: Consultation Session Booked',
@@ -81,7 +87,7 @@ export async function sendConsultantDoneMail(name: string, email: string, orderI
 
 export async function sendConsultantFailedMail(name: string, email: string, orderId: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Booking Failed: Consultation Transaction Declined',
@@ -103,7 +109,7 @@ export async function sendConsultantFailedMail(name: string, email: string, orde
 // --- PRODUCT: spawn ---
 export async function sendSpawnDoneMail(name: string, email: string, orderId: string, amount: string, productType: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Order Verified: Spawn Material Dispatched',
@@ -125,7 +131,7 @@ export async function sendSpawnDoneMail(name: string, email: string, orderId: st
 
 export async function sendSpawnFailedMail(name: string, email: string, orderId: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Order Voided: Spawn Acquisition Unsuccessful',
@@ -147,7 +153,7 @@ export async function sendSpawnFailedMail(name: string, email: string, orderId: 
 // --- PRODUCT: mushroom ---
 export async function sendMushroomDoneMail(name: string, email: string, orderId: string, amount: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Order Confirmed: Organic Produce Allocation Secured',
@@ -168,7 +174,7 @@ export async function sendMushroomDoneMail(name: string, email: string, orderId:
 
 export async function sendMushroomFailedMail(name: string, email: string, orderId: string) {
   try {
-    await resend.emails.send({
+    await transporter.sendMail({
       from: FROM_EMAIL,
       to: email,
       subject: 'Transaction Refused: Produce Allocation Cancelled',
@@ -232,8 +238,8 @@ export async function sendEmail(
 
 export async function notifyAdmin(subject: string, html: string) {
   try {
-    await resend.emails.send({
-      from: `Organic Mushroom Farm Alerts <${FROM_EMAIL}>`,
+    await transporter.sendMail({
+      from: `"Organic Mushroom Farm Alerts" <training@mushroomtraining.online>`,
       to: "training@mushroomtraining.online", // Admin email
       subject,
       html
