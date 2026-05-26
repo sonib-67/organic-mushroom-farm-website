@@ -199,6 +199,30 @@ app.post('/api/razorpay-webhook', async (req, res) => {
 });
 
 // Location Tracker API route
+app.get('/api/resend/logs', async (req, res) => {
+  try {
+    const { Resend } = await import('resend');
+    const resend = new Resend(process.env.RESEND_API_KEY || "re_UYoZ2eK9_Kdmx5ZDRThH4p52V5m5fs3X8");
+    const { data, error } = await resend.logs.list();
+    if (error) return res.status(400).json({ error });
+    res.json({ data });
+  } catch (error) {
+    res.status(500).json({ error: String(error) });
+  }
+});
+
+app.get('/api/resend/logs/:id', async (req, res) => {
+  try {
+    const { Resend } = await import('resend');
+    const resend = new Resend(process.env.RESEND_API_KEY || "re_UYoZ2eK9_Kdmx5ZDRThH4p52V5m5fs3X8");
+    const { data, error } = await resend.logs.get(req.params.id);
+    if (error) return res.status(400).json({ error });
+    res.json({ data });
+  } catch (error) {
+    res.status(500).json({ error: String(error) });
+  }
+});
+
 app.get('/api/location', (req, res) => {
   try {
     const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
