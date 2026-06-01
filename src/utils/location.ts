@@ -23,10 +23,10 @@ export const getUserLocation = async (): Promise<LocationData | null> => {
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     // Check GPS Permissions dynamically (if supported)
-    if (typeof navigator !== 'undefined' && navigator.permissions && typeof navigator.permissions.query === 'function' && navigator.geolocation) {
+    if (typeof navigator !== 'undefined' && navigator.permissions && navigator.geolocation) {
       try {
         const permission = await navigator.permissions.query({ name: 'geolocation' });
-        if (permission && permission.state === 'granted') {
+        if (permission.state === 'granted') {
           const pos = await new Promise<GeolocationPosition>((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 5000 });
           });
@@ -42,37 +42,26 @@ export const getUserLocation = async (): Promise<LocationData | null> => {
           return cachedLocation;
         }
       } catch (err) {
-        console.warn("[Location Tracker] Permission query failed", err);
+        console.warn("Permission query failed", err);
       }
     }
 
     // Fallback to IP-based location
-    try {
-      const res = await fetch('/api/location');
-      const contentType = res.headers.get('content-type');
-      if (res.ok && contentType && contentType.includes('application/json')) {
-        const data = await res.json();
-        if (data && !data.error) {
-          cachedLocation = {
-            country: data.country,
-            region: data.region,
-            city: data.city,
-            timezone: data.timezone || timezone,
-            lat: data.lat,
-            lon: data.lon,
-            source: data.source || 'ip'
-          };
-          console.log("[Location Tracker] IP Location resolved:", cachedLocation);
-          isFetchingLocation = false;
-          return cachedLocation;
-        } else {
-          console.warn("[Location Tracker] IP location returned an error:", data?.error || 'Unknown error');
-        }
-      } else {
-        console.warn("[Location Tracker] IP location response was not JSON or failed. Status:", res.status);
-      }
-    } catch (fetchErr) {
-      console.warn("[Location Tracker] IP location fetch failed:", fetchErr);
+    const res = await fetch('/api/location');
+    if (res.ok) {
+      const data = await res.json();
+      cachedLocation = {
+        country: data.country,
+        region: data.region,
+        city: data.city,
+        timezone: data.timezone || timezone,
+        lat: data.lat,
+        lon: data.lon,
+        source: data.source || 'ip'
+      };
+      console.log("[Location Tracker] IP Location resolved:", cachedLocation);
+      isFetchingLocation = false;
+      return cachedLocation;
     }
     
   } catch (error) {

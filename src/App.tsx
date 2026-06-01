@@ -41,6 +41,7 @@ import ArticleOysterMushroomCultivation from './pages/ArticleOysterMushroomCulti
 import ArticleMushroomSpawn from './pages/ArticleMushroomSpawn';
 import ArticleBusinessPlanHindi from './pages/ArticleBusinessPlanHindi';
 import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
+import ArticleMushroomTrainingAffordable from './pages/ArticleMushroomTrainingAffordable';
 import SEO from './components/SEO';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
@@ -3283,6 +3284,7 @@ export default function App() {
             <Route path="/articles/what-is-mushroom-spawn-beginner-guide-india" element={<ArticleMushroomSpawn />} />
             <Route path="/articles/mushroom-farming-business-plan-hindi-2026" element={<ArticleBusinessPlanHindi />} />
             <Route path="/articles/mushroom-farming-training-hindi-india" element={<ArticleTrainingGuideHindi />} />
+            <Route path="/articles/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingAffordable />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
             <Route path="/training" element={<TrainingPage />} />

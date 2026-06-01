@@ -6,7 +6,6 @@ import crypto from 'crypto';
 import { createClient } from '@supabase/supabase-js';
 import Razorpay from 'razorpay';
 import { sendEmail, notifyAdmin } from './server/email.js';
-import geoip from 'geoip-lite';
 
 const app = express();
 const PORT = 3000;
@@ -198,33 +197,10 @@ app.post('/api/razorpay-webhook', async (req, res) => {
   }
 });
 
-// Location Tracker API route
-app.get('/api/resend/logs', async (req, res) => {
+// Location API
+app.get('/api/location', async (req, res) => {
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(process.env.RESEND_API_KEY || "re_UYoZ2eK9_Kdmx5ZDRThH4p52V5m5fs3X8");
-    const { data, error } = await resend.logs.list();
-    if (error) return res.status(400).json({ error });
-    res.json({ data });
-  } catch (error) {
-    res.status(500).json({ error: String(error) });
-  }
-});
-
-app.get('/api/resend/logs/:id', async (req, res) => {
-  try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(process.env.RESEND_API_KEY || "re_UYoZ2eK9_Kdmx5ZDRThH4p52V5m5fs3X8");
-    const { data, error } = await resend.logs.get(req.params.id);
-    if (error) return res.status(400).json({ error });
-    res.json({ data });
-  } catch (error) {
-    res.status(500).json({ error: String(error) });
-  }
-});
-
-app.get('/api/location', (req, res) => {
-  try {
+    const geoip = (await import('geoip-lite')).default;
     const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
     
     // Ignore localhost for GeoIP lookup, fallback to a dummy IP for testing if needed
@@ -254,7 +230,7 @@ app.get('/api/location', (req, res) => {
   }
 });
 
-// Analytics Tracker Event API route
+// Analytics tracking API
 app.post('/api/track', async (req, res) => {
   try {
     const { event_name, event_data, session_id, url, user_agent, user_id, utm_params } = req.body;
@@ -277,7 +253,6 @@ app.post('/api/track', async (req, res) => {
         console.error("Error inserting analytics event:", error);
       }
     }
-
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("Tracking API Error:", error);
