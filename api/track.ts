@@ -1,8 +1,23 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createClient } from '@supabase/supabase-js';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-const SUPABASE_URL = process.env.SUPABASE_URL || "https://placeholder-url.supabase.co";
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "placeholder-key";
+const firebaseConfig = {
+  apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
+  authDomain: "nic-mushrooom-farm.firebaseapp.com",
+  projectId: "nic-mushrooom-farm",
+  storageBucket: "nic-mushrooom-farm.firebasestorage.app",
+  messagingSenderId: "541611352556",
+  appId: "1:541611352556:web:597e7c729a169decbda0c9"
+};
+
+let db: any;
+try {
+  const firebaseApp = initializeApp(firebaseConfig);
+  db = getFirestore(firebaseApp);
+} catch (error) {
+  console.error("Firebase init error:", error);
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -14,23 +29,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { event_name, event_data, session_id, url, user_agent, user_id, utm_params } = req.body;
     const client_ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0];
 
-    if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-
-      const { error } = await supabase.from('analytics_events').insert([{
-        event_name: event_name || 'unknown_event',
-        event_data: event_data || {},
-        session_id: session_id || '',
-        url: url || '',
-        user_agent: user_agent || req.headers['user-agent'] || '',
-        user_id: user_id || null, // null if not logged in / identified
-        utm_params: utm_params || {},
-        client_ip: client_ip,
-        created_at: new Date().toISOString()
-      }]);
-
-      if (error) {
-        console.error("Error inserting analytics event:", error);
+    if (db) {
+      try {
+        await addDoc(collection(db, 'analytics_events'), {
+          event_name: event_name || 'unknown_event',
+          event_data: event_data || {},
+          session_id: session_id || '',
+          url: url || '',
+          user_agent: user_agent || req.headers['user-agent'] || '',
+          user_id: user_id || null, 
+          utm_params: utm_params || {},
+          client_ip: client_ip,
+          created_at: new Date().toISOString()
+        });
+      } catch (dbError) {
+        console.error("Error inserting analytics event:", dbError);
       }
     }
 

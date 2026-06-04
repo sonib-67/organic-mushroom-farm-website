@@ -1,7 +1,26 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import crypto from 'crypto';
-import { createClient } from '@supabase/supabase-js';
 import { sendEmail, notifyAdmin } from '../server/email';
+
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
+  authDomain: "nic-mushrooom-farm.firebaseapp.com",
+  projectId: "nic-mushrooom-farm",
+  storageBucket: "nic-mushrooom-farm.firebasestorage.app",
+  messagingSenderId: "541611352556",
+  appId: "1:541611352556:web:597e7c729a169decbda0c9"
+};
+
+let db: any;
+try {
+  const firebaseApp = initializeApp(firebaseConfig);
+  db = getFirestore(firebaseApp);
+} catch (error) {
+  console.error("Firebase init error:", error);
+}
 
 export const config = {
   api: {
@@ -10,8 +29,6 @@ export const config = {
 };
 
 const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || "Sonib491@";
-const SUPABASE_URL = process.env.SUPABASE_URL || "https://placeholder-url.supabase.co";
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "placeholder-key";
 const META_PIXEL_ID = process.env.META_PIXEL_ID || "925374987123460";
 const META_CAPI_TOKEN = process.env.META_CAPI_TOKEN || "";
 
@@ -125,34 +142,33 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       amount: amountStr
     };
 
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    if (db) {
+        try {
+            await addDoc(collection(db, 'analytics_events'), {
+                event_name: `webhook_${event.event}`,
+                event_data: { payload: event.payload, account_id: event.account_id },
+                session_id: payment.id,
+                url: '/api/razorpay-webhook',
+                user_agent: req.headers['user-agent'] || '',
+                client_ip: (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0],
+                created_at: new Date().toISOString()
+            });
 
-    if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-        // Log webhook payload
-        await supabase.from('analytics_events').insert([{
-            event_name: `webhook_${event.event}`,
-            event_data: { payload: event.payload, account_id: event.account_id },
-            session_id: payment.id,
-            url: '/api/razorpay-webhook',
-            user_agent: req.headers['user-agent'] || '',
-            client_ip: (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0],
-            created_at: new Date().toISOString()
-        }]);
-
-        // Prevent duplicate processing
-        if (event.event === 'payment.captured' || event.event === 'payment.failed') {
-            const { data: existingPayment } = await supabase
-                .from('payments')
-                .select('id, payment_status')
-                .eq('payment_id', payment.id)
-                .single();
-            
-            if (existingPayment) {
-                if (existingPayment.payment_status === 'success' || existingPayment.payment_status === event.event.split('.')[1]) {
-                    console.log(`Duplicate webhook or already processed: ${payment.id}`);
-                    return res.status(200).send('Already processed');
+            if (event.event === 'payment.captured' || event.event === 'payment.failed') {
+                const paymentsRef = collection(db, 'payments');
+                const q = query(paymentsRef, where('payment_id', '==', payment.id));
+                const querySnapshot = await getDocs(q);
+                
+                if (!querySnapshot.empty) {
+                    const existingPayment = querySnapshot.docs[0].data();
+                    if (existingPayment.payment_status === 'success' || existingPayment.payment_status === event.event.split('.')[1]) {
+                        console.log(`Duplicate webhook or already processed: ${payment.id}`);
+                        return res.status(200).send('Already processed');
+                    }
                 }
             }
+        } catch(e) {
+            console.error("Firebase analytics/duplicate check error:", e);
         }
     }
 
@@ -160,39 +176,49 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Send Purchase to Meta CAPI
         await sendMetaCAPIEvent('Purchase', payment, notes);
 
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-            const { data: customer } = await supabase.from('customers').select('*').eq('email', customerEmail).single();
-            if (!customer) {
-                await supabase.from('customers').insert([{ name: customerName, email: customerEmail, phone: customerPhone }]);
-            }
-            
-            await supabase.from('payments').upsert([{
-                payment_id: payment.id,
-                order_id: payment.order_id || '',
-                customer_name: customerName,
-                customer_email: customerEmail,
-                customer_phone: customerPhone,
-                payment_status: 'success',
-                amount: payment.amount,
-            }], { onConflict: 'payment_id' });
+        if (db) {
+            try {
+                const customersRef = collection(db, 'customers');
+                const cq = query(customersRef, where('email', '==', customerEmail));
+                const customerSnapshot = await getDocs(cq);
+                if (customerSnapshot.empty) {
+                    await addDoc(customersRef, { name: customerName, email: customerEmail, phone: customerPhone, created_at: new Date().toISOString() });
+                }
+                
+                // Using addDoc for simplicity mimicking upsert behaviour assuming duplication check handled it above mostly
+                await setDoc(doc(db, 'payments', payment.id), {
+                    payment_id: payment.id,
+                    order_id: payment.order_id || '',
+                    customer_name: customerName,
+                    customer_email: customerEmail,
+                    customer_phone: customerPhone,
+                    payment_status: 'success',
+                    amount: payment.amount,
+                    created_at: new Date().toISOString()
+                }, { merge: true });
 
-            if (productType === "consultation") {
-                await supabase.from('consultant_bookings').insert([{
-                    customer_name: customerName,
-                    customer_email: customerEmail,
-                    customer_phone: customerPhone,
-                    preferred_date: notes.preferredDate || "",
-                    status: 'success',
-                    order_id: payment.order_id
-                }]);
-            } else if (productType === "training") {
-                await supabase.from('training_orders').insert([{
-                    customer_name: customerName,
-                    customer_email: customerEmail,
-                    customer_phone: customerPhone,
-                    status: 'success',
-                    order_id: payment.order_id
-                }]);
+                if (productType === "consultation") {
+                    await addDoc(collection(db, 'consultant_bookings'), {
+                        customer_name: customerName,
+                        customer_email: customerEmail,
+                        customer_phone: customerPhone,
+                        preferred_date: notes.preferredDate || "",
+                        status: 'success',
+                        order_id: payment.order_id,
+                        created_at: new Date().toISOString()
+                    });
+                } else if (productType === "training") {
+                    await addDoc(collection(db, 'training_orders'), {
+                        customer_name: customerName,
+                        customer_email: customerEmail,
+                        customer_phone: customerPhone,
+                        status: 'success',
+                        order_id: payment.order_id,
+                        created_at: new Date().toISOString()
+                    });
+                }
+            } catch (firestoreError) {
+                console.error("Firestore captured error:", firestoreError);
             }
         }
 
@@ -203,17 +229,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Send PaymentFailed to Meta CAPI
         await sendMetaCAPIEvent('PaymentFailed', payment, notes);
 
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-            await supabase.from('payments').upsert([{
-                payment_id: payment.id,
-                order_id: payment.order_id || '',
-                customer_name: customerName,
-                customer_email: customerEmail,
-                customer_phone: customerPhone,
-                payment_status: 'failed',
-                amount: payment.amount,
-                notes: payment.error_description ? { error: payment.error_description } : {}
-            }], { onConflict: 'payment_id' });
+        if (db) {
+            try {
+                await setDoc(doc(db, 'payments', payment.id), {
+                    payment_id: payment.id,
+                    order_id: payment.order_id || '',
+                    customer_name: customerName,
+                    customer_email: customerEmail,
+                    customer_phone: customerPhone,
+                    payment_status: 'failed',
+                    amount: payment.amount,
+                    notes: payment.error_description ? { error: payment.error_description } : {},
+                    created_at: new Date().toISOString()
+                }, { merge: true });
+            } catch (firestoreError) {
+                console.error("Firestore failed error:", firestoreError);
+            }
         }
         await sendEmail(customerEmail, productType, 'failed', placeholders);
     }

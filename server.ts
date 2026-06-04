@@ -3,9 +3,24 @@ import cors from 'cors';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
-import { createClient } from '@supabase/supabase-js';
 import Razorpay from 'razorpay';
 import { sendEmail, notifyAdmin } from './server/email.js';
+
+// Firebase imports for backend writes
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
+  authDomain: "nic-mushrooom-farm.firebaseapp.com",
+  projectId: "nic-mushrooom-farm",
+  storageBucket: "nic-mushrooom-farm.firebasestorage.app",
+  messagingSenderId: "541611352556",
+  appId: "1:541611352556:web:597e7c729a169decbda0c9"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+const db = getFirestore(firebaseApp);
 
 const app = express();
 const PORT = 3000;
@@ -21,10 +36,6 @@ app.use(express.json());
 const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
 const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
 const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || "Sonib491@";
-
-const SUPABASE_URL = process.env.SUPABASE_URL || "https://placeholder-url.supabase.co";
-const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || "placeholder-key";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const razorpay = new Razorpay({
   key_id: RAZORPAY_KEY_ID,
@@ -131,15 +142,18 @@ app.post('/api/razorpay-webhook', async (req, res) => {
     };
 
     if (event.event === 'payment.captured') {
-        // Save to Supabase (Customers)
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-            const { data: customer } = await supabase.from('customers').select('*').eq('email', customerEmail).single();
-            if (!customer) {
-                await supabase.from('customers').insert([{ name: customerName, email: customerEmail, phone: customerPhone }]);
+        // Save to Firebase (Customers)
+        try {
+            const customersRef = collection(db, 'customers');
+            const q = query(customersRef, where('email', '==', customerEmail));
+            const querySnapshot = await getDocs(q);
+            
+            if (querySnapshot.empty) {
+                await addDoc(customersRef, { name: customerName, email: customerEmail, phone: customerPhone, created_at: new Date().toISOString() });
             }
             
             // Save Payment
-            await supabase.from('payments').insert([{
+            await addDoc(collection(db, 'payments'), {
                 payment_id: payment.id,
                 order_id: payment.order_id || '',
                 customer_name: customerName,
@@ -147,27 +161,32 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                 customer_phone: customerPhone,
                 payment_status: 'success',
                 amount: payment.amount,
-            }]);
+                created_at: new Date().toISOString()
+            });
 
             // Save specific booking/order
             if (productType === "consultation") {
-                await supabase.from('consultant_bookings').insert([{
+                await addDoc(collection(db, 'consultant_bookings'), {
                     customer_name: customerName,
                     customer_email: customerEmail,
                     customer_phone: customerPhone,
                     preferred_date: notes.preferredDate || "",
                     status: 'success',
-                    order_id: payment.order_id
-                }]);
+                    order_id: payment.order_id,
+                    created_at: new Date().toISOString()
+                });
             } else if (productType === "training") {
-                await supabase.from('training_orders').insert([{
+                await addDoc(collection(db, 'training_orders'), {
                     customer_name: customerName,
                     customer_email: customerEmail,
                     customer_phone: customerPhone,
                     status: 'success',
-                    order_id: payment.order_id
-                }]);
+                    order_id: payment.order_id,
+                    created_at: new Date().toISOString()
+                });
             }
+        } catch (dbError) {
+             console.error("Firebase DB error:", dbError);
         }
 
         // Send Success Email
@@ -176,8 +195,8 @@ app.post('/api/razorpay-webhook', async (req, res) => {
         await notifyAdmin(`New Payment Collected: ${productType}`, `Order ${payment.order_id} was paid successfully for ${amountStr}`);
 
     } else if (event.event === 'payment.failed') {
-        if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-            await supabase.from('payments').insert([{
+        try {
+            await addDoc(collection(db, 'payments'), {
                 payment_id: payment.id,
                 order_id: payment.order_id || '',
                 customer_name: customerName,
@@ -185,7 +204,10 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                 customer_phone: customerPhone,
                 payment_status: 'failed',
                 amount: payment.amount,
-            }]);
+                created_at: new Date().toISOString()
+            });
+        } catch (dbError) {
+             console.error("Firebase DB error:", dbError);
         }
         await sendEmail(customerEmail, productType, 'failed', placeholders);
     }
@@ -236,8 +258,8 @@ app.post('/api/track', async (req, res) => {
     const { event_name, event_data, session_id, url, user_agent, user_id, utm_params } = req.body;
     const client_ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0];
 
-    if (SUPABASE_URL !== "https://placeholder-url.supabase.co") {
-      const { error } = await supabase.from('analytics_events').insert([{
+    try {
+      await addDoc(collection(db, 'analytics_events'), {
         event_name: event_name || 'unknown_event',
         event_data: event_data || {},
         session_id: session_id || '',
@@ -247,11 +269,9 @@ app.post('/api/track', async (req, res) => {
         utm_params: utm_params || {},
         client_ip: client_ip,
         created_at: new Date().toISOString()
-      }]);
-
-      if (error) {
-        console.error("Error inserting analytics event:", error);
-      }
+      });
+    } catch (dbError) {
+      console.error("Error inserting analytics event:", dbError);
     }
     return res.status(200).json({ success: true });
   } catch (error) {
