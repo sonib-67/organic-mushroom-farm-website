@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { generateReviewSchema, generateLocalBusinessSchema } from '../utils/seoSchemas';
 
 interface SEOProps {
   title: string;
@@ -15,6 +16,13 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
 
   const siteUrl = "https://organicmushroomfarm.shop";
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+
+  const defaultSchemas = [
+    generateLocalBusinessSchema(),
+    generateReviewSchema(title)
+  ];
+
+  const finalSchemas = schemas ? [...schemas, ...defaultSchemas] : defaultSchemas;
 
   return (
     <Helmet>
@@ -44,7 +52,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
       <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
 
       {/* JSON-LD Schemas */}
-      {schemas && schemas.map((schema, index) => (
+      {finalSchemas.map((schema, index) => (
         <script type="application/ld+json" key={index}>
           {JSON.stringify(schema)}
         </script>

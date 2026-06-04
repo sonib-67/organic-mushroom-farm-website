@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { TrendingUp, Activity, BarChart, ArrowRight, Table, MessageCircle, Phone, Info, CheckCircle2 } from 'lucide-react';
 import SEO from '../components/SEO';
+import { generateReviewSchema } from '../utils/seoSchemas';
 
 export default function MushroomPriceTodayPage() {
   const [activeTab, setActiveTab] = useState('wholesale');
@@ -29,12 +30,32 @@ export default function MushroomPriceTodayPage() {
     { state: "Punjab", button: "₹120/kg", oyster: "₹150/kg" },
   ];
 
+  const generateSchemas = () => {
+    const tableSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Mushroom Price Today in India",
+      "description": "Daily wholesale and retail mushroom prices across Indian states.",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": prices.wholesale.map((p, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": p.type,
+          "description": `Average wholesale rate: ${p.avg}/kg`
+        }))
+      }
+    };
+    return [tableSchema];
+  };
+
   return (
     <>
       <SEO 
         title="Mushroom Price Today in India 2026 | Daily Wholesale & Retail Rates"
         description="Check today's real-time mushroom prices in India. Get daily wholesale and retail rates for Button, Oyster, Milky, and Dry mushrooms across states."
         keywords="mushroom price today, daily mushroom rate, wholesale button mushroom price, oyster mushroom price, dry mushroom rates"
+        schemas={generateSchemas()}
       />
       <div className="pt-24 pb-12 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">

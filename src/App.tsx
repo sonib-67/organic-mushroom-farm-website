@@ -43,6 +43,7 @@ import ArticleBusinessPlanHindi from './pages/ArticleBusinessPlanHindi';
 import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import ArticleMushroomTrainingAffordable from './pages/ArticleMushroomTrainingAffordable';
 import SEO from './components/SEO';
+import { generateReviewSchema, generateLocalBusinessSchema } from './utils/seoSchemas';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
 
@@ -1503,11 +1504,6 @@ const TrainingPage = () => {
 
 const ContactPage = () => {
   useEffect(() => {
-    document.title = "Contact Us for Mushroom Setup & Consultancy | Pan India";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Get a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India.");
-    }
     window.scrollTo(0, 0);
   }, []);
   const [state, handleSubmit, reset] = useForm('mwvazwnl');
@@ -1520,6 +1516,10 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-black overflow-x-hidden pt-24 md:pt-32 pb-12">
+      <SEO 
+        title="Contact Us for Mushroom Setup & Consultancy | Pan India"
+        description="Get a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India."
+      />
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-16">
@@ -1755,6 +1755,24 @@ const Footer = () => {
   return (
     <footer className="pt-20 pb-24 md:pb-12 bg-black/50 border-t dark:border-white/5 border-black/5">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Global E-E-A-T Profile for SEO Signals */}
+        <div className="mb-16 p-8 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+          <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
+            <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary-start/20 flex items-center justify-center text-primary-start">
+              <ShieldCheck size={32} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">
+                Certified E-E-A-T Excellence
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed max-w-4xl">
+                <strong className="dark:text-slate-300 text-slate-700">Experience & Expertise:</strong> With years of hands-on cultivation of over 10 mushroom varieties (Button, Oyster, Milky, Cordyceps) and world-class commercial infrastructure setups pan-India.<br/>
+                <strong className="dark:text-slate-300 text-slate-700">Authoritativeness & Trust:</strong> Certified by leading agricultural bodies, led by agri-tech expert Tanish Soni, and highly rated by thousands of trained farmers globally. Verified operations in Jabalpur, MP.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
@@ -2456,11 +2474,6 @@ const MushroomTraining = () => {
 
 const HomePage = () => {
   useEffect(() => {
-    document.title = "Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom - Pan India & Global";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP.");
-    }
     const hash = window.location.hash;
     if (hash) {
       const element = document.querySelector(hash);
@@ -2472,6 +2485,10 @@ const HomePage = () => {
 
   return (
     <>
+      <SEO 
+        title="Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom"
+        description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP."
+      />
       <Hero />
       <EcosystemFlow />
       <WhyChooseUs />
@@ -2744,11 +2761,6 @@ const PageHero = ({ title, description, badge }: { title: string; description: s
 
 const AboutPage = () => {
   useEffect(() => {
-    document.title = "About Organic Mushroom Farm | Leading Commercial Infrastructure & Training Partner";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally.");
-    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -2779,6 +2791,10 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="About Organic Mushroom Farm | Leading Commercial Infrastructure & Training Partner"
+        description="Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally."
+      />
       <PageHero 
         badge="Our Commercial Journey"
         title="About Organic Mushroom Farm | Global Setup Experts" 

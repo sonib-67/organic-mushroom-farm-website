@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Target, Award, CheckCircle2, DollarSign, Store, TrendingUp, Search, MessageCircle, Phone, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { generateReviewSchema } from '../utils/seoSchemas';
 
 export default function MushroomFranchisePage() {
   return (

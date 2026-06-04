@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { MapPin, Phone, MessageCircle, Sprout, Briefcase, TrendingUp, Users, Award, ExternalLink, ShieldCheck } from 'lucide-react';
 import { useLocation, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import { generateReviewSchema } from '../utils/seoSchemas';
 import FAQSection from '../components/FAQSection'; // Assumes this exists or I will create an inline FAQ
 
 export default function LocationDetailsPage() {
@@ -88,12 +89,31 @@ export default function LocationDetailsPage() {
     }
   ];
 
+  const generateSchemas = () => {
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.a
+        }
+      }))
+    };
+
+    return [faqSchema];
+  };
+
   return (
     <>
       <SEO 
         title={`${content.title} | Organic Mushroom Farm`}
         description={content.description}
         keywords={`mushroom farming ${formattedLocation}, mushroom training ${formattedLocation}, mushroom franchise ${formattedLocation}, organic agriculture ${formattedLocation}`}
+        url={pathname}
+        schemas={generateSchemas()}
       />
       <div className="pt-24 pb-12 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">

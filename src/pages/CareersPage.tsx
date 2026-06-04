@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Briefcase, MapPin, Search, Send, FileText, CheckCircle2, TrendingUp, Users, Award, ShieldCheck, Heart, Zap, Phone, MessageCircle } from 'lucide-react';
 import SEO from '../components/SEO';
+import { generateReviewSchema, generateLocalBusinessSchema } from '../utils/seoSchemas';
 
 export default function CareersPage() {
   const jobs = [
