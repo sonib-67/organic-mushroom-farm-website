@@ -4,6 +4,7 @@ import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
+import geoip from 'geoip-lite';
 import { sendEmail, notifyAdmin } from './server/email.js';
 
 // Firebase imports for backend writes
@@ -220,13 +221,13 @@ app.post('/api/razorpay-webhook', async (req, res) => {
 });
 
 // Location API
-app.get('/api/location', async (req, res) => {
+app.get('/api/geo-data', async (req, res) => {
   try {
-    const geoip = (await import('geoip-lite')).default;
     const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
     
     // Ignore localhost for GeoIP lookup, fallback to a dummy IP for testing if needed
     const geo = geoip.lookup(clientIp === '::1' || clientIp === '127.0.0.1' ? '8.8.8.8' : clientIp);
+
     
     if (geo) {
       return res.status(200).json({
@@ -253,7 +254,7 @@ app.get('/api/location', async (req, res) => {
 });
 
 // Analytics tracking API
-app.post('/api/track', async (req, res) => {
+app.post('/api/app-events', async (req, res) => {
   try {
     const { event_name, event_data, session_id, url, user_agent, user_id, utm_params } = req.body;
     const client_ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0];

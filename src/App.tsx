@@ -46,6 +46,11 @@ import SEO from './components/SEO';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
 
+import LocationDetailsPage from './pages/LocationDetailsPage';
+import CareersPage from './pages/CareersPage';
+import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
+import MushroomFranchisePage from './pages/MushroomFranchisePage';
+
 // --- Constants & Types ---
 
 const ProductionSOP = () => {
@@ -476,6 +481,7 @@ const NAV_ITEMS = [
       { name: "Cold Chain", href: "/services/cold-chain" },
       { name: "Government Subsidy", href: "/subsidy" },
       { name: "Grow Tech Equipment", href: "/equipment" },
+      { name: "Franchise", href: "/mushroom-franchise" },
     ]
   },
   { 
@@ -488,6 +494,8 @@ const NAV_ITEMS = [
       { name: "Mushroom Types", href: "/mushroom-types" },
       { name: "Business Plan", href: "/business-plan" },
       { name: "ROI Calculator", href: "/roi-calculator" },
+      { name: "Daily Prices", href: "/mushroom-price-today" },
+      { name: "Careers", href: "/careers" },
     ]
   },
   { name: "Turnkey Projects", href: "/turnkey-projects", isExternal: false, icon: ShieldCheck },
@@ -1765,7 +1773,10 @@ const Footer = () => {
                 { name: "About Us", href: "/about" },
                 { name: "Services", href: "/services" },
                 { name: "Training", href: "/training" },
+                { name: "Franchise", href: "/mushroom-franchise" },
                 { name: "Mushroom Types", href: "/mushroom-types" },
+                { name: "Careers", href: "/careers" },
+                { name: "Mushroom Prices", href: "/mushroom-price-today" },
                 { name: "Gallery", href: "/gallery" },
               ].map(item => (
                 <li key={item.name}>
@@ -3296,6 +3307,15 @@ export default function App() {
             <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
+            <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
+            <Route path="/careers-*" element={<LocationDetailsPage />} />
+            <Route path="/mushroom-training-*" element={<LocationDetailsPage />} />
+            <Route path="/mushroom-farming-*" element={<LocationDetailsPage />} />
+            <Route path="/mushroom-franchise-*" element={<LocationDetailsPage />} />
+
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
