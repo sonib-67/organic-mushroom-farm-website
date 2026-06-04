@@ -546,6 +546,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -793,30 +794,56 @@ const Navbar = () => {
                         </a>
                       ) : (
                         <div className="w-full">
-                          <Link 
-                            to={item.href} 
-                            onClick={() => setMobileMenuOpen(false)} 
-                            className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? 'dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900'}`}
-                          >
-                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10'}`}>
-                              {item.icon && <item.icon size={20} />}
-                            </div>
-                            <span className={isActive ? 'gradient-text' : ''}>{item.name}</span>
-                          </Link>
-                          {(item as any).subMenu && (
-                            <div className="ml-20 mt-1 space-y-1 mb-4 flex flex-col">
-                              {(item as any).subMenu.map((sub: any) => (
-                                <Link 
-                                  key={sub.name}
-                                  to={sub.href}
-                                  onClick={() => setMobileMenuOpen(false)}
-                                  className="py-2 text-sm font-bold text-slate-500 hover:text-primary-start transition-colors"
-                                >
-                                  {sub.name}
-                                </Link>
-                              ))}
-                            </div>
+                          {(item as any).subMenu ? (
+                            <button
+                              onClick={() => {
+                                setExpandedMobileMenu(prev => prev === item.name ? null : item.name);
+                              }}
+                              className={`flex items-center justify-between text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? 'dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900'}`}
+                            >
+                              <div className="flex items-center gap-5">
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10'}`}>
+                                  {item.icon && <item.icon size={20} />}
+                                </div>
+                                <span className={isActive ? 'gradient-text' : ''}>{item.name}</span>
+                              </div>
+                              <ChevronDown size={20} className={`transition-transform duration-300 ${expandedMobileMenu === item.name ? 'rotate-180' : ''}`} />
+                            </button>
+                          ) : (
+                            <Link 
+                              to={item.href} 
+                              onClick={() => setMobileMenuOpen(false)} 
+                              className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? 'dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]' : 'dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900'}`}
+                            >
+                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? 'bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]' : 'dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10'}`}>
+                                {item.icon && <item.icon size={20} />}
+                              </div>
+                              <span className={isActive ? 'gradient-text' : ''}>{item.name}</span>
+                            </Link>
                           )}
+                          <AnimatePresence>
+                            {(item as any).subMenu && expandedMobileMenu === item.name && (
+                              <motion.div 
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="ml-20 mt-1 space-y-1 mb-4 flex flex-col">
+                                  {(item as any).subMenu.map((sub: any) => (
+                                    <Link 
+                                      key={sub.name}
+                                      to={sub.href}
+                                      onClick={() => setMobileMenuOpen(false)}
+                                      className="py-2 text-sm font-bold text-slate-500 hover:text-primary-start transition-colors"
+                                    >
+                                      {sub.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       )}
                     </motion.div>
