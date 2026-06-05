@@ -4,7 +4,6 @@ import { MapPin, Phone, MessageCircle, Sprout, Briefcase, TrendingUp, Users, Awa
 import { useLocation, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { generateReviewSchema } from '../utils/seoSchemas';
-import FAQSection from '../components/FAQSection'; // Assumes this exists or I will create an inline FAQ
 
 export default function LocationDetailsPage() {
   const { pathname } = useLocation();

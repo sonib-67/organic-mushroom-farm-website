@@ -1,6 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { generateReviewSchema, generateLocalBusinessSchema } from '../utils/seoSchemas';
+import { 
+  generateReviewSchema, 
+  generateLocalBusinessSchema, 
+  generateOrganizationSchema, 
+  generateWebsiteSchema, 
+  generateFounderSchema 
+} from '../utils/seoSchemas';
 
 interface SEOProps {
   title: string;
@@ -18,7 +24,10 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
 
   const defaultSchemas = [
-    generateLocalBusinessSchema(),
+    generateOrganizationSchema(),
+    generateWebsiteSchema(),
+    generateLocalBusinessSchema(url || ""),
+    generateFounderSchema(),
     generateReviewSchema(title)
   ];
 

@@ -1801,13 +1801,13 @@ const Footer = () => {
                 <Youtube size={16} className="text-red-500 group-hover:scale-110 transition-transform" />
                 <span className="font-medium">YouTube</span>
               </a>
-              <a href="https://www.google.com/maps/place/Organic+Mushroom+Farm+Jabalpur/data=!4m2!3m1!1s0x398195413dca528d:0xf300f41d92f31068?sa=X&ved=1t:242&hl=en-IN&ictx=111" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-blue-500/10 border dark:border-white/5 border-black/5 hover:border-blue-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
+              <a href="https://maps.app.goo.gl/z7oQHSoLbCL9H4ov8?g_st=ic" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-blue-500/10 border dark:border-white/5 border-black/5 hover:border-blue-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
                 <MapPin size={16} className="text-blue-500 group-hover:scale-110 transition-transform" />
-                <span className="font-medium">Find Us on Google Maps</span>
+                <span className="font-medium">Google Profile</span>
               </a>
-              <a href="https://www.exportersindia.com/organic-mushroom-farm-jabalpur/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-amber-500/10 border dark:border-white/5 border-black/5 hover:border-amber-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
-                <Briefcase size={16} className="text-amber-500 group-hover:scale-110 transition-transform" />
-                <span className="font-medium">Exporters India</span>
+              <a href="https://www.pinterest.com/organicmushroomfarm" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-pink-500/10 border dark:border-white/5 border-black/5 hover:border-pink-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group">
+                <ShieldCheck size={16} className="text-pink-500 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">Pinterest</span>
               </a>
             </div>
           </div>
@@ -1831,7 +1831,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Resources</h4>
+            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Resources & Trust</h4>
             <ul className="space-y-3">
               {[
                 { name: "Business Plan", href: "/business-plan" },
@@ -1842,6 +1842,9 @@ const Footer = () => {
                 { name: "Contact", href: "/contact" },
                 { name: "Terms of Service", href: "/terms" },
                 { name: "Privacy Policy", href: "/privacy" },
+                { name: "Refund Policy", href: "/refund-policy" },
+                { name: "Shipping Policy", href: "/shipping-policy" },
+                { name: "Customer Support", href: "/support" },
               ].map(item => (
                 <li key={item.name}>
                   <Link to={item.href} className="text-slate-500 hover:dark:text-white text-slate-900 transition-colors text-sm font-medium">{item.name}</Link>
@@ -1852,10 +1855,12 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
           <div className="mb-6 md:mb-0">© 2026 Organic Mushroom Farm. All Rights Reserved.</div>
-          <div className="flex gap-8">
+          <div className="flex gap-6 flex-wrap justify-center">
             {[
-              { label: "Insta", href: "https://www.instagram.com/organic_mushroom_farm_jabalpur" },
-              { label: "FB", href: "https://www.facebook.com/organic.mushroom.farm0" },
+              { label: "Instagram", href: "https://www.instagram.com/organic_mushroom_farm_jabalpur" },
+              { label: "Facebook", href: "https://www.facebook.com/organic.mushroom.farm0" },
+              { label: "YouTube", href: "https://www.youtube.com/@organicmushroomfarm" },
+              { label: "Pinterest", href: "https://www.pinterest.com/organicmushroomfarm" },
             ].map(social => (
               <a 
                 key={social.label} 
@@ -3292,6 +3297,133 @@ const PrivacyPolicyPage = () => {
   );
 };
 
+const RefundPolicyPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="min-h-screen">
+      <SEO 
+        title="Refund Policy" 
+        description="Review the refund terms and conditions for training programs, consultancy, and turnkey commercial projects at Organic Mushroom Farm."
+        url="/refund-policy"
+      />
+      <PageHero 
+        badge="Legal & Trust"
+        title="Refund Policy & Guarantee" 
+        description="Transparent parameters for enrollment, consultancy credits, and project setup services."
+      />
+      <section className="section-padding pt-0 pb-32">
+        <div className="max-w-4xl mx-auto px-4 prose prose-invert">
+          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+            <h2 className="dark:text-white text-slate-900">1. Digital Training & Course Materials</h2>
+            <p className="dark:text-slate-400 text-slate-600">Our Online Commercial Mushroom Training (priced at ₹399) provides instant access to proprietary video modules, premium SOP catalogs, and lifetime documentation resources. Because these materials are instantly downloadable and copyable, all payments for digital courses are <strong>strict and non-refundable</strong>.</p>
+            
+            <h2 className="dark:text-white text-slate-900 mt-10">2. Practical Workshops</h2>
+            <p className="dark:text-slate-400 text-slate-600">For our intensive 1-day offline workshops at Jabalpur (priced at ₹3000), we reserve seats and pre-order study kits/substrate ingredients. Cancellations requested over 72 hours prior to the event will be eligible for rescheduling to a future date at zero cost, but they are not eligible for cash refunds.</p>
+            
+            <h2 className="dark:text-white text-slate-900 mt-10">3. Commercial Turnkey Projects</h2>
+            <p className="dark:text-slate-400 text-slate-600">Milestone payments made for climate-controlled PUF panel structures, Daikin refrigeration design, and industrial HVAC installations are guided by custom contracts. Once procurement is completed as per specifications, those specialized milestones are binding and non-refundable.</p>
+
+            <h2 className="dark:text-white text-slate-900 mt-10">4. Support & Handholding Guarantee</h2>
+            <p className="dark:text-slate-400 text-slate-600">While biological yields are management-dependent, we offer a <strong>100% Support Guarantee</strong>. If your G1 spawn gets contaminated due to a technical lapse in our guide materials, we will replace the spawn batch absolutely free of charge.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const ShippingPolicyPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="min-h-screen">
+      <SEO 
+        title="Shipping Policy" 
+        description="Learn about the shipping and delivery guidelines of premium mushroom spawn (seed) and industrial farming equipment at Organic Mushroom Farm."
+        url="/shipping-policy"
+      />
+      <PageHero 
+        badge="Logistics & Delivery"
+        title="Spawn Shipping & Logistics" 
+        description="How we safely package and ship high-grade G1 mushroom seed and equipment globally."
+      />
+      <section className="section-padding pt-0 pb-32">
+        <div className="max-w-4xl mx-auto px-4 prose prose-invert">
+          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+            <h2 className="dark:text-white text-slate-900">1. Cold Chain & Insulated Packaging</h2>
+            <p className="dark:text-slate-400 text-slate-600">Our First-Generation (G1) premium quality, certified mushroom spawn is a living organism. To maintain viability and prevent high-temperature exposure during transit, all spawn batches are packed in <strong>heavy-gauge insulated polystyrene boxes with commercial ice-gel packs</strong>. This guarantees that they remain below 25°C throughout transport.</p>
+            
+            <h2 className="dark:text-white text-slate-900 mt-10">2. Processing & Lead Times</h2>
+            <ul className="dark:text-slate-400 text-slate-600 space-y-2 list-disc pl-5">
+              <li><strong>Spawn Shipping:</strong> Shipped within 24 to 48 hours of order confirmation.</li>
+              <li><strong>Technical Equipment:</strong> Sensors, climate controllers, and customized racks are processed in 3–5 working days of engineering checklist completion.</li>
+            </ul>
+            
+            <h2 className="dark:text-white text-slate-900 mt-10">3. Delivery Coverage (Pan-India & Global)</h2>
+            <p className="dark:text-slate-400 text-slate-600">We partner with premier carriers (Delhivery, BlueDart, DTDC, and air express logistics) to deliver to all 28 States and 8 Union Territories in India. We also arrange phytosanitary certified export shipping to UAE, United Kingdom, United States, Canada, Nepal, and adjacent markets.</p>
+
+            <h2 className="dark:text-white text-slate-900 mt-10">4. Handling & Damage Claims</h2>
+            <p className="dark:text-slate-400 text-slate-600">If your package is damaged or delayed heavily, leading to spawn contamination or temperature damage, please record an unboxing video and send it to our official WhatsApp support number <strong>+91 9203544140</strong> within 24 hours of delivery. We will issue a replacement shipment immediately.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const CustomerSupportPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="min-h-screen">
+      <SEO 
+        title="Customer Support" 
+        description="Reach out to the Organic Mushroom Farm dedicated customer service division. Get answers on order tracking, training, and commercial turnkey consultation."
+        url="/support"
+      />
+      <PageHero 
+        badge="Helpdesk"
+        title="Customer Support & Helpline" 
+        description="We are committed to providing seamless handholding and customer service for agri-entrepreneurs."
+      />
+      <section className="section-padding pt-0 pb-32">
+        <div className="max-w-4xl mx-auto px-4 prose prose-invert">
+          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+            <h2 className="dark:text-white text-slate-900 mb-6">Contact Channels & Operations</h2>
+            <p className="dark:text-slate-400 text-slate-600 mb-8">Whether you are tracking a spawn shipment, solving commercial cooling ventilation errors, or applying for government NHB subsidies, our specialized desk is ready to assist you.</p>
+
+            <div className="grid md:grid-cols-2 gap-6 my-10 not-prose">
+              <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+                <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">📞 Direct Hotline</h3>
+                <p className="text-slate-500 text-sm mb-4">Talk to Tanish Soni and senior advisors directly for instant commercial support.</p>
+                <a href="tel:+919203544140" className="text-primary-start font-bold text-lg hover:underline">+91 9203544140</a>
+              </div>
+              <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+                <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">💬 WhatsApp Support</h3>
+                <p className="text-slate-500 text-sm mb-4">Fast tracking, photo sharing, invoice support, and SOP questions.</p>
+                <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 rounded-lg text-white font-bold hover:bg-green-600 transition-colors text-sm">
+                  Send WhatsApp Message
+                </a>
+              </div>
+            </div>
+
+            <h2 className="dark:text-white text-slate-900 mt-10">Helpline Operational Timings</h2>
+            <ul className="dark:text-slate-400 text-slate-600 space-y-2 list-disc pl-5">
+              <li><strong>Monday to Sunday:</strong> 08:00 AM to 08:00 PM (IST)</li>
+              <li><strong>Email Assistance:</strong> gamingbuddyzone@gmail.com (Responded to within 4 working hours)</li>
+              <li><strong>Physical Farm Visit Address:</strong> Katangi Link Road, Jabalpur, Madhya Pradesh, India (Prior appointment required)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -3349,6 +3481,9 @@ export default function App() {
             <Route path="/roi-calculator" element={<ROICalculatorPage />} />
             <Route path="/terms" element={<TermsOfServicePage />} />
             <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/refund-policy" element={<RefundPolicyPage />} />
+            <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+            <Route path="/support" element={<CustomerSupportPage />} />
             <Route path="/contact" element={<ContactPage />} />
             
             <Route path="/careers" element={<CareersPage />} />
