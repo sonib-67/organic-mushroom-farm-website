@@ -67,7 +67,7 @@ export const generateLocalBusinessSchema = (path: string = "") => {
     "@id": `https://organicmushroomfarm.shop/${path ? path.replace(/^\//, '') : '#localbusiness'}`,
     "url": `https://organicmushroomfarm.shop${path}`,
     "telephone": "+919203544140",
-    "email": "gamingbuddyzone@gmail.com",
+    "email": "support@mushroomtraining.online",
     "priceRange": "₹Standard",
     "sameAs": SOCIAL_PROFILES,
     "hasMap": GOOGLE_MAPS_BUSINESS_LINK,
@@ -138,7 +138,7 @@ export const generateOrganizationSchema = () => {
     "url": "https://organicmushroomfarm.shop",
     "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
     "telephone": "+919203544140",
-    "email": "gamingbuddyzone@gmail.com",
+    "email": "support@mushroomtraining.online",
     "founder": {
       "@type": "Person",
       "name": "Tanish Soni",

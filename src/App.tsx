@@ -3414,7 +3414,7 @@ const CustomerSupportPage = () => {
             <h2 className="dark:text-white text-slate-900 mt-10">Helpline Operational Timings</h2>
             <ul className="dark:text-slate-400 text-slate-600 space-y-2 list-disc pl-5">
               <li><strong>Monday to Sunday:</strong> 08:00 AM to 08:00 PM (IST)</li>
-              <li><strong>Email Assistance:</strong> gamingbuddyzone@gmail.com (Responded to within 4 working hours)</li>
+              <li><strong>Email Assistance:</strong> support@mushroomtraining.online (Responded to within 4 working hours)</li>
               <li><strong>Physical Farm Visit Address:</strong> Katangi Link Road, Jabalpur, Madhya Pradesh, India (Prior appointment required)</li>
             </ul>
           </div>
