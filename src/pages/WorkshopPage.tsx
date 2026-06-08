@@ -22,6 +22,16 @@ const WorkshopPage = () => {
   const [formData, setFormData] = useState({ name: '', phone: '' });
 
   useEffect(() => {
+    if (location.state && (location.state as any).retryFormData) {
+      const data = (location.state as any).retryFormData;
+      setFormData(data);
+      setShowCheckout(true);
+      // Clear location state to prevent re-opening on tab reload
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
+
+  useEffect(() => {
     loadRazorpayScript();
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -29,16 +39,6 @@ const WorkshopPage = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    const locState = location.state as { retryFormData?: { name: string; phone: string } } | null;
-    if (locState?.retryFormData) {
-      setFormData(locState.retryFormData);
-      setShowCheckout(true);
-      // Clear location state so reloading the page doesn't keep popping it open
-      window.history.replaceState({}, document.title);
-    }
-  }, [location.state]);
 
   const handlePayment = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -79,13 +79,14 @@ const WorkshopPage = () => {
         modal: {
           ondismiss: function() {
             setLoading(false);
-            navigate('/payment-cancelled', { 
-              state: { 
-                from: '/training', 
-                productName: 'Organic Mushroom Farming Workshop', 
-                amount: 19900, 
-                formData: formData 
-              } 
+            navigate('/payment-cancelled', {
+              state: {
+                amount: 19900,
+                currency: 'INR',
+                productName: 'Mushroom Farming Workshop',
+                from: window.location.pathname,
+                formData: formData
+              }
             });
           }
         }
@@ -95,13 +96,14 @@ const WorkshopPage = () => {
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
-             navigate('/payment-cancelled', { 
-               state: { 
-                 from: '/training', 
-                 productName: 'Organic Mushroom Farming Workshop', 
-                 amount: 19900, 
-                 formData: formData 
-               } 
+             navigate('/payment-cancelled', {
+               state: {
+                 amount: 19900,
+                 currency: 'INR',
+                 productName: 'Mushroom Farming Workshop',
+                 from: window.location.pathname,
+                 formData: formData
+               }
              });
         });
         rzp.open();
