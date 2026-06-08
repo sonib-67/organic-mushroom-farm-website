@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, ShieldCheck, MapPin, X, Users, Zap, Briefcase, Layers, Calendar, MessageCircle } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
+import { loadRazorpayScript } from '../utils/razorpay';
 
 export default function BookConsultantPage() {
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ export default function BookConsultantPage() {
       setFormData((location.state as any).retryFormData);
       setModalState('form');
     }
+    // Lazily load Razorpay checkout script on consultant page mount
+    loadRazorpayScript();
   }, [location.state]);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -87,6 +90,9 @@ export default function BookConsultantPage() {
           }
         }
       };
+
+      // Ensure Razorpay script is loaded dynamically
+      await loadRazorpayScript();
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         trackPaymentStep('InitiateCheckout', {

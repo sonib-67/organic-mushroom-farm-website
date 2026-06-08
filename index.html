@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ✅ Preconnect and Preload Google Web Fonts for optimal performance without visual shifts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" />
+    </noscript>
+
     <!-- ✅ Google Tag Manager (SINGLE - Remove duplicates) -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -19,18 +28,55 @@
       gtag('config', 'AW-11268929095');
     </script>
 
-    <!-- ✅ Meta Pixel Code -->
+    <!-- ✅ Meta Pixel Code (Optimized & Non-Blocking) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    n.queue=[];}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '925374987123460');
     fbq('track', 'PageView');
+
+    // Defer loading of heavy third-party Meta Pixel fbevents.js script to improve mobile PageSpeed
+    (function() {
+      var scriptLoaded = false;
+      function loadDeferredScripts() {
+        if (scriptLoaded) return;
+        scriptLoaded = true;
+
+        var t = document.createElement('script');
+        t.async = true;
+        t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        var s = document.getElementsByTagName('script')[0];
+        if (s && s.parentNode) {
+          s.parentNode.insertBefore(t, s);
+        } else {
+          document.head.appendChild(t);
+        }
+
+        cleanupListeners();
+      }
+
+      function cleanupListeners() {
+        window.removeEventListener('scroll', loadDeferredScripts);
+        window.removeEventListener('mousemove', loadDeferredScripts);
+        window.removeEventListener('touchstart', loadDeferredScripts);
+        window.removeEventListener('click', loadDeferredScripts);
+        window.removeEventListener('keydown', loadDeferredScripts);
+      }
+
+      // Safe load: 2.5s after load event, or immediate upon any user interaction
+      window.addEventListener('load', function() {
+        setTimeout(loadDeferredScripts, 2500);
+      });
+
+      window.addEventListener('scroll', loadDeferredScripts, { passive: true });
+      window.addEventListener('mousemove', loadDeferredScripts, { passive: true });
+      window.addEventListener('touchstart', loadDeferredScripts, { passive: true });
+      window.addEventListener('click', loadDeferredScripts, { passive: true });
+      window.addEventListener('keydown', loadDeferredScripts, { passive: true });
+    })();
     </script>
     <!-- End Meta Pixel Code -->
 
@@ -1485,9 +1531,6 @@
     </script>
     <!-- ✅ Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8976157136173429" crossorigin="anonymous"></script>
-
-    <!-- ✅ Razorpay Checkout Script -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
 
   <body>

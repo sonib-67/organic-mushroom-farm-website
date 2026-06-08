@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
+import { loadRazorpayScript } from '../utils/razorpay';
 
 export default function TrainingCheckoutPage() {
   const navigate = useNavigate();
@@ -21,6 +22,8 @@ export default function TrainingCheckoutPage() {
     if (location.state && (location.state as any).retryFormData) {
       setFormData((location.state as any).retryFormData);
     }
+    // Lazily load Razorpay checkout script on checkout page mount
+    loadRazorpayScript();
   }, [location.state]);
 
   const handleSubmit = async (e?: React.FormEvent) => {
@@ -104,6 +107,9 @@ export default function TrainingCheckoutPage() {
           }
         }
       };
+
+      // Ensure Razorpay script is loaded
+      await loadRazorpayScript();
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         trackPaymentStep('InitiateCheckout', {
