@@ -221,7 +221,7 @@ app.post('/api/razorpay-webhook', async (req, res) => {
 });
 
 // Location API
-app.get('/api/geo-data', async (req, res) => {
+app.get('/api/location', async (req, res) => {
   try {
     const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
     
@@ -254,7 +254,7 @@ app.get('/api/geo-data', async (req, res) => {
 });
 
 // Analytics tracking API
-app.post('/api/app-events', async (req, res) => {
+app.post('/api/track', async (req, res) => {
   try {
     const { event_name, event_data, session_id, url, user_agent, user_id, utm_params } = req.body;
     const client_ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0];

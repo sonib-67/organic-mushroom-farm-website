@@ -30,7 +30,7 @@ const pushEventToDB = async (eventName: string, data?: any) => {
     // Optionally incorporate location if we're not running concurrently
     const locationData = await getUserLocation().catch(() => null);
     
-    fetch('/api/app-events', {
+    fetch('/api/track', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

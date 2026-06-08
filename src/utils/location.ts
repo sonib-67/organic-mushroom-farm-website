@@ -47,7 +47,7 @@ export const getUserLocation = async (): Promise<LocationData | null> => {
     }
 
     // Fallback to IP-based location
-    const res = await fetch('/api/geo-data');
+    const res = await fetch('/api/location');
     if (res.ok) {
       const data = await res.json();
       cachedLocation = {
