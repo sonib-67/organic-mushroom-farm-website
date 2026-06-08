@@ -722,15 +722,16 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
               onClick={() => setMobileMenuOpen(false)}
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
 
             <motion.div 
-              initial={{ x: '100%', opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: '100%', opacity: 0 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-white/60 dark:bg-black/60 backdrop-blur-[20px] shadow-[-15px_0_50px_rgba(124,58,237,0.15)] rounded-l-[30px] border-l border-white/20 flex flex-col items-center overflow-hidden z-[9999]"
             >
               <div 
@@ -766,9 +767,9 @@ const Navbar = () => {
                   return (
                     <motion.div 
                       key={item.name}
-                      initial={{ x: 30, opacity: 0 }}
+                      initial={{ x: 15, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: i * 0.08, type: 'spring', damping: 20 }}
+                      transition={{ delay: i * 0.03, duration: 0.18, ease: "easeOut" }}
                       className="w-full"
                     >
                       {isHashLink && location.pathname === '/' ? (
@@ -3518,6 +3519,79 @@ const ScrollToTop = () => {
   return null;
 };
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -12 }}
+        transition={{ duration: 0.28, ease: "easeOut" }}
+        className="w-full h-full"
+      >
+        <Routes location={location}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/book-consultant" element={<BookConsultantPage />} />
+          <Route path="/on-site-consultation" element={<SiteVisitConsultationPage />} />
+          <Route path="/payment-success" element={<PaymentSuccessPage />} />
+          <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />
+          <Route path="/services/:id" element={<ServiceDetailPage />} />
+          <Route path="/process/:id" element={<ProcessDetailPage />} />
+          <Route path="/model-details" element={<ModelDetailsPage />} />
+          <Route path="/compost-unit-specs" element={<CompostUnitSpecsPage />} />
+          <Route path="/contact-form" element={<ContactFormPage />} />
+          <Route path="/sops" element={<SopsPage />} />
+          <Route path="/expertise-details" element={<ExpertiseDetailsPage />} />
+          <Route path="/spawn-seed" element={<SpawnSeedPage />} />
+          <Route path="/business-plan" element={<BusinessPlan />} />
+          <Route path="/mushroom-types" element={<MushroomTypes />} />
+          <Route path="/equipment" element={<Equipment />} />
+          <Route path="/subsidy" element={<Subsidy />} />
+          <Route path="/locations" element={<Locations />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<ArticlePage />} />
+          <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
+          <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
+          <Route path="/articles/what-is-mushroom-spawn-beginner-guide-india" element={<ArticleMushroomSpawn />} />
+          <Route path="/articles/mushroom-farming-business-plan-hindi-2026" element={<ArticleBusinessPlanHindi />} />
+          <Route path="/articles/mushroom-farming-training-hindi-india" element={<ArticleTrainingGuideHindi />} />
+          <Route path="/articles/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingAffordable />} />
+          <Route path="/success-stories" element={<SuccessStories />} />
+          <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
+          <Route path="/workshop" element={<WorkshopPage />} />
+          <Route path="/training" element={<TrainingPage />} />
+          <Route path="/training-checkout" element={<TrainingCheckoutPage />} />
+          <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/roi-calculator" element={<ROICalculatorPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/refund-policy" element={<RefundPolicyPage />} />
+          <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+          <Route path="/support" element={<CustomerSupportPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
+          <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
+          <Route path="/careers-/*" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -3528,62 +3602,7 @@ export default function App() {
         <Navbar />
         
         <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/book-consultant" element={<BookConsultantPage />} />
-            <Route path="/on-site-consultation" element={<SiteVisitConsultationPage />} />
-            <Route path="/payment-success" element={<PaymentSuccessPage />} />
-            <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/spawn-supply" element={<Navigate to="/spawn-seed" replace />} />
-            <Route path="/services/:id" element={<ServiceDetailPage />} />
-            <Route path="/process/:id" element={<ProcessDetailPage />} />
-            <Route path="/model-details" element={<ModelDetailsPage />} />
-            <Route path="/compost-unit-specs" element={<CompostUnitSpecsPage />} />
-            <Route path="/contact-form" element={<ContactFormPage />} />
-            <Route path="/sops" element={<SopsPage />} />
-            <Route path="/expertise-details" element={<ExpertiseDetailsPage />} />
-            <Route path="/spawn-seed" element={<SpawnSeedPage />} />
-            <Route path="/business-plan" element={<BusinessPlan />} />
-            <Route path="/mushroom-types" element={<MushroomTypes />} />
-            <Route path="/equipment" element={<Equipment />} />
-            <Route path="/subsidy" element={<Subsidy />} />
-            <Route path="/locations" element={<Locations />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<ArticlePage />} />
-            <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
-            <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
-            <Route path="/articles/what-is-mushroom-spawn-beginner-guide-india" element={<ArticleMushroomSpawn />} />
-            <Route path="/articles/mushroom-farming-business-plan-hindi-2026" element={<ArticleBusinessPlanHindi />} />
-            <Route path="/articles/mushroom-farming-training-hindi-india" element={<ArticleTrainingGuideHindi />} />
-            <Route path="/articles/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingAffordable />} />
-            <Route path="/success-stories" element={<SuccessStories />} />
-            <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
-            <Route path="/workshop" element={<WorkshopPage />} />
-            <Route path="/training" element={<TrainingPage />} />
-            <Route path="/training-checkout" element={<TrainingCheckoutPage />} />
-            <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/faq" element={<FAQPage />} />
-            <Route path="/roi-calculator" element={<ROICalculatorPage />} />
-            <Route path="/terms" element={<TermsOfServicePage />} />
-            <Route path="/privacy" element={<PrivacyPolicyPage />} />
-            <Route path="/refund-policy" element={<RefundPolicyPage />} />
-            <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
-            <Route path="/support" element={<CustomerSupportPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
-            <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
-            <Route path="/careers-/*" element={<LocationDetailsPage />} />
-            <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
-            <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
-            <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
-
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <AnimatedRoutes />
         </main>
 
         <Footer />

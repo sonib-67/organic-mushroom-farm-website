@@ -73,16 +73,19 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth !important;
     background: var(--bg-gradient);
     min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
   }
   body, #root {
+    scroll-behavior: smooth !important;
     background: var(--bg-gradient) !important;
     background-attachment: fixed !important;
     color: var(--text-body) !important;
     @apply font-sans antialiased overflow-x-hidden;
     min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* Force override all text colors to fix both modes, but exclude buttons, active markers, and gradient-bg elements */
