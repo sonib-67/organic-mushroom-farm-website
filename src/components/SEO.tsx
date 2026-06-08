@@ -36,7 +36,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
   return (
     <Helmet>
       {/* Title */}
-      <title>{title} | Organic Mushroom Farm India</title>
+      <title>{title} | Organic Mushroom Farm India & Global</title>
 
       {/* SEO */}
       <meta name="description" content={description} />
