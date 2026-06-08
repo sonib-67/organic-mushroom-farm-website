@@ -56,6 +56,7 @@ export default function TrainingCheckoutPage() {
         key: payload.key_id,
         amount: payload.amount,
         currency: payload.currency,
+        order_id: payload.order_id,
         name: payload.name,
         description: payload.description,
         prefill: payload.prefill,

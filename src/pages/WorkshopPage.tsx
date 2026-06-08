@@ -67,6 +67,7 @@ const WorkshopPage = () => {
         key: payload.key_id,
         amount: payload.amount,
         currency: payload.currency,
+        order_id: payload.order_id,
         name: payload.name,
         description: payload.description,
         prefill: { ...payload.prefill, contact: formData.phone, name: formData.name },
