@@ -3502,10 +3502,10 @@ export default function App() {
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
             <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
-            <Route path="/careers-*" element={<LocationDetailsPage />} />
-            <Route path="/mushroom-training-*" element={<LocationDetailsPage />} />
-            <Route path="/mushroom-farming-*" element={<LocationDetailsPage />} />
-            <Route path="/mushroom-franchise-*" element={<LocationDetailsPage />} />
+            <Route path="/careers-/*" element={<LocationDetailsPage />} />
+            <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
+            <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
+            <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
