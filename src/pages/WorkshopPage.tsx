@@ -7,13 +7,14 @@ import {
   TrendingUp,
   Award
 } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { loadRazorpayScript } from '../utils/razorpay';
 import SEO from '../components/SEO';
 
 const WorkshopPage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -28,6 +29,16 @@ const WorkshopPage = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const locState = location.state as { retryFormData?: { name: string; phone: string } } | null;
+    if (locState?.retryFormData) {
+      setFormData(locState.retryFormData);
+      setShowCheckout(true);
+      // Clear location state so reloading the page doesn't keep popping it open
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state]);
 
   const handlePayment = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -68,6 +79,14 @@ const WorkshopPage = () => {
         modal: {
           ondismiss: function() {
             setLoading(false);
+            navigate('/payment-cancelled', { 
+              state: { 
+                from: '/training', 
+                productName: 'Organic Mushroom Farming Workshop', 
+                amount: 19900, 
+                formData: formData 
+              } 
+            });
           }
         }
       };
@@ -76,7 +95,14 @@ const WorkshopPage = () => {
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
-             navigate('/payment-cancelled');
+             navigate('/payment-cancelled', { 
+               state: { 
+                 from: '/training', 
+                 productName: 'Organic Mushroom Farming Workshop', 
+                 amount: 19900, 
+                 formData: formData 
+               } 
+             });
         });
         rzp.open();
       } else {
