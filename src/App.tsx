@@ -52,6 +52,7 @@ import LocationDetailsPage from './pages/LocationDetailsPage';
 import CareersPage from './pages/CareersPage';
 import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
+import WorkshopPage from './pages/WorkshopPage';
 
 // --- Constants & Types ---
 
@@ -505,7 +506,8 @@ const NAV_ITEMS = [
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
   { name: "Contact", href: "/contact", isExternal: false, icon: Phone },
-  { name: "On Site Visit", href: "/on-site-consultation", isExternal: false, icon: MapPin }
+  { name: "On Site Visit", href: "/on-site-consultation", isExternal: false, icon: MapPin },
+  { name: "Workshop", href: "/workshop", isExternal: false, icon: Award }
 ];
 
 // --- Components ---
@@ -579,6 +581,8 @@ const Navbar = () => {
       document.body.style.overflow = 'unset';
     };
   }, [mobileMenuOpen]);
+
+  if (location.pathname === '/workshop') return null;
 
   return (
     <>
@@ -1754,6 +1758,9 @@ const StatesSection = () => {
 };
 
 const Footer = () => {
+  const location = useLocation();
+  if (location.pathname === '/workshop') return null;
+
   return (
     <footer className="pt-20 pb-24 md:pb-12 bg-black/50 border-t dark:border-white/5 border-black/5">
       <div className="max-w-7xl mx-auto px-6">
@@ -1947,6 +1954,8 @@ const FloatingButtons = () => {
   }, [location.pathname]);
 
   const isTrainingPage = location.pathname === '/training';
+
+  if (location.pathname === '/workshop') return null;
 
   const mobileNavItems = [
     { label: "Book Consultant", href: "/book-consultant", icon: Calendar },
@@ -3476,6 +3485,7 @@ export default function App() {
             <Route path="/articles/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingAffordable />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
+            <Route path="/workshop" element={<WorkshopPage />} />
             <Route path="/training" element={<TrainingPage />} />
             <Route path="/training-checkout" element={<TrainingCheckoutPage />} />
             <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />

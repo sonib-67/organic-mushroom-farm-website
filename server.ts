@@ -54,6 +54,9 @@ app.post('/api/create-order', async (req, res) => {
     if (productType === "training") {
       amount = 29900;
       purpose = "Mushroom Farming Masterclass Training";
+    } else if (productType === "workshop") {
+      amount = 19900; // 199 INR
+      purpose = "Organic Mushroom Farming Workshop";
     } else if (productType === "consultation") {
       amount = 5900;
       purpose = "Expert 1-on-1 Business Consultation Slot";
