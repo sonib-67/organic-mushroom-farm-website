@@ -57,6 +57,9 @@ app.post('/api/create-order', async (req, res) => {
     } else if (productType === "consultation") {
       amount = 5900;
       purpose = "Expert 1-on-1 Business Consultation Slot";
+    } else if (productType === "site_visit_consultation") {
+      amount = 50000;
+      purpose = "On Site Visit Consultation Slot";
     } else if (productType.includes("spawn")) {
       amount = 99900;
       purpose = "Spawn Purchase";

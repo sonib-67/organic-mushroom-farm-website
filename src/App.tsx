@@ -46,6 +46,7 @@ import SEO from './components/SEO';
 import { generateReviewSchema, generateLocalBusinessSchema } from './utils/seoSchemas';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
+import SiteVisitConsultationPage from './pages/SiteVisitConsultationPage';
 
 import LocationDetailsPage from './pages/LocationDetailsPage';
 import CareersPage from './pages/CareersPage';
@@ -503,7 +504,8 @@ const NAV_ITEMS = [
   { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
-  { name: "Contact", href: "/contact", isExternal: false, icon: Phone }
+  { name: "Contact", href: "/contact", isExternal: false, icon: Phone },
+  { name: "On Site Visit", href: "/on-site-consultation", isExternal: false, icon: MapPin }
 ];
 
 // --- Components ---
@@ -3445,6 +3447,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/book-consultant" element={<BookConsultantPage />} />
+            <Route path="/on-site-consultation" element={<SiteVisitConsultationPage />} />
             <Route path="/payment-success" element={<PaymentSuccessPage />} />
             <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
             <Route path="/about" element={<AboutPage />} />
