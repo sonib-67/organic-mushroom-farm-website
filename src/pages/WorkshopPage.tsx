@@ -99,66 +99,24 @@ const WorkshopPage = () => {
   ];
 
   return (
-    <div className="font-sans bg-[#0a0f0d] text-white min-h-screen overflow-x-hidden selection:bg-green-500/30">
+    <div className="font-sans dark:bg-[#0a0f0d] bg-slate-50 dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
       
       {/* Sticky Navbar */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0a0f0d]/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'dark:bg-[#0a0f0d]/80 bg-white/80 backdrop-blur-md border-b dark:border-white/5 border-black/5 py-4' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden">
                 <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1779785300/d91bc495-04ad-4214-ad23-5abdd9bf370d_gzmzqt.jpg" alt="Logo" className="w-full h-full object-cover" />
               </div>
-              <span className="font-bold text-base md:text-lg tracking-tight text-white whitespace-nowrap">Organic Mushroom Farm</span>
+              <span className="font-bold text-base md:text-lg tracking-tight dark:text-white text-slate-900 whitespace-nowrap">Organic Mushroom Farm</span>
             </Link>
           </div>
           
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
-                {link.name}
-              </a>
-            ))}
-          </div>
-
           <div className="flex items-center gap-4">
-            <button onClick={handlePayment} className="hidden md:flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)]">
-              Join Workshop
-            </button>
-            <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-              {mobileMenuOpen ? <X /> : <Menu />}
-            </button>
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#0a0f0d] pt-24 px-6 md:hidden"
-          >
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-2xl font-bold text-white/80 hover:text-white"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <button onClick={handlePayment} className="w-full mt-4 bg-green-500 text-white px-6 py-4 rounded-xl font-bold text-lg">
-                Join Workshop Now
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Hero Section */}
       <section id="home" className="pt-24 pb-10 md:pt-40 md:pb-24 px-4 relative">
@@ -170,7 +128,7 @@ const WorkshopPage = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-purple-400 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 text-sm font-medium text-purple-600 dark:text-purple-400 mb-6"
           >
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
             Workshop Starting soon
@@ -192,7 +150,7 @@ const WorkshopPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xs md:text-lg text-slate-300 mb-4 md:mb-8 max-w-2xl font-light px-2"
+            className="text-xs md:text-lg dark:text-slate-300 text-slate-700 mb-4 md:mb-8 max-w-2xl font-light px-2"
           >
             Learn Oyster, Button & Milky Mushroom Farming from Experts. A complete step-by-step masterclass to launch your agribusiness.
           </motion.p>
@@ -209,8 +167,8 @@ const WorkshopPage = () => {
                 Reserve Your Seat <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
-            <div className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 px-6 py-2.5 md:py-4 rounded-full backdrop-blur-sm w-full sm:w-auto">
-              <span className="text-xs md:text-sm font-medium text-slate-300">Only</span>
+            <div className="flex items-center justify-center gap-2 dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 px-6 py-2.5 md:py-4 rounded-full backdrop-blur-sm w-full sm:w-auto">
+              <span className="text-xs md:text-sm font-medium dark:text-slate-300 text-slate-700">Only</span>
               <span className="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#FFA500]">₹199</span>
             </div>
           </motion.div>
@@ -221,20 +179,20 @@ const WorkshopPage = () => {
             transition={{ delay: 0.4 }}
             className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto w-full px-2 lg:px-0"
           >
-            <div className="flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+            <div className="flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 backdrop-blur-sm">
               <Users className="w-6 h-6 text-purple-400 mb-2 md:mb-3" />
               <h3 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">5000+</h3>
-              <p className="text-xs md:text-sm text-slate-400">Students</p>
+              <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600">Students</p>
             </div>
-            <div className="flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+            <div className="flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 backdrop-blur-sm">
               <MapPin className="w-6 h-6 text-blue-400 mb-2 md:mb-3" />
               <h3 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Pan India</h3>
-              <p className="text-xs md:text-sm text-slate-400">Reach</p>
+              <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600">Reach</p>
             </div>
-            <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+            <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 backdrop-blur-sm">
               <Clock className="w-6 h-6 text-green-400 mb-2 md:mb-3" />
               <h3 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">24x7</h3>
-              <p className="text-xs md:text-sm text-slate-400">Support</p>
+              <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600">Support</p>
             </div>
           </motion.div>
         </div>
@@ -243,7 +201,7 @@ const WorkshopPage = () => {
       {/* Hero Image Section */}
       <section className="px-4 pb-8 md:pb-20 relative">
         <div className="max-w-6xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="relative rounded-3xl overflow-hidden border dark:border-white/10 border-black/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
             <img 
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901052/Screenshot_2026-06-08_120816_pittyu.png" 
@@ -259,7 +217,7 @@ const WorkshopPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Why Join This Workshop</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-lg px-2">Everything you need to build a successful and highly profitable mushroom farming business from scratch.</p>
+            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2">Everything you need to build a successful and highly profitable mushroom farming business from scratch.</p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
@@ -271,11 +229,11 @@ const WorkshopPage = () => {
               { title: "Business Setup Support", desc: "Guidance on farm design, climate control, and required infrastructure.", icon: Briefcase },
               { title: "Marketing Training", desc: "Don't just grow, know how to sell. Learn B2B and Direct-to-Consumer marketing.", icon: Users },
             ].map((feature, i) => (
-              <div key={i} className="bg-white/[0.03] border border-white/[0.05] hover:border-purple-500/30 p-4 md:p-6 rounded-2xl md:rounded-3xl transition-all hover:bg-white/[0.05] group">
+              <div key={i} className="dark:bg-white/[0.03] bg-black/[0.03] border dark:border-white/[0.05] border-black/[0.05] hover:border-purple-500/30 p-4 md:p-6 rounded-2xl md:rounded-3xl transition-all hover:dark:bg-white/[0.05] bg-black/[0.05] group">
                 {i === 3 ? <Briefcase className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mb-2 md:mb-4 group-hover:scale-110 transition-transform" /> : 
                  feature.icon && <feature.icon className="w-6 h-6 md:w-8 md:h-8 text-purple-400 mb-2 md:mb-4 group-hover:scale-110 transition-transform" />}
                 <h3 className="text-base md:text-lg font-bold mb-1 md:mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">{feature.title}</h3>
-                <p className="text-xs md:text-sm text-slate-400 leading-relaxed">{feature.desc}</p>
+                <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600 leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -287,37 +245,37 @@ const WorkshopPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Workshop Gallery</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-lg px-2">Glimpses of our successful mushroom farm setups and hands-on training sessions across India.</p>
+            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2">Glimpses of our successful mushroom farm setups and hands-on training sessions across India.</p>
           </div>
 
           {/* Top Row - 4 items */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-3 md:mb-4 items-start">
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901050/Screenshot_2026-06-08_120804_myrcoc.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900956/Screenshot_2026-06-08_120832_z6sizr.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900921/Screenshot_2026-06-08_120840_ichkxe.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
           </div>
           
           {/* Bottom Row - 4 items (2 columns) */}
           <div className="grid grid-cols-2 gap-3 md:gap-4 items-start">
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-01-30_124943_ylpdme.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378181/Screenshot_2026-02-22_165318_cyla5n.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
-            <div className="rounded-2xl overflow-hidden relative group border border-white/10">
+            <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
               <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378062/images_wrrupm.jpg" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
           </div>
@@ -329,11 +287,11 @@ const WorkshopPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Watch Real Mushroom Training</h2>
-            <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-lg px-2">See our experts in action and learn what happens inside a commercial organic mushroom farm.</p>
+            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2">See our experts in action and learn what happens inside a commercial organic mushroom farm.</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
-            <div className="rounded-3xl overflow-hidden border-2 border-white/5 hover:border-emerald-500/50 transition-colors bg-white/5 p-2 shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]">
+            <div className="rounded-3xl overflow-hidden border-2 dark:border-white/5 border-black/5 hover:border-emerald-500/50 transition-colors dark:bg-white/5 bg-black/5 p-2 shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]">
               <div className="aspect-video rounded-2xl overflow-hidden relative">
                 <iframe 
                   className="absolute inset-0 w-full h-full" 
@@ -345,7 +303,7 @@ const WorkshopPage = () => {
                 ></iframe>
               </div>
             </div>
-            <div className="rounded-3xl overflow-hidden border-2 border-white/5 hover:border-emerald-500/50 transition-colors bg-white/5 p-2 shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]">
+            <div className="rounded-3xl overflow-hidden border-2 dark:border-white/5 border-black/5 hover:border-emerald-500/50 transition-colors dark:bg-white/5 bg-black/5 p-2 shadow-[0_0_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_40px_rgba(16,185,129,0.15)]">
                <div className="aspect-video rounded-2xl overflow-hidden relative">
                 <iframe 
                   className="absolute inset-0 w-full h-full" 
@@ -371,7 +329,7 @@ const WorkshopPage = () => {
             <div className="flex items-center justify-center gap-1 md:gap-2 mb-3 md:mb-4">
               {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 md:w-6 md:h-6 text-yellow-500 fill-yellow-500" />)}
             </div>
-            <p className="text-slate-300 font-medium text-sm md:text-lg">Rated 4.9/5 by 5,000+ happy farmers across India</p>
+            <p className="dark:text-slate-300 text-slate-700 font-medium text-sm md:text-lg">Rated 4.9/5 by 5,000+ happy farmers across India</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-4 md:gap-6">
@@ -380,14 +338,14 @@ const WorkshopPage = () => {
               { text: "Sir ne practical knowledge diya aur marketing bhi sikhayi. Highly recommended!", author: "Pooja Sharma", role: "Agri-Entrepreneur, MP" },
               { text: "Only ₹199 me itna valuable training expected nahi tha. Best investment ever.", author: "Aman Patel", role: "Business Owner, Gujarat" },
             ].map((review, i) => (
-              <div key={i} className="bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-md p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl relative">
+              <div key={i} className="bg-gradient-to-b dark:from-white/10 from-black/10 dark:to-white/5 to-black/5 border dark:border-white/10 border-black/10 backdrop-blur-md p-6 md:p-8 rounded-[1.5rem] md:rounded-3xl relative">
                 <div className="absolute -top-6 -right-6 text-purple-500/10 md:text-purple-500/20 text-9xl leading-none font-serif">"</div>
                 <div className="flex gap-1 mb-4 md:mb-6 relative z-10">
                    {[1,2,3,4,5].map(star => <Star key={star} className="w-3 h-3 md:w-4 md:h-4 text-[#FFD700] fill-[#FFD700]" />)}
                 </div>
                 <p className="text-sm md:text-lg text-slate-200 mb-6 md:mb-8 relative z-10 leading-relaxed">"{review.text}"</p>
                 <div className="flex items-center gap-3 md:gap-4 relative z-10">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-900 border-2 border-purple-500 flex items-center justify-center text-white font-bold text-lg md:text-xl uppercase">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-900 border-2 border-purple-500 flex items-center justify-center dark:text-white text-slate-900 font-bold text-lg md:text-xl uppercase">
                     {review.author.charAt(0)}
                   </div>
                   <div>
@@ -402,10 +360,10 @@ const WorkshopPage = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-12 md:py-24 bg-[#050806] relative">
+      <section className="py-12 md:py-24 dark:bg-[#050806] bg-slate-100 relative">
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="bg-gradient-to-br from-purple-500/20 via-white/10 to-transparent border border-white/20 rounded-[2rem] p-1 md:p-2 shadow-[0_0_50px_rgba(168,85,247,0.1)]">
-            <div className="bg-[#0a0f0d] rounded-[1.8rem] p-6 md:p-12 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-purple-500/20 dark:via-white/10 via-black/10 to-transparent border dark:border-white/20 border-black/20 rounded-[2rem] p-1 md:p-2 shadow-[0_0_50px_rgba(168,85,247,0.1)]">
+            <div className="dark:bg-[#0a0f0d] bg-white rounded-[1.8rem] p-6 md:p-12 relative overflow-hidden">
                {/* Gold Accent Glow */}
                <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFD700]/10 rounded-full blur-[80px]"></div>
                
@@ -415,7 +373,7 @@ const WorkshopPage = () => {
                       Limited Time Offer
                     </div>
                     <h2 className="text-xl md:text-3xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Complete Mushroom Farming Masterclass</h2>
-                    <p className="text-slate-400 mb-6 md:mb-8 text-sm md:text-base leading-relaxed">Everything you need to successfully grow and sell organic mushrooms.</p>
+                    <p className="dark:text-slate-400 text-slate-600 mb-6 md:mb-8 text-sm md:text-base leading-relaxed">Everything you need to successfully grow and sell organic mushrooms.</p>
                     
                     <ul className="space-y-3 md:space-y-4 text-left">
                       {[
@@ -433,11 +391,11 @@ const WorkshopPage = () => {
                     </ul>
                  </div>
                  
-                 <div className="w-full md:w-auto bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl md:rounded-3xl p-5 md:p-8 text-center min-w-[280px]">
-                    <p className="text-slate-400 font-medium mb-1 md:mb-2 text-sm md:text-base">One-time payment</p>
+                 <div className="w-full md:w-auto bg-gradient-to-b from-white/5 to-transparent border dark:border-white/10 border-black/10 rounded-2xl md:rounded-3xl p-5 md:p-8 text-center min-w-[280px]">
+                    <p className="dark:text-slate-400 text-slate-600 font-medium mb-1 md:mb-2 text-sm md:text-base">One-time payment</p>
                     <div className="flex items-start justify-center gap-1 mb-4 md:mb-6">
-                      <span className="text-xl md:text-2xl font-bold text-slate-300 mt-2">₹</span>
-                      <span className="text-4xl md:text-6xl font-black text-white">199</span>
+                      <span className="text-xl md:text-2xl font-bold dark:text-slate-300 text-slate-700 mt-2">₹</span>
+                      <span className="text-4xl md:text-6xl font-black dark:text-white text-slate-900">199</span>
                       <span className="text-lg md:text-xl text-slate-500 line-through mt-1 md:mt-2 ml-2">₹1999</span>
                     </div>
                     
@@ -466,9 +424,9 @@ const WorkshopPage = () => {
                { q: "How do I sell my mushrooms?", a: "We cover complete marketing strategies, B2B tie-ups, and direct sales techniques in the workshop." },
                { q: "Will I get support after the workshop?", a: "Yes, you get lifetime access to our private WhatsApp community for continuous expert support." }
              ].map((faq, i) => (
-               <div key={i} className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-4 md:p-6">
+               <div key={i} className="dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl md:rounded-2xl p-4 md:p-6">
                  <h3 className="text-base md:text-lg font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">{faq.q}</h3>
-                 <p className="text-sm md:text-base text-slate-400">{faq.a}</p>
+                 <p className="text-sm md:text-base dark:text-slate-400 text-slate-600">{faq.a}</p>
                </div>
              ))}
            </div>
@@ -476,7 +434,7 @@ const WorkshopPage = () => {
       </section>
 
       {/* Footer & Contact */}
-      <footer id="contact" className="bg-black pt-12 pb-20 md:pb-10 border-t border-white/10 relative">
+      <footer id="contact" className="dark:bg-black bg-slate-50 pt-12 pb-20 md:pb-10 border-t dark:border-white/10 border-black/10 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24 mb-16">
             <div>
@@ -484,24 +442,24 @@ const WorkshopPage = () => {
                   <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
                     <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1779785300/d91bc495-04ad-4214-ad23-5abdd9bf370d_gzmzqt.jpg" alt="Logo" className="w-full h-full object-cover" />
                   </div>
-                  <span className="font-bold text-2xl tracking-tight text-white">Organic Mushroom Farm</span>
+                  <span className="font-bold text-2xl tracking-tight dark:text-white text-slate-900">Organic Mushroom Farm</span>
                </Link>
-               <p className="text-slate-400 mb-8 max-w-sm">Empowering Indian farmers and entrepreneurs with modern, highly profitable organic mushroom farming methods.</p>
+               <p className="dark:text-slate-400 text-slate-600 mb-8 max-w-sm">Empowering Indian farmers and entrepreneurs with modern, highly profitable organic mushroom farming methods.</p>
                
                <div className="space-y-4">
-                 <a href="tel:9203544140" className="flex items-center gap-3 text-slate-300 hover:text-purple-400 transition-colors">
+                 <a href="tel:9203544140" className="flex items-center gap-3 dark:text-slate-300 text-slate-700 hover:text-purple-400 transition-colors">
                    <Phone className="w-5 h-5 text-purple-400" /> +91 9203544140
                  </a>
-                 <a href="mailto:support@mushroomtraining.online" className="flex items-center gap-3 text-slate-300 hover:text-blue-400 transition-colors">
+                 <a href="mailto:support@mushroomtraining.online" className="flex items-center gap-3 dark:text-slate-300 text-slate-700 hover:text-blue-400 transition-colors">
                    <Mail className="w-5 h-5 text-blue-400 shrink-0" /> <span className="break-all md:break-normal">support@mushroomtraining.online</span>
                  </a>
                </div>
             </div>
             
             <div className="flex flex-col md:items-end justify-center">
-               <div className="text-center md:text-right bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-md max-w-sm">
+               <div className="text-center md:text-right dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-2xl p-8 backdrop-blur-md max-w-sm">
                  <h4 className="text-lg md:text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Ready to Start?</h4>
-                 <p className="text-slate-400 mb-6 text-sm">Join 5000+ others who have already transformed their lives.</p>
+                 <p className="dark:text-slate-400 text-slate-600 mb-6 text-sm">Join 5000+ others who have already transformed their lives.</p>
                  <button onClick={handlePayment} className="w-full py-3 bg-white text-black font-bold rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform">
                    Join Workshop Now
                  </button>
@@ -509,19 +467,19 @@ const WorkshopPage = () => {
             </div>
           </div>
           
-          <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="border-t dark:border-white/10 border-black/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
              <p className="text-slate-500 text-sm">© 2026 Organic Mushroom Farm. All rights reserved.</p>
              <div className="flex gap-6 text-sm text-slate-500">
-               <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-               <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-               <Link to="/refund-policy" className="hover:text-white transition-colors">Refund Policy</Link>
+               <Link to="/terms" className="hover:dark:text-white text-slate-900 transition-colors">Terms</Link>
+               <Link to="/privacy" className="hover:dark:text-white text-slate-900 transition-colors">Privacy</Link>
+               <Link to="/refund-policy" className="hover:dark:text-white text-slate-900 transition-colors">Refund Policy</Link>
              </div>
           </div>
         </div>
       </footer>
 
       {/* Mobile Sticky CTA Container */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-lg border-t border-white/10 md:hidden z-40">
+      <div className="fixed bottom-0 left-0 right-0 p-4 dark:bg-black/80 bg-white/80 backdrop-blur-lg border-t dark:border-white/10 border-black/10 md:hidden z-40">
          <button onClick={() => handlePayment()} className="w-full py-3.5 bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-xl font-bold shadow-[0_0_20px_rgba(168,85,247,0.3)] flex items-center justify-center gap-2">
            Pay & Join Now - ₹199 <ArrowRight className="w-5 h-5" />
          </button>
@@ -552,36 +510,36 @@ const WorkshopPage = () => {
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="bg-[#0a0f0d] border border-white/10 rounded-3xl p-8 max-w-md w-full relative shadow-2xl"
+              className="dark:bg-[#0a0f0d] bg-white border dark:border-white/10 border-black/10 rounded-3xl p-8 max-w-md w-full relative shadow-2xl"
             >
-              <button onClick={() => setShowCheckout(false)} className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
+              <button onClick={() => setShowCheckout(false)} className="absolute top-4 right-4 dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900 transition-colors">
                 <X className="w-6 h-6" />
               </button>
               
               <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Join Workshop</h3>
-              <p className="text-slate-400 mb-6 text-sm">Please provide your details so we can send you the access link on WhatsApp.</p>
+              <p className="dark:text-slate-400 text-slate-600 mb-6 text-sm">Please provide your details so we can send you the access link on WhatsApp.</p>
               
               <form onSubmit={handlePayment} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+                  <label className="block text-sm font-medium dark:text-slate-300 text-slate-700 mb-1">Full Name</label>
                   <input 
                     type="text" 
                     required
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-300 mb-1">WhatsApp Number</label>
+                  <label className="block text-sm font-medium dark:text-slate-300 text-slate-700 mb-1">WhatsApp Number</label>
                   <input 
                     type="tel" 
                     required
                     pattern="[0-9]{10}"
                     value={formData.phone}
                     onChange={e => setFormData({...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10)})}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
                     placeholder="10-digit mobile number"
                   />
                 </div>
