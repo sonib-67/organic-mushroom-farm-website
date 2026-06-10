@@ -109,19 +109,6 @@ const ArticleGharParMushroomFarming = () => {
         keywords="how to grow mushroom at home, mushroom training center, button mushroom training center, oyster mushroom training center, mushroom farming training center, mushroom ki kheti, spawn seed jabalpur"
       />
 
-      {/* Floating Action WhatsApp */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <a 
-          href="https://wa.me/919203544140" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-[#25D366] text-white font-extrabold px-5 py-3 rounded-full shadow-2xl hover:bg-[#20ba5a] transition-all transform hover:scale-105 active:scale-95"
-        >
-          <MessageCircle size={20} />
-          <span className="text-xs sm:text-sm">Tanish Sir Se WhatsApp Pe Baat Karein</span>
-        </a>
-      </div>
-
       {/* Header section with rich graphic look */}
       <section className="relative overflow-hidden section-padding pb-6">
         <div className="absolute inset-0 pointer-events-none z-0">
