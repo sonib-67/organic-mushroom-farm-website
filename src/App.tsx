@@ -42,6 +42,7 @@ import ArticleMushroomSpawn from './pages/ArticleMushroomSpawn';
 import ArticleBusinessPlanHindi from './pages/ArticleBusinessPlanHindi';
 import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import ArticleMushroomTrainingAffordable from './pages/ArticleMushroomTrainingAffordable';
+import ArticleGharParMushroomFarming from './pages/ArticleGharParMushroomFarming';
 import SEO from './components/SEO';
 import { generateReviewSchema, generateLocalBusinessSchema } from './utils/seoSchemas';
 import MetaPixelTracker from './components/MetaPixelTracker';
@@ -3561,6 +3562,7 @@ const AnimatedRoutes = () => {
           <Route path="/articles/mushroom-farming-business-plan-hindi-2026" element={<ArticleBusinessPlanHindi />} />
           <Route path="/articles/mushroom-farming-training-hindi-india" element={<ArticleTrainingGuideHindi />} />
           <Route path="/articles/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingAffordable />} />
+          <Route path="/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleGharParMushroomFarming />} />
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
           <Route path="/workshop" element={<WorkshopPage />} />

@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026", isExternalPage: true, title: "Mushroom Farming: Ghar Par Mushroom Kaise Ugayein — India Ka Sabse Complete Guide (2026)", excerpt: "Ghar par mushroom kaise ugayein step-by-step. Button mushroom, oyster, and milky mushroom training guides, cost estimation, spawn info & training centers.", date: "June 10, 2026" },
       { id: "mushroom-farming-training-online-offline-certificate", isExternalPage: true, title: "Mushroom Farming Training – Online & Offline | Certificate ke Saath Seekho Mushroom Kheti", excerpt: "India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur MP Mein Available. Complete guide with Certificate.", date: "June 01, 2026" },
       { id: "mushroom-farming-training-hindi-india", isExternalPage: true, title: "Mushroom Farming Training — Complete Guide | Mushroom Ki Kheti Sikhein India Mein", excerpt: "India mein mushroom farming training kaise aur kahan se lein? Complete guide in Hindi for offline and online courses.", date: "May 17, 2026" },
       { id: "mushroom-farming-business-plan-hindi-2026", isExternalPage: true, title: "Mushroom Farming Business Plan Kya Hota Hai? | What is a Mushroom Farming Business Plan?", excerpt: "India mein 2026 ke liye complete mushroom farming business plan. Low investment mein mushroom ki kheti shuru karein aur acha profit kamayein.", date: "May 14, 2026" },

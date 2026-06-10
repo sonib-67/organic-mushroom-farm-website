@@ -85,7 +85,7 @@ const SiteVisitConsultationPage = () => {
       <SEO 
         title="On Site Visit Consultation | Organic Mushroom Farm" 
         description="Book your site visit consultation for organic mushroom farming. Visit our farm in Jabalpur."
-        canonicalUrl="/site-visit-consultation"
+        url="/site-visit-consultation"
       />
       
       <div className="max-w-md w-full relative z-10">
