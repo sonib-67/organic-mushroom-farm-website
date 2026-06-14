@@ -44,7 +44,13 @@ import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import ArticleMushroomTrainingAffordable from './pages/ArticleMushroomTrainingAffordable';
 import ArticleGharParMushroomFarming from './pages/ArticleGharParMushroomFarming';
 import SEO from './components/SEO';
-import { generateReviewSchema, generateLocalBusinessSchema } from './utils/seoSchemas';
+import { 
+  generateReviewSchema, 
+  generateLocalBusinessSchema,
+  generateGlobalFAQSchema,
+  generateGlobalProductsSchema,
+  generateGlobalServiceSchema
+} from './utils/seoSchemas';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
 import SiteVisitConsultationPage from './pages/SiteVisitConsultationPage';
@@ -2583,6 +2589,11 @@ const HomePage = () => {
       <SEO 
         title="Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom"
         description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP."
+        schemas={[
+          generateGlobalFAQSchema(),
+          generateGlobalProductsSchema(),
+          generateGlobalServiceSchema()
+        ]}
       />
       <Hero />
       <EcosystemFlow />
