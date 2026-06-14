@@ -3584,10 +3584,10 @@ const AnimatedRoutes = () => {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
           <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
-          <Route path="/careers-/*" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
+          <Route path="/careers-:slug" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-training-:slug" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-farming-:slug" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-franchise-:slug" element={<LocationDetailsPage />} />
 
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
