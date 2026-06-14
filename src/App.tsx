@@ -3522,6 +3522,19 @@ const ScrollToTop = () => {
   return null;
 };
 
+const CatchAllHandler = () => {
+  const { pathname } = useLocation();
+  if (
+    pathname.includes('/careers-') ||
+    pathname.includes('/mushroom-training-') ||
+    pathname.includes('/mushroom-farming-') ||
+    pathname.includes('/mushroom-franchise-')
+  ) {
+    return <LocationDetailsPage />;
+  }
+  return <Navigate to="/" replace />;
+};
+
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
@@ -3584,15 +3597,10 @@ const AnimatedRoutes = () => {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
           <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
-          <Route path="/careers-:slug" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-training-:slug" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-farming-:slug" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-franchise-:slug" element={<LocationDetailsPage />} />
-
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<CatchAllHandler />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

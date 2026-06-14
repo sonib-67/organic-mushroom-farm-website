@@ -158,8 +158,8 @@ export default function SitemapPage() {
           </button>
         </div>
 
-        {activeTab === 'main' ? (
-          <div className="space-y-16">
+        {/* Core Pages Tab */}
+        <div className={`space-y-16 ${activeTab === 'main' ? 'block' : 'hidden'}`}>
             
             {/* Core pages */}
             <div>
@@ -252,7 +252,9 @@ export default function SitemapPage() {
             </div>
 
           </div>
-        ) : (
+
+        {/* Location Directory Tab */}
+        <div className={activeTab === 'locations' ? 'block' : 'hidden'}>
           <div>
             {/* Search and control box */}
             <div className="glass p-6 rounded-3xl border border-white/5 mb-8 flex flex-col md:flex-row items-center gap-4 justify-between">
@@ -349,7 +351,7 @@ export default function SitemapPage() {
               </div>
             )}
           </div>
-        )}
+        </div>
       </section>
     </div>
   );
