@@ -50,6 +50,7 @@ import MushroomSEOSections from './components/MushroomSEOSections';
 import SiteVisitConsultationPage from './pages/SiteVisitConsultationPage';
 
 import LocationDetailsPage from './pages/LocationDetailsPage';
+import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
 import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
@@ -1863,6 +1864,7 @@ const Footer = () => {
               {[
                 { name: "Contact", href: "/contact" },
                 { name: "Customer Support", href: "/support" },
+                { name: "HTML Sitemap", href: "/sitemap" },
                 { name: "Terms of Service", href: "/terms" },
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Refund Policy", href: "/refund-policy" },
@@ -3586,6 +3588,9 @@ const AnimatedRoutes = () => {
           <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
           <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
           <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
+
+          <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/site-directory" element={<SitemapPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
