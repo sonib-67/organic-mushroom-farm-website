@@ -402,7 +402,15 @@ const CompanyProfile = () => {
               ].map((item, i) => (
                 <div key={i} className="space-y-1">
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
-                  <div className="text-sm font-bold dark:text-white text-slate-900">{item.value}</div>
+                  <div className="text-sm font-bold dark:text-white text-slate-900">
+                    {item.label === "Founder" ? (
+                      <Link to="/sitemap" className="hover:text-primary-start transition-colors underline decoration-dotted underline-offset-4">
+                        {item.value}
+                      </Link>
+                    ) : (
+                      item.value
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -1870,7 +1878,6 @@ const Footer = () => {
               {[
                 { name: "Contact", href: "/contact" },
                 { name: "Customer Support", href: "/support" },
-                { name: "HTML Sitemap", href: "/sitemap" },
                 { name: "Terms of Service", href: "/terms" },
                 { name: "Privacy Policy", href: "/privacy" },
                 { name: "Refund Policy", href: "/refund-policy" },
