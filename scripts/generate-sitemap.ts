@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
+// Import datasets to calculate dynamic parts
+import { CITIES } from '../src/data/locationsData.ts';
+import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
+
 const dateInfo = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
@@ -104,6 +108,20 @@ async function generate() {
 
   // 3. Generate the top level sitemap.xml which represents a Sitemap Index
   console.log("Generating central Google sitemap index (sitemap.xml)...");
+
+  // Calculate dynamic cities sitemaps count matching locations-sitemap config
+  const maxUrlsPerSitemap = 20000;
+  const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
+  const totalCities = CITIES.length;
+  const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);
+
+  let citySitemapLocs = '';
+  for (let partIdx = 0; partIdx < numParts; partIdx++) {
+    citySitemapLocs += `  <sitemap>
+    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-${partIdx + 1}.xml</loc>
+    <lastmod>${dateInfo}</lastmod>
+  </sitemap>\n`;
+  }
   
   const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
@@ -116,27 +134,7 @@ async function generate() {
     <loc>https://www.organicmushroomfarm.shop/sitemap-locations-states.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-1.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-2.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-3.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-4.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-5.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
+${citySitemapLocs}  <sitemap>
     <loc>https://www.organicmushroomfarm.shop/sitemap-locations-villages.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>

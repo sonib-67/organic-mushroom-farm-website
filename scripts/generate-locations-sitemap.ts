@@ -56,14 +56,15 @@ async function run() {
   writeSitemapFile('sitemap-locations-states.xml', stateXml);
   console.log(`Generated States Sitemap containing ${stateUrls.length} links.`);
 
-  // 2. Generate Cities Sitemaps (Split into 5 parts to comply with Google's 50,000 sitemap limit)
+  // 2. Generate Cities Sitemaps (Split into parts where each contains ~20,000 URLs max)
+  const maxUrlsPerSitemap = 20000;
+  const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
   const totalCities = CITIES.length;
-  const numParts = 5;
-  const partSize = Math.ceil(totalCities / numParts);
+  const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);
 
   for (let partIdx = 0; partIdx < numParts; partIdx++) {
-    const startIdx = partIdx * partSize;
-    const endIdx = Math.min((partIdx + 1) * partSize, totalCities);
+    const startIdx = partIdx * maxCitiesPerSitemap;
+    const endIdx = Math.min((partIdx + 1) * maxCitiesPerSitemap, totalCities);
     const citiesChunk = CITIES.slice(startIdx, endIdx);
     
     if (citiesChunk.length === 0) continue;
