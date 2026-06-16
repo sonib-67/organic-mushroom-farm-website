@@ -137,8 +137,17 @@ export const generateOrganizationSchema = () => {
     "alternateName": "Organic Mushroom Farm Jabalpur",
     "url": "https://organicmushroomfarm.shop",
     "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
     "telephone": "+919203544140",
     "email": "support@mushroomtraining.online",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Katangi Road",
+      "addressLocality": "Jabalpur",
+      "addressRegion": "Madhya Pradesh",
+      "postalCode": "482002",
+      "addressCountry": "IN"
+    },
     "founder": {
       "@type": "Person",
       "name": "Tanish Soni",
