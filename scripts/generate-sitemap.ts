@@ -125,6 +125,18 @@ async function generate() {
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
   <sitemap>
+    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-3.xml</loc>
+    <lastmod>${dateInfo}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-4.xml</loc>
+    <lastmod>${dateInfo}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-5.xml</loc>
+    <lastmod>${dateInfo}</lastmod>
+  </sitemap>
+  <sitemap>
     <loc>https://www.organicmushroomfarm.shop/sitemap-locations-villages.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>

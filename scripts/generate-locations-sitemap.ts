@@ -56,35 +56,32 @@ async function run() {
   writeSitemapFile('sitemap-locations-states.xml', stateXml);
   console.log(`Generated States Sitemap containing ${stateUrls.length} links.`);
 
-  // 2. Generate Cities Sitemap Part 1 and Part 2 
-  // ~200 Cities * 193 URL combinations = ~38,600 URLs (Split into 2 parts of ~19,300 for compliance with 50,000 sitemap limit)
-  const halfLength = Math.ceil(CITIES.length / 2);
-  const citiesPart1 = CITIES.slice(0, halfLength);
-  const citiesPart2 = CITIES.slice(halfLength);
+  // 2. Generate Cities Sitemaps (Split into 5 parts to comply with Google's 50,000 sitemap limit)
+  const totalCities = CITIES.length;
+  const numParts = 5;
+  const partSize = Math.ceil(totalCities / numParts);
 
-  const cityUrls1: string[] = [];
-  for (const city of citiesPart1) {
-    const citySlug = city.toLowerCase().replace(/_/g, '-');
-    for (const kw of SEO_KEYWORDS) {
-      const kwSlug = kw.url.replace(/^\/+/, '');
-      cityUrls1.push(`https://www.organicmushroomfarm.shop/${citySlug}/${kwSlug}`);
-    }
-  }
-  const cityXml1 = generateSitemapXml(cityUrls1);
-  writeSitemapFile('sitemap-locations-cities-1.xml', cityXml1);
-  console.log(`Generated Cities Sitemap (Part 1) containing ${cityUrls1.length} links.`);
+  for (let partIdx = 0; partIdx < numParts; partIdx++) {
+    const startIdx = partIdx * partSize;
+    const endIdx = Math.min((partIdx + 1) * partSize, totalCities);
+    const citiesChunk = CITIES.slice(startIdx, endIdx);
+    
+    if (citiesChunk.length === 0) continue;
 
-  const cityUrls2: string[] = [];
-  for (const city of citiesPart2) {
-    const citySlug = city.toLowerCase().replace(/_/g, '-');
-    for (const kw of SEO_KEYWORDS) {
-      const kwSlug = kw.url.replace(/^\/+/, '');
-      cityUrls2.push(`https://www.organicmushroomfarm.shop/${citySlug}/${kwSlug}`);
+    const cityUrls: string[] = [];
+    for (const city of citiesChunk) {
+      const citySlug = city.toLowerCase().replace(/_/g, '-');
+      for (const kw of SEO_KEYWORDS) {
+        const kwSlug = kw.url.replace(/^\/+/, '');
+        cityUrls.push(`https://www.organicmushroomfarm.shop/${citySlug}/${kwSlug}`);
+      }
     }
+
+    const cityXml = generateSitemapXml(cityUrls);
+    const filename = `sitemap-locations-cities-${partIdx + 1}.xml`;
+    writeSitemapFile(filename, cityXml);
+    console.log(`Generated Cities Sitemap (Part ${partIdx + 1}) containing ${cityUrls.length} links (Cities range: ${startIdx} to ${endIdx}).`);
   }
-  const cityXml2 = generateSitemapXml(cityUrls2);
-  writeSitemapFile('sitemap-locations-cities-2.xml', cityXml2);
-  console.log(`Generated Cities Sitemap (Part 2) containing ${cityUrls2.length} links.`);
 
   // 3. Generate Villages Sitemap (~24 Villages * 193 URL combinations = ~4,600 URLs)
   const villageUrls: string[] = [];
