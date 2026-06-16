@@ -1,11 +1,32 @@
 {
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/sitemap.xsl", "destination": "/sitemap.xsl" },
+    { "source": "/sitemap-main.xml", "destination": "/sitemap-main.xml" },
+    { "source": "/sitemap-locations-states.xml", "destination": "/sitemap-locations-states.xml" },
+    { "source": "/sitemap-locations-cities-1.xml", "destination": "/sitemap-locations-cities-1.xml" },
+    { "source": "/sitemap-locations-cities-2.xml", "destination": "/sitemap-locations-cities-2.xml" },
+    { "source": "/sitemap-locations-cities-3.xml", "destination": "/sitemap-locations-cities-3.xml" },
+    { "source": "/sitemap-locations-cities-4.xml", "destination": "/sitemap-locations-cities-4.xml" },
+    { "source": "/sitemap-locations-cities-5.xml", "destination": "/sitemap-locations-cities-5.xml" },
+    { "source": "/sitemap-locations-villages.xml", "destination": "/sitemap-locations-villages.xml" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/google520546c7ef1f49ea.html", "destination": "/google520546c7ef1f49ea.html" },
+    { "source": "/((?!api|.*\\.xml|.*\\.xsl|.*\\.txt|.*\\.html|assets).*)" , "destination": "/index.html" }
   ],
   "headers": [
     {
-      "source": "/sitemap.xml",
+      "source": "/(.*)\\.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.xsl",
       "headers": [
         {
           "key": "Content-Type",
