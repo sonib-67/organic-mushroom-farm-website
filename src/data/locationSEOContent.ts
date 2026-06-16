@@ -1,3 +1,5 @@
+import { SEOKeyword } from './seoKeywordsData';
+
 export interface SEOManualContent {
   title: string;
   metaDesc: string;
@@ -48,34 +50,40 @@ export function getStateOfLocation(locationName: string): string {
   return 'India';
 }
 
-export function generateLocationSEOArticle(locationName: string, pageType: string): SEOManualContent {
+export function generateLocationSEOArticle(locationName: string, pageType: string, keywordInfo?: SEOKeyword): SEOManualContent {
   const state = getStateOfLocation(locationName);
+  
+  // Format location to title case
   const formattedLoc = locationName
     .replace(/_/g, ' ')
     .replace(/-/g, ' ')
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-  
-  // Choose primary Hindi integration flag based on State
+
+  // Standardize keyword text
+  const kwText = keywordInfo ? keywordInfo.keyword : (pageType + " mushroom");
+  const kwTitleCase = kwText
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
   const isHindiState = ['Uttar Pradesh', 'Bihar', 'Delhi', 'Haryana', 'Rajasthan', 'Madhya Pradesh', 'Uttarakhand'].includes(state);
 
-  // Define keywords from OCR listings strictly
+  // Generate highly targetized long-tail keywords for search engine bots
   const keywordsList = [
-    `mushroom farming in ${formattedLoc}`,
-    `mushroom training center in ${formattedLoc}`,
-    `mushroom kit near me`,
-    `government mushroom training center near me`,
-    `mushroom cultivation classes in ${formattedLoc}`,
-    `mushroom training centre in ${state}`,
-    `how to grow mushrooms ${formattedLoc}`,
-    `button mushroom price list today in ${formattedLoc}`,
-    `mushroom ki kheti training in ${formattedLoc}`,
-    `mushroom kya hai`,
-    `oyster mushroom in hindi`,
-    `mushroom training center near me`
+    `${kwText} in ${formattedLoc}`,
+    `${kwText} center near me`,
+    `mushroom cultivation in ${formattedLoc}`,
+    `best ${kwText} ${state}`,
+    `how to grow mushrooms in ${formattedLoc}`,
+    `do khane yogya mushroom in hindi`,
+    `mushroom farming training by government ${formattedLoc}`,
+    `mushroom spawn supply ${formattedLoc}`,
+    `button mushroom price list today in ${formattedLoc}`
   ].join(', ');
 
+  // Initialize unified data structures
   let content: SEOManualContent = {
     title: "",
     metaDesc: "",
@@ -87,260 +95,303 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     articleHtml: ""
   };
 
-  switch (pageType) {
-    case 'training':
-      content.title = `Mushroom Training Center in ${formattedLoc} | Govt Spawn & Free Online Courses`;
-      content.metaDesc = `Learn professional mushroom farming training in ${formattedLoc}, ${state}. Enroll in top certified courses for Oyster, Button & Milky mushrooms. Govt subsidy guide, free spawn resources, and expert physical workshops near me.`;
-      content.h1 = `Official Mushroom Cultivation & Training Academy in ${formattedLoc}`;
-      
-      content.h2s = [
-        `Mushroom Farming Training by Government: Subsidies and Programs in ${state}`,
-        `Mushroom Training Center in ${formattedLoc} Lucknow, Bihar & Uttar Pradesh Schemes`,
-        `Online vs Offline Certified Courses of Mushroom Cultivation`
-      ];
+  const category = keywordInfo ? keywordInfo.category : "Farming";
 
-      content.h3s = [
-        `5 Simple Steps of Mushroom Cultivation covered in ${formattedLoc} Workshops`,
-        `Substrate Preparation: How to grow mushrooms using sawdust, rice straw, corn cobs and dried banana leaves`,
-        `Oyster Mushroom Cultivation vs High-Yield White Button Mushroom Cultivation`
-      ];
+  // Dynamic titles and meta descriptions using exact keywords and locales completely avoiding duplication
+  if (category === "Training Center" || category === "Training & Courses") {
+    content.title = `${kwTitleCase} in ${formattedLoc} | Official Organic Academy ${state}`;
+    content.metaDesc = `Learn professional mushroom farming with our expert ${kwText} in ${formattedLoc}, ${state}. Get verified offline workshops, free spawn materials, government subsidy guidance list and 100% lab handholding.`;
+    content.h1 = `Premier Certified ${kwTitleCase} Servicing ${formattedLoc}`;
+    
+    content.h2s = [
+      `Mushroom Farming Training By Government Support & Grants in ${formattedLoc}`,
+      `Certified ${kwTitleCase} Learning Structures`,
+      `State-of-the-Art Incubators and Cultivation Classrooms`
+    ];
+    
+    content.h3s = [
+      `5 Standard Stages of Fruiting Taught in ${formattedLoc} Batches`,
+      `Compost Formulation: Utilizing Local Raw Materials for Commercial Yield`,
+      `How to Get Government Assistance & Bank Loans in ${state}`
+    ];
 
-      content.h4s = [
-        `Do khane yogya mushroom ke naam bataiye? (Names of Two Edible Strains)`,
-        `Is there a free mushroom farming training by Government online near me?`,
-        `What is the price of 1 kg button mushroom in ${formattedLoc} and spawn seeds?`,
-        `How does mushroom spawn (seeds) grow naturally, and how to prepare it at home?`
-      ];
+    content.h4s = [
+      `Do khane yogya mushroom ke naam bataiye? (What are two premium edible varieties?)`,
+      `Is prior experience or a botanical degree required to enroll in ${formattedLoc}?`,
+      `What is the total duration of practical workshops at the academy?`
+    ];
 
-      content.articleHtml = `
-        <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-          <p>
-            Welcome to the premier <strong>Mushroom Training Center in ${formattedLoc}</strong>. Mushroom farming is emerging as one of the most profitable agricultural setups in ${state}, enabling farmers, housewives, and entrepreneurs to earn high profit margins per acre with an initial minimal space requirement. Our verified training courses cover detailed biological, environmental, and marketing methodologies.
-          </p>
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          Welcome to the leading hub for <strong>${kwText} in ${formattedLoc}</strong>. Designed to empower local farmers, agricultural entrepreneurs, and home cultivators across ${state}, our technical curriculum bridges pure biology with high-yielding commercial business solutions.
+        </p>
 
-          <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
-          <p>
-            Mushroom farming training by government programs under schemes such as the <strong>Rashtriya Krishi Vikas Yojana (RKVY)</strong> and the <strong>National Horticulture Board (NHB)</strong> offers substantial financial subsidies. Training by UP government, Bihar government, Delhi, and Karnataka state agriculture agencies provides up to 40% to 50% technical assistance for building insulated pasteurization tunnels and climate-controlled grow rooms in ${formattedLoc}. 
-          </p>
-          <p>
-            If you are searching for a <strong>government mushroom training center near me</strong>, our private academy links directly with certified counselors to help you draft your technical project file for commercial bank loans.
-          </p>
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          Under the centralized support of the <strong>National Horticulture Board (NHB)</strong> and regional state schemes in ${state}, starting a commercial mushroom project remains highly supported. Technical workshops in ${formattedLoc} assist you in securing certificates necessary to acquire commercial subsidies (up to 40% to 50% technical grants) for building cold-rooms and pasteurized composting pits.
+        </p>
 
-          <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[0]}</h3>
-          <p>
-            Our systematic certification courses partition your education into the 5 core stages of successful mushroom crop cultivation:
-          </p>
-          <ol class="list-decimal pl-6 space-y-2 dark:text-slate-300 text-slate-600">
-            <li><strong>Substrate Sterilization & Hydration:</strong> Selecting rich local materials such as wheat straw, sugarcane bagasse, or rice husk and pasteurizing them safely to prevent green mold.</li>
-            <li><strong>Inoculation (Spawning):</strong> Sourcing pure-grade first-generation hybrid spawn (seeds) and mixing them in sanitized growth blocks.</li>
-            <li><strong>Spawn Run (Mycelium Incubation):</strong> Stacking the bags in dark grow tents at a monitored temperature of 22°C - 25°C.</li>
-            <li><strong>Casing Layer Application:</strong> Adding a water-absorbent protective soil layer (specifically for Button mushrooms) to trigger pinning.</li>
-            <li><strong>Fruiting & Pinhead Management:</strong> Lowering temperature to 14°C - 18°C, establishing relative humidity to 85%-90%, and managing fresh indoor air.</li>
-          </ol>
+        <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[0]}</h3>
+        <p>
+          Our modular courses break down the biological structure of mushroom cultivation into five rigorous, hands-on steps:
+        </p>
+        <ol class="list-decimal pl-6 space-y-2 dark:text-slate-300 text-slate-600">
+          <li><strong>Substrate Selection & Sterilization:</strong> Preparing organic inputs like sterilized rice straw, coco-peat, or wheat bran to remove wild mold spores.</li>
+          <li><strong>Spawning (Seed Mixing):</strong> Proper hygienic methods of distributing laboratory-grade F1 hybrid spawn inside growth bags.</li>
+          <li><strong>Dark Incubation (Spawn Run):</strong> Maintaining dark atmosphere blocks at 22°C - 24°C till pure white mycelium spreads naturally.</li>
+          <li><strong>Soil Casing:</strong> Adding pasteurized peat-soil to anchor water moisture (specifically for white button strains).</li>
+          <li><strong>Fruiting & Temperature Drop:</strong> Introducing oxygen cycles and temperature drops to trigger high quality pinning blocks in ${formattedLoc}.</li>
+        </ol>
 
-          <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[1]}</h3>
-          <p>
-            During our practical sessions in ${formattedLoc}, we teach you low-investment alternative farming substrate methods. You can learn <strong>how to grow mushrooms using sawdust</strong>, rice straw, corn cobs (mक्के का भुट्टा), corn husks, and dried banana leaves. This allows farmers to bypass expensive raw materials and recycle local farm waste into gold-standard edible mushrooms.
-          </p>
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p class="italic dark:text-slate-300 text-slate-600">
+          <strong>उत्तर:</strong> व्यवसायिक रूप से खेती और खाने के लिए सबसे लोकप्रिय दो मशरूम हैं - <strong>सफेद बटन मशरूम (White Button Mushroom)</strong> और <strong>ओईस्टर मशरूम (Oyster / ढींगरी मशरूम)</strong>। इन दोनों को आप आसानी से ${formattedLoc} के घरेलू या व्यवसायिक सेटअप में उगा सकते हैं।
+        </p>
 
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
-          <p class="italic dark:text-slate-300 text-slate-600">
-            <strong>उत्तर:</strong> भारत में मुख्यतः दो सबसे अधिक पसंद किए जाने वाले और व्यवसायिक रूप से खाने योग्य मशरूम के नाम हैं - <strong>बटन मशरूम (Button Mushroom)</strong> और <strong>ओईस्टर मशरूम (Oyster/ढींगरी मशरूम)</strong>। इसके अलावा उच्च तापमान वाले क्षेत्रों में दूधिया (Milky) मशरूम की खेती की जाती है।
-          </p>
+        <p>
+          Take your first step today by connecting with our expert instructors. We offer full remote call assistance and structured manuals directly tailored to the atmospheric climate profile of ${formattedLoc}!
+        </p>
+      </div>
+    `;
 
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[2]}</h4>
-          <p>
-            Typically, <strong>what is the price of 1 kg button mushroom in ${formattedLoc}?</strong> The retail market price of 1 kg fresh premium white button mushrooms varies from ₹150 to ₹250 depending on packaging, fresh conditions, and direct wholesale delivery chains. You can expect a solid conversion yield where 1 kg of first-generation F1 spawn seed feeds onto compost blocks to yield approximately 10 kg to 15 kg of harvestable organic crop.
-          </p>
+  } else if (category === "Government & Free Training") {
+    content.title = `Free ${kwTitleCase} in ${formattedLoc} | Govt Subsidy schemes`;
+    content.metaDesc = `Enroll in ${kwText} in ${formattedLoc}, ${state}. Free online classes, government vocational certification directories, application procedures for small scale farmers and women self-help organizations.`;
+    content.h1 = `Official Govt Subsidy & Free ${kwTitleCase} Guide for ${formattedLoc}`;
+    content.h2s = [
+      `How to Apply for Free Government Mushroom Training in ${state}`,
+      `Understanding RKVY & ATMA Free Training Subsidies in ${formattedLoc}`,
+      `Obtaining Certificate Guidelines for Commercial Agriculture Loans`
+    ];
+    content.h3s = [
+      `F1 Spawn Seeds Distribution Program near ${formattedLoc}`,
+      `Substrate and Compost preparation methods under government directives`,
+      `Post-Harvesting processing: Drying, Canning, and Packaging`
+    ];
+    content.h4s = [
+      `Mushroom ki kheti ki government help kaise milti hai?`,
+      `Can women self-help groups (SHGs) get special grants for cultivation in ${formattedLoc}?`
+    ];
 
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[3]}</h4>
-          <p>
-            Many fresh growers wonder: <strong>How does mushroom spawn grow naturally, and how to make mushroom seeds at home?</strong> Naturally, mushrooms drop microscopically fine spores that land on decaying timber or nutrient-rich humus. At home, compiling pure tissue cultures in laboratory agar plates, transferring them onto sterilized boiled grain slots (wheat or sorghum), is the primary process of creating professional seed bottles.
-          </p>
-        </div>
-      `;
-      break;
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          Unlocking state-sponsored progress has never been easier. Our specialized guide for <strong>${kwText} in ${formattedLoc}</strong> serves to help rural and urban micro-cultivators register under subsidized training centers and horticulture campuses in ${state}.
+        </p>
 
-    case 'franchise':
-      content.title = `Mushroom Franchise Opportunities in ${formattedLoc} | Setup, Buyback & ROI`;
-      content.metaDesc = `Launch a highly lucrative commercial mushroom franchise business in ${formattedLoc}, ${state}. Low capital, high organic returns, full climate setup support, and assured legally protected buyback agreement options.`;
-      content.h1 = `Establish Your Own Mushroom Farm Franchise in ${formattedLoc}`;
-      
-      content.h2s = [
-        `Mushroom Farming Profit Per Acre and Cost Analysis in ${state}`,
-        `Buy-Back Agreements and Marketing Linkages in ${formattedLoc}`,
-        `Turnkey Setup with Assured ROI for Commercial Franchises`
-      ];
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          The agricultural department under the <strong>ATMA (Agricultural Technology Management Agency)</strong> and KVK (Krishi Vigyan Kendra) regularly deploys free learning calendars for starting button and oyster crop chambers. By joining these cohorts, participants in ${formattedLoc} are eligible to receive high-yield F1 hybrid seed blocks absolutely free of cost or at highly reduced pilot prices.
+        </p>
 
-      content.h3s = [
-        `Why Sourcing High-Yield Spawn Seeds is Essential for Brand Success`,
-        `Commercial Cooling Systems (Daikin AC integration) & Humidifiers near ${formattedLoc}`,
-        `Types of Mushrooms to grow for high-income yields: Oyster vs Button vs Gucchi`
-      ];
+        <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[1]}</h3>
+        <p>
+          Learn how to formulate crop bags without automated machinery. By converting agricultural waste like paddy straw, cane bagasse, and dried leaves into localized nutrition blocks, you can successfully launch an eco-friendly farming setup at negligible cost in ${formattedLoc}.
+        </p>
 
-      content.h4s = [
-        `Which mushroom is 30,000 rs in kg? (Understanding Morel and Cordyceps medicinal price list)`,
-        `Is mushroom growing in house good or bad according to health, Feng Shui and Vastu?`,
-        `What are the minimum space requirements of an indoor mushroom incubation bag?`
-      ];
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p class="dark:text-slate-300 text-slate-600">
+          <strong>सहायता विवरण:</strong> सरकारी अनुदान के लिए कृषि विभाग (Horticulture Department) में आवेदन जमा करके, या नाबार्ड (NABARD) अनुमोदित प्रोजेक्ट दस्तावेज बनाकर बैंक से 35% से 50% तक सब्सिडी प्राप्त की जा सकती है। हमारे ट्रेनर ${formattedLoc} में इसके लिए कम्पलीट दस्तावेज़ीकरण गाइड प्रदान करते हैं।
+        </p>
+      </div>
+    `;
 
-      content.articleHtml = `
-        <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-          <p>
-            Partner with the fastest-growing organic network in India. By launching an official <strong>Mushroom Farm Franchise in ${formattedLoc}</strong>, you gain technical support, first-generation elite lab spawn deliveries, structural engineering advice, and guaranteed purchase agreements under contract legal frameworks.
-          </p>
+  } else if (category === "How To Grow") {
+    content.title = `${kwTitleCase} at Home | Professional Guide ${formattedLoc}`;
+    content.metaDesc = `Learn complete secrets on ${kwText} in ${formattedLoc}, ${state} climate. Multi-tier vertical shelf layouts, moisture sprayers, temperature adjustment rules, and F1 grain inoculation protocols.`;
+    content.h1 = `Step-by-Step Tutorial on ${kwTitleCase} inside ${formattedLoc}`;
+    content.h2s = [
+      `How to Grow Highest Quality Mushrooms indoors in ${formattedLoc}`,
+      `Setting Up a Low-Cost Climate Growth Room in ${state}`,
+      `Sterilizing alternative substrates: Wood dust, corn husks, and dried banana leaves`
+    ];
+    content.h3s = [
+      `Humidity and Carbon Dioxide (CO2) Controls for Pinhead Development`,
+      `How to monitor pH levels and watering frequencies safely`,
+      `Oyster vs Button mushroom days to completely grow and harvest`
+    ];
+    content.h4s = [
+      `Mushroom grow ke liye kitna temperature hona chahiye?`,
+      `Can I grow mushrooms indoors without utilizing formal compost bags?`
+    ];
 
-          <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
-          <p>
-            Let's evaluate the comprehensive <strong>mushroom farming profit per acre and establishment cost breakdown</strong>. While standard field agriculture yields lower percentage-wise returns, indoor vertical cropping of mushrooms allows you to stack up inside multi-layer racks. A standard 15x30 room can yield returns matching regular agricultural acreage. The starting setup cost ranges from ₹20,000 for simple insulated bamboo setups, scaling up to ₹5,00,000+ for automated industrial chambers.
-          </p>
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          Mastering the biological arts of cultivation allows you to turn small dark spaces into highly active food baskets. If you want to know <strong>${kwText} in ${formattedLoc}</strong>, this comprehensive tutorial simplifies indoor organic cultivation systems without requiring massive infrastructure.
+        </p>
 
-          <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[1]}</h3>
-          <p>
-            Precision cultivation requires specialized air-cooling split systems and digital thermal monitoring machines. Excellent results are obtained in ${formattedLoc} using Daikin split systems or commercial chillers coupled with state-of-the-art ultrasonic humified pipelines. Maintaining oxygen exchange via exhaust fans ensures pinheads do not turn brown or rot on bagging blocks.
-          </p>
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          The secret to getting bountiful flushes lies in micro-climate precision management in<sup>${state}</sup>:
+        </p>
+        <ul class="list-disc pl-6 space-y-1 dark:text-slate-300 text-slate-600">
+          <li><strong>Temperature Drop:</strong> Maintaining temperature around 20°C - 24°C for initial thread growth, dropping to 15°C - 18°C to force pinheads to pop.</li>
+          <li><strong>Humidity Levels:</strong> Misting water arrays twice daily to preserve relative humidity strictly between 85% and 90%.</li>
+          <li><strong>Air Exchange:</strong> Installing simple 4-inch exhaust pipelines to flush out CO2, encouraging thick sturdy caps instead of long stringy stems in ${formattedLoc}.</li>
+        </ul>
 
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
-          <p>
-            <strong>Question: Which mushroom is 30,000 rs in kg?</strong>
-            <br />
-            <strong>Answer:</strong> The legendary <strong>Gucchi Mushroom (Morel / Morchella esculenta)</strong> and premium laboratory-grown <strong>Cordyceps Militaris (Keeda Jadi)</strong> are priced up to ₹25,000 to ₹30,000 per kilogram in the global market. These are extremely rich in health-boosting antioxidants and enjoy incredible demand from herbal laboratories and high-end culinary hotels.
-          </p>
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p class="dark:text-slate-300 text-slate-600">
+          <strong>तापमान दिशानिर्देश:</strong> सामान्यतः बटन मशरूम के लिए 14°C-18°C और ओईस्टर मशरूम के लिए 20°C-28°C का तापमान सर्वश्रेष्ठ माना जाता है। गर्मियों के मौसम में ${formattedLoc} में मिल्की मशरूम लगाना ज्यादा आसान होता है जिसके लिए 30°C-35°C तापमान की आवश्यकता होती है।
+        </p>
+      </div>
+    `;
 
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[1]}</h4>
-          <p>
-            <strong>Question: Is mushroom growing in house good or bad?</strong>
-            <br />
-            <strong>Answer:</strong> Scientifically and Vastu-wise, growing mushrooms indoors is <strong>highly positive</strong> as it is an organic superfood that purifies micro-organic waste. However, from a health perspective, you must avoid growing them inside your bedroom or active living halls without proper air filtration, as breathing mature mushroom spores in thick closed rooms could trigger mild lung irritation or cough. A separate garage, terrace shed, or empty outer backyard room with clean ventilation is ideal!
-          </p>
+  } else if (category === "Types & Prices") {
+    content.title = `${kwTitleCase} Today in ${formattedLoc} | Current Wholesale Price List`;
+    content.metaDesc = `Check updated market data on ${kwText} in ${formattedLoc}, ${state}. Detailed fresh button price list, supreme oyster price per kg, nutrient benefits, and wholesale mandis contacts.`;
+    content.h1 = `${kwTitleCase}: Updated Rates, Strains & Benefits in ${formattedLoc}`;
+    content.h2s = [
+      `Latest Button and Oyster Mushroom Wholesale Prices in ${formattedLoc}`,
+      `Commercial Subtypes Grown in ${state}: Milky, Shiitake, and Cordyceps`,
+      `Antioxidant & Medicinal Value: Why Mushrooms support immune systems`
+    ];
+    content.h3s = [
+      `Mandi rate analysis: Commercial demands in local retail sectors`,
+      `Do khane yogya mushroom and how to tell edible ones of wild strains`,
+      `Why white button mushrooms remain the highest consumed variety`
+    ];
+    content.h4s = [
+      `Sabse mahanga mushroom kaun sa hota hai or why is it so costly?`,
+      `Is it scientifically verified that mushrooms help in breathing or lung infection recovery?`
+    ];
 
-          <p>
-            Contact our franchise desk today. Our buyback network ensures your raw and dried products are channeled to leading pharmaceutical and retail partners instantly!
-          </p>
-        </div>
-      `;
-      break;
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          Staying updated with daily pricing is critical for commercial growers and retail traders. Here, we supply direct data charts regarding <strong>${kwText} in ${formattedLoc}</strong> to evaluate project viability and weekly earnings.
+        </p>
 
-    case 'careers':
-      content.title = `Mushroom Farm Jobs & Careers in ${formattedLoc} | Agro-Tech Vacancies`;
-      content.metaDesc = `Explore agri-business careers and farm worker vacancies in ${formattedLoc}, ${state}. Apply for supervisors, microbiologists, digital sales assistants, or distribution coordinator roles with great benefits.`;
-      content.h1 = `Mushroom Farming Careers and Vacancies in ${formattedLoc}`;
-      
-      content.h2s = [
-        `High-Growth Agriculture and Agronomist Placement Opportunities in ${state}`,
-        `Job Roles: Production Supervisors, Lab Assistants, and Technical Experts`,
-        `Skillset Requirements: How to plant and harvest mushroom bags professionally`
-      ];
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          Typically, the fresh mandi prices for premium Grade-A white button mushrooms in ${formattedLoc} hover between <strong>₹140 to ₹220 per kilogram</strong> in wholesale markets, retailing for ₹240+ inside modern superstores. Dehydrated Oyster slices are marketed extensively to pharmaceutical channels for ₹600 to ₹1000 per kg depending on color, fiber density, and testing certificates.
+        </p>
 
-      content.h3s = [
-        `SOP Compliance: Maintaining clean and hygienic laboratory environments in ${formattedLoc}`,
-        `Cold Chain Storage, Packing and Distribution logistics positions`,
-        `Customer Relationship Management and B2B Agro Marketing placement`
-      ];
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p class="dark:text-slate-300 text-slate-600">
+          <strong>दुनिया का सबसे महंगा मशरूम:</strong> जंगली <strong>गुच्छी मशरूम (Gucchi / Morel)</strong> भारत की सबसे महंगी प्रजाति है, जिसका दाम बाज़ार में लगभग ₹25,000 से ₹30,000 प्रति किलोग्राम तक जाता है। यह मुख्यतः हिमाचल और कश्मीर के हिमालयी वनों में पाई जाती है। इसके अलावा <strong>कीड़ा जड़ी (Cordyceps)</strong> की कीमत भी लाखों में होती है।
+        </p>
 
-      content.h4s = [
-        `What are the daily responsibilities on an automated Button mushroom farm?`,
-        `Is there any formal training needed to apply for supervisors in ${formattedLoc}?`,
-        `What is the average starting salary of farm technicians in ${state}?`
-      ];
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[1]}</h4>
+        <p>
+          Yes, organic mushrooms are extremely rich in <strong>Polysaccharides, beta-glucans, Selenium, and Vitamin D</strong>. These compounds naturally boost white blood cells, strengthening immune systems against respiratory congestion and common viral fevers in ${formattedLoc}.
+        </p>
+      </div>
+    `;
 
-      content.articleHtml = `
-        <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-          <p>
-            Join a cutting-edge organic team. As a leading agricultural tech pioneer, we are welcoming applications for diverse roles at our high-tech cultivation setup serving <strong>${formattedLoc}</strong> and regional surrounding towns.
-          </p>
+  } else if (category === "Business & Farming") {
+    content.title = `Mushroom Farming Business in ${formattedLoc} | Setup Cost & Profit`;
+    content.metaDesc = `Detailed agro-tech business project file for starting ${kwText} in ${formattedLoc}, ${state} climate. Cost per acre evaluation, crop setup schedules, and assured contract buyback options.`;
+    content.h1 = `Launch Your Own ${kwTitleCase} Venture in ${formattedLoc}`;
+    content.h2s = [
+      `Project Cost of Commercial Organic Mushroom Farming in ${state}`,
+      `Margin and Return on Investment (ROI) Analysis inside ${formattedLoc}`,
+      `How many days required to grow button and oyster varieties`
+    ];
+    content.h3s = [
+      `Selecting optimum building materials: Bamboo sheds vs Insulated PUF panels`,
+      `Integrating Daikin split cooling systems & Digital steam nozzles`,
+      `How much yield can you expect out of 1 kg first-generation hybrid spawn seed`
+    ];
+    content.h4s = [
+      `Mushroom farming setup start karne me kitna kharcha aata hai?`,
+      `What are the major risk factors like green mold and how to cure them?`
+    ];
 
-          <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[1]}</h2>
-          <p>
-            Our commercial sites utilize high-automation equipment and demand competent technicians:
-          </p>
-          <ul class="list-disc pl-6 space-y-2 dark:text-slate-300 text-slate-600">
-            <li><strong>Lab Spawn Assistants:</strong> Assisting in micro-organism propagation, cleaning growth chambers, inoculation, and testing quality of seed grains.</li>
-            <li><strong>Production Room Supervisors:</strong> Overlooking environmental factors, guiding humidity sprays, turning on air exhaust pipelines, and scheduling crop pin harvesting timelines.</li>
-            <li><strong>Agri-logistic coordinators:</strong> Dispatching fragile organic cardboard deliveries within local cold-chains to supermarkets in ${formattedLoc}.</li>
-          </ul>
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          Agriculture is shifting towards vertical automated space management. A highly robust commercial plan for <strong>${kwText} in ${formattedLoc}</strong> lets you harvest premium crops inside localized weather cabins, bypassing volatile environmental disruptions in ${state}.
+        </p>
 
-          <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[0]}</h3>
-          <p>
-            Health parameters are paramount on mushroom farms. Staff must master strict standard operating procedures (SOPs) to ensure zero contamination levels. Sourcing pure air-intake masks, gloves, and maintaining sanitized lab benches helps protect delicate Oyster and Button crops from green and yellow fungal infestations.
-          </p>
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          Setting up a semi-automated 1500 sq ft unit costs around ₹1.5 Lakhs to ₹3 Lakhs, which covers insulating foil sheets, horizontal rack pipelines, air-flow exhaust grids, and dynamic foggers. This space comfortably stores up to 1000 bags. With proper F1 high-yield spawn seeds, a complete batch matures in just <strong>25 days</strong> post spawn run, producing regular streams of profit in ${formattedLoc}.
+        </p>
 
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[1]}</h4>
-          <p>
-            You do not need prior botanical degrees to apply for starting vocational roles! We provide hands-on practical guides to all recruited workers, ensuring you master how to plant mushroom seeds, manage soil casing layers, and safely pack fresh produce under global safety food formats.
-          </p>
-        </div>
-      `;
-      break;
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p class="dark:text-slate-300 text-slate-600">
+          <strong>निवेश विवरण:</strong> एक छोटे कमरे से शुरुआत करने के लिए मात्र ₹15,000 की आवश्यकता होती है। बड़े पैमाने पर व्यवसायिक शेड के सेटअप के लिए ₹2 लाख से ₹5 लाख तक का खर्च आता है, जिसे मात्र 2 से 3 अच्छे क्रॉप साइकिल (Crop Cycles) में पूरी तरह से वसूल किया जा सकता है।
+        </p>
+      </div>
+    `;
 
-    case 'farming':
-    default:
-      content.title = `Mushroom Farming Business in ${formattedLoc} | Setup, Spawn Seed & Cost`;
-      content.metaDesc = `Start your highly profitable commercial mushroom farming business in ${formattedLoc}, ${state}. Step-by-step guidance on Oyster & Button mushroom setup, climate control units, F1 grain spawn supply, and direct buyback options.`;
-      content.h1 = `Start a Profitable Mushroom Farming Business in ${formattedLoc}`;
-      
-      content.h2s = [
-        `Mushroom ki Kheti Kaise Karein: Complete Guide for ${formattedLoc} & ${state}`,
-        `Cost Estimate and Margin Per Acre of Button & Oyster cultivation in ${state}`,
-        `How to Grow Mushroom at Home in ${formattedLoc} for Continuous Income`
-      ];
+  } else if (category === "Spawn & Products") {
+    content.title = `${kwTitleCase} Supplier in ${formattedLoc} | F1 Grain Seeds`;
+    content.metaDesc = `Secure pure lab-tested ${kwText} in ${formattedLoc}, ${state}. High-yield, first-generation sorghum and wheat hybrid spawn grains for Oyster, Button & Milky strains with cold supply distribution.`;
+    content.h1 = `Premium Certified ${kwTitleCase} for ${formattedLoc} Farms`;
+    content.h2s = [
+      `Why F1 Grain Spawn is Essential to Secure Bumper Harvests`,
+      `Advanced Spawn Production laboratories based in ${state}`,
+      `How to preserve spawn seeds using cold thermals up to 30 days`
+    ];
+    content.h3s = [
+      `White Button and Milky strain seed variations adapted for ${formattedLoc} weather`,
+      `How to make organic mushroom seeds at home without contamination`,
+      `Sourcing liquid mycelium and agar plates for custom cultivation`
+    ];
+    content.h4s = [
+      `1 Kg seeds (spawn) lagane se kitna mushroom utpadan hota hai?`,
+      `Do you deliver spawn safety tubes directly to rural villages of ${formattedLoc}?`
+    ];
 
-      content.h3s = [
-        `How to get or make pure F1 spawn seeds at home without heavy machinery`,
-        `5 critical elements of a high-yield climate control mushroom grow room`,
-        `Health Benefits: Is mushroom good for lung infection and chronic respiratory recovery?`
-      ];
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          The absolute cornerstone of premium agriculture is pure-grade seed breeding. Sourcing certified master-spawn is vital. Our advanced distribution grid supplies certified <strong>${kwText} in ${formattedLoc}</strong> directly to your home address, ensuring high-vigour germination with zero failure rates.
+        </p>
 
-      content.h4s = [
-        `Mushroom kitne prakar ke hote hain? (How many edible types are grown in ${state}?)`,
-        `What is the exact price of 1 kg fresh button mushroom today near me?`,
-        `How many days required to grow oyster mushroom mushrooms from spawning?`
-      ];
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          Our hybrid grains are nurtured on certified boiled sorghum (jowar) and premium wheat seeds, enriched with mineral gypsum to prevent clumping. One kilogram of this laboratory seed block is capable of successfully colonizing up to 10 compost standard substrate blocks, yielding <strong>10 kg to 15 kg of harvestable mushrooms</strong> under standard grow parameters inside ${formattedLoc}.
+        </p>
 
-      content.articleHtml = `
-        <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-          <p>
-            Welcome to the definitive guide on launching a highly successful <strong>Mushroom Farming Business in ${formattedLoc}</strong>. With increasing consumer shifting towards vegan protein diets, organic and fresh mushroom demand has seen steady 20%+ annual growth in ${state}. Discover how to convert local spaces into commercial growth chambers.
-          </p>
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p class="dark:text-slate-300 text-slate-600">
+          <strong>उत्पादन क्षमता:</strong> 1 किलो प्रथम पीढ़ी (F1 Generation) के हाइब्रिड बीज से लगभग 10 से 12 किलोग्राम ओईस्टर मशरूम या 15 किलोग्राम तक बटन मशरूम प्राप्त किए जा सकते हैं, बशर्ते हवा में नमी और कम्पोस्ट का तापमान अनुशंसित रूप से स्थिर रखा गया हो।
+        </p>
+      </div>
+    `;
 
-          <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
-          <p>
-            शुरुआती किसानों के लिए हिंदी मार्गदर्शन: <strong>मशरूम की खेती कैसे करें?</strong> मशरूम की खेती मृदा रहित (soil-less) खेती है। इसके लिए आपको सबसे पहले गेहूँ या धान के सूखे भूसे (Substrate) को शुद्ध और जीवाणुहीन (pasteurize) करना होता है। इसके बाद उसमें उच्च गुणवत्ता वाले स्पॉन (मशरूम के बीज) को मिला कर पॉलीबैग में भरा जाता है। बैग को अनुकूल नमी, सही तापमान और हवादार अंधेरे कमरों में रख कर बहुत ही कम दिनों में बम्पर पैदावार ली जा सकती है।
-          </p>
+  } else {
+    // category === "Purchase & Delivery" or Fallback
+    content.title = `Buy ${kwTitleCase} Online in ${formattedLoc} | Fresh farm Delivery`;
+    content.metaDesc = `Purchase certified fresh fields organic ${kwText} in ${formattedLoc}, ${state}. Daily early-morning commercial deliveries to restaurants, families, hotels and bulk dry containers storage exporter.`;
+    content.h1 = `Organic ${kwTitleCase} Delivered Direct to Your Door in ${formattedLoc}`;
+    content.h2s = [
+      `Fresh Morning Harvests from Our Local Farms in ${formattedLoc}`,
+      `Premium Packaging Standards to keep Nutrients Locked`,
+      `Wholesale Supply contracts for culinary brands in ${state}`
+    ];
+    content.h3s = [
+      `Superfoods high-protein diets delivered in ${formattedLoc}`,
+      `How we deliver fresh oyster kits near me safely within 12 hours`,
+      `Unlocking dry mushrooms export lines from regional farms`
+    ];
+    content.h4s = [
+      `How can I order organic button mushrooms online in ${formattedLoc}?`,
+      `Is the delivery completely sanitised, packed and cooled during transit?`
+    ];
 
-          <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[1]}</h2>
-          <p>
-            Mushroom growing exhibits quick financial turnaround speeds. For instance, **Oyster mushroom batches maturity run takes only about 21 to 25 days** from block spawning to complete commercial harvest. A standard vertical rack space inside an idle backyard or terrace shed can house up to 200 bags, yielding regular weekly boxes worth ₹8,000 to ₹15,000 with a material investment of under ₹5,000.
-          </p>
+    content.articleHtml = `
+      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
+        <p>
+          Experience pristine organic nutrition. We are delighted to announce rapid digital dispatch routes for ordering premium <strong>${kwText} in ${formattedLoc}</strong>. Harvested at early dawn under sanitized standards, our crops reach superstores and consumer plates loaded with raw natural proteins and minerals.
+        </p>
 
-          <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[1]}</h3>
-          <p>
-            An ideal commercial setup requires careful balancing of 5 vital ecological elements:
-          </p>
-          <ul class="list-disc pl-6 space-y-2 dark:text-slate-300 text-slate-600">
-            <li><strong>Temperature Maintenance:</strong> Kept at 20°C - 24°C during incubation, dropping down to 14°C - 18°C for pin triggering.</li>
-            <li><strong>Humidity Monitoring:</strong> Relative wetness levels kept high at 80% to 90% using automatic humidification pumps or floor misting.</li>
-            <li><strong>Carbon Dioxide control (CO2):</strong> High during spawn growth, lowered to sub-800 ppm during fruiting via active fresh air cycles.</li>
-            <li><strong>Hygienic Isolation:</strong> Spraying diluted bio-sanitizers to neutralize wild molds immediately.</li>
-            <li><strong>Faint Natural Lighting:</strong> Minimal light triggered purely to orient mushroom growth directions upwards during pinning.</li>
-          </ul>
+        <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
+        <p>
+          We strictly avoid synthetic growth boosters, utilizing only organic substrates like clean wheat straw and biological water systems. This produces crisp white buttons and aromatic deep oysters with exceptional shelf-life directly inside ${formattedLoc}, ${state}. Order in bulk or subscription boxes today!
+        </p>
 
-          <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[2]}</h3>
-          <p>
-            <strong>Health Profile: Is mushroom good for lung infection and physical immunity?</strong> Yes, scientifically, fresh medicinal mushrooms like Shiitake, Reishi, and Oyster contain rich bio-active polysaccharides and beta-glucans. These natural complexes stimulate alveolar immune macrophages and help reduce airway irritation, making them highly beneficial during physical recovery.
-          </p>
-
-          <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
-          <p>
-            <strong>सम्बन्धित प्रश्न: मशरूम कितने प्रकार के होते हैं?</strong> खाने योग्य श्रेणियों में ये मुख्यतः तीन प्रकार के होते हैं - सफेद बटन मशरूम (शीत ऋतु के लिए), ओईस्टर / ढींगरी मशरूम (मध्यम मौसम), और मिल्की मशरूम (गर्मियों के अनुकूल)।
-          </p>
-
-          <p>
-            Set up your professional farm with Organic Mushroom Farm today. We deliver premium laboratory-grade F1 hybrid spawns safely to your absolute address in ${formattedLoc} with continuous handholding support!
-          </p>
-        </div>
-      `;
-      break;
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
+        <p>
+          To purchase, simple contact our local delivery desk of ${formattedLoc} via WhatsApp or order directly through the online organic cart portal. We guarantee dispatch within 12 hours from harvest!
+        </p>
+      </div>
+    `;
   }
 
   return content;

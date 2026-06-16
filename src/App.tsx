@@ -58,6 +58,7 @@ import SiteVisitConsultationPage from './pages/SiteVisitConsultationPage';
 import LocationDetailsPage from './pages/LocationDetailsPage';
 import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
+import { parseSEOPathname } from './utils/seoPathParser';
 import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
 import WorkshopPage from './pages/WorkshopPage';
@@ -3542,12 +3543,8 @@ const ScrollToTop = () => {
 
 const CatchAllHandler = () => {
   const { pathname } = useLocation();
-  if (
-    pathname.includes('/careers-') ||
-    pathname.includes('/mushroom-training-') ||
-    pathname.includes('/mushroom-farming-') ||
-    pathname.includes('/mushroom-franchise-')
-  ) {
+  const parsed = parseSEOPathname(pathname);
+  if (parsed && parsed.isCustomSEORoute) {
     return <LocationDetailsPage />;
   }
   return <Navigate to="/" replace />;
