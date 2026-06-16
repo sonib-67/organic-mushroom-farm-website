@@ -4,6 +4,7 @@ import { MapPin, Phone, MessageCircle, Sprout, Briefcase, TrendingUp, Users, Awa
 import { useLocation, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { generateReviewSchema } from '../utils/seoSchemas';
+import { generateLocationSEOArticle } from '../data/locationSEOContent';
 
 export default function LocationDetailsPage() {
   const { pathname } = useLocation();
@@ -33,28 +34,31 @@ export default function LocationDetailsPage() {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
+  // Generate the highly comprehensive SEO rich article and keywords
+  const seoData = generateLocationSEOArticle(locationSlug, pageType);
+
   const generateDynamicContent = () => {
     switch (pageType) {
       case 'training':
         return {
-          title: `Mushroom Training in ${formattedLocation}`,
-          description: `Get professional mushroom farming training in ${formattedLocation}. Both online and offline courses available covering Oyster, Button, and Milky mushrooms.`,
+          title: seoData.title,
+          description: seoData.metaDesc,
           heroHeading: `Professional Mushroom Training in ${formattedLocation}`,
           heroSub: `Start your successful organic farming journey with expert guidance specifically tailored for ${formattedLocation}'s climate.`,
           ctaText: "Get Training Information"
         };
       case 'franchise':
         return {
-          title: `Mushroom Franchise Opportunities in ${formattedLocation}`,
-          description: `Start a highly profitable mushroom franchise in ${formattedLocation}. Low investment, guaranteed ROI, full cold chain and marketing support provided.`,
+          title: seoData.title,
+          description: seoData.metaDesc,
           heroHeading: `Own a Mushroom Franchise in ${formattedLocation}`,
           heroSub: `Join India's fastest-growing organic network. We provide complete setup, spawn, and buy-back options in ${formattedLocation}.`,
           ctaText: "Apply for Franchise"
         };
       case 'careers':
         return {
-          title: `Mushroom Farm Jobs & Careers in ${formattedLocation}`,
-          description: `Looking for agriculture and farm jobs in ${formattedLocation}? Apply for roles ranging from Supervisors, Sales to Digital Marketing at Organic Mushroom Farm.`,
+          title: seoData.title,
+          description: seoData.metaDesc,
           heroHeading: `Grow Your Career in ${formattedLocation}`,
           heroSub: `Join the sustainable food revolution. Now hiring in ${formattedLocation} for multiple remote and on-farm positions.`,
           ctaText: "Apply Now"
@@ -62,8 +66,8 @@ export default function LocationDetailsPage() {
       case 'farming':
       default:
         return {
-          title: `Mushroom Farming Business in ${formattedLocation}`,
-          description: `Start a highly profitable mushroom farming business in ${formattedLocation}. We offer turnkey setups, spawn supply, and expert consultation.`,
+          title: seoData.title,
+          description: seoData.metaDesc,
           heroHeading: `Mushroom Farming Setup in ${formattedLocation}`,
           heroSub: `End-to-End commercial setups, high-yield spawn, and consultancy specifically adapted to the environment of ${formattedLocation}.`,
           ctaText: "Start Business Now"
@@ -108,9 +112,9 @@ export default function LocationDetailsPage() {
   return (
     <>
       <SEO 
-        title={`${content.title} | Organic Mushroom Farm`}
-        description={content.description}
-        keywords={`mushroom farming ${formattedLocation}, mushroom training ${formattedLocation}, mushroom franchise ${formattedLocation}, organic agriculture ${formattedLocation}`}
+        title={seoData.title}
+        description={seoData.metaDesc}
+        keywords={seoData.keywords}
         url={pathname}
         schemas={generateSchemas()}
       />
@@ -150,6 +154,16 @@ export default function LocationDetailsPage() {
               <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">Premium Quality</h3>
               <p className="dark:text-slate-400 text-slate-600">We guarantee high-yield strains and structural guarantees on all farm equipment used.</p>
             </div>
+          </div>
+
+          {/* New SEO Research & Language Wise Deep Learning Article Portal */}
+          <div className="glass p-10 md:p-16 rounded-[3rem] border dark:border-white/5 border-black/5 mb-16">
+            <h1 className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">
+              {seoData.h1}
+            </h1>
+            <div className="w-20 h-1 bg-gradient-to-r from-primary-start to-accent rounded-full mb-8"></div>
+            
+            <div dangerouslySetInnerHTML={{ __html: seoData.articleHtml }} />
           </div>
 
           <div className="glass p-10 md:p-16 rounded-[3rem] border dark:border-white/5 border-black/5 mb-24">
