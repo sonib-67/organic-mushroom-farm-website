@@ -340,6 +340,43 @@ export const generateGlobalFAQSchema = () => {
   };
 };
 
+const SHIPPING_DETAILS = {
+  "@type": "OfferShippingDetails",
+  "shippingRate": {
+    "@type": "MonetaryAmount",
+    "value": "100.00",
+    "currency": "INR"
+  },
+  "shippingDestination": {
+    "@type": "DefinedRegion",
+    "addressCountry": "IN"
+  },
+  "deliveryTime": {
+    "@type": "ShippingDeliveryTime",
+    "handlingTime": {
+      "@type": "QuantitativeValue",
+      "minValue": 0,
+      "maxValue": 1,
+      "unitCode": "d"
+    },
+    "transitTime": {
+      "@type": "QuantitativeValue",
+      "minValue": 3,
+      "maxValue": 7,
+      "unitCode": "d"
+    }
+  }
+};
+
+const MERCHANT_RETURN_POLICY = {
+  "@type": "MerchantReturnPolicy",
+  "applicableCountry": "IN",
+  "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+  "merchantReturnDays": 7,
+  "returnMethod": "https://schema.org/ReturnByMail",
+  "returnFees": "https://schema.org/FreeReturn"
+};
+
 export const generateGlobalProductsSchema = () => {
   return {
     "@context": "https://schema.org",
@@ -364,7 +401,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "500.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -384,7 +423,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "800.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -404,7 +445,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "600.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -424,7 +467,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "1200.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -444,7 +489,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "1500.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -464,7 +511,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "1400.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -484,7 +533,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "2000.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -504,7 +555,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "200.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -524,7 +577,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "1800.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -544,7 +599,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "2500.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -564,7 +621,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "1000.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
@@ -584,7 +643,9 @@ export const generateGlobalProductsSchema = () => {
             "price": "3000.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" }
+            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "shippingDetails": SHIPPING_DETAILS,
+            "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
         }
       },
