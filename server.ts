@@ -1,14 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
-import fs from 'fs';
 import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
 import { sendEmail, notifyAdmin } from './server/email.js';
-import { parseSEOPathname } from './src/utils/seoPathParser.js';
-import { generateLocationSEOArticle } from './src/data/locationSEOContent.js';
 
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
@@ -305,66 +302,9 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    // Set index to false to prevent serving index.html automatically without dynamic processing
-    app.use(express.static(distPath, { index: false }));
-    
+    app.use(express.static(distPath));
     app.get('*', (req, res) => {
-      const indexPath = path.join(distPath, 'index.html');
-      fs.readFile(indexPath, 'utf8', (err, html) => {
-        if (err) {
-          console.error("Error reading index.html:", err);
-          return res.status(500).send("Internal Server Error");
-        }
-
-        try {
-          const parsed = parseSEOPathname(req.path);
-          if (parsed) {
-            const { locationSlug, keywordInfo } = parsed;
-            const seoData = generateLocationSEOArticle(locationSlug, keywordInfo.category.toLowerCase(), keywordInfo);
-            
-            if (seoData) {
-              let modifiedHtml = html;
-              
-              // 1. Replace title
-              modifiedHtml = modifiedHtml.replace(
-                /<title>.*?<\/title>/i,
-                `<title>${seoData.title}</title>`
-              );
-              
-              // 2. Replace description
-              // Match description tag inside index.html head
-              modifiedHtml = modifiedHtml.replace(
-                /<meta\s+name=["']description["']\s+content=["'].*?["']\s*\/?>/i,
-                `<meta name="description" content="${seoData.metaDesc.replace(/"/g, '&quot;')}" />`
-              );
-              
-              // 3. Replace keywords
-              modifiedHtml = modifiedHtml.replace(
-                /<meta\s+name=["']keywords["']\s+content=["'].*?["']\s*\/?>/i,
-                `<meta name="keywords" content="${seoData.keywords.replace(/"/g, '&quot;')}" />`
-              );
-              
-              // 4. Replace canonical URL
-              modifiedHtml = modifiedHtml.replace(
-                /<link\s+rel=["']canonical["']\s+href=["'].*?["']\s*\/?>/i,
-                `<link rel="canonical" href="https://organicmushroomfarm.shop${req.path}" />`
-              );
-              
-              return res.send(modifiedHtml);
-            }
-          }
-        } catch (parseErr) {
-          console.error("Error inject dynamic meta tags:", parseErr);
-        }
-
-        // Fallback: send index.html but with request-specific canonical URL
-        let fallbackHtml = html;
-        fallbackHtml = fallbackHtml.replace(
-          /<link\s+rel=["']canonical["']\s+href=["'].*?["']\s*\/?>/i,
-          `<link rel="canonical" href="https://organicmushroomfarm.shop${req.path}" />`
-        );
-        res.send(fallbackHtml);
-      });
+      res.sendFile(path.join(distPath, 'index.html'));
     });
   }
 
