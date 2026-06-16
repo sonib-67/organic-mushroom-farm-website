@@ -110,7 +110,7 @@ async function generate() {
   console.log("Generating central Google sitemap index (sitemap.xml)...");
 
   // Calculate dynamic cities sitemaps count matching locations-sitemap config
-  const maxUrlsPerSitemap = 20000;
+  const maxUrlsPerSitemap = 5000;
   const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
   const totalCities = CITIES.length;
   const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);

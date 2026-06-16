@@ -56,8 +56,8 @@ async function run() {
   writeSitemapFile('sitemap-locations-states.xml', stateXml);
   console.log(`Generated States Sitemap containing ${stateUrls.length} links.`);
 
-  // 2. Generate Cities Sitemaps (Split into parts where each contains ~20,000 URLs max)
-  const maxUrlsPerSitemap = 20000;
+  // 2. Generate Cities Sitemaps (Split into parts where each contains ~5,000 URLs max)
+  const maxUrlsPerSitemap = 5000;
   const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
   const totalCities = CITIES.length;
   const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);
