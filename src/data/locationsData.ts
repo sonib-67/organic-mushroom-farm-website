@@ -22,7 +22,7 @@ export const CITIES = [
   "Panaji", "Margao", "Vasco_da_Gama", "Mapusa", "Ponda", "Bicholim", "Curchorem", "Sanquelim", "Canacona", "Pernem", "Sanguem", "Quepem",
   
   // Gujarat
-  "Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari", "Morbi", "Mehsana", "Surendranagar", "Bharuch", "Porbandar", "Gondal", "Veraval", "Botad", "Amreli", "Ankleshwar", "Valsad", "Patan", "Dahod", "Godhra", "Palanpur", "Gandhidham", "Deesa", "Idar", "Nadiad", "Khambhat", "Unjha", "Vapi", "Mandvi", "Dwarka", "Somnath", "Keshod", "Dhoraji", "Jetpur", "Wankaner",
+  "Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar", "Jamnagar", "Junagadh", "Gandhinagar", "Anand", "Navsari", "Morbi", "Mehsana", "Surendranagar", "Bharuch", "Porbandar", "Gondal", "Veraval", "Botad", "Amreli", "Ankleshwar", "Valsad", "Dahod", "Godhra", "Palanpur", "Gandhidham", "Deesa", "Idar", "Nadiad", "Khambhat", "Unjha", "Vapi", "Mandvi", "Dwarka", "Somnath", "Keshod", "Dhoraji", "Jetpur", "Wankaner",
   
   // Haryana
   "Faridabad", "Gurugram", "Rohtak", "Hisar", "Panipat", "Ambala", "Yamunanagar", "Sonipat", "Panchkula", "Bhiwani", "Sirsa", "Bahadurgarh", "Jind", "Thanesar", "Kaithal", "Karnal", "Rewari", "Palwal", "Narnaul", "Mahendragarh", "Fatehabad", "Gohana", "Tohana", "Pinjore", "Jhajjar", "Nuh", "Charkhi_Dadri", "Hansi", "Ratia", "Dabwali",
@@ -113,7 +113,7 @@ export const CITIES = [
 ];
 
 export const VILLAGES = [
-  "Lepakshi", "Majuli", "Bodh_Gaya", "Chitrakote", "Aldona", "Gir_Forest", "Kurukshetra", "Malana", "Hampi", "Kumarakom", "Khajuraho", "Shani_Shingnapur", "Loktak_Lake", "Mawlynnong", "Dzukou", "Konark", "Anandpur_Sahib", "Sambhar_Lake", "Yuksom", "Mahabalipuram", "Ramappa", "Neermahal", "Vrindavan", "Shantiniketan"
+  "Lepakshi", "Majuli", "Bodh_Gaya", "Chitrakote", "Aldona", "Gir_Forest", "Kurukshetra", "Malana", "Hampi", "Kumarakom", "Khajuraho", "Shani_Shingnapur", "Loktak_Lake", "Mawlynnong", "Dzukou", "Konark", "Anandpur_Sahib", "Sambhar_Lake", "Yuksom", "Mahabalipuram", "Ramappa", "Neermahal", "Patan", "Vrindavan", "Shantiniketan"
 ];
 
 export const ALL_LOCATIONS = [

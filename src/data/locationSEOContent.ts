@@ -1,4 +1,5 @@
 import { SEOKeyword } from './seoKeywordsData';
+import { MANUAL_PAGE_OVERRIDES } from './customPages';
 
 export interface SEOManualContent {
   title: string;
@@ -50,118 +51,6 @@ export function getStateOfLocation(locationName: string): string {
   return 'India';
 }
 
-function getDeterministicHash(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  return Math.abs(hash);
-}
-
-export function generateUniqueMetaDescription(
-  locationSlug: string,
-  category: string,
-  formattedLoc: string,
-  state: string,
-  kwText: string
-): string {
-  const hash = getDeterministicHash(locationSlug + "_" + category);
-
-  // 1. Hook / Opener options (5 options)
-  const openers = [
-    `Start your agricultural journey with ${kwText} in ${formattedLoc}, ${state}.`,
-    `Discover premium, biological secrets of starting ${kwText} inside ${formattedLoc}, ${state}.`,
-    `Unlock sustainable high-yield methods for ${kwText} in the ${formattedLoc} region.`,
-    `Empower your local farming enterprise with expert-led ${kwText} across ${formattedLoc}, ${state}.`,
-    `Are you looking to optimize indoor cropping schedules for ${kwText} in ${formattedLoc}?`
-  ];
-
-  // 2. Local climatology & region options (5 options)
-  const climates = [
-    `Specifically designed to utilize moisture levels and local temperature parameters of ${formattedLoc}.`,
-    `Carefully optimized for commercial setups, home growers, and seasonal projects in ${formattedLoc}.`,
-    `Tailored to match local climate trends, municipal compost cycles, and relative humidity around ${state}.`,
-    `Adapting vertical multi-tier rack systems specifically for rural and urban spaces inside ${formattedLoc}.`,
-    `Aiding agricultural self-reliance for families, cottage units, and small-scale farms near ${formattedLoc}.`
-  ];
-
-  // 3. Category program / product detail (5 options per category structure)
-  let midPhrases: string[] = [];
-  if (category === "Training Center" || category === "Training & Courses") {
-    midPhrases = [
-      `Get complete certified hands-on training, government subsidy loan documentation, and live farm workshops.`,
-      `Learn compost preparation formulas, pure spawning methods, and technical certificate registration.`,
-      `Access complete offline syllabus lists, technical guidance catalogs, and 1-on-1 expert lab support.`,
-      `Understand dark spawn-run stages, soil casing secrets, and temperature drops under professional tutoring.`,
-      `Enroll inside our monthly batches with free start-up kits and high-efficiency hybrid seed supply.`
-    ];
-  } else if (category === "Government & Free Training") {
-    midPhrases = [
-      `Access free vocational training calendars, ATMA scheme registrations, and women self-help group programs.`,
-      `Secure certified government training schedules, agriculture department help, and F1 seed grants.`,
-      `Review step-by-step application guidelines for securing NHB subsidies and national farming grants.`,
-      `Learn resource compilation from local agricultural residue without installing costly mechanical devices.`,
-      `Gain free online tutorials, local KVK training camp records, and primary commercial certificates.`
-    ];
-  } else if (category === "How To Grow") {
-    midPhrases = [
-      `Master dark casing stages, digital fogger controls, and humidity adjustment scales.`,
-      `Set up low-cost bamboo structures or puff-panel cold rooms with dual air exhaust systems.`,
-      `Learn substrate pasteurization, wheat-straw preparation, and pure liquid spawn inoculation methods.`,
-      `Monitor precise pH parameters, weekly watering routines, and CO2 ventilation structures.`,
-      `Accelerate pinning speeds, first-flush harvests, and block-bag optimization rules.`
-    ];
-  } else if (category === "Types & Prices") {
-    midPhrases = [
-      `Access today's certified wholesale Mandi price logs and supreme grade-A button rate charts.`,
-      `Compare dry Oyster rates per kg, local commercial demand statistics, and health values.`,
-      `Explore premium medicinal strains, Cordyceps pricing, and local retail delivery channel lists.`,
-      `Read certified nutritional values, protein-rich diet benefits, and fresh market contact lists.`,
-      `Trace supply chains of button, oyster, and milky mushrooms with detailed rate trends.`
-    ];
-  } else if (category === "Spawn & Products" || category.includes("Spawn")) {
-    midPhrases = [
-      `Secure laboratory-bred F1 generation hybrid grains with excellent temperature resistance.`,
-      `Source sorghum-based seed blocks, liquid mycelium samples, and sterile agar plates.`,
-      `Get premium seed delivery with professional thermal packaging to bypass container mold risks.`,
-      `Achieve 10x cropping output from first-generation white button or oyster spawn grains.`,
-      `Buy top-grade seeds directly shipped to all rural districts and villages with sprout assurance.`
-    ];
-  } else if (category === "Business & Farming" || category.includes("Business")) {
-    midPhrases = [
-      `Review complete 1500 sq ft project cost records, ROI maps, and legally bound buyback details.`,
-      `Get comprehensive agro-business plans, automated greenhouse design setups, and direct trade contracts.`,
-      `Learn cost-to-profit valuations, crop cycle timing, and risk management guidelines.`,
-      `Acquire ready-made contract farming solutions, bulk drying resources, and cold supply lines.`,
-      `Build lucrative micro-cultivation chambers using cost-effective organic substrates.`
-    ];
-  } else {
-    midPhrases = [
-      `Purchase certified early-morning fresh field harvests packaged strictly under clean sanitary standards.`,
-      `Subscribe to daily fresh delivery boxes containing pristine high-protein organic crops.`,
-      `Secure direct farm supply contracts for restaurants, culinary brands, grocery markets, and homes.`,
-      `Get early-dawn harvested premium button or oyster collections safely dispatched in cooled arrays.`,
-      `Buy clinical-grade dry mushrooms and fresh organic boxes with instant transit updates.`
-    ];
-  }
-
-  // 4. Actionable closing CTA (5 options)
-  const ctas = [
-    `Consult our specialists to request a free custom plan today!`,
-    `Call or WhatsApp our regional advisory desk now for instant details.`,
-    `Order now at organicmushroomfarm.shop to claim your starter package.`,
-    `Click to download your regional cropping manual and start growing safely.`,
-    `Join our local network of successful organic micro-growers today!`
-  ];
-
-  const opener = openers[hash % openers.length];
-  const climate = climates[(hash + 1) % climates.length];
-  const midPhrase = midPhrases[(hash + 2) % midPhrases.length];
-  const cta = ctas[(hash + 3) % ctas.length];
-
-  return `${opener} ${climate} ${midPhrase} ${cta}`;
-}
-
 export function generateLocationSEOArticle(locationName: string, pageType: string, keywordInfo?: SEOKeyword): SEOManualContent {
   const state = getStateOfLocation(locationName);
   
@@ -195,27 +84,10 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `button mushroom price list today in ${formattedLoc}`
   ].join(', ');
 
-  const category = keywordInfo ? keywordInfo.category : "Farming";
-  const uniqueMetaDesc = generateUniqueMetaDescription(locationName, category, formattedLoc, state, kwText);
-
-  // Dynamic titles and meta descriptions using exact keywords and locales completely avoiding duplication
-  const getDynamicTitle = (defaultTitle: string) => {
-    const hashVal = getDeterministicHash(locationName + "_" + category);
-    const variations = [
-      " | Certified Center",
-      " | Direct Spawn & Training",
-      " | Project Cost & Profit",
-      " | Professional Guide",
-      " | Verified Setup Help"
-    ];
-    const suffix = variations[hashVal % variations.length];
-    return `${defaultTitle}${suffix}`;
-  };
-
   // Initialize unified data structures
   let content: SEOManualContent = {
     title: "",
-    metaDesc: uniqueMetaDesc,
+    metaDesc: "",
     keywords: keywordsList,
     h1: "",
     h2s: [],
@@ -224,9 +96,12 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     articleHtml: ""
   };
 
-  // Dynamic titles using exact keywords and locales completely avoiding duplication
+  const category = keywordInfo ? keywordInfo.category : "Farming";
+
+  // Dynamic titles and meta descriptions using exact keywords and locales completely avoiding duplication
   if (category === "Training Center" || category === "Training & Courses") {
-    content.title = getDynamicTitle(`${kwTitleCase} in ${formattedLoc} | Official Organic Academy ${state}`);
+    content.title = `${kwTitleCase} in ${formattedLoc} | Official Organic Academy ${state}`;
+    content.metaDesc = `Learn professional mushroom farming with our expert ${kwText} in ${formattedLoc}, ${state}. Get verified offline workshops, free spawn materials, government subsidy guidance list and 100% lab handholding.`;
     content.h1 = `Premier Certified ${kwTitleCase} Servicing ${formattedLoc}`;
     
     content.h2s = [
@@ -282,7 +157,8 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `;
 
   } else if (category === "Government & Free Training") {
-    content.title = getDynamicTitle(`Free ${kwTitleCase} in ${formattedLoc} | Govt Subsidy schemes`);
+    content.title = `Free ${kwTitleCase} in ${formattedLoc} | Govt Subsidy schemes`;
+    content.metaDesc = `Enroll in ${kwText} in ${formattedLoc}, ${state}. Free online classes, government vocational certification directories, application procedures for small scale farmers and women self-help organizations.`;
     content.h1 = `Official Govt Subsidy & Free ${kwTitleCase} Guide for ${formattedLoc}`;
     content.h2s = [
       `How to Apply for Free Government Mushroom Training in ${state}`,
@@ -323,7 +199,8 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `;
 
   } else if (category === "How To Grow") {
-    content.title = getDynamicTitle(`${kwTitleCase} at Home | Professional Guide ${formattedLoc}`);
+    content.title = `${kwTitleCase} at Home | Professional Guide ${formattedLoc}`;
+    content.metaDesc = `Learn complete secrets on ${kwText} in ${formattedLoc}, ${state} climate. Multi-tier vertical shelf layouts, moisture sprayers, temperature adjustment rules, and F1 grain inoculation protocols.`;
     content.h1 = `Step-by-Step Tutorial on ${kwTitleCase} inside ${formattedLoc}`;
     content.h2s = [
       `How to Grow Highest Quality Mushrooms indoors in ${formattedLoc}`,
@@ -364,7 +241,8 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `;
 
   } else if (category === "Types & Prices") {
-    content.title = getDynamicTitle(`${kwTitleCase} Today in ${formattedLoc} | Current Wholesale Price List`);
+    content.title = `${kwTitleCase} Today in ${formattedLoc} | Current Wholesale Price List`;
+    content.metaDesc = `Check updated market data on ${kwText} in ${formattedLoc}, ${state}. Detailed fresh button price list, supreme oyster price per kg, nutrient benefits, and wholesale mandis contacts.`;
     content.h1 = `${kwTitleCase}: Updated Rates, Strains & Benefits in ${formattedLoc}`;
     content.h2s = [
       `Latest Button and Oyster Mushroom Wholesale Prices in ${formattedLoc}`,
@@ -405,7 +283,8 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `;
 
   } else if (category === "Business & Farming") {
-    content.title = getDynamicTitle(`Mushroom Farming Business in ${formattedLoc} | Setup Cost & Profit`);
+    content.title = `Mushroom Farming Business in ${formattedLoc} | Setup Cost & Profit`;
+    content.metaDesc = `Detailed agro-tech business project file for starting ${kwText} in ${formattedLoc}, ${state} climate. Cost per acre evaluation, crop setup schedules, and assured contract buyback options.`;
     content.h1 = `Launch Your Own ${kwTitleCase} Venture in ${formattedLoc}`;
     content.h2s = [
       `Project Cost of Commercial Organic Mushroom Farming in ${state}`,
@@ -441,7 +320,8 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `;
 
   } else if (category === "Spawn & Products") {
-    content.title = getDynamicTitle(`${kwTitleCase} Supplier in ${formattedLoc} | F1 Grain Seeds`);
+    content.title = `${kwTitleCase} Supplier in ${formattedLoc} | F1 Grain Seeds`;
+    content.metaDesc = `Secure pure lab-tested ${kwText} in ${formattedLoc}, ${state}. High-yield, first-generation sorghum and wheat hybrid spawn grains for Oyster, Button & Milky strains with cold supply distribution.`;
     content.h1 = `Premium Certified ${kwTitleCase} for ${formattedLoc} Farms`;
     content.h2s = [
       `Why F1 Grain Spawn is Essential to Secure Bumper Harvests`,
@@ -478,7 +358,8 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
 
   } else {
     // category === "Purchase & Delivery" or Fallback
-    content.title = getDynamicTitle(`Buy ${kwTitleCase} Online in ${formattedLoc} | Fresh farm Delivery`);
+    content.title = `Buy ${kwTitleCase} Online in ${formattedLoc} | Fresh farm Delivery`;
+    content.metaDesc = `Purchase certified fresh fields organic ${kwText} in ${formattedLoc}, ${state}. Daily early-morning commercial deliveries to restaurants, families, hotels and bulk dry containers storage exporter.`;
     content.h1 = `Organic ${kwTitleCase} Delivered Direct to Your Door in ${formattedLoc}`;
     content.h2s = [
       `Fresh Morning Harvests from Our Local Farms in ${formattedLoc}`,
@@ -512,6 +393,26 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
         </p>
       </div>
     `;
+  }
+
+  // Check for manual overrides based on location slug and keyword slug
+  const locSlug = locationName.toLowerCase().trim().replace(/_/g, '-').replace(/\s+/g, '-');
+  const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\/+|\/+$/g, '').toLowerCase() : '';
+  const specificKey = `${locSlug}_${kwSlug}`;
+  const generalKey = locSlug;
+
+  const override = MANUAL_PAGE_OVERRIDES[specificKey] || MANUAL_PAGE_OVERRIDES[generalKey];
+  if (override) {
+    return {
+      title: override.title || content.title,
+      metaDesc: override.metaDesc || content.metaDesc,
+      keywords: override.keywords || content.keywords,
+      h1: override.h1 || content.h1,
+      h2s: override.h2s || content.h2s,
+      h3s: override.h3s || content.h3s,
+      h4s: override.h4s || content.h4s,
+      articleHtml: override.articleHtml || content.articleHtml
+    };
   }
 
   return content;
