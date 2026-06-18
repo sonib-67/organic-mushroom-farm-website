@@ -1914,69 +1914,7 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* SEO Internal Links (Sitemap) */}
-        <div className="mt-12 pt-8 border-t dark:border-white/5 border-black/5">
-          <h4 className="text-[10px] font-bold mb-4 uppercase tracking-widest text-slate-500/50 text-center">Directory</h4>
-          <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-[10px] text-slate-500/40 max-w-5xl mx-auto">
-            {[
-              { path: "/", label: "Home" },
-              { path: "/process/raw-material", label: "Raw Material" },
-              { path: "/process/compost-preparation", label: "Compost Preparation" },
-              { path: "/process/production-room", label: "Production Room" },
-              { path: "/process/precision-harvest", label: "Precision Harvest" },
-              { path: "/process/cold-chain", label: "Cold Chain Process" },
-              { path: "/process/market-linkage", label: "Market Linkage" },
-              { path: "/model-details", label: "Model Details" },
-              { path: "/compost-unit-specs", label: "Compost Unit Specs" },
-              { path: "/sops#tunnel-ops", label: "Tunnel Ops SOPs" },
-              { path: "/expertise-details", label: "Expertise Details" },
-              { path: "/about", label: "About" },
-              { path: "/services", label: "Services" },
-              { path: "/spawn-seed", label: "Spawn Seed" },
-              { path: "/services/compost-production", label: "Compost Production" },
-              { path: "/services/consultancy", label: "Consultancy" },
-              { path: "/services/marketing-support", label: "Marketing Support" },
-              { path: "/services/cold-chain", label: "Cold Chain Services" },
-              { path: "/services/subsidy", label: "Subsidy Services" },
-              { path: "/training", label: "Training" },
-              { path: "/mushroom-types", label: "Mushroom Types" },
-              { path: "/gallery", label: "Gallery" },
-              { path: "/business-plan", label: "Business Plan" },
-              { path: "/subsidy", label: "Subsidy" },
-              { path: "/faq", label: "FAQ" },
-              { path: "/contact", label: "Contact" },
-              { path: "/terms", label: "Terms" },
-              { path: "/privacy", label: "Privacy" },
-              { path: "/success-stories", label: "Success Stories" },
-              { path: "/locations", label: "Locations" },
-              { path: "/equipment", label: "Equipment" },
-              { path: "/roi-calculator", label: "ROI Calculator" },
-              { path: "/turnkey-projects", label: "Turnkey Projects" },
-              { path: "/blog", label: "Blog" },
-              { path: "/blog/1", label: "Blog 1" },
-              { path: "/blog/2", label: "Blog 2" },
-              { path: "/blog/3", label: "Blog 3" },
-              { path: "/blog/4", label: "Blog 4" },
-              { path: "/blog/5", label: "Blog 5" },
-              { path: "/blog/6", label: "Blog 6" },
-              { path: "/articles/mushroom-farming-training-online-offline-certificate", label: "Mushroom Farming Training Online Offline Certificate" },
-              { path: "/articles/mushroom-farming-training-hindi-india", label: "Mushroom Farming Training Hindi India" },
-              { path: "/articles/mushroom-farming-business-plan-hindi-2026", label: "Mushroom Farming Business Plan Hindi 2026" },
-              { path: "/articles/what-is-mushroom-spawn-beginner-guide-india", label: "What Is Mushroom Spawn Beginner Guide India" },
-              { path: "/articles/oyster-mushroom-cultivation-india", label: "Oyster Mushroom Cultivation India" },
-              { path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", label: "Mushroom Farming Beginner Guide India 2026 2027" },
-              { path: "/blog/10", label: "Blog 10" },
-              { path: "/blog/7", label: "Blog 7" },
-              { path: "/blog/8", label: "Blog 8" },
-              { path: "/blog/9", label: "Blog 9" },
-            ].map((link, i) => (
-              <span key={i} className="flex gap-3 items-center">
-                <Link to={link.path} className="hover:text-slate-500 transition-colors whitespace-nowrap">{link.label}</Link>
-                {i !== 49 && <span className="opacity-30">|</span>}
-              </span>
-            ))}
-          </div>
-        </div>
+
       </div>
     </footer>
   );
