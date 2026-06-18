@@ -272,34 +272,6 @@ export default function CityCategoryPage() {
                   ))}
                 </div>
               </div>
-
-              {/* Local Reviews visual verification for human & crawler trust */}
-              <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/5 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 text-white/5 font-black text-6xl">04</div>
-                <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-8 border-b border-white/5 pb-4 flex items-center gap-2">
-                  <Star className="text-amber-500 fill-amber-500" size={24} /> Verified Student & Farmer Reviews in {cityName}
-                </h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {localReviews.map((rev, idx) => (
-                    <div key={idx} className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center gap-1 mb-3">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={14} className="text-amber-500 fill-amber-500 shrink-0" />
-                          ))}
-                        </div>
-                        <p className="dark:text-slate-300 text-slate-700 text-sm leading-relaxed italic mb-4">
-                          "{rev.reviewBody}"
-                        </p>
-                      </div>
-                      <div className="border-t dark:border-white/5 border-black/5 pt-3 mt-auto">
-                        <div className="font-bold text-xs dark:text-white text-slate-900">{rev.author}</div>
-                        <div className="text-[10px] text-slate-500 font-semibold">{rev.location}, MP • {rev.date}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Sticky contact bar and categories list */}
@@ -321,8 +293,8 @@ export default function CityCategoryPage() {
 
               {/* Navigation within this city */}
               <div className="glass p-8 rounded-[2rem] border border-white/5">
-                <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-4 uppercase tracking-widest text-xs border-l-2 border-primary-start pl-3">
-                  Other Landing Pages
+                <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-4 text-xs border-l-2 border-primary-start pl-3">
+                  Other pages
                 </h3>
                 <div className="space-y-2">
                   {CATEGORIES.filter(c => c.slug !== categorySlug).map(cat => (
@@ -339,17 +311,12 @@ export default function CityCategoryPage() {
             </div>
           </div>
 
-          {/* Longtail keywords block - extremely important for crawlers as requested */}
-          <div className="border-t border-white/5 pt-12">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-6 text-center">
-              Targeted Search Queries & SEO Matches
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2 max-w-5xl mx-auto">
+          {/* Longtail keywords block - hidden visually but fully readable in DOM for crawlers as requested */}
+          <div className="sr-only">
+            <h3>Other keywords</h3>
+            <div>
               {localizedKeywords.map((tag, i) => (
-                <span 
-                  key={i} 
-                  className="px-3.5 py-1.5 dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-full text-[10px] font-bold text-slate-500"
-                >
+                <span key={i}>
                   {tag}
                 </span>
               ))}
