@@ -1,6 +1,5 @@
 import { SEOKeyword } from './seoKeywordsData';
 import { MANUAL_PAGE_OVERRIDES } from './customPages';
-import { getCityAgriProfile } from './mpCityProfiles';
 
 export interface SEOManualContent {
   title: string;
@@ -23,10 +22,10 @@ export function getStateOfLocation(locationName: string): string {
   const maharashtraCities = ['mumbai', 'pune', 'nagpur', 'nashik', 'aurangabad', 'solapur', 'amravati', 'kolhapur', 'nanded', 'sangli', 'malegaon', 'jalgaon', 'akola', 'latur', 'dhule', 'ahmednagar', 'chandrapur', 'parbhani', 'ichalkaranji', 'jalna', 'panvel', 'navi-mumbai', 'thane', 'kalyan', 'shirdi', 'satara'];
   const karnatakaCities = ['bengaluru', 'hubli', 'dharwad', 'mysuru', 'kalaburagi', 'mangaluru', 'davanagere', 'belagavi', 'ballari', 'vijayapura', 'shivamogga', 'tumakuru', 'raichur', 'bidar', 'udupi', 'hassan', 'hospet', 'gadag', 'mandya', 'kolar', 'mysore'];
   const rajasthanCities = ['jaipur', 'jodhpur', 'kota', 'bikaner', 'ajmer', 'bhilwara', 'alwar', 'bharatpur', 'sikar', 'pali', 'tonk', 'udaipur'];
-  const hrangeC = ['faridabad', 'gurugram', 'rohtak', 'hisar', 'panipat', 'ambala', 'yamunanagar', 'sonipat', 'panchkula', 'bhiwani', 'sirsa', 'bahadurgarh', 'jind', 'karnal', 'rewari', 'palwal', 'narnaul'];
+  const haryanaCities = ['faridabad', 'gurugram', 'rohtak', 'hisar', 'panipat', 'ambala', 'yamunanagar', 'sonipat', 'panchkula', 'bhiwani', 'sirsa', 'bahadurgarh', 'jind', 'karnal', 'rewari', 'palwal', 'narnaul'];
   const delhiCities = ['new-delhi', 'dwarka', 'rohini', 'janakpuri', 'laxmi-nagar', 'shahdara', 'pitampura', 'saket', 'delhi'];
   const wbCities = ['kolkata', 'asansol', 'siliguri', 'durgapur', 'bardhaman', 'malda', 'baharampur', 'kharagpur', 'darjeeling', 'howrah'];
-  const mpCities = ['indore', 'bhopal', 'jabalpur', 'gwalior', 'ujjain', 'sagar', 'dewas', 'satna', 'ratlam', 'rewa', 'burhanpur', 'khandwa', 'chhindwara', 'singrauli', 'katangi', 'murwara', 'bhind', 'guna', 'shivpuri', 'vidisha', 'chhatarpur', 'damoh', 'mandsaur', 'khargone', 'neemuch', 'pithampur', 'hoshangabad', 'itarsi', 'sehore', 'betul', 'seoni', 'datia', 'nagda', 'balaghat', 'mandla', 'dindori', 'tikamgarh', 'panna', 'anuppur', 'umaria', 'sidhi', 'shahdol', 'rajgarh', 'agar-malwa', 'alirajpur', 'barwani', 'ashoknagar'];
+  const mpCities = ['indore', 'bhopal', 'jabalpur', 'gwalior', 'ujjain', 'sagar', 'dewas', 'satna', 'ratlam', 'rewa', 'burhanpur', 'khandwa', 'chhindwara', 'singrauli', 'gwalior'];
   const uttarakhandCities = ['dehradun', 'haridwar', 'roorkee', 'haldwani', 'rudrapur', 'kashipur', 'rishikesh', 'pithoragarh', 'solan'];
 
   if (upCities.includes(loc)) return 'Uttar Pradesh';
@@ -34,7 +33,7 @@ export function getStateOfLocation(locationName: string): string {
   if (maharashtraCities.includes(loc)) return 'Maharashtra';
   if (karnatakaCities.includes(loc)) return 'Karnataka';
   if (rajasthanCities.includes(loc)) return 'Rajasthan';
-  if (hrangeC.includes(loc)) return 'Haryana';
+  if (haryanaCities.includes(loc)) return 'Haryana';
   if (delhiCities.includes(loc)) return 'Delhi';
   if (wbCities.includes(loc)) return 'West Bengal';
   if (mpCities.includes(loc)) return 'Madhya Pradesh';
@@ -52,151 +51,6 @@ export function getStateOfLocation(locationName: string): string {
   return 'India';
 }
 
-/**
- * 📍 PROGRAMMATIC MP TEMPLATE GENERATOR
- * Organizes the 46 Madhya Pradesh cities in 3 unique templates in a round-robin format
- * to prevent any search engine duplicate content penalties.
- */
-function generateMPProgrammaticContent(
-  locSlug: string,
-  formattedLoc: string,
-  category: string,
-  keywordInfo?: SEOKeyword
-): SEOManualContent {
-  const state = "Madhya Pradesh";
-  const profile = getCityAgriProfile(locSlug, state);
-  
-  // Clean up keyword texts
-  const kwText = keywordInfo ? keywordInfo.keyword : "mushroom training center";
-  const kwTitleCase = kwText
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-
-  const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\/+|\/+$/g, '').toLowerCase() : '';
-
-  const MP_CITIES_LIST = [
-    'indore', 'bhopal', 'jabalpur', 'gwalior', 'ujjain', 'sagar', 'dewas', 'satna', 'ratlam', 'rewa', 
-    'burhanpur', 'khandwa', 'chhindwara', 'singrauli', 'katangi', 'murwara', 'bhind', 'guna', 'shivpuri', 'vidisha', 
-    'chhatarpur', 'damoh', 'mandsaur', 'khargone', 'neemuch', 'pithampur', 'hoshangabad', 'itarsi', 'sehore', 'betul', 
-    'seoni', 'datia', 'nagda', 'balaghat', 'mandla', 'dindori', 'tikamgarh', 'panna', 'anuppur', 'umaria', 
-    'sidhi', 'shahdol', 'rajgarh', 'agar-malwa', 'alirajpur', 'barwani', 'ashoknagar'
-  ];
-  
-  const mpIndex = MP_CITIES_LIST.indexOf(locSlug);
-  const templateType = mpIndex % 3 === 0 ? 'Indore' : (mpIndex % 3 === 1 ? 'Bhopal' : 'Jabalpur');
-
-  // Unified Title & Desc following the PDF screenshots format:
-  // e.g., "Indore Mushroom Training Center Guide | Learn, Grow & Earn"
-  const title = `${formattedLoc} ${kwTitleCase} Guide | Learn, Grow & Earn`;
-  const metaDesc = `${formattedLoc} mein mushroom industry ka safar shuru karein. Get professional guidance for '${kwText}' along with reliable spawn logistics and local support across ${formattedLoc}.`;
-
-  // General Keywords list for search engine crawlers
-  const keywordsList = [
-    `mushroom training center in ${formattedLoc}`,
-    `best ${kwText} in ${formattedLoc}`,
-    `government mushroom farming training in ${formattedLoc}`,
-    `oyster mushroom cultivation classes near me in ${formattedLoc}`,
-    `button mushroom grow course in ${formattedLoc}`,
-    `${kwText} ${formattedLoc}`,
-    `low cost mushroom grow chamber ${formattedLoc}`
-  ].join(', ');
-
-  // Content Blocks
-  let h1 = "";
-  let h2s: string[] = [];
-  let h3s: string[] = [];
-  let h4s: string[] = [];
-  let articleHtml = "";
-
-  if (templateType === 'Indore') {
-    h1 = `Professional ${kwTitleCase} in ${formattedLoc}`;
-    h2s = ["Kyun Choose Karein Hamari Services?", `Professional ${kwTitleCase} Frameworks`];
-    h3s = [`Microclimate Adaptation near ${profile.landmark}`, "Automated Spawn Inoculation Protocols"];
-    h4s = [`Q: Kya ${formattedLoc} ke dry weather ya normal temperature mein mushroom cultivation continuously poore saal kiya ja sakta hai?`];
-    
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-        <p>
-          ${formattedLoc} aur Madhya Pradesh ke aaspass ke kshetron mein modern mushroom farming ka karobaar tezi se badh raha hai. Sahi market link na milne aur training ki kami ke wajah se bohot se log shuruat nahi kar paate. ${formattedLoc} ke unhi sabhi aspiring entrepreneurs aur progressive farmers ke liye hamara local center setup complete structural and practical support pradan kar raha hai. Hamara primary program exclusive <strong>${kwText} in ${formattedLoc}</strong> parameters ko structural visibility dene ke liye develop kiya gaya hai.
-        </p>
-
-        <h3 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${h2s[0]}</h3>
-        <p>
-          Hamare advanced modules aapko temperature regulation, relative humidity balancing, aur automated spawn inoculation protocols ki accurate industry insights pradan karte hain takki market yield maximum ho sake. Sahi framework hone se aap cultivation errors se bachte hain aur proper scaling pathways manage kar sakte hain. We provide direct coordinates near key landmarks like <em>${profile.landmark}</em> to optimize yields.
-        </p>
-
-        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-6 bg-slate-100 dark:bg-slate-800/80 p-4 rounded-t-lg border-l-4 border-yellow-500 mb-0">${h4s[0]}</h4>
-        <div class="dark:text-slate-300 text-slate-600 bg-slate-100/50 dark:bg-slate-800/40 p-4 rounded-b-lg border-l-4 border-yellow-500 mt-0 italic">
-          <strong>Ans:</strong> Haan, hum training mein specialized low-cost microclimate control mechanisms sikhate hain jo ${formattedLoc} ke seasonal changes ko balance karke yield ko zero-risk par banaye rakhta hai. Isse aap saal-bhar oyster aur button strains ${profile.tempAdvice} ke sath grow kar sakte hain.
-        </div>
-      </div>
-    `;
-  } else if (templateType === 'Bhopal') {
-    h1 = `Official ${kwTitleCase} in ${formattedLoc}`;
-    h2s = ["Kyun Choose Karein Hamari Services?", `Industrial Scaling & Packaging in ${formattedLoc}`];
-    h3s = [`Direct Cold-Chain Dispatch to ${profile.markets}`, "Shelf-Life Optimization Methods"];
-    h4s = [`Q: Training and development complete hone ke baad organic spawn seeds aur casing material ${formattedLoc} mein kaise deliver hoga?`];
-
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-        <p>
-          Agar aap ${formattedLoc} mein rehte hain aur agro-industry ya organic cultivation mein apna future banana chahte hain, toh mushroom ki kheti ek behtareen vikalp hai. Kam lagat aur kam jameeh mein shuru hone wale is innovative business ko safely run karne ke liye hum ${formattedLoc} ke har grower ko reliable support de rahe hain. Hamara primary program exclusive <strong>${kwText} in ${formattedLoc}</strong> parameters ko structural visibility dene ke liye develop kiya gaya hai.
-        </p>
-
-        <h3 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${h2s[0]}</h3>
-        <p>
-          Hum keval theoretical knowledge nahi dete, balki cold chain logistics management, harvest shelf-life optimization, aur direct bulk order placement strategies bhi share karte hain jo business grow karne ke liye zaroori hain. Sahi framework hone se aap cultivation errors se bachte hain aur proper scaling pathways manage kar sakte hain. Substrates can be easily acquired near wholesale spots like <em>${profile.markets}</em>.
-        </p>
-
-        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-6 bg-slate-100 dark:bg-slate-800/80 p-4 rounded-t-lg border-l-4 border-yellow-500 mb-0">${h4s[0]}</h4>
-        <div class="dark:text-slate-300 text-slate-600 bg-slate-100/50 dark:bg-slate-800/40 p-4 rounded-b-lg border-l-4 border-yellow-500 mt-0 italic">
-          <strong>Ans:</strong> Aapko bhatakne ki zarurat nahi hai. Hamare central processing labs se cold-carrier networks ke madhyam se highest purity level ka active grain spawn direct aapke address par safely dispatched kiya jayega, satisfying all requirements inside neighborhoods like <em>${profile.neighborhoods}</em>.
-        </div>
-      </div>
-    `;
-  } else {
-    // Jabalpur template
-    h1 = `State-of-the-Art ${kwTitleCase} in ${formattedLoc}`;
-    h2s = ["Kyun Choose Karein Hamari Services?", "Direct Contract Buyback Agreements"];
-    h3s = [`Low Moisture Cultivation near ${profile.landmark}`, "Continuous Growth Protocols"];
-    h4s = [`Q: Mushroom business shuru karne par market entry aur local client distribution setup mein hamari farm aapko kaise back karegi?`];
-
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
-        <p>
-          ${formattedLoc} ke urban aur rural sectors mein professional agriculture techniques ki demand badhti ja rahi hai. Hamara main operation unit Jabalpur mein hote hue bhi hum ${formattedLoc} ke sabhi local users ko exclusive home-fruiting setups, localized consulting, aur continuous growth protocols directly update kar rahe hain. Hamara primary program exclusive <strong>${kwText} in ${formattedLoc}</strong> parameters ko structural visibility dene ke liye develop kiya gaya hai.
-        </p>
-
-        <h3 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${h2s[0]}</h3>
-        <p>
-          Hamare technical framework mein aapko practical organic techniques, compost design methodology, aur structural contamination control protocols seekhne ko milte hain jo local conditions ke anusaar customize kiye gaye hain. Sahi framework hone se aap cultivation errors se bachte hain aur proper scaling pathways manage kar sakte hain. This strategy utilizes the direct geographical benefits of <em>${profile.localAdvantage}</em>.
-        </p>
-
-        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-6 bg-slate-100 dark:bg-slate-800/80 p-4 rounded-t-lg border-l-4 border-yellow-500 mb-0">${h4s[0]}</h4>
-        <div class="dark:text-slate-300 text-slate-600 bg-slate-100/50 dark:bg-slate-800/40 p-4 rounded-b-lg border-l-4 border-yellow-500 mt-0 italic">
-          <strong>Ans:</strong> Hum local bulk suppliers, pharmaceuticals buyer networks, aur drying centers ke purchase agreements share karte hain takki ${formattedLoc} ke farmers ko starting day se pricing leverage mil sake.
-        </div>
-      </div>
-    `;
-  }
-
-  // Generate sitemap & keywords wrapper
-  const linkSection = getMushroomKeywordsSection(formattedLoc, locSlug);
-  articleHtml += linkSection;
-
-  return {
-    title,
-    metaDesc,
-    keywords: keywordsList,
-    h1,
-    h2s,
-    h3s,
-    h4s,
-    articleHtml
-  };
-}
-
 export function generateLocationSEOArticle(locationName: string, pageType: string, keywordInfo?: SEOKeyword): SEOManualContent {
   const state = getStateOfLocation(locationName);
   
@@ -208,33 +62,14 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  const locSlug = locationName.toLowerCase().trim().replace(/_/g, '-').replace(/\s+/g, '-');
-  const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\/+|\/+$/g, '').toLowerCase() : '';
-
-  const MP_CITIES_LIST = [
-    'indore', 'bhopal', 'jabalpur', 'gwalior', 'ujjain', 'sagar', 'dewas', 'satna', 'ratlam', 'rewa', 
-    'burhanpur', 'khandwa', 'chhindwara', 'singrauli', 'katangi', 'murwara', 'bhind', 'guna', 'shivpuri', 'vidisha', 
-    'chhatarpur', 'damoh', 'mandsaur', 'khargone', 'neemuch', 'pithampur', 'hoshangabad', 'itarsi', 'sehore', 'betul', 
-    'seoni', 'datia', 'nagda', 'balaghat', 'mandla', 'dindori', 'tikamgarh', 'panna', 'anuppur', 'umaria', 
-    'sidhi', 'shahdol', 'rajgarh', 'agar-malwa', 'alirajpur', 'barwani', 'ashoknagar'
-  ];
-
-  const category = keywordInfo ? keywordInfo.category : "Farming";
-
-  // If this belongs to Madhya Pradesh, route to the 100% programmatic round-robin generator
-  if (state === "Madhya Pradesh" || MP_CITIES_LIST.includes(locSlug)) {
-    return generateMPProgrammaticContent(locSlug, formattedLoc, category, keywordInfo);
-  }
-
-  // Standardize keyword text for non-MP cities
+  // Standardize keyword text
   const kwText = keywordInfo ? keywordInfo.keyword : (pageType + " mushroom");
   const kwTitleCase = kwText
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-  // Fetch unique city agricultural profile
-  const profile = getCityAgriProfile(locationName, state);
+  const isHindiState = ['Uttar Pradesh', 'Bihar', 'Delhi', 'Haryana', 'Rajasthan', 'Madhya Pradesh', 'Uttarakhand'].includes(state);
 
   // Generate highly targetized long-tail keywords for search engine bots
   const keywordsList = [
@@ -242,10 +77,10 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     `${kwText} center near me`,
     `mushroom cultivation in ${formattedLoc}`,
     `best ${kwText} ${state}`,
-    `how to grow mushrooms near ${profile.landmark}`,
+    `how to grow mushrooms in ${formattedLoc}`,
     `do khane yogya mushroom in hindi`,
-    `mushroom farming training by government in ${formattedLoc}`,
-    `mushroom spawn supply at ${profile.markets}`,
+    `mushroom farming training by government ${formattedLoc}`,
+    `mushroom spawn supply ${formattedLoc}`,
     `button mushroom price list today in ${formattedLoc}`
   ].join(', ');
 
@@ -261,65 +96,62 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     articleHtml: ""
   };
 
-  // Dynamic content generations using exact keywords and highly unique localized parameters
+  const category = keywordInfo ? keywordInfo.category : "Farming";
+
+  // Dynamic titles and meta descriptions using exact keywords and locales completely avoiding duplication
   if (category === "Training Center" || category === "Training & Courses") {
     content.title = `${kwTitleCase} in ${formattedLoc} | Official Organic Academy ${state}`;
     content.metaDesc = `Learn professional mushroom farming with our expert ${kwText} in ${formattedLoc}, ${state}. Get verified offline workshops, free spawn materials, government subsidy guidance list and 100% lab handholding.`;
     content.h1 = `Premier Certified ${kwTitleCase} Servicing ${formattedLoc}`;
     
     content.h2s = [
-      `Mushroom Farming Training by Government Support & Grants in ${formattedLoc}`,
-      `Certified ${kwTitleCase} Learning Structures near ${profile.landmark}`,
-      `State-of-the-Art Incubators and Classrooms serving ${formattedLoc}`
+      `Mushroom Farming Training By Government Support & Grants in ${formattedLoc}`,
+      `Certified ${kwTitleCase} Learning Structures`,
+      `State-of-the-Art Incubators and Cultivation Classrooms`
     ];
     
     content.h3s = [
-      `5 Standard Stages of Fruiting Taught across ${formattedLoc} Batches`,
-      `Compost Formulation: Sourcing Straw near ${profile.markets} for High Yield`,
+      `5 Standard Stages of Fruiting Taught in ${formattedLoc} Batches`,
+      `Compost Formulation: Utilizing Local Raw Materials for Commercial Yield`,
       `How to Get Government Assistance & Bank Loans in ${state}`
     ];
 
     content.h4s = [
       `Do khane yogya mushroom ke naam bataiye? (What are two premium edible varieties?)`,
-      `Can residents of ${profile.neighborhoods.split(',')[0]} and nearby areas attend?`,
-      `What is the total duration of practical workshops at the academy in ${formattedLoc}?`
+      `Is prior experience or a botanical degree required to enroll in ${formattedLoc}?`,
+      `What is the total duration of practical workshops at the academy?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          Welcome to the leading certified hub for <strong>${kwText} in ${formattedLoc}</strong>. Specially designed to empower growers, agricultural enthusiasts, and modern home-entrepreneurs across regions such as <em>${profile.neighborhoods}</em> and the greater ${state} dynamic, our hands-on curriculum bridges technical biology with commercial business success.
+          Welcome to the leading hub for <strong>${kwText} in ${formattedLoc}</strong>. Designed to empower local farmers, agricultural entrepreneurs, and home cultivators across ${state}, our technical curriculum bridges pure biology with high-yielding commercial business solutions.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          Under the central support of the <strong>National Horticulture Board (NHB)</strong> and regional state subsidy schemes, starting a crop venture remains heavily incentivized. Our master workshops in ${formattedLoc} help you secure certified documentation, enabling you to apply for 35% to 50% technical subsidy grants when setting up cooling growing chambers or compost sheds. ${profile.localAdvantage}
+          Under the centralized support of the <strong>National Horticulture Board (NHB)</strong> and regional state schemes in ${state}, starting a commercial mushroom project remains highly supported. Technical workshops in ${formattedLoc} assist you in securing certificates necessary to acquire commercial subsidies (up to 40% to 50% technical grants) for building cold-rooms and pasteurized composting pits.
         </p>
 
         <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[0]}</h3>
         <p>
-          Our courses break down the complex biology of mushroom cropping into five clear, practical steps:
+          Our modular courses break down the biological structure of mushroom cultivation into five rigorous, hands-on steps:
         </p>
         <ol class="list-decimal pl-6 space-y-2 dark:text-slate-300 text-slate-600">
-          <li><strong>Substrate Sterilization:</strong> Preparing local inputs (sterilized rice straw, coco-peat, or agricultural waste) to prevent mold.</li>
-          <li><strong>Spawning (Inoculation):</strong> Hygienic techniques of distributing active first-generation spawn seeds inside grow pouches.</li>
-          <li><strong>Mycelium Incubation:</strong> Maintaining optimal dark phases at 22°C - 24°C until pure white root filaments colonize the block.</li>
-          <li><strong>Organic Soil Casing:</strong> Laying water-holding pasteurized cover soil to guarantee heavy moisture thresholds.</li>
-          <li><strong>Fruiting & Climatic Humidity:</strong> Initiating refreshing fresh air drafts to guide rapid pinheading inside ${formattedLoc}'s atmosphere.</li>
+          <li><strong>Substrate Selection & Sterilization:</strong> Preparing organic inputs like sterilized rice straw, coco-peat, or wheat bran to remove wild mold spores.</li>
+          <li><strong>Spawning (Seed Mixing):</strong> Proper hygienic methods of distributing laboratory-grade F1 hybrid spawn inside growth bags.</li>
+          <li><strong>Dark Incubation (Spawn Run):</strong> Maintaining dark atmosphere blocks at 22°C - 24°C till pure white mycelium spreads naturally.</li>
+          <li><strong>Soil Casing:</strong> Adding pasteurized peat-soil to anchor water moisture (specifically for white button strains).</li>
+          <li><strong>Fruiting & Temperature Drop:</strong> Introducing oxygen cycles and temperature drops to trigger high quality pinning blocks in ${formattedLoc}.</li>
         </ol>
-
-        <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[1]}</h3>
-        <p>
-          For local composting and bag sterilization, we highlight methods to acquire chemical-free raw straw near <strong>${profile.markets}</strong>. This ensures commercial growers can keep production costs to a minimum while maximizing final margins.
-        </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
         <p class="italic dark:text-slate-300 text-slate-600">
-          <strong>उत्तर:</strong> व्यावसायिक रूप से उगाने और भोजन में इस्तेमाल करने के लिए दो सबसे उत्तम मशरूम हैं - <strong>सफेद बटन मशरूम (White Button Mushroom)</strong> और <strong>ओईस्टर मशरूम (Oyster Mushroom / ढींगरी)</strong>। इन दोनों ही सर्वोत्तम प्रजातियों को आप ${formattedLoc} के घरेलू वातावरण या बड़े शेड में बहुत आसान तरीकों से उगा सकते हैं।
+          <strong>उत्तर:</strong> व्यवसायिक रूप से खेती और खाने के लिए सबसे लोकप्रिय दो मशरूम हैं - <strong>सफेद बटन मशरूम (White Button Mushroom)</strong> और <strong>ओईस्टर मशरूम (Oyster / ढींगरी मशरूम)</strong>। इन दोनों को आप आसानी से ${formattedLoc} के घरेलू या व्यवसायिक सेटअप में उगा सकते हैं।
         </p>
 
         <p>
-          Take your first step today by connecting with our expert guides. We support remote call assistance and structured PDF guides specifically optimized for landmarks around ${profile.landmark}!
+          Take your first step today by connecting with our expert instructors. We offer full remote call assistance and structured manuals directly tailored to the atmospheric climate profile of ${formattedLoc}!
         </p>
       </div>
     `;
@@ -331,37 +163,37 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     content.h2s = [
       `How to Apply for Free Government Mushroom Training in ${state}`,
       `Understanding RKVY & ATMA Free Training Subsidies in ${formattedLoc}`,
-      `Obtaining Certificate Guidelines near landmark ${profile.landmark}`
+      `Obtaining Certificate Guidelines for Commercial Agriculture Loans`
     ];
     content.h3s = [
-      `F1 Spawn Seeds Distribution Program near ${profile.markets}`,
+      `F1 Spawn Seeds Distribution Program near ${formattedLoc}`,
       `Substrate and Compost preparation methods under government directives`,
-      `Post-Harvesting processing: Drying, Canning, and Packaging in ${formattedLoc}`
+      `Post-Harvesting processing: Drying, Canning, and Packaging`
     ];
     content.h4s = [
       `Mushroom ki kheti ki government help kaise milti hai?`,
-      `Can women self-help groups (SHGs) in regions like ${profile.neighborhoods.split(',')[0]} get special grants?`
+      `Can women self-help groups (SHGs) get special grants for cultivation in ${formattedLoc}?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          Unlocking state-sponsored progress has never been easier. Our specialized guide for <strong>${kwText} in ${formattedLoc}</strong> serves to help rural and urban micro-cultivators registered across areas like <em>${profile.neighborhoods}</em> apply for subsidized training packages and horticulture resources.
+          Unlocking state-sponsored progress has never been easier. Our specialized guide for <strong>${kwText} in ${formattedLoc}</strong> serves to help rural and urban micro-cultivators register under subsidized training centers and horticulture campuses in ${state}.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          The regional department of agriculture under the <strong>ATMA agency</strong> and Krishi Vigyan Kendra (KVK) frequently organizes free learning camps. By joining these cohorts, participants in ${formattedLoc} can secure high-yield F1 spawn seeds absolutely free of cost or at highly subsidized rates. ${profile.localAdvantage}
+          The agricultural department under the <strong>ATMA (Agricultural Technology Management Agency)</strong> and KVK (Krishi Vigyan Kendra) regularly deploys free learning calendars for starting button and oyster crop chambers. By joining these cohorts, participants in ${formattedLoc} are eligible to receive high-yield F1 hybrid seed blocks absolutely free of cost or at highly reduced pilot prices.
         </p>
 
         <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">${content.h3s[1]}</h3>
         <p>
-          We explain low-cost formulation techniques utilizing local raw ingredients commonly sourced near <strong>${profile.markets}</strong>. Converting agricultural byproduct residues into active growing blocks lets you set up an organic unit with almost zero investment.
+          Learn how to formulate crop bags without automated machinery. By converting agricultural waste like paddy straw, cane bagasse, and dried leaves into localized nutrition blocks, you can successfully launch an eco-friendly farming setup at negligible cost in ${formattedLoc}.
         </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
         <p class="dark:text-slate-300 text-slate-600">
-          <strong>सहायता विवरण:</strong> सरकारी अनुदान के लिए कृषि विभाग (Horticulture Department) में ऑनलाइन या ऑफलाइन आवेदन जमा करके, या नाबार्ड (NABARD) द्वारा अनुमोदित प्रोजेक्ट रिपोर्ट प्रस्तुत करके बैंक से 35% से 50% तक की भारी सब्सिडी का लाभ लिया जा सकता है। हमारे प्रशिक्षक ${formattedLoc} में इसके लिए कम्पलीट दस्तावेज़ीकरण असिस्टेंस प्रदान करते हैं।
+          <strong>सहायता विवरण:</strong> सरकारी अनुदान के लिए कृषि विभाग (Horticulture Department) में आवेदन जमा करके, या नाबार्ड (NABARD) अनुमोदित प्रोजेक्ट दस्तावेज बनाकर बैंक से 35% से 50% तक सब्सिडी प्राप्त की जा सकती है। हमारे ट्रेनर ${formattedLoc} में इसके लिए कम्पलीट दस्तावेज़ीकरण गाइड प्रदान करते हैं।
         </p>
       </div>
     `;
@@ -373,42 +205,37 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     content.h2s = [
       `How to Grow Highest Quality Mushrooms indoors in ${formattedLoc}`,
       `Setting Up a Low-Cost Climate Growth Room in ${state}`,
-      `Sterilizing alternative substrates: Utilizing fibers found near ${profile.markets}`
+      `Sterilizing alternative substrates: Wood dust, corn husks, and dried banana leaves`
     ];
     content.h3s = [
       `Humidity and Carbon Dioxide (CO2) Controls for Pinhead Development`,
-      `How to monitor pH levels and watering frequencies under ${profile.tempAdvice}`,
-      `Estimated days to grow and harvest ${profile.recommendedCrop}`
+      `How to monitor pH levels and watering frequencies safely`,
+      `Oyster vs Button mushroom days to completely grow and harvest`
     ];
     content.h4s = [
-      `Mushroom grow karne ke liye kitna degree temperature hona chahiye?`,
-      `Will these growing models successfully work inside neighborhoods like ${profile.neighborhoods.split(',')[0]}?`
+      `Mushroom grow ke liye kitna temperature hona chahiye?`,
+      `Can I grow mushrooms indoors without utilizing formal compost bags?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          Mastering the indoor biological arts of cultivation turns small vacant spaces into high-yield organic food baskets. If you want to master <strong>${kwText} in ${formattedLoc}</strong>, this comprehensive tutorial simplifies cropping systems without requiring massive commercial cooling plants.
+          Mastering the biological arts of cultivation allows you to turn small dark spaces into highly active food baskets. If you want to know <strong>${kwText} in ${formattedLoc}</strong>, this comprehensive tutorial simplifies indoor organic cultivation systems without requiring massive infrastructure.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          The absolute secret to getting bumper flushes lies in micro-climate localized precision within ${state}. For starting units around landmarks like <strong>${profile.landmark}</strong>, we recommend:
+          The secret to getting bountiful flushes lies in micro-climate precision management in<sup>${state}</sup>:
         </p>
         <ul class="list-disc pl-6 space-y-1 dark:text-slate-300 text-slate-600">
-          <li><strong>Temperature Modulation:</strong> Keeping temperatures between 20°C - 24°C during spawn run, dropping to 14°C - 18°C to trigger pinhead clusters.</li>
-          <li><strong>Relative Humidity:</strong> Misting spatial arrays periodically to preserve relative humidity strictly between 85% and 90%.</li>
-          <li><strong>Exhaust Cycles:</strong> Installing 4-inch output piping to ventilate built-up carbon dioxide, encouraging thick caps instead of long stems in ${formattedLoc}.</li>
+          <li><strong>Temperature Drop:</strong> Maintaining temperature around 20°C - 24°C for initial thread growth, dropping to 15°C - 18°C to force pinheads to pop.</li>
+          <li><strong>Humidity Levels:</strong> Misting water arrays twice daily to preserve relative humidity strictly between 85% and 90%.</li>
+          <li><strong>Air Exchange:</strong> Installing simple 4-inch exhaust pipelines to flush out CO2, encouraging thick sturdy caps instead of long stringy stems in ${formattedLoc}.</li>
         </ul>
-
-         <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">Growing Recommendations for ${formattedLoc}</h3>
-        <p>
-          Based on geographical factors, our technical blueprint recommends starting with <strong>${profile.recommendedCrop}</strong>. These classes show excellent mycelium run under local parameters: <em>${profile.tempAdvice}</em>.
-        </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
         <p class="dark:text-slate-300 text-slate-600">
-          <strong>तापमान दिशानिर्देश:</strong> सामान्यतः वाइट बटन मशरूम के लिए 14°C-18°C और ओईस्तर (ढींगरी) मशरूम के लिए 20°C-28°C का हल्का नम तापमान सर्वश्रेष्ठ माना जाता है। गर्मियों के मौसम में ${formattedLoc} के क्षेत्रों में मिल्की मशरूम लगाना ज्यादा आसान होता है जिसके लिए 30°C-35°C तापमान की आवश्यकता होती है।
+          <strong>तापमान दिशानिर्देश:</strong> सामान्यतः बटन मशरूम के लिए 14°C-18°C और ओईस्टर मशरूम के लिए 20°C-28°C का तापमान सर्वश्रेष्ठ माना जाता है। गर्मियों के मौसम में ${formattedLoc} में मिल्की मशरूम लगाना ज्यादा आसान होता है जिसके लिए 30°C-35°C तापमान की आवश्यकता होती है।
         </p>
       </div>
     `;
@@ -418,38 +245,39 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     content.metaDesc = `Check updated market data on ${kwText} in ${formattedLoc}, ${state}. Detailed fresh button price list, supreme oyster price per kg, nutrient benefits, and wholesale mandis contacts.`;
     content.h1 = `${kwTitleCase}: Updated Rates, Strains & Benefits in ${formattedLoc}`;
     content.h2s = [
-      `Latest Button and Oyster Mushroom Wholesale Prices at ${profile.markets}`,
-      `Commercial Subtypes Adapted for ${state}: Including ${profile.recommendedCrop}`,
+      `Latest Button and Oyster Mushroom Wholesale Prices in ${formattedLoc}`,
+      `Commercial Subtypes Grown in ${state}: Milky, Shiitake, and Cordyceps`,
       `Antioxidant & Medicinal Value: Why Mushrooms support immune systems`
     ];
     content.h3s = [
-      `Mandi rate analysis: Commercial demands in local retail sectors of ${formattedLoc}`,
-      `Do khane yogya mushroom and how to identify safe edible varieties`,
-      `Estimated profit margin on dispatching to areas like ${profile.neighborhoods.split(',')[0]}`
+      `Mandi rate analysis: Commercial demands in local retail sectors`,
+      `Do khane yogya mushroom and how to tell edible ones of wild strains`,
+      `Why white button mushrooms remain the highest consumed variety`
     ];
     content.h4s = [
-      `India me sabse mahanga mushroom kaun sa bikta hai or why is it so costly?`,
-      `Does our local team coordinate direct supply shipments near landmark ${profile.landmark}?`
+      `Sabse mahanga mushroom kaun sa hota hai or why is it so costly?`,
+      `Is it scientifically verified that mushrooms help in breathing or lung infection recovery?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          Staying updated with daily wholesale pricing is critical for agro-entrepreneurs and retail partners. Here, we disclose updated price reports regarding <strong>${kwText} in ${formattedLoc}</strong> to evaluate weekly budgets.
+          Staying updated with daily pricing is critical for commercial growers and retail traders. Here, we supply direct data charts regarding <strong>${kwText} in ${formattedLoc}</strong> to evaluate project viability and weekly earnings.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          Typically, the fresh wholesale price for premium Grade-A white button mushrooms at <strong>${profile.markets}</strong> ranges from <strong>₹140 to ₹220 per kilogram</strong>, retailing for ₹240+ in superstores across <em>${profile.neighborhoods}</em>. Dehydrated Oyster slices are marketed extensively to pharmaceutical channels for ₹600 to ₹1000 per kg depending on moisture content and certified testing parameters.
+          Typically, the fresh mandi prices for premium Grade-A white button mushrooms in ${formattedLoc} hover between <strong>₹140 to ₹220 per kilogram</strong> in wholesale markets, retailing for ₹240+ inside modern superstores. Dehydrated Oyster slices are marketed extensively to pharmaceutical channels for ₹600 to ₹1000 per kg depending on color, fiber density, and testing certificates.
         </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
         <p class="dark:text-slate-300 text-slate-600">
-          <strong>दुनिया का सबसे महंगा मशरूम:</strong> जंगली <strong>गुच्छी मशरूम (Gucchi / Morel)</strong> भारत की सबसे मूल्यवान प्रजाति है, जिसका दाम बाज़ार में लगभग ₹25,000 से ₹30,000 प्रति किलोग्राम तक जाता है। प्रकृत रूप से यह मुख्यतः हिमाचल और कश्मीर के ठंडे पर्वतीय वनों में ही उगती है। इसके अतिरिक्त <strong>कीड़ा जड़ी (Cordyceps)</strong> की कीमत भी लाखों में होती है।
+          <strong>दुनिया का सबसे महंगा मशरूम:</strong> जंगली <strong>गुच्छी मशरूम (Gucchi / Morel)</strong> भारत की सबसे महंगी प्रजाति है, जिसका दाम बाज़ार में लगभग ₹25,000 से ₹30,000 प्रति किलोग्राम तक जाता है। यह मुख्यतः हिमाचल और कश्मीर के हिमालयी वनों में पाई जाती है। इसके अलावा <strong>कीड़ा जड़ी (Cordyceps)</strong> की कीमत भी लाखों में होती है।
         </p>
 
+        <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[1]}</h4>
         <p>
-          Whether buying in wholesale quantities or organizing farming yields, ${profile.localAdvantage} We support top-quality delivery connections near landmark ${profile.landmark}.
+          Yes, organic mushrooms are extremely rich in <strong>Polysaccharides, beta-glucans, Selenium, and Vitamin D</strong>. These compounds naturally boost white blood cells, strengthening immune systems against respiratory congestion and common viral fevers in ${formattedLoc}.
         </p>
       </div>
     `;
@@ -461,37 +289,32 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     content.h2s = [
       `Project Cost of Commercial Organic Mushroom Farming in ${state}`,
       `Margin and Return on Investment (ROI) Analysis inside ${formattedLoc}`,
-      `How to grow ${profile.recommendedCrop} on a commercial scale`
+      `How many days required to grow button and oyster varieties`
     ];
     content.h3s = [
       `Selecting optimum building materials: Bamboo sheds vs Insulated PUF panels`,
-      `Acquiring raw agricultural inputs near <strong>${profile.markets}</strong>`,
-      `Logistics optimization for delivering fresh flushes to ${profile.neighborhoods.split(',')[0]}`
+      `Integrating Daikin split cooling systems & Digital steam nozzles`,
+      `How much yield can you expect out of 1 kg first-generation hybrid spawn seed`
     ];
     content.h4s = [
       `Mushroom farming setup start karne me kitna kharcha aata hai?`,
-      `Can I check demo setups near landmarks like ${profile.landmark}?`
+      `What are the major risk factors like green mold and how to cure them?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          Modern agriculture is moving towards vertical space-saving climatized cabins. Setting up a commercial project for <strong>${kwText} in ${formattedLoc}</strong> lets you harvest premium cash crops year-round while remaining safe from unpredictable weather disruptions in ${state}.
+          Agriculture is shifting towards vertical automated space management. A highly robust commercial plan for <strong>${kwText} in ${formattedLoc}</strong> lets you harvest premium crops inside localized weather cabins, bypassing volatile environmental disruptions in ${state}.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          A small household setup using bamboo frames costs as little as ₹15,000 to ₹18,000, while a larger semi-automated indoor farm (around 1500 sq ft) holding up to 1000 bags occupies about ₹1.5 Lakhs to ₹3 Lakhs. These chambers are retrofitted with temperature-blocking foil sheets, digital foggers, and quiet exhausts. Utilizing premier spawn seeds, a complete batch matures in just <strong>25 days</strong>, producing swift cycles of capital rotation. ${profile.localAdvantage}
-        </p>
-
-        <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">Supply Chain Infrastructure</h3>
-        <p>
-          For distributing harvested fresh product or sourcing wheat bags under excellent wholesale prices, the surrounding hub around <strong>${profile.markets}</strong> offers top-tier connectivity. Local growers in <em>${profile.neighborhoods}</em> can tap directly into active customer lines.
+          Setting up a semi-automated 1500 sq ft unit costs around ₹1.5 Lakhs to ₹3 Lakhs, which covers insulating foil sheets, horizontal rack pipelines, air-flow exhaust grids, and dynamic foggers. This space comfortably stores up to 1000 bags. With proper F1 high-yield spawn seeds, a complete batch matures in just <strong>25 days</strong> post spawn run, producing regular streams of profit in ${formattedLoc}.
         </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
         <p class="dark:text-slate-300 text-slate-600">
-          <strong>निवेश विवरण:</strong> एक छोटे कमरे से शुरुआत करने के लिए मात्र ₹15,000 की आवश्यकता होती है। बड़े पैमाने पर व्यावसायिक शेड के प्रोजेक्ट के लिए ₹2 लाख से ₹5 लाख तक का खर्च आता है, जिसे मात्र 2 से 3 अच्छे क्रॉप साइकिल (Crop Cycles) में पूरी तरह से वसूल किया जा सकता है।
+          <strong>निवेश विवरण:</strong> एक छोटे कमरे से शुरुआत करने के लिए मात्र ₹15,000 की आवश्यकता होती है। बड़े पैमाने पर व्यवसायिक शेड के सेटअप के लिए ₹2 लाख से ₹5 लाख तक का खर्च आता है, जिसे मात्र 2 से 3 अच्छे क्रॉप साइकिल (Crop Cycles) में पूरी तरह से वसूल किया जा सकता है।
         </p>
       </div>
     `;
@@ -502,33 +325,28 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     content.h1 = `Premium Certified ${kwTitleCase} for ${formattedLoc} Farms`;
     content.h2s = [
       `Why F1 Grain Spawn is Essential to Secure Bumper Harvests`,
-      `Our Advanced Spawn Distribution serving ${state} regional growers`,
-      `How to preserve spawn seeds using cold thermals near ${profile.landmark}`
+      `Advanced Spawn Production laboratories based in ${state}`,
+      `How to preserve spawn seeds using cold thermals up to 30 days`
     ];
     content.h3s = [
       `White Button and Milky strain seed variations adapted for ${formattedLoc} weather`,
-      `Sourcing high-vigor hybrid bags to supply wholesale markets like ${profile.markets}`,
-      `Direct dispatch routes to neighborhoods like ${profile.neighborhoods.split(',')[0]}`
+      `How to make organic mushroom seeds at home without contamination`,
+      `Sourcing liquid mycelium and agar plates for custom cultivation`
     ];
     content.h4s = [
       `1 Kg seeds (spawn) lagane se kitna mushroom utpadan hota hai?`,
-      `Do you deliver spawn safepacks directly to growers inside ${formattedLoc}?`
+      `Do you deliver spawn safety tubes directly to rural villages of ${formattedLoc}?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          The absolute foundation of premium agriculture is professional seed breeding. Sourcing top-grade certified spawn is crucial. Our advanced supply grid ships certified <strong>${kwText} in ${formattedLoc}</strong> directly to your address, ensuring high-vigour germination with zero contamination rates.
+          The absolute cornerstone of premium agriculture is pure-grade seed breeding. Sourcing certified master-spawn is vital. Our advanced distribution grid supplies certified <strong>${kwText} in ${formattedLoc}</strong> directly to your home address, ensuring high-vigour germination with zero failure rates.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          Our hybrid grains are cultured on boiled sorghum and premium wheat seeds, enriched with mineral calcium gypsum to prevent sticky clumping. Just 1 kg of this pure laboratory spawn block is capable of inoculating up to 10 standard compost substrate blocks, turning into <strong>10 kg to 15 kg of delicious, fresh organic mushrooms</strong> under baseline grow parameters. ${profile.localAdvantage}
-        </p>
-
-        <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">Sourcing & Delivery Guidelines</h3>
-        <p>
-          Whether you are based within the heart of <em>${profile.neighborhoods}</em> or running commercial sheds near <strong>${profile.landmark}</strong>, we organize speedy shipping in specially insulated thermal containers to lock in mycelium freshness.
+          Our hybrid grains are nurtured on certified boiled sorghum (jowar) and premium wheat seeds, enriched with mineral gypsum to prevent clumping. One kilogram of this laboratory seed block is capable of successfully colonizing up to 10 compost standard substrate blocks, yielding <strong>10 kg to 15 kg of harvestable mushrooms</strong> under standard grow parameters inside ${formattedLoc}.
         </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
@@ -545,44 +363,41 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
     content.h1 = `Organic ${kwTitleCase} Delivered Direct to Your Door in ${formattedLoc}`;
     content.h2s = [
       `Fresh Morning Harvests from Our Local Farms in ${formattedLoc}`,
-      `Premium Packaging Standards to keep Nutrients Locked during transit`,
-      `Wholesale Supply contracts for culinary brands near landmark ${profile.landmark}`
+      `Premium Packaging Standards to keep Nutrients Locked`,
+      `Wholesale Supply contracts for culinary brands in ${state}`
     ];
     content.h3s = [
       `Superfoods high-protein diets delivered in ${formattedLoc}`,
-      `Rapid doorbell delivery covering areas like ${profile.neighborhoods.split(',')[0]} and adjacent lanes`,
-      `Sending fresh yield packages directly to wholesale hubs like ${profile.markets}`
+      `How we deliver fresh oyster kits near me safely within 12 hours`,
+      `Unlocking dry mushrooms export lines from regional farms`
     ];
     content.h4s = [
       `How can I order organic button mushrooms online in ${formattedLoc}?`,
-      `Is the organic delivery completely sanitized and kept cold during transit?`
+      `Is the delivery completely sanitised, packed and cooled during transit?`
     ];
 
     content.articleHtml = `
       <div class="prose max-w-none dark:prose-invert prose-slate mt-8 space-y-6 text-sm md:text-base leading-relaxed">
         <p>
-          Experience pristine organic nutrition. We are proud to run rapid home-delivery channels for ordering fresh, chemical-free <strong>${kwText} in ${formattedLoc}</strong>. Harvested at early dawn under sanitized standards, our crops reach kitchens, hotels, and grocery carts completely fresh.
+          Experience pristine organic nutrition. We are delighted to announce rapid digital dispatch routes for ordering premium <strong>${kwText} in ${formattedLoc}</strong>. Harvested at early dawn under sanitized standards, our crops reach superstores and consumer plates loaded with raw natural proteins and minerals.
         </p>
 
         <h2 class="text-xl md:text-2xl font-bold dark:text-white text-slate-800 mt-6">${content.h2s[0]}</h2>
         <p>
-          Our growers completely avoid synthetic growth hormones, relying on pure, natural wheat compost and filtered water misting. This produces crisp buttons and aromatic oyster flushes with high shelf lives across <em>${profile.neighborhoods}</em>. ${profile.localAdvantage}
-        </p>
-
-        <h3 class="text-lg md:text-xl font-bold dark:text-white text-slate-800 mt-6">Order Dispatch Channels</h3>
-        <p>
-          We coordinate rapid dispatch pipelines extending to neighborhoods near <strong>${profile.landmark}</strong>. Bulk supply loads are also routed through wholesale corridors like <strong>${profile.markets}</strong> for immediate distribution.
+          We strictly avoid synthetic growth boosters, utilizing only organic substrates like clean wheat straw and biological water systems. This produces crisp white buttons and aromatic deep oysters with exceptional shelf-life directly inside ${formattedLoc}, ${state}. Order in bulk or subscription boxes today!
         </p>
 
         <h4 class="text-base md:text-lg font-bold dark:text-white text-slate-800 mt-4">${content.h4s[0]}</h4>
         <p>
-          To purchase, simply connect with our digital dispatch desk of ${formattedLoc} via WhatsApp or place an order via our online organic catalog. We ensure dispatch within 12 hours from harvest to secure flawless freshness!
+          To purchase, simple contact our local delivery desk of ${formattedLoc} via WhatsApp or order directly through the online organic cart portal. We guarantee dispatch within 12 hours from harvest!
         </p>
       </div>
     `;
   }
 
   // Check for manual overrides based on location slug and keyword slug
+  const locSlug = locationName.toLowerCase().trim().replace(/_/g, '-').replace(/\s+/g, '-');
+  const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\/+|\/+$/g, '').toLowerCase() : '';
   const specificKey = `${locSlug}_${kwSlug}`;
   const generalKey = locSlug;
 
@@ -593,162 +408,12 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
       metaDesc: override.metaDesc || content.metaDesc,
       keywords: override.keywords || content.keywords,
       h1: override.h1 || content.h1,
-      h2s: override.h2s && override.h2s.length > 0 ? override.h2s : content.h2s,
-      h3s: override.h3s && override.h3s.length > 0 ? override.h3s : content.h3s,
-      h4s: override.h4s && override.h4s.length > 0 ? override.h4s : content.h4s,
+      h2s: override.h2s || content.h2s,
+      h3s: override.h3s || content.h3s,
+      h4s: override.h4s || content.h4s,
       articleHtml: override.articleHtml || content.articleHtml
     };
   }
 
   return content;
-}
-
-/**
- * Helper to dynamically render all the requested 100+ keywords inside is unique page context
- * to satisfy search crawlers and provide interlinked internal sitemaps.
- */
-function getMushroomKeywordsSection(cityName: string, citySlug: string): string {
-  const keywords = [
-    `mushroom training center in [CITY]`,
-    `mushroom farming training in [CITY]`,
-    `mushroom cultivation training in [CITY]`,
-    `mushroom farming course in [CITY]`,
-    `mushroom cultivation course in [CITY]`,
-    `mushroom training institute in [CITY]`,
-    `mushroom farming classes in [CITY]`,
-    `mushroom cultivation classes in [CITY]`,
-    `mushroom farming workshop in [CITY]`,
-    `mushroom cultivation workshop in [CITY]`,
-    `best mushroom training center in [CITY]`,
-    `top mushroom training center in [CITY]`,
-    `professional mushroom training in [CITY]`,
-    `certified mushroom training in [CITY]`,
-    `advanced mushroom farming training in [CITY]`,
-    `mushroom training center near [CITY]`,
-    `mushroom farming training near [CITY]`,
-    `mushroom cultivation training near [CITY]`,
-    `mushroom course near [CITY]`,
-    `mushroom workshop near [CITY]`,
-    `oyster mushroom training in [CITY]`,
-    `oyster mushroom farming training in [CITY]`,
-    `oyster mushroom cultivation training in [CITY]`,
-    `oyster mushroom course in [CITY]`,
-    `oyster mushroom workshop in [CITY]`,
-    `oyster mushroom farming business in [CITY]`,
-    `oyster mushroom growing course in [CITY]`,
-    `oyster mushroom cultivation classes in [CITY]`,
-    `button mushroom training in [CITY]`,
-    `button mushroom farming training in [CITY]`,
-    `button mushroom cultivation training in [CITY]`,
-    `button mushroom course in [CITY]`,
-    `button mushroom workshop in [CITY]`,
-    `button mushroom farming business in [CITY]`,
-    `button mushroom cultivation classes in [CITY]`,
-    `milky mushroom training in [CITY]`,
-    `milky mushroom farming training in [CITY]`,
-    `milky mushroom cultivation course in [CITY]`,
-    `mushroom farming business in [CITY]`,
-    `mushroom cultivation business in [CITY]`,
-    `commercial mushroom farming in [CITY]`,
-    `mushroom farming startup in [CITY]`,
-    `mushroom farming project in [CITY]`,
-    `mushroom farming consultancy in [CITY]`,
-    `mushroom cultivation consultancy in [CITY]`,
-    `mushroom farming expert in [CITY]`,
-    `mushroom spawn training in [CITY]`,
-    `mushroom spawn production training in [CITY]`,
-    `mushroom seed production training in [CITY]`,
-    `mushroom laboratory training in [CITY]`,
-    `government mushroom training center in [CITY]`,
-    `free mushroom training center in [CITY]`,
-    `government mushroom farming training in [CITY]`,
-    `agriculture mushroom training in [CITY]`,
-    `mushroom cultivation subsidy training in [CITY]`,
-    `mushroom farming certification in [CITY]`,
-    `mushroom cultivation certificate course in [CITY]`,
-    `certified mushroom farming course in [CITY]`,
-    `learn mushroom farming in [CITY]`,
-    `how to grow mushroom in [CITY]`,
-    `mushroom farming for beginners in [CITY]`,
-    `mushroom cultivation guide in [CITY]`,
-    `mushroom farming techniques in [CITY]`,
-    `mushroom cultivation methods in [CITY]`,
-    `mushroom farming support in [CITY]`,
-    `mushroom marketing support in [CITY]`,
-    `mushroom farm setup in [CITY]`,
-    `mushroom project consultancy in [CITY]`,
-    `mushroom business guidance in [CITY]`,
-    `mushroom farming training and certification in [CITY]`,
-    `mushroom cultivation training and certification in [CITY]`,
-    `mushroom farming business opportunity in [CITY]`,
-    `mushroom cultivation business opportunity in [CITY]`,
-    `mushroom farming institute near me in [CITY]`,
-    `mushroom cultivation center in [CITY]`,
-    `mushroom growing course in [CITY]`,
-    `mushroom grower training in [CITY]`,
-    `mushroom production training in [CITY]`,
-    `mushroom farming academy in [CITY]`,
-    `mushroom cultivation academy in [CITY]`,
-    `mushroom farming seminar in [CITY]`,
-    `mushroom cultivation seminar in [CITY]`,
-    `mushroom farming webinar in [CITY]`,
-    `mushroom cultivation webinar in [CITY]`,
-    `mushroom farming masterclass in [CITY]`,
-    `mushroom cultivation masterclass in [CITY]`,
-    `mushroom farming event in [CITY]`,
-    `mushroom cultivation event in [CITY]`
-  ];
-
-  const formattedKeywords = keywords.map(kw => kw.replace(/\[CITY\]/g, cityName));
-
-  return `
-    <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
-      <!-- 🔗 INTERNAL LINKING MAP (SEO CRAWL MATRIX) -->
-      <div class="p-5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl mb-8">
-        <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4 text-center uppercase tracking-wide">
-          🔗 Live Mushroom Portal Index for ${cityName} (Sitemap Matrix)
-        </h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-          <a href="/${citySlug}/mushroom-training-center" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            🎒 Training Center
-          </a>
-          <a href="/${citySlug}/government-mushroom-farming-training-by-government" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            🏛️ Government Training
-          </a>
-          <a href="/${citySlug}/stages-of-mushroom-growth" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            📊 Stages of Growth
-          </a>
-          <a href="/${citySlug}/how-to-grow-mushroom-at-home" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            🏡 Grow at Home Guide
-          </a>
-          <a href="/${citySlug}/oyster-mushroom-price" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            💰 Strains & Mandi Prices
-          </a>
-          <a href="/${citySlug}/mushroom-farm-setup" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            🏭 Commercial Setup
-          </a>
-          <a href="/${citySlug}/mushroom-spawn-supplier" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            🌱 Spawn Supplier
-          </a>
-          <a href="/${citySlug}/buy-fresh-mushroom-online" class="p-3 bg-white dark:bg-slate-950 rounded border border-slate-200 dark:border-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1 font-semibold">
-            🛒 Buy Fresh Online
-          </a>
-        </div>
-      </div>
-
-      <!-- 🔍 ACCORDION KEYWORD BLOCK FOR Bot CRAWLING & HIGH-RANKING -->
-      <details class="group border border-slate-200 dark:border-slate-800 rounded-xl bg-slate-50 dark:bg-slate-900/30 overflow-hidden">
-        <summary class="flex justify-between items-center p-4 font-bold text-slate-700 dark:text-slate-200 cursor-pointer select-none bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
-          <span>🔍 Learn more about local coverage targets and syllabus directories in ${cityName}</span>
-          <span class="transition-transform group-open:rotate-180 text-xs">▼</span>
-        </summary>
-        <div class="p-6 space-y-4 text-xs md:text-sm leading-relaxed text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-950/40">
-          <p>We provide localized modules satisfying complete training and commercial setups across Madhya Pradesh. Our curriculum covers all aspects of modern mushroom cultivation for students, entrepreneurs, and hobbyists searching for the following local keywords in <strong>${cityName}</strong>:</p>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 border-t border-slate-200 dark:border-slate-800 pt-4 mt-4 font-mono text-[11px] leading-tight text-left">
-            ${formattedKeywords.map(kw => `<div class="p-1 px-2 rounded bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center gap-1 text-slate-500 dark:text-slate-400">• ${kw}</div>`).join('')}
-          </div>
-        </div>
-      </details>
-    </div>
-  `;
 }

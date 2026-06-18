@@ -295,149 +295,51 @@ export default function SitemapPage() {
                     </span>
                   </div>
 
-                  {/* 12 fully dynamic links that bot/users can hit */}
-                  <div className="space-y-4">
-                    {/* Core Hub Matrix */}
-                    <div className="space-y-2">
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Core Hub Matrix</div>
-                      
-                      <Link 
-                        to={`/mushroom-farming-${loc.slug}`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Sprout size={14} className="text-primary-start" />
-                          Mushroom Farming Details
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
+                  {/* 4 fully dynamic links that bot/users can hit */}
+                  <div className="space-y-2.5">
+                    <Link 
+                      to={`/mushroom-farming-${loc.slug}`} 
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
+                    >
+                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
+                        <Sprout size={14} className="text-primary-start" />
+                        Mushroom Farming Details
+                      </span>
+                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
+                    </Link>
 
-                      <Link 
-                        to={`/mushroom-training-${loc.slug}`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <BookOpen size={14} className="text-primary-start" />
-                          Cultivation Training Course
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
+                    <Link 
+                      to={`/mushroom-training-${loc.slug}`} 
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
+                    >
+                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
+                        <BookOpen size={14} className="text-primary-start" />
+                        Cultivation Training Course
+                      </span>
+                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
+                    </Link>
 
-                      <Link 
-                        to={`/mushroom-franchise-${loc.slug}`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Building size={14} className="text-primary-start" />
-                          Franchise Opportunities
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
+                    <Link 
+                      to={`/mushroom-franchise-${loc.slug}`} 
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
+                    >
+                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
+                        <Building size={14} className="text-primary-start" />
+                        Franchise Opportunities
+                      </span>
+                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
+                    </Link>
 
-                      <Link 
-                        to={`/careers-${loc.slug}`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Briefcase size={14} className="text-primary-start" />
-                          Farming Jobs / Careers
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-                    </div>
-
-                    {/* Targeted SEO Portals */}
-                    <div className="space-y-2 pt-3 border-t border-white/5">
-                      <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Targeted SEO Portals</div>
-                      
-                      <Link 
-                        to={`/${loc.slug}/mushroom-training-center`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white /5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <BookOpen size={14} className="text-[#25D366]" />
-                          🎒 Training Center
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/government-mushroom-farming-training-by-government`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Award size={14} className="text-[#25D366]" />
-                          🏛️ Government Support
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/stages-of-mushroom-growth`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <List size={14} className="text-[#25D366]" />
-                          📊 Stages of Growth
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/how-to-grow-mushroom-at-home`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <HelpCircle size={14} className="text-[#25D366]" />
-                          🏡 Grow at Home Guide
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/oyster-mushroom-price`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Info size={14} className="text-[#25D366]" />
-                          💰 Mandi Prices
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/mushroom-farm-setup`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Building size={14} className="text-[#25D366]" />
-                          🏭 Commercial Setup
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/mushroom-spawn-supplier`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Sprout size={14} className="text-[#25D366]" />
-                          🌱 Spawn Supplier
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-
-                      <Link 
-                        to={`/${loc.slug}/buy-fresh-mushroom-online`} 
-                        className="flex items-center justify-between p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                      >
-                        <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                          <Info size={14} className="text-[#25D366]" />
-                          🛒 Buy Fresh Online
-                        </span>
-                        <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                      </Link>
-                    </div>
+                    <Link 
+                      to={`/careers-${loc.slug}`} 
+                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
+                    >
+                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
+                        <Briefcase size={14} className="text-primary-start" />
+                        Farming Jobs / Careers
+                      </span>
+                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
+                    </Link>
                   </div>
                 </div>
               ))}

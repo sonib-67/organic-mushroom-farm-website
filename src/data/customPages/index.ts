@@ -1,5 +1,4 @@
 import { SEOManualContent } from '../locationSEOContent';
-import { MADHYA_PRADESH_OVERRIDES } from './madhyaPradesh';
 
 /**
  * 📝 CUSTOM PAGES MANUAL OVERRIDES DIRECTORY (Mushroom Farm Custom Portal)
@@ -82,9 +81,6 @@ export const MANUAL_PAGE_OVERRIDES: Record<string, Partial<SEOManualContent>> = 
   "agra_mushroom-training": agraTrainingOverride,
   "agra_mushroom-farming-training": agraTrainingOverride,
   "agra_mushroom-training-center": agraTrainingOverride,
-
-  // 3. Madhya Pradesh Cities Unique Overrides
-  ...MADHYA_PRADESH_OVERRIDES,
 
   // Future manual pages override inputs yahan add karke direct update kar sakte hain!
   /*
