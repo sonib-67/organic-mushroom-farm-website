@@ -44,24 +44,18 @@ import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import ArticleMushroomTrainingAffordable from './pages/ArticleMushroomTrainingAffordable';
 import ArticleGharParMushroomFarming from './pages/ArticleGharParMushroomFarming';
 import SEO from './components/SEO';
-import { 
-  generateReviewSchema, 
-  generateLocalBusinessSchema,
-  generateGlobalFAQSchema,
-  generateGlobalProductsSchema,
-  generateGlobalServiceSchema
-} from './utils/seoSchemas';
+import { generateReviewSchema, generateLocalBusinessSchema } from './utils/seoSchemas';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
 import SiteVisitConsultationPage from './pages/SiteVisitConsultationPage';
 
 import LocationDetailsPage from './pages/LocationDetailsPage';
-import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
-import { parseSEOPathname } from './utils/seoPathParser';
 import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
 import WorkshopPage from './pages/WorkshopPage';
+import DirectoryPage from './pages/Directory';
+import CityCategoryPage from './pages/CityCategoryPage';
 
 // --- Constants & Types ---
 
@@ -405,7 +399,7 @@ const CompanyProfile = () => {
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
                   <div className="text-sm font-bold dark:text-white text-slate-900">
                     {item.label === "Founder" ? (
-                      <Link to="/sitemap" className="hover:text-primary-start transition-colors underline decoration-dotted underline-offset-4">
+                      <Link to="/directory" className="hover:text-primary-start transition-colors underline decoration-dotted decoration-white/20">
                         {item.value}
                       </Link>
                     ) : (
@@ -1892,7 +1886,12 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
-          <div className="mb-6 md:mb-0">© 2026 Organic Mushroom Farm. All Rights Reserved.</div>
+          <div className="mb-6 md:mb-0">
+            © 2026 Organic Mushroom Farm. All Rights Reserved. | Managed by{" "}
+            <Link to="/directory" className="hover:text-primary-start transition-all underline decoration-dotted decoration-slate-600/30">
+              Tanish Soni
+            </Link>
+          </div>
           <div className="flex gap-6 flex-wrap justify-center">
             {[
               { label: "Instagram", href: "https://www.instagram.com/organic_mushroom_farm_jabalpur" },
@@ -1913,8 +1912,6 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        
-
       </div>
     </footer>
   );
@@ -2535,11 +2532,6 @@ const HomePage = () => {
       <SEO 
         title="Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom"
         description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP."
-        schemas={[
-          generateGlobalFAQSchema(),
-          generateGlobalProductsSchema(),
-          generateGlobalServiceSchema()
-        ]}
       />
       <Hero />
       <EcosystemFlow />
@@ -3479,15 +3471,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-const CatchAllHandler = () => {
-  const { pathname } = useLocation();
-  const parsed = parseSEOPathname(pathname);
-  if (parsed && parsed.isCustomSEORoute) {
-    return <LocationDetailsPage />;
-  }
-  return <Navigate to="/" replace />;
-};
-
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
@@ -3550,10 +3533,15 @@ const AnimatedRoutes = () => {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
           <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
-          <Route path="/sitemap" element={<SitemapPage />} />
-          <Route path="/site-directory" element={<SitemapPage />} />
+          <Route path="/careers-/*" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
+          <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
 
-          <Route path="*" element={<CatchAllHandler />} />
+          <Route path="/directory" element={<DirectoryPage />} />
+          <Route path="/:city/:categorySlug" element={<CityCategoryPage />} />
+
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

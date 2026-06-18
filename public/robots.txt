@@ -52,4 +52,4 @@ Disallow: /src/
 
 
 # ── SITEMAPS ────────────────────────
-Sitemap: https://www.organicmushroomfarm.shop/sitemap.xml
+Sitemap: https://organicmushroomfarm.shop/sitemap.xml

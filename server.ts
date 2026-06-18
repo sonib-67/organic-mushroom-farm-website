@@ -28,12 +28,6 @@ const PORT = 3000;
 
 app.use(cors());
 
-// Ahrefs Verification Endpoint
-app.get('/ahrefs_d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130', (req, res) => {
-  res.setHeader('Content-Type', 'text/plain');
-  res.send('d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130');
-});
-
 // Webhook endpoint needs raw body for signature verification
 app.use('/api/razorpay-webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());

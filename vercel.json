@@ -1,20 +1,11 @@
 {
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/((?!api|.*\\.xml|.*\\.xsl|.*\\.txt|.*\\.html|assets).*)" , "destination": "/index.html" }
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
-      "source": "/(.*)\\.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.xsl",
+      "source": "/sitemap.xml",
       "headers": [
         {
           "key": "Content-Type",

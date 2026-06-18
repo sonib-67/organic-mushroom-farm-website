@@ -1,154 +1,99 @@
 import fs from 'fs';
 import path from 'path';
 
-// Import datasets to calculate dynamic parts
-import { CITIES } from '../src/data/locationsData.ts';
-import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
+// Define the locations manually here to avoid module resolution issues
+const STATES = [
+  "Andhra_Pradesh", "Arunachal_Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal_Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya_Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil_Nadu", "Telangana", "Tripura", "Uttar_Pradesh", "Uttarakhand", "West_Bengal", "Andaman_and_Nicobar_Islands", "Chandigarh", "Delhi", "Jammu_and_Kashmir", "Ladakh", "Lakshadweep", "Puducherry"
+];
+
+const CITIES = [
+  "Visakhapatnam", "Vijayawada", "Guntur", "Itanagar", "Guwahati", "Patna", "Gaya", "Raipur", "Bhilai", "Panaji", "Ahmedabad", "Surat", "Vadodara", "Faridabad", "Gurugram", "Shimla", "Ranchi", "Jamshedpur", "Bengaluru", "Mysuru", "Kochi", "Thiruvananthapuram", "Bhopal", "Indore", "Jabalpur", "Mumbai", "Pune", "Nagpur", "Imphal", "Shillong", "Aizawl", "Kohima", "Bhubaneswar", "Cuttack", "Ludhiana", "Amritsar", "Jaipur", "Jodhpur", "Gangtok", "Chennai", "Coimbatore", "Hyderabad", "Warangal", "Agartala", "Lucknow", "Kanpur", "Varanasi", "Dehradun", "Kolkata", "Howrah", "Katangi"
+];
+
+const VILLAGES = [
+  "Lepakshi", "Majuli", "Bodh_Gaya", "Chitrakote", "Aldona", "Gir_Forest", "Kurukshetra", "Malana", "Hampi", "Kumarakom", "Khajuraho", "Shani_Shingnapur", "Loktak_Lake", "Mawlynnong", "Dzukou", "Konark", "Anandpur_Sahib", "Sambhar_Lake", "Yuksom", "Mahabalipuram", "Ramappa", "Neermahal", "Vrindavan", "Shantiniketan"
+];
+
+const ALL_LOCATIONS = [
+  ...STATES,
+  ...CITIES,
+  ...VILLAGES
+].map(l => l.toLowerCase().replace(/_/g, '-'));
+
+const extraPages = [
+  '/careers',
+  '/mushroom-price-today',
+  '/mushroom-franchise',
+  '/directory'
+];
+
+const dynamicTemplates = [
+  '/careers-',
+  '/mushroom-training-',
+  '/mushroom-farming-',
+  '/mushroom-franchise-'
+];
+
+const MP_CITIES = [
+  'indore', 'bhopal', 'jabalpur', 'gwalior', 'ujjain', 'sagar', 'dewas', 'satna', 'ratlam', 'rewa',
+  'murwara', 'singrauli', 'burhanpur', 'khandwa', 'bhind', 'chhindwara', 'guna', 'shivpuri', 'vidisha',
+  'chhatarpur', 'damoh', 'mandsaur', 'khargone', 'neemuch', 'pithampur', 'hoshangabad', 'itarsi', 'sehore',
+  'betul', 'seoni', 'datia', 'nagda', 'balaghat', 'mandla', 'dindori', 'tikamgarh', 'panna', 'anuppur',
+  'umaria', 'sidhi', 'shahdol', 'rajgarh', 'agar-malwa', 'alirajpur', 'barwani', 'ashoknagar'
+];
+
+const CATEGORIES = [
+  'mushroom-training-center',
+  'government-&-free-training-guidance',
+  'advanced-cultivation-courses',
+  'how-to-grow-mushrooms-at-home',
+  'mushroom-types-&-price-info',
+  'commercial-farm-setup-&-business',
+  'spawn-supply-&-growing-kits',
+  'buy-fresh-&-dry-mushrooms'
+];
+
+let generatedUrls = '';
 
 const dateInfo = new Date().toISOString().split('T')[0];
 
-const staticRoutes = [
-  { path: '', priority: '1.00', changefreq: 'daily' },
-  { path: '/about', priority: '0.80', changefreq: 'monthly' },
-  { path: '/contact', priority: '0.80', changefreq: 'monthly' },
-  { path: '/gallery', priority: '0.70', changefreq: 'weekly' },
-  { path: '/faq', priority: '0.60', changefreq: 'monthly' },
-  { path: '/locations', priority: '0.60', changefreq: 'monthly' },
-  { path: '/success-stories', priority: '0.70', changefreq: 'weekly' },
-  { path: '/workshop', priority: '0.80', changefreq: 'weekly' },
-  { path: '/training', priority: '0.80', changefreq: 'weekly' },
-  { path: '/turnkey-projects', priority: '0.80', changefreq: 'monthly' },
-  { path: '/spawn-seed', priority: '0.80', changefreq: 'monthly' },
-  { path: '/equipment', priority: '0.80', changefreq: 'monthly' },
-  { path: '/subsidy', priority: '0.80', changefreq: 'monthly' },
-  { path: '/business-plan', priority: '0.80', changefreq: 'monthly' },
-  { path: '/mushroom-types', priority: '0.80', changefreq: 'monthly' },
-  { path: '/roi-calculator', priority: '0.80', changefreq: 'monthly' },
-  { path: '/careers', priority: '0.80', changefreq: 'weekly' },
-  { path: '/mushroom-price-today', priority: '0.80', changefreq: 'daily' },
-  { path: '/mushroom-franchise', priority: '0.80', changefreq: 'weekly' },
-  { path: '/sops', priority: '0.70', changefreq: 'monthly' },
-  { path: '/model-details', priority: '0.70', changefreq: 'monthly' },
-  { path: '/compost-unit-specs', priority: '0.70', changefreq: 'monthly' },
-  { path: '/expertise-details', priority: '0.70', changefreq: 'monthly' },
-  { path: '/book-consultant', priority: '0.70', changefreq: 'monthly' },
-  { path: '/on-site-consultation', priority: '0.70', changefreq: 'monthly' },
-  
-  // Articles
-  { path: '/articles/mushroom-farming-beginner-guide-india-2026-2027', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/oyster-mushroom-cultivation-india', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/what-is-mushroom-spawn-beginner-guide-india', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-business-plan-hindi-2026', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-training-hindi-india', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-training-online-offline-certificate', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026', priority: '0.80', changefreq: 'monthly' },
-  
-  // Services & Processes
-  { path: '/services/compost-production', priority: '0.75', changefreq: 'monthly' },
-  { path: '/services/consultancy', priority: '0.75', changefreq: 'monthly' },
-  { path: '/services/marketing-support', priority: '0.75', changefreq: 'monthly' },
-  { path: '/services/cold-chain', priority: '0.75', changefreq: 'monthly' },
-  { path: '/process/raw-material', priority: '0.70', changefreq: 'monthly' },
-  { path: '/process/compost-preparation', priority: '0.70', changefreq: 'monthly' },
-  { path: '/process/production-room', priority: '0.70', changefreq: 'monthly' },
-  { path: '/process/precision-harvest', priority: '0.70', changefreq: 'monthly' },
-  { path: '/process/cold-chain', priority: '0.70', changefreq: 'monthly' },
-  { path: '/process/market-linkage', priority: '0.70', changefreq: 'monthly' },
-  
-  // Policies & Legal
-  { path: '/terms', priority: '0.50', changefreq: 'monthly' },
-  { path: '/privacy', priority: '0.50', changefreq: 'monthly' },
-  { path: '/refund-policy', priority: '0.50', changefreq: 'monthly' },
-  { path: '/shipping-policy', priority: '0.50', changefreq: 'monthly' },
-  { path: '/support', priority: '0.50', changefreq: 'monthly' },
-  { path: '/sitemap', priority: '0.50', changefreq: 'weekly' },
-  { path: '/site-directory', priority: '0.50', changefreq: 'weekly' }
-];
-
-async function generate() {
-  console.log("Generating primary static sitemap (sitemap-main.xml)...");
-
-  let mainXml = `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
-
-  // 1. Static Routes
-  for (const route of staticRoutes) {
-    mainXml += `
+extraPages.forEach(page => {
+  generatedUrls += `
   <url>
-    <loc>https://www.organicmushroomfarm.shop${route.path}</loc>
+    <loc>https://www.organicmushroomfarm.shop${page}</loc>
     <lastmod>${dateInfo}</lastmod>
-    <changefreq>${route.changefreq}</changefreq>
-    <priority>${route.priority}</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>`;
-  }
+});
 
-  // 2. Sample research/blogs entries for link weight
-  for (let i = 1; i <= 10; i++) {
-    mainXml += `
+MP_CITIES.forEach(city => {
+  CATEGORIES.forEach(category => {
+    generatedUrls += `
   <url>
-    <loc>https://www.organicmushroomfarm.shop/blog/${i}</loc>
+    <loc>https://www.organicmushroomfarm.shop/${city}/${category}</loc>
+    <lastmod>${dateInfo}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.70</priority>
+  </url>`;
+  });
+});
+
+ALL_LOCATIONS.forEach(loc => {
+  dynamicTemplates.forEach(template => {
+    generatedUrls += `
+  <url>
+    <loc>https://www.organicmushroomfarm.shop${template}${loc}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.60</priority>
   </url>`;
-  }
+  });
+});
 
-  mainXml += `\n</urlset>`;
+const sitemapPath = path.resolve('./public/sitemap.xml');
+let sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
 
-  const mainSitemapPath = path.resolve('./public/sitemap-main.xml');
-  fs.writeFileSync(mainSitemapPath, mainXml, 'utf8');
-  console.log(`Saved main sitemap to ${mainSitemapPath}`);
-
-  // Copy to dist if it exists
-  const distDir = path.resolve('./dist');
-  if (fs.existsSync(distDir)) {
-    fs.writeFileSync(path.join(distDir, 'sitemap-main.xml'), mainXml, 'utf8');
-  }
-
-  // 3. Generate the top level sitemap.xml which represents a Sitemap Index
-  console.log("Generating central Google sitemap index (sitemap.xml)...");
-
-  // Calculate dynamic cities sitemaps count matching locations-sitemap config
-  const maxUrlsPerSitemap = 5000;
-  const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
-  const totalCities = CITIES.length;
-  const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);
-
-  let citySitemapLocs = '';
-  for (let partIdx = 0; partIdx < numParts; partIdx++) {
-    citySitemapLocs += `  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-${partIdx + 1}.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>\n`;
-  }
-  
-  const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-main.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-states.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-${citySitemapLocs}  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-villages.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-</sitemapindex>`;
-
-  const indexSitemapPath = path.resolve('./public/sitemap.xml');
-  fs.writeFileSync(indexSitemapPath, indexXml, 'utf8');
-  console.log(`Saved sitemap index file to ${indexSitemapPath}`);
-
-  if (fs.existsSync(distDir)) {
-    fs.writeFileSync(path.join(distDir, 'sitemap.xml'), indexXml, 'utf8');
-  }
-
-  console.log("Primary sitemaps configuration successfully finalized!");
-}
-
-generate().catch(console.error);
+sitemapContent = sitemapContent.replace('</urlset>', `${generatedUrls}\n</urlset>`);
+fs.writeFileSync(sitemapPath, sitemapContent);
+console.log('Sitemap successfully updated with dynamic location pages.');
