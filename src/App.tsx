@@ -741,23 +741,24 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-black/70"
             />
 
             <motion.div 
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-white/60 dark:bg-black/60 backdrop-blur-[20px] shadow-[-15px_0_50px_rgba(124,58,237,0.15)] rounded-l-[30px] border-l border-white/20 flex flex-col items-center overflow-hidden z-[9999]"
+              transition={{ type: "tween", duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              style={{ willChange: "transform" }}
+              className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-slate-50 dark:bg-[#09090b] shadow-[-15px_0_40px_rgba(0,0,0,0.45)] rounded-l-[30px] border-l dark:border-white/10 border-black/10 flex flex-col items-center overflow-hidden z-[9999]"
             >
               <div 
                 className="flex items-center justify-between p-7 w-full border-b dark:border-white/5 border-black/5 dark:bg-white/5 bg-black/5 relative z-10"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold dark:text-white text-slate-900 shadow-lg">
+                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold dark:text-white text-slate-900 shadow-lg animate-pulse">
                     O
                   </div>
                   <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">
@@ -766,14 +767,18 @@ const Navbar = () => {
                 </div>
                 <button 
                   onClick={() => setMobileMenuOpen(false)} 
-                  className="dark:text-white text-slate-900 p-2.5 dark:bg-white/10 bg-black/10 rounded-full hover:bg-white/20 transition-all duration-300"
+                  className="dark:text-white text-slate-900 p-2.5 dark:bg-white/10 bg-black/11 rounded-full hover:bg-black/15 dark:hover:bg-white/15 transition-all duration-200"
                   aria-label="Close Menu"
                 >
                   <X size={24} />
                 </button>
               </div>
 
-              <div 
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.16, duration: 0.25, ease: "easeOut" }}
+                style={{ willChange: "transform, opacity" }}
                 className="flex-1 w-full flex flex-col items-center justify-start gap-2 px-8 py-10 overflow-y-auto relative z-10"
               >
                 {NAV_ITEMS.map((item, i) => {
@@ -784,11 +789,8 @@ const Navbar = () => {
                     : (location.pathname === item.href && !location.hash && activeSection === null);
 
                   return (
-                    <motion.div 
+                    <div 
                       key={item.name}
-                      initial={{ x: 15, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: i * 0.03, duration: 0.18, ease: "easeOut" }}
                       className="w-full"
                     >
                       {isHashLink && location.pathname === '/' ? (
@@ -873,10 +875,10 @@ const Navbar = () => {
                           </AnimatePresence>
                         </div>
                       )}
-                    </motion.div>
+                    </div>
                   );
                 })}
-              </div>
+              </motion.div>
 
               <div className="w-full p-8 border-t dark:border-white/5 border-black/5 bg-white/[0.02] text-center">
                 <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-500 animate-pulse">Organic Ecosystems India & Global</p>
