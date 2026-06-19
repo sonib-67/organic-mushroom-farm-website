@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import DetailView from '../components/DetailView';
 import { PROCESS_DATA } from '../data/processes';
+import SEO from '../components/SEO';
 
 const ProcessDetailPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,7 +12,16 @@ const ProcessDetailPage = () => {
     return <Navigate to="/" replace />;
   }
 
-  return <DetailView data={process} />;
+  return (
+    <>
+      <SEO 
+        title={`${process.title} - Step-by-Step Cultivation Process`}
+        description={process.description || `Read our certified step-by-step master guide for ${process.title} in commercial mushroom cultivation.`}
+        url={`/process/${id}`}
+      />
+      <DetailView data={process} />
+    </>
+  );
 };
 
 export default ProcessDetailPage;

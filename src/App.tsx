@@ -1540,16 +1540,16 @@ const CTASection = () => {
 
 const TrainingPage = () => {
   useEffect(() => {
-    document.title = "Professional Mushroom Farming Training India | Online & Offline";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Join our certified mushroom farming training online or offline. Learn button, oyster, and milky mushroom cultivation from India's leading experts. Enroll now!");
-    }
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Professional Mushroom Farming Training India | Online & Offline"
+        description="Join our certified mushroom farming training online or offline. Learn button, oyster, and milky mushroom cultivation from India's leading experts. Enroll now!"
+        url="/training"
+      />
       <MushroomTraining />
       
       {/* Additional Page Specific Content */}
@@ -3154,15 +3154,15 @@ const AboutPage = () => {
 
 const ServicesPage = () => {
   useEffect(() => {
-    document.title = "Commercial Mushroom Farming Services & Turnkey Solutions | Pan India Experts";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Explore our end-to-end commercial mushroom farming services: organic hybrid spawn supply, industrial compost production, and technical turnkey consultancy in India & Worldwide.");
-    }
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Commercial Mushroom Farming Services & Turnkey Solutions | Pan India Experts"
+        description="Explore our end-to-end commercial mushroom farming services: organic hybrid spawn supply, industrial compost production, and technical turnkey consultancy in India & Worldwide."
+        url="/services"
+      />
       <PageHero 
         badge="Expert Setup Solutions"
         title="Our Comprehensive Commercial Services" 
@@ -3208,15 +3208,15 @@ const ServicesPage = () => {
 
 const TurnkeyProjectsPage = () => {
   useEffect(() => {
-    document.title = "Commercial Turnkey Mushroom Farm Setup India | Complete Setup Service";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Build your industrial mushroom unit with our commercial turnkey solutions. Expert project setups for button mushroom farming in Jabalpur, across India, USA, and Australia.");
-    }
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Commercial Turnkey Mushroom Farm Setup India | Complete Setup Service"
+        description="Build your industrial mushroom unit with our commercial turnkey solutions. Expert project setups for button mushroom farming in Jabalpur, across India, USA, and Australia."
+        url="/turnkey-projects"
+      />
       <PageHero 
         badge="Commercial Turnkey Solutions"
         title="Commercial Farm Infrastructure" 
@@ -3270,11 +3270,6 @@ const TurnkeyProjectsPage = () => {
 
 const GalleryPage = () => {
   useEffect(() => {
-    document.title = "Commercial Organic Mushroom Farm Gallery | Project Photos & Setup";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "View photos of our commercial button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful turnkey farming project setups across India.");
-    }
     window.scrollTo(0, 0);
   }, []);
   const images = [
@@ -3291,6 +3286,11 @@ const GalleryPage = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Commercial Organic Mushroom Farm Gallery | Project Photos & Setup"
+        description="View photos of our commercial button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful turnkey farming project setups across India."
+        url="/gallery"
+      />
       <PageHero 
         badge="Commercial Ecosystem Tour"
         title="Visualizing Success" 
@@ -3325,11 +3325,6 @@ const GalleryPage = () => {
 
 const FAQPage = () => {
   useEffect(() => {
-    document.title = "Commercial Mushroom Farming FAQ | Training & Farm Setup Help";
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", "Find answers to frequently asked questions about commercial mushroom farming in India. Learn about setup costs, training in MP, UP, Bihar, Maharashtra, and how to start a profitable business.");
-    }
     window.scrollTo(0, 0);
   }, []);
   const faqs = [
@@ -3385,6 +3380,11 @@ const FAQPage = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Commercial Mushroom Farming FAQ | Training & Farm Setup Help"
+        description="Find answers to frequently asked questions about commercial mushroom farming in India. Learn about setup costs, training in MP, UP, Bihar, Maharashtra, and how to start a profitable business."
+        url="/faq"
+      />
       <PageHero 
         badge="Direct Commercial Answers"
         title="Frequently Asked Questions" 
@@ -3428,11 +3428,15 @@ const FAQPage = () => {
 
 const TermsOfServicePage = () => {
   useEffect(() => {
-    document.title = "Terms of Service | Organic Mushroom Farm";
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Terms of Service | Organic Mushroom Farm"
+        description="Our standardized commercial service agreement and terms for cooperative training sessions, global spawn trade, and turnkey projects."
+        url="/terms"
+      />
       <PageHero 
         badge="Legal"
         title="Terms of Service" 
@@ -3467,11 +3471,15 @@ const TermsOfServicePage = () => {
 
 const PrivacyPolicyPage = () => {
   useEffect(() => {
-    document.title = "Privacy Policy | Organic Mushroom Farm";
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Privacy Policy | Organic Mushroom Farm"
+        description="Read our privacy policy about how we protect your personal and commercial data at Organic Mushroom Farm."
+        url="/privacy"
+      />
       <PageHero 
         badge="Legal"
         title="Privacy Policy" 

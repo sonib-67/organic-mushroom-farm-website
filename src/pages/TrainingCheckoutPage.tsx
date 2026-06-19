@@ -18,7 +18,6 @@ export default function TrainingCheckoutPage() {
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'cancelled'>('idle');
 
   useEffect(() => {
-    document.title = "Checkout - Organic Mushroom Farm";
     window.scrollTo(0, 0);
     if (location.state && (location.state as any).retryFormData) {
       setFormData((location.state as any).retryFormData);

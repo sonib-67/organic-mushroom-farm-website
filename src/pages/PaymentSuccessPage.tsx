@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { CheckCircle, ArrowRight, MessageCircle, BookOpen, Clock, Zap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { pixelTrackCustom } from '../utils/pixel';
+import SEO from '../components/SEO';
 
 export default function PaymentSuccessPage() {
   const location = useLocation();
@@ -16,6 +17,11 @@ export default function PaymentSuccessPage() {
 
   return (
     <div className="relative pt-24 pb-32 md:pt-32 lg:pb-0 overflow-hidden min-h-screen selection:bg-green-500/30 flex items-center justify-center">
+      <SEO 
+        title="Payment Success | Professional Mushroom Farming Training" 
+        description="Your registration has been completed successfully. We have sent the confirmation to your mobile and email." 
+        url="/payment-success"
+      />
       <div className="w-full max-w-lg mx-auto px-4 z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}

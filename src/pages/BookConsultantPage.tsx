@@ -4,6 +4,7 @@ import { CheckCircle2, ShieldCheck, MapPin, X, Users, Zap, Briefcase, Layers, Ca
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
+import SEO from '../components/SEO';
 
 export default function BookConsultantPage() {
   const navigate = useNavigate();
@@ -154,6 +155,11 @@ export default function BookConsultantPage() {
 
   return (
     <div className="relative pb-24 md:pb-0 pt-16 md:pt-32 overflow-hidden min-h-screen selection:bg-blue-500/30">
+      <SEO 
+        title="Book 1-on-1 Commercial Mushroom Farming Consultation"
+        description="Book a premium 1-on-1 mushroom farming consultancy call for ₹59. Get expert blueprint design, subsidy advice, and troubleshooting help direct from Katangi Road, Jabalpur."
+        url="/book-consultant"
+      />
       <div className="py-4 md:py-16 text-center px-2 md:px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div

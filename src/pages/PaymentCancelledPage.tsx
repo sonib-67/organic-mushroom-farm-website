@@ -23,7 +23,6 @@ export default function PaymentCancelledPage() {
   const isWorkshop = state?.productName === 'Mushroom Farming Workshop' || state?.from === '/workshop';
 
   useEffect(() => {
-    document.title = isWorkshop ? "Complete Your Workshop Registration" : "Payment Cancelled";
     window.scrollTo(0, 0);
 
     // Track simply as a page landing. The actual failure/cancel event happens before routing.
