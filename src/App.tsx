@@ -63,11 +63,6 @@ import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
 import WorkshopPage from './pages/WorkshopPage';
 
-// New Dynamic Local SEO Page Imports
-import StateIndexPage from './locations/[state]/index';
-import CityPage from './locations/[state]/[city]';
-import VillagePage from './locations/[state]/[city]/[village]';
-
 // --- Constants & Types ---
 
 const ProductionSOP = () => {
@@ -3619,11 +3614,6 @@ const AnimatedRoutes = () => {
           <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
-
-          {/* New Dynamic Structured Programmatic SEO Routes */}
-          <Route path="/:state" element={<StateIndexPage />} />
-          <Route path="/:state/:city" element={<CityPage />} />
-          <Route path="/:state/:city/:village" element={<VillagePage />} />
 
           <Route path="*" element={<CatchAllHandler />} />
         </Routes>

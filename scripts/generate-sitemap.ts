@@ -1,6 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
+// Import datasets to calculate dynamic parts
+import { CITIES } from '../src/data/locationsData.ts';
+import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
+
 const dateInfo = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
@@ -61,12 +65,6 @@ const staticRoutes = [
   { path: '/site-directory', priority: '0.50', changefreq: 'weekly' }
 ];
 
-import { CitiesData } from '../src/data/cities';
-
-function loadCitiesCount(): number {
-  return CitiesData.length;
-}
-
 async function generate() {
   console.log("Generating primary static sitemap (sitemap-main.xml)...");
 
@@ -78,7 +76,7 @@ async function generate() {
   for (const route of staticRoutes) {
     mainXml += `
   <url>
-    <loc>https://www.organicmushroomfarm.shop${route.path}</loc>
+    <loc>https://organicmushroomfarm.shop${route.path}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
@@ -89,7 +87,7 @@ async function generate() {
   for (let i = 1; i <= 10; i++) {
     mainXml += `
   <url>
-    <loc>https://www.organicmushroomfarm.shop/blog/${i}</loc>
+    <loc>https://organicmushroomfarm.shop/blog/${i}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.50</priority>
@@ -102,35 +100,42 @@ async function generate() {
   fs.writeFileSync(mainSitemapPath, mainXml, 'utf8');
   console.log(`Saved main sitemap to ${mainSitemapPath}`);
 
+  // Copy to dist if it exists
   const distDir = path.resolve('./dist');
   if (fs.existsSync(distDir)) {
     fs.writeFileSync(path.join(distDir, 'sitemap-main.xml'), mainXml, 'utf8');
   }
 
-  // 3. Central Sitemap Index (sitemap.xml)
+  // 3. Generate the top level sitemap.xml which represents a Sitemap Index
   console.log("Generating central Google sitemap index (sitemap.xml)...");
 
-  const totalCities = loadCitiesCount();
-  console.log(`Discovered ${totalCities} cities in local directories.`);
+  // Calculate dynamic cities sitemaps count matching locations-sitemap config
+  const maxUrlsPerSitemap = 5000;
+  const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
+  const totalCities = CITIES.length;
+  const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);
 
-  // Since cities are tightly budgeted inside cities-1 XML file now, we keep index clean and lean:
+  let citySitemapLocs = '';
+  for (let partIdx = 0; partIdx < numParts; partIdx++) {
+    citySitemapLocs += `  <sitemap>
+    <loc>https://organicmushroomfarm.shop/sitemap-locations-cities-${partIdx + 1}.xml</loc>
+    <lastmod>${dateInfo}</lastmod>
+  </sitemap>\n`;
+  }
+  
   const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-main.xml</loc>
+    <loc>https://organicmushroomfarm.shop/sitemap-main.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-states.xml</loc>
+    <loc>https://organicmushroomfarm.shop/sitemap-locations-states.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-cities-1.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.organicmushroomfarm.shop/sitemap-locations-villages.xml</loc>
+${citySitemapLocs}  <sitemap>
+    <loc>https://organicmushroomfarm.shop/sitemap-locations-villages.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
 </sitemapindex>`;
@@ -139,11 +144,20 @@ async function generate() {
   fs.writeFileSync(indexSitemapPath, indexXml, 'utf8');
   console.log(`Saved sitemap index file to ${indexSitemapPath}`);
 
+  // Also sync the root-level sitemap.xml
+  try {
+    const rootSitemapPath = path.resolve('./sitemap.xml');
+    fs.writeFileSync(rootSitemapPath, indexXml, 'utf8');
+    console.log(`Synced root sitemap file to ${rootSitemapPath}`);
+  } catch (err) {
+    console.error("Failed to copy sitemap to root:", err);
+  }
+
   if (fs.existsSync(distDir)) {
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), indexXml, 'utf8');
   }
 
-  console.log("Central sitemaps configuration successfully finalized!");
+  console.log("Primary sitemaps configuration successfully finalized!");
 }
 
 generate().catch(console.error);

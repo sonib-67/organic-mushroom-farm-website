@@ -8,6 +8,7 @@ import { generateLocationSEOArticle, getStateOfLocation } from '../data/location
 import { parseSEOPathname } from '../utils/seoPathParser';
 import { SEO_KEYWORDS } from '../data/seoKeywordsData';
 import { ALL_LOCATIONS } from '../data/locationsData';
+import * as StatePages from '../locationpage';
 
 export default function LocationDetailsPage() {
   const { pathname } = useLocation();
@@ -36,6 +37,14 @@ export default function LocationDetailsPage() {
 
   const { locationSlug, keywordInfo } = parsed;
   const state = getStateOfLocation(locationSlug);
+
+  // If a direct, editable page for this state exists in /src/locationpage, render it!
+  const targetKey = (locationSlug.replace(/-/g, '') + 'page').toLowerCase();
+  const foundKey = Object.keys(StatePages).find(k => k.toLowerCase() === targetKey);
+  const StateComp = foundKey ? (StatePages as any)[foundKey] : null;
+  if (StateComp) {
+    return <StateComp />;
+  }
 
   const formattedLocation = locationSlug
     .split('-')
@@ -92,7 +101,7 @@ export default function LocationDetailsPage() {
 
   const ctaDetails = getCategoryDetails();
 
-  const faqs = [
+  const faqs = seoData.faqs || [
     {
       q: `What is the scope of ${keywordInfo.keyword} in ${formattedLocation}?`,
       a: `Unprecedented healthy food adaptation has created massive demand for ${keywordInfo.keyword} directly serving markets of ${formattedLocation} and greater ${state}. It offers high margin returns compared to field grains.`
