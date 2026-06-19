@@ -180,11 +180,12 @@ export default function ROICalculatorPage() {
                 
                 {/* Inputs */}
                 <div>
-                  <label className="text-xs font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-3 block">
+                  <label id="farm-area-label" htmlFor="farm-area-range-input" className="text-xs font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-3 block">
                     Farm Floor Area (Sq. Ft.)
                   </label>
                   <div className="relative">
                     <input 
+                      id="farm-area-number-input"
                       type="number" 
                       min="100"
                       value={area}
@@ -198,6 +199,9 @@ export default function ROICalculatorPage() {
                     <span className="absolute right-6 top-1/2 -translate-y-1/2 text-sm font-bold dark:text-slate-500 text-slate-400">sq ft</span>
                   </div>
                   <input 
+                    id="farm-area-range-input"
+                    aria-labelledby="farm-area-label"
+                    aria-label="Farm Floor Area Range Slider"
                     type="range" 
                     min="100" 
                     max="10000" 

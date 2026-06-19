@@ -1355,10 +1355,13 @@ const ROICalculator = () => {
               <div className="space-y-8 text-left">
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
-                    <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Number of Bags/Beds</label>
+                    <label id="bags-label" htmlFor="bags-range-input" className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Number of Bags/Beds</label>
                     <span className="text-xl font-bold dark:text-white text-slate-900">{bags}</span>
                   </div>
                   <input 
+                    id="bags-range-input"
+                    aria-labelledby="bags-label"
+                    aria-label="Number of Bags or Beds"
                     type="range" min="500" max="10000" step="500" value={bags} 
                     onChange={(e) => setBags(Number(e.target.value))}
                     className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
@@ -1367,10 +1370,13 @@ const ROICalculator = () => {
 
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
-                    <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Market Selling Price (₹/kg)</label>
+                    <label id="price-label" htmlFor="price-range-input" className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Market Selling Price (₹/kg)</label>
                     <span className="text-xl font-bold dark:text-white text-slate-900">₹{sellingPrice}</span>
                   </div>
                   <input 
+                    id="price-range-input"
+                    aria-labelledby="price-label"
+                    aria-label="Market Selling Price per Kilogram"
                     type="range" min="80" max="250" step="5" value={sellingPrice} 
                     onChange={(e) => setSellingPrice(Number(e.target.value))}
                     className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
@@ -1379,10 +1385,13 @@ const ROICalculator = () => {
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
-                    <label className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Labor/Electricity Cost (₹/kg)</label>
+                    <label id="cost-label" htmlFor="cost-range-input" className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">Labor/Electricity Cost (₹/kg)</label>
                     <span className="text-xl font-bold dark:text-white text-slate-900">₹{operatingCost}</span>
                   </div>
                   <input 
+                    id="cost-range-input"
+                    aria-labelledby="cost-label"
+                    aria-label="Labor and Electricity Cost per Kilogram"
                     type="range" min="20" max="80" step="2" value={operatingCost} 
                     onChange={(e) => setOperatingCost(Number(e.target.value))}
                     className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-brand-purple"
@@ -2190,6 +2199,7 @@ const FloatingButtons = () => {
               href="https://wa.me/919203544140" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="Contact Organic Mushroom Farm India on WhatsApp"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               whileHover={{ scale: 1.1 }}
@@ -2799,9 +2809,9 @@ const HomePage = () => {
                   <div className="text-[12px] text-slate-500 mb-6">{ad.desc}</div>
                   <div className="flex items-center justify-between">
                     <span className="dark:text-white text-slate-900 font-bold text-sm dark:bg-white/5 bg-black/5 px-3 py-2 rounded-xl">{ad.price}</span>
-                    <button className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
+                    <span className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
                       <ArrowRight size={16} />
-                    </button>
+                    </span>
                   </div>
                 </CardWrapper>
               );

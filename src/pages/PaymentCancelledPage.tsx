@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { pixelTrackCustom } from '../utils/pixel';
+import SEO from '../components/SEO';
 
 export default function PaymentCancelledPage() {
   const navigate = useNavigate();
@@ -48,6 +49,11 @@ export default function PaymentCancelledPage() {
 
   return (
     <div className="min-h-screen dark:bg-[#070707] bg-slate-50 flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[999999] overflow-hidden">
+      <SEO 
+        title={isWorkshop ? "Complete Your Workshop Registration" : "Payment Cancelled"} 
+        description="Your training checkout process has been cancelled or aborted. You can easily retry or contact our support team." 
+      />
+      
       {/* Premium Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
         <div className="absolute top-[10%] left-[10%] w-[30rem] h-[30rem] bg-red-500/10 dark:opacity-20 opacity-30 rounded-full blur-[100px] mix-blend-screen"></div>

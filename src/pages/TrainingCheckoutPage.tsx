@@ -4,6 +4,7 @@ import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCh
 import { useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
+import SEO from '../components/SEO';
 
 export default function TrainingCheckoutPage() {
   const navigate = useNavigate();
@@ -156,6 +157,10 @@ export default function TrainingCheckoutPage() {
 
   return (
     <div className="min-h-screen dark:bg-[#070707] bg-slate-50 flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[999999] overflow-hidden">
+      <SEO 
+        title="Checkout - Organic Mushroom Farm" 
+        description="Complete your registration for our professional commercial mushroom farming and cultivation training." 
+      />
       
       {/* Premium Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
