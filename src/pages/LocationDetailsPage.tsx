@@ -249,75 +249,49 @@ export default function LocationDetailsPage() {
             </div>
           </div>
 
-          {/* Hidden Link Index / Crawler Portal (Search Engine Optimization Catalyst) */}
-          {/* Collapsible accordion visually integrated so that users can read regions, while bots trace internal links instantly to map 80,000 keyword combinations */}
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 mb-16" id="crawl-portal">
-            <button 
-              onClick={() => setCrawlMenuExpanded(!crawlMenuExpanded)}
-              className="w-full flex items-center justify-between text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-primary-start"
-              aria-expanded={crawlMenuExpanded}
-            >
+          {/* Hidden Link Index / Crawler Portal (Search Engine Optimization Catalyst) - Visually Hidden, Crawlable by Search Bots */}
+          <div style={{ display: 'none' }} id="crawl-portal" className="hidden">
+            <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900">National Organic Agriculture Directory Links</h3>
+            <p className="text-xs dark:text-slate-400 text-slate-500 mt-1">Explore all related services and other state-wise networks in India.</p>
+            <div className="pt-8 border-t dark:border-white/5 border-black/5 mt-6 grid md:grid-cols-2 gap-8">
+              
+              {/* Related Services Links for current location */}
               <div>
-                <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900">National Organic Agriculture Directory Links</h3>
-                <p className="text-xs dark:text-slate-400 text-slate-500 mt-1">Explore all related services and other state-wise networks in India.</p>
+                <h4 className="text-sm font-bold dark:text-slate-300 text-slate-800 mb-4 uppercase tracking-wider">
+                  Mushroom options in {formattedLocation}:
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {crawlLinks.relativeKeywords.map((link, j) => (
+                    <Link 
+                      key={j} 
+                      to={link.url}
+                      className="text-xs dark:text-slate-400 text-slate-600 hover:text-primary-start dark:hover:text-white transition-colors"
+                    >
+                      • {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-              <ChevronDown 
-                size={20} 
-                className={`dark:text-slate-400 text-slate-650 transform transition-transform duration-350 ${crawlMenuExpanded ? 'rotate-180' : ''}`} 
-              />
-            </button>
 
-            <AnimatePresence initial={false}>
-              {crawlMenuExpanded && (
-                <motion.div 
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="overflow-hidden"
-                >
-                  <div className="pt-8 border-t dark:border-white/5 border-black/5 mt-6 grid md:grid-cols-2 gap-8">
-                    
-                    {/* Related Services Links for current location */}
-                    <div>
-                      <h4 className="text-sm font-bold dark:text-slate-300 text-slate-800 mb-4 uppercase tracking-wider">
-                        Mushroom options in {formattedLocation}:
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {crawlLinks.relativeKeywords.map((link, j) => (
-                          <Link 
-                            key={j} 
-                            to={link.url}
-                            className="text-xs dark:text-slate-400 text-slate-600 hover:text-primary-start dark:hover:text-white transition-colors"
-                          >
-                            • {link.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+              {/* Surrounding Major Markets for current keyword */}
+              <div>
+                <h4 className="text-sm font-bold dark:text-slate-300 text-slate-800 mb-4 uppercase tracking-wider">
+                  Other Regional Markets:
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {crawlLinks.popularCities.map((link, k) => (
+                    <Link 
+                      key={k} 
+                      to={link.url}
+                      className="text-xs dark:text-slate-400 text-slate-600 hover:text-accent dark:hover:text-white transition-colors"
+                    >
+                      • {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
 
-                    {/* Surrounding Major Markets for current keyword */}
-                    <div>
-                      <h4 className="text-sm font-bold dark:text-slate-300 text-slate-800 mb-4 uppercase tracking-wider">
-                        Other Regional Markets:
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        {crawlLinks.popularCities.map((link, k) => (
-                          <Link 
-                            key={k} 
-                            to={link.url}
-                            className="text-xs dark:text-slate-400 text-slate-600 hover:text-accent dark:hover:text-white transition-colors"
-                          >
-                            • {link.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            </div>
           </div>
 
         </div>
