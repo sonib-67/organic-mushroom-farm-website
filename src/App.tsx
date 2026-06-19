@@ -44,18 +44,29 @@ import ArticleTrainingGuideHindi from './pages/ArticleTrainingGuideHindi';
 import ArticleMushroomTrainingAffordable from './pages/ArticleMushroomTrainingAffordable';
 import ArticleGharParMushroomFarming from './pages/ArticleGharParMushroomFarming';
 import SEO from './components/SEO';
-import { generateReviewSchema, generateLocalBusinessSchema } from './utils/seoSchemas';
+import { 
+  generateReviewSchema, 
+  generateLocalBusinessSchema,
+  generateGlobalFAQSchema,
+  generateGlobalProductsSchema,
+  generateGlobalServiceSchema
+} from './utils/seoSchemas';
 import MetaPixelTracker from './components/MetaPixelTracker';
 import MushroomSEOSections from './components/MushroomSEOSections';
 import SiteVisitConsultationPage from './pages/SiteVisitConsultationPage';
 
 import LocationDetailsPage from './pages/LocationDetailsPage';
+import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
+import { parseSEOPathname } from './utils/seoPathParser';
 import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
 import WorkshopPage from './pages/WorkshopPage';
-import DirectoryPage from './pages/Directory';
-import CityCategoryPage from './pages/CityCategoryPage';
+
+// New Dynamic Local SEO Page Imports
+import StateIndexPage from './locations/[state]/index';
+import CityPage from './locations/[state]/[city]';
+import VillagePage from './locations/[state]/[city]/[village]';
 
 // --- Constants & Types ---
 
@@ -399,7 +410,7 @@ const CompanyProfile = () => {
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
                   <div className="text-sm font-bold dark:text-white text-slate-900">
                     {item.label === "Founder" ? (
-                      <Link to="/directory" className="hover:text-primary-start transition-colors underline decoration-dotted decoration-white/20">
+                      <Link to="/sitemap" className="hover:text-primary-start transition-colors underline decoration-dotted underline-offset-4">
                         {item.value}
                       </Link>
                     ) : (
@@ -1886,12 +1897,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
-          <div className="mb-6 md:mb-0">
-            © 2026 Organic Mushroom Farm. All Rights Reserved. | Managed by{" "}
-            <Link to="/directory" className="hover:text-primary-start transition-all underline decoration-dotted decoration-slate-600/30">
-              Tanish Soni
-            </Link>
-          </div>
+          <div className="mb-6 md:mb-0">© 2026 Organic Mushroom Farm. All Rights Reserved.</div>
           <div className="flex gap-6 flex-wrap justify-center">
             {[
               { label: "Instagram", href: "https://www.instagram.com/organic_mushroom_farm_jabalpur" },
@@ -1909,6 +1915,70 @@ const Footer = () => {
                 {social.label}
                 <ArrowRight size={10} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all font-bold" />
               </a>
+            ))}
+          </div>
+        </div>
+        
+        {/* SEO Internal Links (Sitemap) */}
+        <div className="mt-12 pt-8 border-t dark:border-white/5 border-black/5">
+          <h4 className="text-[10px] font-bold mb-4 uppercase tracking-widest text-slate-500/50 text-center">Directory</h4>
+          <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-[10px] text-slate-500/40 max-w-5xl mx-auto">
+            {[
+              { path: "/", label: "Home" },
+              { path: "/process/raw-material", label: "Raw Material" },
+              { path: "/process/compost-preparation", label: "Compost Preparation" },
+              { path: "/process/production-room", label: "Production Room" },
+              { path: "/process/precision-harvest", label: "Precision Harvest" },
+              { path: "/process/cold-chain", label: "Cold Chain Process" },
+              { path: "/process/market-linkage", label: "Market Linkage" },
+              { path: "/model-details", label: "Model Details" },
+              { path: "/compost-unit-specs", label: "Compost Unit Specs" },
+              { path: "/sops#tunnel-ops", label: "Tunnel Ops SOPs" },
+              { path: "/expertise-details", label: "Expertise Details" },
+              { path: "/about", label: "About" },
+              { path: "/services", label: "Services" },
+              { path: "/spawn-seed", label: "Spawn Seed" },
+              { path: "/services/compost-production", label: "Compost Production" },
+              { path: "/services/consultancy", label: "Consultancy" },
+              { path: "/services/marketing-support", label: "Marketing Support" },
+              { path: "/services/cold-chain", label: "Cold Chain Services" },
+              { path: "/services/subsidy", label: "Subsidy Services" },
+              { path: "/training", label: "Training" },
+              { path: "/mushroom-types", label: "Mushroom Types" },
+              { path: "/gallery", label: "Gallery" },
+              { path: "/business-plan", label: "Business Plan" },
+              { path: "/subsidy", label: "Subsidy" },
+              { path: "/faq", label: "FAQ" },
+              { path: "/contact", label: "Contact" },
+              { path: "/terms", label: "Terms" },
+              { path: "/privacy", label: "Privacy" },
+              { path: "/success-stories", label: "Success Stories" },
+              { path: "/locations", label: "Locations" },
+              { path: "/equipment", label: "Equipment" },
+              { path: "/roi-calculator", label: "ROI Calculator" },
+              { path: "/turnkey-projects", label: "Turnkey Projects" },
+              { path: "/blog", label: "Blog" },
+              { path: "/blog/1", label: "Blog 1" },
+              { path: "/blog/2", label: "Blog 2" },
+              { path: "/blog/3", label: "Blog 3" },
+              { path: "/blog/4", label: "Blog 4" },
+              { path: "/blog/5", label: "Blog 5" },
+              { path: "/blog/6", label: "Blog 6" },
+              { path: "/articles/mushroom-farming-training-online-offline-certificate", label: "Mushroom Farming Training Online Offline Certificate" },
+              { path: "/articles/mushroom-farming-training-hindi-india", label: "Mushroom Farming Training Hindi India" },
+              { path: "/articles/mushroom-farming-business-plan-hindi-2026", label: "Mushroom Farming Business Plan Hindi 2026" },
+              { path: "/articles/what-is-mushroom-spawn-beginner-guide-india", label: "What Is Mushroom Spawn Beginner Guide India" },
+              { path: "/articles/oyster-mushroom-cultivation-india", label: "Oyster Mushroom Cultivation India" },
+              { path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", label: "Mushroom Farming Beginner Guide India 2026 2027" },
+              { path: "/blog/10", label: "Blog 10" },
+              { path: "/blog/7", label: "Blog 7" },
+              { path: "/blog/8", label: "Blog 8" },
+              { path: "/blog/9", label: "Blog 9" },
+            ].map((link, i) => (
+              <span key={i} className="flex gap-3 items-center">
+                <Link to={link.path} className="hover:text-slate-500 transition-colors whitespace-nowrap">{link.label}</Link>
+                {i !== 49 && <span className="opacity-30">|</span>}
+              </span>
             ))}
           </div>
         </div>
@@ -2532,6 +2602,11 @@ const HomePage = () => {
       <SEO 
         title="Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom"
         description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP."
+        schemas={[
+          generateGlobalFAQSchema(),
+          generateGlobalProductsSchema(),
+          generateGlobalServiceSchema()
+        ]}
       />
       <Hero />
       <EcosystemFlow />
@@ -3471,6 +3546,15 @@ const ScrollToTop = () => {
   return null;
 };
 
+const CatchAllHandler = () => {
+  const { pathname } = useLocation();
+  const parsed = parseSEOPathname(pathname);
+  if (parsed && parsed.isCustomSEORoute) {
+    return <LocationDetailsPage />;
+  }
+  return <Navigate to="/" replace />;
+};
+
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
@@ -3533,15 +3617,15 @@ const AnimatedRoutes = () => {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
           <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
-          <Route path="/careers-/*" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-training-/*" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-farming-/*" element={<LocationDetailsPage />} />
-          <Route path="/mushroom-franchise-/*" element={<LocationDetailsPage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/site-directory" element={<SitemapPage />} />
 
-          <Route path="/directory" element={<DirectoryPage />} />
-          <Route path="/:city/:categorySlug" element={<CityCategoryPage />} />
+          {/* New Dynamic Structured Programmatic SEO Routes */}
+          <Route path="/:state" element={<StateIndexPage />} />
+          <Route path="/:state/:city" element={<CityPage />} />
+          <Route path="/:state/:city/:village" element={<VillagePage />} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<CatchAllHandler />} />
         </Routes>
       </motion.div>
     </AnimatePresence>

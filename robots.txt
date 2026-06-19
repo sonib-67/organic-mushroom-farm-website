@@ -64,4 +64,4 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-Sitemap: https://organicmushroomfarm.shop/sitemap.xml
+Sitemap: https://www.organicmushroomfarm.shop/sitemap.xml

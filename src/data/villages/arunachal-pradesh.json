@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Itanagar",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Itanagar",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Itanagar",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Naharlagun",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Naharlagun",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Naharlagun",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Namsai",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Namsai",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Namsai",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Ziro",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Ziro",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Ziro",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Bomdila",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Bomdila",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Bomdila",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Tawang",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Tawang",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Tawang",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Tezu",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Tezu",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Tezu",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Khonsa",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Khonsa",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Khonsa",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Along",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Along",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Along",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Itanagar Block",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Itanagar Block",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Itanagar Block",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Naharlagun Rural",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Naharlagun Rural",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Naharlagun Rural",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "Pasighat East",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "Pasighat East",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "Pasighat East",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Namsai West",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Namsai West",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Namsai West",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Ziro North",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Ziro North",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Ziro North",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Bomdila South",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Bomdila South",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Bomdila South",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Tawang Central",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Tawang Central",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Tawang Central",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Tezu Hills",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Tezu Hills",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Tezu Hills",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Khonsa Valley",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Khonsa Valley",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Khonsa Valley",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Along Uplands",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Along Uplands",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Along Uplands",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Itanagar Plains",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Itanagar Plains",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Itanagar Plains",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Naharlagun Green-Belt",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Naharlagun Green-Belt",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Naharlagun Green-Belt",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Pasighat Agri-Zone",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Pasighat Agri-Zone",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Pasighat Agri-Zone",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Namsai Industrial-Block",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Namsai Industrial-Block",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Namsai Industrial-Block",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Ziro Tech-Park",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Ziro Tech-Park",
+    "state": "Arunachal Pradesh"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Ziro Tech-Park",
+    "state": "Arunachal Pradesh"
+  }
+]

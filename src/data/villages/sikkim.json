@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Gangtok",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Gangtok",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Gangtok",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Namchi",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Namchi",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Namchi",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Geyzing",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Geyzing",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Geyzing",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Mangan",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Mangan",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Mangan",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Jorethang",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Jorethang",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Jorethang",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Singtam",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Singtam",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Singtam",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Rangpo",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Rangpo",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Rangpo",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Gangtok Block",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Gangtok Block",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Gangtok Block",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Namchi Rural",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Namchi Rural",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Namchi Rural",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Geyzing East",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Geyzing East",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Geyzing East",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Mangan West",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Mangan West",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Mangan West",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Jorethang North",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Jorethang North",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Jorethang North",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "Singtam South",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "Singtam South",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "Singtam South",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Rangpo Central",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Rangpo Central",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Rangpo Central",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Gangtok Hills",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Gangtok Hills",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Gangtok Hills",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Namchi Valley",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Namchi Valley",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Namchi Valley",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Geyzing Uplands",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Geyzing Uplands",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Geyzing Uplands",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Mangan Plains",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Mangan Plains",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Mangan Plains",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Jorethang Green-Belt",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Jorethang Green-Belt",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Jorethang Green-Belt",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Singtam Agri-Zone",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Singtam Agri-Zone",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Singtam Agri-Zone",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Rangpo Industrial-Block",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Rangpo Industrial-Block",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Rangpo Industrial-Block",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Gangtok Tech-Park",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Gangtok Tech-Park",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Gangtok Tech-Park",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Namchi Sub-Township",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Namchi Sub-Township",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Namchi Sub-Township",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Geyzing Extension",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Geyzing Extension",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Geyzing Extension",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Mangan Bypass",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Mangan Bypass",
+    "state": "Sikkim"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Mangan Bypass",
+    "state": "Sikkim"
+  }
+]

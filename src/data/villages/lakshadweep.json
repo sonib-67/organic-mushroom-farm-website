@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampalli",
+    "slug": "rampalli",
+    "city": "Kavaratti",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Gopalur",
+    "slug": "gopalur",
+    "city": "Kavaratti",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Shyamgudem",
+    "slug": "shyamgudem",
+    "city": "Kavaratti",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Hariur",
+    "slug": "hariur",
+    "city": "Minicoy",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Agragudem",
+    "slug": "agragudem",
+    "city": "Minicoy",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Belhalli",
+    "slug": "belhalli",
+    "city": "Minicoy",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Kalyangudem",
+    "slug": "kalyangudem",
+    "city": "Agatti",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Vikashalli",
+    "slug": "vikashalli",
+    "city": "Agatti",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ashokpuram",
+    "slug": "ashokpuram",
+    "city": "Agatti",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Premhalli",
+    "slug": "premhalli",
+    "city": "Amini",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Chandrapuram",
+    "slug": "chandrapuram",
+    "city": "Amini",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Suryapatnam",
+    "slug": "suryapatnam",
+    "city": "Amini",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rajpuram",
+    "slug": "rajpuram",
+    "city": "Kadmat",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Motipatnam",
+    "slug": "motipatnam",
+    "city": "Kadmat",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rammangalam",
+    "slug": "rammangalam",
+    "city": "Kadmat",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Gopalpatnam",
+    "slug": "gopalpatnam",
+    "city": "Kavaratti Block",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Shyammangalam",
+    "slug": "shyammangalam",
+    "city": "Kavaratti Block",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Harieri",
+    "slug": "harieri",
+    "city": "Kavaratti Block",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Agramangalam",
+    "slug": "agramangalam",
+    "city": "Minicoy Rural",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Beleri",
+    "slug": "beleri",
+    "city": "Minicoy Rural",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Kalyankudi",
+    "slug": "kalyankudi",
+    "city": "Minicoy Rural",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Vikaseri",
+    "slug": "vikaseri",
+    "city": "Agatti East",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ashokkudi",
+    "slug": "ashokkudi",
+    "city": "Agatti East",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Prempalli",
+    "slug": "prempalli",
+    "city": "Agatti East",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Chandrakudi",
+    "slug": "chandrakudi",
+    "city": "Amini West",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Suryapalli",
+    "slug": "suryapalli",
+    "city": "Amini West",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rajur",
+    "slug": "rajur",
+    "city": "Amini West",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Motipalli",
+    "slug": "motipalli",
+    "city": "Kadmat North",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ramur",
+    "slug": "ramur",
+    "city": "Kadmat North",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Gopalgudem",
+    "slug": "gopalgudem",
+    "city": "Kadmat North",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Shyamur",
+    "slug": "shyamur",
+    "city": "Kavaratti South",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Harigudem",
+    "slug": "harigudem",
+    "city": "Kavaratti South",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Agrahalli",
+    "slug": "agrahalli",
+    "city": "Kavaratti South",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Belgudem",
+    "slug": "belgudem",
+    "city": "Minicoy Central",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Kalyanhalli",
+    "slug": "kalyanhalli",
+    "city": "Minicoy Central",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Vikaspuram",
+    "slug": "vikaspuram",
+    "city": "Minicoy Central",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ashokhalli",
+    "slug": "ashokhalli",
+    "city": "Agatti Hills",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Prempuram",
+    "slug": "prempuram",
+    "city": "Agatti Hills",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Chandrapatnam",
+    "slug": "chandrapatnam",
+    "city": "Agatti Hills",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Suryapuram",
+    "slug": "suryapuram",
+    "city": "Amini Valley",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rajpatnam",
+    "slug": "rajpatnam",
+    "city": "Amini Valley",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Motimangalam",
+    "slug": "motimangalam",
+    "city": "Amini Valley",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rampatnam",
+    "slug": "rampatnam",
+    "city": "Kadmat Uplands",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Gopalmangalam",
+    "slug": "gopalmangalam",
+    "city": "Kadmat Uplands",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Shyameri",
+    "slug": "shyameri",
+    "city": "Kadmat Uplands",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Harimangalam",
+    "slug": "harimangalam",
+    "city": "Kavaratti Plains",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Agraeri",
+    "slug": "agraeri",
+    "city": "Kavaratti Plains",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Belkudi",
+    "slug": "belkudi",
+    "city": "Kavaratti Plains",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Kalyaneri",
+    "slug": "kalyaneri",
+    "city": "Minicoy Green-Belt",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Vikaskudi",
+    "slug": "vikaskudi",
+    "city": "Minicoy Green-Belt",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ashokpalli",
+    "slug": "ashokpalli",
+    "city": "Minicoy Green-Belt",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Premkudi",
+    "slug": "premkudi",
+    "city": "Agatti Agri-Zone",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Chandrapalli",
+    "slug": "chandrapalli",
+    "city": "Agatti Agri-Zone",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Suryaur",
+    "slug": "suryaur",
+    "city": "Agatti Agri-Zone",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rajpalli",
+    "slug": "rajpalli",
+    "city": "Amini Industrial-Block",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Motiur",
+    "slug": "motiur",
+    "city": "Amini Industrial-Block",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ramgudem",
+    "slug": "ramgudem",
+    "city": "Amini Industrial-Block",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Gopalur",
+    "slug": "gopalur",
+    "city": "Kadmat Tech-Park",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Shyamgudem",
+    "slug": "shyamgudem",
+    "city": "Kadmat Tech-Park",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Harihalli",
+    "slug": "harihalli",
+    "city": "Kadmat Tech-Park",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Agragudem",
+    "slug": "agragudem",
+    "city": "Kavaratti Sub-Township",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Belhalli",
+    "slug": "belhalli",
+    "city": "Kavaratti Sub-Township",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Kalyanpuram",
+    "slug": "kalyanpuram",
+    "city": "Kavaratti Sub-Township",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Vikashalli",
+    "slug": "vikashalli",
+    "city": "Minicoy Extension",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Ashokpuram",
+    "slug": "ashokpuram",
+    "city": "Minicoy Extension",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Prempatnam",
+    "slug": "prempatnam",
+    "city": "Minicoy Extension",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Chandrapuram",
+    "slug": "chandrapuram",
+    "city": "Agatti Bypass",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Suryapatnam",
+    "slug": "suryapatnam",
+    "city": "Agatti Bypass",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rajmangalam",
+    "slug": "rajmangalam",
+    "city": "Agatti Bypass",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Motipatnam",
+    "slug": "motipatnam",
+    "city": "Amini Cantonment",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Rammangalam",
+    "slug": "rammangalam",
+    "city": "Amini Cantonment",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Gopaleri",
+    "slug": "gopaleri",
+    "city": "Amini Cantonment",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Shyammangalam",
+    "slug": "shyammangalam",
+    "city": "Kadmat Outer",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Harieri",
+    "slug": "harieri",
+    "city": "Kadmat Outer",
+    "state": "Lakshadweep"
+  },
+  {
+    "village": "Agrakudi",
+    "slug": "agrakudi",
+    "city": "Kadmat Outer",
+    "state": "Lakshadweep"
+  }
+]

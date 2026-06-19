@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Imphal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Imphal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Imphal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Thoubal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Thoubal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Thoubal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Kakching",
+    "state": "Manipur"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Kakching",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Kakching",
+    "state": "Manipur"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Ukhrul",
+    "state": "Manipur"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Ukhrul",
+    "state": "Manipur"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Ukhrul",
+    "state": "Manipur"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Churachandpur",
+    "state": "Manipur"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Churachandpur",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Churachandpur",
+    "state": "Manipur"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Senapati",
+    "state": "Manipur"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Senapati",
+    "state": "Manipur"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Senapati",
+    "state": "Manipur"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Moirang",
+    "state": "Manipur"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Moirang",
+    "state": "Manipur"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Moirang",
+    "state": "Manipur"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Lilong",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Lilong",
+    "state": "Manipur"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Lilong",
+    "state": "Manipur"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Mayang Imphal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Mayang Imphal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Mayang Imphal",
+    "state": "Manipur"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Imphal Block",
+    "state": "Manipur"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Imphal Block",
+    "state": "Manipur"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Imphal Block",
+    "state": "Manipur"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Thoubal Rural",
+    "state": "Manipur"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Thoubal Rural",
+    "state": "Manipur"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Thoubal Rural",
+    "state": "Manipur"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Kakching East",
+    "state": "Manipur"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Kakching East",
+    "state": "Manipur"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Kakching East",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "Ukhrul West",
+    "state": "Manipur"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "Ukhrul West",
+    "state": "Manipur"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "Ukhrul West",
+    "state": "Manipur"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Churachandpur North",
+    "state": "Manipur"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Churachandpur North",
+    "state": "Manipur"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Churachandpur North",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Senapati South",
+    "state": "Manipur"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Senapati South",
+    "state": "Manipur"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Senapati South",
+    "state": "Manipur"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Moirang Central",
+    "state": "Manipur"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Moirang Central",
+    "state": "Manipur"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Moirang Central",
+    "state": "Manipur"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Lilong Hills",
+    "state": "Manipur"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Lilong Hills",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Lilong Hills",
+    "state": "Manipur"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Mayang Imphal Valley",
+    "state": "Manipur"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Mayang Imphal Valley",
+    "state": "Manipur"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Mayang Imphal Valley",
+    "state": "Manipur"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Imphal Uplands",
+    "state": "Manipur"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Imphal Uplands",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Imphal Uplands",
+    "state": "Manipur"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Thoubal Plains",
+    "state": "Manipur"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Thoubal Plains",
+    "state": "Manipur"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Thoubal Plains",
+    "state": "Manipur"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Kakching Green-Belt",
+    "state": "Manipur"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Kakching Green-Belt",
+    "state": "Manipur"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Kakching Green-Belt",
+    "state": "Manipur"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Ukhrul Agri-Zone",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Ukhrul Agri-Zone",
+    "state": "Manipur"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Ukhrul Agri-Zone",
+    "state": "Manipur"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Churachandpur Industrial-Block",
+    "state": "Manipur"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Churachandpur Industrial-Block",
+    "state": "Manipur"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Churachandpur Industrial-Block",
+    "state": "Manipur"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Senapati Tech-Park",
+    "state": "Manipur"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Senapati Tech-Park",
+    "state": "Manipur"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Senapati Tech-Park",
+    "state": "Manipur"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Moirang Sub-Township",
+    "state": "Manipur"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Moirang Sub-Township",
+    "state": "Manipur"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Moirang Sub-Township",
+    "state": "Manipur"
+  }
+]

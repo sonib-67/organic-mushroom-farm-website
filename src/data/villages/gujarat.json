@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Ramwadi",
+    "slug": "ramwadi",
+    "city": "Ahmedabad",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Gopalpadar",
+    "slug": "gopalpadar",
+    "city": "Ahmedabad",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Shyamgadh",
+    "slug": "shyamgadh",
+    "city": "Ahmedabad",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Haripadar",
+    "slug": "haripadar",
+    "city": "Surat",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Agragadh",
+    "slug": "agragadh",
+    "city": "Surat",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Belkhed",
+    "slug": "belkhed",
+    "city": "Surat",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Kalyangadh",
+    "slug": "kalyangadh",
+    "city": "Vadodara",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Vikaskhed",
+    "slug": "vikaskhed",
+    "city": "Vadodara",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ashokgaon",
+    "slug": "ashokgaon",
+    "city": "Vadodara",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Premkhed",
+    "slug": "premkhed",
+    "city": "Rajkot",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Chandragaon",
+    "slug": "chandragaon",
+    "city": "Rajkot",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Rajkot",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Rajgaon",
+    "slug": "rajgaon",
+    "city": "Bhavnagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Bhavnagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ramnagar",
+    "slug": "ramnagar",
+    "city": "Bhavnagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Jamnagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Shyamnagar",
+    "slug": "shyamnagar",
+    "city": "Jamnagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Harili",
+    "slug": "harili",
+    "city": "Jamnagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Agranagar",
+    "slug": "agranagar",
+    "city": "Junagadh",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Belli",
+    "slug": "belli",
+    "city": "Junagadh",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Kalyangam",
+    "slug": "kalyangam",
+    "city": "Junagadh",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Vikasli",
+    "slug": "vikasli",
+    "city": "Gandhinagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ashokgam",
+    "slug": "ashokgam",
+    "city": "Gandhinagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Premvas",
+    "slug": "premvas",
+    "city": "Gandhinagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Chandragam",
+    "slug": "chandragam",
+    "city": "Anand",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Suryavas",
+    "slug": "suryavas",
+    "city": "Anand",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Rajwadi",
+    "slug": "rajwadi",
+    "city": "Anand",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Motivas",
+    "slug": "motivas",
+    "city": "Nadiad",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ramwadi",
+    "slug": "ramwadi",
+    "city": "Nadiad",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Gopalpadar",
+    "slug": "gopalpadar",
+    "city": "Nadiad",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Shyamwadi",
+    "slug": "shyamwadi",
+    "city": "Morbi",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Haripadar",
+    "slug": "haripadar",
+    "city": "Morbi",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Agragadh",
+    "slug": "agragadh",
+    "city": "Morbi",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Belpadar",
+    "slug": "belpadar",
+    "city": "Surendranagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Kalyangadh",
+    "slug": "kalyangadh",
+    "city": "Surendranagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Vikaskhed",
+    "slug": "vikaskhed",
+    "city": "Surendranagar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ashokgadh",
+    "slug": "ashokgadh",
+    "city": "Bharuch",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Premkhed",
+    "slug": "premkhed",
+    "city": "Bharuch",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Chandragaon",
+    "slug": "chandragaon",
+    "city": "Bharuch",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Suryakhed",
+    "slug": "suryakhed",
+    "city": "Vapi",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Rajgaon",
+    "slug": "rajgaon",
+    "city": "Vapi",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Vapi",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ramgaon",
+    "slug": "ramgaon",
+    "city": "Navsari",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Navsari",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Shyamnagar",
+    "slug": "shyamnagar",
+    "city": "Navsari",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Veraval",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Agranagar",
+    "slug": "agranagar",
+    "city": "Veraval",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Belli",
+    "slug": "belli",
+    "city": "Veraval",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Kalyannagar",
+    "slug": "kalyannagar",
+    "city": "Porbandar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Vikasli",
+    "slug": "vikasli",
+    "city": "Porbandar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ashokgam",
+    "slug": "ashokgam",
+    "city": "Porbandar",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Premli",
+    "slug": "premli",
+    "city": "Godhra",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Chandragam",
+    "slug": "chandragam",
+    "city": "Godhra",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Suryavas",
+    "slug": "suryavas",
+    "city": "Godhra",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Rajgam",
+    "slug": "rajgam",
+    "city": "Bhuj",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Motivas",
+    "slug": "motivas",
+    "city": "Bhuj",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ramwadi",
+    "slug": "ramwadi",
+    "city": "Bhuj",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Gopalvas",
+    "slug": "gopalvas",
+    "city": "Mehsana",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Shyamwadi",
+    "slug": "shyamwadi",
+    "city": "Mehsana",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Haripadar",
+    "slug": "haripadar",
+    "city": "Mehsana",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Agrawadi",
+    "slug": "agrawadi",
+    "city": "Ahmedabad Block",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Belpadar",
+    "slug": "belpadar",
+    "city": "Ahmedabad Block",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Kalyangadh",
+    "slug": "kalyangadh",
+    "city": "Ahmedabad Block",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Vikaspadar",
+    "slug": "vikaspadar",
+    "city": "Surat Rural",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ashokgadh",
+    "slug": "ashokgadh",
+    "city": "Surat Rural",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Premkhed",
+    "slug": "premkhed",
+    "city": "Surat Rural",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Chandragadh",
+    "slug": "chandragadh",
+    "city": "Vadodara East",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Suryakhed",
+    "slug": "suryakhed",
+    "city": "Vadodara East",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Rajgaon",
+    "slug": "rajgaon",
+    "city": "Vadodara East",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Motikhed",
+    "slug": "motikhed",
+    "city": "Rajkot West",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Ramgaon",
+    "slug": "ramgaon",
+    "city": "Rajkot West",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Rajkot West",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Shyamgaon",
+    "slug": "shyamgaon",
+    "city": "Bhavnagar North",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Bhavnagar North",
+    "state": "Gujarat"
+  },
+  {
+    "village": "Agranagar",
+    "slug": "agranagar",
+    "city": "Bhavnagar North",
+    "state": "Gujarat"
+  }
+]

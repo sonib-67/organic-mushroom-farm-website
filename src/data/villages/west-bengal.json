@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Kolkata",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Kolkata",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Kolkata",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Howrah",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Howrah",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Howrah",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Asansol",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Asansol",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Asansol",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Siliguri",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Siliguri",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Siliguri",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Durgapur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Durgapur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Durgapur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Bardhaman",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Bardhaman",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Bardhaman",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Malda",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Malda",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Malda",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Baharampur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Baharampur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Baharampur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Kharagpur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Kharagpur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Kharagpur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Shantipur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Shantipur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Shantipur",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Ranaghat",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Ranaghat",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Ranaghat",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Jalpaiguri",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Jalpaiguri",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Jalpaiguri",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "Haldia",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "Haldia",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "Haldia",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Balurghat",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Balurghat",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Balurghat",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Darjeeling",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Darjeeling",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Darjeeling",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Purulia",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Purulia",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Purulia",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Chinsurah",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Chinsurah",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Chinsurah",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Kolkata Block",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Kolkata Block",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Kolkata Block",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Howrah Rural",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Howrah Rural",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Howrah Rural",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Asansol East",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Asansol East",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Asansol East",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Siliguri West",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Siliguri West",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Siliguri West",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Durgapur North",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Durgapur North",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Durgapur North",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Bardhaman South",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Bardhaman South",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Bardhaman South",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Malda Central",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Malda Central",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Malda Central",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Baharampur Hills",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Baharampur Hills",
+    "state": "West Bengal"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Baharampur Hills",
+    "state": "West Bengal"
+  }
+]

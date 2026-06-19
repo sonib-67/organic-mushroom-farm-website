@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Aizawl",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Aizawl",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Aizawl",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Lunglei",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Lunglei",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Lunglei",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Saiha",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Saiha",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Saiha",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Champhai",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Champhai",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Champhai",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Kolasib",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Kolasib",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Kolasib",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Serchhip",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Serchhip",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Serchhip",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Mamit",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Mamit",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Mamit",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Lawngtlai",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Lawngtlai",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Lawngtlai",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Aizawl Block",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Aizawl Block",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Aizawl Block",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Lunglei Rural",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Lunglei Rural",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Lunglei Rural",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Saiha East",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Saiha East",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Saiha East",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Champhai West",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Champhai West",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Champhai West",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "Kolasib North",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "Kolasib North",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "Kolasib North",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Serchhip South",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Serchhip South",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Serchhip South",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Mamit Central",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Mamit Central",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Mamit Central",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Lawngtlai Hills",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Lawngtlai Hills",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Lawngtlai Hills",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Aizawl Valley",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Aizawl Valley",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Aizawl Valley",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Lunglei Uplands",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Lunglei Uplands",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Lunglei Uplands",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Saiha Plains",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Saiha Plains",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Saiha Plains",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Champhai Green-Belt",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Champhai Green-Belt",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Champhai Green-Belt",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Kolasib Agri-Zone",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Kolasib Agri-Zone",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Kolasib Agri-Zone",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Serchhip Industrial-Block",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Serchhip Industrial-Block",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Serchhip Industrial-Block",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Mamit Tech-Park",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Mamit Tech-Park",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Mamit Tech-Park",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Lawngtlai Sub-Township",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Lawngtlai Sub-Township",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Lawngtlai Sub-Township",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Aizawl Extension",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Aizawl Extension",
+    "state": "Mizoram"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Aizawl Extension",
+    "state": "Mizoram"
+  }
+]

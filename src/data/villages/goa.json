@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Ramwadi",
+    "slug": "ramwadi",
+    "city": "Panaji",
+    "state": "Goa"
+  },
+  {
+    "village": "Gopalpadar",
+    "slug": "gopalpadar",
+    "city": "Panaji",
+    "state": "Goa"
+  },
+  {
+    "village": "Shyamgadh",
+    "slug": "shyamgadh",
+    "city": "Panaji",
+    "state": "Goa"
+  },
+  {
+    "village": "Haripadar",
+    "slug": "haripadar",
+    "city": "Margao",
+    "state": "Goa"
+  },
+  {
+    "village": "Agragadh",
+    "slug": "agragadh",
+    "city": "Margao",
+    "state": "Goa"
+  },
+  {
+    "village": "Belkhed",
+    "slug": "belkhed",
+    "city": "Margao",
+    "state": "Goa"
+  },
+  {
+    "village": "Kalyangadh",
+    "slug": "kalyangadh",
+    "city": "Vasco da Gama",
+    "state": "Goa"
+  },
+  {
+    "village": "Vikaskhed",
+    "slug": "vikaskhed",
+    "city": "Vasco da Gama",
+    "state": "Goa"
+  },
+  {
+    "village": "Ashokgaon",
+    "slug": "ashokgaon",
+    "city": "Vasco da Gama",
+    "state": "Goa"
+  },
+  {
+    "village": "Premkhed",
+    "slug": "premkhed",
+    "city": "Mapusa",
+    "state": "Goa"
+  },
+  {
+    "village": "Chandragaon",
+    "slug": "chandragaon",
+    "city": "Mapusa",
+    "state": "Goa"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Mapusa",
+    "state": "Goa"
+  },
+  {
+    "village": "Rajgaon",
+    "slug": "rajgaon",
+    "city": "Ponda",
+    "state": "Goa"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Ponda",
+    "state": "Goa"
+  },
+  {
+    "village": "Ramnagar",
+    "slug": "ramnagar",
+    "city": "Ponda",
+    "state": "Goa"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Bicholim",
+    "state": "Goa"
+  },
+  {
+    "village": "Shyamnagar",
+    "slug": "shyamnagar",
+    "city": "Bicholim",
+    "state": "Goa"
+  },
+  {
+    "village": "Harili",
+    "slug": "harili",
+    "city": "Bicholim",
+    "state": "Goa"
+  },
+  {
+    "village": "Agranagar",
+    "slug": "agranagar",
+    "city": "Curchorem",
+    "state": "Goa"
+  },
+  {
+    "village": "Belli",
+    "slug": "belli",
+    "city": "Curchorem",
+    "state": "Goa"
+  },
+  {
+    "village": "Kalyangam",
+    "slug": "kalyangam",
+    "city": "Curchorem",
+    "state": "Goa"
+  },
+  {
+    "village": "Vikasli",
+    "slug": "vikasli",
+    "city": "Valpoi",
+    "state": "Goa"
+  },
+  {
+    "village": "Ashokgam",
+    "slug": "ashokgam",
+    "city": "Valpoi",
+    "state": "Goa"
+  },
+  {
+    "village": "Premvas",
+    "slug": "premvas",
+    "city": "Valpoi",
+    "state": "Goa"
+  },
+  {
+    "village": "Chandragam",
+    "slug": "chandragam",
+    "city": "Sanguem",
+    "state": "Goa"
+  },
+  {
+    "village": "Suryavas",
+    "slug": "suryavas",
+    "city": "Sanguem",
+    "state": "Goa"
+  },
+  {
+    "village": "Rajwadi",
+    "slug": "rajwadi",
+    "city": "Sanguem",
+    "state": "Goa"
+  },
+  {
+    "village": "Motivas",
+    "slug": "motivas",
+    "city": "Panaji Block",
+    "state": "Goa"
+  },
+  {
+    "village": "Ramwadi",
+    "slug": "ramwadi",
+    "city": "Panaji Block",
+    "state": "Goa"
+  },
+  {
+    "village": "Gopalpadar",
+    "slug": "gopalpadar",
+    "city": "Panaji Block",
+    "state": "Goa"
+  },
+  {
+    "village": "Shyamwadi",
+    "slug": "shyamwadi",
+    "city": "Margao Rural",
+    "state": "Goa"
+  },
+  {
+    "village": "Haripadar",
+    "slug": "haripadar",
+    "city": "Margao Rural",
+    "state": "Goa"
+  },
+  {
+    "village": "Agragadh",
+    "slug": "agragadh",
+    "city": "Margao Rural",
+    "state": "Goa"
+  },
+  {
+    "village": "Belpadar",
+    "slug": "belpadar",
+    "city": "Vasco da Gama East",
+    "state": "Goa"
+  },
+  {
+    "village": "Kalyangadh",
+    "slug": "kalyangadh",
+    "city": "Vasco da Gama East",
+    "state": "Goa"
+  },
+  {
+    "village": "Vikaskhed",
+    "slug": "vikaskhed",
+    "city": "Vasco da Gama East",
+    "state": "Goa"
+  },
+  {
+    "village": "Ashokgadh",
+    "slug": "ashokgadh",
+    "city": "Mapusa West",
+    "state": "Goa"
+  },
+  {
+    "village": "Premkhed",
+    "slug": "premkhed",
+    "city": "Mapusa West",
+    "state": "Goa"
+  },
+  {
+    "village": "Chandragaon",
+    "slug": "chandragaon",
+    "city": "Mapusa West",
+    "state": "Goa"
+  },
+  {
+    "village": "Suryakhed",
+    "slug": "suryakhed",
+    "city": "Ponda North",
+    "state": "Goa"
+  },
+  {
+    "village": "Rajgaon",
+    "slug": "rajgaon",
+    "city": "Ponda North",
+    "state": "Goa"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Ponda North",
+    "state": "Goa"
+  },
+  {
+    "village": "Ramgaon",
+    "slug": "ramgaon",
+    "city": "Bicholim South",
+    "state": "Goa"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Bicholim South",
+    "state": "Goa"
+  },
+  {
+    "village": "Shyamnagar",
+    "slug": "shyamnagar",
+    "city": "Bicholim South",
+    "state": "Goa"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Curchorem Central",
+    "state": "Goa"
+  },
+  {
+    "village": "Agranagar",
+    "slug": "agranagar",
+    "city": "Curchorem Central",
+    "state": "Goa"
+  },
+  {
+    "village": "Belli",
+    "slug": "belli",
+    "city": "Curchorem Central",
+    "state": "Goa"
+  },
+  {
+    "village": "Kalyannagar",
+    "slug": "kalyannagar",
+    "city": "Valpoi Hills",
+    "state": "Goa"
+  },
+  {
+    "village": "Vikasli",
+    "slug": "vikasli",
+    "city": "Valpoi Hills",
+    "state": "Goa"
+  },
+  {
+    "village": "Ashokgam",
+    "slug": "ashokgam",
+    "city": "Valpoi Hills",
+    "state": "Goa"
+  },
+  {
+    "village": "Premli",
+    "slug": "premli",
+    "city": "Sanguem Valley",
+    "state": "Goa"
+  },
+  {
+    "village": "Chandragam",
+    "slug": "chandragam",
+    "city": "Sanguem Valley",
+    "state": "Goa"
+  },
+  {
+    "village": "Suryavas",
+    "slug": "suryavas",
+    "city": "Sanguem Valley",
+    "state": "Goa"
+  },
+  {
+    "village": "Rajgam",
+    "slug": "rajgam",
+    "city": "Panaji Uplands",
+    "state": "Goa"
+  },
+  {
+    "village": "Motivas",
+    "slug": "motivas",
+    "city": "Panaji Uplands",
+    "state": "Goa"
+  },
+  {
+    "village": "Ramwadi",
+    "slug": "ramwadi",
+    "city": "Panaji Uplands",
+    "state": "Goa"
+  },
+  {
+    "village": "Gopalvas",
+    "slug": "gopalvas",
+    "city": "Margao Plains",
+    "state": "Goa"
+  },
+  {
+    "village": "Shyamwadi",
+    "slug": "shyamwadi",
+    "city": "Margao Plains",
+    "state": "Goa"
+  },
+  {
+    "village": "Haripadar",
+    "slug": "haripadar",
+    "city": "Margao Plains",
+    "state": "Goa"
+  },
+  {
+    "village": "Agrawadi",
+    "slug": "agrawadi",
+    "city": "Vasco da Gama Green-Belt",
+    "state": "Goa"
+  },
+  {
+    "village": "Belpadar",
+    "slug": "belpadar",
+    "city": "Vasco da Gama Green-Belt",
+    "state": "Goa"
+  },
+  {
+    "village": "Kalyangadh",
+    "slug": "kalyangadh",
+    "city": "Vasco da Gama Green-Belt",
+    "state": "Goa"
+  },
+  {
+    "village": "Vikaspadar",
+    "slug": "vikaspadar",
+    "city": "Mapusa Agri-Zone",
+    "state": "Goa"
+  },
+  {
+    "village": "Ashokgadh",
+    "slug": "ashokgadh",
+    "city": "Mapusa Agri-Zone",
+    "state": "Goa"
+  },
+  {
+    "village": "Premkhed",
+    "slug": "premkhed",
+    "city": "Mapusa Agri-Zone",
+    "state": "Goa"
+  },
+  {
+    "village": "Chandragadh",
+    "slug": "chandragadh",
+    "city": "Ponda Industrial-Block",
+    "state": "Goa"
+  },
+  {
+    "village": "Suryakhed",
+    "slug": "suryakhed",
+    "city": "Ponda Industrial-Block",
+    "state": "Goa"
+  },
+  {
+    "village": "Rajgaon",
+    "slug": "rajgaon",
+    "city": "Ponda Industrial-Block",
+    "state": "Goa"
+  },
+  {
+    "village": "Motikhed",
+    "slug": "motikhed",
+    "city": "Bicholim Tech-Park",
+    "state": "Goa"
+  },
+  {
+    "village": "Ramgaon",
+    "slug": "ramgaon",
+    "city": "Bicholim Tech-Park",
+    "state": "Goa"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Bicholim Tech-Park",
+    "state": "Goa"
+  },
+  {
+    "village": "Shyamgaon",
+    "slug": "shyamgaon",
+    "city": "Curchorem Sub-Township",
+    "state": "Goa"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Curchorem Sub-Township",
+    "state": "Goa"
+  },
+  {
+    "village": "Agranagar",
+    "slug": "agranagar",
+    "city": "Curchorem Sub-Township",
+    "state": "Goa"
+  }
+]

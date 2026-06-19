@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampalli",
+    "slug": "rampalli",
+    "city": "Chennai",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Gopalur",
+    "slug": "gopalur",
+    "city": "Chennai",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Shyamgudem",
+    "slug": "shyamgudem",
+    "city": "Chennai",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Hariur",
+    "slug": "hariur",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Agragudem",
+    "slug": "agragudem",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Belhalli",
+    "slug": "belhalli",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Kalyangudem",
+    "slug": "kalyangudem",
+    "city": "Madurai",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Vikashalli",
+    "slug": "vikashalli",
+    "city": "Madurai",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ashokpuram",
+    "slug": "ashokpuram",
+    "city": "Madurai",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Premhalli",
+    "slug": "premhalli",
+    "city": "Tiruchirappalli",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Chandrapuram",
+    "slug": "chandrapuram",
+    "city": "Tiruchirappalli",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Suryapatnam",
+    "slug": "suryapatnam",
+    "city": "Tiruchirappalli",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rajpuram",
+    "slug": "rajpuram",
+    "city": "Salem",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Motipatnam",
+    "slug": "motipatnam",
+    "city": "Salem",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rammangalam",
+    "slug": "rammangalam",
+    "city": "Salem",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Gopalpatnam",
+    "slug": "gopalpatnam",
+    "city": "Tiruppur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Shyammangalam",
+    "slug": "shyammangalam",
+    "city": "Tiruppur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Harieri",
+    "slug": "harieri",
+    "city": "Tiruppur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Agramangalam",
+    "slug": "agramangalam",
+    "city": "Erode",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Beleri",
+    "slug": "beleri",
+    "city": "Erode",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Kalyankudi",
+    "slug": "kalyankudi",
+    "city": "Erode",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Vikaseri",
+    "slug": "vikaseri",
+    "city": "Vellore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ashokkudi",
+    "slug": "ashokkudi",
+    "city": "Vellore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Prempalli",
+    "slug": "prempalli",
+    "city": "Vellore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Chandrakudi",
+    "slug": "chandrakudi",
+    "city": "Thoothukudi",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Suryapalli",
+    "slug": "suryapalli",
+    "city": "Thoothukudi",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rajur",
+    "slug": "rajur",
+    "city": "Thoothukudi",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Motipalli",
+    "slug": "motipalli",
+    "city": "Tirunelveli",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ramur",
+    "slug": "ramur",
+    "city": "Tirunelveli",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Gopalgudem",
+    "slug": "gopalgudem",
+    "city": "Tirunelveli",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Shyamur",
+    "slug": "shyamur",
+    "city": "Thanjavur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Harigudem",
+    "slug": "harigudem",
+    "city": "Thanjavur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Agrahalli",
+    "slug": "agrahalli",
+    "city": "Thanjavur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Belgudem",
+    "slug": "belgudem",
+    "city": "Nagercoil",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Kalyanhalli",
+    "slug": "kalyanhalli",
+    "city": "Nagercoil",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Vikaspuram",
+    "slug": "vikaspuram",
+    "city": "Nagercoil",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ashokhalli",
+    "slug": "ashokhalli",
+    "city": "Dindigul",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Prempuram",
+    "slug": "prempuram",
+    "city": "Dindigul",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Chandrapatnam",
+    "slug": "chandrapatnam",
+    "city": "Dindigul",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Suryapuram",
+    "slug": "suryapuram",
+    "city": "Vellore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rajpatnam",
+    "slug": "rajpatnam",
+    "city": "Vellore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Motimangalam",
+    "slug": "motimangalam",
+    "city": "Vellore",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rampatnam",
+    "slug": "rampatnam",
+    "city": "Kanchipuram",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Gopalmangalam",
+    "slug": "gopalmangalam",
+    "city": "Kanchipuram",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Shyameri",
+    "slug": "shyameri",
+    "city": "Kanchipuram",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Harimangalam",
+    "slug": "harimangalam",
+    "city": "Karur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Agraeri",
+    "slug": "agraeri",
+    "city": "Karur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Belkudi",
+    "slug": "belkudi",
+    "city": "Karur",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Kalyaneri",
+    "slug": "kalyaneri",
+    "city": "Ooty",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Vikaskudi",
+    "slug": "vikaskudi",
+    "city": "Ooty",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ashokpalli",
+    "slug": "ashokpalli",
+    "city": "Ooty",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Premkudi",
+    "slug": "premkudi",
+    "city": "Chennai Block",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Chandrapalli",
+    "slug": "chandrapalli",
+    "city": "Chennai Block",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Suryaur",
+    "slug": "suryaur",
+    "city": "Chennai Block",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rajpalli",
+    "slug": "rajpalli",
+    "city": "Coimbatore Rural",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Motiur",
+    "slug": "motiur",
+    "city": "Coimbatore Rural",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ramgudem",
+    "slug": "ramgudem",
+    "city": "Coimbatore Rural",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Gopalur",
+    "slug": "gopalur",
+    "city": "Madurai East",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Shyamgudem",
+    "slug": "shyamgudem",
+    "city": "Madurai East",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Harihalli",
+    "slug": "harihalli",
+    "city": "Madurai East",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Agragudem",
+    "slug": "agragudem",
+    "city": "Tiruchirappalli West",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Belhalli",
+    "slug": "belhalli",
+    "city": "Tiruchirappalli West",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Kalyanpuram",
+    "slug": "kalyanpuram",
+    "city": "Tiruchirappalli West",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Vikashalli",
+    "slug": "vikashalli",
+    "city": "Salem North",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Ashokpuram",
+    "slug": "ashokpuram",
+    "city": "Salem North",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Prempatnam",
+    "slug": "prempatnam",
+    "city": "Salem North",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Chandrapuram",
+    "slug": "chandrapuram",
+    "city": "Tiruppur South",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Suryapatnam",
+    "slug": "suryapatnam",
+    "city": "Tiruppur South",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rajmangalam",
+    "slug": "rajmangalam",
+    "city": "Tiruppur South",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Motipatnam",
+    "slug": "motipatnam",
+    "city": "Erode Central",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Rammangalam",
+    "slug": "rammangalam",
+    "city": "Erode Central",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Gopaleri",
+    "slug": "gopaleri",
+    "city": "Erode Central",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Shyammangalam",
+    "slug": "shyammangalam",
+    "city": "Vellore Hills",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Harieri",
+    "slug": "harieri",
+    "city": "Vellore Hills",
+    "state": "Tamil Nadu"
+  },
+  {
+    "village": "Agrakudi",
+    "slug": "agrakudi",
+    "city": "Vellore Hills",
+    "state": "Tamil Nadu"
+  }
+]

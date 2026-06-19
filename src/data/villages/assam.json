@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Guwahati",
+    "state": "Assam"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Guwahati",
+    "state": "Assam"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Guwahati",
+    "state": "Assam"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Silchar",
+    "state": "Assam"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Silchar",
+    "state": "Assam"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Silchar",
+    "state": "Assam"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Dibrugarh",
+    "state": "Assam"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Dibrugarh",
+    "state": "Assam"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Dibrugarh",
+    "state": "Assam"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Jorhat",
+    "state": "Assam"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Jorhat",
+    "state": "Assam"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Jorhat",
+    "state": "Assam"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Nagaon",
+    "state": "Assam"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Nagaon",
+    "state": "Assam"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Nagaon",
+    "state": "Assam"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Tinsukia",
+    "state": "Assam"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Tinsukia",
+    "state": "Assam"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Tinsukia",
+    "state": "Assam"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Bongaigaon",
+    "state": "Assam"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Bongaigaon",
+    "state": "Assam"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Bongaigaon",
+    "state": "Assam"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Tezpur",
+    "state": "Assam"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Tezpur",
+    "state": "Assam"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Tezpur",
+    "state": "Assam"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Karimganj",
+    "state": "Assam"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Karimganj",
+    "state": "Assam"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Karimganj",
+    "state": "Assam"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Goalpara",
+    "state": "Assam"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Goalpara",
+    "state": "Assam"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Goalpara",
+    "state": "Assam"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Dhubri",
+    "state": "Assam"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Dhubri",
+    "state": "Assam"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Dhubri",
+    "state": "Assam"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Barpeta",
+    "state": "Assam"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Barpeta",
+    "state": "Assam"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Barpeta",
+    "state": "Assam"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "North Lakhimpur",
+    "state": "Assam"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "North Lakhimpur",
+    "state": "Assam"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "North Lakhimpur",
+    "state": "Assam"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Diphu",
+    "state": "Assam"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Diphu",
+    "state": "Assam"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Diphu",
+    "state": "Assam"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Sibasagar",
+    "state": "Assam"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Sibasagar",
+    "state": "Assam"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Sibasagar",
+    "state": "Assam"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Guwahati Block",
+    "state": "Assam"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Guwahati Block",
+    "state": "Assam"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Guwahati Block",
+    "state": "Assam"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Silchar Rural",
+    "state": "Assam"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Silchar Rural",
+    "state": "Assam"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Silchar Rural",
+    "state": "Assam"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Dibrugarh East",
+    "state": "Assam"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Dibrugarh East",
+    "state": "Assam"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Dibrugarh East",
+    "state": "Assam"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Jorhat West",
+    "state": "Assam"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Jorhat West",
+    "state": "Assam"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Jorhat West",
+    "state": "Assam"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Nagaon North",
+    "state": "Assam"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Nagaon North",
+    "state": "Assam"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Nagaon North",
+    "state": "Assam"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Tinsukia South",
+    "state": "Assam"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Tinsukia South",
+    "state": "Assam"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Tinsukia South",
+    "state": "Assam"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Bongaigaon Central",
+    "state": "Assam"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Bongaigaon Central",
+    "state": "Assam"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Bongaigaon Central",
+    "state": "Assam"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Tezpur Hills",
+    "state": "Assam"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Tezpur Hills",
+    "state": "Assam"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Tezpur Hills",
+    "state": "Assam"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Karimganj Valley",
+    "state": "Assam"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Karimganj Valley",
+    "state": "Assam"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Karimganj Valley",
+    "state": "Assam"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Goalpara Uplands",
+    "state": "Assam"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Goalpara Uplands",
+    "state": "Assam"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Goalpara Uplands",
+    "state": "Assam"
+  }
+]

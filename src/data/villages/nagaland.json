@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampara",
+    "slug": "rampara",
+    "city": "Dimapur",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Dimapur",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Dimapur",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Haripur",
+    "slug": "haripur",
+    "city": "Kohima",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Kohima",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Kohima",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Kalyanguri",
+    "slug": "kalyanguri",
+    "city": "Mokokchung",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Mokokchung",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Mokokchung",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Prembari",
+    "slug": "prembari",
+    "city": "Tuensang",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Tuensang",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Tuensang",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Rajdanga",
+    "slug": "rajdanga",
+    "city": "Wokha",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Wokha",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Wokha",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Gopalgram",
+    "slug": "gopalgram",
+    "city": "Zunheboto",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Zunheboto",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Zunheboto",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Agrahat",
+    "slug": "agrahat",
+    "city": "Mon",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Beljhara",
+    "slug": "beljhara",
+    "city": "Mon",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Kalyantole",
+    "slug": "kalyantole",
+    "city": "Mon",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Vikasjhara",
+    "slug": "vikasjhara",
+    "city": "Phek",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ashoktole",
+    "slug": "ashoktole",
+    "city": "Phek",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Prempara",
+    "slug": "prempara",
+    "city": "Phek",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Chandratole",
+    "slug": "chandratole",
+    "city": "Kiphire",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Suryapara",
+    "slug": "suryapara",
+    "city": "Kiphire",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Kiphire",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Motipara",
+    "slug": "motipara",
+    "city": "Dimapur Block",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Dimapur Block",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Gopalguri",
+    "slug": "gopalguri",
+    "city": "Dimapur Block",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Kohima Rural",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Hariguri",
+    "slug": "hariguri",
+    "city": "Kohima Rural",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Agrabari",
+    "slug": "agrabari",
+    "city": "Kohima Rural",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Belguri",
+    "slug": "belguri",
+    "city": "Mokokchung East",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Kalyanbari",
+    "slug": "kalyanbari",
+    "city": "Mokokchung East",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Vikasdanga",
+    "slug": "vikasdanga",
+    "city": "Mokokchung East",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ashokbari",
+    "slug": "ashokbari",
+    "city": "Tuensang West",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Premdanga",
+    "slug": "premdanga",
+    "city": "Tuensang West",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Chandragram",
+    "slug": "chandragram",
+    "city": "Tuensang West",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Suryadanga",
+    "slug": "suryadanga",
+    "city": "Wokha North",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Rajgram",
+    "slug": "rajgram",
+    "city": "Wokha North",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Motihat",
+    "slug": "motihat",
+    "city": "Wokha North",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ramgram",
+    "slug": "ramgram",
+    "city": "Zunheboto South",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Gopalhat",
+    "slug": "gopalhat",
+    "city": "Zunheboto South",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Shyamjhara",
+    "slug": "shyamjhara",
+    "city": "Zunheboto South",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Harihat",
+    "slug": "harihat",
+    "city": "Mon Central",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Agrajhara",
+    "slug": "agrajhara",
+    "city": "Mon Central",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Beltole",
+    "slug": "beltole",
+    "city": "Mon Central",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Kalyanjhara",
+    "slug": "kalyanjhara",
+    "city": "Phek Hills",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Vikastole",
+    "slug": "vikastole",
+    "city": "Phek Hills",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ashokpara",
+    "slug": "ashokpara",
+    "city": "Phek Hills",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Premtole",
+    "slug": "premtole",
+    "city": "Kiphire Valley",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Chandrapara",
+    "slug": "chandrapara",
+    "city": "Kiphire Valley",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Suryapur",
+    "slug": "suryapur",
+    "city": "Kiphire Valley",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Rajpara",
+    "slug": "rajpara",
+    "city": "Dimapur Uplands",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Motipur",
+    "slug": "motipur",
+    "city": "Dimapur Uplands",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ramguri",
+    "slug": "ramguri",
+    "city": "Dimapur Uplands",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Gopalpur",
+    "slug": "gopalpur",
+    "city": "Kohima Plains",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Shyamguri",
+    "slug": "shyamguri",
+    "city": "Kohima Plains",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Haribari",
+    "slug": "haribari",
+    "city": "Kohima Plains",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Agraguri",
+    "slug": "agraguri",
+    "city": "Mokokchung Green-Belt",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Belbari",
+    "slug": "belbari",
+    "city": "Mokokchung Green-Belt",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Kalyandanga",
+    "slug": "kalyandanga",
+    "city": "Mokokchung Green-Belt",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Vikasbari",
+    "slug": "vikasbari",
+    "city": "Tuensang Agri-Zone",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ashokdanga",
+    "slug": "ashokdanga",
+    "city": "Tuensang Agri-Zone",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Premgram",
+    "slug": "premgram",
+    "city": "Tuensang Agri-Zone",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Chandradanga",
+    "slug": "chandradanga",
+    "city": "Wokha Industrial-Block",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Suryagram",
+    "slug": "suryagram",
+    "city": "Wokha Industrial-Block",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Rajhat",
+    "slug": "rajhat",
+    "city": "Wokha Industrial-Block",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Motigram",
+    "slug": "motigram",
+    "city": "Zunheboto Tech-Park",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Ramhat",
+    "slug": "ramhat",
+    "city": "Zunheboto Tech-Park",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Gopaljhara",
+    "slug": "gopaljhara",
+    "city": "Zunheboto Tech-Park",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Shyamhat",
+    "slug": "shyamhat",
+    "city": "Mon Sub-Township",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Harijhara",
+    "slug": "harijhara",
+    "city": "Mon Sub-Township",
+    "state": "Nagaland"
+  },
+  {
+    "village": "Agratole",
+    "slug": "agratole",
+    "city": "Mon Sub-Township",
+    "state": "Nagaland"
+  }
+]

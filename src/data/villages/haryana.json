@@ -1,0 +1,452 @@
+[
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Faridabad",
+    "state": "Haryana"
+  },
+  {
+    "village": "Gopalgaon",
+    "slug": "gopalgaon",
+    "city": "Faridabad",
+    "state": "Haryana"
+  },
+  {
+    "village": "Shyamkhera",
+    "slug": "shyamkhera",
+    "city": "Faridabad",
+    "state": "Haryana"
+  },
+  {
+    "village": "Harigaon",
+    "slug": "harigaon",
+    "city": "Gurugram",
+    "state": "Haryana"
+  },
+  {
+    "village": "Agrakhera",
+    "slug": "agrakhera",
+    "city": "Gurugram",
+    "state": "Haryana"
+  },
+  {
+    "village": "Belkhurd",
+    "slug": "belkhurd",
+    "city": "Gurugram",
+    "state": "Haryana"
+  },
+  {
+    "village": "Kalyankhera",
+    "slug": "kalyankhera",
+    "city": "Panipat",
+    "state": "Haryana"
+  },
+  {
+    "village": "Vikaskhurd",
+    "slug": "vikaskhurd",
+    "city": "Panipat",
+    "state": "Haryana"
+  },
+  {
+    "village": "Ashokbuzurg",
+    "slug": "ashokbuzurg",
+    "city": "Panipat",
+    "state": "Haryana"
+  },
+  {
+    "village": "Premkhurd",
+    "slug": "premkhurd",
+    "city": "Ambala",
+    "state": "Haryana"
+  },
+  {
+    "village": "Chandrabuzurg",
+    "slug": "chandrabuzurg",
+    "city": "Ambala",
+    "state": "Haryana"
+  },
+  {
+    "village": "Suryanagar",
+    "slug": "suryanagar",
+    "city": "Ambala",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rajbuzurg",
+    "slug": "rajbuzurg",
+    "city": "Yamunanagar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Motinagar",
+    "slug": "motinagar",
+    "city": "Yamunanagar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Ramkalan",
+    "slug": "ramkalan",
+    "city": "Yamunanagar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Gopalnagar",
+    "slug": "gopalnagar",
+    "city": "Rohtak",
+    "state": "Haryana"
+  },
+  {
+    "village": "Shyamkalan",
+    "slug": "shyamkalan",
+    "city": "Rohtak",
+    "state": "Haryana"
+  },
+  {
+    "village": "Harikhas",
+    "slug": "harikhas",
+    "city": "Rohtak",
+    "state": "Haryana"
+  },
+  {
+    "village": "Agrakalan",
+    "slug": "agrakalan",
+    "city": "Hisar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Belkhas",
+    "slug": "belkhas",
+    "city": "Hisar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Kalyanbad",
+    "slug": "kalyanbad",
+    "city": "Hisar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Vikaskhas",
+    "slug": "vikaskhas",
+    "city": "Karnal",
+    "state": "Haryana"
+  },
+  {
+    "village": "Ashokbad",
+    "slug": "ashokbad",
+    "city": "Karnal",
+    "state": "Haryana"
+  },
+  {
+    "village": "Premgarh",
+    "slug": "premgarh",
+    "city": "Karnal",
+    "state": "Haryana"
+  },
+  {
+    "village": "Chandrabad",
+    "slug": "chandrabad",
+    "city": "Sonipat",
+    "state": "Haryana"
+  },
+  {
+    "village": "Suryagarh",
+    "slug": "suryagarh",
+    "city": "Sonipat",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rajpur",
+    "slug": "rajpur",
+    "city": "Sonipat",
+    "state": "Haryana"
+  },
+  {
+    "village": "Motigarh",
+    "slug": "motigarh",
+    "city": "Panchkula",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Panchkula",
+    "state": "Haryana"
+  },
+  {
+    "village": "Gopalgaon",
+    "slug": "gopalgaon",
+    "city": "Panchkula",
+    "state": "Haryana"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Sirsa",
+    "state": "Haryana"
+  },
+  {
+    "village": "Harigaon",
+    "slug": "harigaon",
+    "city": "Sirsa",
+    "state": "Haryana"
+  },
+  {
+    "village": "Agrakhera",
+    "slug": "agrakhera",
+    "city": "Sirsa",
+    "state": "Haryana"
+  },
+  {
+    "village": "Belgaon",
+    "slug": "belgaon",
+    "city": "Bhiwani",
+    "state": "Haryana"
+  },
+  {
+    "village": "Kalyankhera",
+    "slug": "kalyankhera",
+    "city": "Bhiwani",
+    "state": "Haryana"
+  },
+  {
+    "village": "Vikaskhurd",
+    "slug": "vikaskhurd",
+    "city": "Bhiwani",
+    "state": "Haryana"
+  },
+  {
+    "village": "Ashokkhera",
+    "slug": "ashokkhera",
+    "city": "Bahadurgarh",
+    "state": "Haryana"
+  },
+  {
+    "village": "Premkhurd",
+    "slug": "premkhurd",
+    "city": "Bahadurgarh",
+    "state": "Haryana"
+  },
+  {
+    "village": "Chandrabuzurg",
+    "slug": "chandrabuzurg",
+    "city": "Bahadurgarh",
+    "state": "Haryana"
+  },
+  {
+    "village": "Suryakhurd",
+    "slug": "suryakhurd",
+    "city": "Jind",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rajbuzurg",
+    "slug": "rajbuzurg",
+    "city": "Jind",
+    "state": "Haryana"
+  },
+  {
+    "village": "Motinagar",
+    "slug": "motinagar",
+    "city": "Jind",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rambuzurg",
+    "slug": "rambuzurg",
+    "city": "Thanesar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Gopalnagar",
+    "slug": "gopalnagar",
+    "city": "Thanesar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Shyamkalan",
+    "slug": "shyamkalan",
+    "city": "Thanesar",
+    "state": "Haryana"
+  },
+  {
+    "village": "Harinagar",
+    "slug": "harinagar",
+    "city": "Kaithal",
+    "state": "Haryana"
+  },
+  {
+    "village": "Agrakalan",
+    "slug": "agrakalan",
+    "city": "Kaithal",
+    "state": "Haryana"
+  },
+  {
+    "village": "Belkhas",
+    "slug": "belkhas",
+    "city": "Kaithal",
+    "state": "Haryana"
+  },
+  {
+    "village": "Kalyankalan",
+    "slug": "kalyankalan",
+    "city": "Rewari",
+    "state": "Haryana"
+  },
+  {
+    "village": "Vikaskhas",
+    "slug": "vikaskhas",
+    "city": "Rewari",
+    "state": "Haryana"
+  },
+  {
+    "village": "Ashokbad",
+    "slug": "ashokbad",
+    "city": "Rewari",
+    "state": "Haryana"
+  },
+  {
+    "village": "Premkhas",
+    "slug": "premkhas",
+    "city": "Faridabad Block",
+    "state": "Haryana"
+  },
+  {
+    "village": "Chandrabad",
+    "slug": "chandrabad",
+    "city": "Faridabad Block",
+    "state": "Haryana"
+  },
+  {
+    "village": "Suryagarh",
+    "slug": "suryagarh",
+    "city": "Faridabad Block",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rajbad",
+    "slug": "rajbad",
+    "city": "Gurugram Rural",
+    "state": "Haryana"
+  },
+  {
+    "village": "Motigarh",
+    "slug": "motigarh",
+    "city": "Gurugram Rural",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rampur",
+    "slug": "rampur",
+    "city": "Gurugram Rural",
+    "state": "Haryana"
+  },
+  {
+    "village": "Gopalgarh",
+    "slug": "gopalgarh",
+    "city": "Panipat East",
+    "state": "Haryana"
+  },
+  {
+    "village": "Shyampur",
+    "slug": "shyampur",
+    "city": "Panipat East",
+    "state": "Haryana"
+  },
+  {
+    "village": "Harigaon",
+    "slug": "harigaon",
+    "city": "Panipat East",
+    "state": "Haryana"
+  },
+  {
+    "village": "Agrapur",
+    "slug": "agrapur",
+    "city": "Ambala West",
+    "state": "Haryana"
+  },
+  {
+    "village": "Belgaon",
+    "slug": "belgaon",
+    "city": "Ambala West",
+    "state": "Haryana"
+  },
+  {
+    "village": "Kalyankhera",
+    "slug": "kalyankhera",
+    "city": "Ambala West",
+    "state": "Haryana"
+  },
+  {
+    "village": "Vikasgaon",
+    "slug": "vikasgaon",
+    "city": "Yamunanagar North",
+    "state": "Haryana"
+  },
+  {
+    "village": "Ashokkhera",
+    "slug": "ashokkhera",
+    "city": "Yamunanagar North",
+    "state": "Haryana"
+  },
+  {
+    "village": "Premkhurd",
+    "slug": "premkhurd",
+    "city": "Yamunanagar North",
+    "state": "Haryana"
+  },
+  {
+    "village": "Chandrakhera",
+    "slug": "chandrakhera",
+    "city": "Rohtak South",
+    "state": "Haryana"
+  },
+  {
+    "village": "Suryakhurd",
+    "slug": "suryakhurd",
+    "city": "Rohtak South",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rajbuzurg",
+    "slug": "rajbuzurg",
+    "city": "Rohtak South",
+    "state": "Haryana"
+  },
+  {
+    "village": "Motikhurd",
+    "slug": "motikhurd",
+    "city": "Hisar Central",
+    "state": "Haryana"
+  },
+  {
+    "village": "Rambuzurg",
+    "slug": "rambuzurg",
+    "city": "Hisar Central",
+    "state": "Haryana"
+  },
+  {
+    "village": "Gopalnagar",
+    "slug": "gopalnagar",
+    "city": "Hisar Central",
+    "state": "Haryana"
+  },
+  {
+    "village": "Shyambuzurg",
+    "slug": "shyambuzurg",
+    "city": "Karnal Hills",
+    "state": "Haryana"
+  },
+  {
+    "village": "Harinagar",
+    "slug": "harinagar",
+    "city": "Karnal Hills",
+    "state": "Haryana"
+  },
+  {
+    "village": "Agrakalan",
+    "slug": "agrakalan",
+    "city": "Karnal Hills",
+    "state": "Haryana"
+  }
+]
