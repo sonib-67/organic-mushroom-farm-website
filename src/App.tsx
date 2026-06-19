@@ -11,7 +11,8 @@ import {
   CheckCircle2, TrendingUp, Users, Sprout, ShieldCheck, 
   Calculator, BookOpen, Clock, ShoppingCart, Award, ArrowRight,
   ExternalLink, ChevronDown, ChevronUp, MessageCircle, MapPin, Briefcase,
-  Play, Download, Layers, Shield, Zap, Info, Quote, Home, Waves, Calendar
+  Play, Download, Layers, Shield, Zap, Info, Quote, Home, Waves, Calendar,
+  Globe
 } from 'lucide-react';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import ServiceDetailPage from './pages/ServiceDetailPage';
@@ -62,6 +63,7 @@ import { parseSEOPathname } from './utils/seoPathParser';
 import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
 import WorkshopPage from './pages/WorkshopPage';
+import OperationsPage from './pages/OperationsPage';
 
 // --- Constants & Types ---
 
@@ -1760,15 +1762,28 @@ const StatesSection = () => {
           ))}
         </div>
         
-        <div className="mt-12 p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 max-w-4xl mx-auto text-left">
-          <p className="text-sm text-slate-500 leading-relaxed mb-6">
+        <div className="mt-8 text-center">
+          <Link 
+            to="/pan-india-global-operations" 
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full gradient-bg font-extrabold text-sm text-white shadow-lg shadow-primary-start/20 hover:scale-105 transition-all"
+          >
+            <Globe size={16} className="animate-spin-slow" />
+            <span>Pan India & Global Operations</span>
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        {/* Visually Hidden SEO Content Container */}
+        <div className="sr-only absolute w-1 h-1 p-0 -m-1 overflow-hidden clip-rect-0 border-0 pointer-events-none opacity-0" aria-hidden="true">
+          <p>
             Our expert teams provide <strong>mushroom training in India</strong> and <strong>mushroom farm setup India</strong> services in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, Rajasthan, Gujarat, Punjab, Haryana, Chhattisgarh, Jharkhand, and other major regions. We are committed to building the most successful <strong>button mushroom farming business</strong> network globally.
           </p>
-          <div className="text-[10px] text-slate-600/50 leading-relaxed text-justify">
+          <p>
             <strong>Serving Pan India Cities, Towns & Villages for Commercial Mushroom Setups:</strong> Mumbai, Delhi, Bangalore, Hyderabad, Ahmedabad, Chennai, Kolkata, Surat, Pune, Jaipur, Lucknow, Kanpur, Nagpur, Indore, Thane, Bhopal, Visakhapatnam, Pimpri-Chinchwad, Patna, Vadodara, Ghaziabad, Ludhiana, Agra, Nashik, Faridabad, Meerut, Rajkot, Kalyan-Dombivli, Vasai-Virar, Varanasi, Srinagar, Aurangabad, Dhanbad, Amritsar, Navi Mumbai, Allahabad, Howrah, Ranchi, Gwalior, Jabalpur, Coimbatore, Vijayawada, Jodhpur, Madurai, Raipur, Kota, Guwahati, Chandigarh, Solapur, Hubli-Dharwad, Bareilly, Moradabad, Mysore, Gurgaon, Aligarh, Jalandhar, Tiruchirappalli, Bhubaneswar, Salem, Mira-Bhayandar, Warangal, Thiruvananthapuram, Bhiwandi, Saharanpur, Guntur, Amravati, Bikaner, Noida, Jamshedpur, Bhilai, Cuttack, Firozabad, Kochi, Nellore, Bhavnagar, Dehradun, Durgapur, Asansol, Rourkela, Nanded, Kolhapur, Ajmer, Akola, Gulbarga, Jamnagar, Ujjain, Loni, Siliguri, Jhansi, Ulhasnagar, Jammu, Sangli-Miraj-Kupwad, Mangalore, Erode, Belgaum, Kurnool, Ambattur, Rajahmundry, Tirunelveli, Malegaon, Gaya, Udaipur, Kakinada, Davanagere, Kozhikode, Maheshtala, Rajpur Sonarpur, Bokaro, South Dumdum, Bellary, Patiala, Gopalpur, Agartala, Bhagalpur, Muzaffarnagar, Bhatpara, Panihati, Latur, Dhule, Rohtak, Korba, Bhilwara, Brahmapur, Muzaffarpur, Ahmednagar, Mathura, Kollam, Avadi, Kadapa, Rajahmundry, Bilaspur, Shahjahanpur, Satara, Bijapur, Rampur, Shivamogga, Chandrapur, Junagadh, Thrissur, Alwar, Bardhaman, Kulti, Nizamabad, Parbhani, Tumkur, Khammam, Uzhavarkarai, Bihar Sharif, Panipat, Darbhanga, Bally, Aizawl, Dewas, Ichalkaranji, Karnal, Bathinda, Jalna, Eluru, Barasat, Kirari Suleman Nagar, Purnia, Satna, Mau, Sonipat, Farrukhabad, Sagar, Rourkela, Durg, Imphal, Ratlam, Hapur, Arrah, Anantapur, Karimnagar, Etawah, Ambernath, North Dumdum, Bharatpur, Begusarai, New Delhi, Gandhidham, Baranagar, Tiruvottiyur, Pondicherry, Sikar, Thoothukudi, Rewa, Mirzapur, Raichur, Pali, Ramagundam, Silchar, Haridwar, Vijayanagaram, Tenali, Nagercoil, Sri Ganganagar, Karawal Nagar, Mango, Thanjavur, Bulandshahr, Uluberia, Katni, Sambhal, Singrauli, Nadiad, Secunderabad, Naihati, Yamunanagar, Bidhannagar, Pallavaram, Bidar, Munger, Panchkula, Burhanpur, Raurkela Industrial Township, Kharagpur, Dindigul, Gandhinagar, Hospet, Nangloi Jat, Malda, Ongole, Deoghar, Chapra, Haldia, Khandwa, Nandyal, Morena, Amroha, Anand, Bhind, Bhusawal, Orai, Bahraich, Vellore, Mehsana, Raiganj, Sirsa, Danapur, Serampore, Sultan Pur Majra, Guna, Jaunpur, Panvel, Shivpuri, Surendranagar Dudhrej, Unnao, Chinsurah, Alappuzha, Kottayam, Machilipatnam, Shimla, Adoni, Udupi, Katihar, Proddatur, Mahbubnagar, Saharsa, Dibrugarh, Jorhat, Hazaribagh, Hindupur, Nagaon, Sasaram, Hajipur, including all tier-2, tier-3 cities, localized rural towns and villages across Madhya Pradesh, Uttar Pradesh, Maharashtra, Bihar, Rajasthan, Gujarat, Punjab, Haryana, and South India.
-            <br/><br/>
+          </p>
+          <p>
             <strong>Global Reach & International Mushroom Farming Consultancy:</strong> USA (United States of America), Australia, UK (United Kingdom), Canada, UAE (Dubai, Abu Dhabi), Saudi Arabia, South Africa, Kenya, Nigeria, Europe, Germany, France, Italy, Spain, Netherlands, New Zealand, Singapore, Malaysia, Philippines, Vietnam, Japan, South Korea, and emerging agricultural hubs worldwide. Supplying organic spawn, industrial setup consultancy, and B2B market linkage globally.
-          </div>
+          </p>
         </div>
       </div>
     </section>
@@ -1915,68 +1930,70 @@ const Footer = () => {
         </div>
         
         {/* SEO Internal Links (Sitemap) */}
-        <div className="mt-12 pt-8 border-t dark:border-white/5 border-black/5">
-          <h4 className="text-[10px] font-bold mb-4 uppercase tracking-widest text-slate-500/50 text-center">Directory</h4>
-          <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-[10px] text-slate-500/40 max-w-5xl mx-auto">
-            {[
-              { path: "/", label: "Home" },
-              { path: "/process/raw-material", label: "Raw Material" },
-              { path: "/process/compost-preparation", label: "Compost Preparation" },
-              { path: "/process/production-room", label: "Production Room" },
-              { path: "/process/precision-harvest", label: "Precision Harvest" },
-              { path: "/process/cold-chain", label: "Cold Chain Process" },
-              { path: "/process/market-linkage", label: "Market Linkage" },
-              { path: "/model-details", label: "Model Details" },
-              { path: "/compost-unit-specs", label: "Compost Unit Specs" },
-              { path: "/sops#tunnel-ops", label: "Tunnel Ops SOPs" },
-              { path: "/expertise-details", label: "Expertise Details" },
-              { path: "/about", label: "About" },
-              { path: "/services", label: "Services" },
-              { path: "/spawn-seed", label: "Spawn Seed" },
-              { path: "/services/compost-production", label: "Compost Production" },
-              { path: "/services/consultancy", label: "Consultancy" },
-              { path: "/services/marketing-support", label: "Marketing Support" },
-              { path: "/services/cold-chain", label: "Cold Chain Services" },
-              { path: "/services/subsidy", label: "Subsidy Services" },
-              { path: "/training", label: "Training" },
-              { path: "/mushroom-types", label: "Mushroom Types" },
-              { path: "/gallery", label: "Gallery" },
-              { path: "/business-plan", label: "Business Plan" },
-              { path: "/subsidy", label: "Subsidy" },
-              { path: "/faq", label: "FAQ" },
-              { path: "/contact", label: "Contact" },
-              { path: "/terms", label: "Terms" },
-              { path: "/privacy", label: "Privacy" },
-              { path: "/success-stories", label: "Success Stories" },
-              { path: "/locations", label: "Locations" },
-              { path: "/equipment", label: "Equipment" },
-              { path: "/roi-calculator", label: "ROI Calculator" },
-              { path: "/turnkey-projects", label: "Turnkey Projects" },
-              { path: "/blog", label: "Blog" },
-              { path: "/blog/1", label: "Blog 1" },
-              { path: "/blog/2", label: "Blog 2" },
-              { path: "/blog/3", label: "Blog 3" },
-              { path: "/blog/4", label: "Blog 4" },
-              { path: "/blog/5", label: "Blog 5" },
-              { path: "/blog/6", label: "Blog 6" },
-              { path: "/articles/mushroom-farming-training-online-offline-certificate", label: "Mushroom Farming Training Online Offline Certificate" },
-              { path: "/articles/mushroom-farming-training-hindi-india", label: "Mushroom Farming Training Hindi India" },
-              { path: "/articles/mushroom-farming-business-plan-hindi-2026", label: "Mushroom Farming Business Plan Hindi 2026" },
-              { path: "/articles/what-is-mushroom-spawn-beginner-guide-india", label: "What Is Mushroom Spawn Beginner Guide India" },
-              { path: "/articles/oyster-mushroom-cultivation-india", label: "Oyster Mushroom Cultivation India" },
-              { path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", label: "Mushroom Farming Beginner Guide India 2026 2027" },
-              { path: "/blog/10", label: "Blog 10" },
-              { path: "/blog/7", label: "Blog 7" },
-              { path: "/blog/8", label: "Blog 8" },
-              { path: "/blog/9", label: "Blog 9" },
-            ].map((link, i) => (
-              <span key={i} className="flex gap-3 items-center">
-                <Link to={link.path} className="hover:text-slate-500 transition-colors whitespace-nowrap">{link.label}</Link>
-                {i !== 49 && <span className="opacity-30">|</span>}
-              </span>
-            ))}
+        {location.pathname !== '/' && (
+          <div className="mt-12 pt-8 border-t dark:border-white/5 border-black/5">
+            <h4 className="text-[10px] font-bold mb-4 uppercase tracking-widest text-slate-500/50 text-center">Directory</h4>
+            <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-[10px] text-slate-500/40 max-w-5xl mx-auto">
+              {[
+                { path: "/", label: "Home" },
+                { path: "/process/raw-material", label: "Raw Material" },
+                { path: "/process/compost-preparation", label: "Compost Preparation" },
+                { path: "/process/production-room", label: "Production Room" },
+                { path: "/process/precision-harvest", label: "Precision Harvest" },
+                { path: "/process/cold-chain", label: "Cold Chain Process" },
+                { path: "/process/market-linkage", label: "Market Linkage" },
+                { path: "/model-details", label: "Model Details" },
+                { path: "/compost-unit-specs", label: "Compost Unit Specs" },
+                { path: "/sops#tunnel-ops", label: "Tunnel Ops SOPs" },
+                { path: "/expertise-details", label: "Expertise Details" },
+                { path: "/about", label: "About" },
+                { path: "/services", label: "Services" },
+                { path: "/spawn-seed", label: "Spawn Seed" },
+                { path: "/services/compost-production", label: "Compost Production" },
+                { path: "/services/consultancy", label: "Consultancy" },
+                { path: "/services/marketing-support", label: "Marketing Support" },
+                { path: "/services/cold-chain", label: "Cold Chain Services" },
+                { path: "/services/subsidy", label: "Subsidy Services" },
+                { path: "/training", label: "Training" },
+                { path: "/mushroom-types", label: "Mushroom Types" },
+                { path: "/gallery", label: "Gallery" },
+                { path: "/business-plan", label: "Business Plan" },
+                { path: "/subsidy", label: "Subsidy" },
+                { path: "/faq", label: "FAQ" },
+                { path: "/contact", label: "Contact" },
+                { path: "/terms", label: "Terms" },
+                { path: "/privacy", label: "Privacy" },
+                { path: "/success-stories", label: "Success Stories" },
+                { path: "/locations", label: "Locations" },
+                { path: "/equipment", label: "Equipment" },
+                { path: "/roi-calculator", label: "ROI Calculator" },
+                { path: "/turnkey-projects", label: "Turnkey Projects" },
+                { path: "/blog", label: "Blog" },
+                { path: "/blog/1", label: "Blog 1" },
+                { path: "/blog/2", label: "Blog 2" },
+                { path: "/blog/3", label: "Blog 3" },
+                { path: "/blog/4", label: "Blog 4" },
+                { path: "/blog/5", label: "Blog 5" },
+                { path: "/blog/6", label: "Blog 6" },
+                { path: "/articles/mushroom-farming-training-online-offline-certificate", label: "Mushroom Farming Training Online Offline Certificate" },
+                { path: "/articles/mushroom-farming-training-hindi-india", label: "Mushroom Farming Training Hindi India" },
+                { path: "/articles/mushroom-farming-business-plan-hindi-2026", label: "Mushroom Farming Business Plan Hindi 2026" },
+                { path: "/articles/what-is-mushroom-spawn-beginner-guide-india", label: "What Is Mushroom Spawn Beginner Guide India" },
+                { path: "/articles/oyster-mushroom-cultivation-india", label: "Oyster Mushroom Cultivation India" },
+                { path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", label: "Mushroom Farming Beginner Guide India 2026 2027" },
+                { path: "/blog/10", label: "Blog 10" },
+                { path: "/blog/7", label: "Blog 7" },
+                { path: "/blog/8", label: "Blog 8" },
+                { path: "/blog/9", label: "Blog 9" },
+              ].map((link, i) => (
+                <span key={i} className="flex gap-3 items-center">
+                  <Link to={link.path} className="hover:text-slate-500 transition-colors whitespace-nowrap">{link.label}</Link>
+                  {i !== 49 && <span className="opacity-30">|</span>}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </footer>
   );
@@ -3584,6 +3601,8 @@ const AnimatedRoutes = () => {
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/subsidy" element={<Subsidy />} />
           <Route path="/locations" element={<Locations />} />
+          <Route path="/pan-india-global-operations" element={<OperationsPage />} />
+          <Route path="/operations" element={<Navigate to="/pan-india-global-operations" replace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<ArticlePage />} />
           <Route path="/articles/mushroom-farming-beginner-guide-india-2026-2027" element={<ArticleBeginnerGuide />} />
