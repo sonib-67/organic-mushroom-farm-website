@@ -1,0 +1,45 @@
+{
+  "$schema": "https://webmcp.dev/schema/mcp-v1.json",
+  "mcpVersion": "1.0",
+  "name": "Organic Mushroom Farm India Tools",
+  "description": "Interactive WebMCP tools for organic mushroom farming training, workshop booking, and ROI planning in India.",
+  "tools": [
+    {
+      "name": "mushroom_farming_enquiry_form",
+      "description": "Submit a commercial mushroom farming business or factory setup enquiry. Available for states like Madhya Pradesh, Maharashtra, UP, Bihar, etc.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Full name of the inquirer" },
+          "email": { "type": "string", "format": "email", "description": "Email address for communications" },
+          "message": { "type": "string", "description": "Detailed requirements, farm capacity, or location questions for custom setup" }
+        },
+        "required": ["name", "email", "message"]
+      }
+    },
+    {
+      "name": "mushroom_farming_workshop_booking",
+      "description": "Register and book a seat for the comprehensive online/offline mushroom farming training workshop for ₹199.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Full name of the student" },
+          "phone": { "type": "string", "pattern": "^[0-9]{10}$", "description": "10-digit WhatsApp/mobile number to receive training links" }
+        },
+        "required": ["name", "phone"]
+      }
+    },
+    {
+      "name": "mushroom_farm_roi_calculator",
+      "description": "Calculate commercial Return on Investment (ROI), total setup investment, monthly yield, and est. profit based on floor area and variety.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "area": { "type": "number", "minimum": 100, "maximum": 100000, "description": "Total farm floor cultivation area in square feet (e.g. 1000)" },
+          "selectedVariety": { "type": "string", "enum": ["button", "oyster", "milky"], "description": "Mushroom variety type" }
+        },
+        "required": ["area", "selectedVariety"]
+      }
+    }
+  ]
+}

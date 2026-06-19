@@ -127,8 +127,30 @@ const WorkshopPage = () => {
     { name: "Contact", href: "#contact" }
   ];
 
+  const webmcpSchema = {
+    "@context": "https://webmcp.dev",
+    "@type": "WebMCP",
+    "tool": {
+      "name": "mushroom_farming_workshop_booking",
+      "description": "Register and book a seat for the comprehensive online/offline mushroom farming training workshop for ₹199.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Full name of the student" },
+          "phone": { "type": "string", "pattern": "^[0-9]{10}$", "description": "10-digit WhatsApp/mobile number to receive training links" }
+        },
+        "required": ["name", "phone"]
+      }
+    }
+  };
+
   return (
     <div className="font-sans dark:bg-[#0a0f0d] bg-slate-50 dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
+      <SEO 
+        title="Agri-Business Mushroom Farming Workshop | Organic Mushroom Farm"
+        description="Book your seat for ₹199. Learn commercial oyster, milky, and button mushroom cultivation, farm setups, and B2B marketing from Indian experts."
+        schemas={[webmcpSchema]}
+      />
       
       {/* Sticky Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'dark:bg-[#0a0f0d]/80 bg-white/80 backdrop-blur-md border-b dark:border-white/5 border-black/5 py-4' : 'bg-transparent py-6'}`}>
@@ -548,7 +570,14 @@ const WorkshopPage = () => {
               <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Join Workshop</h3>
               <p className="dark:text-slate-400 text-slate-600 mb-6 text-sm">Please provide your details so we can send you the access link on WhatsApp.</p>
               
-              <form onSubmit={handlePayment} className="space-y-4">
+              <form 
+                onSubmit={handlePayment} 
+                className="space-y-4"
+                data-webmcp-tool="mushroom_farming_workshop_booking"
+                data-webmcp-description="Register and book a seat for the comprehensive online/offline mushroom farming training workshop for ₹199."
+                data-mcp-tool="mushroom_farming_workshop_booking"
+                data-mcp-description="Register and book a seat for the comprehensive online/offline mushroom farming training workshop for ₹199."
+              >
                 <div>
                   <label className="block text-sm font-medium dark:text-slate-300 text-slate-700 mb-1">Full Name</label>
                   <input 
@@ -558,6 +587,10 @@ const WorkshopPage = () => {
                     onChange={e => setFormData({...formData, name: e.target.value})}
                     className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
                     placeholder="Enter your name"
+                    data-webmcp-property="name"
+                    data-webmcp-description="Full name of the student"
+                    data-mcp-property="name"
+                    data-mcp-description="Full name of the student"
                   />
                 </div>
                 <div>
@@ -570,6 +603,10 @@ const WorkshopPage = () => {
                     onChange={e => setFormData({...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10)})}
                     className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
                     placeholder="10-digit mobile number"
+                    data-webmcp-property="phone"
+                    data-webmcp-description="10-digit WhatsApp/mobile number to receive training links"
+                    data-mcp-property="phone"
+                    data-mcp-description="10-digit WhatsApp/mobile number to receive training links"
                   />
                 </div>
                 <button 

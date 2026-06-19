@@ -1540,11 +1540,30 @@ const ContactPage = () => {
     navigate('/');
   };
 
+  const webmcpSchema = {
+    "@context": "https://webmcp.dev",
+    "@type": "WebMCP",
+    "tool": {
+      "name": "mushroom_farming_enquiry_form",
+      "description": "Submit a commercial mushroom farming business or factory setup enquiry. Available for states like Madhya Pradesh, Maharashtra, UP, Bihar, etc.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string", "description": "Full name of the inquirer" },
+          "email": { "type": "string", "format": "email", "description": "Email address for communications" },
+          "message": { "type": "string", "description": "Detailed requirements, farm capacity, or location questions for custom setup" }
+        },
+        "required": ["name", "email", "message"]
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black overflow-x-hidden pt-24 md:pt-32 pb-12">
       <SEO 
         title="Contact Us for Mushroom Setup & Consultancy | Pan India"
         description="Get a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India."
+        schemas={[webmcpSchema]}
       />
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
@@ -1641,7 +1660,16 @@ const ContactPage = () => {
                 <p className="dark:text-slate-400 text-slate-600 text-sm font-medium">Please fill in your details for a callback regarding commercial mushroom setups.</p>
               </div>
 
-              <form action="https://formspree.io/f/mwvazwnl" method="POST" onSubmit={handleSubmit} className="space-y-5">
+              <form 
+                action="https://formspree.io/f/mwvazwnl" 
+                method="POST" 
+                onSubmit={handleSubmit} 
+                className="space-y-5"
+                data-webmcp-tool="mushroom_farming_enquiry_form"
+                data-webmcp-description="Submit a commercial mushroom farming business or factory setup enquiry. Available for states like Madhya Pradesh, Maharashtra, UP, Bihar, etc."
+                data-mcp-tool="mushroom_farming_enquiry_form"
+                data-mcp-description="Submit a commercial mushroom farming business or factory setup enquiry. Available for states like Madhya Pradesh, Maharashtra, UP, Bihar, etc."
+              >
                 {/* Hidden date field */}
                 <input type="hidden" name="_date" value={new Date().toLocaleDateString()} />
                 
@@ -1650,6 +1678,10 @@ const ContactPage = () => {
                   <input 
                     id="name" name="name" required type="text" placeholder="Your Name" 
                     className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
+                    data-webmcp-property="name"
+                    data-webmcp-description="Full name of the inquirer"
+                    data-mcp-property="name"
+                    data-mcp-description="Full name of the inquirer"
                   />
                   <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
                 </div>
@@ -1659,6 +1691,10 @@ const ContactPage = () => {
                   <input 
                     id="email" name="email" required type="email" placeholder="yourname@example.com" 
                     className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
+                    data-webmcp-property="email"
+                    data-webmcp-description="Email address for communications"
+                    data-mcp-property="email"
+                    data-mcp-description="Email address for communications"
                   />
                   <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
                 </div>
@@ -1668,6 +1704,10 @@ const ContactPage = () => {
                   <textarea 
                     id="message" name="message" required rows={4} placeholder="Briefly describe your mushroom farm requirements..." 
                     className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all resize-none text-sm font-medium placeholder:text-slate-700 min-h-[100px]"
+                    data-webmcp-property="message"
+                    data-webmcp-description="Detailed requirements, farm capacity, or location questions for custom setup"
+                    data-mcp-property="message"
+                    data-mcp-description="Detailed requirements, farm capacity, or location questions for custom setup"
                   ></textarea>
                   <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-[10px] mt-1 ml-1" />
                 </div>

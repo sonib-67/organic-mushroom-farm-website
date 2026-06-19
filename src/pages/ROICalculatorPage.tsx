@@ -13,6 +13,7 @@ import {
   Package
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const MUSHROOM_DATA = {
   button: {
@@ -105,8 +106,30 @@ export default function ROICalculatorPage() {
     }).format(val);
   };
 
+  const webmcpSchema = {
+    "@context": "https://webmcp.dev",
+    "@type": "WebMCP",
+    "tool": {
+      "name": "mushroom_farm_roi_calculator",
+      "description": "Calculate commercial Return on Investment (ROI), total setup investment, monthly yield, and est. profit based on floor area and variety.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "area": { "type": "number", "minimum": 100, "maximum": 100000, "description": "Total farm floor cultivation area in square feet (e.g. 1000)" },
+          "selectedVariety": { "type": "string", "enum": ["button", "oyster", "milky"], "description": "Mushroom variety type" }
+        },
+        "required": ["area", "selectedVariety"]
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen dark:bg-[#070707] bg-slate-50 pt-24 pb-12 px-4 relative z-10 selection:bg-primary-start/30 selection:text-slate-900 dark:selection:text-white">
+      <SEO 
+        title="Mushroom Farm ROI Calculator | Commercial Agribusiness Planner"
+        description="Calculate mushroom farm startup costs, monthly operating expenses, production yield, and profit recovery timeline in India."
+        schemas={[webmcpSchema]}
+      />
       {/* Premium Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40rem] h-[40rem] bg-indigo-500/10 rounded-full blur-[120px] mix-blend-screen"></div>
@@ -136,7 +159,25 @@ export default function ROICalculatorPage() {
               animate={{ opacity: 1, x: 0 }}
               className="dark:bg-[#0A0A0A]/80 bg-white/80 backdrop-blur-xl border dark:border-white/10 border-black/10 rounded-[2rem] p-6 lg:p-8 shadow-xl"
             >
-              <div className="space-y-8">
+              <form 
+                className="space-y-8"
+                onSubmit={(e) => e.preventDefault()}
+                data-webmcp-tool="mushroom_farm_roi_calculator"
+                data-webmcp-description="Calculate commercial Return on Investment (ROI), total setup investment, monthly yield, and est. profit based on floor area and variety."
+                data-mcp-tool="mushroom_farm_roi_calculator"
+                data-mcp-description="Calculate commercial Return on Investment (ROI), total setup investment, monthly yield, and est. profit based on floor area and variety."
+              >
+                {/* Hidden input for select variety to map WebMCP schema property */}
+                <input 
+                  type="hidden" 
+                  name="selectedVariety" 
+                  value={selectedVariety} 
+                  data-webmcp-property="selectedVariety"
+                  data-webmcp-description="Mushroom variety type (button, oyster, milky)"
+                  data-mcp-property="selectedVariety"
+                  data-mcp-description="Mushroom variety type (button, oyster, milky)"
+                />
+                
                 {/* Inputs */}
                 <div>
                   <label className="text-xs font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-3 block">
@@ -149,6 +190,10 @@ export default function ROICalculatorPage() {
                       value={area}
                       onChange={(e) => setArea(Number(e.target.value))}
                       className="w-full text-2xl md:text-3xl font-black dark:bg-black/60 bg-slate-100/60 border dark:border-white/10 border-black/10 rounded-2xl py-4 pl-6 pr-16 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                      data-webmcp-property="area"
+                      data-webmcp-description="Total farm floor cultivation area in square feet (minimum 100)"
+                      data-mcp-property="area"
+                      data-mcp-description="Total farm floor cultivation area in square feet (minimum 100)"
                     />
                     <span className="absolute right-6 top-1/2 -translate-y-1/2 text-sm font-bold dark:text-slate-500 text-slate-400">sq ft</span>
                   </div>
@@ -203,7 +248,7 @@ export default function ROICalculatorPage() {
                     })}
                   </div>
                 </div>
-              </div>
+              </form>
             </motion.div>
 
             {/* Assumptions Box */}
