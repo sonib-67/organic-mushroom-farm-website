@@ -41,11 +41,34 @@ const ContactFormPage = () => {
         }
     };
 
+    const webmcpSchema = {
+        "@context": "https://webmcp.dev",
+        "@type": "WebMCP",
+        "tool": {
+            "name": "mushroom_farm_consultation_form",
+            "description": "Submit an expert consultation request for setting up custom mushroom farming setups, budgets, and farm capacities.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "name": { "type": "string", "description": "Full name of the inquirer" },
+                    "phone": { "type": "string", "description": "WhatsApp or mobile contact number" },
+                    "email": { "type": "string", "description": "Email address for communications" },
+                    "location": { "type": "string", "description": "City and State of setup" },
+                    "farmSize": { "type": "string", "description": "Farming size in square feet" },
+                    "budget": { "type": "string", "enum": ["Under 1 Lakh", "1 - 5 Lakhs", "5 - 10 Lakhs", "10 Lakhs +"], "description": "Farming investment budget range" },
+                    "message": { "type": "string", "description": "Detailed message or project query details" }
+                },
+                "required": ["name", "phone", "email", "location", "message"]
+            }
+        }
+    };
+
     return (
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
                 title="Custom Mushroom Farming Project Consultation | Organic Mushroom Farm" 
                 description="Get a consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
+                schemas={[webmcpSchema]}
              />
 
              <section className="section-padding text-center">
@@ -91,7 +114,14 @@ const ContactFormPage = () => {
                      >
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
-                         <form action="https://formspree.io/f/mwvazwnl" method="POST" onSubmit={handleSubmit} className="relative z-10 space-y-6">
+                         <form 
+                             action="https://formspree.io/f/mwvazwnl" 
+                             method="POST" 
+                             onSubmit={handleSubmit} 
+                             className="relative z-10 space-y-6"
+                             data-webmcp-tool="mushroom_farm_consultation_form"
+                             data-webmcp-description="Expert consultation request for starting modular or commercial mushroom farms."
+                         >
                              <div className="grid md:grid-cols-2 gap-6">
                                  <div className="space-y-3">
                                      <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Full Name *</label>
@@ -112,7 +142,9 @@ const ContactFormPage = () => {
                                          <Phone size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
                                          <input 
                                              type="tel" 
-                                             name="phone"
+                                              name="phone"
+                                              data-webmcp-property="phone"
+                                              data-webmcp-description="WhatsApp or mobile phone number to receive training resources and estimates"
                                              required
                                              placeholder="+91 98765 43210"
                                              className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
@@ -128,7 +160,9 @@ const ContactFormPage = () => {
                                          <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
                                          <input 
                                              type="email" 
-                                             name="email"
+                                              name="email"
+                                              data-webmcp-property="email"
+                                              data-webmcp-description="Sender's active email address"
                                              required
                                              placeholder="john@example.com"
                                              className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
@@ -140,6 +174,8 @@ const ContactFormPage = () => {
                                      <input 
                                          type="text" 
                                          name="location"
+                                         data-webmcp-property="location"
+                                         data-webmcp-description="Client's location (city and state)"
                                          required
                                          placeholder="e.g., Indore, Madhya Pradesh"
                                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
@@ -153,6 +189,8 @@ const ContactFormPage = () => {
                                      <input 
                                          type="text" 
                                          name="farmSize"
+                                         data-webmcp-property="farmSize"
+                                         data-webmcp-description="Required or planned room floor space area in square feet"
                                          placeholder="e.g., 2000 sq ft"
                                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                      />
@@ -161,6 +199,8 @@ const ContactFormPage = () => {
                                      <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Budget Range</label>
                                      <select 
                                          name="budget"
+                                         data-webmcp-property="budget"
+                                         data-webmcp-description="Target startup or commercial set up budget range"
                                          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-slate-300 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all appearance-none"
                                          style={{ backgroundImage: 'none' }}
                                      >
@@ -176,6 +216,8 @@ const ContactFormPage = () => {
                                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Your Message *</label>
                                  <textarea 
                                      name="message"
+                                     data-webmcp-property="message"
+                                     data-webmcp-description="Custom queries, questions or details of requested services"
                                      required
                                      rows={6}
                                      placeholder="Tell us about how we can help you..."
