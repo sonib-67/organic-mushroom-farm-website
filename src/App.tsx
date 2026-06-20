@@ -66,6 +66,7 @@ import WorkshopPage from './pages/WorkshopPage';
 import OperationsPage from './pages/OperationsPage';
 import CitiesPage from './pages/Cities';
 import JabalpurBlogDetailsPage from './pages/JabalpurBlogDetailsPage';
+import IndoreBlogDetailsPage from './pages/IndoreBlogDetailsPage';
 
 // --- Constants & Types ---
 
@@ -3665,6 +3666,7 @@ const AnimatedRoutes = () => {
           <Route path="/cities/:state" element={<CitiesPage />} />
           <Route path="/cities/:state/:city" element={<CitiesPage />} />
           <Route path="/locations/jabalpur/:blogRoute" element={<JabalpurBlogDetailsPage />} />
+          <Route path="/locations/indore/:blogRoute" element={<IndoreBlogDetailsPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
 

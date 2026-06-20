@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { MapPin, Search, ChevronRight, Lock, BookOpen, Clock, Heart, Award, ArrowRight, ArrowLeft, Filter } from 'lucide-react';
 import SEO from '../components/SEO';
 import { JABALPUR_BLOGS, ALL_BASELINE_METADATA_ITEMS, getJabalpurBlogByPath } from '../data/jabalpurBlogsData';
+import { INDORE_BLOGS_METADATA, getIndoreBlogByPath } from '../data/indoreBlogsData';
 
 const ALL_STATES = [
   { name: "Andaman and Nicobar Islands", active: false },
@@ -46,7 +47,7 @@ const ALL_STATES = [
 
 const MP_CITIES = [
   { name: "Jabalpur", active: true },
-  { name: "Indore", active: false },
+  { name: "Indore", active: true },
   { name: "Bhopal", active: false },
   { name: "Gwalior", active: false },
   { name: "Ujjain", active: false },
@@ -72,17 +73,24 @@ export default function CitiesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  // Gather all 93 items for the Jabalpur view
-  const all93Items = [
-    ...JABALPUR_BLOGS,
-    ...ALL_BASELINE_METADATA_ITEMS.map(meta => getJabalpurBlogByPath(meta.path)!).filter(Boolean)
-  ];
+  const isIndore = state?.toLowerCase() === 'madhya-pradesh' && city?.toLowerCase() === 'indore';
+  const isJabalpur = state?.toLowerCase() === 'madhya-pradesh' && city?.toLowerCase() === 'jabalpur';
+
+  // Gather all items based on current city
+  const allItems = isIndore
+    ? INDORE_BLOGS_METADATA.map(meta => getIndoreBlogByPath(meta.path)!).filter(Boolean)
+    : (isJabalpur
+        ? [
+            ...JABALPUR_BLOGS,
+            ...ALL_BASELINE_METADATA_ITEMS.map(meta => getJabalpurBlogByPath(meta.path)!).filter(Boolean)
+          ]
+        : []);
 
   // Unique categories for filtering
-  const categories = ['All', ...Array.from(new Set(all93Items.map(item => item.category)))];
+  const categories = ['All', ...Array.from(new Set(allItems.map(item => item.category)))];
 
   // Filtered blogs
-  const filteredBlogs = all93Items.filter(blog => {
+  const filteredBlogs = allItems.filter(blog => {
     const matchesSearch = blog.keyword.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           blog.intro.toLowerCase().includes(searchQuery.toLowerCase());
@@ -90,14 +98,15 @@ export default function CitiesPage() {
     return matchesSearch && matchesCategory;
   });
 
-  // 1. Render Jabalpur Blogs Directory Route: /cities/madhya-pradesh/jabalpur
-  if (state?.toLowerCase() === 'madhya-pradesh' && city?.toLowerCase() === 'jabalpur') {
+  // 1. Render Blogs Directory Route: /cities/madhya-pradesh/:city
+  if (isJabalpur || isIndore) {
+    const activeCityName = isIndore ? 'Indore' : 'Jabalpur';
     return (
       <div className="min-h-screen pt-32 pb-24">
         <SEO 
-          title="Mushroom Farming Jabalpur - complete 93 Guides" 
-          description="Access the ultimate SEO handbook for Mushroom Farming in Jabalpur. Detailed step-by-step training, subsidy guidance, price checklists, and F1 spawn suppliers." 
-          keywords="Mushroom farming Jabalpur, mushroom training MP, Jabalpur button mushroom cultivation guides"
+          title={`Mushroom Farming ${activeCityName} - complete ${allItems.length} Guides`} 
+          description={`Access the ultimate SEO handbook for Mushroom Farming in ${activeCityName}. Detailed step-by-step training, subsidy guidance, price checklists, and F1 spawn suppliers.`} 
+          keywords={`Mushroom farming ${activeCityName}, mushroom training MP, ${activeCityName} button mushroom cultivation guides`}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,15 +118,15 @@ export default function CitiesPage() {
             <span>/</span>
             <Link to="/cities/madhya-pradesh" className="hover:text-primary-start transition-colors">Madhya Pradesh</Link>
             <span>/</span>
-            <span className="dark:text-slate-300 text-slate-700 font-medium">Jabalpur</span>
+            <span className="dark:text-slate-300 text-slate-700 font-medium">{activeCityName}</span>
           </div>
 
           <div className="mb-12">
             <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-              Mushroom Farming in <span className="gradient-text">Jabalpur</span>
+              Mushroom Farming in <span className="gradient-text">{activeCityName}</span>
             </h1>
             <p className="text-slate-400 text-lg max-w-3xl leading-relaxed">
-              Explore 93 premium scientific guides, operational checklists, and resource maps built for agro-developers and indoor cultivation startups in Jabalpur.
+              Explore {allItems.length} premium scientific guides, operational checklists, and resource maps built for agro-developers and indoor cultivation startups in {activeCityName}.
             </p>
           </div>
 
@@ -129,7 +138,7 @@ export default function CitiesPage() {
               </span>
               <input 
                 type="text"
-                placeholder="Search jabalpur guides..."
+                placeholder={`Search ${activeCityName.toLowerCase()} guides...`}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full dark:bg-slate-900 bg-white/80 border dark:border-white/10 border-slate-200 rounded-2xl py-3 pl-12 pr-4 dark:text-white text-slate-900 dark:placeholder-slate-500 placeholder-slate-400 focus:outline-none focus:border-primary-start transition-all text-sm"
@@ -157,7 +166,7 @@ export default function CitiesPage() {
           {/* Directory Count Title */}
           <div className="flex items-center justify-between mb-8">
             <div className="text-slate-500 text-sm font-bold uppercase tracking-widest">
-              Showing {filteredBlogs.length} of {all93Items.length} Unique Pages
+              Showing {filteredBlogs.length} of {allItems.length} Unique Pages
             </div>
           </div>
 
@@ -167,7 +176,7 @@ export default function CitiesPage() {
               {filteredBlogs.map((blog, idx) => (
                 <Link 
                   key={blog.id} 
-                  to={`/locations/jabalpur/${blog.path}`}
+                  to={`/locations/${activeCityName.toLowerCase()}/${blog.path}`}
                   className="glass p-6 rounded-3xl border border-white/5 hover:border-primary-start/40 flex flex-col justify-between group transition-all duration-300"
                 >
                   <div>
@@ -192,7 +201,7 @@ export default function CitiesPage() {
             </div>
           ) : (
             <div className="glass p-12 text-center rounded-[2rem] border border-white/5">
-              <p className="text-slate-400 font-bold mb-2">No matching Jabalpur handbooks found</p>
+              <p className="text-slate-400 font-bold mb-2">No matching {activeCityName} handbooks found</p>
               <p className="text-slate-600 text-xs">Try searching a different keyword or matching category.</p>
             </div>
           )}
@@ -248,7 +257,7 @@ export default function CitiesPage() {
               <div key={city.name}>
                 {city.active ? (
                   <Link 
-                    to="/cities/madhya-pradesh/jabalpur"
+                    to={`/cities/madhya-pradesh/${city.name.toLowerCase()}`}
                     className="glass p-6 rounded-3xl border border-white/10 hover:border-primary-start/40 flex items-center justify-between group transition-all"
                   >
                     <div className="flex items-center gap-4">
@@ -257,7 +266,9 @@ export default function CitiesPage() {
                       </div>
                       <div>
                         <h4 className="text-white font-bold text-lg">{city.name}</h4>
-                        <span className="text-[10px] text-primary-start font-black uppercase tracking-wider block">93 Active Guides</span>
+                        <span className="text-[10px] text-primary-start font-black uppercase tracking-wider block">
+                          {city.name === 'Indore' ? '151 Active Guides' : '93 Active Guides'}
+                        </span>
                       </div>
                     </div>
                     <ChevronRight size={18} className="text-slate-500 group-hover:text-white transition-colors" />

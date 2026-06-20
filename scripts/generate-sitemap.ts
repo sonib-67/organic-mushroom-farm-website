@@ -5,46 +5,48 @@ import path from 'path';
 import { CITIES } from '../src/data/locationsData.ts';
 import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
 import { JABALPUR_BLOGS, ALL_BASELINE_METADATA_ITEMS } from '../src/data/jabalpurBlogsData.ts';
+import { INDORE_BLOGS_METADATA } from '../src/data/indoreBlogsData.ts';
 
 const dateInfo = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
   { path: '', priority: '1.00', changefreq: 'daily' },
-  { path: '/cities/madhya-pradesh/jabalpur', priority: '0.90', changefreq: 'weekly' },
-  { path: '/about', priority: '0.80', changefreq: 'monthly' },
-  { path: '/contact', priority: '0.80', changefreq: 'monthly' },
-  { path: '/gallery', priority: '0.70', changefreq: 'weekly' },
-  { path: '/faq', priority: '0.60', changefreq: 'monthly' },
-  {path: '/locations', priority: '0.60', changefreq: 'monthly' },
-  { path: '/pan-india-global-operations', priority: '0.80', changefreq: 'weekly' },
-  { path: '/success-stories', priority: '0.70', changefreq: 'weekly' },
-  { path: '/workshop', priority: '0.80', changefreq: 'weekly' },
-  { path: '/training', priority: '0.80', changefreq: 'weekly' },
-  { path: '/turnkey-projects', priority: '0.80', changefreq: 'monthly' },
-  { path: '/spawn-seed', priority: '0.80', changefreq: 'monthly' },
-  { path: '/equipment', priority: '0.80', changefreq: 'monthly' },
-  { path: '/subsidy', priority: '0.80', changefreq: 'monthly' },
-  { path: '/business-plan', priority: '0.80', changefreq: 'monthly' },
-  { path: '/mushroom-types', priority: '0.80', changefreq: 'monthly' },
-  { path: '/roi-calculator', priority: '0.80', changefreq: 'monthly' },
+  { path: '/cities/madhya-pradesh/jabalpur', priority: '0.99', changefreq: 'weekly' },
+  { path: '/cities/madhya-pradesh/indore', priority: '0.99', changefreq: 'weekly' },
+  { path: '/about', priority: '0.85', changefreq: 'monthly' },
+  { path: '/contact', priority: '0.85', changefreq: 'monthly' },
+  { path: '/gallery', priority: '0.80', changefreq: 'weekly' },
+  { path: '/faq', priority: '0.75', changefreq: 'monthly' },
+  {path: '/locations', priority: '0.80', changefreq: 'monthly' },
+  { path: '/pan-india-global-operations', priority: '0.92', changefreq: 'weekly' },
+  { path: '/success-stories', priority: '0.85', changefreq: 'weekly' },
+  { path: '/workshop', priority: '0.95', changefreq: 'weekly' },
+  { path: '/training', priority: '0.95', changefreq: 'weekly' },
+  { path: '/turnkey-projects', priority: '0.92', changefreq: 'monthly' },
+  { path: '/spawn-seed', priority: '0.92', changefreq: 'monthly' },
+  { path: '/equipment', priority: '0.90', changefreq: 'monthly' },
+  { path: '/subsidy', priority: '0.95', changefreq: 'monthly' },
+  { path: '/business-plan', priority: '0.92', changefreq: 'monthly' },
+  { path: '/mushroom-types', priority: '0.90', changefreq: 'monthly' },
+  { path: '/roi-calculator', priority: '0.92', changefreq: 'monthly' },
   { path: '/careers', priority: '0.80', changefreq: 'weekly' },
-  { path: '/mushroom-price-today', priority: '0.80', changefreq: 'daily' },
-  { path: '/mushroom-franchise', priority: '0.80', changefreq: 'weekly' },
-  { path: '/sops', priority: '0.70', changefreq: 'monthly' },
-  { path: '/model-details', priority: '0.70', changefreq: 'monthly' },
-  { path: '/compost-unit-specs', priority: '0.70', changefreq: 'monthly' },
-  { path: '/expertise-details', priority: '0.70', changefreq: 'monthly' },
-  { path: '/book-consultant', priority: '0.70', changefreq: 'monthly' },
-  { path: '/on-site-consultation', priority: '0.70', changefreq: 'monthly' },
+  { path: '/mushroom-price-today', priority: '0.95', changefreq: 'daily' },
+  { path: '/mushroom-franchise', priority: '0.92', changefreq: 'weekly' },
+  { path: '/sops', priority: '0.85', changefreq: 'monthly' },
+  { path: '/model-details', priority: '0.85', changefreq: 'monthly' },
+  { path: '/compost-unit-specs', priority: '0.85', changefreq: 'monthly' },
+  { path: '/expertise-details', priority: '0.85', changefreq: 'monthly' },
+  { path: '/book-consultant', priority: '0.85', changefreq: 'monthly' },
+  { path: '/on-site-consultation', priority: '0.85', changefreq: 'monthly' },
   
   // Articles
-  { path: '/articles/mushroom-farming-beginner-guide-india-2026-2027', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/oyster-mushroom-cultivation-india', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/what-is-mushroom-spawn-beginner-guide-india', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-business-plan-hindi-2026', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-training-hindi-india', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-training-online-offline-certificate', priority: '0.80', changefreq: 'monthly' },
-  { path: '/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026', priority: '0.80', changefreq: 'monthly' },
+  { path: '/articles/mushroom-farming-beginner-guide-india-2026-2027', priority: '0.92', changefreq: 'monthly' },
+  { path: '/articles/oyster-mushroom-cultivation-india', priority: '0.92', changefreq: 'monthly' },
+  { path: '/articles/what-is-mushroom-spawn-beginner-guide-india', priority: '0.92', changefreq: 'monthly' },
+  { path: '/articles/mushroom-farming-business-plan-hindi-2026', priority: '0.92', changefreq: 'monthly' },
+  { path: '/articles/mushroom-farming-training-hindi-india', priority: '0.92', changefreq: 'monthly' },
+  { path: '/articles/mushroom-farming-training-online-offline-certificate', priority: '0.92', changefreq: 'monthly' },
+  { path: '/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026', priority: '0.92', changefreq: 'monthly' },
   
   // Services & Processes
   { path: '/services/compost-production', priority: '0.75', changefreq: 'monthly' },
@@ -59,13 +61,13 @@ const staticRoutes = [
   { path: '/process/market-linkage', priority: '0.70', changefreq: 'monthly' },
   
   // Policies & Legal
-  { path: '/terms', priority: '0.50', changefreq: 'monthly' },
-  { path: '/privacy', priority: '0.50', changefreq: 'monthly' },
-  { path: '/refund-policy', priority: '0.50', changefreq: 'monthly' },
-  { path: '/shipping-policy', priority: '0.50', changefreq: 'monthly' },
-  { path: '/support', priority: '0.50', changefreq: 'monthly' },
-  { path: '/sitemap', priority: '0.50', changefreq: 'weekly' },
-  { path: '/site-directory', priority: '0.50', changefreq: 'weekly' }
+  { path: '/terms', priority: '0.65', changefreq: 'monthly' },
+  { path: '/privacy', priority: '0.65', changefreq: 'monthly' },
+  { path: '/refund-policy', priority: '0.65', changefreq: 'monthly' },
+  { path: '/shipping-policy', priority: '0.65', changefreq: 'monthly' },
+  { path: '/support', priority: '0.65', changefreq: 'monthly' },
+  { path: '/sitemap', priority: '0.65', changefreq: 'weekly' },
+  { path: '/site-directory', priority: '0.65', changefreq: 'weekly' }
 ];
 
 async function generate() {
@@ -93,7 +95,7 @@ async function generate() {
     <loc>https://organicmushroomfarm.shop/blog/${i}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.50</priority>
+    <priority>0.70</priority>
   </url>`;
   }
 
@@ -106,7 +108,19 @@ async function generate() {
     <loc>https://organicmushroomfarm.shop/locations/jabalpur/${blog.path}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.92</priority>
+  </url>`;
+  }
+
+  // 4. Indore Dynamic City Guides (~151 pages total)
+  console.log(`Adding ${INDORE_BLOGS_METADATA.length} dynamic Indore city guides to sitemap...`);
+  for (const blog of INDORE_BLOGS_METADATA) {
+    mainXml += `
+  <url>
+    <loc>https://organicmushroomfarm.shop/locations/indore/${blog.path}</loc>
+    <lastmod>${dateInfo}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
   </url>`;
   }
 

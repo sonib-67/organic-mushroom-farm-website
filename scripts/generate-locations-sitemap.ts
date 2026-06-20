@@ -18,7 +18,7 @@ function generateSitemapXml(urls: string[]): string {
     <loc>${url}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
+    <priority>0.88</priority>
   </url>`;
   }
 
