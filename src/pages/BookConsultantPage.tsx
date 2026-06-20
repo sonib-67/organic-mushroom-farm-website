@@ -156,8 +156,8 @@ export default function BookConsultantPage() {
   return (
     <div className="relative pb-24 md:pb-0 pt-16 md:pt-32 overflow-hidden min-h-screen selection:bg-blue-500/30">
       <SEO 
-        title="Book 1-on-1 Commercial Mushroom Farming Consultation"
-        description="Book a premium 1-on-1 mushroom farming consultancy call for ₹59. Get expert blueprint design, subsidy advice, and troubleshooting help direct from Katangi Road, Jabalpur."
+        title="Book 1-on-1 Call Consultation"
+        description="Book a premium 1-on-1 call consultancy for ₹59. Get expert blueprint design, subsidy advice, and troubleshooting help direct from Katangi Road, Jabalpur."
         url="/book-consultant"
       />
       <div className="py-4 md:py-16 text-center px-2 md:px-4">
@@ -169,7 +169,7 @@ export default function BookConsultantPage() {
           >
             <div className="badge mx-auto mb-2 md:mb-6 text-[9px] md:text-sm bg-blue-500/10 text-blue-400 border-blue-500/20 px-2 py-0.5 md:px-4 md:py-1">Premium Consulting</div>
             <h1 className="text-xl md:text-5xl lg:text-6xl font-extrabold dark:text-white text-slate-900 mb-1.5 md:mb-6 tracking-tighter leading-tight uppercase">
-              1-on-1 Commercial <span className="text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">Mushroom Consultancy</span>
+              1-on-1 <span className="text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">Call Consultancy</span>
             </h1>
             <p className="dark:text-slate-400 text-slate-600 text-[10px] md:text-xl max-w-2xl mx-auto font-medium mb-3 md:mb-10 leading-snug px-2">
               Get direct, actionable solutions from industry experts to avoid costly mistakes and scale profitably.
