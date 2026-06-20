@@ -1,6 +1,5 @@
 import { ALL_LOCATIONS } from '../data/locationsData';
 import { SEO_KEYWORDS, SEOKeyword } from '../data/seoKeywordsData';
-import { ALLOWED_JABALPUR_SLUGS } from '../data/customPages/jabalpur';
 
 // Pre-sort locations by descending length to prevent sub-string matching bugs
 const SORTED_LOCATIONS = [...ALL_LOCATIONS].sort((a, b) => b.length - a.length);
@@ -91,9 +90,6 @@ export function parseSEOPathname(pathname: string): ParsedSEORoute | null {
         });
 
         if (matchedKeyword) {
-          if (loc === 'jabalpur' && !ALLOWED_JABALPUR_SLUGS.includes(remainder)) {
-            return null;
-          }
           return {
             locationSlug: loc,
             keywordInfo: matchedKeyword,
@@ -103,9 +99,6 @@ export function parseSEOPathname(pathname: string): ParsedSEORoute | null {
 
         // Check if remainder matches any of our synthetic keywords
         if (SYNTHETIC_KEYWORDS[remainder]) {
-          if (loc === 'jabalpur' && !ALLOWED_JABALPUR_SLUGS.includes(remainder)) {
-            return null;
-          }
           return {
             locationSlug: loc,
             keywordInfo: SYNTHETIC_KEYWORDS[remainder],

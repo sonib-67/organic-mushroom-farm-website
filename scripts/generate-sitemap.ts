@@ -4,11 +4,13 @@ import path from 'path';
 // Import datasets to calculate dynamic parts
 import { CITIES } from '../src/data/locationsData.ts';
 import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
+import { JABALPUR_BLOGS, ALL_BASELINE_METADATA_ITEMS } from '../src/data/jabalpurBlogsData.ts';
 
 const dateInfo = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
   { path: '', priority: '1.00', changefreq: 'daily' },
+  { path: '/cities/madhya-pradesh/jabalpur', priority: '0.90', changefreq: 'weekly' },
   { path: '/about', priority: '0.80', changefreq: 'monthly' },
   { path: '/contact', priority: '0.80', changefreq: 'monthly' },
   { path: '/gallery', priority: '0.70', changefreq: 'weekly' },
@@ -95,6 +97,19 @@ async function generate() {
   </url>`;
   }
 
+  // 3. Jabalpur Dynamic City Guides (~93 pages total)
+  const totalJabalpurPages = [...JABALPUR_BLOGS, ...ALL_BASELINE_METADATA_ITEMS];
+  console.log(`Adding ${totalJabalpurPages.length} dynamic Jabalpur city guides to sitemap...`);
+  for (const blog of totalJabalpurPages) {
+    mainXml += `
+  <url>
+    <loc>https://organicmushroomfarm.shop/locations/jabalpur/${blog.path}</loc>
+    <lastmod>${dateInfo}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>`;
+  }
+
   mainXml += `\n</urlset>`;
 
   const mainSitemapPath = path.resolve('./public/sitemap-main.xml');
@@ -133,10 +148,6 @@ async function generate() {
   </sitemap>
   <sitemap>
     <loc>https://organicmushroomfarm.shop/sitemap-locations-states.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://organicmushroomfarm.shop/sitemap-locations-jabalpur.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
 ${citySitemapLocs}  <sitemap>

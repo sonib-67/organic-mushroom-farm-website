@@ -1,5 +1,4 @@
 import { SEOManualContent } from '../locationSEOContent';
-import { JABALPUR_MANUAL_OVERRIDES } from './jabalpur';
 
 /**
  * 📝 CUSTOM PAGES MANUAL OVERRIDES DIRECTORY (Mushroom Farm Custom Portal)
@@ -75,9 +74,6 @@ export const agraTrainingOverride: Partial<SEOManualContent> = {
 // 🎯 REGISTER ALL WORKABLE OVERRIDES HERE
 // ==========================================
 export const MANUAL_PAGE_OVERRIDES: Record<string, Partial<SEOManualContent>> = {
-  // Spreading the 93 customized kept Jabalpur SEO page overrides directly
-  ...JABALPUR_MANUAL_OVERRIDES,
-
   // 1. Patan village general override (Sare path jo patan se matched hain, ispar redirect honge)
   "patan": patanVillageOverride,
 

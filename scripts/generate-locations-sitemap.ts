@@ -4,7 +4,6 @@ import path from 'path';
 // Import datasets
 import { STATES, CITIES, VILLAGES } from '../src/data/locationsData.ts';
 import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
-import { ALLOWED_JABALPUR_SLUGS } from '../src/data/customPages/jabalpur.ts';
 
 const dateInfo = new Date().toISOString().split('T')[0];
 
@@ -72,9 +71,6 @@ async function run() {
 
     const cityUrls: string[] = [];
     for (const city of citiesChunk) {
-      if (city.toLowerCase() === 'jabalpur') {
-        continue; // Skip Jabalpur standard 4 URLs/combinations to prevent duplicates/unwanted pages
-      }
       const citySlug = city.toLowerCase().replace(/_/g, '-');
       for (const kw of SEO_KEYWORDS) {
         const kwSlug = kw.url.replace(/^\/+/, '');
@@ -100,12 +96,6 @@ async function run() {
   const villageXml = generateSitemapXml(villageUrls);
   writeSitemapFile('sitemap-locations-villages.xml', villageXml);
   console.log(`Generated Villages Sitemap containing ${villageUrls.length} links.`);
-
-  // 4. Generate Jabalpur Unique Custom Pages Sitemap (exactly 93 URLs)
-  const jabalpurUrls = ALLOWED_JABALPUR_SLUGS.map(slug => `https://organicmushroomfarm.shop/locations/jabalpur/${slug}`);
-  const jabalpurXml = generateSitemapXml(jabalpurUrls);
-  writeSitemapFile('sitemap-locations-jabalpur.xml', jabalpurXml);
-  console.log(`Generated Jabalpur Dedicated Sitemap containing ${jabalpurUrls.length} links.`);
 
   console.log("All sub-sitemaps completed successfully!");
 }

@@ -122,7 +122,7 @@ const OperationsPage = () => {
         <div className="glass p-8 md:p-12 rounded-[2.5rem] border border-white/5 text-center">
           <h3 className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900 mb-4">Ready to Start Your Commercial Farm?</h3>
           <p className="dark:text-slate-400 text-slate-500 text-sm mb-8 max-w-xl mx-auto font-medium">
-            Contact Tanish Soni and our specialist agri-tech consultancy team for custom global setup quotes or verified spawn order logistics.
+            Contact our specialist agri-tech consultancy team for custom global setup quotes or verified spawn order logistics.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="https://wa.me/919203544140" className="btn-primary px-8 py-3 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary-start/20">

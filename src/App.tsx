@@ -64,6 +64,8 @@ import MushroomPriceTodayPage from './pages/MushroomPriceTodayPage';
 import MushroomFranchisePage from './pages/MushroomFranchisePage';
 import WorkshopPage from './pages/WorkshopPage';
 import OperationsPage from './pages/OperationsPage';
+import CitiesPage from './pages/Cities';
+import JabalpurBlogDetailsPage from './pages/JabalpurBlogDetailsPage';
 
 // --- Constants & Types ---
 
@@ -1957,6 +1959,7 @@ const Footer = () => {
             <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">Resources</h4>
             <ul className="space-y-3">
               {[
+                { name: "Cities", href: "/cities" },
                 { name: "Gallery", href: "/gallery" },
                 { name: "Business Plan", href: "/business-plan" },
                 { name: "Government Subsidy", href: "/subsidy" },
@@ -2011,71 +2014,7 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* SEO Internal Links (Sitemap) */}
-        {location.pathname !== '/' && (
-          <div className="mt-12 pt-8 border-t dark:border-white/5 border-black/5">
-            <h4 className="text-[10px] font-bold mb-4 uppercase tracking-widest text-slate-500/50 text-center">Directory</h4>
-            <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 text-[10px] text-slate-500/40 max-w-5xl mx-auto">
-              {[
-                { path: "/", label: "Home" },
-                { path: "/process/raw-material", label: "Raw Material" },
-                { path: "/process/compost-preparation", label: "Compost Preparation" },
-                { path: "/process/production-room", label: "Production Room" },
-                { path: "/process/precision-harvest", label: "Precision Harvest" },
-                { path: "/process/cold-chain", label: "Cold Chain Process" },
-                { path: "/process/market-linkage", label: "Market Linkage" },
-                { path: "/model-details", label: "Model Details" },
-                { path: "/compost-unit-specs", label: "Compost Unit Specs" },
-                { path: "/sops#tunnel-ops", label: "Tunnel Ops SOPs" },
-                { path: "/expertise-details", label: "Expertise Details" },
-                { path: "/about", label: "About" },
-                { path: "/services", label: "Services" },
-                { path: "/spawn-seed", label: "Spawn Seed" },
-                { path: "/services/compost-production", label: "Compost Production" },
-                { path: "/services/consultancy", label: "Consultancy" },
-                { path: "/services/marketing-support", label: "Marketing Support" },
-                { path: "/services/cold-chain", label: "Cold Chain Services" },
-                { path: "/services/subsidy", label: "Subsidy Services" },
-                { path: "/training", label: "Training" },
-                { path: "/mushroom-types", label: "Mushroom Types" },
-                { path: "/gallery", label: "Gallery" },
-                { path: "/business-plan", label: "Business Plan" },
-                { path: "/subsidy", label: "Subsidy" },
-                { path: "/faq", label: "FAQ" },
-                { path: "/contact", label: "Contact" },
-                { path: "/terms", label: "Terms" },
-                { path: "/privacy", label: "Privacy" },
-                { path: "/success-stories", label: "Success Stories" },
-                { path: "/locations", label: "Locations" },
-                { path: "/equipment", label: "Equipment" },
-                { path: "/roi-calculator", label: "ROI Calculator" },
-                { path: "/turnkey-projects", label: "Turnkey Projects" },
-                { path: "/blog", label: "Blog" },
-                { path: "/blog/1", label: "Blog 1" },
-                { path: "/blog/2", label: "Blog 2" },
-                { path: "/blog/3", label: "Blog 3" },
-                { path: "/blog/4", label: "Blog 4" },
-                { path: "/blog/5", label: "Blog 5" },
-                { path: "/blog/6", label: "Blog 6" },
-                { path: "/articles/mushroom-farming-training-online-offline-certificate", label: "Mushroom Farming Training Online Offline Certificate" },
-                { path: "/articles/mushroom-farming-training-hindi-india", label: "Mushroom Farming Training Hindi India" },
-                { path: "/articles/mushroom-farming-business-plan-hindi-2026", label: "Mushroom Farming Business Plan Hindi 2026" },
-                { path: "/articles/what-is-mushroom-spawn-beginner-guide-india", label: "What Is Mushroom Spawn Beginner Guide India" },
-                { path: "/articles/oyster-mushroom-cultivation-india", label: "Oyster Mushroom Cultivation India" },
-                { path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", label: "Mushroom Farming Beginner Guide India 2026 2027" },
-                { path: "/blog/10", label: "Blog 10" },
-                { path: "/blog/7", label: "Blog 7" },
-                { path: "/blog/8", label: "Blog 8" },
-                { path: "/blog/9", label: "Blog 9" },
-              ].map((link, i) => (
-                <span key={i} className="flex gap-3 items-center">
-                  <Link to={link.path} className="hover:text-slate-500 transition-colors whitespace-nowrap">{link.label}</Link>
-                  {i !== 49 && <span className="opacity-30">|</span>}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+
       </div>
     </footer>
   );
@@ -2785,7 +2724,7 @@ const HomePage = () => {
           
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { name: "Rahul S.", location: "Jabalpur", text: "Turnkey setup changed my perspective. Outstanding support even after 2 years.", avatar: "RS" },
+              { name: "Rahul S.", location: "Bhopal", text: "Turnkey setup changed my perspective. Outstanding support even after 2 years.", avatar: "RS" },
               { name: "Deepak M.", location: "Indore", text: "Professional SOPs. Yield exceeded expectations by 20% due to climate design.", avatar: "DM" },
               { name: "Suresh K.", location: "Sagar", text: "Honest ROI analysis. No hidden costs, just pure business growth.", avatar: "SK" }
             ].map((t, i) => (
@@ -3616,7 +3555,7 @@ const CustomerSupportPage = () => {
             <div className="grid md:grid-cols-2 gap-6 my-10 not-prose">
               <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
                 <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">📞 Direct Hotline</h3>
-                <p className="text-slate-500 text-sm mb-4">Talk to Tanish Soni and senior advisors directly for instant commercial support.</p>
+                <p className="text-slate-500 text-sm mb-4">Talk to senior technical advisors directly for instant commercial support.</p>
                 <a href="tel:+919203544140" className="text-primary-start font-bold text-lg hover:underline">+91 9203544140</a>
               </div>
               <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
@@ -3722,6 +3661,10 @@ const AnimatedRoutes = () => {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/mushroom-price-today" element={<MushroomPriceTodayPage />} />
           <Route path="/mushroom-franchise" element={<MushroomFranchisePage />} />
+          <Route path="/cities" element={<CitiesPage />} />
+          <Route path="/cities/:state" element={<CitiesPage />} />
+          <Route path="/cities/:state/:city" element={<CitiesPage />} />
+          <Route path="/locations/jabalpur/:blogRoute" element={<JabalpurBlogDetailsPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
 

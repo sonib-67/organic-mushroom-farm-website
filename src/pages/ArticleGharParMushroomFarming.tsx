@@ -909,7 +909,7 @@ const ArticleGharParMushroomFarming = () => {
                 rel="noopener noreferrer" 
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl transition-all transform hover:scale-105"
               >
-                <MessageCircle size={18} /> Chat Directly on WhatsApp with Tanish Sir
+                <MessageCircle size={18} /> Chat Directly on WhatsApp with an Expert
               </a>
               <Link 
                 to="/workshop" 
