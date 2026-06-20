@@ -3,14 +3,15 @@ import { motion } from 'motion/react';
 import { 
   MapPin, ArrowRight, Search, 
   Sprout, Award, Briefcase, Building, BookOpen, 
-  HelpCircle, Image, List, Shield, Info, Phone 
+  HelpCircle, Image, List, Shield, Info, Phone,
+  FileText, X, Printer, Download, MessageCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 // Import locations from central locationsData file
 import { STATES, CITIES, VILLAGES } from '../data/locationsData';
-
+import { ALLOWED_JABALPUR_SLUGS } from '../data/customPages/jabalpur';
 
 interface LocationItem {
   rawName: string;
@@ -19,53 +20,173 @@ interface LocationItem {
   type: 'State' | 'City' | 'Village';
 }
 
+function getStateForCity(city: string): string {
+  const c = city.toLowerCase().replace(/_/g, ' ').replace(/-/g, ' ').trim();
+  
+  if (["visakhapatnam", "vijayawada", "guntur", "nellore", "kurnool", "kakinada", "rajahmundry", "kadapa", "tirupati", "anantapur", "vizianagaram", "eluru", "ongole", "nandyal", "machilipatnam", "adoni", "tenali", "chittoor", "hindupur", "proddatur", "bhimavaram", "madanapalle", "guntakal", "dharmavaram", "gudivada", "narasaraopet", "tadipatri", "mangalagiri", "chilakaluripet", "srikakulam", "rajam", "palasa", "bobbili", "tadepalligudem", "amalapuram", "bapatla", "narasapuram", "ponnur", "jangareddygudem", "palakol", "tanuku", "nidadavole", "pithapuram", "samalkot"].includes(c)) return "Andhra_Pradesh";
+  if (["itanagar", "naharlagun", "pasighat", "namsai", "bomdila", "ziro", "tezu", "along", "tawang", "roing", "khonsa", "seppa", "daporijo", "anini", "yingkiong"].includes(c)) return "Arunachal_Pradesh";
+  if (["guwahati", "silchar", "dibrugarh", "jorhat", "nagaon", "tinsukia", "tezpur", "bongaigaon", "dhubri", "north lakhimpur", "sivasagar", "goalpara", "barpeta", "karimganj", "hailakandi", "haflong", "diphu", "golaghat", "nalbari", "mangaldoi", "kokrajhar", "dhemaji", "morigaon", "sibsagar", "mariani"].includes(c)) return "Assam";
+  if (["patna", "gaya", "bhagalpur", "muzaffarpur", "purnia", "darbhanga", "bihar sharif", "arrah", "begusarai", "katihar", "munger", "chhapra", "danapur", "bettiah", "saharsa", "sasaram", "hajipur", "dehri", "siwan", "motihari", "nawada", "bagaha", "buxar", "kishanganj", "sitamarhi", "jamalpur", "jehanabad", "aurangabad", "lakhisarai", "sheikhpura", "supaul", "araria", "gopalganj", "madhubani", "samastipur", "vaishali", "sheohar", "madhepura"].includes(c)) return "Bihar";
+  if (["raipur", "bhilai", "bilaspur", "korba", "durg", "rajnandgaon", "jagdalpur", "raigarh", "ambikapur", "dhamtari", "chirmiri", "kanker", "kondagaon", "mahasamund", "bemetara", "gariaband", "baloda bazar", "mungeli", "kabirdham", "balrampur", "narayanpur", "sukma", "bijapur", "dantewada", "jashpur"].includes(c)) return "Chhattisgarh";
+  if (["panaji", "margao", "vasco da gama", "mapusa", "ponda", "bicholim", "curchorem", "sanquelim", "canacona", "pernem", "sanguem", "quepem"].includes(c)) return "Goa";
+  if (["ahmedabad", "surat", "vadodara", "rajkot", "bhavnagar", "jamnagar", "junagadh", "gandhinagar", "anand", "navsari", "morbi", "mehsana", "surendranagar", "bharuch", "porbandar", "gondal", "veraval", "botad", "amreli", "ankleshwar", "valsad", "dahod", "godhra", "palanpur", "gandhidham", "deesa", "idar", "nadiad", "khambhat", "unjha", "vapi", "mandvi", "dwarka", "somnath", "keshod", "dhoraji", "jetpur", "wankaner"].includes(c)) return "Gujarat";
+  if (["faridabad", "gurugram", "rohtak", "hisar", "panipat", "ambala", "yamunanagar", "sonipat", "panchkula", "bhiwani", "sirsa", "bahadurgarh", "jind", "thanesar", "kaithal", "karnal", "rewari", "palwal", "narnaul", "mahendragarh", "fatehabad", "gohana", "tohana", "pinjore", "jhajjar", "nuh", "charkhi dadri", "hansi", "ratia", "dabwali"].includes(c)) return "Haryana";
+  if (["shimla", "dharamshala", "solan", "mandi", "palampur", "baddi", "nahan", "kullu", "hamirpur", "una", "chamba", "bilaspur", "sundarnagar", "manali", "parwanoo", "rohru", "rampur", "nurpur", "jogindernagar", "dalhousie"].includes(c)) return "Himachal_Pradesh";
+  if (["ranchi", "jamshedpur", "dhanbad", "bokaro", "deoghar", "phusro", "hazaribagh", "giridih", "ramgarh", "medininagar", "chirkunda", "chaibasa", "daltonganj", "sahibganj", "adityapur", "chas", "jugsalai", "mihijam", "dumka", "jamtara", "pakur", "godda", "gumla", "simdega", "lohardaga", "khunti", "seraikela"].includes(c)) return "Jharkhand";
+  if (["bengaluru", "hubli", "dharwad", "mysuru", "kalaburagi", "mangaluru", "davanagere", "belagavi", "ballari", "vijayapura", "shivamogga", "tumakuru", "raichur", "bidar", "udupi", "hassan", "hospet", "gadag", "chitradurga", "mandya", "bagalkot", "chikkamagaluru", "robertsonpet", "bhadravati", "davengere", "ramanagara", "chikkaballapur", "kolar", "gangavati", "gokak", "yadgir", "koppal", "haveri", "chamarajanagar", "kodagu"].includes(c)) return "Karnataka";
+  if (["thiruvananthapuram", "kochi", "kozhikode", "kollam", "thrissur", "alappuzha", "palakkad", "malappuram", "kannur", "kasaragod", "kottayam", "idukki", "pathanamthitta", "wayanad", "ernakulam", "manjeri", "kayamkulam", "thalassery", "vatakara", "ponnani", "tirur", "koyilandy", "payyannur", "perinthalmanna", "ottappalam", "shoranur", "chalakudy", "muvattupuzha", "kunnamkulam", "irinjalakuda", "kodungallur", "thodupuzha"].includes(c)) return "Kerala";
+  if (["indore", "bhopal", "jabalpur", "gwalior", "ujjain", "sagar", "dewas", "satna", "ratlam", "rewa", "murwara", "singrauli", "burhanpur", "khandwa", "bhind", "chhindwara", "guna", "shivpuri", "vidisha", "chhatarpur", "damoh", "mandsaur", "khargone", "neemuch", "pithampur", "hoshangabad", "itarsi", "sehore", "betul", "seoni", "datia", "nagda", "balaghat", "mandla", "dindori", "tikamgarh", "panna", "anuppur", "umaria", "sidhi", "shahdol", "rajgarh", "agar malwa", "alirajpur", "barwani", "ashoknagar", "katangi"].includes(c)) return "Madhya_Pradesh";
+  if (["mumbai", "pune", "nagpur", "nashik", "aurangabad", "solapur", "amravati", "kolhapur", "nanded", "sangli", "malegaon", "jalgaon", "akola", "latur", "dhule", "ahmednagar", "chandrapur", "parbhani", "ichalkaranji", "jalna", "ambarnath", "bhiwandi", "panvel", "navi mumbai", "thane", "kalyan", "ulhasnagar", "mira bhayandar", "vasai virar", "ratnagiri", "sindhudurg", "satara", "osmanabad", "beed", "hingoli", "buldhana", "washim", "yavatmal", "wardha", "gadchiroli", "gondia", "bhandara", "nandurbar", "shirdi"].includes(c)) return "Maharashtra";
+  if (["imphal", "thoubal", "bishnupur", "churachandpur", "ukhrul", "senapati", "tamenglong", "chandel", "jiribam", "kakching"].includes(c)) return "Manipur";
+  if (["shillong", "tura", "nongpoh", "jowai", "baghmara", "resubelpara", "nongstoin", "mairang", "williamnagar"].includes(c)) return "Meghalaya";
+  if (["aizawl", "lunglei", "saiha", "champhai", "serchhip", "kolasib", "lawngtlai", "mamit", "saitual"].includes(c)) return "Mizoram";
+  if (["kohima", "dimapur", "mokokchung", "tuensang", "wokha", "zunheboto", "phek", "mon", "kiphire", "longleng", "peren"].includes(c)) return "Nagaland";
+  if (["bhubaneswar", "cuttack", "rourkela", "brahmapur", "sambalpur", "puri", "balasore", "bhadrak", "baripada", "jharsuguda", "bargarh", "paradip", "jeypore", "sundargarh", "phulbani", "keonjhar", "jagatsinghpur", "kendrapara", "jajpur", "dhenkanal", "titlagarh", "rayagada", "bolangir", "nabarangapur", "koraput", "malkangiri", "nuapada", "sonepur", "nayagarh", "gajapati", "kandhamal"].includes(c)) return "Odisha";
+  if (["ludhiana", "amritsar", "jalandhar", "patiala", "bathinda", "mohali", "hoshiarpur", "batala", "pathankot", "moga", "abohar", "malerkotla", "khanna", "phagwara", "muktsar", "barnala", "rajpura", "firozpur", "kapurthala", "sangrur", "faridkot", "mansa", "tarn taran", "rupnagar", "nawanshahr", "fatehgarh sahib", "gurdaspur"].includes(c)) return "Punjab";
+  if (["jaipur", "jodhpur", "kota", "bikaner", "ajmer", "bhilwara", "alwar", "bharatpur", "sikar", "pali", "sri ganganagar", "tonk", "hanumangarh", "kishangarh", "baran", "dhaulpur", "banswara", "sirohi", "sawai madhopur", "chittorgarh", "nagaur", "jhalawar", "barmer", "jalore", "jhunjhunu", "bundi", "rajsamand", "dausa", "karauli", "pratapgarh"].includes(c)) return "Rajasthan";
+  if (["gangtok", "namchi", "gyalshing", "mangan", "rangpo", "singtam", "jorethang"].includes(c)) return "Sikkim";
+  if (["chennai", "coimbatore", "madurai", "tiruchirappalli", "salem", "tirunelveli", "tiruppur", "vellore", "erode", "thoothukkudi", "dindigul", "thanjavur", "ranipet", "sivakasi", "karur", "udhagamandalam", "hosur", "nagercoil", "kanchipuram", "kumarapalayam", "karaikkudi", "neyveli", "cuddalore", "kumbakonam", "tiruvannamalai", "pollachi", "rajapalayam", "pudukkottai", "nagapattinam", "virudhunagar", "namakkal", "maraimalai nagar", "tiruvottiyur", "villupuram", "ariyalur", "krishnagiri", "dharmapuri", "tiruvarur", "nilgiris", "tenkasi", "chengalpattu", "kallakurichi"].includes(c)) return "Tamil_Nadu";
+  if (["hyderabad", "warangal", "nizamabad", "khammam", "karimnagar", "ramagundam", "mahabubnagar", "nalgonda", "adilabad", "suryapet", "miryalaguda", "siddipet", "jagtial", "mancherial", "nirmal", "kamareddy", "sangareddy", "vikarabad", "wanaparthy", "nagarkurnool", "bhongir", "yadadri", "medchal", "gadwal", "jogulamba"].includes(c)) return "Telangana";
+  if (["agartala", "dharmanagar", "udaipur", "kailasahar", "belonia", "khowai", "bishramganj", "ambassa", "kumarghat", "sonamura"].includes(c)) return "Tripura";
+  if (["lucknow", "kanpur", "ghaziabad", "agra", "varanasi", "meerut", "allahabad", "bareilly", "aligarh", "moradabad", "saharanpur", "gorakhpur", "noida", "firozabad", "loni", "jhansi", "muzaffarnagar", "mathura", "rampur", "shahjahanpur", "farrukhabad", "mau", "hapur", "etawah", "mirzapur", "bulandshahr", "sambhal", "amroha", "hardoi", "fatehpur", "raebareli", "orai", "sitapur", "bahraich", "modinagar", "unnao", "jaunpur", "lakhimpur", "hathras", "banda", "pilibhit", "barabanki", "khurja", "gonda", "mainpuri", "lalitpur", "etah", "deoria", "sultanpur", "azamgarh", "bijnor", "auraiya", "basti", "ballia", "chandausi", "akpur", "faizabad", "ghazipur", "kannauj", "shikohabad", "tanda", "najibabad", "shahabad", "tilhar", "ujhani", "zamania", "chhibramau", "nagina", "shamli", "kasganj"].includes(c)) return "Uttar_Pradesh";
+  if (["dehradun", "haridwar", "roorkee", "haldwani", "rudrapur", "kashipur", "rishikesh", "kotdwar", "ramnagar", "pithoragarh", "almora", "nainital", "mussoorie", "bageshwar", "chamoli", "champawat", "pauri", "tehri", "uttarkashi", "rudraprayag"].includes(c)) return "Uttarakhand";
+  if (["kolkata", "asansol", "siliguri", "durgapur", "bardhaman", "malda", "baharampur", "habra", "kharagpur", "shantipur", "dankuni", "dhulian", "ranaghat", "haldia", "raiganj", "krishnanagar", "nabadwip", "medinipur", "jalpaiguri", "balurghat", "basirhat", "bankura", "chakdaha", "darjeeling", "alipurduar", "purulia", "murshidabad", "jangipur", "suri", "arambhagh", "tamluk", "contai", "bishnupur", "cooch behar", "kalimpong", "gangarampur"].includes(c)) return "West_Bengal";
+  if (["new delhi", "dwarka", "rohini", "janakpuri", "laxmi nagar", "shahdara", "pitampura", "saket", "vasant kunj", "narela", "bijwasan", "mehrauli", "najafgarh", "karol bagh", "connaught place", "chandni chowk"].includes(c)) return "Delhi";
+  if (["srinagar", "jammu", "anantnag", "sopore", "baramulla", "kathua", "udhampur", "punch", "rajouri", "ganderbal", "pulwama", "shopian", "kulgam", "bandipora", "kupwara"].includes(c)) return "Jammu_and_Kashmir";
+  if (["leh", "kargil", "diskit", "padum", "drass", "zanskar"].includes(c)) return "Ladakh";
+  if (["chandigarh", "manimajra", "dhanas", "burail", "mauli jagran", "maloya"].includes(c)) return "Chandigarh";
+  if (["puducherry", "karaikal", "mahe", "yanam", "ozhukarai"].includes(c)) return "Puducherry";
+  if (["port blair", "diglipur", "rangat", "havelock", "car nicobar", "campbell bay"].includes(c)) return "Andaman_and_Nicobar_Islands";
+  if (["silvassa", "daman", "diu", "naroli", "amli", "khanvel"].includes(c)) return "Dadra_and_Nagar_Haveli_and_Daman_and_Diu";
+  if (["kavaratti", "agatti", "amini", "andrott", "minicoy", "kiltan"].includes(c)) return "Lakshadweep";
+  
+  return "Madhya_Pradesh";
+}
+
+function getStateForVillage(village: string): string {
+  const v = village.toLowerCase().replace(/_/g, ' ').replace(/-/g, ' ').trim();
+  if (v === "lepakshi") return "Andhra_Pradesh";
+  if (v === "majuli") return "Assam";
+  if (v === "bodh gaya") return "Bihar";
+  if (v === "chitrakote") return "Chhattisgarh";
+  if (v === "aldona") return "Goa";
+  if (v === "gir forest") return "Gujarat";
+  if (v === "kurukshetra") return "Haryana";
+  if (v === "malana") return "Himachal_Pradesh";
+  if (v === "hampi") return "Karnataka";
+  if (v === "kumarakom") return "Kerala";
+  if (v === "khajuraho") return "Madhya_Pradesh";
+  if (v === "shani shingnapur") return "Maharashtra";
+  if (v === "loktak lake") return "Manipur";
+  if (v === "mawlynnong") return "Meghalaya";
+  if (v === "dzukou") return "Nagaland";
+  if (v === "konark") return "Odisha";
+  if (v === "anandpur sahib") return "Punjab";
+  if (v === "sambhar lake") return "Rajasthan";
+  if (v === "yuksom") return "Sikkim";
+  if (v === "mahabalipuram") return "Tamil_Nadu";
+  if (v === "ramappa" || v === "patas") return "Telangana";
+  if (v === "neermahal") return "Tripura";
+  if (v === "vrindavan" || v === "shantiniketan") return "Uttar_Pradesh";
+  return "Madhya_Pradesh";
+}
+
 export default function SitemapPage() {
   const [activeTab, setActiveTab] = useState<'main' | 'locations'>('main');
   const [searchQuery, setSearchQuery] = useState('');
   const [locFilter, setLocFilter] = useState<'all' | 'State' | 'City' | 'Village'>('all');
+  const [expandedStates, setExpandedStates] = useState<Record<string, boolean>>({});
 
-  // Convert raw location names to formatted ones
-  const allLocations: LocationItem[] = useMemo(() => {
-    const list: LocationItem[] = [];
+  // Group locations state-wise on load to prevent rendering multi-thousand element groups at once
+  const groupedStates = useMemo(() => {
+    const statesMap: Record<string, { cities: LocationItem[], villages: LocationItem[], stateItem: LocationItem }> = {};
     
     STATES.forEach(name => {
-      list.push({
-        rawName: name,
-        formattedName: name.replace(/_/g, ' '),
-        slug: name.toLowerCase().replace(/_/g, '-'),
-        type: 'State'
-      });
+      statesMap[name] = {
+        cities: [],
+        villages: [],
+        stateItem: {
+          rawName: name,
+          formattedName: name.replace(/_/g, ' '),
+          slug: name.toLowerCase().replace(/_/g, '-'),
+          type: 'State'
+        }
+      };
     });
 
     CITIES.forEach(name => {
-      list.push({
-        rawName: name,
-        formattedName: name.replace(/_/g, ' '),
-        slug: name.toLowerCase().replace(/_/g, '-'),
-        type: 'City'
-      });
+      const stateName = getStateForCity(name);
+      if (statesMap[stateName]) {
+        statesMap[stateName].cities.push({
+          rawName: name,
+          formattedName: name.replace(/_/g, ' '),
+          slug: name.toLowerCase().replace(/_/g, '-'),
+          type: 'City'
+        });
+      }
     });
 
     VILLAGES.forEach(name => {
-      list.push({
-        rawName: name,
-        formattedName: name.replace(/_/g, ' '),
-        slug: name.toLowerCase().replace(/_/g, '-'),
-        type: 'Village'
-      });
+      const stateName = getStateForVillage(name);
+      if (statesMap[stateName]) {
+        statesMap[stateName].villages.push({
+          rawName: name,
+          formattedName: name.replace(/_/g, ' '),
+          slug: name.toLowerCase().replace(/_/g, '-'),
+          type: 'Village'
+        });
+      }
     });
 
-    return list.sort((a, b) => a.formattedName.localeCompare(b.formattedName));
+    return Object.entries(statesMap).map(([stateName, data]) => ({
+      stateName,
+      formattedName: stateName.replace(/_/g, ' '),
+      slug: stateName.toLowerCase().replace(/_/g, '-'),
+      data
+    })).sort((a, b) => a.formattedName.localeCompare(b.formattedName));
   }, []);
 
-  // Filtered locations
-  const filteredLocations = useMemo(() => {
-    return allLocations.filter(loc => {
-      const matchesSearch = loc.formattedName.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesFilter = locFilter === 'all' || loc.type === locFilter;
-      return matchesSearch && matchesFilter;
-    });
-  }, [allLocations, searchQuery, locFilter]);
+  // Filtered state-wise groups to match search inputs seamlessly
+  const filteredGroupedStates = useMemo(() => {
+    if (!searchQuery && locFilter === 'all') {
+      return groupedStates.map(item => ({
+        ...item,
+        hasMatches: true,
+        matchedCities: item.data.cities,
+        matchedVillages: item.data.villages,
+        isStateMatched: true
+      }));
+    }
+
+    const query = searchQuery.toLowerCase().trim();
+    
+    return groupedStates.map(item => {
+      const cities = item.data.cities.filter(c => {
+        const matchesFilter = locFilter === 'all' || locFilter === 'City';
+        const matchesSearch = c.formattedName.toLowerCase().includes(query);
+        return matchesFilter && matchesSearch;
+      });
+
+      const villages = item.data.villages.filter(v => {
+        const matchesFilter = locFilter === 'all' || locFilter === 'Village';
+        const matchesSearch = v.formattedName.toLowerCase().includes(query);
+        return matchesFilter && matchesSearch;
+      });
+
+      const isStateMatched = (locFilter === 'all' || locFilter === 'State') && 
+        item.formattedName.toLowerCase().includes(query);
+
+      const hasMatches = isStateMatched || cities.length > 0 || villages.length > 0;
+
+      return {
+        ...item,
+        hasMatches,
+        matchedCities: cities,
+        matchedVillages: villages,
+        isStateMatched
+      };
+    }).filter(item => item.hasMatches);
+  }, [groupedStates, searchQuery, locFilter]);
 
   const mainHubs = [
     { name: "Home / Welcome", path: "/", desc: "Main landing gateway and entry point." },
@@ -137,9 +258,18 @@ export default function SitemapPage() {
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tighter">
             HTML Site <span className="gradient-text">Directory</span>
           </h1>
-          <p className="text-slate-400 text-base md:text-lg leading-relaxed">
+          <p className="text-slate-400 text-base md:text-lg leading-relaxed mb-6">
             A comprehensive, fully indexable site map index. Find main hub panels, expert articles, policies, and localized pages in one organized place.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a 
+              href="https://wa.me/919203544140"
+              className="px-6 py-2.5 rounded-full border border-white/20 text-slate-300 hover:text-white text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 transition-all flex items-center gap-2"
+            >
+              <MessageCircle size={16} className="text-[#25D366]" />
+              WhatsApp Help Desk
+            </a>
+          </div>
         </div>
 
         {/* Tab switcher */}
@@ -154,7 +284,7 @@ export default function SitemapPage() {
             onClick={() => setActiveTab('locations')}
             className={`flex-1 py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all ${activeTab === 'locations' ? 'bg-primary-start text-white shadow-lg shadow-primary-start/20' : 'text-slate-400 hover:text-white'}`}
           >
-            Location Directory ({allLocations.length})
+            Location Directory ({STATES.length + CITIES.length + VILLAGES.length})
           </button>
         </div>
 
@@ -264,7 +394,7 @@ export default function SitemapPage() {
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search over 110 regions (Delhi, Patna, Bhopal...)"
+                  placeholder="Search regions (Bhopal, Indore, Jabalpur...)"
                   className="w-full bg-white/5 border border-white/10 rounded-full py-2.5 pl-12 pr-6 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-primary-start/50 transition-colors"
                 />
               </div>
@@ -281,73 +411,282 @@ export default function SitemapPage() {
               </div>
             </div>
 
-            {/* Locations grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredLocations.map((loc, index) => (
-                <div key={index} className="glass p-6 rounded-3xl border border-white/5">
-                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
-                    <span className="flex items-center gap-2 text-white font-bold">
-                      <MapPin size={16} className="text-primary-start" />
-                      {loc.formattedName}
-                    </span>
-                    <span className="text-[10px] uppercase font-black tracking-widest text-[#25D366]/80 bg-white/5 px-2.5 py-1 rounded-full">
-                      {loc.type}
-                    </span>
+            {/* Structured Accordion States List to prevent any lag */}
+            <div className="space-y-4">
+              {filteredGroupedStates.map((item) => {
+                const expanded = searchQuery ? true : !!expandedStates[item.stateName];
+                const activeCities = searchQuery ? item.matchedCities : item.data.cities;
+                const activeVillages = searchQuery ? item.matchedVillages : item.data.villages;
+
+                const toggleState = (stateName: string) => {
+                  setExpandedStates(prev => ({
+                    ...prev,
+                    [stateName]: !prev[stateName]
+                  }));
+                };
+
+                return (
+                  <div 
+                    key={item.stateName} 
+                    className="glass rounded-3xl border border-white/5 overflow-hidden transition-all duration-300"
+                  >
+                    {/* State Accordion Header */}
+                    <button
+                      onClick={() => toggleState(item.stateName)}
+                      className="w-full text-left p-6 flex items-center justify-between hover:bg-white/5 transition-all cursor-pointer"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 bg-white/5 rounded-2xl text-primary-start">
+                          <MapPin size={20} />
+                        </div>
+                        <div>
+                          <h3 className="text-white text-lg font-bold tracking-tight">
+                            {item.formattedName}
+                          </h3>
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-xs text-slate-400">
+                            <span>State/UT</span>
+                            {activeCities.length > 0 && (
+                              <span className="flex items-center gap-1">
+                                <span className="h-1.5 w-1.5 rounded-full bg-primary-start inline-block"></span>
+                                {activeCities.length} Cities
+                              </span>
+                            )}
+                            {activeVillages.length > 0 && (
+                              <span className="flex items-center gap-1">
+                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 inline-block"></span>
+                                {activeVillages.length} Villages
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="text-slate-400">
+                        {expanded ? (
+                          <span className="text-xl font-bold p-1 bg-white/5 rounded-lg inline-block w-8 text-center">&#8722;</span>
+                        ) : (
+                          <span className="text-xl font-bold p-1 bg-white/5 rounded-lg inline-block w-8 text-center">&#43;</span>
+                        )}
+                      </div>
+                    </button>
+
+                    {/* State Content Body */}
+                    {expanded && (
+                      <div className="border-t border-white/5 bg-black/20 p-6 space-y-6">
+                        {/* 1. State Level Main SEO Paths */}
+                        <div>
+                          <span className="block text-xs uppercase tracking-widest font-bold text-slate-500 mb-3">
+                            {item.formattedName} State Core Directory
+                          </span>
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <Link 
+                              to={`/mushroom-farming-${item.slug}`} 
+                              className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/10 border border-transparent transition-all group"
+                            >
+                              <span className="text-[11px] sm:text-xs text-slate-300 font-medium flex items-center gap-2 truncate">
+                                <Sprout size={14} className="text-primary-start flex-shrink-0" />
+                                Farming Hub
+                              </span>
+                              <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                            </Link>
+                            <Link 
+                              to={`/mushroom-training-${item.slug}`} 
+                              className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/10 border border-transparent transition-all group"
+                            >
+                              <span className="text-[11px] sm:text-xs text-slate-300 font-medium flex items-center gap-2 truncate">
+                                <BookOpen size={14} className="text-primary-start flex-shrink-0" />
+                                Certified Course
+                              </span>
+                              <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                            </Link>
+                            <Link 
+                              to={`/mushroom-franchise-${item.slug}`} 
+                              className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/10 border border-transparent transition-all group"
+                            >
+                              <span className="text-[11px] sm:text-xs text-slate-300 font-medium flex items-center gap-2 truncate">
+                                <Building size={14} className="text-primary-start flex-shrink-0" />
+                                Franchise Models
+                              </span>
+                              <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                            </Link>
+                            <Link 
+                              to={`/careers-${item.slug}`} 
+                              className="flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 hover:border-white/10 border border-transparent transition-all group"
+                            >
+                              <span className="text-[11px] sm:text-xs text-slate-300 font-medium flex items-center gap-2 truncate">
+                                <Briefcase size={14} className="text-primary-start flex-shrink-0" />
+                                Farming Jobs
+                              </span>
+                              <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 transition-all flex-shrink-0" />
+                            </Link>
+                          </div>
+                        </div>
+
+                        {/* 2. Cities in this State */}
+                        {activeCities.length > 0 && (
+                          <div className="space-y-3">
+                            <span className="block text-xs uppercase tracking-widest font-bold text-slate-500">
+                              Registered Cities / Districts
+                            </span>
+                            <div className="grid md:grid-cols-2 gap-4">
+                              {activeCities.map(city => {
+                                const isJabalpur = city.rawName === 'Jabalpur';
+                                return (
+                                  <div 
+                                    key={city.rawName} 
+                                    className={`p-4 rounded-2xl border ${isJabalpur ? 'bg-gradient-to-br from-primary-start/15 to-emerald-500/10 border-primary-start/30' : 'bg-white/5 border-white/5'} flex flex-col justify-between`}
+                                  >
+                                    <div className="flex items-center justify-between mb-3">
+                                      <span className="text-sm font-bold text-white flex items-center gap-2">
+                                        <MapPin size={14} className={isJabalpur ? "text-primary-start" : "text-slate-400"} />
+                                        {city.formattedName} 
+                                        {isJabalpur && <span className="text-[9px] bg-primary-start text-white font-bold py-0.5 px-2 rounded-full uppercase col-span-2">Approved Unique Blogs Only</span>}
+                                      </span>
+                                      <span className="text-[9px] bg-white/5 text-slate-400 px-2 py-0.5 rounded-full uppercase font-medium">City</span>
+                                    </div>
+
+                                    {isJabalpur ? (
+                                      /* Jabalpur specific 93 approved manual pages */
+                                      <div className="space-y-3 mt-1">
+                                        <div className="p-3 bg-black/30 rounded-xl border border-white/5">
+                                          <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                                            🌟 In compliance with target optimization guidelines, all redundant pathways for Jabalpur have been removed. Exactly <strong>{ALLOWED_JABALPUR_SLUGS.length} unique niche manuals</strong> and local farming chapters are kept below:
+                                          </p>
+                                        </div>
+                                        {/* Collapsible list of the 93 pages inside the accordion to avoid vertical congestion */}
+                                        <details className="group/jabalpur">
+                                          <summary className="text-xs text-primary-start hover:text-white font-bold cursor-pointer flex items-center justify-between py-1 px-2.5 rounded-lg bg-white/5 hover:bg-white/10 transition-all select-none">
+                                            <span>Show {ALLOWED_JABALPUR_SLUGS.length} Approved Jabalpur Manuals & Blogs</span>
+                                            <span className="transition-transform group-open/jabalpur:rotate-180 text-[10px]">&#9660;</span>
+                                          </summary>
+                                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 pt-2 border-t border-white/5 max-h-72 overflow-y-auto pr-1">
+                                            {ALLOWED_JABALPUR_SLUGS.map((slugStr, sIdx) => {
+                                              // Convert kebab slug to gorgeous visual Title Case
+                                              const formattedBlogTitle = slugStr
+                                                .replace(/-/g, ' ')
+                                                .split(' ')
+                                                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                                                .join(' ');
+
+                                              return (
+                                                <Link
+                                                  key={sIdx}
+                                                  to={`/locations/jabalpur/${slugStr}`}
+                                                  className="p-2 rounded bg-white/5 hover:bg-primary-start/10 hover:text-white text-[11px] text-slate-300 transition-all truncate block border border-transparent hover:border-primary-start/20"
+                                                  title={formattedBlogTitle}
+                                                >
+                                                  {sIdx + 1}. {formattedBlogTitle}
+                                                </Link>
+                                              );
+                                            })}
+                                          </div>
+                                        </details>
+                                      </div>
+                                    ) : (
+                                      /* Other cities get their normal four target pathways */
+                                      <div className="grid grid-cols-2 gap-2">
+                                        <Link 
+                                          to={`/mushroom-farming-${city.slug}`}
+                                          className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                        >
+                                          <Sprout size={10} className="text-primary-start" />
+                                          Farming
+                                        </Link>
+                                        <Link 
+                                          to={`/mushroom-training-${city.slug}`}
+                                          className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                        >
+                                          <BookOpen size={10} className="text-primary-start" />
+                                          Training
+                                        </Link>
+                                        <Link 
+                                          to={`/mushroom-franchise-${city.slug}`}
+                                          className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                        >
+                                          <Building size={10} className="text-primary-start" />
+                                          Franchise
+                                        </Link>
+                                        <Link 
+                                          to={`/careers-${city.slug}`}
+                                          className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                        >
+                                          <Briefcase size={10} className="text-primary-start" />
+                                          Jobs Info
+                                        </Link>
+                                      </div>
+                                    )}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* 3. Villages in this State */}
+                        {activeVillages.length > 0 && (
+                          <div className="space-y-3">
+                            <span className="block text-xs uppercase tracking-widest font-bold text-slate-500">
+                              Registered Villages
+                            </span>
+                            <div className="grid md:grid-cols-2 gap-4">
+                              {activeVillages.map(village => (
+                                <div 
+                                  key={village.rawName} 
+                                  className="p-4 rounded-2xl bg-white/10 border border-white/5 flex flex-col justify-between"
+                                >
+                                  <div className="flex items-center justify-between mb-3">
+                                    <span className="text-sm font-bold text-white flex items-center gap-2">
+                                      <MapPin size={14} className="text-slate-400" />
+                                      {village.formattedName}
+                                    </span>
+                                    <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full uppercase font-medium">Village</span>
+                                  </div>
+
+                                  <div className="grid grid-cols-2 gap-2">
+                                    <Link 
+                                      to={`/mushroom-farming-${village.slug}`}
+                                      className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                    >
+                                      <Sprout size={10} className="text-primary-start" />
+                                      Farming
+                                    </Link>
+                                    <Link 
+                                      to={`/mushroom-training-${village.slug}`}
+                                      className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                    >
+                                      <BookOpen size={10} className="text-primary-start" />
+                                      Training
+                                    </Link>
+                                    <Link 
+                                      to={`/mushroom-franchise-${village.slug}`}
+                                      className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                    >
+                                      <Building size={10} className="text-primary-start" />
+                                      Franchise
+                                    </Link>
+                                    <Link 
+                                      to={`/careers-${village.slug}`}
+                                      className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
+                                    >
+                                      <Briefcase size={10} className="text-primary-start" />
+                                      Jobs Info
+                                    </Link>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
-
-                  {/* 4 fully dynamic links that bot/users can hit */}
-                  <div className="space-y-2.5">
-                    <Link 
-                      to={`/mushroom-farming-${loc.slug}`} 
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                    >
-                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                        <Sprout size={14} className="text-primary-start" />
-                        Mushroom Farming Details
-                      </span>
-                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                    </Link>
-
-                    <Link 
-                      to={`/mushroom-training-${loc.slug}`} 
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                    >
-                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                        <BookOpen size={14} className="text-primary-start" />
-                        Cultivation Training Course
-                      </span>
-                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                    </Link>
-
-                    <Link 
-                      to={`/mushroom-franchise-${loc.slug}`} 
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                    >
-                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                        <Building size={14} className="text-primary-start" />
-                        Franchise Opportunities
-                      </span>
-                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                    </Link>
-
-                    <Link 
-                      to={`/careers-${loc.slug}`} 
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
-                    >
-                      <span className="text-xs text-slate-300 font-medium flex items-center gap-2">
-                        <Briefcase size={14} className="text-primary-start" />
-                        Farming Jobs / Careers
-                      </span>
-                      <ArrowRight size={12} className="text-slate-500 group-hover:translate-x-1 group-hover:text-white transition-all" />
-                    </Link>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
-            {filteredLocations.length === 0 && (
+            {filteredGroupedStates.length === 0 && (
               <div className="text-center py-20 text-slate-500 text-sm">
-                No locations match your search query. Try another city or state!
+                No location states match your search query or filter. Try typing another city or state!
               </div>
             )}
           </div>

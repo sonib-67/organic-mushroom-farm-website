@@ -1,4 +1,5 @@
 import { SEOManualContent } from '../locationSEOContent';
+import { JABALPUR_MANUAL_OVERRIDES } from './jabalpur';
 
 /**
  * 📝 CUSTOM PAGES MANUAL OVERRIDES DIRECTORY (Mushroom Farm Custom Portal)
@@ -61,6 +62,7 @@ export const agraTrainingOverride: Partial<SEOManualContent> = {
         <li><strong>Spawn and Substrate Preparation:</strong> Preparing raw materials using high-nitrogen organic additions.</li>
         <li><strong>Humidity & Temp Control:</strong> Crucial methods for Agra's hot summers to maintain standard 18-24°C in rooms.</li>
         <li><strong>Harvest & Packaging:</strong> Cold storage techniques for local Agra mandi delivery.</li>
+        <li><strong>Online and offline certification:</strong> Full support included for UP schemes.</li>
       </ol>
       <div class="p-4 bg-slate-100 dark:bg-slate-800 rounded-lg border-l-4 border-yellow-500 mt-4">
         <strong>Batch Timings:</strong> New batch starts every Monday! Both Online Zoom classes and physical farm visits are available.
@@ -73,6 +75,9 @@ export const agraTrainingOverride: Partial<SEOManualContent> = {
 // 🎯 REGISTER ALL WORKABLE OVERRIDES HERE
 // ==========================================
 export const MANUAL_PAGE_OVERRIDES: Record<string, Partial<SEOManualContent>> = {
+  // Spreading the 93 customized kept Jabalpur SEO page overrides directly
+  ...JABALPUR_MANUAL_OVERRIDES,
+
   // 1. Patan village general override (Sare path jo patan se matched hain, ispar redirect honge)
   "patan": patanVillageOverride,
 
@@ -81,17 +86,6 @@ export const MANUAL_PAGE_OVERRIDES: Record<string, Partial<SEOManualContent>> = 
   "agra_mushroom-training": agraTrainingOverride,
   "agra_mushroom-farming-training": agraTrainingOverride,
   "agra_mushroom-training-center": agraTrainingOverride,
-
-  // Future manual pages override inputs yahan add karke direct update kar sakte hain!
-  /*
-  "surat_oyster-mushroom-spawn": {
-    title: "Fresh Oyster Mushroom Spawn Supplier in Surat, Gujarat",
-    h1: "Best Oyster Mushroom Culture & Seeds in Surat"
-  },
-  "mumbai_mushroom-farming": {
-    title: "Urban Mushroom Micro-Farming Guide in Mumbai",
-    h1: "Start Grow Oyster Mushrooms Indoors in Mumbai Apartments"
-  }
-  */
 };
+
 
