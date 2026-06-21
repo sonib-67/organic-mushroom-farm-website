@@ -5,6 +5,7 @@ import { MapPin, Search, ChevronRight, Lock, BookOpen, Clock, Heart, Award, Arro
 import SEO from '../components/SEO';
 import { JABALPUR_BLOGS, ALL_BASELINE_METADATA_ITEMS, getJabalpurBlogByPath } from '../data/jabalpurBlogsData';
 import { INDORE_BLOGS_METADATA, getIndoreBlogByPath } from '../data/indoreBlogsData';
+import { PUNE_BLOGS_METADATA, getPuneBlogByPath } from '../data/puneBlogsData';
 
 const ALL_STATES = [
   { name: "Andaman and Nicobar Islands", active: false },
@@ -27,7 +28,7 @@ const ALL_STATES = [
   { name: "Ladakh", active: false },
   { name: "Lakshadweep", active: false },
   { name: "Madhya Pradesh", active: true },
-  { name: "Maharashtra", active: false },
+  { name: "Maharashtra", active: true },
   { name: "Manipur", active: false },
   { name: "Meghalaya", active: false },
   { name: "Mizoram", active: false },
@@ -68,6 +69,19 @@ const MP_CITIES = [
   { name: "Damoh", active: false }
 ];
 
+const MH_CITIES = [
+  { name: "Pune", active: true },
+  { name: "Mumbai", active: false },
+  { name: "Nagpur", active: false },
+  { name: "Nashik", active: false },
+  { name: "Thane", active: false },
+  { name: "Aurangabad", active: false },
+  { name: "Solapur", active: false },
+  { name: "Amravati", active: false },
+  { name: "Navi Mumbai", active: false },
+  { name: "Kolhapur", active: false }
+];
+
 export default function CitiesPage() {
   const { state, city } = useParams();
   const [searchQuery, setSearchQuery] = useState('');
@@ -75,6 +89,7 @@ export default function CitiesPage() {
 
   const isIndore = state?.toLowerCase() === 'madhya-pradesh' && city?.toLowerCase() === 'indore';
   const isJabalpur = state?.toLowerCase() === 'madhya-pradesh' && city?.toLowerCase() === 'jabalpur';
+  const isPune = state?.toLowerCase() === 'maharashtra' && city?.toLowerCase() === 'pune';
 
   // Gather all items based on current city
   const allItems = isIndore
@@ -84,7 +99,9 @@ export default function CitiesPage() {
             ...JABALPUR_BLOGS,
             ...ALL_BASELINE_METADATA_ITEMS.map(meta => getJabalpurBlogByPath(meta.path)!).filter(Boolean)
           ]
-        : []);
+        : (isPune
+            ? PUNE_BLOGS_METADATA.map(meta => getPuneBlogByPath(meta.path)!).filter(Boolean)
+            : []));
 
   // Unique categories for filtering
   const categories = ['All', ...Array.from(new Set(allItems.map(item => item.category)))];
@@ -98,15 +115,18 @@ export default function CitiesPage() {
     return matchesSearch && matchesCategory;
   });
 
-  // 1. Render Blogs Directory Route: /cities/madhya-pradesh/:city
-  if (isJabalpur || isIndore) {
-    const activeCityName = isIndore ? 'Indore' : 'Jabalpur';
+  // 1. Render Blogs Directory Route: /cities/:state/:city
+  if (isJabalpur || isIndore || isPune) {
+    const activeCityName = isPune ? 'Pune' : (isIndore ? 'Indore' : 'Jabalpur');
+    const activeStateName = isPune ? 'Maharashtra' : 'Madhya Pradesh';
+    const activeStatePath = isPune ? 'maharashtra' : 'madhya-pradesh';
+
     return (
       <div className="min-h-screen pt-32 pb-24">
         <SEO 
           title={`Mushroom Farming ${activeCityName} - complete ${allItems.length} Guides`} 
           description={`Access the ultimate SEO handbook for Mushroom Farming in ${activeCityName}. Detailed step-by-step training, subsidy guidance, price checklists, and F1 spawn suppliers.`} 
-          keywords={`Mushroom farming ${activeCityName}, mushroom training MP, ${activeCityName} button mushroom cultivation guides`}
+          keywords={`Mushroom farming ${activeCityName}, mushroom training Maharashtra, ${activeCityName} button mushroom cultivation guides`}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,7 +136,7 @@ export default function CitiesPage() {
             <span>/</span>
             <Link to="/cities" className="hover:text-primary-start transition-colors">Cities</Link>
             <span>/</span>
-            <Link to="/cities/madhya-pradesh" className="hover:text-primary-start transition-colors">Madhya Pradesh</Link>
+            <Link to={`/cities/${activeStatePath}`} className="hover:text-primary-start transition-colors">{activeStateName}</Link>
             <span>/</span>
             <span className="dark:text-slate-300 text-slate-700 font-medium">{activeCityName}</span>
           </div>
@@ -223,6 +243,77 @@ export default function CitiesPage() {
     );
   }
 
+  // 2b. Render Maharashtra Cities Page: /cities/maharashtra
+  if (state?.toLowerCase() === 'maharashtra') {
+    return (
+      <div className="min-h-screen pt-32 pb-24">
+        <SEO 
+          title="Mushroom Farming Cities in Maharashtra | Organic Mushroom Farm" 
+          description="Find specialized mushroom farming support, training facilities, and logistics centers across the cities of Maharashtra, India." 
+          keywords="Mushroom farming Pune, Pune oyster spawn, PCMC composting setup"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 text-xs md:text-sm dark:text-slate-500 text-slate-400 mb-8 font-semibold">
+            <Link to="/" className="hover:text-primary-start transition-colors">Home</Link>
+            <span>/</span>
+            <Link to="/cities" className="hover:text-primary-start transition-colors">Cities</Link>
+            <span>/</span>
+            <span className="dark:text-slate-300 text-slate-700 font-medium">Maharashtra</span>
+          </div>
+
+          <div className="mb-12">
+            <div className="badge mb-4">State Territory Directory</div>
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
+              Cities in <span className="gradient-text">Maharashtra</span>
+            </h1>
+            <p className="text-slate-400 text-lg max-w-2xl leading-relaxed">
+              Find customized mushroom cultivation support network and composting resources across Maharashtra cities. Under active roll-out, select your target territory below.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MH_CITIES.map(city => (
+              <div key={city.name}>
+                {city.active ? (
+                  <Link 
+                    to={`/cities/maharashtra/${city.name.toLowerCase()}`}
+                    className="glass p-6 rounded-3xl border border-white/10 hover:border-primary-start/40 flex items-center justify-between group transition-all"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-primary-start/15 flex items-center justify-center text-primary-start">
+                        <MapPin size={18} />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-bold text-lg">{city.name}</h4>
+                        <span className="text-[10px] text-primary-start font-black uppercase tracking-wider block">
+                          90 Active Guides
+                        </span>
+                      </div>
+                    </div>
+                    <ChevronRight size={18} className="text-slate-500 group-hover:text-white transition-colors" />
+                  </Link>
+                ) : (
+                  <div className="glass p-6 rounded-3xl border border-white/5 opacity-50 flex items-center justify-between cursor-not-allowed">
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-2xl bg-white/5 flex items-center justify-center text-slate-500">
+                        <Lock size={16} />
+                      </div>
+                      <div>
+                        <h4 className="text-slate-400 font-bold text-lg">{city.name}</h4>
+                        <span className="text-[11px] text-slate-600 block">Coming Soon</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // 2. Render Madhya Pradesh Cities Page: /cities/madhya-pradesh
   if (state?.toLowerCase() === 'madhya-pradesh') {
     return (
@@ -300,7 +391,7 @@ export default function CitiesPage() {
       <SEO 
         title="Mushroom Farming in India - Cities & Territories Locator" 
         description="Select your state to explore localized mushroom training centers, spawn distribution centers, and commercial composting facilities." 
-        keywords="Mushroom farming India, state wise training center MP up bihar"
+        keywords="Mushroom farming India, state wise training center MP up bihar maharashtra"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -324,7 +415,7 @@ export default function CitiesPage() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-xl bg-primary-start/15 flex items-center justify-center text-primary-start font-black text-xs">
-                      MP
+                      {stateItem.name === 'Madhya Pradesh' ? 'MP' : stateItem.name === 'Maharashtra' ? 'MH' : 'IN'}
                     </div>
                     <span className="text-white font-bold text-sm">{stateItem.name}</span>
                   </div>

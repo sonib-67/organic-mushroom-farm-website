@@ -67,6 +67,7 @@ import OperationsPage from './pages/OperationsPage';
 import CitiesPage from './pages/Cities';
 import JabalpurBlogDetailsPage from './pages/JabalpurBlogDetailsPage';
 import IndoreBlogDetailsPage from './pages/IndoreBlogDetailsPage';
+import PuneBlogDetailsPage from './pages/PuneBlogDetailsPage';
 
 // --- Constants & Types ---
 
@@ -473,7 +474,7 @@ const COMP_DATA = [
   { feature: "Subsidy", us: "Full Document Support", others: "No Support" },
 ];
 
-const LOCATIONS = ["Jabalpur", "Sagar", "Damoh", "Indore", "Pune", "Mumbai", "Delhi", "Global"];
+const LOCATIONS = ["Jabalpur", "Sagar", "Damoh", "Indore", "Mumbai", "Delhi", "Global"];
 const STATES = [
   "Haryana", "Punjab", "Himachal Pradesh", "Uttarakhand", "Uttar Pradesh", 
   "Madhya Pradesh", "Rajasthan", "Bihar", "Maharashtra", "Karnataka", 
@@ -3667,6 +3668,7 @@ const AnimatedRoutes = () => {
           <Route path="/cities/:state/:city" element={<CitiesPage />} />
           <Route path="/locations/jabalpur/:blogRoute" element={<JabalpurBlogDetailsPage />} />
           <Route path="/locations/indore/:blogRoute" element={<IndoreBlogDetailsPage />} />
+          <Route path="/locations/pune/:blogRoute" element={<PuneBlogDetailsPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
 

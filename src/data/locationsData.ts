@@ -43,7 +43,7 @@ export const CITIES = [
   "Bhopal", "Gwalior", "Ujjain", "Sagar", "Dewas", "Satna", "Ratlam", "Rewa", "Murwara", "Singrauli", "Burhanpur", "Khandwa", "Bhind", "Chhindwara", "Guna", "Shivpuri", "Vidisha", "Chhatarpur", "Damoh", "Mandsaur", "Khargone", "Neemuch", "Pithampur", "Hoshangabad", "Itarsi", "Sehore", "Betul", "Seoni", "Datia", "Nagda", "Balaghat", "Mandla", "Dindori", "Tikamgarh", "Panna", "Anuppur", "Umaria", "Sidhi", "Shahdol", "Rajgarh", "Agar_Malwa", "Alirajpur", "Barwani", "Ashoknagar", "Katangi",
   
   // Maharashtra
-  "Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Amravati", "Kolhapur", "Nanded", "Sangli", "Malegaon", "Jalgaon", "Akola", "Latur", "Dhule", "Ahmednagar", "Chandrapur", "Parbhani", "Ichalkaranji", "Jalna", "Ambarnath", "Bhiwandi", "Panvel", "Navi_Mumbai", "Thane", "Kalyan", "Ulhasnagar", "Mira_Bhayandar", "Vasai_Virar", "Ratnagiri", "Sindhudurg", "Satara", "Osmanabad", "Beed", "Hingoli", "Buldhana", "Washim", "Yavatmal", "Wardha", "Gadchiroli", "Gondia", "Bhandara", "Nandurbar", "Shirdi",
+  "Mumbai", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Amravati", "Kolhapur", "Nanded", "Sangli", "Malegaon", "Jalgaon", "Akola", "Latur", "Dhule", "Ahmednagar", "Chandrapur", "Parbhani", "Ichalkaranji", "Jalna", "Ambarnath", "Bhiwandi", "Panvel", "Navi_Mumbai", "Thane", "Kalyan", "Ulhasnagar", "Mira_Bhayandar", "Vasai_Virar", "Ratnagiri", "Sindhudurg", "Satara", "Osmanabad", "Beed", "Hingoli", "Buldhana", "Washim", "Yavatmal", "Wardha", "Gadchiroli", "Gondia", "Bhandara", "Nandurbar", "Shirdi",
   
   // Manipur
   "Imphal", "Thoubal", "Bishnupur", "Churachandpur", "Ukhrul", "Senapati", "Tamenglong", "Chandel", "Jiribam", "Kakching",

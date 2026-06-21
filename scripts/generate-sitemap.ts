@@ -6,6 +6,7 @@ import { CITIES } from '../src/data/locationsData.ts';
 import { SEO_KEYWORDS } from '../src/data/seoKeywordsData.ts';
 import { JABALPUR_BLOGS, ALL_BASELINE_METADATA_ITEMS } from '../src/data/jabalpurBlogsData.ts';
 import { INDORE_BLOGS_METADATA } from '../src/data/indoreBlogsData.ts';
+import { PUNE_BLOGS_METADATA } from '../src/data/puneBlogsData.ts';
 
 const dateInfo = new Date().toISOString().split('T')[0];
 
@@ -13,6 +14,8 @@ const staticRoutes = [
   { path: '', priority: '1.00', changefreq: 'daily' },
   { path: '/cities/madhya-pradesh/jabalpur', priority: '0.99', changefreq: 'weekly' },
   { path: '/cities/madhya-pradesh/indore', priority: '0.99', changefreq: 'weekly' },
+  { path: '/cities/maharashtra', priority: '0.99', changefreq: 'weekly' },
+  { path: '/cities/maharashtra/pune', priority: '0.99', changefreq: 'weekly' },
   { path: '/about', priority: '0.85', changefreq: 'monthly' },
   { path: '/contact', priority: '0.85', changefreq: 'monthly' },
   { path: '/gallery', priority: '0.80', changefreq: 'weekly' },
@@ -118,6 +121,18 @@ async function generate() {
     mainXml += `
   <url>
     <loc>https://organicmushroomfarm.shop/locations/indore/${blog.path}</loc>
+    <lastmod>${dateInfo}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>`;
+  }
+
+  // 5. Pune Dynamic City Guides (~90 pages total)
+  console.log(`Adding ${PUNE_BLOGS_METADATA.length} dynamic Pune city guides to sitemap...`);
+  for (const blog of PUNE_BLOGS_METADATA) {
+    mainXml += `
+  <url>
+    <loc>https://organicmushroomfarm.shop/locations/pune/${blog.path}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.92</priority>
