@@ -43,6 +43,7 @@ const staticRoutes = [
   { path: '/on-site-consultation', priority: '0.85', changefreq: 'monthly' },
   
   // Articles
+  { path: '/articles/mushroom-farming-complete-guide-hinglish-india', priority: '0.95', changefreq: 'weekly' },
   { path: '/articles/mushroom-farming-beginner-guide-india-2026-2027', priority: '0.92', changefreq: 'monthly' },
   { path: '/articles/oyster-mushroom-cultivation-india', priority: '0.92', changefreq: 'monthly' },
   { path: '/articles/what-is-mushroom-spawn-beginner-guide-india', priority: '0.92', changefreq: 'monthly' },
