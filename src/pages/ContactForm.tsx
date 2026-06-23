@@ -14,21 +14,26 @@ const ContactFormPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
+        
+        // Add a customized subject before sending
         const formData = new FormData(form);
+        if (!formData.has('_subject')) {
+            formData.append('_subject', 'New Expert Consultation Request from ' + formData.get('name'));
+        }
         
         // Track the submission action explicitly
         pixelTrackCustom('ContactFormSubmitted', { page: '/contact-form' });
         pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
 
         try {
-            const resp = await fetch('https://formspree.io/f/mwvazwnl', {
+            const resp = await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
             });
-            if (!resp.ok) throw new Error('Formspree response not OK');
+            if (!resp.ok) throw new Error('FormSubmit response not OK');
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
@@ -36,7 +41,7 @@ const ContactFormPage = () => {
         } catch (error) {
             console.error(error);
             pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
-            // Fallback for formspree
+            // Fallback for formsubmit
             form.submit();
         }
     };
@@ -115,7 +120,7 @@ const ContactFormPage = () => {
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
                          <form 
-                             action="https://formspree.io/f/mwvazwnl" 
+                             action="https://formsubmit.co/df116a35555567e9addd5cf3304c3af1" 
                              method="POST" 
                              onSubmit={handleSubmit} 
                              className="relative z-10 space-y-6"
@@ -131,7 +136,7 @@ const ContactFormPage = () => {
                                              type="text" 
                                              name="name"
                                              required
-                                             placeholder="John Doe"
+                                             placeholder="Your Name"
                                              className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                          />
                                      </div>
@@ -146,7 +151,7 @@ const ContactFormPage = () => {
                                               data-webmcp-property="phone"
                                               data-webmcp-description="WhatsApp or mobile phone number to receive training resources and estimates"
                                              required
-                                             placeholder="+91 98765 43210"
+                                             placeholder="Ex. 9876543210"
                                              className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                          />
                                      </div>

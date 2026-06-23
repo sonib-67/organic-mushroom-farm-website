@@ -12,14 +12,14 @@ export interface FormspreePaymentPayload {
 
 export async function sendPaymentNotificationToFormspree(payload: FormspreePaymentPayload) {
   try {
-    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+    const response = await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        subject: `Payment ${payload.status}: ${payload.productType} (${payload.amount})`,
+        _subject: `Payment ${payload.status}: ${payload.productType} (${payload.amount})`,
         customerName: payload.name,
         customerPhone: payload.phone,
         customerEmail: payload.email || 'N/A',
@@ -33,9 +33,9 @@ export async function sendPaymentNotificationToFormspree(payload: FormspreePayme
       })
     });
     if (!response.ok) {
-      console.warn('[Formspree] Response not OK:', await response.text());
+      console.warn('[FormSubmit] Response not OK:', await response.text());
     }
   } catch (err) {
-    console.error('[Formspree] Error sending notification:', err);
+    console.error('[FormSubmit] Error sending notification:', err);
   }
 }

@@ -5,7 +5,8 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
-import { useForm, ValidationError } from '@formspree/react';
+
+const ValidationError = ({ prefix, field, errors, className }: any) => null;
 import { 
   Menu, X, Phone, Mail, Instagram, Facebook, Youtube, Send, 
   CheckCircle2, TrendingUp, Users, Sprout, ShieldCheck, 
@@ -392,8 +393,13 @@ const CompanyProfile = () => {
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-start/20 blur-[100px] rounded-full group-hover:bg-primary-start/30 transition-all"></div>
             
             <div className="flex items-center gap-6 mb-10">
-              <div className="w-20 h-20 rounded-[2rem] gradient-bg flex items-center justify-center dark:text-white text-slate-900 font-black text-3xl shadow-2xl">
-                O
+              <div className="w-20 h-20 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center shadow-2xl overflow-hidden p-3 group-hover:scale-105 transition-all">
+                <img 
+                  src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
+                  alt="Organic Mushroom Farm" 
+                  className="w-full h-full object-contain" 
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <div>
                 <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-1">Organic Mushroom Farm</h2>
@@ -403,12 +409,13 @@ const CompanyProfile = () => {
 
             <div className="grid grid-cols-2 gap-6 mb-10">
               {[
-                { label: "Founder", value: "Tanish Soni" },
-                { label: "Established", value: "2021" },
-                { label: "Business Type", value: "Leading Exporter, Manufacturer & Service Provider of Mushroom Farming, Spawn Supply, Training & Turnkey Farm Setup in India, USA, Australia" },
-                { label: "Base", value: "Pan India & Global Operations" },
+                { label: "Founder", value: "Tanish Soni", spanClass: "col-span-1" },
+                { label: "Co-Founder", value: "Dwarka Prasad", spanClass: "col-span-1" },
+                { label: "Established", value: "2021", spanClass: "col-span-1" },
+                { label: "Base", value: "Pan India & Global Operations", spanClass: "col-span-1" },
+                { label: "Business Type", value: "Leading Exporter, Manufacturer & Service Provider of Mushroom Farming, Spawn Supply, Training & Turnkey Farm Setup in India, USA, Australia", spanClass: "col-span-2" },
               ].map((item, i) => (
-                <div key={i} className="space-y-1">
+                <div key={i} className={`space-y-1 ${item.spanClass || ""}`}>
                   <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest">{item.label}</div>
                   <div className="text-sm font-bold dark:text-white text-slate-900">
                     {item.label === "Founder" ? (
@@ -1504,41 +1511,258 @@ const Timeline = () => {
 };
 
 const CTASection = () => {
+  const [formState, setFormState] = useState({
+    submitting: false,
+    succeeded: false,
+    error: ""
+  });
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    mushroomType: "Button Mushroom",
+    projectSize: "Medium Scale",
+    message: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormState({ submitting: true, succeeded: false, error: "" });
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || "N/A",
+          mushroomType: formData.mushroomType,
+          projectSize: formData.projectSize,
+          message: formData.message,
+          _subject: `New Home Page Inquiry from ${formData.name} (${formData.mushroomType})`
+        })
+      });
+
+      if (response.ok) {
+        setFormState({ submitting: false, succeeded: true, error: "" });
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          mushroomType: "Button Mushroom",
+          projectSize: "Medium Scale",
+          message: ""
+        });
+      } else {
+        const errorText = await response.text();
+        console.error('[FormSubmit] Server error:', errorText);
+        setFormState({ submitting: false, succeeded: false, error: "Failed to send. Please try again or contact support." });
+      }
+    } catch (err: any) {
+      console.error('[FormSubmit] Submit error:', err);
+      setFormState({ submitting: false, succeeded: false, error: err.message || "An unexpected error occurred." });
+    }
+  };
+
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden" id="home-inquiry">
       <div className="absolute inset-0 gradient-bg opacity-5 -z-10 blur-[120px]"></div>
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="glass p-8 md:p-16 rounded-[3rem] border dark:border-white/10 border-black/10 text-center relative overflow-hidden group">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="glass p-6 md:p-12 lg:p-16 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden group">
           <div className="absolute -top-24 -left-24 w-60 h-60 bg-primary-start/10 blur-[80px] rounded-full group-hover:bg-primary-start/20 transition-all duration-700"></div>
           <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-brand-purple/10 blur-[80px] rounded-full group-hover:bg-brand-purple/20 transition-all duration-700"></div>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="badge mx-auto mb-6">Ready to Start?</div>
-            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight">
-              Start Your Commercial <span className="gradient-text">Mushroom Project</span> Today in India & Worldwide
-            </h2>
-            <p className="dark:text-slate-400 text-slate-600 text-lg mb-10 max-w-2xl mx-auto">
-              Join the organic revolution with India's most trusted commercial mushroom infrastructure and training partner. 
-              Get a custom feasibility report for your location.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a 
-                href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details." 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary px-10 py-4 rounded-xl shadow-2xl shadow-brand-blue/30 text-[11px] uppercase tracking-widest font-black w-full sm:w-auto flex items-center justify-center"
-              >
-                Get Free Quote
-              </a>
-              <Link to="/contact-form" className="btn-outline px-10 py-4 rounded-xl text-[11px] uppercase tracking-widest font-black w-full sm:w-auto text-center flex items-center justify-center">
-                Consult with Expert
-              </Link>
+          <div className="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            {/* Left Column: Context & Info */}
+            <div className="lg:col-span-5 space-y-6 text-left">
+              <div className="badge">Direct Inquiry</div>
+              <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 tracking-tight leading-tight">
+                Start Your Commercial <span className="gradient-text">Mushroom Project</span> Today
+              </h2>
+              <p className="dark:text-slate-400 text-slate-600 text-base leading-relaxed">
+                Connect directly with India's most trusted commercial mushroom agriculture consultants. Submit your details to get a customized site feasibility evaluation & project setup design model layout matching your resource availability.
+              </p>
+              
+              <div className="space-y-4 pt-2">
+                {[
+                  "Free pre-feasibility site evaluation guidance",
+                  "Direct commercial G1 spawn delivery options",
+                  "Subsidy assistance (NHB, NABARD & State-wise)",
+                  "Complete HVAC, compost unit & lab setups"
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary-start/10 flex items-center justify-center mt-0.5 shrink-0">
+                      <CheckCircle2 size={14} className="text-primary-start" />
+                    </div>
+                    <span className="text-sm dark:text-slate-300 text-slate-700 font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-t border-slate-700/20 pt-6 flex flex-col sm:flex-row gap-4 items-center">
+                <a 
+                  href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20starting%20mushroom%20farming.%20Please%20guide%20me." 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary w-full sm:w-auto px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-black"
+                >
+                  Chat on WhatsApp
+                </a>
+                <a 
+                  href="tel:+919203544140"
+                  className="btn-outline w-full sm:w-auto px-6 py-3 rounded-xl text-center text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2"
+                >
+                  Call +91 9203544140
+                </a>
+              </div>
             </div>
-          </motion.div>
+
+            {/* Right Column: Inquiry Form / Success Screen */}
+            <div className="lg:col-span-7">
+              <div className="glass p-6 md:p-8 rounded-[2rem] border dark:border-white/5 border-black/5 dark:bg-slate-900/40 bg-white/40 backdrop-blur-xl">
+                {formState.succeeded ? (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="text-center py-12 px-4 space-y-6"
+                  >
+                    <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto scale-110 border border-green-500/20">
+                      <CheckCircle2 size={36} />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-2xl font-bold dark:text-white text-slate-900">Inquiry Received!</h3>
+                      <p className="dark:text-slate-400 text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
+                        Thank you for your response. Our commercial farming expert specialists will review your project scale and contact you within 2 to 4 working hours.
+                      </p>
+                    </div>
+                    <button 
+                      onClick={() => setFormState({ submitting: false, succeeded: false, error: "" })}
+                      className="px-6 py-2.5 rounded-lg text-xs bg-primary-start/10 hover:bg-primary-start/20 text-primary-start transition-colors font-bold uppercase tracking-wider"
+                    >
+                      Send Another Query
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5 text-left">
+                    <div className="space-y-1">
+                      <h3 className="text-xl font-bold dark:text-white text-slate-900">Send Instant Inquiry</h3>
+                      <p className="text-slate-500 text-xs font-semibold">Fill the details below to receive expert call-back and custom catalog.</p>
+                    </div>
+
+                    {formState.error && (
+                      <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-500 rounded-xl text-xs font-semibold">
+                        {formState.error}
+                      </div>
+                    )}
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">Full Name *</label>
+                        <input 
+                          type="text" 
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Your Name" 
+                          className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white"
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">Phone Number *</label>
+                        <input 
+                          type="tel" 
+                          name="phone"
+                          required
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="Ex. 9876543210" 
+                          className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">Mushroom Focus *</label>
+                        <select 
+                          name="mushroomType"
+                          value={formData.mushroomType}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl dark:bg-[#1a2035] bg-white border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white cursor-pointer"
+                        >
+                          <option value="Button Mushroom">Button Mushroom (High Commercial)</option>
+                          <option value="Oyster Mushroom">Oyster Mushroom (Easy/Medicinal)</option>
+                          <option value="Milky Mushroom">Milky Mushroom (Fits Hot Climate)</option>
+                          <option value="Shiitake / Exotic">Shiitake & Exotic Varieties</option>
+                          <option value="Others / Multiple">Multiple Species Setup</option>
+                        </select>
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">Planned Scale *</label>
+                        <select 
+                          name="projectSize"
+                          value={formData.projectSize}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl dark:bg-[#1a2035] bg-white border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white cursor-pointer"
+                        >
+                          <option value="Small / Hobby">Hobby / Small Scale (10-50 Bags)</option>
+                          <option value="Medium Scale">Medium Scale / Farm Unit</option>
+                          <option value="Commercial Farm">Commercial Scale (Air conditioned)</option>
+                          <option value="Industrial Turnkey">Industrial Turnkey / Plant Project</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">Email Address (Optional)</label>
+                      <input 
+                        type="email" 
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Ex. name@example.com" 
+                        className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">Message / Requirements *</label>
+                      <textarea 
+                        name="message"
+                        required
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={3}
+                        placeholder="Please brief us about your land area, location, or dynamic questions..." 
+                        className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white resize-none"
+                      />
+                    </div>
+
+                    <button 
+                      type="submit" 
+                      disabled={formState.submitting}
+                      className="btn-primary w-full py-4 rounded-xl shadow-2xl shadow-brand-blue/30 text-[11px] uppercase tracking-widest font-black flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                    >
+                      {formState.submitting ? "Sending Inquiry..." : "Submit Inquiry Now"}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1579,12 +1803,55 @@ const ContactPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const [state, handleSubmit, reset] = useForm('mwvazwnl');
+
+  const [state, setState] = useState({
+    submitting: false,
+    succeeded: false,
+    errors: [] as any[]
+  });
   const navigate = useNavigate();
 
   const handleClose = () => {
-    reset();
+    setState({ submitting: false, succeeded: false, errors: [] });
     navigate('/');
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setState(prev => ({ ...prev, submitting: true }));
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // Add _subject
+    if (!formData.has('_subject')) {
+      formData.append('_subject', 'Commercial Mushroom Setup Enquiry from ' + formData.get('name'));
+    }
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setState({ submitting: false, succeeded: true, errors: [] });
+        form.reset();
+      } else {
+        const errorText = await response.text();
+        console.error('[FormSubmit] Server error:', errorText);
+        setState({ submitting: false, succeeded: false, errors: [{ message: errorText }] });
+        // fallback
+        form.submit();
+      }
+    } catch (err: any) {
+      console.error('[FormSubmit] Email submit failed:', err);
+      setState({ submitting: false, succeeded: false, errors: [{ message: err.message || String(err) }] });
+      // fallback
+      form.submit();
+    }
   };
 
   const webmcpSchema = {
@@ -1708,7 +1975,7 @@ const ContactPage = () => {
               </div>
 
               <form 
-                action="https://formspree.io/f/mwvazwnl" 
+                action="https://formsubmit.co/df116a35555567e9addd5cf3304c3af1" 
                 method="POST" 
                 onSubmit={handleSubmit} 
                 className="space-y-5"
@@ -1778,6 +2045,8 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+
+      <CompanyProfile />
 
       {/* Success Modal */}
       <AnimatePresence>
@@ -2887,7 +3156,6 @@ const HomePage = () => {
       <ComparisonTable />
       <StatesSection />
       <CTASection />
-      <CompanyProfile />
     </>
   );
 };

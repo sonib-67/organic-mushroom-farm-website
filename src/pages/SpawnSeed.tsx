@@ -37,10 +37,15 @@ const SpawnSeedPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
+        
+        // Add a customized subject before sending
         const formData = new FormData(form);
+        if (!formData.has('_subject')) {
+            formData.append('_subject', 'New Spawn & Seed Inquiry from ' + formData.get('name'));
+        }
         
         try {
-            await fetch('https://formspree.io/f/mwvazwnl', {
+            await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -388,7 +393,7 @@ const SpawnSeedPage = () => {
                               <p className="text-slate-400">Fill out the form below. Our lead engineers & experts will get back to you to discuss your specific farming model.</p>
                           </div>
 
-                          <form action="https://formspree.io/f/mwvazwnl" method="POST" onSubmit={handleSubmit} className="relative z-10 space-y-6">
+                          <form action="https://formsubmit.co/df116a35555567e9addd5cf3304c3af1" method="POST" onSubmit={handleSubmit} className="relative z-10 space-y-6">
                           <div className="grid md:grid-cols-2 gap-6">
                               <div className="space-y-3">
                                   <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Full Name *</label>
@@ -398,7 +403,7 @@ const SpawnSeedPage = () => {
                                           type="text" 
                                           name="name"
                                           required
-                                          placeholder="John Doe"
+                                          placeholder="Your Name"
                                           className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                       />
                                   </div>
