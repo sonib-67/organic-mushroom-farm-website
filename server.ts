@@ -5,7 +5,6 @@ import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
-import { sendEmail, notifyAdmin } from './server/email.js';
 
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
@@ -43,6 +42,46 @@ app.use(express.json());
 const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
 const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
 const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || "Sonib491@";
+
+async function sendToFormspree(payload: {
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  orderId: string;
+  paymentId: string;
+  amount: string;
+  productType: string;
+  paymentStatus: 'DONE' | 'FAILED';
+}) {
+  try {
+    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        subject: `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`,
+        name: payload.customerName,
+        email: payload.customerEmail,
+        phone: payload.customerPhone,
+        orderId: payload.orderId,
+        paymentId: payload.paymentId,
+        amount: payload.amount,
+        productType: payload.productType,
+        paymentStatus: payload.paymentStatus,
+        dateTime: new Date().toLocaleString()
+      })
+    });
+    if (!response.ok) {
+      console.error("[Formspree] Error:", await response.text());
+    } else {
+      console.log("[Formspree] Notification sent successfully");
+    }
+  } catch (err) {
+    console.error("[Formspree] Failed to send:", err);
+  }
+}
 
 const razorpay = new Razorpay({
   key_id: RAZORPAY_KEY_ID,
@@ -155,6 +194,18 @@ app.post('/api/razorpay-webhook', async (req, res) => {
     };
 
     if (event.event === 'payment.captured') {
+        // Notify Formspree
+        await sendToFormspree({
+            customerName,
+            customerEmail,
+            customerPhone,
+            orderId: payment.order_id || '',
+            paymentId: payment.id,
+            amount: amountStr,
+            productType,
+            paymentStatus: 'DONE'
+        });
+
         // Save to Firebase (Customers)
         try {
             const customersRef = collection(db, 'customers');
@@ -202,12 +253,19 @@ app.post('/api/razorpay-webhook', async (req, res) => {
              console.error("Firebase DB error:", dbError);
         }
 
-        // Send Success Email
-        await sendEmail(customerEmail, productType, 'done', placeholders);
-        // Notify Admin
-        await notifyAdmin(`New Payment Collected: ${productType}`, `Order ${payment.order_id} was paid successfully for ${amountStr}`);
-
     } else if (event.event === 'payment.failed') {
+        // Notify Formspree
+        await sendToFormspree({
+            customerName,
+            customerEmail,
+            customerPhone,
+            orderId: payment.order_id || '',
+            paymentId: payment.id,
+            amount: amountStr,
+            productType,
+            paymentStatus: 'FAILED'
+        });
+
         try {
             await addDoc(collection(db, 'payments'), {
                 payment_id: payment.id,
@@ -222,7 +280,6 @@ app.post('/api/razorpay-webhook', async (req, res) => {
         } catch (dbError) {
              console.error("Firebase DB error:", dbError);
         }
-        await sendEmail(customerEmail, productType, 'failed', placeholders);
     }
 
     res.status(200).send('OK');

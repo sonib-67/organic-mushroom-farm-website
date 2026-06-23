@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Calendar, User, Phone, CheckCircle, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { loadRazorpayScript } from '../utils/razorpay';
+import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
 
 const SiteVisitConsultationPage = () => {
@@ -36,6 +37,18 @@ const SiteVisitConsultationPage = () => {
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
 
+      // Send INITIATED notification to Formspree
+      sendPaymentNotificationToFormspree({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+        preferredDate: formData.preferredDate,
+        productType: 'On Site Visit Consultation Slot',
+        amount: '₹500',
+        status: 'INITIATED',
+        orderId: payload.order_id
+      });
+
       const options = {
         key: payload.key_id,
         amount: payload.amount,
@@ -47,12 +60,36 @@ const SiteVisitConsultationPage = () => {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
+          // Notify Formspree that payment is DONE
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+            preferredDate: formData.preferredDate,
+            productType: 'On Site Visit Consultation Slot',
+            amount: '₹500',
+            status: 'DONE',
+            orderId: payload.order_id,
+            paymentId: response.razorpay_payment_id
+          });
+
           setPaymentSuccess(true);
           setLoading(false);
         },
         modal: {
           ondismiss: function() {
             setLoading(false);
+            // Notify Formspree that payment is CANCELLED
+            sendPaymentNotificationToFormspree({
+              name: formData.name,
+              phone: formData.phone,
+              email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+              preferredDate: formData.preferredDate,
+              productType: 'On Site Visit Consultation Slot',
+              amount: '₹500',
+              status: 'CANCELLED',
+              orderId: payload.order_id
+            });
           }
         }
       };
@@ -64,6 +101,19 @@ const SiteVisitConsultationPage = () => {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
+          // Notify Formspree that payment is FAILED
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+            preferredDate: formData.preferredDate,
+            productType: 'On Site Visit Consultation Slot',
+            amount: '₹500',
+            status: 'FAILED',
+            orderId: payload.order_id,
+            paymentId: response.error?.metadata?.payment_id
+          });
+
           alert('Payment Failed. Please try again.');
           setLoading(false);
         });

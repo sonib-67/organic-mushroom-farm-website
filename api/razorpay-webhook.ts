@@ -1,6 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import crypto from 'crypto';
-import { sendEmail, notifyAdmin } from '../server/email';
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
@@ -99,6 +98,46 @@ async function sendMetaCAPIEvent(eventName: string, paymentData: any, notes: any
     }
 }
 
+async function sendToFormspree(payload: {
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
+  orderId: string;
+  paymentId: string;
+  amount: string;
+  productType: string;
+  paymentStatus: 'DONE' | 'FAILED';
+}) {
+  try {
+    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        subject: `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`,
+        name: payload.customerName,
+        email: payload.customerEmail,
+        phone: payload.customerPhone,
+        orderId: payload.orderId,
+        paymentId: payload.paymentId,
+        amount: payload.amount,
+        productType: payload.productType,
+        paymentStatus: payload.paymentStatus,
+        dateTime: new Date().toLocaleString()
+      })
+    });
+    if (!response.ok) {
+      console.error("[Formspree] Error:", await response.text());
+    } else {
+      console.log("[Formspree] Notification sent successfully");
+    }
+  } catch (err) {
+    console.error("[Formspree] Failed to send:", err);
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST']);
@@ -176,6 +215,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Send Purchase to Meta CAPI
         await sendMetaCAPIEvent('Purchase', payment, notes);
 
+        // Notify Formspree
+        await sendToFormspree({
+            customerName,
+            customerEmail,
+            customerPhone,
+            orderId: payment.order_id || '',
+            paymentId: payment.id,
+            amount: amountStr,
+            productType,
+            paymentStatus: 'DONE'
+        });
+
         if (db) {
             try {
                 const customersRef = collection(db, 'customers');
@@ -222,12 +273,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             }
         }
 
-        await sendEmail(customerEmail, productType, 'done', placeholders);
-        await notifyAdmin(`New Payment Collected: ${productType}`, `Order ${payment.order_id || payment.id} was paid successfully for ${amountStr}`);
-
     } else if (event.event === 'payment.failed') {
         // Send PaymentFailed to Meta CAPI
         await sendMetaCAPIEvent('PaymentFailed', payment, notes);
+
+        // Notify Formspree
+        await sendToFormspree({
+            customerName,
+            customerEmail,
+            customerPhone,
+            orderId: payment.order_id || '',
+            paymentId: payment.id,
+            amount: amountStr,
+            productType,
+            paymentStatus: 'FAILED'
+        });
 
         if (db) {
             try {
@@ -246,7 +306,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 console.error("Firestore failed error:", firestoreError);
             }
         }
-        await sendEmail(customerEmail, productType, 'failed', placeholders);
     }
     
     // Additional logic for pending could be mapped if needed via orders webhooks

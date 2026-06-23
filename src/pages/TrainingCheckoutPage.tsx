@@ -4,6 +4,7 @@ import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCh
 import { useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
+import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
 
 export default function TrainingCheckoutPage() {
@@ -52,6 +53,17 @@ export default function TrainingCheckoutPage() {
       
       if (!response.ok) throw new Error(payload?.error || 'Failed to fetch payload');
 
+      // Send INITIATED notification to Formspree
+      sendPaymentNotificationToFormspree({
+        name: formData.name,
+        phone: formData.mobile,
+        email: formData.email,
+        productType: 'Mushroom Farming Masterclass Training',
+        amount: '₹299',
+        status: 'INITIATED',
+        orderId: payload.order_id
+      });
+
       const options = {
         key: payload.key_id,
         amount: payload.amount,
@@ -63,6 +75,18 @@ export default function TrainingCheckoutPage() {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
+          // Notify Formspree that payment is successful
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.mobile,
+            email: formData.email,
+            productType: 'Mushroom Farming Masterclass Training',
+            amount: '₹299',
+            status: 'DONE',
+            orderId: payload.order_id,
+            paymentId: response.razorpay_payment_id
+          });
+
           trackPaymentStep('Purchase', {
             value: payload.amount / 100,
             currency: payload.currency,
@@ -89,6 +113,17 @@ export default function TrainingCheckoutPage() {
         modal: {
           ondismiss: function() {
             setLoading(false);
+            // Notify Formspree that payment form cancelled/not complete
+            sendPaymentNotificationToFormspree({
+              name: formData.name,
+              phone: formData.mobile,
+              email: formData.email,
+              productType: 'Mushroom Farming Masterclass Training',
+              amount: '₹299',
+              status: 'CANCELLED',
+              orderId: payload.order_id
+            });
+
             trackPaymentStep('PaymentCancelled', {
               value: payload.amount / 100,
               currency: payload.currency,
@@ -123,6 +158,18 @@ export default function TrainingCheckoutPage() {
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           setLoading(false);
+          // Notify Formspree of failed payment
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.mobile,
+            email: formData.email,
+            productType: 'Mushroom Farming Masterclass Training',
+            amount: '₹299',
+            status: 'FAILED',
+            orderId: payload.order_id,
+            paymentId: response.error?.metadata?.payment_id
+          });
+
           trackPaymentStep('PaymentFailed', {
              value: payload.amount / 100,
              currency: payload.currency,

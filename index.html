@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ✅ Intercept and sanitize cross-origin "Script error." telemetry issues from blocked tracking/advertising scripts in development iframe -->
+    <script>
+      window.addEventListener('error', function(e) {
+        if (e.message === 'Script error.' || (e.filename && !e.filename.includes(window.location.host))) {
+          e.stopImmediatePropagation();
+          e.preventDefault();
+        }
+      }, true);
+    </script>
     <!-- ✅ Charset FIRST (before everything) -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

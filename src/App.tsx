@@ -2088,6 +2088,7 @@ const FloatingButtons = () => {
   }, [location.pathname]);
 
   const isTrainingPage = location.pathname === '/training';
+  const showTrainingCTA = !['/training-checkout', '/payment-success', '/payment-cancelled', '/workshop'].includes(location.pathname);
 
   if (location.pathname === '/workshop') return null;
 
@@ -2104,9 +2105,9 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className={`fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none ${isTrainingPage ? 'bottom-[80px] md:bottom-[30px]' : 'bottom-[80px] md:bottom-[30px]'}`}>
+      <div className={`fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[80px] md:bottom-[30px]`}>
         
-        {isTrainingPage ? (
+        {showTrainingCTA ? (
           <div className="flex flex-col gap-1.5 md:gap-3 items-end pointer-events-auto">
             {/* Desktop Stack */}
             <div className="hidden md:flex flex-col gap-3 items-end">

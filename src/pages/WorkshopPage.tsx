@@ -10,6 +10,7 @@ import {
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { loadRazorpayScript } from '../utils/razorpay';
+import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
 
 const WorkshopPage = () => {
@@ -63,6 +64,17 @@ const WorkshopPage = () => {
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
 
+      // Send INITIATED notification to Formspree
+      sendPaymentNotificationToFormspree({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+        productType: 'Organic Mushroom Farming Workshop',
+        amount: '₹199',
+        status: 'INITIATED',
+        orderId: payload.order_id
+      });
+
       const options = {
         key: payload.key_id,
         amount: payload.amount,
@@ -74,12 +86,35 @@ const WorkshopPage = () => {
         notes: payload.notes,
         theme: payload.theme,
         handler: function (response: any) {
+          // Notify Formspree that payment is DONE
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+            productType: 'Organic Mushroom Farming Workshop',
+            amount: '₹199',
+            status: 'DONE',
+            orderId: payload.order_id,
+            paymentId: response.razorpay_payment_id
+          });
+
           navigate('/payment-success');
           setLoading(false);
         },
         modal: {
           ondismiss: function() {
             setLoading(false);
+            // Notify Formspree that payment is CANCELLED
+            sendPaymentNotificationToFormspree({
+              name: formData.name,
+              phone: formData.phone,
+              email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+              productType: 'Organic Mushroom Farming Workshop',
+              amount: '₹199',
+              status: 'CANCELLED',
+              orderId: payload.order_id
+            });
+
             navigate('/payment-cancelled', {
               state: {
                 amount: 19900,
@@ -97,6 +132,18 @@ const WorkshopPage = () => {
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
+             // Notify Formspree that payment is FAILED
+             sendPaymentNotificationToFormspree({
+               name: formData.name,
+               phone: formData.phone,
+               email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
+               productType: 'Organic Mushroom Farming Workshop',
+               amount: '₹199',
+               status: 'FAILED',
+               orderId: payload.order_id,
+               paymentId: response.error?.metadata?.payment_id
+             });
+
              navigate('/payment-cancelled', {
                state: {
                  amount: 19900,
