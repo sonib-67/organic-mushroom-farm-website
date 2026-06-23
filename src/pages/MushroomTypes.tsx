@@ -166,17 +166,14 @@ const MushroomTypesPage = () => {
                     className="glass group rounded-[2.5rem] border border-white/5 p-6 flex flex-col justify-between hover:border-emerald-500/20 transition-all text-left relative overflow-hidden"
                   >
                     <div className="space-y-4">
-                      {/* Geometric Icon Block replacing image completely */}
-                      <div className="relative h-44 w-full rounded-[1.8rem] overflow-hidden bg-radial-to-br from-primary-start/15 via-transparent to-black/30 border border-white/5 flex flex-col items-center justify-center p-6 space-y-2">
-                        <div className="w-16 h-16 rounded-full bg-primary-start/15 border border-primary-start/30 flex items-center justify-center text-primary-start shadow-[0_0_15px_rgba(124,58,237,0.15)] group-hover:scale-110 transition-transform duration-300">
-                          <ItemIcon size={32} />
+                      {/* Geometric Metadata Block replacing image/logo completely */}
+                      <div className="relative h-24 w-full rounded-[1.8rem] overflow-hidden bg-radial-to-br from-primary-start/15 via-transparent to-black/30 border border-white/5 flex flex-col items-center justify-center p-4 space-y-2">
+                        <div className="badge scale-90 bg-primary-start/10 text-primary-start border-primary-start/20 px-3 py-1 rounded-full font-bold uppercase tracking-wider text-[10px]">
+                          {m.cost}
                         </div>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 text-center">
                           {m.scientific}
                         </span>
-                        <div className="absolute top-3 right-3 badge scale-90">
-                          {m.cost}
-                        </div>
                       </div>
 
                       {/* Meta info */}
@@ -206,7 +203,7 @@ const MushroomTypesPage = () => {
                         rel="noopener noreferrer"
                         className="text-[10px] font-black text-emerald-400 uppercase tracking-widest hover:underline"
                       >
-                        Order Spawn
+                        Buy Spawn (Seed)
                       </a>
                     </div>
                   </motion.div>

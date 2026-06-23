@@ -89,10 +89,10 @@
   }
 
   /* Force override all text colors to fix both modes, but exclude buttons, active markers, and gradient-bg elements */
-  .text-white:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *), 
-  .dark\:text-white:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *),
-  .text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *), 
-  .dark\:text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *),
+  .text-white:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *, .btn, .btn *, .btn-outline, .btn-outline *, a.btn, a.btn *, a.btn-outline, a.btn-outline *), 
+  .dark\:text-white:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *, .btn, .btn *, .btn-outline, .btn-outline *, a.btn, a.btn *, a.btn-outline, a.btn-outline *),
+  .text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *, .btn, .btn *, .btn-outline, .btn-outline *, a.btn, a.btn *, a.btn-outline, a.btn-outline *), 
+  .dark\:text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *, .btn, .btn *, .btn-outline, .btn-outline *, a.btn, a.btn *, a.btn-outline, a.btn-outline *),
   .text-slate-800, .dark\:text-slate-800,
   .text-slate-200, .text-slate-300, .dark\:text-slate-300 {
     color: var(--text-heading) !important;

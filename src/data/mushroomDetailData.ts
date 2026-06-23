@@ -33,7 +33,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
     slug: "white-button",
     name: "White Button Mushroom",
     scientific: "Agaricus bisporus",
-    hindiName: "बटन मशरूम (Button Mushroom)",
+    hindiName: "Contact Us (Button Mushroom)",
     tagline: "India's highest selling indoor commercial variety with 85%+ market share.",
     image: "https://images.unsplash.com/photo-1594315520265-6677f54c9354?auto=format&fit=crop&q=80&w=400",
     bannerImage: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&q=80&w=1200",
@@ -50,7 +50,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       cropping: "35 - 45 Days",
       casing: "Required"
     },
-    overview: "White Button Mushroom is the absolute king of commercial mushroom farming in India, USA, and Europe. It is grown in high-tech, climate-controlled environmental setups utilizing PUF insulated panels and automated chiller/air handler units (AHUs). Cultivating button mushrooms requires strict compost formulation using pasteurized wheat straw or compost with nitrogen boosters. For optimal yield, adding a casing layer of pasteurized peat moss, coco peat, or well-rotted cow manure is critical. It offers highly stable year-round market demand from local subzi mandis, high-end hotels, supermarkets, and food processors.",
+    overview: "White Button Mushroom is the absolute king of commercial mushroom farming in India, USA, and Europe. It is grown in high-tech, climate-controlled environmental setups utilizing PUF insulated panels and automated chiller/air handler units (AHUs). Cultivating button mushrooms requires strict compost formulation using pasteurized wheat straw or compost with nitrogen boosters. For optimal yield, adding a casing layer of pasteurized peat moss, coco peat, or well-rotted cow manure is critical. It offers highly stable year-round market demand from local wholesale markets, high-end hotels, supermarkets, and food processors.",
     keyFeatures: [
       "Maximum Commercial Viability: Accounts for major sales volume in modern food sectors.",
       "Fixed Pricing Contracts: Highly preferred by wholesale canning units and food processing industries.",
@@ -88,7 +88,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
     slug: "milky-mushroom",
     name: "Milky Mushroom",
     scientific: "Calocybe indica",
-    hindiName: "मिल्की मशरूम (Milky Mushroom)",
+    hindiName: "Contact Us (Milky Mushroom)",
     tagline: "The perfect summer cropping variety with an exceptionally long fresh shelf-life.",
     image: "https://images.unsplash.com/photo-1588636142475-a32433ef7e9b?auto=format&fit=crop&q=80&w=400",
     bannerImage: "https://images.unsplash.com/photo-1508747703725-719ae2c73ee8?auto=format&fit=crop&q=80&w=1200",
@@ -143,7 +143,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
     slug: "oyster",
     name: "Oyster Mushroom",
     scientific: "Pleurotus ostreatus",
-    hindiName: "ऑयस्टर / ढींगरी मशरूम (Oyster Mushroom)",
+    hindiName: "Contact Us (Oyster Mushroom)",
     tagline: "The fastest growing variety requiring the absolute lowest initial setup capital.",
     image: "https://images.unsplash.com/photo-1620067675713-fbce88022b7c?auto=format&fit=crop&q=80&w=400",
     bannerImage: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&q=80&w=1200",
@@ -160,7 +160,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       cropping: "15 - 20 Days",
       casing: "Not Required"
     },
-    overview: "Oyster Mushroom (known locally in India as Dhingri) is acclaimed worldwide as the easiest, fastest, and most adaptable mushroom variety for beginners and commercial projects. It is rich in proteins, fibres, vitamins, and minerals. Oyster mushrooms do not require complex casing soil phases. Additionally, dry oyster mushrooms have massive industrial application in medicinal powders, protein supplements, pickles, and soups. Highly flexible and resilient, oysters can grow on almost any agricultural waste material.",
+    overview: "Oyster Mushroom is acclaimed worldwide as the easiest, fastest, and most adaptable mushroom variety for beginners and commercial projects. It is rich in proteins, fibres, vitamins, and minerals. Oyster mushrooms do not require complex casing soil phases. Additionally, dry oyster mushrooms have massive industrial application in medicinal powders, protein supplements, pickles, and soups. Highly flexible and resilient, oysters can grow on almost any agricultural waste material.",
     keyFeatures: [
       "Ultra-Fast Production Cycles: Ready to harvest in just 25 days from inoculation, ensuring incredibly rapid cash flows.",
       "Extremely Low Investment Barriers: Perfect for rural home-based setups or start-ups requiring minimum infra costs.",

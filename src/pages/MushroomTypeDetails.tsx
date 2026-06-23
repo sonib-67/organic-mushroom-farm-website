@@ -149,10 +149,7 @@ const MushroomTypeDetails = () => {
               </div>
 
               <h1 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-none uppercase">
-                {info.name} <br />
-                <span className="text-primary-start text-2xl md:text-4xl font-semibold capitalize font-sans block mt-2 text-wrap">
-                  {info.hindiName}
-                </span>
+                {info.name}
               </h1>
 
               <p className="text-lg text-slate-300 md:max-w-2xl font-semibold leading-relaxed">
@@ -180,19 +177,9 @@ const MushroomTypeDetails = () => {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="glass rounded-[2.5rem] overflow-hidden border border-white/10 p-8 shadow-2xl relative group bg-radial-to-br from-primary-start/15 via-transparent to-black/30 flex flex-col justify-between min-h-[340px]"
+                className="glass rounded-[2.5rem] overflow-hidden border border-white/10 p-8 shadow-2xl relative group bg-radial-to-br from-primary-start/15 via-transparent to-black/30 flex flex-col justify-between min-h-[260px]"
               >
                 <div className="space-y-4 text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary-start/15 border border-primary-start/30 flex items-center justify-center text-primary-start mx-auto shadow-[0_0_25px_rgba(124,58,237,0.25)] group-hover:scale-110 transition-transform duration-300">
-                    {slug === 'white-button' ? <Gem size={40} /> : 
-                     slug === 'oyster' ? <Flame size={40} /> :
-                     slug === 'milky-mushroom' ? <Leaf size={40} /> :
-                     slug === 'shiitake' ? <Sparkles size={40} /> :
-                     slug === 'lions-mane' ? <Cpu size={40} /> :
-                     slug === 'reishi' ? <Activity size={40} /> :
-                     slug === 'cordyceps' ? <Zap size={40} /> :
-                     <Sprout size={40} />}
-                  </div>
                   <div>
                     <h3 className="text-xl font-black uppercase tracking-tight text-white mb-1">{info.name}</h3>
                     <p className="text-xs font-mono text-primary-start italic">{info.scientific}</p>
@@ -211,7 +198,7 @@ const MushroomTypeDetails = () => {
                     rel="noopener noreferrer"
                     className="btn bg-primary-start hover:bg-emerald-600 dark:text-white text-slate-900 w-full py-3.5 rounded-2xl text-xs font-black uppercase tracking-widest block text-center shadow-lg transition-all"
                   >
-                    Buy Premium Spawn (Seeds)
+                    Buy Spawn (Seed)
                   </a>
                 </div>
               </motion.div>
