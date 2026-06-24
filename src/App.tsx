@@ -396,7 +396,7 @@ const CompanyProfile = () => {
             <div className="flex items-center gap-6 mb-10">
               <div className="w-20 h-20 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center shadow-2xl overflow-hidden p-3 group-hover:scale-105 transition-all">
                 <img 
-                  src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
+                  src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" 
                   alt="Organic Mushroom Farm" 
                   className="w-full h-full object-contain" 
                   referrerPolicy="no-referrer"
@@ -622,7 +622,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-1.5 sm:gap-3 group shrink-0">
             <img 
-              src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
+              src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" 
               alt="Organic Mushroom Farm" 
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform" 
             />
@@ -771,8 +771,12 @@ const Navbar = () => {
                 className="flex items-center justify-between p-7 w-full border-b dark:border-white/5 border-black/5 dark:bg-white/5 bg-black/5 relative z-10"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center font-bold dark:text-white text-slate-900 shadow-lg animate-pulse">
-                    O
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg overflow-hidden p-1.5 shrink-0">
+                    <img 
+                      src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" 
+                      alt="Organic Mushroom Farm" 
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">
                     Organic <span className="gradient-text">Mushroom Farm</span>
@@ -2176,7 +2180,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img 
-                src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png" 
+                src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" 
                 alt="Organic Mushroom Farm" 
                 className="w-14 h-14 object-contain" 
               />
@@ -2300,13 +2304,13 @@ const StickyRazorpayButton = ({ size = 'normal' }: { size?: 'normal' | 'small' }
     <button 
       onClick={() => navigate('/training-checkout')}
       type="button"
-      className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-[#25D366] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}
+      className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-green-700 hover:bg-green-800 text-white shadow-[0_0_20px_rgba(21,128,61,0.4)] hover:shadow-[0_0_30px_rgba(21,128,61,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === 'small' ? 'h-full w-full p-2' : 'h-12 w-full md:w-auto md:min-w-[180px] md:px-6'}`}
     >
       <div className={`font-bold z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === 'small' ? 'text-[12px] md:text-[13px] absolute inset-0 w-full' : 'text-[13px] md:text-[14px]'}`}>
         <BookOpen size={size === 'small' ? 14 : 16} className="shrink-0" />
         <span>Join Training</span>
       </div>
-      <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
+      <div className="absolute inset-0 rounded-full bg-green-600 animate-pulse opacity-0 group-hover:opacity-20 transition-opacity"></div>
     </button>
   );
 };
@@ -2391,6 +2395,7 @@ const FloatingButtons = () => {
                 href="https://wa.me/919203544140" 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                aria-label="Contact Organic Mushroom Farm on WhatsApp"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] hover:scale-110 transition-all z-10 shrink-0"
               >
                 <MessageCircle size={24} />
@@ -2412,6 +2417,7 @@ const FloatingButtons = () => {
                 href="https://wa.me/919203544140" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Contact Organic Mushroom Farm on WhatsApp"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 whileHover={{ scale: 1.1 }}

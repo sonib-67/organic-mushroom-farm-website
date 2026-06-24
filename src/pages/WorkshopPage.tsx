@@ -205,7 +205,7 @@ const WorkshopPage = () => {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden">
-                <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1779785300/d91bc495-04ad-4214-ad23-5abdd9bf370d_gzmzqt.jpg" alt="Logo" className="w-full h-full object-cover" />
+                <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-bold text-base md:text-lg tracking-tight dark:text-white text-slate-900 whitespace-nowrap">Organic Mushroom Farm</span>
             </Link>
@@ -538,7 +538,7 @@ const WorkshopPage = () => {
             <div>
                <Link to="/" className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1779785300/d91bc495-04ad-4214-ad23-5abdd9bf370d_gzmzqt.jpg" alt="Logo" className="w-full h-full object-cover" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain" />
                   </div>
                   <span className="font-bold text-2xl tracking-tight dark:text-white text-slate-900">Organic Mushroom Farm</span>
                </Link>

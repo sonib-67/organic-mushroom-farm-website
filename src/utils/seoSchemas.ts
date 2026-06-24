@@ -55,7 +55,7 @@ export const generateReviewSchema = (itemName: string = "Organic Mushroom Farm T
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": itemName,
-    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "description": "Premium industrial-grade mushroom spawn (seed), expert commercial training programs, and fully integrated turnkey climate-controlled mushroom farm setups.",
     "brand": {
       "@type": "Brand",
@@ -92,7 +92,7 @@ export const generateLocalBusinessSchema = (path: string = "") => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Organic Mushroom Farm",
-    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "@id": `https://organicmushroomfarm.shop/${path ? path.replace(/^\//, '') : '#localbusiness'}`,
     "url": `https://organicmushroomfarm.shop${path}`,
     "telephone": "+919203544140",
@@ -165,8 +165,8 @@ export const generateOrganizationSchema = () => {
     "name": "Organic Mushroom Farm",
     "alternateName": "Organic Mushroom Farm Jabalpur",
     "url": "https://organicmushroomfarm.shop",
-    "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
-    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+    "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
+    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "telephone": "+919203544140",
     "email": "support@mushroomtraining.online",
     "address": {
@@ -245,7 +245,7 @@ export const generateFounderSchema = () => {
       "@type": "Organization",
       "name": "Organic Mushroom Farm"
     },
-    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png",
+    "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "description": "Tanish Soni is a preeminent commercial agriculture technology specialist and mushroom farming consultant in India, with extensive tenure setting up high-yield climate-controlled units.",
     "sameAs": SOCIAL_PROFILES
   };
@@ -261,7 +261,7 @@ export const generateWebpageSchema = (title: string, description: string, path: 
     "publisher": {
       "@type": "Organization",
       "name": "Organic Mushroom Farm",
-      "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378065/organicmushroomlogo-_qsflej.png"
+      "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
     }
   };
 };
