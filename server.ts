@@ -33,6 +33,12 @@ app.get('/ahrefs_d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae80813
   res.send('d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130');
 });
 
+// Google AdSense ads.txt Endpoint
+app.get('/ads.txt', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
+  res.send('google.com, pub-8976157136173429, DIRECT, f08c47fec0942fa0');
+});
+
 // Webhook endpoint needs raw body for signature verification
 app.use('/api/razorpay-webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
