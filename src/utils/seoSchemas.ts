@@ -61,6 +61,14 @@ export const generateReviewSchema = (itemName: string = "Organic Mushroom Farm T
       "@type": "Brand",
       "name": "Organic Mushroom Farm"
     },
+    "offers": {
+      "@type": "Offer",
+      "price": "299",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": SHIPPING_DETAILS,
+      "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": ratingValue,
@@ -378,11 +386,11 @@ export const generateGlobalFAQSchema = () => {
   };
 };
 
-const SHIPPING_DETAILS = {
+export const SHIPPING_DETAILS = {
   "@type": "OfferShippingDetails",
   "shippingRate": {
     "@type": "MonetaryAmount",
-    "value": "100.00",
+    "value": "0.00",
     "currency": "INR"
   },
   "shippingDestination": {
@@ -395,18 +403,18 @@ const SHIPPING_DETAILS = {
       "@type": "QuantitativeValue",
       "minValue": 0,
       "maxValue": 1,
-      "unitCode": "d"
+      "unitCode": "DAY"
     },
     "transitTime": {
       "@type": "QuantitativeValue",
       "minValue": 3,
       "maxValue": 7,
-      "unitCode": "d"
+      "unitCode": "DAY"
     }
   }
 };
 
-const MERCHANT_RETURN_POLICY = {
+export const MERCHANT_RETURN_POLICY = {
   "@type": "MerchantReturnPolicy",
   "applicableCountry": "IN",
   "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",

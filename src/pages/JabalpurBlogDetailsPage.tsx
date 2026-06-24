@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Phone, MessageCircle, Sprout, ShieldCheck, ChevronDown, ArrowLeft, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import { getJabalpurBlogByPath } from '../data/jabalpurBlogsData';
+import { SHIPPING_DETAILS, MERCHANT_RETURN_POLICY } from '../utils/seoSchemas';
 
 export default function JabalpurBlogDetailsPage() {
   const { blogRoute } = useParams();
@@ -46,7 +47,9 @@ export default function JabalpurBlogDetailsPage() {
       "@type": "Offer",
       "price": "299",
       "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": SHIPPING_DETAILS,
+      "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
     },
     "aggregateRating": {
       "@type": "AggregateRating",

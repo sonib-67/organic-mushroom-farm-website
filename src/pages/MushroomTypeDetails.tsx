@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 import { mushroomDetails } from '../data/mushroomDetailData';
+import { SHIPPING_DETAILS, MERCHANT_RETURN_POLICY } from '../utils/seoSchemas';
 
 const MushroomTypeDetails = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -91,7 +92,9 @@ const MushroomTypeDetails = () => {
       "priceCurrency": "INR",
       "price": info.productionCost.includes("₹") ? info.productionCost.replace(/[^0-9]/g, "") : "100",
       "itemCondition": "https://schema.org/NewCondition",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": SHIPPING_DETAILS,
+      "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
     },
     "additionalProperty": [
       {

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ChevronRight, ArrowLeft, Tag, Sparkles, MapPin, CheckCircle, Package } from 'lucide-react';
 import SEO from '../components/SEO';
 import { getPuneBlogByPath, PUNE_BLOGS_METADATA } from '../data/puneBlogsData';
+import { SHIPPING_DETAILS, MERCHANT_RETURN_POLICY } from '../utils/seoSchemas';
 
 export default function PuneBlogDetailsPage() {
   const { blogRoute } = useParams();
@@ -47,7 +48,9 @@ export default function PuneBlogDetailsPage() {
       "@type": "Offer",
       "price": "299",
       "priceCurrency": "INR",
-      "availability": "https://schema.org/InStock"
+      "availability": "https://schema.org/InStock",
+      "shippingDetails": SHIPPING_DETAILS,
+      "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
     },
     "aggregateRating": {
       "@type": "AggregateRating",
