@@ -112,7 +112,7 @@ export default function PuneBlogDetailsPage() {
                 </div>
                 <div>
                   <p className="font-medium text-white mb-2">Introduction & Scope</p>
-                  <p className="text-slate-300 leading-relaxed text-base">{blog.intro}</p>
+                  <p className="text-slate-300 leading-relaxed text-base whitespace-pre-line">{blog.intro}</p>
                 </div>
               </div>
             </div>
