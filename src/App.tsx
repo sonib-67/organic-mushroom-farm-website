@@ -72,7 +72,6 @@ import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import PaymentCancelledPage from "./pages/PaymentCancelledPage";
 import ROICalculatorPage from "./pages/ROICalculatorPage";
 import Subsidy from "./pages/Subsidy";
-import Locations from "./pages/Locations";
 import Blog from "./pages/Blog";
 import ArticlePage from "./pages/ArticlePage";
 import SuccessStories from "./pages/SuccessStories";
@@ -98,8 +97,6 @@ import {
 import MetaPixelTracker from "./components/MetaPixelTracker";
 import MushroomSEOSections from "./components/MushroomSEOSections";
 import SiteVisitConsultationPage from "./pages/SiteVisitConsultationPage";
-
-import LocationDetailsPage from "./pages/LocationDetailsPage";
 import SitemapPage from "./pages/SitemapPage";
 import CareersPage from "./pages/CareersPage";
 import { parseSEOPathname } from "./utils/seoPathParser";
@@ -107,11 +104,6 @@ import MushroomPriceTodayPage from "./pages/MushroomPriceTodayPage";
 import MushroomFranchisePage from "./pages/MushroomFranchisePage";
 import WorkshopPage from "./pages/WorkshopPage";
 import OperationsPage from "./pages/OperationsPage";
-import CitiesPage from "./pages/Cities";
-import JabalpurBlogDetailsPage from "./pages/JabalpurBlogDetailsPage";
-import IndoreBlogDetailsPage from "./pages/IndoreBlogDetailsPage";
-import PuneBlogDetailsPage from "./pages/PuneBlogDetailsPage";
-import MumbaiBlogDetailsPage from "./pages/MumbaiBlogDetailsPage";
 
 // --- Constants & Types ---
 
@@ -844,7 +836,6 @@ const NAV_ITEMS = [
     subMenu: [
       { name: "Our Story", href: "/about" },
       { name: "Success Stories", href: "/success-stories" },
-      { name: "Locations", href: "/locations" },
     ],
   },
   {
@@ -6196,11 +6187,6 @@ const ScrollToTop = () => {
 };
 
 const CatchAllHandler = () => {
-  const { pathname } = useLocation();
-  const parsed = parseSEOPathname(pathname);
-  if (parsed && parsed.isCustomSEORoute) {
-    return <LocationDetailsPage />;
-  }
   return <Navigate to="/" replace />;
 };
 
@@ -6250,7 +6236,6 @@ const AnimatedRoutes = () => {
           />
           <Route path="/equipment" element={<Equipment />} />
           <Route path="/subsidy" element={<Subsidy />} />
-          <Route path="/locations" element={<Locations />} />
           <Route
             path="/pan-india-global-operations"
             element={<OperationsPage />}
@@ -6325,25 +6310,6 @@ const AnimatedRoutes = () => {
           <Route
             path="/mushroom-franchise"
             element={<MushroomFranchisePage />}
-          />
-          <Route path="/cities" element={<CitiesPage />} />
-          <Route path="/cities/:state" element={<CitiesPage />} />
-          <Route path="/cities/:state/:city" element={<CitiesPage />} />
-          <Route
-            path="/locations/jabalpur/:blogRoute"
-            element={<JabalpurBlogDetailsPage />}
-          />
-          <Route
-            path="/locations/indore/:blogRoute"
-            element={<IndoreBlogDetailsPage />}
-          />
-          <Route
-            path="/locations/pune/:blogRoute"
-            element={<PuneBlogDetailsPage />}
-          />
-          <Route
-            path="/locations/mumbai/:blogRoute"
-            element={<MumbaiBlogDetailsPage />}
           />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />

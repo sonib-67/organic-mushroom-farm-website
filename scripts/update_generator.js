@@ -1,4 +1,6 @@
-import { SEOManualContent } from './locationSEOContent';
+const fs = require('fs');
+
+const fileContent = `import { SEOManualContent } from './locationSEOContent';
 import { getMhCityData } from './maharashtraCitiesData';
 import { shuffleSeedWise } from './locationSEOContent';
 
@@ -172,11 +174,11 @@ function replaceVars(text: string, vars: any) {
 export function generateMaharashtraPage(locationName: string, keywordInfo: any, formattedLoc: string, state: string): SEOManualContent | null {
   if (state !== 'Maharashtra') return null;
 
-  const locSlug = locationName.toLowerCase().trim().replace(/_/g, '-').replace(/\s+/g, '-');
-  const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\/+|\/+$/g, '').toLowerCase() : '';
+  const locSlug = locationName.toLowerCase().trim().replace(/_/g, '-').replace(/\\s+/g, '-');
+  const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\\/+||\\/+$/g, '').toLowerCase() : '';
   const kwText = keywordInfo ? keywordInfo.keyword : '';
   
-  const seed = `${locSlug}-${kwSlug}`;
+  const seed = \`\${locSlug}-\${kwSlug}\`;
   const cityData = getMhCityData(locSlug);
   
   const sAreas = shuffleSeedWise(cityData.areas, seed, 1);
@@ -203,51 +205,51 @@ export function generateMaharashtraPage(locationName: string, keywordInfo: any, 
   const pEng = replaceVars(shuffleSeedWise(englishTemplates, seed, 13)[0], vars);
   const pHin = replaceVars(shuffleSeedWise(hindiTemplates, seed, 14)[0], vars);
 
-  const articleHtml = `
+  const articleHtml = \`
     <div class="prose max-w-none dark:prose-invert">
-      <p><strong>${formattedLoc} मधील ${kwText}:</strong> ${pMar1}</p>
+      <p><strong>\${formattedLoc} मधील \${kwText}:</strong> \${pMar1}</p>
       
-      <h2>${formattedLoc} मधील बाजारपेठ आणि संधी</h2>
-      <p>${pMar2}</p>
+      <h2>\${formattedLoc} मधील बाजारपेठ आणि संधी</h2>
+      <p>\${pMar2}</p>
       
-      <h3>Key Market Insights in ${formattedLoc}</h3>
-      <p>${pEng}</p>
+      <h3>Key Market Insights in \${formattedLoc}</h3>
+      <p>\${pEng}</p>
       
       <h3>व्यावसायिक दृष्टीकोन आणि आर्थिक फायदे</h3>
-      <p>${pMar3}</p>
+      <p>\${pMar3}</p>
       
-      <h3>${formattedLoc} में व्यापार के अवसर</h3>
-      <p>${pHin}</p>
+      <h3>\${formattedLoc} में व्यापार के अवसर</h3>
+      <p>\${pHin}</p>
       
       <div class="p-4 mt-6 bg-slate-100 dark:bg-slate-800 rounded-lg border-l-4 border-primary-start">
-        <p><strong>Update:</strong> Find more information about ${kwText} in <a href="/${vars.nearby1.toLowerCase().replace(/\s+/g, '-')}/${kwSlug}" class="text-primary-start hover:underline">${vars.nearby1}</a> or visit our main center near ${vars.area1}.</p>
+        <p><strong>Update:</strong> Find more information about \${kwText} in <a href="/\${vars.nearby1.toLowerCase().replace(/\\s+/g, '-')}/\${kwSlug}" class="text-primary-start hover:underline">\${vars.nearby1}</a> or visit our main center near \${vars.area1}.</p>
       </div>
     </div>
-  `;
+  \`;
 
   // Dynamic Combinations for Title
   const titleP = replaceVars(shuffleSeedWise(titlePrefixes, seed, 15)[0], vars);
   const titleM = replaceVars(shuffleSeedWise(titleMiddles, seed, 16)[0], vars);
   const titleS = replaceVars(shuffleSeedWise(titleSuffixes, seed, 17)[0], vars);
-  const title = `${titleP} ${titleM} ${titleS}`;
+  const title = \`\${titleP} \${titleM} \${titleS}\`;
 
   // Dynamic Combinations for Meta Description
   const descP = replaceVars(shuffleSeedWise(descPrefixes, seed, 18)[0], vars);
   const descM = replaceVars(shuffleSeedWise(descMiddles, seed, 19)[0], vars);
   const descS = replaceVars(shuffleSeedWise(descSuffixes, seed, 20)[0], vars);
-  const metaDesc = `${descP} ${descM} ${descS}`;
+  const metaDesc = \`\${descP} \${descM} \${descS}\`;
 
   // Dynamic Combinations for H1
   const h1P = replaceVars(shuffleSeedWise(h1Prefixes, seed, 21)[0], vars);
   const h1M = replaceVars(shuffleSeedWise(h1Middles, seed, 22)[0], vars);
   const h1S = replaceVars(shuffleSeedWise(h1Suffixes, seed, 23)[0], vars);
-  const h1 = `${h1P} ${h1M}${h1S}`;
+  const h1 = \`\${h1P} \${h1M}\${h1S}\`;
 
   // Dynamic H2s and H3s
   const h2P = replaceVars(shuffleSeedWise(h2Prefixes, seed, 24)[0], vars);
   const h2M = replaceVars(shuffleSeedWise(h2Middles, seed, 25)[0], vars);
-  const h2_1 = `${h2P} ${h2M}`;
-  const h2_2 = replaceVars(`Market Demand at ${vars.market1}`, vars);
+  const h2_1 = \`\${h2P} \${h2M}\`;
+  const h2_2 = replaceVars(\`Market Demand at \${vars.market1}\`, vars);
   
   const shuffledH3s = shuffleSeedWise(h3TemplatesPool, seed, 26);
   const h3_1 = replaceVars(shuffledH3s[0], vars);
@@ -265,7 +267,7 @@ export function generateMaharashtraPage(locationName: string, keywordInfo: any, 
   const finalContent: SEOManualContent = {
     title,
     metaDesc,
-    keywords: `${kwText} ${formattedLoc}, ${formattedLoc} business, ${vars.area1} ${kwText}, ${vars.market1} demand, ${vars.agri1} use`,
+    keywords: \`\${kwText} \${formattedLoc}, \${formattedLoc} business, \${vars.area1} \${kwText}, \${vars.market1} demand, \${vars.agri1} use\`,
     h1,
     h2s: [h2_1, h2_2],
     h3s: [h3_1, h3_2, h3_3],
@@ -276,3 +278,7 @@ export function generateMaharashtraPage(locationName: string, keywordInfo: any, 
 
   return finalContent;
 }
+`;
+
+fs.writeFileSync('/src/data/maharashtraContentGenerator.ts', fileContent);
+console.log('Successfully updated maharashtraContentGenerator.ts');

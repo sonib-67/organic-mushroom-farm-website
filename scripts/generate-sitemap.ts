@@ -152,36 +152,14 @@ async function generate() {
     fs.writeFileSync(path.join(distDir, 'sitemap-main.xml'), mainXml, 'utf8');
   }
 
-  // 3. Generate the top level sitemap.xml which represents a Sitemap Index
+  // Generate the top level sitemap.xml which represents a Sitemap Index
   console.log("Generating central Google sitemap index (sitemap.xml)...");
-
-  // Calculate dynamic cities sitemaps count matching locations-sitemap config
-  const maxUrlsPerSitemap = 5000;
-  const maxCitiesPerSitemap = Math.floor(maxUrlsPerSitemap / SEO_KEYWORDS.length);
-  const totalCities = CITIES.length;
-  const numParts = Math.ceil(totalCities / maxCitiesPerSitemap);
-
-  let citySitemapLocs = '';
-  for (let partIdx = 0; partIdx < numParts; partIdx++) {
-    citySitemapLocs += `  <sitemap>
-    <loc>https://organicmushroomfarm.shop/sitemap-locations-cities-${partIdx + 1}.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>\n`;
-  }
   
   const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://organicmushroomfarm.shop/sitemap-main.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://organicmushroomfarm.shop/sitemap-locations-states.xml</loc>
-    <lastmod>${dateInfo}</lastmod>
-  </sitemap>
-${citySitemapLocs}  <sitemap>
-    <loc>https://organicmushroomfarm.shop/sitemap-locations-villages.xml</loc>
     <lastmod>${dateInfo}</lastmod>
   </sitemap>
 </sitemapindex>`;
