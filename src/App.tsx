@@ -105,6 +105,14 @@ import MushroomFranchisePage from "./pages/MushroomFranchisePage";
 import WorkshopPage from "./pages/WorkshopPage";
 import OperationsPage from "./pages/OperationsPage";
 
+import MadhyaPradeshPage from "./pages/MadhyaPradeshPage";
+import JabalpurPage from "./pages/JabalpurPage";
+import JabalpurBlogPage from "./pages/JabalpurBlogPage";
+import StatesPage from "./pages/StatesPage";
+import MaharashtraPage from "./pages/MaharashtraPage";
+import PunePage from "./pages/PunePage";
+import PuneBlogPage from "./pages/PuneBlogPage";
+
 // --- Constants & Types ---
 
 const ProductionSOP = () => {
@@ -681,16 +689,7 @@ const CompanyProfile = () => {
                     {item.label}
                   </div>
                   <div className="text-sm font-bold dark:text-white text-slate-900">
-                    {item.label === "Founder" ? (
-                      <Link
-                        to="/sitemap"
-                        className="hover:text-primary-start transition-colors underline decoration-dotted underline-offset-4"
-                      >
-                        {item.value}
-                      </Link>
-                    ) : (
-                      item.value
-                    )}
+                    {item.value}
                   </div>
                 </div>
               ))}
@@ -878,6 +877,12 @@ const NAV_ITEMS = [
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
   { name: "Contact", href: "/contact", isExternal: false, icon: Phone },
+  {
+    name: "Cities Pages",
+    href: "/states",
+    isExternal: false,
+    icon: MapPin,
+  },
   {
     name: "On Site Visit",
     href: "/on-site-consultation",
@@ -3203,7 +3208,6 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {[
-                { name: "Cities", href: "/cities" },
                 { name: "Gallery", href: "/gallery" },
                 { name: "Business Plan", href: "/business-plan" },
                 { name: "Government Subsidy", href: "/subsidy" },
@@ -6313,6 +6317,14 @@ const AnimatedRoutes = () => {
           />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
+
+          <Route path="/states" element={<StatesPage />} />
+          <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
+          <Route path="/states/maharashtra" element={<MaharashtraPage />} />
+          <Route path="/locations/jabalpur" element={<JabalpurPage />} />
+          <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
+          <Route path="/locations/pune" element={<PunePage />} />
+          <Route path="/locations/pune/:slug" element={<PuneBlogPage />} />
 
           <Route path="*" element={<CatchAllHandler />} />
         </Routes>

@@ -241,8 +241,7 @@ export default function SitemapPage() {
   const systemPolicies = [
     { name: "Terms of Service", path: "/terms", desc: "Rules and terms guiding farm partnerships." },
     { name: "Privacy Policy", path: "/privacy", desc: "Data protection and absolute client privacy logs." },
-    { name: "Refund & Cancellation", path: "/refund-policy", desc: "Transparent policy on ticket / spawn refunds." },
-    { name: "Shipping Directory", path: "/shipping-policy", desc: "Cold chain shipping guidelines and pin-codes." }
+    { name: "Refund & Cancellation", path: "/refund-policy", desc: "Transparent policy on ticket / spawn refunds." }
   ];
 
   return (
