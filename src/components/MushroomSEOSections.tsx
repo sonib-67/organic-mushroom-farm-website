@@ -160,7 +160,9 @@ export default function MushroomSEOSections() {
               <span className="text-xs font-bold uppercase tracking-widest">Certified Agri-Education</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-black tracking-tight dark:text-white text-slate-900 uppercase">
-              About <span className="gradient-text font-serif">Mushroom Training</span> in India
+              <Link to="/training" className="hover:text-current transition-colors">
+                About <span className="gradient-text font-serif">Mushroom Training</span> in India
+              </Link>
             </h2>
             <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed font-normal">
               Farming mushrooms requires an ideal balance of moisture, hygiene, ventilation, and strict temperature protocols. Our institute bridges the gap between traditional agricultural limitations and scientific agro-entrepreneurship. From raw beginners seeking a <strong className="dark:text-white text-slate-900 font-semibold">mushroom training near me</strong> to experienced large-scale farmers ready to update their existing commercial infrastructure, we provide the ultimate platform for learning and implementation.
@@ -195,7 +197,9 @@ export default function MushroomSEOSections() {
           <div className="max-w-4xl mx-auto space-y-6 text-center">
             <div className="badge bg-green-500/10 text-[#25D366] border border-[#25D366]/20 mx-auto">High Demand Industry</div>
             <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight dark:text-white text-slate-900 uppercase">
-              Mushroom Farming <span className="gradient-text">Business Opportunity</span>
+              <Link to="/subsidy" className="hover:text-current transition-colors">
+                Mushroom Farming <span className="gradient-text">Business Opportunity</span>
+              </Link>
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-sm md:text-base leading-relaxed">
               As consumption grows rapidly across residential households, hotels, and retail outlets, commercial mushroom growing presents a highly scalable, <strong className="dark:text-white text-slate-900 font-semibold">low investment farming business</strong> opportunity. Unlike classic crops that require massive acreages of soil and open skies, high-density mushroom setups are stacked vertically in insulated, space-efficient grow rooms.

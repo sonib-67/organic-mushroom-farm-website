@@ -370,10 +370,12 @@ const CriticalParameters = () => {
         <div className="text-center mb-12">
           <div className="badge mx-auto mb-4">Precision Metrics</div>
           <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
-            Critical{" "}
-            <span className="gradient-text">
-              Parameters for High-Yield Mushroom Production
-            </span>
+            <Link to="/mushroom-types" className="hover:text-current transition-colors">
+              Critical{" "}
+              <span className="gradient-text">
+                Parameters for High-Yield Mushroom Production
+              </span>
+            </Link>
           </h2>
           <p className="dark:text-slate-400 text-slate-600 text-[13px] md:text-base">
             Scientific boundaries for consistent commercial yields in organic
@@ -525,8 +527,10 @@ const MushroomComparison = () => {
             Top Searched Product Variants
           </div>
           <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
-            High-Yield Commercial Mushroom{" "}
-            <span className="gradient-text">Genetics & Types Table</span>
+            <Link to="/blog" className="hover:text-current transition-colors">
+              High-Yield Commercial Mushroom{" "}
+              <span className="gradient-text">Genetics & Types Table</span>
+            </Link>
           </h2>
         </div>
 
@@ -1968,8 +1972,10 @@ const ROICalculator = () => {
             <div className="text-center lg:text-left">
               <div className="badge mb-4 mx-auto lg:mx-0">Profit Analytics</div>
               <h2 className="mb-4">
-                Personalized Mushroom Business{" "}
-                <span className="gradient-text">ROI Estimator</span>
+                <Link to="/roi-calculator" className="hover:text-current transition-colors">
+                  Personalized Mushroom Business{" "}
+                  <span className="gradient-text">ROI Estimator</span>
+                </Link>
               </h2>
               <p className="mb-8 max-w-lg mx-auto lg:mx-0">
                 Estimate your mushroom farming profits based on real-time market
@@ -4181,8 +4187,10 @@ const HomePage = () => {
           <div className="text-center mb-12">
             <div className="badge mx-auto mb-4">Commercial Infrastructure</div>
             <h2 className="mb-4 uppercase">
-              Standard Commercial{" "}
-              <span className="gradient-text">Compost Units</span>
+              <Link to="/equipment" className="hover:text-current transition-colors">
+                Standard Commercial{" "}
+                <span className="gradient-text">Compost Units</span>
+              </Link>
             </h2>
             <p className="max-w-2xl mx-auto">
               Complete Phase-I + Phase-II commercial infrastructure with 15-day
@@ -4415,8 +4423,10 @@ const HomePage = () => {
                 Documentation & Resources
               </div>
               <h2 className="mb-6 uppercase text-center lg:text-left">
-                Commercial Production{" "}
-                <span className="gradient-text">SOPs & Guides</span>
+                <Link to="/cities" className="hover:text-current transition-colors">
+                  Commercial Production{" "}
+                  <span className="gradient-text">SOPs & Guides</span>
+                </Link>
               </h2>
               <p className="mb-10 text-center lg:text-left">
                 Standard operating procedures used by commercial mushroom

@@ -94,7 +94,7 @@ const BlogPage = () => {
                     <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
                     <span className="flex items-center gap-1"><User size={12} /> Expert Team</span>
                   </div>
-                  <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-4 leading-tight group-hover:text-primary-start transition-colors">
+                  <h3 className="dark:text-white text-slate-900 font-bold text-[15px] md:text-base mb-3 leading-snug group-hover:text-primary-start transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-10 flex-grow">
