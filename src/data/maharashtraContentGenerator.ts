@@ -2,24 +2,73 @@ import { SEOManualContent } from './locationSEOContent';
 import { getMhCityData } from './maharashtraCitiesData';
 import { shuffleSeedWise } from './locationSEOContent';
 
-const marathiWords = [
-  "लागवड", "प्रशिक्षण", "शेतकरी", "उत्पादन", "बाजारपेठ", "आधुनिक", "फायदा",
-  "कृषी", "माहिती", "व्यवसाय", "संधी", "हवामान", "अल्पभूधारक", "महिला", "तंत्रज्ञान",
-  "खर्च", "सबसिडी", "शासकीय", "मार्गदर्शन", "उद्योग", "रोजगार"
+const marathiIntroTemplates = [
+  "__LOC__ मध्ये आधुनिक तंत्रज्ञानाचा वापर करून अनेक शेतकरी आता __KW__ कडे यशस्वीरीत्या वळत आहेत.",
+  "आजकाल __LOC__ आणि विशेषतः __AREA1__ परिसरात __KW__ मुळे एक उत्तम व्यावसायिक संधी निर्माण झाली आहे.",
+  "जर तुम्ही __LOC__ मधील तरुण उद्योजक असाल, तर __KW__ हा कमी खर्चात जास्त नफा देणारा एक उत्तम पर्याय आहे.",
+  "__LOC__ च्या भौगोलिक आणि हवामान परिस्थितीचा विचार करता, येथे __KW__ साठी खूप पोषक वातावरण आहे.",
+  "__LOC__ शहर आणि ग्रामीण भागात __KW__ च्या वाढत्या मागणीमुळे या क्षेत्रातील गुंतवणुकीत मोठी वाढ झाली आहे.",
+  "अनेक प्रगतिशील शेतकरी __LOC__ मध्ये __KW__ चे व्यावसायिक उत्पादन घेऊन आपला आर्थिक स्तर उंचावत आहेत.",
+  "सध्याच्या काळात __KW__ हा __LOC__ मधील लोकांसाठी एक अत्यंत आश्वासक आणि फायदेशीर मार्ग बनला आहे.",
+  "__LOC__ च्या आसपासच्या __AREA1__ सारख्या ठिकाणी __KW__ बद्दल जागरूकता आणि प्रशिक्षण शिबिरे वाढत आहेत."
 ];
 
-const hindiWords = [
-  "खेती", "प्रशिक्षण", "मशरूम", "व्यवसाय", "किसान", "कमाई", "मार्केट", "ट्रेनिंग",
-  "प्रॉफिट", "अनुदान", "फसल", "तकनीक", "फायदेमंद", "उत्पादन"
+const marathiBodyTemplates = [
+  "__AREA1__ आणि __AREA2__ भागातील शेतकरी __AGRI1__ आणि __AGRI2__ चा उत्तम प्रकारे पुनर्वापर करून आपले उत्पन्न दुप्पट करत आहेत.",
+  "विशेष म्हणजे, __LOC__ मधील __MARKET1__ सारख्या मोठ्या बाजारपेठांमध्ये याची मागणी प्रचंड वाढली आहे.",
+  "__MARKET1__ आणि __MARKET2__ मध्ये मिळणारा चांगला भाव लक्षात घेता, अनेक लोक याकडे पूर्णवेळ व्यवसाय म्हणून पाहत आहेत.",
+  "__NEARBY1__ आणि __NEARBY2__ मधून येणाऱ्या व्यापाऱ्यांमुळे इथल्या मालाला स्थानिक पातळीवरच मोठी बाजारपेठ उपलब्ध होते.",
+  "येथील स्थानिक शेतकरी __AGRI1__ सारख्या कच्च्या मालाचा उपयोग करून __MARKET1__ मध्ये थेट विक्री करत आहेत.",
+  "__LOC__ मधील __AREA2__ परिसरातील उत्पादक आता आधुनिक पद्धतीचा अवलंब करून __MARKET2__ मध्ये दर्जेदार पुरवठा करत आहेत.",
+  "विशेषतः __MARKET1__ च्या माध्यमातून __NEARBY1__ पर्यंत उत्पादने पोहचवणे आता अधिक सोपे आणि परवडणारे झाले आहे.",
+  "__AREA1__ च्या आसपास उपलब्ध असलेल्या __AGRI2__ मुळे हा प्रकल्प उभारणीचा खर्च खूपच आटोक्यात राहतो."
 ];
 
-function generateUniqueId(seed: string) {
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) {
-    hash = ((hash << 5) - hash) + seed.charCodeAt(i);
-    hash |= 0;
-  }
-  return Math.abs(hash);
+const marathiBenefitTemplates = [
+  "यामुळे केवळ आर्थिक फायदाच होत नाही, तर __LOC__ च्या ग्रामीण तसेच शहरी भागात रोजगार निर्मितीही होत आहे.",
+  "शासनाच्या विविध अनुदानांचा फायदा घेऊन तुम्ही __AREA1__ मध्ये आपला स्वतःचा सेटअप अगदी सहजपणे उभा करू शकता.",
+  "अगदी कमी जागेत आणि कमी भांडवलात सुरुवात करूनही तुम्ही __MARKET1__ मध्ये थेट विक्री करू शकता, हे याचे मोठे वैशिष्ट्य आहे.",
+  "__AGRI1__ सारख्या कृषी अवशेषांचा वापर केल्याने उत्पादन खर्च मोठ्या प्रमाणावर कमी होतो आणि निव्वळ नफा वाढतो.",
+  "या व्यवसायामुळे __LOC__ मधील महिला आणि तरुणांना घरबसल्या एक हक्काचे उत्पन्नाचे साधन मिळाले आहे.",
+  "शाश्वत आणि सेंद्रिय पद्धतीचा अवलंब केल्यामुळे __MARKET2__ मधील ग्राहक या उत्पादनांना विशेष पसंती देत आहेत.",
+  "__NEARBY1__ सारख्या शहरांशी जोडल्या गेलेल्या संपर्क व्यवस्थेमुळे वाहतूक खर्च वाचतो आणि नफ्याचे प्रमाण अधिक राहते.",
+  "__AREA2__ मधील यशस्वी उदाहरणे पाहता, __LOC__ मधील नवउद्योजकांसाठी हा एक आदर्श आणि सुरक्षित व्यवसाय ठरत आहे."
+];
+
+const hindiTemplates = [
+  "__LOC__ के किसानों और युवाओं के लिए __KW__ एक बहुत ही बेहतरीन और मुनाफेदार बिजनेस मॉडल बनकर उभरा है।",
+  "अगर हम __LOC__ और खासकर __AREA1__ के मार्केट की बात करें, तो वहां इस क्षेत्र में बहुत तेजी से विकास हो रहा है।",
+  "__MARKET1__ में बढ़ती डिमांड को देखते हुए, __LOC__ में कम इन्वेस्टमेंट के साथ इस व्यवसाय को शुरू करना बहुत ही फायदे का सौदा है।",
+  "स्थानीय किसान __AGRI1__ का उपयोग करके और __MARKET2__ जैसे बाजारों में अपनी उपज बेचकर बहुत अच्छा मुनाफा कमा रहे हैं।",
+  "__NEARBY1__ और __NEARBY2__ के व्यापारी भी अब सीधे __LOC__ से माल खरीदना पसंद कर रहे हैं, जिससे किसानों को सीधा फायदा मिल रहा है।",
+  "__LOC__ के अनुकूल मौसम और __AGRI2__ की आसान उपलब्धता ने __KW__ को यहां एक सफल उद्यम बना दिया है।",
+  "हाल ही के वर्षों में, __AREA2__ के कई लोगों ने अपनी नौकरी छोड़कर __KW__ को अपना मुख्य पेशा बना लिया है।",
+  "__MARKET1__ में सही दाम और थोक खरीदारों की मौजूदगी से __LOC__ में इसका भविष्य काफी उज्जवल दिखाई देता है।"
+];
+
+const englishTemplates = [
+  "The demand for __KW__ in __LOC__ has seen exponential growth, driven by changing consumer preferences and market dynamics.",
+  "Entrepreneurs in __LOC__, particularly around __AREA1__, are leveraging modern techniques to maximize their ROI in this sector.",
+  "With strategic access to __MARKET1__ and local availability of raw materials like __AGRI1__, the setup cost is significantly minimized.",
+  "By adopting advanced methodologies, growers in __LOC__ are not only meeting local demands in __MARKET2__ but also supplying to nearby regions like __NEARBY1__.",
+  "Government subsidies and local support systems in __LOC__ have made it easier than ever to scale operations and establish a sustainable business.",
+  "The unique climate of __LOC__ provides an excellent natural environment for expanding the scope of __KW__ effectively.",
+  "Innovative solutions utilizing __AGRI2__ are empowering the farming community in __AREA2__ to achieve higher profit margins.",
+  "Connecting local producers from __LOC__ directly to major commercial hubs like __MARKET1__ has streamlined the entire supply chain."
+];
+
+function replaceVars(text: string, vars: any) {
+  return text
+    .replace(/__LOC__/g, vars.loc)
+    .replace(/__KW__/g, vars.kw)
+    .replace(/__AREA1__/g, vars.area1)
+    .replace(/__AREA2__/g, vars.area2)
+    .replace(/__MARKET1__/g, vars.market1)
+    .replace(/__MARKET2__/g, vars.market2)
+    .replace(/__AGRI1__/g, vars.agri1)
+    .replace(/__AGRI2__/g, vars.agri2)
+    .replace(/__NEARBY1__/g, vars.nearby1)
+    .replace(/__NEARBY2__/g, vars.nearby2);
 }
 
 export function generateMaharashtraPage(locationName: string, keywordInfo: any, formattedLoc: string, state: string): SEOManualContent | null {
@@ -28,335 +77,103 @@ export function generateMaharashtraPage(locationName: string, keywordInfo: any, 
   const locSlug = locationName.toLowerCase().trim().replace(/_/g, '-').replace(/\s+/g, '-');
   const kwSlug = keywordInfo ? keywordInfo.url.replace(/^\/+|\/+$/g, '').toLowerCase() : '';
   const kwText = keywordInfo ? keywordInfo.keyword : '';
-  const category = keywordInfo ? keywordInfo.category : 'General';
   
   const seed = `${locSlug}-${kwSlug}`;
-  const id = generateUniqueId(seed);
-  
   const cityData = getMhCityData(locSlug);
   
-  // Choose random elements based on seed
-  const sAreas = shuffleSeedWise(cityData.areas, seed, 1).slice(0, 2);
-  const sMarkets = shuffleSeedWise(cityData.markets, seed, 2).slice(0, 2);
-  const sAgri = shuffleSeedWise(cityData.agri, seed, 3).slice(0, 2);
-  const sNearby = shuffleSeedWise(cityData.nearby, seed, 4).slice(0, 2);
-  const sMidc = shuffleSeedWise(cityData.midc, seed, 5)[0] || 'Local MIDC';
+  const sAreas = shuffleSeedWise(cityData.areas, seed, 1);
+  const sMarkets = shuffleSeedWise(cityData.markets, seed, 2);
+  const sAgri = shuffleSeedWise(cityData.agri, seed, 3);
+  const sNearby = shuffleSeedWise(cityData.nearby, seed, 4);
 
-  let h1 = "";
-  let metaDesc = "";
-  let title = "";
-  let articleHtml = "";
-  
-  // Categorical logic for different keyword intents (Search Intent)
-  if (category.toLowerCase().includes('training') | category.toLowerCase().includes('course')) {
-    title = `${formattedLoc} Mushroom Training | Practical Farm Course in ${sAreas[0]}`;
-    metaDesc = `Learn commercial mushroom farming in ${formattedLoc}. Offline/Online training, practical guidance in ${sAreas[0]}, using ${sAgri[0]} substrate. High ROI business for Maharashtra farmers.`;
-    h1 = `Professional Mushroom Training Center in ${formattedLoc}, Maharashtra`;
-    
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert">
-        <p><strong>${formattedLoc} मधील आधुनिक मशरूम प्रशिक्षण:</strong> मशरूम शेती हा आता फक्त एक पारंपारिक व्यवसाय राहिलेला नाही. In recent years, mushroom cultivation has transformed into a highly profitable enterprise. ${formattedLoc} परिसरातील ${sAreas[0]} आणि ${sAreas[1]} भागातील तरुण आणि शेतकरी याकडे एक उत्तम बिझनेस मॉडेल म्हणून पाहत आहेत.</p>
-        
-        <h2>Why start Mushroom Farming in ${formattedLoc}?</h2>
-        <p>येथील \${cityData.climate} हवामान मशरूम वाढीसाठी अत्यंत अनुकूल आहे. We teach you how to maintain optimal temperature and humidity using low-cost technology. ${sNearby[0]} आणि ${sNearby[1]} मधील बरेच शेतकरी आता <a href="/mushroom-spawn-supplier-near-me" class="text-primary-start hover:underline">${sAgri[0]} आणि ${sAgri[1]} चा वापर करून Oyster आणि Button mushroom चे उत्तम उत्पादन</a> घेत आहेत.</p>
-        
-        <p>अगर आप <a href="/mushroom-farming-business-plan" class="text-primary-start hover:underline">${formattedLoc} में एक सफल मशरूम फार्म</a> शुरू करना चाहते हैं, तो हमारी प्रैक्टिकल ट्रेनिंग आपके लिए सबसे सही कदम है।</p>
-        
-        <h3>Training Syllabus (प्रशिक्षण अभ्यासक्रम)</h3>
-        <ul>
-          <li><strong>Spawn Processing:</strong> उत्कृष्ट दर्जाचे स्पॉन (बियाणे) कसे ओळखावे.</li>
-          <li><strong>Substrate Preparation:</strong> Using local agricultural waste like ${sAgri[0]} and sterilizing it.</li>
-          <li><strong>Climate Control:</strong> ${formattedLoc} च्या बदलत्या तापमानात (temp control) मशरूम बेड कसे सांभाळावे.</li>
-          <li><strong>Marketing & Sales:</strong> Direct supply to ${sMarkets[0]} and ${sMarkets[1]} for maximum profit.</li>
-        </ul>
-        
-        <div class="p-4 mt-6 bg-slate-100 dark:bg-slate-800 rounded-lg border-l-4 border-primary-start">
-          <p><strong>Batch Updates:</strong> नवीन बॅच लवकरच ${sAreas[0]} जवळ किंवा ऑनलाइन सुरु होत आहे. Government subsidy and Krishi Vigyan Kendra (KVK) guidelines are included. For nearby areas, check our <a href="/${sNearby[0].toLowerCase().replace(/\s+/g, '-')}/mushroom-training-center" class="text-primary-start hover:underline">${sNearby[0]} training schedule</a>.</p>
-        </div>
+  const vars = {
+    loc: formattedLoc,
+    kw: kwText,
+    area1: sAreas[0] || 'City Area',
+    area2: sAreas[1] || 'Suburbs',
+    market1: sMarkets[0] || 'Local Market',
+    market2: sMarkets[1] || 'City Market',
+    agri1: sAgri[0] || 'Local Farm Waste',
+    agri2: sAgri[1] || 'Agri Residue',
+    nearby1: sNearby[0] || 'Nearby City',
+    nearby2: sNearby[1] || 'Neighboring District'
+  };
+
+  const pMar1 = replaceVars(shuffleSeedWise(marathiIntroTemplates, seed, 10)[0], vars);
+  const pMar2 = replaceVars(shuffleSeedWise(marathiBodyTemplates, seed, 11)[0], vars);
+  const pMar3 = replaceVars(shuffleSeedWise(marathiBenefitTemplates, seed, 12)[0], vars);
+  const pEng = replaceVars(shuffleSeedWise(englishTemplates, seed, 13)[0], vars);
+  const pHin = replaceVars(shuffleSeedWise(hindiTemplates, seed, 14)[0], vars);
+
+  const articleHtml = `
+    <div class="prose max-w-none dark:prose-invert">
+      <p><strong>${formattedLoc} मधील ${kwText}:</strong> ${pMar1}</p>
+      
+      <h2>${formattedLoc} मधील बाजारपेठ आणि संधी</h2>
+      <p>${pMar2}</p>
+      
+      <h3>Key Market Insights in ${formattedLoc}</h3>
+      <p>${pEng}</p>
+      
+      <h3>व्यावसायिक दृष्टीकोन आणि आर्थिक फायदे</h3>
+      <p>${pMar3}</p>
+      
+      <h3>${formattedLoc} में व्यापार के अवसर</h3>
+      <p>${pHin}</p>
+      
+      <div class="p-4 mt-6 bg-slate-100 dark:bg-slate-800 rounded-lg border-l-4 border-primary-start">
+        <p><strong>Update:</strong> Find more information about ${kwText} in <a href="/${vars.nearby1.toLowerCase().replace(/\s+/g, '-')}/${kwSlug}" class="text-primary-start hover:underline">${vars.nearby1}</a> or visit our main center near ${vars.area1}.</p>
       </div>
-    `;
-  } 
-  else if (category.toLowerCase().includes('spawn') | category.toLowerCase().includes('seed')) {
-    title = `Buy Best Mushroom Spawn in ${formattedLoc} | F1 Seeds Supply`;
-    metaDesc = `Premium quality Oyster & Button Mushroom spawn supplier in ${formattedLoc}. Fast delivery to ${sNearby[0]} and ${sNearby[1]}. Lab tested F1 seeds.`;
-    h1 = `High Yielding Mushroom Spawn & Seeds Supplier in ${formattedLoc}`;
-    
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert">
-        <p><strong>${formattedLoc} मध्ये मशरूम स्पॉनचा पुरवठा:</strong> मशरूम उत्पादनात सर्वात महत्त्वाची गोष्ट म्हणजे दर्जेदार बियाणे (Mushroom Spawn). ${formattedLoc} मधील ${sAreas[0]} आणि ${sMidc} परिसरातील मशरूम उत्पादकांना आम्ही सर्वोत्तम F1 generation spawn पुरवतो.</p>
-        
-        <h2>Premium Quality Seeds for ${formattedLoc} Climate</h2>
-        <p>Our lab-tested spawns are specially acclimatized to perform best in the \${cityData.climate} conditions. चाहे वह ऑयस्टर मशरूम हो, मिल्की हो या बटन मशरूम, <a href="/mushroom-training-center" class="text-primary-start hover:underline">सही बीजों का चुनाव ही आपकी फसल की सफलता</a> तय करता है।</p>
-        
-        <h3>Available Spawn Types in ${formattedLoc}:</h3>
-        <ul>
-          <li><strong>Oyster Mushroom Spawn:</strong> Fast colonization on ${sAgri[0]}. ${formattedLoc} च्या हवामानात (climate) वेगाने वाढणारे.</li>
-          <li><strong>Button Mushroom Spawn:</strong> Perfect for temperature-controlled units in ${sAreas[1]}.</li>
-          <li><strong>Milky Mushroom:</strong> Summer special variety, highly demanded in ${sMarkets[0]}.</li>
-        </ul>
-        
-        <p>We ensure fast and safe delivery to <a href="/${sNearby[0].toLowerCase().replace(/\s+/g, '-')}/buy-mushroom-spawn" class="text-primary-start hover:underline">${sNearby[0]}</a>, ${sNearby[1]} and surrounding agricultural zones of ${formattedLoc}. योग्य स्पॉन मिळवण्यासाठी आणि ताजे बियाणे बुक करण्यासाठी आमच्याशी संपर्क साधा.</p>
-      </div>
-    `;
-  }
-  else if (category.toLowerCase().includes('business') | category.toLowerCase().includes('plan')) {
-    title = `Mushroom Farming Business Plan in ${formattedLoc} | High ROI`;
-    metaDesc = `Start a profitable mushroom business in ${formattedLoc}, Maharashtra. Learn project costs, ROI, subsidies, and marketing at ${sMarkets[0]}.`;
-    h1 = `Commercial Mushroom Farming Business Model in ${formattedLoc}`;
-    
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert">
-        <p><strong>${formattedLoc} मधील मशरूम व्यवसाय संधी:</strong> आजच्या काळात कमी जागेत आणि कमी खर्चात (low investment) जास्त नफा मिळवून देणारा हा एक उत्तम व्यवसाय आहे. ${formattedLoc} जवळील ${sAreas[0]} आणि ${sAreas[1]} भागांमध्ये याची मागणी झपाट्याने वाढत आहे.</p>
-        
-        <h2>Project Cost & ROI for ${formattedLoc}</h2>
-        <p>The initial setup cost depends on your target market. If you are planning to supply to ${sMarkets[0]} or wholesale buyers in ${sMidc}, a commercial setup is recommended. यहां मशरूम की भारी डिमांड है, खासकर होटल्स और <a href="/mushroom-spawn-supplier" class="text-primary-start hover:underline">सुपरमार्केट्स में</a>।</p>
-        
-        <h3>Market Demand in ${formattedLoc}</h3>
-        <ul>
-          <li><strong>Local Sales:</strong> Selling fresh oyster and button mushrooms at ${sMarkets[1]}.</li>
-          <li><strong>Wholesale:</strong> Bulk supply to APMC markets and surrounding cities like <a href="/${sNearby[0].toLowerCase().replace(/\s+/g, '-')}/mushroom-farming-business-plan" class="text-primary-start hover:underline">${sNearby[0]}</a>.</li>
-          <li><strong>Value Addition:</strong> मशरूम पावडर, लोणचे (Pickles), आणि सुकवलेले मशरूम (Dry mushrooms) बनवून विक्री.</li>
-        </ul>
-        
-        <p>Maharashtra state government and NABARD provide excellent subsidies for agro-processing units. We guide you from shed construction in ${sAreas[1]} to final harvest sales. <a href="/mushroom-training-center" class="text-primary-start hover:underline">${formattedLoc} मधील शेतकरी आणि उद्योजकांसाठी</a> हा व्यवसाय आर्थिक उन्नतीचा नवा मार्ग ठरत आहे.</p>
-      </div>
-    `;
-  }
-  else {
-    // General / Catch-all Content
-    title = `${kwText} in ${formattedLoc}, Maharashtra | Complete Guide`;
-    metaDesc = `Expert information on ${kwText} in ${formattedLoc}. Local techniques using ${sAgri[0]}, market insights at ${sMarkets[0]}, and farming strategies.`;
-    h1 = `${kwText} in ${formattedLoc}: Agricultural Insights`;
-    
-    articleHtml = `
-      <div class="prose max-w-none dark:prose-invert">
-        <p><strong>${formattedLoc} आणि मशरूम शेती (Mushroom Farming):</strong> ${kwText} च्या संदर्भात ${formattedLoc} शहर आणि आजूबाजूचा परिसर (जसे की ${sAreas[0]}) खूप वेगाने प्रगती करत आहे. \${cityData.climate} वातावरणामुळे आणि ${sAgri[0]} सारख्या कृषी-अवशेषांच्या उपलब्धतेमुळे (availability of agro-waste), येथे <a href="/mushroom-farming-business-plan" class="text-primary-start hover:underline">मशरूम लागवड अत्यंत फायदेशीर</a> ठरत आहे.</p>
-        
-        <h2>Why ${kwText} is trending in ${formattedLoc}?</h2>
-        <p>The demand for protein-rich, organic food is rising in urban and semi-urban pockets of ${formattedLoc}. People in ${sAreas[1]} and <a href="/${sNearby[0].toLowerCase().replace(/\s+/g, '-')}/${kwSlug}" class="text-primary-start hover:underline">${sNearby[0]}</a> are actively looking for fresh produce. अगर हम ${formattedLoc} के लोकल मार्केट्स जैसे ${sMarkets[0]} की बात करें, तो वहां ताज़े मशरूम की बहुत अधिक मांग है।</p>
-        
-        <h3>Key Agricultural Factors:</h3>
-        <ul>
-          <li><strong>Raw Material:</strong> ${formattedLoc} मध्ये ${sAgri[1]} आणि ${sAgri[0]} सहज उपलब्ध असल्याने उत्पादन खर्च (production cost) कमी होतो.</li>
-          <li><strong>Local Markets:</strong> ${sMarkets[1]} सारख्या स्थानिक बाजारपेठांमध्ये थेट विक्री (direct selling) शक्य आहे.</li>
-          <li><strong>Industrial Support:</strong> The presence of agro-processing units near ${sMidc} supports value addition.</li>
-        </ul>
-        
-        <p>Whether you are a beginner or an experienced grower in ${formattedLoc}, understanding the local dynamics is crucial. <a href="/mushroom-training-center" class="text-primary-start hover:underline">योग्य मार्गदर्शन आणि अद्ययावत तंत्रज्ञानाचा</a> वापर करून तुम्ही यशस्वी होऊ शकता.</p>
-      </div>
-    `;
-  }
+    </div>
+  `;
 
-  if (locSlug === 'mumbai') {
-    articleHtml += `
-      <div class="mt-16 pt-16 border-t dark:border-white/10 border-black/10 prose max-w-none dark:prose-invert">
-        <h2>Mumbai Mushroom Farming Training | मुंबई मशरूम शेती प्रशिक्षण केंद्र – Complete Guide to Mushroom Farm Setup, Online Training & Mushroom Business</h2>
-        <p><strong>Start a Profitable Mushroom Farming Business in Mumbai | मुंबईमध्ये मशरूम शेती व्यवसाय कसा सुरू करावा?</strong></p>
-        <p>मुंबई, नवी मुंबई, ठाणे, मीरा रोड, वाशी, पनवेल, कल्याण, डोंबिवली आणि आसपासच्या भागांमध्ये ताज्या, सेंद्रिय आणि औषधी मशरूमची मागणी वेगाने वाढत आहे. हॉटेल्स, रेस्टॉरंट्स, सुपरमार्केट्स आणि हेल्थ-फूड स्टोअर्समध्ये मशरूमचा वापर वाढल्यामुळे हा व्यवसाय नवीन उद्योजकांसाठी मोठी संधी बनला आहे.</p>
-        <p>If you want to start a mushroom farming business in Mumbai, proper training, quality mushroom spawn, farm planning and marketing strategy are the keys to success.</p>
-
-        <h3>Why Mushroom Farming is a Growing Business in Mumbai?</h3>
-        <p>Mumbai is one of India’s largest food markets. Every day thousands of kilograms of fresh mushrooms are supplied to restaurants, hotels, supermarkets and online grocery stores.</p>
-        <p>Because of increasing awareness about healthy food, demand is growing for:</p>
-        <ul>
-          <li>Oyster Mushroom</li>
-          <li>Button Mushroom</li>
-          <li>Milky Mushroom</li>
-          <li>Shiitake Mushroom</li>
-          <li>Lion’s Mane Mushroom</li>
-          <li>Reishi Mushroom</li>
-          <li>Turkey Tail Mushroom</li>
-        </ul>
-        <p>Medicinal mushrooms are also becoming popular among health-conscious consumers.</p>
-
-        <h3>Mushroom Farm Setup</h3>
-        <p>Professional mushroom farm setup includes:</p>
-        <ul>
-          <li>Growing Room Design</li>
-          <li>Humidity Management</li>
-          <li>Temperature Control</li>
-          <li>Ventilation System</li>
-          <li>Clean Production Area</li>
-          <li>Quality Mushroom Spawn</li>
-          <li>Packaging Area</li>
-          <li>Storage Facility</li>
-        </ul>
-        <p>Whether you want a small home-based farm or a commercial mushroom production unit, proper planning helps reduce production risks.</p>
-
-        <h3>Online Mushroom Training</h3>
-        <p>घरबसल्या संपूर्ण मशरूम शेती शिकण्यासाठी ऑनलाइन प्रशिक्षण उपलब्ध आहे.</p>
-        <p>Training includes:</p>
-        <ul>
-          <li>Mushroom Biology</li>
-          <li>Compost & Substrate Preparation</li>
-          <li>Spawn Running</li>
-          <li>Bed Preparation</li>
-          <li>Disease Management</li>
-          <li>Harvesting</li>
-          <li>Packaging</li>
-          <li>Marketing</li>
-          <li>Business Planning</li>
-        </ul>
-        <p>Students from Mumbai, Navi Mumbai, Thane, Panvel, Kalyan, Dombivli and nearby villages can join online training.</p>
-
-        <h3>Offline Practical Mushroom Training</h3>
-        <p>Offline practical sessions focus on:</p>
-        <ul>
-          <li>Live Demonstration</li>
-          <li>Mushroom Production</li>
-          <li>Spawn Handling</li>
-          <li>Farm Management</li>
-          <li>Harvesting Techniques</li>
-          <li>Commercial Production</li>
-        </ul>
-
-        <h3>Mushroom Spawn Sale</h3>
-        <p>High-quality spawn is available for:</p>
-        <ul>
-          <li>Oyster Mushroom</li>
-          <li>Button Mushroom</li>
-          <li>Milky Mushroom</li>
-        </ul>
-        <p>Healthy spawn plays an important role in obtaining better yield and quality production.</p>
-
-        <h3>Fresh Mushroom Business</h3>
-        <p>Fresh mushrooms can be supplied to:</p>
-        <ul>
-          <li>Hotels</li>
-          <li>Restaurants</li>
-          <li>Cafés</li>
-          <li>Supermarkets</li>
-          <li>Organic Stores</li>
-          <li>Vegetable Markets</li>
-        </ul>
-        <p>Mumbai offers one of the largest consumer markets for fresh mushrooms.</p>
-
-        <h3>Dry Mushroom Business</h3>
-        <p>Dry mushrooms have several advantages:</p>
-        <ul>
-          <li>Long Shelf Life</li>
-          <li>Easy Transportation</li>
-          <li>Better Storage</li>
-          <li>Value Addition</li>
-          <li>National Shipping Opportunities</li>
-        </ul>
-        <p>Many mushroom entrepreneurs earn additional income by selling dried mushrooms and mushroom powder.</p>
-
-        <h3>Mushroom Consultancy</h3>
-        <p>Professional consultancy may help with:</p>
-        <ul>
-          <li>Farm Planning</li>
-          <li>Production Management</li>
-          <li>Expansion Planning</li>
-          <li>Business Development</li>
-          <li>Technical Support</li>
-        </ul>
-
-        <h3>Turnkey Mushroom Projects</h3>
-        <p>Complete project support can include:</p>
-        <ul>
-          <li>Commercial Farm Planning</li>
-          <li>Equipment Guidance</li>
-          <li>Production Unit Design</li>
-          <li>Infrastructure Planning</li>
-        </ul>
-
-        <h3>Mushroom Business Plan & ROI</h3>
-        <p>Before investing, entrepreneurs should evaluate:</p>
-        <ul>
-          <li>Initial Investment</li>
-          <li>Production Capacity</li>
-          <li>Operating Costs</li>
-          <li>Local Market Demand</li>
-          <li>Expected Returns</li>
-        </ul>
-        <p>A proper business plan helps improve long-term profitability.</p>
-
-        <h3>Government Subsidy</h3>
-        <p>Eligible farmers and entrepreneurs may benefit from relevant agriculture and entrepreneurship schemes, depending on current government programs and eligibility.</p>
-
-        <h3>Mushroom Marketing Support</h3>
-        <p>Marketing guidance may include:</p>
-        <ul>
-          <li>Local Market Development</li>
-          <li>Restaurant Supply</li>
-          <li>Retail Distribution</li>
-          <li>Online Sales</li>
-          <li>Branding</li>
-          <li>Customer Acquisition</li>
-        </ul>
-
-        <h3>Mumbai Areas Covered</h3>
-        <ul>
-          <li>Andheri</li>
-          <li>Borivali</li>
-          <li>Kandivali</li>
-          <li>Goregaon</li>
-          <li>Malad</li>
-          <li>Powai</li>
-          <li>Ghatkopar</li>
-          <li>Chembur</li>
-          <li>Navi Mumbai</li>
-          <li>Vashi</li>
-          <li>Nerul</li>
-          <li>Panvel</li>
-          <li>Thane</li>
-          <li>Mira Road</li>
-        </ul>
-
-        <h3>Nearby Locations</h3>
-        <ul>
-          <li>Karjat</li>
-          <li>Badlapur</li>
-          <li>Ambernath</li>
-          <li>Bhiwandi</li>
-          <li>Vasai</li>
-          <li>Virar</li>
-        </ul>
-
-        <h3>Conclusion</h3>
-        <p>मुंबई आणि आसपासच्या भागांमध्ये मशरूम शेती हा वेगाने वाढणारा व्यवसाय आहे. योग्य प्रशिक्षण, दर्जेदार स्पॉन, व्यवस्थित फार्म सेटअप, मार्केटिंग आणि तांत्रिक मार्गदर्शन यांच्या मदतीने नवीन उद्योजक तसेच शेतकरी यशस्वी व्यवसाय उभारू शकतात.</p>
-        <p>Whether your goal is mushroom farm setup, online training, offline practical learning, spawn production, fresh mushroom sales, dry mushroom processing or consultancy, building a knowledge-driven business is the first step toward long-term success.</p>
-      </div>
-    `;
-  }
-
-  const h2s = [
-    `Local Opportunities in ${formattedLoc}`,
-    `Market Scope at ${sMarkets[0]}`,
-    `Farming Subsidies in Maharashtra`,
-    `Training & Setup Guidance`,
-    `Success Stories from ${sNearby[0]}`
+  const titleTemplates = [
+    `${kwText} in ${formattedLoc} | Expert Guide & Local Info`,
+    `${formattedLoc} ${kwText} | Top Business Opportunities`,
+    `Complete Guide to ${kwText} in ${formattedLoc}, Maharashtra`,
+    `Best ${kwText} Tips and Strategy in ${formattedLoc}`,
+    `${kwText} - Local Insights for ${formattedLoc}`
   ];
-  
-  const h3s = [
-    `Benefits for ${formattedLoc} Farmers`,
-    `Sourcing Materials near ${sAreas[0]}`,
-    `Climate Control Strategies`
+  const title = replaceVars(shuffleSeedWise(titleTemplates, seed, 15)[0], vars);
+
+  const descTemplates = [
+    `Learn about ${kwText} in ${formattedLoc}. Detailed guide covering ${vars.area1}, market insights at ${vars.market1}, and high ROI techniques.`,
+    `Discover the best opportunities for ${kwText} in ${formattedLoc}. Local expertise, market access in ${vars.market1}, and proven methods.`,
+    `Explore ${kwText} possibilities in ${formattedLoc}. Get information on local resources like ${vars.agri1} and market demand.`,
+    `Your trusted resource for ${kwText} in ${formattedLoc}. Enhance your knowledge with insights on ${vars.market1} and ${vars.nearby1}.`
   ];
+  const metaDesc = replaceVars(shuffleSeedWise(descTemplates, seed, 16)[0], vars);
+
+  const h1Templates = [
+    `${kwText} in ${formattedLoc}, Maharashtra`,
+    `A Comprehensive Guide to ${kwText} in ${formattedLoc}`,
+    `${formattedLoc} Market Focus: ${kwText}`,
+    `Understanding ${kwText} in the ${formattedLoc} Region`
+  ];
+  const h1 = replaceVars(shuffleSeedWise(h1Templates, seed, 17)[0], vars);
 
   const faqs = [
     {
-      q: `What is the scope of mushroom farming in ${formattedLoc}?`,
-      a: `The scope is massive. With markets like ${sMarkets[0]} and high demand in ${sAreas[0]}, growing mushrooms locally provides a high ROI.`
+      q: `What is the scope of ${kwText} in ${formattedLoc}?`,
+      a: `The demand is rising significantly, especially in areas like ${vars.area1} and near ${vars.market1}. It offers a great opportunity for locals.`
     },
     {
-      q: `Can I get training near ${sAreas[1]}, ${formattedLoc}?`,
-      a: `Yes, practical offline and online training sessions are regularly conducted covering the specific \${cityData.climate} climate challenges of ${formattedLoc}.`
+      q: `How can I start with ${kwText} around ${vars.area1}?`,
+      a: `You can begin by understanding the local climate, utilizing resources like ${vars.agri1}, and targeting markets such as ${vars.market1}.`
     },
     {
-      q: `What is the best mushroom variety to grow in ${formattedLoc}?`,
-      a: `Oyster and Milky mushrooms are excellent for the natural climate. Button mushrooms require AC setups but yield high profits in ${sMarkets[1]}.`
+      q: `Is ${kwText} profitable in the ${formattedLoc} region?`,
+      a: `Yes, with the right strategy and access to nearby cities like ${vars.nearby1}, the return on investment can be very high.`
     }
   ];
 
   const finalContent: SEOManualContent = {
     title,
     metaDesc,
-    keywords: `${kwText} ${formattedLoc}, mushroom farming ${formattedLoc}, mushroom training Maharashtra, buy mushroom spawn in ${formattedLoc}, ${sMarkets[0]} mushroom price`,
+    keywords: `${kwText} ${formattedLoc}, ${formattedLoc} business, ${vars.area1} ${kwText}, ${vars.market1} demand`,
     h1,
-    h2s,
-    h3s,
+    h2s: [`Opportunities in ${formattedLoc}`, `Market Demand at ${vars.market1}`],
+    h3s: [`Insights for ${vars.area1}`, `Local Strategies`, `व्यावसायिक दृष्टीकोन आणि आर्थिक फायदे`],
     h4s: faqs.map(f => f.q),
     articleHtml,
     faqs
