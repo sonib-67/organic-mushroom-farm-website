@@ -370,8 +370,7 @@ export default function MushroomSEOSections() {
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
             <div className="badge bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 mx-auto">Commercial Authority</div>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight uppercase dark:text-white text-slate-900">
-              Why Choose Our <span className="gradient-text">Mushroom Training Program</span>?
-              <Link to="/states" className="sr-only">Mushroom Farming States Directory</Link>
+              Why Choose Our <Link to="/states" className="gradient-text">Mushroom Training Program</Link>?
             </h2>
             <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
               We aren't simple theoreticians or online aggregators. We operate one of the premier physical commercial organic labs and production farms in central India. Sourcing high-grade seed cultures, structuring automated vertical growth rooms, obtaining state agro-subsidies, and closing high-volume commercial vendor deals can be intimidating without expert support.
