@@ -33,6 +33,8 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "mushroom-training-profit-guide-usa", isExternalPage: true, title: "The Complete Guide to Mushroom Training: How to Start Growing Mushrooms for Profit in the USA", excerpt: "Whether you're in New York, California, Texas, or Florida — this guide is for anyone ready to turn mushroom farming into a real business or side income.", date: "June 25, 2026" },
+      { id: "medicinal-mushrooms-income-guide-usa", isExternalPage: true, title: "How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)", excerpt: "The wellness industry is spending billions on these three mushrooms. Here's how everyday Americans are cashing in — from their garage, basement, or backyard.", date: "June 25, 2026" },
       { id: "mushroom-farming-complete-guide-hinglish-india", isExternalPage: true, title: "Mushroom Farming: Complete Guide for Spawn, Training, Setup, & Business in India", excerpt: "India's most exhaustive roadmap! Covers spawn seed varieties, online/offline training structures, design layout costs, buyback guarantee agreements, and our pan-India services in simple Hinglish.", date: "June 22, 2026" },
       { id: "mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026", isExternalPage: true, title: "Mushroom Farming: Ghar Par Mushroom Kaise Ugayein — India Ka Sabse Complete Guide (2026)", excerpt: "Ghar par mushroom kaise ugayein step-by-step. Button mushroom, oyster, and milky mushroom training guides, cost estimation, spawn info & training centers.", date: "June 10, 2026" },
       { id: "mushroom-farming-training-online-offline-certificate", isExternalPage: true, title: "Mushroom Farming Training – Online & Offline | Certificate ke Saath Seekho Mushroom Kheti", excerpt: "India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur MP Mein Available. Complete guide with Certificate.", date: "June 01, 2026" },
@@ -92,7 +94,7 @@ const BlogPage = () => {
                     <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
                     <span className="flex items-center gap-1"><User size={12} /> Expert Team</span>
                   </div>
-                  <h3 className="dark:text-white text-slate-900 font-bold text-xl mb-4 leading-tight group-hover:text-primary-start transition-colors">
+                  <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-4 leading-tight group-hover:text-primary-start transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-10 flex-grow">

@@ -120,7 +120,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div className="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full border border-emerald-500/20 mb-6">
             ✨ COMPLETE EXHAUSTIVE ULTIMATE HINGLISH GUIDE
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-6">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-6">
             Mushroom Farming: <span className="gradient-text bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">Complete Guide for Spawn, Training, Setup, & Business in India</span>
           </h1>
           <p className="dark:text-slate-300 text-slate-700 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed mb-6">

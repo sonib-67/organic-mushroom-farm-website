@@ -1,6 +1,7 @@
 import { SEOKeyword } from './seoKeywordsData';
 import { MANUAL_PAGE_OVERRIDES } from './customPages';
 import { STATES, CITIES, VILLAGES } from './locationsData';
+import { generateMaharashtraPage } from './maharashtraContentGenerator';
 
 export interface SEOManualContent {
   title: string;
@@ -910,6 +911,13 @@ export function generateLocationSEOArticle(locationName: string, pageType: strin
       articleHtml: override.articleHtml || finalContent.articleHtml,
       faqs: finalContent.faqs
     };
+  }
+
+  if (state === 'Maharashtra') {
+    const mhContent = generateMaharashtraPage(locationName, keywordInfo, formattedLoc, state);
+    if (mhContent) {
+      return mhContent;
+    }
   }
 
   return finalContent;

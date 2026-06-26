@@ -26,7 +26,7 @@ const ArticleMushroomTrainingAffordable = () => {
             <Award size={14} />
             <span className="text-[10px] font-black uppercase tracking-widest text-[#22c55e]">Mushroom Training Program</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
             Mushroom Farming Training – Online & Offline | Certificate ke Saath Seekho Mushroom Kheti
           </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 leading-relaxed mb-6">

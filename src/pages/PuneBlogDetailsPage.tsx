@@ -96,7 +96,7 @@ export default function PuneBlogDetailsPage() {
           <div className="lg:col-span-2 space-y-8">
             <div className="badge">{blog.category}</div>
             
-            <h1 className="text-3xl md:text-5xl font-extrabold text-white leading-tight tracking-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight">
               {blog.h1}
             </h1>
 

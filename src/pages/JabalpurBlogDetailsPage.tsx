@@ -105,7 +105,7 @@ export default function JabalpurBlogDetailsPage() {
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-extrabold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
               {blog.h1}
             </h1>
           </div>

@@ -435,7 +435,7 @@ const ArticlePage = () => {
           className="glass p-8 md:p-14 rounded-[3rem] border border-white/5"
         >
           <div className="badge mb-6">{article.category}</div>
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
             {article.title}
           </h1>
           

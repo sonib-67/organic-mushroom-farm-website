@@ -25,7 +25,7 @@ const ArticleBeginnerGuide = () => {
                     className="max-w-4xl mx-auto"
                 >
                     <div className="badge mx-auto mb-6">Educational Guide 2026-2027</div>
-                    <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight">
                         Mushroom Farming in <span className="gradient-text">India 2026-2027</span>
                     </h1>
                     <p className="dark:text-slate-400 text-slate-600 text-lg md:text-xl leading-relaxed">
@@ -315,7 +315,7 @@ const ArticleBeginnerGuide = () => {
                     {/* CTA Section */}
                     <section className="text-center bg-linear-to-tr from-primary-start to-primary-end p-12 rounded-[4rem] dark:text-white text-slate-900 shadow-2xl relative overflow-hidden">
                         <div className="relative z-10">
-                            <h2 className="text-3xl md:text-5xl font-black mb-6">Aaj Hi Shuru Karein</h2>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-6">Aaj Hi Shuru Karein</h2>
                             <p className="dark:text-white text-slate-900/80 mb-10 text-lg max-w-2xl mx-auto">
                                 Start your commercial mushroom journey with <strong>Organic Mushroom Farm Jabalpur</strong>. Quality spawn, turn-key setups, and expert mentorship.
                             </p>

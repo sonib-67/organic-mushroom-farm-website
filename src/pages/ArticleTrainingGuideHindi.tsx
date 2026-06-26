@@ -26,7 +26,7 @@ const ArticleTrainingGuideHindi = () => {
             <BookOpen size={14} />
             <span className="text-[10px] font-black uppercase tracking-widest">Training Guide</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
             Mushroom Farming Training — Complete Guide | Mushroom Ki Kheti Sikhein India Mein
           </h1>
           <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-slate-500 uppercase tracking-widest border-b dark:border-white/10 border-black/10 pb-8">

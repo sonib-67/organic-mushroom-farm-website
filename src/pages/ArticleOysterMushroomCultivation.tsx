@@ -24,7 +24,7 @@ const ArticleOysterMushroomCultivation = () => {
                     className="max-w-4xl mx-auto"
                 >
                     <div className="badge mx-auto mb-6 bg-primary-start/10 text-primary-start">Complete Guide</div>
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+                    <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
                         Oyster Mushroom Cultivation <br/>
                         <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-start to-accent">Complete Guide for India</span>
                     </h1>

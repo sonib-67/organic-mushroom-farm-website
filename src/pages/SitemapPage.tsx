@@ -221,6 +221,8 @@ export default function SitemapPage() {
   ];
 
   const educationalArticles = [
+    { name: "Mushroom Training Profit Guide (USA)", path: "/articles/mushroom-training-profit-guide-usa", desc: "Complete guide to turning mushroom farming into a real business across the USA." },
+    { name: "Medicinal Mushrooms Income Guide (USA)", path: "/articles/medicinal-mushrooms-income-guide-usa", desc: "Detailed breakdown on profits from Lion's Mane, Reishi, and Chaga in America." },
     { name: "Farming Beginner Guide India (2026)", path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", desc: "Step-by-step guide for Indian beginner agripreneurs." },
     { name: "Oyster Mushroom Cultivation India", path: "/articles/oyster-mushroom-cultivation-india", desc: "Complete practical guide for high-yield Oyster setups." },
     { name: "What is Mushroom Spawn (Beginner Guide)", path: "/articles/what-is-mushroom-spawn-beginner-guide-india", desc: "Understanding mushroom mycelium and grain spawn." },
