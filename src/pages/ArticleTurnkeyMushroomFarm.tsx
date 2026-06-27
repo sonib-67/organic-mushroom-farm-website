@@ -7,7 +7,26 @@ const ArticleTurnkeyMushroomFarm = () => {
     }, []);
 
     return (
-        <div className="min-h-screen pt-32 pb-20">
+        <div className="min-h-screen pt-32 pb-20 relative overflow-hidden">
+            {/* Ambient Background Colors */}
+            <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+                {/* Top Section */}
+                <div className="absolute top-[2%] left-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                <div className="absolute top-[10%] right-[5%] w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] bg-blue-400/20 dark:bg-blue-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                <div className="absolute top-[20%] left-[20%] w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] bg-green-400/20 dark:bg-green-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                
+                {/* Middle Section 1 */}
+                <div className="absolute top-[40%] right-[10%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                <div className="absolute top-[50%] left-[5%] w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] bg-green-400/20 dark:bg-green-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                
+                {/* Middle Section 2 */}
+                <div className="absolute top-[70%] left-[15%] w-[45vw] h-[45vw] max-w-[700px] max-h-[700px] bg-blue-400/20 dark:bg-blue-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                
+                {/* Bottom Section */}
+                <div className="absolute bottom-[5%] right-[20%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+                <div className="absolute bottom-[2%] left-[10%] w-[35vw] h-[35vw] max-w-[500px] max-h-[500px] bg-green-400/20 dark:bg-green-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />
+            </div>
+
             <SEO 
                 title="India’s Leading Mushroom Farm™ Project Company" 
                 description="Complete Turnkey Mushroom Farm Solutions Including DPR (Detailed Project Report), Farm Design, Grow Rooms, Compost Units, Climate Control Systems, Technical Training & Government Subsidy Support Across India."
@@ -344,7 +363,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                     {/* Titles section as requested */}
                     <div className="space-y-10 mt-12">
                         <section>
-                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Commercial & Indoor Mushroom Farm Setup Titles</h2>
+                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Commercial & Indoor Mushroom Farm Setup</h2>
                             <ul className="space-y-4">
                                 <li>
                                     <h3 className="font-bold dark:text-white text-slate-900">How to Start a Commercial Mushroom Farming Business</h3>
@@ -390,7 +409,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Cost, Capital, & Profit Analysis Titles</h2>
+                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Cost, Capital, & Profit Analysis</h2>
                             <ul className="space-y-4">
                                 <li>
                                     <h3 className="font-bold dark:text-white text-slate-900">Total Mushroom Farm Setup Cost and Investment Breakdown</h3>
@@ -436,7 +455,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Variety-Specific Cultivation Titles</h2>
+                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Variety-Specific Cultivation</h2>
                             <ul className="space-y-4">
                                 <li>
                                     <h3 className="font-bold dark:text-white text-slate-900">Commercial Button Mushroom Farm Setup and Casing Layer Guide</h3>
@@ -462,7 +481,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">State-Wise Mushroom Farm Setup Titles (All 28 States)</h2>
+                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">State-Wise Mushroom Farm Setup (All 28 States)</h2>
                             
                             <div className="space-y-8">
                                 <div>
@@ -604,7 +623,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">City-Wise Targeted Business Titles (Top Hubs)</h2>
+                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">City-Wise Targeted Business (Top Hubs)</h2>
                             
                             <div className="space-y-8">
                                 <div>
@@ -710,7 +729,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">Turnkey Solutions & Branding Titles (Company Promos)</h2>
+                            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">Turnkey Solutions & Branding (Company Promos)</h2>
                             <ul className="space-y-4">
                                 <li>
                                     <h3 className="font-bold dark:text-white text-slate-900">Building Profitable Mushroom Farms Across India with Turnkey Projects, Advanced Grow Rooms & Expert Support.</h3>

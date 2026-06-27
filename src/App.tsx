@@ -878,12 +878,6 @@ const NAV_ITEMS = [
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
   { name: "Contact", href: "/contact", isExternal: false, icon: Phone },
   {
-    name: "Cities Pages",
-    href: "/states",
-    isExternal: false,
-    icon: MapPin,
-  },
-  {
     name: "On Site Visit",
     href: "/on-site-consultation",
     isExternal: false,
@@ -1306,10 +1300,10 @@ const Navbar = () => {
 
 const Hero = () => {
   const features = [
-    "Complete Turnkey Project Setup",
-    "Mushroom Farming Training Programs",
-    "Government Subsidy Documentation",
-    "Technical Support India & Worldwide",
+    { text: "Complete Turnkey Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
+    { text: "Mushroom Farming Training Programs" },
+    { text: "Government Subsidy Documentation" },
+    { text: "Technical Support India & Worldwide" },
   ];
 
   return (
@@ -1349,9 +1343,15 @@ const Hero = () => {
                 className="flex items-center gap-3 justify-center md:justify-start"
               >
                 <CheckCircle2 size={16} className="text-primary-start" />
-                <span className="text-[13px] md:text-sm font-bold text-slate-200 tracking-tight">
-                  {f}
-                </span>
+                {f.link ? (
+                  <Link to={f.link} className="text-[13px] md:text-sm font-bold text-slate-200 tracking-tight hover:text-primary-start transition-colors">
+                    {f.text}
+                  </Link>
+                ) : (
+                  <span className="text-[13px] md:text-sm font-bold text-slate-200 tracking-tight">
+                    {f.text}
+                  </span>
+                )}
               </div>
             ))}
           </div>
@@ -3214,6 +3214,7 @@ const Footer = () => {
                 { name: "Spawn Supply", href: "/spawn-seed" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
+                { name: "Cities Pages", href: "/states" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -3306,12 +3307,12 @@ const StickyRazorpayButton = ({
     <button
       onClick={() => navigate("/training-checkout")}
       type="button"
-      className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-green-800 hover:bg-green-900 text-white shadow-[0_0_20px_rgba(21,128,61,0.4)] hover:shadow-[0_0_30px_rgba(21,128,61,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === "small" ? "h-full w-full p-2" : "h-12 w-full md:w-auto md:min-w-[180px] md:px-6"}`}
+      className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-purple-600 hover:bg-purple-700 text-white shadow-[0_0_15px_rgba(147,51,234,0.4)] hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
     >
       <div
-        className={`font-bold z-10 flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap ${size === "small" ? "text-[12px] md:text-[13px] absolute inset-0 w-full" : "text-[13px] md:text-[14px]"}`}
+        className={`font-bold z-10 flex items-center justify-center gap-1 whitespace-nowrap ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
       >
-        <BookOpen size={size === "small" ? 14 : 16} className="shrink-0" />
+        <BookOpen size={size === "small" ? 12 : 14} className="shrink-0" />
         <span>Join Training</span>
       </div>
       <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
@@ -3388,93 +3389,20 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div
-        className={`fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[80px] md:bottom-[30px]`}
-      >
-        {showTrainingCTA ? (
-          <div className="flex flex-col gap-1.5 md:gap-3 items-end pointer-events-auto">
-            {/* Desktop Stack */}
-            <div className="hidden md:flex flex-col gap-3 items-end">
-              <Link
-                to="/book-consultant"
-                className="bg-purple-600/80 backdrop-blur-md border border-purple-500/50 text-white font-bold px-4 py-2 rounded-full text-xs hover:bg-purple-500 transition-all flex items-center gap-2 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40"
-              >
-                <Calendar size={14} /> Book Consultant
-              </Link>
-              <a
-                href="https://wa.me/919203544140"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contact Organic Mushroom Farm on WhatsApp"
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] hover:scale-110 transition-all z-10 shrink-0"
-              >
-                <MessageCircle size={24} />
-              </a>
-              <div className="w-[180px] md:w-auto">
-                <StickyRazorpayButton size="normal" />
-              </div>
-            </div>
-
-            {/* Mobile Stack - Compactly sized to prevent overlapping core text */}
-            <div className="flex gap-1.5 w-full justify-end md:hidden">
-              <Link
-                to="/book-consultant"
-                className="flex-1 flex px-2.5 h-8.5 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-md font-bold tracking-wide gap-1 text-[9px]"
-              >
-                <Calendar size={11} /> Consult
-              </Link>
-              <motion.a
-                href="https://wa.me/919203544140"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Contact Organic Mushroom Farm on WhatsApp"
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                whileHover={{ scale: 1.1 }}
-                className="w-8.5 h-8.5 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-md shrink-0"
-              >
-                <MessageCircle size={14} />
-              </motion.a>
-            </div>
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="h-8.5 w-auto min-w-[120px] max-w-[150px] md:hidden relative z-[99998]"
-            >
-              <StickyRazorpayButton size="small" />
-            </motion.div>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-1.5 md:gap-4 items-end pointer-events-auto">
-            {/* Book Consultant Button (Calendly) - Compact sizing on mobile */}
-            <Link
-              to="/book-consultant"
-              className="flex px-3.5 md:px-6 h-9 md:h-16 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[9px] md:text-base order-1 md:order-none"
-            >
-              <Calendar size={14} className="md:w-5 md:h-5" />
-              <span className="hidden md:inline">Book Consultant</span>
-              <span className="md:hidden">Book Now</span>
-            </Link>
-
-            {/* WhatsApp Button - Compact on mobile */}
-            <motion.a
-              href="https://wa.me/919203544140"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contact Organic Mushroom Farm India on WhatsApp"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              whileHover={{ scale: 1.1 }}
-              className="w-10.5 h-10.5 md:w-16 md:h-16 rounded-full bg-green-500 dark:text-white text-slate-900 flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.3)] relative group shrink-0 order-2 md:order-none"
-            >
-              <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-10 group-hover:opacity-30"></div>
-              <MessageCircle
-                size={20}
-                className="md:w-[28px] md:h-[28px] relative z-10"
-              />
-            </motion.a>
-          </div>
-        )}
+      <div className="fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[80px] md:bottom-[30px]">
+        <motion.a
+          href="https://wa.me/919203544140"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contact Organic Mushroom Farm on WhatsApp"
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
+          className="w-10 h-10 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all z-10 shrink-0 pointer-events-auto group relative"
+        >
+          <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 group-hover:opacity-40"></div>
+          <MessageCircle size={20} className="md:w-[28px] md:h-[28px] relative z-10" />
+        </motion.a>
 
         {/* Scroll To Top (Desktop) */}
         {showScrollTop && (
@@ -3486,6 +3414,57 @@ const FloatingButtons = () => {
           >
             <ChevronUp size={20} />
           </motion.button>
+        )}
+      </div>
+
+      {/* Floating Buttons on Left Side */}
+      <div
+        className={`fixed left-3 md:left-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-start pointer-events-none bottom-[80px] md:bottom-[30px]`}
+      >
+        {showTrainingCTA ? (
+          <div className="flex flex-col gap-1.5 md:gap-3 items-start pointer-events-auto">
+            {/* Desktop Stack */}
+            <div className="hidden md:flex flex-col gap-3 items-start">
+              <Link
+                to="/book-consultant"
+                className="bg-purple-600/80 backdrop-blur-md border border-purple-500/50 text-white font-bold px-3 py-1.5 rounded-full text-[11px] hover:bg-purple-500 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40"
+              >
+                <Calendar size={12} /> Book Consultant
+              </Link>
+              <div className="w-[140px] md:w-auto">
+                <StickyRazorpayButton size="normal" />
+              </div>
+            </div>
+
+            {/* Mobile Stack - Compactly sized to prevent overlapping core text */}
+            <div className="flex gap-1 w-full justify-start md:hidden">
+              <Link
+                to="/book-consultant"
+                className="flex-1 flex px-2 h-7.5 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-md font-bold tracking-wide gap-1 text-[8px]"
+              >
+                <Calendar size={10} /> Consult
+              </Link>
+            </div>
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="h-7.5 w-auto min-w-[100px] max-w-[130px] md:hidden relative z-[99998]"
+            >
+              <StickyRazorpayButton size="small" />
+            </motion.div>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-1.5 md:gap-3 items-start pointer-events-auto">
+            {/* Book Consultant Button (Calendly) - Compact sizing on mobile */}
+            <Link
+              to="/book-consultant"
+              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
+            >
+              <Calendar size={12} className="md:w-4 md:h-4" />
+              <span className="hidden md:inline">Book Consultant</span>
+              <span className="md:hidden">Book Now</span>
+            </Link>
+          </div>
         )}
       </div>
 
