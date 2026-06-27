@@ -6320,6 +6320,7 @@ const AnimatedRoutes = () => {
 
           <Route path="/states" element={<StatesPage />} />
           <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
+          <Route path="/madhya-pradesh/how-to-start-mushroom-farming-india" element={<ArticleMadhyaPradeshGuide />} />
           <Route path="/states/maharashtra" element={<MaharashtraPage />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
@@ -6332,6 +6333,8 @@ const AnimatedRoutes = () => {
     </AnimatePresence>
   );
 };
+
+import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
 
 export default function App() {
   return (
