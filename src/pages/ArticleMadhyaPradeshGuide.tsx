@@ -12,8 +12,8 @@ const ArticleMadhyaPradeshGuide = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="How to Start Mushroom Farming in India: Complete Guide 2024" 
-                description="Complete guide to beginning your mushroom cultivation business in 2024. A comprehensive guide for profitable mushroom farming in Madhya Pradesh & across India."
+                title="How to Start Mushroom Farming in India: Complete Guide 2026-2027" 
+                description="Complete guide to beginning your mushroom cultivation business in 2026-2027. A comprehensive guide for profitable mushroom farming in Madhya Pradesh & across India."
                 keywords="Mushroom farming India, how to start mushroom farming, oyster mushroom farming, button mushroom farming, mushroom cultivation training, mushroom farming profit, mushroom farming investment, commercial mushroom farming, mushroom farming Madhya Pradesh, mushroom spawn, mushroom farming business"
             />
 
@@ -24,15 +24,15 @@ const ArticleMadhyaPradeshGuide = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="max-w-4xl mx-auto"
                 >
-                    <div className="badge mx-auto mb-6">Comprehensive Guide 2024</div>
+                    <div className="badge mx-auto mb-6">Comprehensive Guide 2026-2027</div>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight">
-                        How to Start Mushroom Farming in India: <span className="gradient-text">Complete Guide to Beginning Your Mushroom Cultivation Business in 2024</span>
+                        How to Start Mushroom Farming in India: <span className="gradient-text">Complete Guide to Beginning Your Mushroom Cultivation Business in 2026-2027</span>
                     </h1>
                     <p className="dark:text-slate-400 text-slate-600 text-lg md:text-xl leading-relaxed">
                         A Comprehensive Guide for Profitable Mushroom Farming in Madhya Pradesh & Across India
                     </p>
                     <div className="mt-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
-                        Published: June 27, 2024 | Reading Time: ~25 minutes
+                        Published: June 27, 2026-2027 | Reading Time: ~25 minutes
                     </div>
                 </motion.div>
             </section>
@@ -52,7 +52,7 @@ const ArticleMadhyaPradeshGuide = () => {
 
                     <section className="space-y-6">
                         <h2 className="text-3xl font-bold dark:text-white text-slate-900">
-                            Why Mushroom Farming in India is the Best Agricultural Business to Start in 2024
+                            Why Mushroom Farming in India is the Best Agricultural Business to Start in 2026-2027
                         </h2>
                         <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
                             Let me be straight with you: mushroom farming business is absolutely booming in India right now. Here's why I think more farmers are shifting toward mushroom cultivation:

@@ -4848,7 +4848,7 @@ const AboutPage = () => {
           <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 uppercase tracking-tight leading-loose">
             Pioneering Commercial{" "}
             <span className="gradient-text">Organic Mushroom Farm Katangi</span>{" "}
-            & Jabalpur
+            & <Link to="/cities/madhya-pradesh/jabalpur" className="text-primary-start hover:underline">Jabalpur</Link>
           </h3>
           <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
             Our commercial <strong>organic mushroom farm in Katangi</strong>{" "}
@@ -4857,7 +4857,7 @@ const AboutPage = () => {
             <strong>mushroom training in Madhya Pradesh</strong>, focusing on
             the specific environmental needs of Central India and international
             exports. From climate-controlled grow rooms to industrial compost
-            preparation, our <strong>mushroom farming in Jabalpur</strong>{" "}
+            preparation, our <strong><Link to="/cities/madhya-pradesh/jabalpur" className="text-primary-start hover:underline">mushroom farming in Jabalpur</Link></strong>{" "}
             solutions ensure that you enter the global market with a competitive
             edge. Join us to build a sustainable commercial future with
             professional <strong>button mushroom farming in India</strong>.
@@ -6322,6 +6322,7 @@ const AnimatedRoutes = () => {
           <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
           <Route path="/madhya-pradesh/how-to-start-mushroom-farming-india" element={<ArticleMadhyaPradeshGuide />} />
           <Route path="/states/maharashtra" element={<MaharashtraPage />} />
+          <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
@@ -6335,6 +6336,8 @@ const AnimatedRoutes = () => {
 };
 
 import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
+
+import ArticleJabalpurGuide from './pages/ArticleJabalpurGuide';
 
 export default function App() {
   return (

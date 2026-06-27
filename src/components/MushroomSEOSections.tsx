@@ -16,7 +16,7 @@ export default function MushroomSEOSections() {
   };
 
   const locations = [
-    { name: "Madhya Pradesh", desc: "Premium hubs around Jabalpur, Indore, Bhopal & Gwalior" },
+    { name: "Madhya Pradesh", desc: "Premium hubs around Jabalpur, Indore, Bhopal & Gwalior", link: "/madhya-pradesh/how-to-start-mushroom-farming-india" },
     { name: "Uttar Pradesh", desc: "Extensive setups near Lucknow, Varanasi, Kanpur & Meerut" },
     { name: "Delhi NCR", desc: "Urban farming centers and commercial distribution networks" },
     { name: "Maharashtra", desc: "High-yield climate controlled units in Pune, Nashik & Mumbai" },
@@ -180,7 +180,11 @@ export default function MushroomSEOSections() {
                   <MapPin size={18} className="text-primary-start shrink-0 mt-0.5" />
                   <div>
                     <h4 className="text-xs font-bold dark:text-white text-slate-900">{loc.name}</h4>
-                    <p className="text-[10px] dark:text-slate-400 text-slate-600 mt-0.5">{loc.desc}</p>
+                    {loc.link ? (
+                      <Link to={loc.link} className="text-[10px] text-primary-start hover:underline mt-0.5 block">{loc.desc}</Link>
+                    ) : (
+                      <p className="text-[10px] dark:text-slate-400 text-slate-600 mt-0.5">{loc.desc}</p>
+                    )}
                   </div>
                 </div>
               ))}
