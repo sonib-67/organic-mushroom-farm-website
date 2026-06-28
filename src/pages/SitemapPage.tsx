@@ -221,6 +221,8 @@ export default function SitemapPage() {
   ];
 
   const educationalArticles = [
+    { name: "Bangalore Mushroom Farming Training Center", path: "/cities/karnataka/bangalore", desc: "Start Your Profitable Agri-Business Today! Premium mushroom farming training, spawn supply and commercial setup in Bangalore, Karnataka." },
+    { name: "Turnkey Commercial Farm Setup", path: "/articles/turnkey-commercial-setup", desc: "Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure" },
     { name: "Mushroom Training Profit Guide (USA)", path: "/articles/mushroom-training-profit-guide-usa", desc: "Complete guide to turning mushroom farming into a real business across the USA." },
     { name: "Medicinal Mushrooms Income Guide (USA)", path: "/articles/medicinal-mushrooms-income-guide-usa", desc: "Detailed breakdown on profits from Lion's Mane, Reishi, and Chaga in America." },
     { name: "Farming Beginner Guide India (2026)", path: "/articles/mushroom-farming-beginner-guide-india-2026-2027", desc: "Step-by-step guide for Indian beginner agripreneurs." },

@@ -6302,7 +6302,9 @@ const AnimatedRoutes = () => {
           <Route path="/madhya-pradesh/how-to-start-mushroom-farming-india" element={<ArticleMadhyaPradeshGuide />} />
           <Route path="/states/maharashtra" element={<MaharashtraPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
+          <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
+          <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
@@ -6318,8 +6320,10 @@ const AnimatedRoutes = () => {
 import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
 
 import ArticleJabalpurGuide from './pages/ArticleJabalpurGuide';
+import ArticleBangaloreTraining from './pages/ArticleBangaloreTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
+import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
 
 export default function App() {
   return (
