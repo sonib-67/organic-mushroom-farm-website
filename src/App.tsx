@@ -110,6 +110,10 @@ import JabalpurPage from "./pages/JabalpurPage";
 import JabalpurBlogPage from "./pages/JabalpurBlogPage";
 import StatesPage from "./pages/StatesPage";
 import MaharashtraPage from "./pages/MaharashtraPage";
+import KarnatakaPage from "./pages/KarnatakaPage";
+import TamilNaduPage from "./pages/TamilNaduPage";
+import DelhiPage from "./pages/DelhiPage";
+import TelanganaPage from "./pages/TelanganaPage";
 import PunePage from "./pages/PunePage";
 import PuneBlogPage from "./pages/PuneBlogPage";
 
@@ -6301,8 +6305,16 @@ const AnimatedRoutes = () => {
           <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
           <Route path="/madhya-pradesh/how-to-start-mushroom-farming-india" element={<ArticleMadhyaPradeshGuide />} />
           <Route path="/states/maharashtra" element={<MaharashtraPage />} />
+          <Route path="/states/karnataka" element={<KarnatakaPage />} />
+          <Route path="/states/tamil-nadu" element={<TamilNaduPage />} />
+          <Route path="/states/delhi" element={<DelhiPage />} />
+          <Route path="/states/telangana" element={<TelanganaPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
+          <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
+          <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
+          <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
+          <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
@@ -6321,6 +6333,10 @@ import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
 
 import ArticleJabalpurGuide from './pages/ArticleJabalpurGuide';
 import ArticleBangaloreTraining from './pages/ArticleBangaloreTraining';
+import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
+import ArticleMumbaiTraining from './pages/ArticleMumbaiTraining';
+import ArticleDelhiTraining from './pages/ArticleDelhiTraining';
+import ArticleHyderabadTraining from './pages/ArticleHyderabadTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';

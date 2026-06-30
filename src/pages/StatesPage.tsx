@@ -51,7 +51,65 @@ export default function StatesPage() {
               Maharashtra
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Explore resources in Pune and other cities in Maharashtra.
+              Explore resources in Mumbai, Pune and other cities in Maharashtra.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+
+          <Link
+            to="/states/tamil-nadu"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Tamil Nadu
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Chennai and other cities in Tamil Nadu.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+
+          <Link
+            to="/states/karnataka"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Karnataka
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Bangalore and other cities in Karnataka.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
+            to="/states/delhi"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Delhi
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in New Delhi and NCR region.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
+            to="/states/telangana"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Telangana
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Hyderabad and other cities in Telangana.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Cities <ChevronRight size={16} />

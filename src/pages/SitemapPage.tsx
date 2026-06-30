@@ -221,6 +221,10 @@ export default function SitemapPage() {
   ];
 
   const educationalArticles = [
+    { name: "Hyderabad Mushroom Farming Training Center", path: "/cities/telangana/hyderabad", desc: "Start Your Profitable Agribusiness Today! Premium mushroom farming training, spawn supply and commercial setup in Hyderabad, Telangana." },
+    { name: "Delhi Mushroom Farming Training Center", path: "/cities/delhi/new-delhi", desc: "Start Your Profitable Agribusiness Today! Premium mushroom farming training, spawn supply and commercial setup in Delhi NCR." },
+    { name: "Mumbai Mushroom Farming Training Center", path: "/cities/maharashtra/mumbai", desc: "Complete Guide to Mushroom Farm Setup, Online Training & Mushroom Business in Mumbai, Maharashtra." },
+    { name: "Chennai Mushroom Farming Training Center", path: "/cities/tamil-nadu/chennai", desc: "Start Your Profitable Agri-Business Today! Premium mushroom farming training, spawn supply and commercial setup in Chennai, Tamil Nadu." },
     { name: "Bangalore Mushroom Farming Training Center", path: "/cities/karnataka/bangalore", desc: "Start Your Profitable Agri-Business Today! Premium mushroom farming training, spawn supply and commercial setup in Bangalore, Karnataka." },
     { name: "Turnkey Commercial Farm Setup", path: "/articles/turnkey-commercial-setup", desc: "Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure" },
     { name: "Mushroom Training Profit Guide (USA)", path: "/articles/mushroom-training-profit-guide-usa", desc: "Complete guide to turning mushroom farming into a real business across the USA." },

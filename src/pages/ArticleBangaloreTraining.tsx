@@ -26,175 +26,131 @@ const ArticleBangaloreTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Bangalore Mushroom Farming Training Center
+                            Bangalore Mushroom Farming Training Center: Start Your Profitable Agribusiness Today!
                         </h1>
-                        <p className="font-bold text-xl md:text-2xl text-primary-start mb-6">
-                            Start Your Profitable Agri-Business Today!
-                        </p>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        ಬೆಂಗಳೂರು, ವೈಟ್ ಫೀಲ್ಡ್, ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಸಿಟಿ, ಯಲಹಂಕ, ಹೆಬ್ಬಾಳ, ಕೆಂಗೇರಿ, ರಾಜಾಜಿನಗರ, ಮಲ್ಲೇಶ್ವರಂ ಹಾಗೂ ಸುತ್ತಮುತ್ತಲಿನ
-                        ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಅಣಬೆ ಕೃಷಿ (Mushroom Farming) ವೇಗವಾಗಿ ಬೆಳೆಯುತ್ತಿರುವ ಕೃಷಿ ಉದ್ಯಮವಾಗಿದೆ. ಇಂದಿನ
-                        ಆಧುನಿಕ ದಿನಗಳಲ್ಲಿ ಆರೋಗ್ಯಕರ ಆಹಾರದ ಬೇಡಿಕೆ (Healthy food demand), ಆರ್ಗ್ಯಾನಿಕ್ ಉತ್ಪನ್ನಗಳು (Organic products) ಮತ್ತು ಔಷಧೀಯ ಅಣಬೆಗಳ (Medicinal mushrooms) ಬಗ್ಗೆ ಜಾಗೃತಿ ಬೆಂಗಳೂರಿನಾದ್ಯಂತ ಗಣನೀಯವಾಗಿ ಹೆಚ್ಚಾಗಿದೆ.
+                        ಬೆಂಗಳೂರು, ವೈಟ್ ಫೀಲ್ಡ್, ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಸಿಟಿ, ಯಲಹಂಕ, ಹೆಬ್ಬಾಳ, ಕೆಂಗೇರಿ, ರಾಜಾಜಿನಗರ, ಮತ್ತಿಕೇರಿ ಹಾಗೂ ಸುತ್ತಮುತ್ತಲಿನ ಹಳ್ಳಿಗಳಲ್ಲಿ ಅಣಬೆ ಕೃಷಿ (Mushroom Farming) ವೇಗವಾಗಿ ಬೆಳೆಯುತ್ತಿರುವ ಒಂದು ಲಾಭದಾಯಕ ಕೃಷಿ ಉದ್ಯಮವಾಗಿದೆ.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        ಈ ಕಾರಣಕ್ಕೆ ಐಟಿ ಉದ್ಯೋಗಿಗಳು, ವಿದ್ಯಾರ್ಥಿಗಳು, ರೈತರು ಮತ್ತು ಸ್ಟಾರ್ಟ್-ಅಪ್ ಉದ್ಯಮಿಗಳು ಅಣಬೆ ಕೃಷಿಯನ್ನು ಒಂದು
-                        ಲಾಭದಾಯಕ ಉಪ ಕಸುಬನ್ನಾಗಿ ಹಾಗೂ ಪೂರ್ಣ ಪ್ರಮಾಣದ ಅಗ್ರಿ-ಬಿಸಿನೆಸ್ ಆಗಿ ಆಯ್ಕೆ ಮಾಡಿಕೊಳ್ಳುತ್ತಿದ್ದಾರೆ. ನೀವು
-                        ಬೆಂಗಳೂರಿನಲ್ಲಿ ಅತ್ಯುತ್ತಮ Mushroom Farming Training Center ಹುಡುಕುತ್ತಿದ್ದಲ್ಲಿ, Mushroom Farm ನಿಮ್ಮ
-                        ಸಂಪೂರ್ಣ ತರಬೇತಿ, ಉನ್ನತ ಗುಣಮಟ್ಟದ ಅಣಬೆ ಬೀಜ (Mushroom Spawn), ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ಬೆಂಬಲವನ್ನು ನೀಡುತ್ತದೆ.
+                        Bangalore's booming tech scene, sprawling IT cafeterias, high-end restaurants, organic retail chains, and health-conscious population have created a massive explosion in demand for fresh, organic, and medicinal mushrooms. Whether you are a farmer, a student, a corporate professional looking for a side hustle, a startup entrepreneur, or part of a women's self-help group, mushroom cultivation offers a high-ROI, low-investment agricultural business opportunity right here in Karnataka.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
-                        Why Mushroom Farming is Trending in Bangalore?
+                        Why Mushroom Cultivation is Booming in Bangalore?
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        Bangalore is one of the biggest consumer hubs for fresh and premium mushrooms in India. The tech-capital has a high concentration of health-conscious populations, which directly drives the demand for high-protein, organic diet options.
+                        Bangalore has become the culinary and wellness hub of India. Top hotels, supermarkets, health food brands, and fitness enthusiasts are actively buying local, sustainably grown produce. To capture this market and ensure your website ranks right at the top whenever someone searches for mushroom businesses in Bangalore, you need to cater to both commercial and premium therapeutic varieties.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        If you establish a commercial mushroom farm setup in Bangalore, you have direct access to high-paying B2B clients, including:
+                        Our comprehensive training programs teach you how to master the cultivation of:
                     </p>
                     <ul className="list-none space-y-3 dark:text-slate-300 text-slate-700">
-                        <li className="flex gap-3"><CheckCircle2 className="text-primary-start shrink-0" size={20} /> <span>Premium Hotels & Cafés in Indiranagar, Koramangala, and MG Road.</span></li>
-                        <li className="flex gap-3"><CheckCircle2 className="text-primary-start shrink-0" size={20} /> <span>IT Cafeterias & Corporate Caterers in Electronic City, Manyata Tech Park, and Whitefield.</span></li>
-                        <li className="flex gap-3"><CheckCircle2 className="text-primary-start shrink-0" size={20} /> <span>Organic Stores & Supermarkets (Nature's Basket, etc.).</span></li>
-                        <li className="flex gap-3"><CheckCircle2 className="text-primary-start shrink-0" size={20} /> <span>Direct Consumers through online delivery models and local vegetable markets.</span></li>
+                        <li className="flex gap-3"><CheckCircle2 className="text-primary-start shrink-0" size={20} /> <span><strong>Highly Demanded Commercial Varieties:</strong> Oyster Mushroom, Milky Mushroom, and the widely consumed Button Mushroom.</span></li>
+                        <li className="flex gap-3"><CheckCircle2 className="text-primary-start shrink-0" size={20} /> <span><strong>Premium & Medicinal Mushrooms:</strong> Shiitake Mushroom, Lion’s Mane Mushroom (famous for brain health), Reishi Mushroom, and Turkey Tail Mushroom.</span></li>
                     </ul>
 
-                    <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-6 border-l-4 border-primary-start pl-4">
-                        Popular Mushroom Varieties to Cultivate
+                    <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
+                        Modern Training & Complete Setup Services in Bangalore
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        Depending on your infrastructure, target market, and budget, you can cultivate various types of mushrooms. Our training program covers everything from culinary types to premium medicinal variants:
+                        Building a successful agri-startup requires practical skill, structural planning, and premium raw materials. Here is how we help you set up a robust production pipeline:
                     </p>
 
                     <div className="space-y-6">
                         <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">1. Oyster Mushroom (ಚಿಪ್ಪು ಅಣಬೆ)</h3>
-                            <p className="dark:text-slate-400 text-slate-600">Best for beginners. It requires minimal investment, grows rapidly on agricultural waste (paddy straw), and has a massive local market demand.</p>
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">1. High-Yielding Mushroom Farm Setup</h3>
+                            <p className="dark:text-slate-400 text-slate-600">Whether you want a small-scale indoor setup or a massive commercial indoor farm, proper environmental control is vital. We specialize in custom <strong>Mushroom Farm Setup</strong>, ensuring you have a perfectly designed clean production area, highly accurate humidity control, automated temperature management, a balanced ventilation system, and a dedicated drying facility for post-harvest processing.</p>
                         </div>
+                        
                         <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">2. Milky Mushroom (ಹಾಲಿನ ಅಣಬೆ)</h3>
-                            <p className="dark:text-slate-400 text-slate-600">Highly suitable for warmer climates. It has a longer shelf life compared to other varieties and is perfect for commercial production during the summer months.</p>
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">2. Live Turnkey Mushroom Projects</h3>
+                            <p className="dark:text-slate-400 text-slate-600">For investors and commercial entrepreneurs who want a hassle-free entry into the market, we design and execute high-tech <strong>Turnkey Projects</strong>. From automated climate control engineering to installing proper incubation chambers, we deliver a fully operational, ready-to-grow commercial mushroom farm from scratch.</p>
                         </div>
+
                         <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">3. Button Mushroom (ಬಟನ್ ಅಣಬೆ)</h3>
-                            <p className="dark:text-slate-400 text-slate-600">The most consumed mushroom variety in India. Setting up a commercial button mushroom plant requires climate-controlled infrastructure but offers massive volume sales.</p>
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">3. Online Mushroom Training (flexible & Remote)</h3>
+                            <p className="dark:text-slate-400 text-slate-600">If you cannot visit our farm in person, our comprehensive <strong>Online Mushroom Training</strong> allows you to learn the entire science of cultivation from home. This digital course covers everything from substrate preparation, sterilization, spawn running, and disease management to harvesting, professional packaging, and online marketing. Ideal for students and professionals across Whitefield, Electronic City, Yelahanka, and neighboring rural zones.</p>
                         </div>
+
                         <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-4">4. Exotic & Medicinal Mushrooms</h3>
-                            <p className="dark:text-slate-400 text-slate-600 mb-4">For entrepreneurs looking for high-profit margins with low-volume production, we provide technical guidance for:</p>
-                            <ul className="list-disc pl-6 space-y-2 dark:text-slate-400 text-slate-600">
-                                <li><strong>Shiitake Mushroom:</strong> Premium edible mushroom with huge demand in Asian restaurants.</li>
-                                <li><strong>Lion’s Mane & Reishi Mushroom:</strong> High-value medicinal mushrooms used heavily in the wellness, immunity supplement, and health food industries.</li>
-                                <li><strong>Turkey Tail Mushroom:</strong> Rapidly growing market in health wellness sectors.</li>
-                            </ul>
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">4. Hands-On Offline Practical Mushroom Training</h3>
+                            <p className="dark:text-slate-400 text-slate-600">If you prefer practical, real-world learning, our <strong>Offline Mushroom Training</strong> program gives you direct exposure inside a working commercial farm. Get hands-on experience in substrate mixing, bed preparation, live spawn handling, precise harvesting methods, and standard commercial farm operations.</p>
+                        </div>
+
+                        <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">5. Laboratory-Tested Mushroom Spawn Sale</h3>
+                            <p className="dark:text-slate-400 text-slate-600 mb-3">The foundation of a high-yield crop is disease-free, high-quality genetics. We offer premium, laboratory-tested <strong>Mushroom Spawn Sale</strong> services. We supply highly productive Oyster Mushroom Spawn, heat-tolerant Milky Mushroom Spawn, and top-tier Button Mushroom Spawn to ensure your farm achieves maximum biological efficiency.</p>
+                            <div className="bg-primary-start/10 text-primary-start p-3 rounded-lg text-center font-mono text-sm border border-primary-start/20">
+                                [ Premium Spawn Sale ] ➔ [ Climate-Controlled Setup ] ➔ [ Continuous Bulk Harvest ]
+                            </div>
+                        </div>
+
+                        <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">6. Expert Mushroom Consultancy Services</h3>
+                            <p className="dark:text-slate-400 text-slate-600">Experiencing low yields, green mold, or contamination? Our expert <strong>Mushroom Consultancy</strong> services provide end-to-end troubleshooting, structural farm planning, commercial expansion strategies, and ongoing technical guidance to keep your cultivation cycles completely optimized and profitable.</p>
                         </div>
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Comprehensive Mushroom Farming Training Programs
+                        Market Distribution, ROI & Monetization Strategy
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        We bridge the gap between theoretical knowledge and practical execution through our structured training modules.
+                        To build a sustainable agro-business, your production must line up perfectly with a strategic sales strategy.
                     </p>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-4">💻 Online Mushroom Training</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-4">Don't let distance stop you from becoming an agripreneur. Our intensive online mushroom training covers:</p>
-                            <ul className="list-disc pl-5 space-y-2 text-sm dark:text-slate-400 text-slate-600">
-                                <li>Substrate selection, sterilization, and preparation techniques.</li>
-                                <li>Maintaining ideal temperature and humidity management.</li>
-                                <li>Spawn running and disease management strategies.</li>
-                                <li>Harvesting protocols, grading, and eco-friendly packaging.</li>
-                                <li>Perfect for individuals living in Whitefield, Electronic City, Yelahanka, and Hebbal who want to learn from the comfort of their homes.</li>
+                    <div className="space-y-6">
+                        <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-3">Fresh Mushroom Sale & Dry Mushroom Business</h3>
+                            <ul className="list-disc pl-5 space-y-3 dark:text-slate-400 text-slate-600">
+                                <li><strong>Fresh Mushroom Sale:</strong> Tap directly into Bangalore's local markets, supply chain networks for corporate IT cafeterias, premium organic stores, and wholesale vegetable markets.</li>
+                                <li><strong>Dry Mushroom Sale & Value Addition:</strong> Fresh mushrooms go bad quickly, but processing them into dry products changes the game. Our <strong>Dry Mushroom Sale</strong> strategies help you access longer shelf life, seamless nationwide transportation, and better value addition (like making mushroom powder, capsules, or protein mixes) for a national market reach.</li>
                             </ul>
                         </div>
                         
-                        <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-4">👨‍🌾 Offline Practical Mushroom Training</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-4">Nothing beats hands-on experience. Our offline practical sessions at the farm provide real-world exposure:</p>
-                            <ul className="list-disc pl-5 space-y-2 text-sm dark:text-slate-400 text-slate-600">
-                                <li><strong>Live Bed Preparation:</strong> Learn the exact ratio of substrate and moisture control.</li>
-                                <li><strong>Spawn Handling:</strong> Understand how to introduce high-quality mushroom spawn without contamination.</li>
-                                <li><strong>Commercial Farm Operations:</strong> Learn how to scale from a single room to a multi-ton commercial facility.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-4 border-l-4 border-primary-start pl-4">
-                        High-Quality Mushroom Spawn Sale (ಅಣಬೆ ಬೀಜಗಳು)
-                    </h2>
-                    <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        The secret to a high-yielding, successful mushroom crop lies in the purity of its seeds. We supply premium-grade, contamination-free Mushroom Spawn in Bangalore for commercial growers and hobbyists alike:
-                    </p>
-                    <div className="flex flex-wrap gap-4 mb-6">
-                        <span className="px-4 py-2 rounded-full dark:bg-white/10 bg-black/5 dark:text-white text-slate-900 font-bold border dark:border-white/10 border-black/10">Oyster Mushroom Spawn</span>
-                        <span className="px-4 py-2 rounded-full dark:bg-white/10 bg-black/5 dark:text-white text-slate-900 font-bold border dark:border-white/10 border-black/10">Milky Mushroom Spawn</span>
-                        <span className="px-4 py-2 rounded-full dark:bg-white/10 bg-black/5 dark:text-white text-slate-900 font-bold border dark:border-white/10 border-black/10">Button Mushroom Spawn</span>
-                    </div>
-                    <p className="dark:text-slate-400 text-slate-600 text-sm italic p-4 dark:bg-white/5 bg-black/5 rounded-xl border dark:border-white/5 border-black/5">
-                        <strong>Note:</strong> We provide nationwide doorstep delivery with specialized thermal packaging to ensure the spawn remains fresh and viable during transit.
-                    </p>
-
-                    <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Dual Business Models: Fresh vs. Dry Mushroom Business
-                    </h2>
-
-                    <div className="space-y-6">
                         <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-3 flex items-center gap-2">🟢 Fresh Mushroom Business</h3>
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-3">Strategic Business Plan, ROI & Government Subsidy</h3>
+                            <p className="dark:text-slate-400 text-slate-600 mb-4">
+                                Before you invest, we assist you in drafting a detailed <strong>Business Plan & ROI</strong> evaluation. We map out your capital expenditure against production capacity to guarantee transparent profitability metrics.
+                            </p>
+                            <div className="p-4 rounded-xl border border-primary-start/30 bg-primary-start/5 text-primary-start">
+                                <strong>Financial Schemes:</strong> Furthermore, we guide you through securing a <strong>Government Subsidy for Mushroom Farming</strong> through state agricultural schemes, NHB (National Horticulture Board), and specialized entrepreneurship programs to significantly reduce your initial setup costs.
+                            </div>
+                        </div>
+
+                        <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
+                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-3">High-Impact Mushroom Marketing Support</h3>
                             <p className="dark:text-slate-400 text-slate-600">
-                                Directly supply freshly harvested mushrooms to local vegetable markets, daily retail chains, and star hotels. Since fresh mushrooms have a short shelf life, this model relies on strong local supply chains in areas like Malleshwaram, Rajajinagar, and Jayanagar.
+                                You don’t have to struggle to find buyers. Our dedicated <strong>Mushroom Marketing Support</strong> connects your farm directly with local restaurant supply chains, retail distribution channels, and advanced online marketing frameworks to ensure your batches are pre-booked even before harvest.
                             </p>
-                        </div>
-                        <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
-                            <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-3 flex items-center gap-2">🍂 Dry Mushroom Processing Business (Value Addition)</h3>
-                            <p className="dark:text-slate-400 text-slate-600 mb-3">
-                                If you want to target the national market and eliminate the risk of spoilage, the dry mushroom business is highly profitable.
-                            </p>
-                            <ul className="list-disc pl-5 space-y-2 text-sm dark:text-slate-400 text-slate-600">
-                                <li><strong>Benefits:</strong> Extremely long shelf life, effortless transportation, and premium pricing.</li>
-                                <li><strong>Value Addition:</strong> Convert dried mushrooms into high-demand products like Mushroom Powder, Mushroom Protein Shakes, Supplements, or Mushroom Pickles.</li>
-                            </ul>
                         </div>
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Commercial Mushroom Farm Setup & Turnkey Projects
+                        Hyper-Local Target Reach: Serving All Bangalore Districts & Villages
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        Thinking big? Setting up a high-yield commercial mushroom plant requires precision engineering. We provide Turnkey Mushroom Projects and end-to-end Mushroom Consultancy that covers:
+                        Our supply chains, setup services, and training modules are completely accessible across all major urban zones and their connecting rural clusters:
                     </p>
-                    <ol className="list-decimal pl-6 space-y-3 dark:text-slate-300 text-slate-700 font-medium">
-                        <li><strong>Farm Planning & Design:</strong> Optimizing space for maximum crop layout.</li>
-                        <li><strong>Climate Control Systems:</strong> Implementing automated ventilation, misting systems, and humidity control.</li>
-                        <li><strong>Business Plan & ROI:</strong> Assisting you with structured cost-benefit analysis projections to understand your break-even point and maximize profitability.</li>
-                        <li><strong>Government Subsidy:</strong> Guiding you through National Horticulture Board (NHB) schemes, NABARD loans, and state agriculture-related entrepreneurship programs to secure financial assistance.</li>
-                    </ol>
-
-                    <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Local Areas Covered in Bangalore
-                    </h2>
-                    <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        Our training network, consultancy services, and spawn supply reach every corner of Bengaluru, including:
-                    </p>
-                    <ul className="grid md:grid-cols-2 gap-4 dark:text-slate-300 text-slate-700">
-                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>East Bangalore:</strong> Whitefield, Mahadevapura, Marathahalli, KR Puram.</span></li>
-                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>South Bangalore:</strong> Electronic City, Jayanagar, JP Nagar, Silk Board, Bannerghatta.</span></li>
-                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>North Bangalore:</strong> Yelahanka, Hebbal, RT Nagar, Devanahalli Region.</span></li>
-                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>West Bangalore:</strong> Kengeri, Rajajinagar, Malleshwaram, Vijayanagar.</span></li>
-                        <li className="flex gap-3 items-start md:col-span-2"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Nearby Rural & Peri-Urban Clusters:</strong> Hoskote Region, Sarjapur Region, Attibele Region, and Nelamangala.</span></li>
+                    <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700">
+                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Major Urban & IT Hubs:</strong> Whitefield, Electronic City, Yelahanka, Hebbal, Rajajinagar, Kengeri, Jayanagar, Malleshwaram, and Mattikere.</span></li>
+                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Hoskote Region Villages:</strong> Covering Hoskote town, Sulibele, Jadigenahalli, Anugondanahalli, and Kasaba rural sectors.</span></li>
+                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Devanahalli Region Villages:</strong> Serving Devanahalli aviation hub clusters, Vijayapura, Kundana, Chanrayapatna, and Avati villages.</span></li>
+                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Sarjapur Region Villages:</strong> Extending to Sarjapur town clusters, Yamare, Sompura, Mugalur, and Bikkanahalli.</span></li>
+                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Attibele Region Villages:</strong> Reaching Attibele industrial zones, Anekal town, Yadavanahalli, Jigani, and Mayasandra rural zones.</span></li>
                     </ul>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">
-                        <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Start Your Journey with Mushroom Farm</h2>
+                        <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Conclusion: Start Your Mushroom Farming Business Today!</h2>
+                        <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
+                            ಬೆಂಗಳೂರು ಮತ್ತು ಅದರ ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶಗಳಲ್ಲಿ ಅಣಬೆ ಕೃಷಿಯು ಅತ್ಯುತ್ತಮ ಆರ್ಥಿಕ ಮತ್ತು ಉದ್ಯಮ ಅವಕಾಶವನ್ನು ಒದಗಿಸುತ್ತದೆ. With the right training, premium spawn, automated farm setup, and rock-solid marketing guidance, you can build a highly lucrative commercial mushroom brand in Karnataka.
+                        </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Mushroom farming is not just about growing fungi; it is about managing a precise, highly rewarding bio-business. With our expert-led mushroom training, reliable spawn supply, and tailored marketing support, you can confidently build a sustainable, profitable agri-business right here in Bangalore.
+                            Whether your goal is a commercial farm setup, joining our next training batch, ordering bulk spawn, or setting up a premium medicinal mushroom project, we have the industry expertise to make your venture a major success.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 font-bold mb-8">
-                            Ready to start? Join our next training batch or consult with our experts for custom farm setup solutions.
+                            Ready to launch your mushroom farming business in Bangalore? Contact us today to consult with our agro-experts and book your slot!
                         </p>
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <a href="tel:+919203544140" className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all">

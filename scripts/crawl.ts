@@ -67,6 +67,7 @@ for (const urlPath of allPaths) {
   else if (urlPath.startsWith('/locations/')) { priority = "1.00"; changefreq = "daily"; }
   else if (urlPath.startsWith('/articles/')) { priority = "1.00"; changefreq = "daily"; }
   else if (urlPath.startsWith('/states')) { priority = "1.00"; changefreq = "daily"; }
+  else if (urlPath.startsWith('/cities')) { priority = "1.00"; changefreq = "daily"; }
   else if (urlPath.startsWith('/mushroom-types')) { priority = "0.90"; }
   else if (urlPath.startsWith('/services') || urlPath.startsWith('/process')) { priority = "0.90"; }
 

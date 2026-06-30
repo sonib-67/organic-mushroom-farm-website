@@ -33,7 +33,6 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
-      { id: "bangalore-mushroom-training", customPath: "/cities/karnataka/bangalore", isExternalPage: true, title: "Bangalore Mushroom Farming Training Center", excerpt: "Start Your Profitable Agri-Business Today! Premium mushroom farming training, spawn supply and commercial setup in Bangalore, Karnataka.", date: "June 28, 2026" },
       { id: "turnkey-commercial-setup", isExternalPage: true, title: "TURNKEY COMMERCIAL MUSHROOM FARM SETUP", excerpt: "Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure by Mushroom Farm Setup", date: "June 28, 2026" },
       { id: "mushroom-training-profit-guide-usa", isExternalPage: true, title: "The Complete Guide to Mushroom Training: How to Start Growing Mushrooms for Profit in the USA", excerpt: "Whether you're in New York, California, Texas, or Florida — this guide is for anyone ready to turn mushroom farming into a real business or side income.", date: "June 25, 2026" },
       { id: "medicinal-mushrooms-income-guide-usa", isExternalPage: true, title: "How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)", excerpt: "The wellness industry is spending billions on these three mushrooms. Here's how everyday Americans are cashing in — from their garage, basement, or backyard.", date: "June 25, 2026" },
