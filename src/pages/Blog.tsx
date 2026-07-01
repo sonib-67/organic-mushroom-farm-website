@@ -102,7 +102,7 @@ const BlogPage = () => {
                     {post.excerpt}
                   </p>
                   <Link 
-                    to={post.customPath || (post.isExternalPage ? `/articles/${post.id}` : `/blog/${post.id}`)} 
+                    to={(post as any).customPath || (post.isExternalPage ? `/articles/${post.id}` : `/blog/${post.id}`)} 
                     className="text-primary-start font-bold text-xs uppercase tracking-widest flex items-center gap-2 mt-auto w-fit border-b border-primary-start/20 pb-1"
                   >
                     Read Article <ArrowRight size={14} />

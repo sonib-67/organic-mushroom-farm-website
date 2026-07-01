@@ -24,7 +24,7 @@ export default function MadhyaPradeshPage() {
         </div>
 
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-3">
             <MapPin className="text-brand-blue" size={40} />
             Madhya Pradesh Cities
           </h1>
@@ -43,6 +43,36 @@ export default function MadhyaPradeshPage() {
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">
               Explore mushroom training centers, spawn suppliers, and cultivation guides in Jabalpur.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              View Resources <ChevronRight size={16} />
+            </div>
+          </Link>
+
+          <Link
+            to="/cities/madhya-pradesh/indore"
+            className="group glass p-6 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col"
+          >
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Indore
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">
+              Explore mushroom training centers, spawn suppliers, and cultivation guides in Indore.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              View Resources <ChevronRight size={16} />
+            </div>
+          </Link>
+
+          <Link
+            to="/cities/madhya-pradesh/bhopal"
+            className="group glass p-6 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col"
+          >
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Bhopal
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">
+              Explore mushroom training centers, spawn suppliers, and cultivation guides in Bhopal.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
               View Resources <ChevronRight size={16} />

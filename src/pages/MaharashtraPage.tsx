@@ -20,7 +20,7 @@ export default function MaharashtraPage() {
         </div>
 
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-3">
             <MapPin className="text-brand-blue" size={40} />
             Maharashtra Mushroom Resources
           </h1>
@@ -53,6 +53,20 @@ export default function MaharashtraPage() {
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
               Mushroom training, cultivation resources, and offline courses in Pune.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Resources <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
+            to="/cities/maharashtra/nagpur"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Nagpur
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Mushroom training, cultivation resources, and commercial setups in Nagpur.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />

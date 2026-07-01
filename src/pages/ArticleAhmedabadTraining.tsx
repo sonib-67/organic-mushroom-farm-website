@@ -25,7 +25,7 @@ const ArticleAhmedabadTraining = () => {
             <article className="max-w-4xl mx-auto px-4 prose prose-invert">
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
-                        <h1 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
+                        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
                             Ahmedabad Mushroom Farming: Complete Guide to Setup, Training, & Business Opportunities in Gujarat
                         </h1>
                     </div>

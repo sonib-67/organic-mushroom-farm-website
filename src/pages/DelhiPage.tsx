@@ -20,7 +20,7 @@ export default function DelhiPage() {
         </div>
 
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-3">
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 flex items-center gap-3">
             <MapPin className="text-brand-blue" size={40} />
             Delhi Cities
           </h1>

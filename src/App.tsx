@@ -115,8 +115,13 @@ import TamilNaduPage from "./pages/TamilNaduPage";
 import DelhiPage from "./pages/DelhiPage";
 import TelanganaPage from "./pages/TelanganaPage";
 import WestBengalPage from "./pages/WestBengalPage";
+import BiharPage from "./pages/BiharPage";
+import ChandigarhPage from "./pages/ChandigarhPage";
+import ChhattisgarhPage from "./pages/ChhattisgarhPage";
+import KeralaPage from "./pages/KeralaPage";
 import GujaratPage from "./pages/GujaratPage";
 import RajasthanPage from "./pages/RajasthanPage";
+import UttarPradeshPage from "./pages/UttarPradeshPage";
 import PunePage from "./pages/PunePage";
 import PuneBlogPage from "./pages/PuneBlogPage";
 
@@ -975,7 +980,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 glass py-2.5 md:py-4 px-3 sm:px-5 md:px-10 transition-all duration-300 ${isScrolled ? "shadow-2xl translate-y-[-2px]" : ""}`}
+        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] py-2.5 md:py-4 px-3 sm:px-5 md:px-10 transition-all duration-300 rounded-[2rem] ${isScrolled ? "translate-y-[-2px]" : ""}`}
+        style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.15) 33%, rgba(34, 197, 94, 0.15) 66%, rgba(234, 179, 8, 0.15) 100%)' }}
       >
         <div className="flex items-center justify-between">
           <Link
@@ -3436,7 +3442,7 @@ const FloatingButtons = () => {
             <div className="hidden md:flex flex-col gap-3 items-start">
               <Link
                 to="/book-consultant"
-                className="bg-purple-600/80 backdrop-blur-md border border-purple-500/50 text-white font-bold px-3 py-1.5 rounded-full text-[11px] hover:bg-purple-500 transition-all flex items-center gap-1.5 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40"
+                className="glass backdrop-blur-md border dark:border-white/10 border-black/10 dark:text-white text-slate-900 font-bold px-3 py-1.5 rounded-full text-[11px] hover:bg-black/5 dark:hover:bg-white/5 transition-all flex items-center gap-1.5 shadow-lg shadow-black/5 dark:shadow-white/5"
               >
                 <Calendar size={12} /> Book Consultant
               </Link>
@@ -3467,7 +3473,7 @@ const FloatingButtons = () => {
             {/* Book Consultant Button (Calendly) - Compact sizing on mobile */}
             <Link
               to="/book-consultant"
-              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full bg-linear-to-tr from-blue-600 to-indigo-600 text-white items-center justify-center shadow-xl hover:shadow-indigo-500/50 transition-all border dark:border-white/10 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
+              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full glass backdrop-blur-md dark:text-white text-slate-900 items-center justify-center shadow-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all border dark:border-white/20 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
             >
               <Calendar size={12} className="md:w-4 md:h-4" />
               <span className="hidden md:inline">Book Consultant</span>
@@ -3479,7 +3485,8 @@ const FloatingButtons = () => {
 
       {/* Mobile Horizontal Sticky Bottom Bar */}
       <div
-        className={`fixed bottom-0 left-0 right-0 z-[110] md:hidden glass-dark border-t dark:border-white/10 border-black/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]`}
+        className={`fixed bottom-0 left-0 right-0 z-[110] md:hidden backdrop-blur-xl border-t dark:border-white/20 border-black/10 shadow-[0_-8px_32px_0_rgba(31,38,135,0.1)]`}
+        style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.15) 33%, rgba(34, 197, 94, 0.15) 66%, rgba(234, 179, 8, 0.15) 100%)' }}
       >
         <div
           className={`overflow-x-auto scrollbar-hide snap-x flex items-center ${isTrainingPage ? "gap-1.5 p-2 px-3" : "gap-2 p-3 px-4"}`}
@@ -6315,17 +6322,31 @@ const AnimatedRoutes = () => {
           <Route path="/states/delhi" element={<DelhiPage />} />
           <Route path="/states/telangana" element={<TelanganaPage />} />
           <Route path="/states/west-bengal" element={<WestBengalPage />} />
+          <Route path="/states/bihar" element={<BiharPage />} />
+          <Route path="/states/chandigarh" element={<ChandigarhPage />} />
+          <Route path="/states/chhattisgarh" element={<ChhattisgarhPage />} />
+          <Route path="/states/kerala" element={<KeralaPage />} />
           <Route path="/states/gujarat" element={<GujaratPage />} />
           <Route path="/states/rajasthan" element={<RajasthanPage />} />
+          <Route path="/states/uttar-pradesh" element={<UttarPradeshPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
+          <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
+          <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
           <Route path="/cities/west-bengal/kolkata" element={<ArticleKolkataTraining />} />
           <Route path="/cities/gujarat/ahmedabad" element={<ArticleAhmedabadTraining />} />
+          <Route path="/cities/gujarat/surat" element={<ArticleSuratTraining />} />
+          <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
+          <Route path="/cities/chandigarh/chandigarh" element={<ArticleChandigarhTraining />} />
           <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
+          <Route path="/cities/uttar-pradesh/lucknow" element={<ArticleLucknowTraining />} />
+          <Route path="/cities/madhya-pradesh/indore" element={<ArticleIndoreTraining />} />
+          <Route path="/cities/madhya-pradesh/bhopal" element={<ArticleBhopalTraining />} />
+          <Route path="/cities/maharashtra/nagpur" element={<ArticleNagpurTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
@@ -6350,7 +6371,16 @@ import ArticleDelhiTraining from './pages/ArticleDelhiTraining';
 import ArticleHyderabadTraining from './pages/ArticleHyderabadTraining';
 import ArticleKolkataTraining from './pages/ArticleKolkataTraining';
 import ArticleAhmedabadTraining from './pages/ArticleAhmedabadTraining';
+import ArticleSuratTraining from './pages/ArticleSuratTraining';
+import ArticlePatnaTraining from './pages/ArticlePatnaTraining';
+import ArticleChandigarhTraining from './pages/ArticleChandigarhTraining';
 import ArticleJaipurTraining from './pages/ArticleJaipurTraining';
+import ArticleLucknowTraining from './pages/ArticleLucknowTraining';
+import ArticleIndoreTraining from './pages/ArticleIndoreTraining';
+import ArticleBhopalTraining from './pages/ArticleBhopalTraining';
+import ArticleNagpurTraining from './pages/ArticleNagpurTraining';
+import ArticleRaipurTraining from './pages/ArticleRaipurTraining';
+import ArticleKochiTraining from './pages/ArticleKochiTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
