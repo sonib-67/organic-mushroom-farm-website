@@ -114,6 +114,9 @@ import KarnatakaPage from "./pages/KarnatakaPage";
 import TamilNaduPage from "./pages/TamilNaduPage";
 import DelhiPage from "./pages/DelhiPage";
 import TelanganaPage from "./pages/TelanganaPage";
+import WestBengalPage from "./pages/WestBengalPage";
+import GujaratPage from "./pages/GujaratPage";
+import RajasthanPage from "./pages/RajasthanPage";
 import PunePage from "./pages/PunePage";
 import PuneBlogPage from "./pages/PuneBlogPage";
 
@@ -6309,12 +6312,18 @@ const AnimatedRoutes = () => {
           <Route path="/states/tamil-nadu" element={<TamilNaduPage />} />
           <Route path="/states/delhi" element={<DelhiPage />} />
           <Route path="/states/telangana" element={<TelanganaPage />} />
+          <Route path="/states/west-bengal" element={<WestBengalPage />} />
+          <Route path="/states/gujarat" element={<GujaratPage />} />
+          <Route path="/states/rajasthan" element={<RajasthanPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
+          <Route path="/cities/west-bengal/kolkata" element={<ArticleKolkataTraining />} />
+          <Route path="/cities/gujarat/ahmedabad" element={<ArticleAhmedabadTraining />} />
+          <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
@@ -6337,6 +6346,9 @@ import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
 import ArticleMumbaiTraining from './pages/ArticleMumbaiTraining';
 import ArticleDelhiTraining from './pages/ArticleDelhiTraining';
 import ArticleHyderabadTraining from './pages/ArticleHyderabadTraining';
+import ArticleKolkataTraining from './pages/ArticleKolkataTraining';
+import ArticleAhmedabadTraining from './pages/ArticleAhmedabadTraining';
+import ArticleJaipurTraining from './pages/ArticleJaipurTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
