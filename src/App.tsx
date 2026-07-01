@@ -3322,7 +3322,8 @@ const StickyRazorpayButton = ({
     <button
       onClick={() => navigate("/training-checkout")}
       type="button"
-      className={`relative overflow-hidden flex items-center justify-center rounded-full group bg-purple-600 hover:bg-purple-700 text-white shadow-[0_0_15px_rgba(147,51,234,0.4)] hover:shadow-[0_0_20px_rgba(147,51,234,0.6)] transition-all border dark:border-white/10 border-black/10 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
+      className={`relative overflow-hidden flex items-center justify-center rounded-full group backdrop-blur-md dark:text-white text-slate-900 shadow-[0_4px_15px_rgba(168,85,247,0.15)] hover:shadow-[0_4px_20px_rgba(168,85,247,0.25)] transition-all border border-purple-500/30 dark:border-purple-400/40 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
+      style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(192, 132, 252, 0.3) 100%)' }}
     >
       <div
         className={`font-bold z-10 flex items-center justify-center gap-1 whitespace-nowrap ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
