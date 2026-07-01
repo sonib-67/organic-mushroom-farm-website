@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, FileText, ClipboardList, TrendingUp, Landmark, MapPin, ArrowRight, CheckCircle2, Banknote, Building2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 const SubsidyPage = () => {
@@ -27,7 +28,7 @@ const SubsidyPage = () => {
             Mushroom farming in India is rapidly growing as a profitable agri-business, and the Government of India actively supports it through multiple subsidy schemes, loans, and financial assistance programs. Whether you want to know <strong>how to start mushroom farming in India</strong> as a beginner farmer, startup, or commercial entrepreneur, you can get up to 50% <strong>government subsidy for mushroom farming</strong> and low-interest loans to start or expand your mushroom farming business.
           </p>
           <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-10">
-            This page provides complete details of the <strong>mushroom farming subsidy India 2026</strong> schemes, including eligibility, benefits, <strong>mushroom farming project subsidy</strong> amount, and how to apply. If you need a comprehensive <strong>mushroom farming business plan India</strong>, subsidies will heavily reduce your capital requirements.
+            This page provides complete details of the <strong><Link to="/states" className="text-inherit hover:text-inherit">mushroom farming subsidy India 2026</Link></strong> schemes, including eligibility, benefits, <strong>mushroom farming project subsidy</strong> amount, and how to apply. If you need a comprehensive <strong>mushroom farming business plan India</strong>, subsidies will heavily reduce your capital requirements.
           </p>
         </motion.div>
       </section>

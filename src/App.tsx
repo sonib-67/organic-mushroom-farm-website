@@ -1619,7 +1619,9 @@ const WhyChooseUs = () => {
           >
             Why Choose{" "}
             <span className="gradient-text">
-              Organic Mushroom Farm for Your Project?
+              <Link to="/states">
+                Organic Mushroom Farm for Your Project?
+              </Link>
             </span>
           </motion.h2>
           <motion.p
