@@ -3445,7 +3445,7 @@ const FloatingButtons = () => {
             <div className="hidden md:flex flex-col gap-3 items-start">
               <Link
                 to="/book-consultant"
-                className="glass backdrop-blur-md border dark:border-white/10 border-black/10 dark:text-white text-slate-900 font-bold px-3 py-1.5 rounded-full text-[11px] hover:bg-black/5 dark:hover:bg-white/5 transition-all flex items-center gap-1.5 shadow-lg shadow-black/5 dark:shadow-white/5"
+                className="glass backdrop-blur-md border dark:border-white/10 border-black/10 dark:text-white text-slate-900 font-bold px-3 py-1.5 rounded-full text-[11px] hover:bg-black/5 dark:hover:bg-white/5 active:bg-primary-start/20 active:text-primary-start active:border-primary-start/30 transition-all flex items-center gap-1.5 shadow-lg shadow-black/5 dark:shadow-white/5"
               >
                 <Calendar size={12} /> Book Consultant
               </Link>
@@ -3458,7 +3458,7 @@ const FloatingButtons = () => {
             <div className="flex gap-1 w-full justify-start md:hidden">
               <Link
                 to="/book-consultant"
-                className="flex-1 flex px-2 h-7.5 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-md font-bold tracking-wide gap-1 text-[8px]"
+                className="flex-1 flex px-2 h-7.5 rounded-full glass border dark:border-white/10 border-black/10 dark:text-white text-slate-900 items-center justify-center shadow-md font-bold tracking-wide gap-1 text-[8px] active:bg-primary-start/20 active:text-primary-start active:border-primary-start/30 transition-all"
               >
                 <Calendar size={10} /> Consult
               </Link>
@@ -3476,7 +3476,7 @@ const FloatingButtons = () => {
             {/* Book Consultant Button (Calendly) - Compact sizing on mobile */}
             <Link
               to="/book-consultant"
-              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full glass backdrop-blur-md dark:text-white text-slate-900 items-center justify-center shadow-xl hover:bg-black/5 dark:hover:bg-white/5 transition-all border dark:border-white/20 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
+              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full glass backdrop-blur-md dark:text-white text-slate-900 items-center justify-center shadow-xl hover:bg-black/5 dark:hover:bg-white/5 active:bg-primary-start/20 active:text-primary-start active:border-primary-start/30 transition-all border dark:border-white/20 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
             >
               <Calendar size={12} className="md:w-4 md:h-4" />
               <span className="hidden md:inline">Book Consultant</span>
@@ -3511,15 +3511,15 @@ const FloatingButtons = () => {
 
             const className = `snap-start shrink-0 flex items-center justify-center rounded-full border transition-all active:scale-95 ${
               isActive
-                ? "bg-primary-start text-white border-primary-start shadow-md shadow-primary-start/20 font-bold"
-                : "bg-linear-to-r from-blue-600/10 to-purple-600/10 dark:border-white/10 border-black/10 dark:text-white text-slate-900 hover:border-primary-start/40"
+                ? "bg-primary-start/20 text-primary-start border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)] font-bold"
+                : "bg-linear-to-r from-blue-600/10 to-purple-600/10 dark:border-white/10 border-black/10 dark:text-white text-slate-900 hover:border-primary-start/40 active:bg-primary-start/20"
             } ${isTrainingPage ? "gap-1 px-3 py-1.5" : "gap-1.5 px-3.5 py-2"}`;
 
             const content = (
               <>
                 <item.icon
                   size={isTrainingPage ? 11 : 13}
-                  className={isActive ? "text-white" : "text-primary-start"}
+                  className={isActive ? "text-primary-start" : "text-primary-start"}
                 />
                 <span
                   className={`whitespace-nowrap tracking-tight font-semibold ${isTrainingPage ? "text-[9px]" : "text-[10px]"}`}

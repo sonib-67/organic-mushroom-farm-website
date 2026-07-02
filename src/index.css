@@ -33,7 +33,7 @@
   --text-body: #4A4A68;
   --text-muted: rgba(74, 74, 104, 0.7);
   
-  --glass-bg: linear-gradient(135deg, rgba(219, 234, 254, 0.4), rgba(233, 213, 255, 0.4), rgba(220, 252, 231, 0.4), rgba(254, 226, 226, 0.4));
+  --glass-bg: linear-gradient(135deg, rgba(219, 234, 254, 0.15), rgba(233, 213, 255, 0.15), rgba(220, 252, 231, 0.15), rgba(254, 226, 226, 0.15));
   --glass-border: rgba(255, 255, 255, 0.8);
   --glass-shadow: 0 8px 32px 0 rgba(124, 58, 237, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   
