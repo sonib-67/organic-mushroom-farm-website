@@ -1324,7 +1324,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] md:min-h-screen flex items-center pt-28 pb-12 md:py-24 overflow-hidden section-padding"
+      className="relative min-h-[90vh] md:min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-24 overflow-hidden section-padding"
     >
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.2fr,0.8fr] gap-8 md:gap-16 items-center">
         <motion.div
@@ -1338,7 +1338,7 @@ const Hero = () => {
             Button, Oyster, Milky, Shiitake & More | Setup, Training & Business
             Support
           </div>
-          <h1 className="text-[1.5rem] md:text-5xl lg:text-7xl font-bold dark:text-white text-slate-900 leading-tight mb-6 md:mb-8 tracking-tighter">
+          <h1 className="text-[1.5rem] md:text-4xl lg:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-6 md:mb-8 tracking-tighter">
             <span className="gradient-text">
               Mushroom Farming in India & Worldwide
             </span>{" "}
