@@ -135,11 +135,21 @@ const ArticleDelhiTraining = () => {
                     </p>
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700">
                         <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Delhi Urban Zones:</strong> Rohini, Dwarka, Janakpuri, Pitampura, Laxmi Nagar, Karol Bagh, Uttam Nagar, Shahdara, Saket, Vasant Kunj, and Mayur Vihar.</span></li>
-                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Noida & Greater Noida Region:</strong> Covering Sector 62, Noida Extension, Pari Chowk clusters, and connecting villages like Dankaur, Dadri, Surajpur, and Kasna.</span></li>
+                        <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Noida & Greater Noida Region:</strong> Covering Sector 62, Noida Extension, Pari Chowk clusters, and connecting villages like Dankaur, Dadri, Surajpur, and Kasna. <Link to="/cities/uttar-pradesh/noida" className="text-primary-start hover:underline">Read our complete guide to Noida Mushroom Farming Training</Link>.</span></li>
                         <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Ghaziabad Region:</strong> Serving Indirapuram, Vaishali, Raj Nagar Extension, Loni, and surrounding rural sectors like Muradnagar, Modi Nagar, and Pilkhuwa.</span></li>
                         <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Faridabad Region:</strong> Extending to Ballabhgarh, NIT Faridabad, Greater Faridabad sectors, and nearby villages like Dhauj, Tigaon, and Chhainsa.</span></li>
                         <li className="flex gap-3 items-start"><MapPin className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Gurugram Region:</strong> Reaching Cyber City clusters, Sohna Road, Palam Vihar, Manesar industrial sectors, and surrounding rural pockets like Farrukhnagar, Bhondsi, and Badshahpur.</span></li>
                     </ul>
+
+                    <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 mt-8">
+                        <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-3">Looking for Training in Noida?</h3>
+                        <p className="dark:text-slate-400 text-slate-600 mb-4">
+                            If you are located in Noida, Sector 62, Greater Noida, or Noida Extension, we have a dedicated guide and training module tailored for your specific region.
+                        </p>
+                        <Link to="/cities/uttar-pradesh/noida" className="text-primary-start font-bold flex items-center gap-2 hover:underline">
+                            Read the Noida Mushroom Farming Training Guide <ArrowRight size={16} />
+                        </Link>
+                    </div>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">
                         <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Conclusion: Take the First Step Today!</h2>

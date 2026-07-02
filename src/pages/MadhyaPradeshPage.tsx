@@ -78,6 +78,20 @@ export default function MadhyaPradeshPage() {
               View Resources <ChevronRight size={16} />
             </div>
           </Link>
+          <Link
+            to="/cities/madhya-pradesh/gwalior"
+            className="group glass p-6 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col"
+          >
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Gwalior
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1">
+              Explore mushroom training centers, spawn suppliers, and cultivation guides in Gwalior.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              View Resources <ChevronRight size={16} />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -122,6 +122,10 @@ import KeralaPage from "./pages/KeralaPage";
 import GujaratPage from "./pages/GujaratPage";
 import RajasthanPage from "./pages/RajasthanPage";
 import UttarPradeshPage from "./pages/UttarPradeshPage";
+import HaryanaPage from "./pages/HaryanaPage";
+import AndhraPradeshPage from "./pages/AndhraPradeshPage";
+import OdishaPage from "./pages/OdishaPage";
+import JharkhandPage from "./pages/JharkhandPage";
 import PunePage from "./pages/PunePage";
 import PuneBlogPage from "./pages/PuneBlogPage";
 
@@ -877,6 +881,7 @@ const NAV_ITEMS = [
       { name: "ROI Calculator", href: "/roi-calculator" },
       { name: "Daily Prices", href: "/mushroom-price-today" },
       { name: "Careers", href: "/careers" },
+      { name: "Workshop", href: "/workshop" },
     ],
   },
   {
@@ -888,14 +893,17 @@ const NAV_ITEMS = [
   { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
-  { name: "Contact", href: "/contact", isExternal: false, icon: Phone },
   {
-    name: "On Site Visit",
-    href: "/on-site-consultation",
+    name: "Contact",
+    href: "/contact",
     isExternal: false,
-    icon: MapPin,
-  },
-  { name: "Workshop", href: "/workshop", isExternal: false, icon: Award },
+    icon: Phone,
+    subMenu: [
+      { name: "Contact Us", href: "/contact" },
+      { name: "On Site Visit", href: "/on-site-consultation" },
+      { name: "Call Now", href: "tel:9203544140" }
+    ]
+  }
 ];
 
 // --- Components ---
@@ -999,8 +1007,8 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6">
-            {NAV_ITEMS.slice(0, -1).map((item) => {
+          <div className="hidden lg:flex items-center gap-3 xl:gap-6">
+            {NAV_ITEMS.map((item) => {
               const isHashLink = item.href.includes("#");
               const hash = isHashLink ? item.href.split("#")[1] : null;
 
@@ -1105,12 +1113,6 @@ const Navbar = () => {
                 </div>
               );
             })}
-            <a
-              href="tel:9203544140"
-              className="btn-primary px-7 py-2.5 rounded-xl text-sm shadow-xl shadow-brand-blue/20 font-bold flex items-center gap-2"
-            >
-              <Phone size={16} /> Call Now
-            </a>
           </div>
 
           {/* Mobile Toggle */}
@@ -6330,16 +6332,27 @@ const AnimatedRoutes = () => {
           <Route path="/states/gujarat" element={<GujaratPage />} />
           <Route path="/states/rajasthan" element={<RajasthanPage />} />
           <Route path="/states/uttar-pradesh" element={<UttarPradeshPage />} />
+          <Route path="/states/haryana" element={<HaryanaPage />} />
+          <Route path="/states/andhra-pradesh" element={<AndhraPradeshPage />} />
+          <Route path="/states/odisha" element={<OdishaPage />} />
+          <Route path="/states/jharkhand" element={<JharkhandPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
           <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
+          <Route path="/cities/odisha/bhubaneswar" element={<ArticleBhubaneswarTraining />} />
+          <Route path="/cities/jharkhand/ranchi" element={<ArticleRanchiTraining />} />
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
+          <Route path="/cities/tamil-nadu/coimbatore" element={<ArticleCoimbatoreTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
+          <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
+          <Route path="/cities/uttar-pradesh/noida" element={<ArticleNoidaTraining />} />
           <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
           <Route path="/cities/west-bengal/kolkata" element={<ArticleKolkataTraining />} />
           <Route path="/cities/gujarat/ahmedabad" element={<ArticleAhmedabadTraining />} />
+          <Route path="/cities/andhra-pradesh/visakhapatnam" element={<ArticleVisakhapatnamTraining />} />
+          <Route path="/cities/andhra-pradesh/vijayawada" element={<ArticleVijayawadaTraining />} />
           <Route path="/cities/gujarat/surat" element={<ArticleSuratTraining />} />
           <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
           <Route path="/cities/chandigarh/chandigarh" element={<ArticleChandigarhTraining />} />
@@ -6347,9 +6360,12 @@ const AnimatedRoutes = () => {
           <Route path="/cities/uttar-pradesh/lucknow" element={<ArticleLucknowTraining />} />
           <Route path="/cities/madhya-pradesh/indore" element={<ArticleIndoreTraining />} />
           <Route path="/cities/madhya-pradesh/bhopal" element={<ArticleBhopalTraining />} />
+          <Route path="/cities/madhya-pradesh/gwalior" element={<ArticleGwaliorTraining />} />
           <Route path="/cities/maharashtra/nagpur" element={<ArticleNagpurTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
+          <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia />} />
+          <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
@@ -6367,8 +6383,12 @@ import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
 import ArticleJabalpurGuide from './pages/ArticleJabalpurGuide';
 import ArticleBangaloreTraining from './pages/ArticleBangaloreTraining';
 import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
+import ArticleCoimbatoreTraining from './pages/ArticleCoimbatoreTraining';
 import ArticleMumbaiTraining from './pages/ArticleMumbaiTraining';
 import ArticleDelhiTraining from './pages/ArticleDelhiTraining';
+import ArticleGurugramTraining from './pages/ArticleGurugramTraining';
+import ArticleNoidaTraining from './pages/ArticleNoidaTraining';
+import ArticleMushroomFarmingMistakes from './pages/ArticleMushroomFarmingMistakes';
 import ArticleHyderabadTraining from './pages/ArticleHyderabadTraining';
 import ArticleKolkataTraining from './pages/ArticleKolkataTraining';
 import ArticleAhmedabadTraining from './pages/ArticleAhmedabadTraining';
@@ -6379,12 +6399,18 @@ import ArticleJaipurTraining from './pages/ArticleJaipurTraining';
 import ArticleLucknowTraining from './pages/ArticleLucknowTraining';
 import ArticleIndoreTraining from './pages/ArticleIndoreTraining';
 import ArticleBhopalTraining from './pages/ArticleBhopalTraining';
+import ArticleGwaliorTraining from './pages/ArticleGwaliorTraining';
 import ArticleNagpurTraining from './pages/ArticleNagpurTraining';
 import ArticleRaipurTraining from './pages/ArticleRaipurTraining';
 import ArticleKochiTraining from './pages/ArticleKochiTraining';
+import ArticleVisakhapatnamTraining from './pages/ArticleVisakhapatnamTraining';
+import ArticleVijayawadaTraining from './pages/ArticleVijayawadaTraining';
+import ArticleBhubaneswarTraining from './pages/ArticleBhubaneswarTraining';
+import ArticleRanchiTraining from './pages/ArticleRanchiTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
+import ArticleBusinessPlanIndia from './pages/ArticleBusinessPlanIndia';
 
 export default function App() {
   return (

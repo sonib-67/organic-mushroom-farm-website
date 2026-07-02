@@ -214,6 +214,48 @@ export default function StatesPage() {
             </div>
           </Link>
           <Link
+            to="/states/haryana"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Haryana
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Gurugram and other cities in Haryana.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
+            to="/states/andhra-pradesh"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Andhra Pradesh
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Visakhapatnam and other cities in Andhra Pradesh.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
+            to="/states/odisha"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Odisha
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Bhubaneswar and other cities in Odisha.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
             to="/states/uttar-pradesh"
             className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
           >
@@ -222,6 +264,20 @@ export default function StatesPage() {
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
               Explore resources in Lucknow and other cities in Uttar Pradesh.
+            </p>
+            <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+              View Cities <ChevronRight size={16} />
+            </div>
+          </Link>
+          <Link
+            to="/states/jharkhand"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
+              Jharkhand
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Explore resources in Ranchi and other cities in Jharkhand.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Cities <ChevronRight size={16} />
