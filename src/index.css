@@ -3,7 +3,25 @@
 :root {
   /* Common SaaS Premium Variables */
   --primary-gradient: linear-gradient(135deg, #7C3AED, #22C55E);
-  --bg-gradient: linear-gradient(135deg, #F0EEFF, #E8F8F0);
+  
+  /* Modern Light Pastel Gradient in 3 Sections */
+  --bg-gradient: linear-gradient(
+    180deg,
+    /* Section 1: Top (Soft purple, green, yellow) */
+    #faf5ff 0%,
+    #f0fdf4 15%,
+    #fefce8 30%,
+    
+    /* Section 2: Middle (Soft green, yellow, blue) */
+    #f0fdf4 45%,
+    #fefce8 60%,
+    #f0f9ff 75%,
+    
+    /* Section 3: Bottom (Soft green, yellow, blue) */
+    #f0fdf4 85%,
+    #fefce8 93%,
+    #f0f9ff 100%
+  );
   
   /* Unified Mode Variables (Modern Light) */
   --bg-main: transparent;
@@ -15,7 +33,7 @@
   --text-body: #4A4A68;
   --text-muted: rgba(74, 74, 104, 0.7);
   
-  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg: linear-gradient(135deg, rgba(219, 234, 254, 0.4), rgba(233, 213, 255, 0.4), rgba(220, 252, 231, 0.4), rgba(254, 226, 226, 0.4));
   --glass-border: rgba(255, 255, 255, 0.8);
   --glass-shadow: 0 8px 32px 0 rgba(124, 58, 237, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5);
   
@@ -149,7 +167,7 @@
   .bg-white\/5, .bg-black\/5, .dark\:bg-white\/5, .dark\:bg-black\/5,
   .bg-white\/10, .bg-black\/10, .dark\:bg-white\/10, .dark\:bg-black\/10,
   .bg-black\/40, .bg-black\/50, .bg-black\/60, .bg-black\/80, .bg-black\/95 {
-    background-color: var(--glass-bg) !important;
+    background: var(--glass-bg) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid var(--glass-border) !important;

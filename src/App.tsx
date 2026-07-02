@@ -1217,7 +1217,7 @@ const Navbar = () => {
                           className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900"}`}
                         >
                           <div
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10"}`}
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
                           >
                             {item.icon && <item.icon size={20} />}
                           </div>
@@ -1238,7 +1238,7 @@ const Navbar = () => {
                             >
                               <div className="flex items-center gap-5">
                                 <div
-                                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10"}`}
+                                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
                                 >
                                   {item.icon && <item.icon size={20} />}
                                 </div>
@@ -1260,7 +1260,7 @@ const Navbar = () => {
                               className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900"}`}
                             >
                               <div
-                                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start dark:text-white text-slate-900 shadow-[0_0_15px_rgba(56,189,248,0.4)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:dark:bg-white/10 bg-black/10"}`}
+                                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
                               >
                                 {item.icon && <item.icon size={20} />}
                               </div>
