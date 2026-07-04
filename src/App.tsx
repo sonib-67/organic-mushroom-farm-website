@@ -128,6 +128,7 @@ import OdishaPage from "./pages/OdishaPage";
 import JharkhandPage from "./pages/JharkhandPage";
 import PunePage from "./pages/PunePage";
 import PuneBlogPage from "./pages/PuneBlogPage";
+import AssamPage from "./pages/AssamPage";
 
 // --- Constants & Types ---
 
@@ -6339,7 +6340,10 @@ const AnimatedRoutes = () => {
           <Route path="/states/andhra-pradesh" element={<AndhraPradeshPage />} />
           <Route path="/states/odisha" element={<OdishaPage />} />
           <Route path="/states/jharkhand" element={<JharkhandPage />} />
+          <Route path="/states/assam" element={<AssamPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
+          <Route path="/cities/assam/guwahati" element={<ArticleGuwahatiTraining />} />
+          <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiTraining />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
           <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
@@ -6348,6 +6352,8 @@ const AnimatedRoutes = () => {
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/tamil-nadu/coimbatore" element={<ArticleCoimbatoreTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
+          <Route path="/cities/maharashtra/nashik" element={<ArticleNashikTraining />} />
+          <Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
           <Route path="/cities/uttar-pradesh/noida" element={<ArticleNoidaTraining />} />
@@ -6357,6 +6363,8 @@ const AnimatedRoutes = () => {
           <Route path="/cities/andhra-pradesh/visakhapatnam" element={<ArticleVisakhapatnamTraining />} />
           <Route path="/cities/andhra-pradesh/vijayawada" element={<ArticleVijayawadaTraining />} />
           <Route path="/cities/gujarat/surat" element={<ArticleSuratTraining />} />
+          <Route path="/cities/gujarat/vadodara" element={<ArticleVadodaraTraining />} />
+          <Route path="/mushroom-farming-vadodara-gujarat" element={<ArticleVadodaraTraining />} />
           <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
           <Route path="/cities/chandigarh/chandigarh" element={<ArticleChandigarhTraining />} />
           <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
@@ -6410,6 +6418,9 @@ import ArticleVisakhapatnamTraining from './pages/ArticleVisakhapatnamTraining';
 import ArticleVijayawadaTraining from './pages/ArticleVijayawadaTraining';
 import ArticleBhubaneswarTraining from './pages/ArticleBhubaneswarTraining';
 import ArticleRanchiTraining from './pages/ArticleRanchiTraining';
+import ArticleGuwahatiTraining from './pages/ArticleGuwahatiTraining';
+import ArticleNashikTraining from './pages/ArticleNashikTraining';
+import ArticleVadodaraTraining from './pages/ArticleVadodaraTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
