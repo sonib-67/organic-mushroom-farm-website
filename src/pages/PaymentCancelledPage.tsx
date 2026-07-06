@@ -17,10 +17,14 @@ export default function PaymentCancelledPage() {
     productName?: string,
     email?: string,
     from?: string,
-    formData?: any
+    formData?: any,
+    productType?: string,
+    price?: string
   } | undefined;
 
   const isWorkshop = state?.productName === 'Mushroom Farming Workshop' || state?.from === '/workshop';
+  const isAdvancedTraining = state?.productType === 'training_advanced' || state?.productName?.toLowerCase().includes('advanced');
+  const isBasicTraining = state?.productType === 'training_basic' || state?.productName?.toLowerCase().includes('basic');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,7 +44,13 @@ export default function PaymentCancelledPage() {
     });
 
     if (state?.from) {
-      navigate(state.from, { state: { retryFormData: state.formData } });
+      navigate(state.from, { 
+        state: { 
+          retryFormData: state.formData,
+          productType: state.productType || (isAdvancedTraining ? "training_advanced" : "training_basic"),
+          price: state.price || (isAdvancedTraining ? "₹699" : "₹299")
+        } 
+      });
     } else {
       navigate('/workshop');
     }
@@ -150,6 +160,152 @@ export default function PaymentCancelledPage() {
                     className="w-full dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 hover:bg-black/10 dark:text-slate-300 text-slate-700 font-bold py-3 px-4 rounded-xl text-sm transition-all"
                   >
                     Back to Workshop page
+                  </button>
+                </div>
+              </div>
+            ) : isAdvancedTraining ? (
+              <div>
+                <motion.div 
+                  initial={{ scale: 0.9 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", bounce: 0.5 }}
+                  className="w-16 h-16 rounded-full bg-purple-500/10 text-purple-500 flex items-center justify-center mx-auto mb-4 shadow-[0_0_40px_rgba(147,51,234,0.15)] ring-1 ring-purple-500/20"
+                >
+                  <AlertCircle size={32} />
+                </motion.div>
+                
+                <h1 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
+                  Advanced Registration Incomplete!
+                </h1>
+                
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-semibold text-purple-500 mb-4">
+                  <Clock size={12} className="animate-pulse" /> Secure Spot (₹699 Only)
+                </div>
+
+                <p className="dark:text-slate-400 text-slate-500 text-sm mb-6 leading-relaxed">
+                  Your registration for the <strong>Advanced Commercial Cultivation Training</strong> was not completed. Don't miss out on master-level business secrets!
+                </p>
+
+                {/* Box of goodies included in ₹699 */}
+                <div className="text-left dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 rounded-2xl p-4 sm:p-5 mb-6">
+                  <h3 className="text-xs font-bold dark:text-white text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
+                    <Gift size={14} className="text-purple-500" /> What's Included in ₹699:
+                  </h3>
+                  <ul className="space-y-2.5 text-xs sm:text-sm">
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Oyster, Button & Milky Focus</strong>: Grow year-round in hot summers too.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Commercial Setup</strong>: Layout designs, low-cost sheds, & racks setup.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Climate Infrastructure</strong>: AC, foggers, exhaust & humidifier controls.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Pest & Disease Cure</strong>: Handle green mold, flies & bacterial blotch.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Marketing & Sales</strong>: Market selling, restaurant tie-ups, ads.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Bonus Benefits</strong>: Certified Certificate & private community support.</span>
+                    </li>
+                  </ul>
+                  
+                  <div className="mt-4 pt-3 border-t dark:border-white/5 border-black/5 flex items-center justify-between text-[11px] text-purple-500 font-bold">
+                    <span>🔥 Commercial Level Expertise</span>
+                    <span className="underline">One-Time Lifetime Fee</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <button
+                    onClick={handleRetry}
+                    className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:shadow-[0_0_30px_rgba(147,51,234,0.4)] text-white font-bold py-3.5 px-4 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-95"
+                  >
+                    <RefreshCw size={18} /> Pay ₹699 & Register Again
+                  </button>
+                  
+                  <button
+                    onClick={() => navigate('/training')}
+                    className="w-full dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 hover:bg-black/10 dark:text-slate-300 text-slate-700 font-bold py-3 px-4 rounded-xl text-sm transition-all"
+                  >
+                    Back to Training Options
+                  </button>
+                </div>
+              </div>
+            ) : isBasicTraining ? (
+              <div>
+                <motion.div 
+                  initial={{ scale: 0.9 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", bounce: 0.5 }}
+                  className="w-16 h-16 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center mx-auto mb-4 shadow-[0_0_40px_rgba(59,130,246,0.15)] ring-1 ring-blue-500/20"
+                >
+                  <AlertCircle size={32} />
+                </motion.div>
+                
+                <h1 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
+                  Basic Registration Incomplete!
+                </h1>
+                
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-500 mb-4">
+                  <Clock size={12} className="animate-pulse" /> Complete Checkout (₹299 Only)
+                </div>
+
+                <p className="dark:text-slate-400 text-slate-500 text-sm mb-6 leading-relaxed">
+                  Your payment for the <strong>Basic Mushroom Cultivation Training</strong> was not completed. Start learning the fundamentals of mushroom growing today!
+                </p>
+
+                {/* Box of goodies included in ₹299 */}
+                <div className="text-left dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 rounded-2xl p-4 sm:p-5 mb-6">
+                  <h3 className="text-xs font-bold dark:text-white text-slate-900 mb-3 uppercase tracking-wider flex items-center gap-2">
+                    <Gift size={14} className="text-blue-500" /> What's Included in ₹299:
+                  </h3>
+                  <ul className="space-y-2.5 text-xs sm:text-sm">
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Oyster & Button Focus</strong>: Simple, guided step-by-step growing manual.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Home scale setup</strong>: Easy setups in backyards or tiny rooms.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Substrate boiling & Prep</strong>: sterilization techniques.</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-600 dark:text-slate-300">
+                      <Check className="text-green-500 shrink-0 mt-0.5" size={14} />
+                      <span><strong>Spawning, Bagging & Care</strong>: Packing bags without contamination.</span>
+                    </li>
+                  </ul>
+                  
+                  <div className="mt-4 pt-3 border-t dark:border-white/5 border-black/5 flex items-center justify-between text-[11px] text-blue-500 font-bold">
+                    <span>🌱 Ideal for Beginners</span>
+                    <span className="underline">One-Time Fee</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-3">
+                  <button
+                    onClick={handleRetry}
+                    className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] text-white font-bold py-3.5 px-4 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 hover:scale-[1.01] active:scale-95"
+                  >
+                    <RefreshCw size={18} /> Pay ₹299 & Register Again
+                  </button>
+                  
+                  <button
+                    onClick={() => navigate('/training')}
+                    className="w-full dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 hover:bg-black/10 dark:text-slate-300 text-slate-700 font-bold py-3 px-4 rounded-xl text-sm transition-all"
+                  >
+                    Back to Training Options
                   </button>
                 </div>
               </div>

@@ -52,6 +52,7 @@ import {
   Waves,
   Calendar,
   Globe,
+  Sparkles,
 } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
@@ -194,9 +195,8 @@ const ProductionSOP = () => {
             Commercial Mushroom Production Cycle{" "}
             <span className="gradient-text">SOPs for India & Worldwide</span>
           </h2>
-          <p className="max-w-xl mx-auto text-[13px] md:text-base dark:text-slate-400 text-slate-600">
-            Standardized operational procedures for high-yield button mushroom
-            and oyster mushroom output globally.
+          <p className="max-w-lg mx-auto text-[11px] md:text-sm dark:text-slate-400 text-slate-600">
+            Standardized operational procedures for high-yield button and oyster mushroom cultivation globally.
           </p>
         </div>
 
@@ -1339,20 +1339,17 @@ const Hero = () => {
             Button, Oyster, Milky, Shiitake & More | Setup, Training & Business
             Support
           </div>
-          <h1 className="text-[1.5rem] md:text-4xl lg:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-6 md:mb-8 tracking-tighter">
+          <h1 className="text-[1.5rem] md:text-4xl lg:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-4 md:mb-5 tracking-tighter">
             <span className="gradient-text">
               Mushroom Farming in India & Worldwide
             </span>{" "}
             <br />– Complete Solutions for All Mushroom Types
           </h1>
-          <p className="text-[0.8125rem] md:text-lg dark:text-slate-400 text-slate-600 mb-8 md:mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed">
-            Complete commercial methodology, precision calculators, detailed
-            SOPs, and turnkey solutions for highly profitable button, oyster,
-            and milky mushroom farming across India, USA, Australia, and
-            worldwide.
+          <p className="text-[0.8125rem] md:text-base dark:text-slate-400 text-slate-600 mb-5 md:mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed">
+            Complete commercial methodology, calculators, and turnkey solutions for profitable button, oyster, and milky mushroom farming across India and worldwide.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 md:gap-y-4 gap-x-8 mb-10 dark:border-white/5 border-black/5 border-y py-6 md:py-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-3 gap-x-8 mb-6 dark:border-white/5 border-black/5 border-y py-4 md:py-5">
             {features.map((f, i) => (
               <div
                 key={i}
@@ -1372,7 +1369,7 @@ const Hero = () => {
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-10 md:mb-12">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-8">
             <a
               href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
               target="_blank"
@@ -1529,7 +1526,7 @@ const WhyChooseUs = () => {
     {
       title: "Cost Efficiency (15–25% Savings)",
       subtitle:
-        "Factory-direct manufacturing eliminates middlemen, ensuring 15–25% lower costs compared to market rates for commercial mushroom setups.",
+        "Direct manufacturing eliminates middlemen, ensuring 15–25% lower setup costs.",
       points: [
         "In-house PUF panel production",
         "Own rack fabrication unit",
@@ -1542,7 +1539,7 @@ const WhyChooseUs = () => {
     {
       title: "Smart B2B Pricing",
       subtitle:
-        "Fair and transparent pricing for every mushroom farmer regardless of project size.",
+        "Wholesale pricing model for every mushroom farmer regardless of project size.",
       points: [
         "Wholesale pricing model",
         "Volume discounts",
@@ -1555,7 +1552,7 @@ const WhyChooseUs = () => {
     {
       title: "Nationwide & Global Execution",
       subtitle:
-        "Seamless delivery and execution across India, USA, Australia and beyond with expert teams.",
+        "Delivery and execution across India & worldwide with expert setup teams.",
       points: [
         "Coverage across all states & UTs in India",
         "International project support",
@@ -1568,7 +1565,7 @@ const WhyChooseUs = () => {
     {
       title: "Price Match Guarantee",
       subtitle:
-        "Get the best value without compromise on your commercial mushroom plant.",
+        "Lowest cost guarantee without compromising on commercial project quality.",
       points: [
         "Guaranteed lowest pricing",
         "Market comparison support",
@@ -1581,7 +1578,7 @@ const WhyChooseUs = () => {
     {
       title: "Certified Quality",
       subtitle:
-        "Built on globally recognized standards for button and oyster mushroom farming.",
+        "Built on international recognized standards for commercial mushroom cultivation.",
       points: [
         "Premium materials only",
         "Multi-level quality checks",
@@ -1594,7 +1591,7 @@ const WhyChooseUs = () => {
     {
       title: "Reliable Partnership",
       subtitle:
-        "We don’t just build farms — we build highly profitable mushroom businesses.",
+        "We help you build highly profitable commercial mushroom businesses.",
       points: [
         "Lifetime technical support",
         "Expert B2B consultation",
@@ -2536,8 +2533,9 @@ const TrainingPage = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Professional Mushroom Farming Training India | Online & Offline"
-        description="Join our certified mushroom farming training online or offline. Learn button, oyster, and milky mushroom cultivation from India's leading experts. Enroll now!"
+        title="Master Mushroom Farming in India | Online Cultivation Training"
+        description="Learn to grow Oyster, Button, and Milky mushrooms commercially or at home. Choose our Basic (₹299) or Advanced (₹699) online training. Start your farm today!"
+        keywords="Mushroom farming training India, learn oyster mushroom cultivation, button mushroom course, milky mushroom training, start mushroom farm online."
         url="/training"
       />
       <MushroomTraining />
@@ -3320,22 +3318,221 @@ const StickyRazorpayButton = ({
   size?: "normal" | "small";
 }) => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    <button
-      onClick={() => navigate("/training-checkout")}
-      type="button"
-      className={`relative overflow-hidden flex items-center justify-center rounded-full group backdrop-blur-md dark:text-white text-slate-900 shadow-[0_4px_15px_rgba(168,85,247,0.15)] hover:shadow-[0_4px_20px_rgba(168,85,247,0.25)] transition-all border border-purple-500/30 dark:border-purple-400/40 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
-      style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(192, 132, 252, 0.3) 100%)' }}
-    >
-      <div
-        className={`font-bold z-10 flex items-center justify-center gap-1 whitespace-nowrap ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
+    <>
+      <button
+        onClick={() => setShowModal(true)}
+        type="button"
+        className={`relative overflow-hidden flex items-center justify-center rounded-full group transition-all shadow-[0_4px_15px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.25)] border dark:border-white border-slate-950 bg-slate-950 hover:bg-slate-900 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
       >
-        <BookOpen size={size === "small" ? 12 : 14} className="shrink-0" />
-        <span>Join Training</span>
-      </div>
-      <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
-    </button>
+        <div
+          className={`font-bold z-10 flex items-center justify-center gap-1 whitespace-nowrap ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
+        >
+          <BookOpen size={size === "small" ? 12 : 14} className="shrink-0" />
+          <span>Join Training</span>
+        </div>
+        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+      </button>
+
+      <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowModal(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            {/* Modal Card */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              className="relative w-full max-w-4xl dark:bg-slate-950 bg-white border border-purple-500/20 rounded-[2rem] p-6 md:p-8 shadow-2xl max-h-[90vh] overflow-y-auto z-10"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 md:top-6 md:right-6 p-2 rounded-full dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors dark:text-slate-400 text-slate-500 z-50"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="text-center mb-8 pr-6 pl-6">
+                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full dark:bg-purple-500/10 bg-purple-500/5 text-purple-600 dark:text-purple-400 border border-purple-500/10 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3">
+                  <Sparkles size={12} /> Live Your Farming Dream
+                </div>
+                <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
+                  Select <span className="gradient-text font-black">Your Training Plan</span>
+                </h3>
+                <p className="dark:text-slate-400 text-slate-500 text-xs md:text-sm font-medium mt-1">
+                  Choose the plan that suits you best. Secure checkout with Razorpay.
+                </p>
+              </div>
+
+              {/* Quick Choice Buttons at the very top */}
+              <div className="grid grid-cols-2 gap-1.5 xs:gap-2.5 md:gap-4 max-w-2xl mx-auto mb-6">
+                <button
+                  onClick={() => {
+                    setShowModal(false);
+                    navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } });
+                  }}
+                  className="flex items-center justify-between p-1.5 xs:p-2.5 md:p-3.5 rounded-lg xs:rounded-xl md:rounded-2xl border border-blue-500/25 bg-blue-500/5 hover:bg-blue-500/10 transition-all text-left group/btn cursor-pointer"
+                >
+                  <div className="flex items-center gap-1.5 xs:gap-2 md:gap-3 overflow-hidden">
+                    <div className="w-5 h-5 xs:w-7 xs:h-7 md:w-8 md:h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                      <BookOpen size={11} className="xs:size-3.5 md:size-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[7px] xs:text-[9px] md:text-[10px] uppercase font-black tracking-wider text-blue-500">Basic</div>
+                      <div className="text-[9px] xs:text-[11px] md:text-sm font-extrabold dark:text-white text-slate-900 leading-tight">Mushroom ₹299</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-0.5 font-bold text-[8px] xs:text-[10px] md:text-[11px] text-blue-600 dark:text-blue-400 shrink-0 ml-1">
+                    <span className="hidden sm:inline">Join</span>
+                    <ArrowRight size={10} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setShowModal(false);
+                    navigate("/training-checkout", { state: { productType: "training_advanced", price: "₹699" } });
+                  }}
+                  className="flex items-center justify-between p-1.5 xs:p-2.5 md:p-3.5 rounded-lg xs:rounded-xl md:rounded-2xl border border-purple-500/30 bg-purple-500/5 hover:bg-purple-500/10 transition-all text-left group/btn cursor-pointer ring-1 ring-purple-500/20"
+                >
+                  <div className="flex items-center gap-1.5 xs:gap-2 md:gap-3 overflow-hidden">
+                    <div className="w-5 h-5 xs:w-7 xs:h-7 md:w-8 md:h-8 rounded-full bg-purple-500/10 text-purple-500 flex items-center justify-center shrink-0">
+                      <Sparkles size={11} className="xs:size-3.5 md:size-4 animate-pulse" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[7px] xs:text-[9px] md:text-[10px] uppercase font-black tracking-wider text-purple-500">Advanced</div>
+                      <div className="text-[9px] xs:text-[11px] md:text-sm font-extrabold dark:text-white text-slate-900 leading-tight">Training ₹699</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-0.5 font-bold text-[8px] xs:text-[10px] md:text-[11px] text-purple-600 dark:text-purple-400 shrink-0 ml-1">
+                    <span className="hidden sm:inline">Join</span>
+                    <ArrowRight size={10} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                  </div>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                {/* Basic Card */}
+                <div className="flex flex-col p-5 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-slate-50 border dark:border-white/5 border-slate-200">
+                  <span className="badge bg-blue-500/10 text-blue-500 text-[9px] font-bold uppercase tracking-widest mb-2 self-start py-0.5 px-2 rounded-full">
+                    Beginner
+                  </span>
+                  <h4 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                    Basic Cultivation Training
+                  </h4>
+                  <div className="flex items-baseline gap-1.5 mb-4">
+                    <span className="text-2xl md:text-3xl font-black gradient-text">₹299</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
+                  </div>
+
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 min-h-[32px]">
+                    Perfect for students and hobbyists looking to grow mushrooms at a small home scale.
+                  </p>
+
+                  <div className="flex-1 mb-6">
+                    <h5 className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-2.5">What's Included:</h5>
+                    <ul className="space-y-2 text-xs">
+                      {[
+                        "**Oyster & Button** cultivation step-by-step tutorial.",
+                        "**Home Setup**: Perfect climate parameters for rooms/backyards.",
+                        "**Substrate Preparation**: Boiling, sterilization & bag packing.",
+                        "**Contamination Prevention**: Simple hygiene controls."
+                      ].map((bullet, i) => {
+                        const parts = bullet.split("**");
+                        return (
+                          <li key={i} className="flex items-start gap-1.5 dark:text-slate-300 text-slate-600 font-medium">
+                            <CheckCircle2 size={13} className="text-blue-500 shrink-0 mt-0.5" />
+                            <span>
+                              {parts.map((p, idx) => idx % 2 === 1 ? <strong key={idx} className="font-bold dark:text-white text-slate-900">{p}</strong> : p)}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setShowModal(false);
+                      navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } });
+                    }}
+                    className="w-full bg-slate-950 text-white hover:bg-slate-900 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
+                  >
+                    Join Mushroom Training <ArrowRight size={13} />
+                  </button>
+                </div>
+
+                {/* Advanced Card */}
+                <div className="relative flex flex-col p-5 md:p-6 rounded-2xl dark:bg-purple-950/5 bg-purple-50/5 border-2 border-purple-500/80 shadow-[0_4px_25px_rgba(168,85,247,0.15)]">
+                  <div className="absolute top-3 right-3 text-[10px] text-purple-500 font-extrabold tracking-widest uppercase flex items-center gap-0.5">
+                    <Sparkles size={10} className="animate-pulse" /> RECOMMENDED
+                  </div>
+                  <span className="badge bg-purple-500/10 text-purple-400 text-[9px] font-bold uppercase tracking-widest mb-2 self-start py-0.5 px-2 rounded-full">
+                    Entrepreneur
+                  </span>
+                  <h4 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                    Advanced Commercial Training
+                  </h4>
+                  <div className="flex items-baseline gap-1.5 mb-4">
+                    <span className="text-2xl md:text-3xl font-black text-purple-500">₹699</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
+                  </div>
+
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 min-h-[32px]">
+                    Ideal for entrepreneurs and farmers wanting to establish commercial operations and scale.
+                  </p>
+
+                  <div className="flex-1 mb-6">
+                    <h5 className="text-[9px] font-black text-purple-400 uppercase tracking-widest mb-2.5">What's Included:</h5>
+                    <ul className="space-y-2 text-xs">
+                      {[
+                        "**Everything in Basic** plus additional advanced guides.",
+                        "**Advanced Varieties**: Milky (Summer), Oyster & Button Mushrooms.",
+                        "**Commercial Shed Setup**: Layout design and low-cost shed options.",
+                        "**Automated Climate Systems**: Foggers, AC, & humidity tools.",
+                        "**Disease Management**: Treat green mold, flies & bacterial blotch.",
+                        "**Marketing & Sales**: Tie-ups, wholesale market selling, ads & social media.",
+                        "**Exclusive Perks**: Certified Certificate & active private community support."
+                      ].map((bullet, i) => {
+                        const parts = bullet.split("**");
+                        return (
+                          <li key={i} className="flex items-start gap-1.5 dark:text-slate-300 text-slate-600 font-medium">
+                            <CheckCircle2 size={13} className="text-purple-500 shrink-0 mt-0.5" />
+                            <span>
+                              {parts.map((p, idx) => idx % 2 === 1 ? <strong key={idx} className="font-bold dark:text-white text-slate-900">{p}</strong> : p)}
+                            </span>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      setShowModal(false);
+                      navigate("/training-checkout", { state: { productType: "training_advanced", price: "₹699" } });
+                    }}
+                    className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
+                  >
+                    Join Mushroom Training <ArrowRight size={13} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
@@ -3643,6 +3840,7 @@ const RazorpayPaymentButton = () => {
 };
 
 const MushroomTraining = () => {
+  const navigate = useNavigate();
   const faqs = [
     {
       q: "What is the duration of training?",
@@ -3755,28 +3953,20 @@ const MushroomTraining = () => {
   return (
     <section id="training" className="relative pb-24 lg:pb-0 overflow-hidden">
       {/* Tiny bit of Hero style for internal section */}
-      <div className="py-4 md:py-24 text-center px-2 md:px-4">
+      <div className="py-2 md:py-8 text-center px-2 md:px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="badge mx-auto mb-3 md:mb-6 text-[10px] md:text-xs">
+            <div className="badge mx-auto mb-2 md:mb-3 text-[10px] md:text-xs">
               Expert-Led Courses
             </div>
-            <h2 className="text-lg md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 mb-2 md:mb-6 tracking-tighter leading-snug uppercase max-w-4xl mx-auto">
-              <span className="gradient-text">
-                Button, Oyster & Milky Mushroom Farming
-              </span>{" "}
-              Training
-            </h2>
-            <p className="dark:text-slate-400 text-slate-600 text-[11px] md:text-lg max-w-2xl mx-auto font-medium mb-4 md:mb-10 leading-tight">
-              Learn Commercial Button & Oyster Mushroom Farming from Global
-              Experts – Start Your Own Business Today. Comprehensive modules
-              designed for maximum ROI.
-            </p>
+            <h1 className="text-xl md:text-3xl lg:text-4xl font-black dark:text-white text-slate-900 mb-1 tracking-tight uppercase max-w-4xl mx-auto" id="training-h1">
+              <span className="gradient-text">Mushroom Cultivation</span> Training
+            </h1>
           </motion.div>
         </div>
       </div>
@@ -3784,117 +3974,293 @@ const MushroomTraining = () => {
       {/* Training Options Section */}
       <div
         id="options"
-        className="py-4 md:py-24 dark:bg-white/5 bg-black/5 px-2 md:px-4"
+        className="py-6 md:py-12 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent border-y border-purple-500/10 px-2 md:px-4"
       >
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-4 md:mb-16">
-            <h3 className="text-md md:text-4xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-4">
-              Choose Your{" "}
-              <span className="gradient-text">Commercial Training Model</span>
+        <div className="max-w-7xl mx-auto" id="pricing-plans">
+          <div className="text-center mb-6 md:mb-10">
+            <div className="badge mx-auto mb-2 md:mb-4 text-[10px] md:text-xs">
+              Simple & Transparent Models
+            </div>
+            <h3 className="text-xl md:text-3xl font-extrabold dark:text-white text-slate-900 mb-1.5 md:mb-3 tracking-tight uppercase">
+              Choose Your <span className="gradient-text font-black">Training Program</span>
             </h3>
-            <p className="dark:text-slate-400 text-slate-600 text-[9px] md:text-base">
-              Select the path that fits your commercial mushroom goals and
-              budget.
+            <p className="dark:text-slate-400 text-slate-600 text-[10px] md:text-sm max-w-xl mx-auto font-medium leading-relaxed">
+              Start with self-paced online courses or gain hands-on commercial experience at our practical farm workshops.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 w-full">
-            {/* Online Training */}
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="glass flex flex-col p-6 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden w-full box-border"
-            >
-              <a
-                href="https://youtube.com/shorts/wxLiU3nNZmM?si=6VmH86DPYKoQ72P6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute top-0 right-0 p-4 md:p-8 opacity-5 hover:opacity-20 hover:scale-105 transition-all cursor-pointer"
-              >
-                <Play size={80} className="md:w-[120px] md:h-[120px]" />
-              </a>
-              <div className="badge mb-2 md:mb-6 self-start text-[10px] md:text-xs">
-                Self-Paced
-              </div>
-              <h4 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-1 md:mb-2 text-left">
-                Online Training
-              </h4>
-              <div className="text-2xl md:text-4xl font-black gradient-text mb-3 md:mb-6 text-left">
-                ₹299
-              </div>
-              <ul className="space-y-1.5 md:space-y-4 mb-4 md:mb-10 flex-1 text-[11px] md:text-base text-left">
-                {[
-                  "Complete A-Z Mushroom Farming Guide",
-                  "Step-by-Step Live Training",
-                  "Lifetime Access",
-                  "Beginner Friendly",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-2 md:gap-3 dark:text-slate-300 text-slate-700 font-bold"
-                  >
-                    <CheckCircle2
-                      size={14}
-                      className="text-primary-start shrink-0 md:w-5 md:h-5"
-                    />{" "}
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-auto relative z-50 h-[48px] md:h-[56px] w-full">
-                <StickyRazorpayButton size="small" />
-              </div>
-            </motion.div>
 
-            {/* Offline Training */}
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="glass flex flex-col p-6 md:p-12 rounded-[1.5rem] md:rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden w-full box-border"
-            >
-              <div className="absolute top-0 right-0 p-4 md:p-8 opacity-5">
-                <Users size={80} className="md:w-[120px] md:h-[120px]" />
-              </div>
-              <div className="badge mb-2 md:mb-6 self-start text-[10px] md:text-xs">
-                Hands-on Workshop
-              </div>
-              <h4 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-1 md:mb-2 text-left">
-                Offline Training
-              </h4>
-              <div className="text-2xl md:text-4xl font-black gradient-text mb-3 md:mb-6 text-left">
-                ₹3000
-              </div>
-              <ul className="space-y-1.5 md:space-y-4 mb-4 md:mb-10 flex-1 text-[11px] md:text-base text-left">
-                {[
-                  "Practical Hands-on Training",
-                  "Farm Visit & Live Demo",
-                  "Setup Guidance",
-                  "Marketing & Selling Tips",
-                ].map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-center gap-2 md:gap-3 dark:text-slate-300 text-slate-700 font-bold"
+          {/* Group 1: Online Programs */}
+          <div className="mb-10">
+            <h4 className="text-base md:text-xl font-black text-slate-800 dark:text-slate-200 mb-4 uppercase tracking-wider flex items-center justify-center gap-2 border-b dark:border-white/10 border-slate-200 pb-2">
+              <Globe className="text-purple-500 animate-spin-slow shrink-0" size={18} />
+              <span>1. Online Cultivation Programs (Self-Paced)</span>
+            </h4>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 w-full max-w-5xl mx-auto items-stretch">
+              {/* Basic Online Plan */}
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass relative flex flex-col p-4 md:p-6 lg:p-8 rounded-[1.5rem] border border-slate-200 dark:border-white/10 dark:bg-black/40 bg-white/50 backdrop-blur-md shadow-lg"
+              >
+                <div className="badge mb-3 self-start bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-[10px] md:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                  Beginner Friendly
+                </div>
+                <h4 className="text-lg md:text-2xl font-black dark:text-white text-slate-900 mb-1.5 text-left tracking-tight">
+                  Basic Online Training
+                </h4>
+                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-4 text-left font-medium min-h-[36px]">
+                  Perfect for beginners, students, and hobbyists looking to start growing mushrooms at a home scale.
+                </p>
+                
+                {/* Pricing Display */}
+                <div className="flex items-baseline gap-1.5 mb-4 border-b border-dashed border-slate-200 dark:border-white/10 pb-4 text-left">
+                  <span className="text-3xl md:text-4xl font-black gradient-text">₹299</span>
+                  <span className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
+                </div>
+
+                {/* Learning Outcomes */}
+                <div className="flex-1 text-left mb-5">
+                  <h5 className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">What You Will Learn:</h5>
+                  <ul className="space-y-2 text-xs md:text-sm">
+                    {[
+                      "**Introduction to Fungi**: The basics of how mushrooms grow and thrive.",
+                      "**Variety Focus**: Step-by-step cultivation guide for **Oyster** and **Button** mushrooms.",
+                      "**Home Setup**: How to create the right environment in a small room or backyard.",
+                      "**Substrate Preparation**: Boiling, chemical sterilization, and preparing the perfect base for your seeds (spawn).",
+                      "**Spawning & Bagging**: The correct techniques to mix spawn and pack bags to avoid contamination.",
+                      "**Basic Climate Control**: Simple ways to maintain moisture and temperature for healthy fruiting."
+                    ].map((item, i) => {
+                      const parts = item.split("**");
+                      return (
+                        <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                          <CheckCircle2 size={14} className="text-blue-500 shrink-0 mt-0.5" />
+                          <span>
+                            {parts.map((p, idx) => idx % 2 === 1 ? <strong key={idx} className="font-extrabold text-slate-900 dark:text-white">{p}</strong> : p)}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* Call to Action */}
+                <button
+                  onClick={() => navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } })}
+                  className="w-full bg-slate-950 hover:bg-slate-900 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-black tracking-wide py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 hover:scale-[1.01] active:scale-95 text-xs md:text-sm"
+                >
+                  Join Mushroom Training <ArrowRight size={14} />
+                </button>
+              </motion.div>
+
+              {/* Advanced Online Plan */}
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative flex flex-col p-4 md:p-6 lg:p-8 rounded-[1.5rem] border-2 border-purple-500 dark:border-purple-400 dark:bg-purple-950/10 bg-purple-50/10 backdrop-blur-md shadow-2xl overflow-hidden"
+              >
+                {/* Premium Glow effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div className="flex justify-between items-center mb-3">
+                  <span className="badge bg-purple-500 text-white dark:bg-purple-500 text-[10px] md:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                    Highly Recommended
+                  </span>
+                  <span className="text-[10px] md:text-xs text-purple-600 dark:text-purple-400 font-black uppercase tracking-widest flex items-center gap-1">
+                    <Sparkles size={11} className="animate-spin-slow" /> BEST VALUE
+                  </span>
+                </div>
+                
+                <h4 className="text-lg md:text-2xl font-black dark:text-white text-slate-900 mb-1.5 text-left tracking-tight">
+                  Advanced Commercial Training
+                </h4>
+                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-4 text-left font-medium min-h-[36px]">
+                  Designed for future entrepreneurs, commercial farmers, and serious business owners wanting to scale.
+                </p>
+                
+                {/* Pricing Display */}
+                <div className="flex items-baseline gap-1.5 mb-4 border-b border-dashed border-purple-500/20 pb-4 text-left">
+                  <span className="text-3xl md:text-4xl font-black text-purple-600 dark:text-purple-400">₹699</span>
+                  <span className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
+                </div>
+
+                {/* Learning Outcomes */}
+                <div className="flex-1 text-left mb-5">
+                  <h5 className="text-[10px] md:text-[11px] font-bold text-purple-400 uppercase tracking-widest mb-2.5">What You Will Learn:</h5>
+                  <ul className="space-y-2 text-xs md:text-sm">
+                    {[
+                      "**Everything in the Basic Plan**, fully covered.",
+                      "**Advanced Variety Focus**: Master **Oyster**, **Button**, AND the high-temperature **Milky Mushroom** (perfect for Indian summers).",
+                      "**Commercial Farm Setup**: Designing layout, constructing low-cost sheds, and setting up heavy-duty racks.",
+                      "**Advanced Climate Infrastructure**: Installing & managing foggers, humidifiers, exhaust, and AC units for year-round production.",
+                      "**Disease & Pest Management**: How to identify, prevent, and treat common green mold, flies, and bacterial blotch.",
+                      "**Harvesting & Packaging**: Best practices to extend shelf life and package your mushrooms professionally.",
+                      "**Marketing & Sales Strategies**: Sell in local wholesale markets, tie up with hotels/restaurants, run social media ads, and handle export inquiries.",
+                      "**Bonus Benefits**: Verified Certificate of Completion and ongoing private community support access."
+                    ].map((item, i) => {
+                      const parts = item.split("**");
+                      return (
+                        <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                          <CheckCircle2 size={14} className="text-purple-500 shrink-0 mt-0.5" />
+                          <span>
+                            {parts.map((p, idx) => idx % 2 === 1 ? <strong key={idx} className="font-extrabold text-slate-900 dark:text-white">{p}</strong> : p)}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* Call to Action */}
+                <button
+                  onClick={() => navigate("/training-checkout", { state: { productType: "training_advanced", price: "₹699" } })}
+                  className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] text-white font-black tracking-wide py-3 rounded-xl transition-all flex items-center justify-center gap-1.5 hover:scale-[1.01] active:scale-95 text-xs md:text-sm"
+                >
+                  Join Mushroom Training <ArrowRight size={14} />
+                </button>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Group 2: Offline Practical Workshops */}
+          <div>
+            <h4 className="text-base md:text-xl font-black text-slate-800 dark:text-slate-200 mb-4 uppercase tracking-wider flex items-center justify-center gap-2 border-b dark:border-white/10 border-slate-200 pb-2">
+              <Users className="text-emerald-500 shrink-0" size={18} />
+              <span>2. Offline Practical Workshops (Hands-on Training at Farm)</span>
+            </h4>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 w-full max-w-5xl mx-auto items-stretch">
+              {/* Offline Basic Plan (₹3000) */}
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="glass relative flex flex-col p-4 md:p-6 lg:p-8 rounded-[1.5rem] border border-slate-200 dark:border-white/10 dark:bg-black/40 bg-white/50 backdrop-blur-md shadow-lg"
+              >
+                <div className="badge mb-3 self-start bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] md:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                  Focus: Button Mushroom Only
+                </div>
+                <h4 className="text-lg md:text-2xl font-black dark:text-white text-slate-900 mb-1.5 text-left tracking-tight">
+                  Standard Button Mushroom Workshop
+                </h4>
+                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-4 text-left font-medium min-h-[36px]">
+                  Intensive hands-on training focusing exclusively on commercial Button Mushroom farming.
+                </p>
+                
+                {/* Pricing Display */}
+                <div className="flex items-baseline gap-1.5 mb-4 border-b border-dashed border-slate-200 dark:border-white/10 pb-4 text-left">
+                  <span className="text-3xl md:text-4xl font-black text-emerald-600 dark:text-emerald-400">₹3000</span>
+                  <span className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Per Person</span>
+                </div>
+
+                {/* Outcomes */}
+                <div className="flex-1 text-left mb-5">
+                  <h5 className="text-[10px] md:text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-2.5">What You Will Get:</h5>
+                  <ul className="space-y-2 text-xs md:text-sm">
+                    {[
+                      "**Practical Hands-On training** on compost preparation and casing soil.",
+                      "**Live Demonstration** of compost bed layout & spawning procedures.",
+                      "**Farm Visit & Live Demo** of our state-of-the-art Button Mushroom growing facilities.",
+                      "**Temperature & Moisture Management** practical setup protocols.",
+                      "**Standard Setup Guidance** and local market sales tips to launch your venture.",
+                      "**Direct Q&A Session** with senior farm experts during the workshop."
+                    ].map((item, i) => {
+                      const parts = item.split("**");
+                      return (
+                        <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                          <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                          <span>
+                            {parts.map((p, idx) => idx % 2 === 1 ? <strong key={idx} className="font-extrabold text-slate-900 dark:text-white">{p}</strong> : p)}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* Call to Action */}
+                <div className="grid grid-cols-2 gap-2 mt-auto">
+                  <a
+                    href="tel:9203544140"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl border border-slate-300 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all text-xs font-bold uppercase tracking-wider"
                   >
-                    <CheckCircle2
-                      size={14}
-                      className="text-green-500 shrink-0 md:w-5 md:h-5"
-                    />{" "}
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="grid grid-cols-2 gap-2 md:gap-4 mt-auto">
-                <a
-                  href="tel:9203544140"
-                  className="btn-outline py-3 md:py-4 rounded-xl flex items-center justify-center gap-1.5 md:gap-2 font-bold text-[10px] md:text-xs px-2"
-                >
-                  <Phone size={14} className="md:w-4 md:h-4" /> Call Now
-                </a>
-                <a
-                  href="https://wa.me/919203544140"
-                  className="bg-[#25D366] hover:bg-[#128C7E] text-white py-3 md:py-4 px-2 rounded-xl flex items-center justify-center gap-1.5 md:gap-2 font-bold text-[10px] md:text-xs transition-colors shadow-lg"
-                >
-                  <MessageCircle size={14} className="md:w-4 md:h-4" /> WhatsApp
-                </a>
-              </div>
-            </motion.div>
+                    <Phone size={14} /> Call
+                  </a>
+                  <a
+                    href="https://wa.me/919203544140?text=I%20am%20interested%20in%203000%20Offline%20Button%20Mushroom%20Training"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all text-xs font-bold uppercase tracking-wider shadow-md"
+                  >
+                    <MessageCircle size={14} /> WhatsApp
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Offline Master Plan (₹6000) */}
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="relative flex flex-col p-4 md:p-6 lg:p-8 rounded-[1.5rem] border-2 border-emerald-500 dark:border-emerald-400 dark:bg-emerald-950/10 bg-emerald-50/10 backdrop-blur-md shadow-2xl overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <div className="badge mb-3 self-start bg-emerald-500 text-white text-[10px] md:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full">
+                  Button, Oyster & Milky Mushrooms
+                </div>
+                <h4 className="text-lg md:text-2xl font-black dark:text-white text-slate-900 mb-1.5 text-left tracking-tight">
+                  Master Commercial Workshop
+                </h4>
+                <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mb-4 text-left font-medium min-h-[36px]">
+                  Our ultimate 3-day premium practical training covers the entire commercial cultivation spectrum of all three major varieties.
+                </p>
+                
+                {/* Pricing Display */}
+                <div className="flex items-baseline gap-1.5 mb-4 border-b border-dashed border-emerald-500/20 pb-4 text-left">
+                  <span className="text-3xl md:text-4xl font-black text-emerald-600 dark:text-emerald-400">₹6000</span>
+                  <span className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Per Person</span>
+                </div>
+
+                {/* Outcomes */}
+                <div className="flex-1 text-left mb-5">
+                  <h5 className="text-[10px] md:text-[11px] font-bold text-emerald-500 uppercase tracking-widest mb-2.5">What You Will Get:</h5>
+                  <ul className="space-y-2 text-xs md:text-sm">
+                    {[
+                      "**Multi-Variety Mastery**: Hands-on practicals for **Button**, **Oyster**, and high-yield summer **Milky** mushrooms.",
+                      "**Turnkey Laboratory Visit**: Real-world study of spawn production, sterilization, and inoculation processes.",
+                      "**Advanced Climate Setup Demo**: Learn installation of automatic foggers, humidifiers, exhausts, and AC units.",
+                      "**Commercial Packaging & Cold Chain**: Packaging techniques to double the shelf-life of harvested mushrooms.",
+                      "**Exclusive Market Tie-Ups**: Step-by-step strategies to sell in wholesale markets, tie up with local premium hotels & explore exports.",
+                      "**1-on-1 Consultancy Project**: Get expert validation on your farm blueprint design and site viability assessment.",
+                      "**Certification & Lifetime Access**: Master completion certificate and premium offline grower network membership."
+                    ].map((item, i) => {
+                      const parts = item.split("**");
+                      return (
+                        <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 font-medium">
+                          <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                          <span>
+                            {parts.map((p, idx) => idx % 2 === 1 ? <strong key={idx} className="font-extrabold text-slate-900 dark:text-white">{p}</strong> : p)}
+                          </span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* Call to Action */}
+                <div className="grid grid-cols-2 gap-2 mt-auto">
+                  <a
+                    href="tel:9203544140"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl border border-emerald-300 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all text-xs font-bold uppercase tracking-wider"
+                  >
+                    <Phone size={14} /> Call
+                  </a>
+                  <a
+                    href="https://wa.me/919203544140?text=I%20am%20interested%20in%206000%20Offline%20Master%20Mushroom%20Training"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all text-xs font-bold uppercase tracking-wider shadow-md"
+                  >
+                    <MessageCircle size={14} /> WhatsApp
+                  </a>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
@@ -3906,7 +4272,7 @@ const MushroomTraining = () => {
             <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
               What You Will <span className="gradient-text">Get</span>
             </h3>
-            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-[9px] md:text-base">
+            <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-[9px] md:text-sm">
               Everything you need to succeed in commercial mushroom farming.
             </p>
           </div>
@@ -3942,7 +4308,7 @@ const MushroomTraining = () => {
             <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
               Training <span className="gradient-text">Curriculum</span>
             </h3>
-            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-[9px] md:text-base">
+            <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-[9px] md:text-sm">
               Master every aspect of the commercial cultivation ecosystem.
             </p>
           </div>
@@ -3978,9 +4344,8 @@ const MushroomTraining = () => {
             Need High-Yield Commercial{" "}
             <span className="gradient-text">Mushroom Seed?</span>
           </h3>
-          <p className="dark:text-slate-400 text-slate-600 mb-3 md:mb-10 max-w-2xl mx-auto text-[9px] md:text-base leading-tight">
-            High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky
-            mushrooms. Available for bulk orders in India and global export.
+          <p className="dark:text-slate-400 text-slate-600 mb-3 md:mb-6 max-w-lg mx-auto text-[9px] md:text-sm leading-normal">
+            High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Bulk delivery across India & global export.
           </p>
           <Link
             to="/spawn-seed"
@@ -4189,9 +4554,8 @@ const HomePage = () => {
                 <span className="gradient-text">Compost Units</span>
               </Link>
             </h2>
-            <p className="max-w-2xl mx-auto">
-              Complete Phase-I + Phase-II commercial infrastructure with 15-day
-              cycles.
+            <p className="max-w-xl mx-auto text-xs md:text-sm text-slate-500 dark:text-slate-400">
+              Complete Phase-I + Phase-II commercial infrastructure with 15-day cycles.
             </p>
           </div>
 
@@ -5649,7 +6013,7 @@ const FAQPage = () => {
     },
     {
       q: "Where can I sell my commercial harvested mushrooms?",
-      a: "We provide global and domestic market linkage support. You can sell to local Mandis, hotels, supermarkets, or through our network of verified commercial B2B buyers across India and abroad.",
+      a: "We provide global and domestic market linkage support. You can sell to local wholesale markets, hotels, supermarkets, or through our network of verified commercial B2B buyers across India and abroad.",
     },
     {
       q: "पुण्यामध्ये मशरूम शेती सुरू करण्यासाठी किती गुंतवणूक लागते?",

@@ -95,7 +95,7 @@ export default function BookConsultantPage() {
             user_email: formData.email,
             user_phone: formData.phone
           });
-          setModalState('success');
+          navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(formData.email)}&type=consultant`);
         },
         modal: {
           ondismiss: function() {

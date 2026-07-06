@@ -98,7 +98,7 @@ const WorkshopPage = () => {
             paymentId: response.razorpay_payment_id
           });
 
-          navigate('/payment-success');
+          navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com')}&type=workshop`);
           setLoading(false);
         },
         modal: {

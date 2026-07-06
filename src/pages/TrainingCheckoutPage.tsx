@@ -10,6 +10,13 @@ import SEO from '../components/SEO';
 export default function TrainingCheckoutPage() {
   const navigate = useNavigate();
   const location = useLocation();
+  const stateData = (location.state as any) || {};
+  const selectedProductType = stateData.productType || 'training';
+  const selectedPrice = stateData.price || '₹299';
+  const selectedTitle = selectedProductType === 'training_advanced' 
+    ? 'Advanced Commercial Cultivation' 
+    : 'Basic Mushroom Cultivation';
+
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',
@@ -33,13 +40,13 @@ export default function TrainingCheckoutPage() {
     setPaymentStatus('idle');
 
     // Track Form Start/Submit using Pixel Helper BEFORE Razorpay
-    pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: 'Training - Mushroom Cultivation' });
+    pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: `Training - ${selectedTitle}` });
 
     try {
       const response = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, productType: 'training' })
+        body: JSON.stringify({ ...formData, productType: selectedProductType })
       });
       
       let payload;
@@ -58,8 +65,8 @@ export default function TrainingCheckoutPage() {
         name: formData.name,
         phone: formData.mobile,
         email: formData.email,
-        productType: 'Mushroom Farming Masterclass Training',
-        amount: '₹299',
+        productType: `${selectedTitle} Training`,
+        amount: selectedPrice,
         status: 'INITIATED',
         orderId: payload.order_id
       });
@@ -80,8 +87,8 @@ export default function TrainingCheckoutPage() {
             name: formData.name,
             phone: formData.mobile,
             email: formData.email,
-            productType: 'Mushroom Farming Masterclass Training',
-            amount: '₹299',
+            productType: `${selectedTitle} Training`,
+            amount: selectedPrice,
             status: 'DONE',
             orderId: payload.order_id,
             paymentId: response.razorpay_payment_id
@@ -92,7 +99,7 @@ export default function TrainingCheckoutPage() {
             currency: payload.currency,
             order_id: payload.order_id,
             payment_id: response.razorpay_payment_id,
-            content_name: 'Training - Mushroom Cultivation',
+            content_name: `Training - ${selectedTitle}`,
             user_email: formData.email,
             user_phone: formData.mobile
           });
@@ -101,13 +108,13 @@ export default function TrainingCheckoutPage() {
             currency: payload.currency,
             order_id: payload.order_id,
             payment_id: response.razorpay_payment_id,
-            content_name: 'Training - Mushroom Cultivation',
+            content_name: `Training - ${selectedTitle}`,
             user_email: formData.email,
             user_phone: formData.mobile
           });
           // small delay to ensure pixel fires before route transition
           setTimeout(() => {
-             navigate('/payment-success?id=' + response.razorpay_payment_id);
+             navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
           }, 400);
         },
         modal: {
@@ -118,8 +125,8 @@ export default function TrainingCheckoutPage() {
               name: formData.name,
               phone: formData.mobile,
               email: formData.email,
-              productType: 'Mushroom Farming Masterclass Training',
-              amount: '₹299',
+              productType: `${selectedTitle} Training`,
+              amount: selectedPrice,
               status: 'CANCELLED',
               orderId: payload.order_id
             });
@@ -127,17 +134,19 @@ export default function TrainingCheckoutPage() {
             trackPaymentStep('PaymentCancelled', {
               value: payload.amount / 100,
               currency: payload.currency,
-              content_name: 'Training - Mushroom Cultivation',
+              content_name: `Training - ${selectedTitle}`,
               user_email: formData.email
             });
             navigate('/payment-cancelled', { 
               state: { 
                 amount: payload.amount, 
                 currency: payload.currency, 
-                productName: 'Training - Mushroom Cultivation',
+                productName: `Training - ${selectedTitle}`,
                 email: formData.email,
                 from: '/training-checkout',
-                formData: formData
+                formData: formData,
+                productType: selectedProductType,
+                price: selectedPrice
               } 
             });
           }
@@ -151,7 +160,7 @@ export default function TrainingCheckoutPage() {
         trackPaymentStep('InitiateCheckout', {
           value: payload.amount / 100,
           currency: payload.currency,
-          content_name: 'Training - Mushroom Cultivation'
+          content_name: `Training - ${selectedTitle}`
         });
 
         const rzp = new (window as any).Razorpay(options);
@@ -163,8 +172,8 @@ export default function TrainingCheckoutPage() {
             name: formData.name,
             phone: formData.mobile,
             email: formData.email,
-            productType: 'Mushroom Farming Masterclass Training',
-            amount: '₹299',
+            productType: `${selectedTitle} Training`,
+            amount: selectedPrice,
             status: 'FAILED',
             orderId: payload.order_id,
             paymentId: response.error?.metadata?.payment_id
@@ -173,17 +182,19 @@ export default function TrainingCheckoutPage() {
           trackPaymentStep('PaymentFailed', {
              value: payload.amount / 100,
              currency: payload.currency,
-             content_name: 'Training - Mushroom Cultivation',
+             content_name: `Training - ${selectedTitle}`,
              user_email: formData.email
           });
           navigate('/payment-cancelled', { 
             state: { 
               amount: payload.amount, 
               currency: payload.currency, 
-              productName: 'Training - Mushroom Cultivation',
+              productName: `Training - ${selectedTitle}`,
               email: formData.email,
               from: '/training-checkout',
-              formData: formData
+              formData: formData,
+              productType: selectedProductType,
+              price: selectedPrice
             } 
           });
         });
@@ -276,7 +287,7 @@ export default function TrainingCheckoutPage() {
                   }}
                   className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] text-[14px] sm:text-[15px] text-white font-bold py-3.5 sm:py-4 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
                 >
-                   Try Again - ₹299
+                   Try Again - {selectedPrice}
                 </button>
               </motion.div>
             ) : (
@@ -287,9 +298,9 @@ export default function TrainingCheckoutPage() {
                     <span className="text-[9px] font-bold uppercase tracking-widest dark:text-slate-300 text-slate-700">Access</span>
                   </div>
                   <h1 className="text-xl sm:text-2xl font-black dark:text-white text-slate-900 mb-1.5 tracking-tight">Enroll in Training</h1>
-                  <p className="text-xs sm:text-sm font-bold bg-gradient-to-r from-indigo-500 to-green-500 bg-clip-text text-transparent flex items-center justify-center gap-2">
+                  <p className="text-xs sm:text-sm font-bold bg-gradient-to-r from-indigo-500 to-green-500 bg-clip-text text-transparent flex flex-wrap items-center justify-center gap-2">
                     <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    Mushroom Cultivation - ₹299
+                    {selectedTitle} - {selectedPrice}
                   </p>
                 </div>
 
