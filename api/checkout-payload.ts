@@ -7,9 +7,12 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     let amount = 0;
     let purpose = "";
 
-    if (productType === "training") {
+    if (productType === "training" || productType === "training_basic") {
       amount = 29900;
-      purpose = "Mushroom Farming Masterclass Training";
+      purpose = "Basic Mushroom Cultivation Training";
+    } else if (productType === "training_advanced") {
+      amount = 69900;
+      purpose = "Advanced Commercial Cultivation Training";
     } else if (productType === "consultation") {
       amount = 5900;
       purpose = "Expert 1-on-1 Business Consultation Slot";

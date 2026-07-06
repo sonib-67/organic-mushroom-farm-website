@@ -3826,7 +3826,7 @@ const RazorpayPaymentButton = () => {
 
   return (
     <button
-      onClick={() => navigate("/training-checkout")}
+      onClick={() => navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } })}
       type="button"
       className="relative overflow-hidden rounded-2xl group w-full min-h-[64px] bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02] flex items-center justify-center cursor-pointer"
     >

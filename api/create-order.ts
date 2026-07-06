@@ -27,9 +27,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     let amount = 5900;
     let purpose = "Order";
 
-    if (productType === "training") {
+    if (productType === "training" || productType === "training_basic") {
       amount = 29900;
-      purpose = "Mushroom Farming Masterclass Training";
+      purpose = "Basic Mushroom Cultivation Training";
+    } else if (productType === "training_advanced") {
+      amount = 69900;
+      purpose = "Advanced Commercial Cultivation Training";
     } else if (productType === "workshop") {
       amount = 19900;
       purpose = "Organic Mushroom Farming Workshop";

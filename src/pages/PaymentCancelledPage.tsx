@@ -24,7 +24,7 @@ export default function PaymentCancelledPage() {
 
   const isWorkshop = state?.productName === 'Mushroom Farming Workshop' || state?.from === '/workshop';
   const isAdvancedTraining = state?.productType === 'training_advanced' || state?.productName?.toLowerCase().includes('advanced');
-  const isBasicTraining = state?.productType === 'training_basic' || state?.productName?.toLowerCase().includes('basic');
+  const isBasicTraining = state?.productType === 'training_basic' || state?.productType === 'training' || state?.productName?.toLowerCase().includes('basic');
 
   useEffect(() => {
     window.scrollTo(0, 0);
