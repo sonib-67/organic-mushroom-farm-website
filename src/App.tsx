@@ -3325,15 +3325,15 @@ const StickyRazorpayButton = ({
       <button
         onClick={() => setShowModal(true)}
         type="button"
-        className={`relative overflow-hidden flex items-center justify-center rounded-full group transition-all shadow-[0_4px_15px_rgba(0,0,0,0.15)] hover:shadow-[0_4px_20px_rgba(0,0,0,0.25)] border dark:border-white border-slate-950 bg-slate-950 hover:bg-slate-900 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-950 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
+        className={`relative overflow-hidden flex items-center justify-center rounded-full group transition-all backdrop-blur-md shadow-[0_8px_32px_rgba(167,139,250,0.15)] hover:shadow-[0_8px_32px_rgba(167,139,250,0.3)] border border-purple-400/40 dark:border-purple-300/30 bg-linear-to-r from-purple-500/10 via-fuchsia-400/10 to-indigo-500/10 dark:from-purple-900/30 dark:via-fuchsia-900/20 dark:to-indigo-900/30 hover:from-purple-500/20 hover:via-fuchsia-400/20 hover:to-indigo-500/20 dark:hover:from-purple-900/40 dark:hover:via-fuchsia-900/30 dark:hover:to-indigo-900/40 text-purple-950 dark:text-purple-100 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
       >
         <div
           className={`font-bold z-10 flex items-center justify-center gap-1 whitespace-nowrap ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
         >
-          <BookOpen size={size === "small" ? 12 : 14} className="shrink-0" />
+          <BookOpen size={size === "small" ? 12 : 14} className="shrink-0 text-purple-700 dark:text-purple-300" />
           <span>Join Training</span>
         </div>
-        <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
       </button>
 
       <AnimatePresence>
@@ -6709,6 +6709,8 @@ const AnimatedRoutes = () => {
           <Route path="/cities/assam/guwahati" element={<ArticleGuwahatiTraining />} />
           <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiTraining />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
+          <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruTraining />} />
+          <Route path="/mushroom-farming-mysuru-karnataka" element={<ArticleMysuruTraining />} />
           <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
           <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
           <Route path="/cities/odisha/bhubaneswar" element={<ArticleBhubaneswarTraining />} />
@@ -6757,6 +6759,7 @@ import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
 
 import ArticleJabalpurGuide from './pages/ArticleJabalpurGuide';
 import ArticleBangaloreTraining from './pages/ArticleBangaloreTraining';
+import ArticleMysuruTraining from './pages/ArticleMysuruTraining';
 import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
 import ArticleCoimbatoreTraining from './pages/ArticleCoimbatoreTraining';
 import ArticleMumbaiTraining from './pages/ArticleMumbaiTraining';

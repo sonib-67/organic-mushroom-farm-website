@@ -238,6 +238,7 @@ export default function SitemapPage() {
     { name: "Mumbai Mushroom Farming Training Center", path: "/cities/maharashtra/mumbai", desc: "Complete Guide to Mushroom Farm Setup, Online Training & Mushroom Business in Mumbai, Maharashtra." },
     { name: "Chennai Mushroom Farming Training Center", path: "/cities/tamil-nadu/chennai", desc: "Start Your Profitable Agri-Business Today! Premium mushroom farming training, spawn supply and commercial setup in Chennai, Tamil Nadu." },
     { name: "Bangalore Mushroom Farming Training Center", path: "/cities/karnataka/bangalore", desc: "Start Your Profitable Agri-Business Today! Premium mushroom farming training, spawn supply and commercial setup in Bangalore, Karnataka." },
+    { name: "Mysuru Mushroom Farming, Training & Setup", path: "/cities/karnataka/mysuru", desc: "Complete Guide to Mushroom Farming, Spawn Supply, online/offline training and farm setup in Mysuru, Karnataka." },
     { name: "Turnkey Commercial Farm Setup", path: "/articles/turnkey-commercial-setup", desc: "Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure" },
     { name: "Mushroom Training Profit Guide (USA)", path: "/articles/mushroom-training-profit-guide-usa", desc: "Complete guide to turning mushroom farming into a real business across the USA." },
     { name: "Medicinal Mushrooms Income Guide (USA)", path: "/articles/medicinal-mushrooms-income-guide-usa", desc: "Detailed breakdown on profits from Lion's Mane, Reishi, and Chaga in America." },
