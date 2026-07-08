@@ -855,6 +855,25 @@ const NAV_ITEMS = [
     ],
   },
   {
+    name: "Training",
+    href: "/training",
+    isExternal: false,
+    icon: Award,
+  },
+  {
+    name: "Learning",
+    href: "/mushroom-types",
+    isExternal: false,
+    icon: BookOpen,
+    subMenu: [
+      { name: "Mushroom Types", href: "/mushroom-types" },
+      { name: "Business Plan", href: "/business-plan" },
+      { name: "ROI Calculator", href: "/roi-calculator" },
+      { name: "Daily Prices", href: "/mushroom-price-today" },
+      { name: "Careers", href: "/careers" },
+    ],
+  },
+  {
     name: "Services",
     href: "/services",
     isExternal: false,
@@ -871,25 +890,16 @@ const NAV_ITEMS = [
     ],
   },
   {
-    name: "Learning",
-    href: "/training",
-    isExternal: false,
-    icon: Award,
-    subMenu: [
-      { name: "Training Programs", href: "/training" },
-      { name: "Mushroom Types", href: "/mushroom-types" },
-      { name: "Business Plan", href: "/business-plan" },
-      { name: "ROI Calculator", href: "/roi-calculator" },
-      { name: "Daily Prices", href: "/mushroom-price-today" },
-      { name: "Careers", href: "/careers" },
-      { name: "Workshop", href: "/workshop" },
-    ],
-  },
-  {
     name: "Turnkey Projects",
     href: "/turnkey-projects",
     isExternal: false,
     icon: ShieldCheck,
+  },
+  {
+    name: "Workshop",
+    href: "/workshop",
+    isExternal: false,
+    icon: Calendar,
   },
   { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
@@ -1367,6 +1377,48 @@ const Hero = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto md:mx-0">
+            <Link
+              to="/training"
+              className="group flex items-center justify-between p-4 rounded-2xl border border-purple-500/30 bg-linear-to-r from-purple-500/5 via-fuchsia-400/5 to-indigo-500/5 dark:from-purple-900/10 dark:via-fuchsia-900/10 dark:to-indigo-900/10 hover:from-purple-500/15 hover:via-fuchsia-400/15 hover:to-indigo-500/15 transition-all duration-300 shadow-xs"
+            >
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-300">
+                  <Award size={18} />
+                </div>
+                <div className="text-left">
+                  <span className="block text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
+                    Mushroom Cultivation Training
+                  </span>
+                  <span className="block text-[10px] text-slate-500 dark:text-slate-400">
+                    Comprehensive online & offline certification programs
+                  </span>
+                </div>
+              </div>
+              <ArrowRight size={16} className="text-slate-400 group-hover:translate-x-1 group-hover:text-purple-500 transition-all" />
+            </Link>
+
+            <Link
+              to="/turnkey-projects"
+              className="group flex items-center justify-between p-4 rounded-2xl border border-emerald-500/30 bg-linear-to-r from-emerald-500/5 via-teal-400/5 to-cyan-500/5 dark:from-emerald-900/10 dark:via-teal-900/10 dark:to-cyan-900/10 hover:from-emerald-500/15 hover:via-teal-400/15 hover:to-cyan-500/15 transition-all duration-300 shadow-xs"
+            >
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
+                  <CheckCircle2 size={18} />
+                </div>
+                <div className="text-left">
+                  <span className="block text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors">
+                    Mushroom Farm Setup
+                  </span>
+                  <span className="block text-[10px] text-slate-500 dark:text-slate-400">
+                    Turnkey commercial farm setup & consultancy
+                  </span>
+                </div>
+              </div>
+              <ArrowRight size={16} className="text-slate-400 group-hover:translate-x-1 group-hover:text-emerald-500 transition-all" />
+            </Link>
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-8">
@@ -4046,9 +4098,12 @@ const MushroomTraining = () => {
                 {/* Call to Action */}
                 <button
                   onClick={() => navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } })}
-                  className="w-full bg-slate-950 hover:bg-slate-900 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-black tracking-wide py-3 rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 hover:scale-[1.01] active:scale-95 text-xs md:text-sm"
+                  className="relative overflow-hidden w-full flex items-center justify-center rounded-xl group transition-all backdrop-blur-md shadow-[0_8px_32px_rgba(167,139,250,0.15)] hover:shadow-[0_8px_32px_rgba(167,139,250,0.3)] border border-purple-400/40 dark:border-purple-300/30 bg-linear-to-r from-purple-500/10 via-fuchsia-400/10 to-indigo-500/10 dark:from-purple-900/30 dark:via-fuchsia-900/20 dark:to-indigo-900/30 hover:from-purple-500/20 hover:via-fuchsia-400/20 hover:to-indigo-500/20 dark:hover:from-purple-900/40 dark:hover:via-fuchsia-900/30 dark:hover:to-indigo-900/40 text-purple-950 dark:text-purple-100 font-black tracking-wide py-3 hover:scale-[1.01] active:scale-95 text-xs md:text-sm"
                 >
-                  Join Mushroom Training <ArrowRight size={14} />
+                  <span className="z-10 flex items-center justify-center gap-1.5">
+                    Join Mushroom Training <ArrowRight size={14} className="text-purple-700 dark:text-purple-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></div>
                 </button>
               </motion.div>
 
