@@ -121,9 +121,11 @@ import ChandigarhPage from "./pages/ChandigarhPage";
 import ChhattisgarhPage from "./pages/ChhattisgarhPage";
 import KeralaPage from "./pages/KeralaPage";
 import GujaratPage from "./pages/GujaratPage";
+import PunjabPage from "./pages/PunjabPage";
 import RajasthanPage from "./pages/RajasthanPage";
 import UttarPradeshPage from "./pages/UttarPradeshPage";
 import HaryanaPage from "./pages/HaryanaPage";
+import UttarakhandPage from "./pages/UttarakhandPage";
 import AndhraPradeshPage from "./pages/AndhraPradeshPage";
 import OdishaPage from "./pages/OdishaPage";
 import JharkhandPage from "./pages/JharkhandPage";
@@ -999,7 +1001,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] py-2.5 md:py-4 px-3 sm:px-5 md:px-10 transition-all duration-300 rounded-[2rem] ${isScrolled ? "translate-y-[-2px]" : ""}`}
+        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] py-2.5 md:py-4 px-3 sm:px-5 md:px-6 lg:px-4 xl:px-8 transition-all duration-300 rounded-[2rem] ${isScrolled ? "translate-y-[-2px]" : ""}`}
         style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.15) 33%, rgba(34, 197, 94, 0.15) 66%, rgba(234, 179, 8, 0.15) 100%)' }}
       >
         <div className="flex items-center justify-between">
@@ -1010,15 +1012,15 @@ const Navbar = () => {
             <img
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
               alt="Organic Mushroom Farm"
-              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
             />
-            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
+            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-3 xl:gap-6">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-3">
             {NAV_ITEMS.map((item) => {
               const isHashLink = item.href.includes("#");
               const hash = isHashLink ? item.href.split("#")[1] : null;
@@ -1061,14 +1063,14 @@ const Navbar = () => {
                     {location.pathname === "/" ? (
                       <a
                         {...linkProps}
-                        className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900"}`}
+                        className={`text-[11px] xl:text-[13px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link
                         to={item.href}
-                        className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900"}`}
+                        className={`text-[11px] xl:text-[13px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
                       </Link>
@@ -1076,7 +1078,7 @@ const Navbar = () => {
                     {isActive && (
                       <motion.div
                         layoutId="nav-active"
-                        className="absolute -bottom-1 left-3 right-3 h-0.5 gradient-bg rounded-full"
+                        className="absolute -bottom-1 left-2 right-2 xl:left-3 xl:right-3 h-0.5 gradient-bg rounded-full"
                       />
                     )}
                   </div>
@@ -1090,7 +1092,7 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   <Link
                     to={item.href}
-                    className={`text-[13px] font-bold transition-all flex items-center gap-1.5 px-3 py-1.5 rounded-lg ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900"}`}
+                    className={`text-[11px] xl:text-[13px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                   >
                     {item.name}
                     {hasSubMenu && (
@@ -6753,9 +6755,11 @@ const AnimatedRoutes = () => {
           <Route path="/states/chhattisgarh" element={<ChhattisgarhPage />} />
           <Route path="/states/kerala" element={<KeralaPage />} />
           <Route path="/states/gujarat" element={<GujaratPage />} />
+          <Route path="/states/punjab" element={<PunjabPage />} />
           <Route path="/states/rajasthan" element={<RajasthanPage />} />
           <Route path="/states/uttar-pradesh" element={<UttarPradeshPage />} />
           <Route path="/states/haryana" element={<HaryanaPage />} />
+          <Route path="/states/uttarakhand" element={<UttarakhandPage />} />
           <Route path="/states/andhra-pradesh" element={<AndhraPradeshPage />} />
           <Route path="/states/odisha" element={<OdishaPage />} />
           <Route path="/states/jharkhand" element={<JharkhandPage />} />
@@ -6772,12 +6776,18 @@ const AnimatedRoutes = () => {
           <Route path="/cities/jharkhand/ranchi" element={<ArticleRanchiTraining />} />
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/tamil-nadu/coimbatore" element={<ArticleCoimbatoreTraining />} />
+          <Route path="/cities/tamil-nadu/madurai" element={<ArticleMaduraiTraining />} />
+          <Route path="/mushroom-farming-madurai-tamil-nadu" element={<ArticleMaduraiTraining />} />
+          <Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/maharashtra/nashik" element={<ArticleNashikTraining />} />
           <Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
           <Route path="/cities/uttar-pradesh/noida" element={<ArticleNoidaTraining />} />
+          <Route path="/cities/uttarakhand/dehradun" element={<ArticleDehradunTraining />} />
+          <Route path="/mushroom-farming-dehradun-uttarakhand" element={<ArticleDehradunTraining />} />
+          <Route path="/mushroom-farming-dehradun" element={<ArticleDehradunTraining />} />
           <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
           <Route path="/cities/west-bengal/kolkata" element={<ArticleKolkataTraining />} />
           <Route path="/cities/gujarat/ahmedabad" element={<ArticleAhmedabadTraining />} />
@@ -6786,6 +6796,10 @@ const AnimatedRoutes = () => {
           <Route path="/cities/gujarat/surat" element={<ArticleSuratTraining />} />
           <Route path="/cities/gujarat/vadodara" element={<ArticleVadodaraTraining />} />
           <Route path="/mushroom-farming-vadodara-gujarat" element={<ArticleVadodaraTraining />} />
+          <Route path="/mushroom-farming-vadodara" element={<ArticleVadodaraTraining />} />
+          <Route path="/cities/punjab/amritsar" element={<ArticleAmritsarTraining />} />
+          <Route path="/mushroom-farming-amritsar-punjab" element={<ArticleAmritsarTraining />} />
+          <Route path="/mushroom-farming-amritsar" element={<ArticleAmritsarTraining />} />
           <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
           <Route path="/cities/chandigarh/chandigarh" element={<ArticleChandigarhTraining />} />
           <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
@@ -6817,10 +6831,12 @@ import ArticleBangaloreTraining from './pages/ArticleBangaloreTraining';
 import ArticleMysuruTraining from './pages/ArticleMysuruTraining';
 import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
 import ArticleCoimbatoreTraining from './pages/ArticleCoimbatoreTraining';
+import ArticleMaduraiTraining from './pages/ArticleMaduraiTraining';
 import ArticleMumbaiTraining from './pages/ArticleMumbaiTraining';
 import ArticleDelhiTraining from './pages/ArticleDelhiTraining';
 import ArticleGurugramTraining from './pages/ArticleGurugramTraining';
 import ArticleNoidaTraining from './pages/ArticleNoidaTraining';
+import ArticleDehradunTraining from './pages/ArticleDehradunTraining';
 import ArticleMushroomFarmingMistakes from './pages/ArticleMushroomFarmingMistakes';
 import ArticleHyderabadTraining from './pages/ArticleHyderabadTraining';
 import ArticleKolkataTraining from './pages/ArticleKolkataTraining';
@@ -6843,6 +6859,7 @@ import ArticleRanchiTraining from './pages/ArticleRanchiTraining';
 import ArticleGuwahatiTraining from './pages/ArticleGuwahatiTraining';
 import ArticleNashikTraining from './pages/ArticleNashikTraining';
 import ArticleVadodaraTraining from './pages/ArticleVadodaraTraining';
+import ArticleAmritsarTraining from './pages/ArticleAmritsarTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
