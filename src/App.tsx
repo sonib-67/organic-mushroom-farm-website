@@ -1014,13 +1014,13 @@ const Navbar = () => {
               alt="Organic Mushroom Farm"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
             />
-            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
+            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-3">
+          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 overflow-x-auto no-scrollbar">
             {NAV_ITEMS.map((item) => {
               const isHashLink = item.href.includes("#");
               const hash = isHashLink ? item.href.split("#")[1] : null;
@@ -1063,14 +1063,14 @@ const Navbar = () => {
                     {location.pathname === "/" ? (
                       <a
                         {...linkProps}
-                        className={`text-[11px] xl:text-[13px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
+                        className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link
                         to={item.href}
-                        className={`text-[11px] xl:text-[13px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
+                        className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
                       </Link>
@@ -1092,7 +1092,7 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   <Link
                     to={item.href}
-                    className={`text-[11px] xl:text-[13px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
+                    className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                   >
                     {item.name}
                     {hasSubMenu && (
@@ -6770,6 +6770,8 @@ const AnimatedRoutes = () => {
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruTraining />} />
           <Route path="/mushroom-farming-mysuru-karnataka" element={<ArticleMysuruTraining />} />
+          <Route path="/cities/karnataka/mangalore" element={<ArticleMangaloreTraining />} />
+          <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreTraining />} />
           <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
           <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
           <Route path="/cities/odisha/bhubaneswar" element={<ArticleBhubaneswarTraining />} />
@@ -6829,6 +6831,7 @@ import ArticleMadhyaPradeshGuide from './pages/ArticleMadhyaPradeshGuide';
 import ArticleJabalpurGuide from './pages/ArticleJabalpurGuide';
 import ArticleBangaloreTraining from './pages/ArticleBangaloreTraining';
 import ArticleMysuruTraining from './pages/ArticleMysuruTraining';
+import ArticleMangaloreTraining from './pages/ArticleMangaloreTraining';
 import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
 import ArticleCoimbatoreTraining from './pages/ArticleCoimbatoreTraining';
 import ArticleMaduraiTraining from './pages/ArticleMaduraiTraining';

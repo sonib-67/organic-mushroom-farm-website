@@ -34,7 +34,7 @@ export const CITIES = [
   "Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Deoghar", "Phusro", "Hazaribagh", "Giridih", "Ramgarh", "Medininagar", "Chirkunda", "Chaibasa", "Daltonganj", "Sahibganj", "Adityapur", "Chas", "Jugsalai", "Mihijam", "Dumka", "Jamtara", "Pakur", "Godda", "Gumla", "Simdega", "Lohardaga", "Khunti", "Seraikela",
   
   // Karnataka
-  "Bengaluru", "Hubli", "Dharwad", "Mysuru", "Kalaburagi", "Mangaluru", "Davanagere", "Belagavi", "Ballari", "Vijayapura", "Shivamogga", "Tumakuru", "Raichur", "Bidar", "Udupi", "Hassan", "Hospet", "Gadag", "Chitradurga", "Mandya", "Bagalkot", "Chikkamagaluru", "Robertsonpet", "Bhadravati", "Davangere", "Ramanagara", "Chikkaballapur", "Kolar", "Gangavati", "Gokak", "Yadgir", "Koppal", "Haveri", "Chamarajanagar", "Kodagu",
+  "Bengaluru", "Hubli", "Dharwad", "Mysuru", "Mangalore", "Kalaburagi", "Mangaluru", "Davanagere", "Belagavi", "Ballari", "Vijayapura", "Shivamogga", "Tumakuru", "Raichur", "Bidar", "Udupi", "Hassan", "Hospet", "Gadag", "Chitradurga", "Mandya", "Bagalkot", "Chikkamagaluru", "Robertsonpet", "Bhadravati", "Davangere", "Ramanagara", "Chikkaballapur", "Kolar", "Gangavati", "Gokak", "Yadgir", "Koppal", "Haveri", "Chamarajanagar", "Kodagu",
   
   // Kerala
   "Thiruvananthapuram", "Kochi", "Kozhikode", "Kollam", "Thrissur", "Alappuzha", "Palakkad", "Malappuram", "Kannur", "Kasaragod", "Kottayam", "Idukki", "Pathanamthitta", "Wayanad", "Ernakulam", "Manjeri", "Kayamkulam", "Thalassery", "Vatakara", "Ponnani", "Tirur", "Koyilandy", "Payyannur", "Perinthalmanna", "Ottappalam", "Shoranur", "Chalakudy", "Muvattupuzha", "Kunnamkulam", "Irinjalakuda", "Kodungallur", "Thodupuzha",
