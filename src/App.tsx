@@ -2280,7 +2280,7 @@ const CTASection = () => {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1",
+        "https://formspree.io/f/xykldqdy",
         {
           method: "POST",
           headers: {
@@ -2645,7 +2645,7 @@ const ContactPage = () => {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1",
+        "https://formspree.io/f/xykldqdy",
         {
           method: "POST",
           body: formData,
@@ -2833,7 +2833,7 @@ const ContactPage = () => {
               </div>
 
               <form
-                action="https://formsubmit.co/df116a35555567e9addd5cf3304c3af1"
+                action="https://formspree.io/f/xykldqdy"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-5"
@@ -5407,7 +5407,7 @@ const TurnkeyProjectsPage = () => {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1",
+        "https://formspree.io/f/xykldqdy",
         {
           method: "POST",
           body: formData,

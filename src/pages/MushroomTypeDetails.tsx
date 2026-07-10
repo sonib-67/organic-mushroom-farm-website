@@ -54,7 +54,7 @@ const MushroomTypeDetails = () => {
     }
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
+      const response = await fetch('https://formspree.io/f/xykldqdy', {
         method: 'POST',
         body: formData,
         headers: {

@@ -26,14 +26,14 @@ const ContactFormPage = () => {
         pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
 
         try {
-            const resp = await fetch('https://formsubmit.co/ajax/df116a35555567e9addd5cf3304c3af1', {
+            const resp = await fetch('https://formspree.io/f/xykldqdy', {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'Accept': 'application/json'
                 }
             });
-            if (!resp.ok) throw new Error('FormSubmit response not OK');
+            if (!resp.ok) throw new Error('Formspree response not OK');
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
@@ -41,7 +41,7 @@ const ContactFormPage = () => {
         } catch (error) {
             console.error(error);
             pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
-            // Fallback for formsubmit
+            // Fallback for formspree
             form.submit();
         }
     };
@@ -120,7 +120,7 @@ const ContactFormPage = () => {
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
                          <form 
-                             action="https://formsubmit.co/df116a35555567e9addd5cf3304c3af1" 
+                             action="https://formspree.io/f/xykldqdy" 
                              method="POST" 
                              onSubmit={handleSubmit} 
                              className="relative z-10 space-y-6"
