@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 import { 
   generateReviewSchema, 
   generateLocalBusinessSchema, 
@@ -17,11 +18,20 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas }) => {
+  const location = useLocation();
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
   const siteUrl = "https://organicmushroomfarm.shop";
-  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+  
+  // Use explicit url if provided, otherwise fallback to current pathname
+  const activePath = url || location.pathname;
+  
+  // Ensure path starts with a slash
+  const formattedPath = activePath.startsWith('/') ? activePath : '/' + activePath;
+  
+  // Construct clean canonical URL (ignoring trailing slash for root to match siteUrl exactly)
+  const fullUrl = `${siteUrl}${formattedPath === '/' ? '' : formattedPath}`;
 
   const defaultSchemas = [
     generateOrganizationSchema(),
