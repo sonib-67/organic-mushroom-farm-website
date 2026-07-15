@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "commercial-mushroom-farming-india", customPath: "/blog/commercial-mushroom-farming-india", title: "The Ultimate Guide to Commercial Mushroom Farming in India: Setup, Training, and Scalability", excerpt: "The agricultural landscape in India is experiencing a massive shift, driven by high-yield, space-optimized agribusinesses. Learn about setup, training, and scalability.", date: "July 14, 2026" },
       { id: "7-mushroom-farming-mistakes-india", customPath: "/blog/7-mushroom-farming-mistakes-india", title: "7 Mushroom Farming Mistakes That Cause Crop Failure in India (And How to Avoid Them)", excerpt: "Why Do Many New Mushroom Farmers Fail Within the First Few Months? Learn the most common mistakes and how to avoid them.", date: "July 02, 2026" },
       { id: "mushroom-farming-business-plan-india", customPath: "/blog/mushroom-farming-business-plan-india", title: "Mushroom Farming Business Plan: How to Start a Profitable Mushroom Business in India", excerpt: "Learn how to start a profitable mushroom farming business in India. A step-by-step business plan, setup costs, marketing strategy, and ROI analysis for 2026.", date: "July 02, 2026" },
       { id: "turnkey-commercial-setup", isExternalPage: true, title: "TURNKEY COMMERCIAL MUSHROOM FARM SETUP", excerpt: "Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure by Mushroom Farm Setup", date: "June 28, 2026" },

@@ -231,9 +231,12 @@ export default function SitemapPage() {
     { name: "Bikaner Mushroom Farming, Training, Spawn & Setup", path: "/cities/rajasthan/bikaner", desc: "बीकानेर में मशरूम फार्म सेटअप, स्पॉन सप्लाई, स्टूडेंट्स और किसानों के लिए ऑनलाइन-ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स।" },
     { name: "Udaipur Mushroom Farming, Training, Spawn & Setup", path: "/cities/rajasthan/udaipur", desc: "उदयपुर में मशरूम फार्म सेटअप, स्पॉन सप्लाई, होटल व टूरिज्म बिजनेस के लिए ऑनलाइन और ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल।" },
     { name: "Lucknow Mushroom Farming Training Center", path: "/cities/uttar-pradesh/lucknow", desc: "Complete guide on Lucknow Mushroom Farming. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Uttar Pradesh." },
+    { name: "Kanpur Food Processing and Mushroom Business", path: "/cities/uttar-pradesh/kanpur", desc: "Kanpur में Food Processing और Mushroom Business की नई संभावनाएँ 2026. Start your scalable mushroom farming and food processing business in Kanpur." },
     { name: "Indore Mushroom Farming Training Center", path: "/cities/madhya-pradesh/indore", desc: "Indore Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Madhya Pradesh." },
     { name: "Bhopal Mushroom Farming Training Center", path: "/cities/madhya-pradesh/bhopal", desc: "Bhopal Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Madhya Pradesh." },
     { name: "Nagpur Mushroom Farming Training Center", path: "/cities/maharashtra/nagpur", desc: "Nagpur Mushroom Farming complete guide in Marathi. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Maharashtra." },
+    { name: "Aurangabad Mushroom Farming Business for Women SHGs", path: "/cities/maharashtra/aurangabad", desc: "Mushroom Farming Business for Women Self-Help Groups (SHGs) in Aurangabad | महिला बचत गटांसाठी मशरूम व्यवसाय 2026" },
+    { name: "Tiruchirappalli Mushroom Farming Business for Young Entrepreneurs", path: "/cities/tamil-nadu/tiruchirappalli", desc: "Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappalli | திருச்சிராப்பள்ளியில் இளைஞர்களுக்கான ஸ்மார்ட் மஷ்ரூம் பிசினஸ் வழிகாட்டி 2026" },
     { name: "Kolkata Mushroom Farming Training Center", path: "/cities/west-bengal/kolkata", desc: "Start Your Profitable Agribusiness Today! Premium mushroom farming training, spawn supply and commercial setup in Kolkata, West Bengal." },
     { name: "Siliguri Mushroom Farming, Training, Spawn & Setup", path: "/cities/west-bengal/siliguri", desc: "Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur turnkey mushroom projects in Siliguri, West Bengal." },
     { name: "Thiruvananthapuram Mushroom Farming, Training, Spawn & Setup", path: "/cities/kerala/thiruvananthapuram", desc: "തിരുവനന്തപുരത്ത് മഷ്റൂം ഫാം സെറ്റപ്പ്, സ്പോൺ സപ്ലൈ, ട്രെയിനിംഗ്, ബിസിനസ്സ് ഗൈഡ്." },
@@ -252,7 +255,8 @@ export default function SitemapPage() {
     { name: "Mushroom Business Plan Hindi", path: "/articles/mushroom-farming-business-plan-hindi-2026", desc: "Highly detailed business plan written in Hindi language." },
     { name: "Mushroom Farming Training course Hindi", path: "/articles/mushroom-farming-training-hindi-india", desc: "Indian central region training course information." },
     { name: "Farming Training Certificate", path: "/articles/mushroom-farming-training-online-offline-certificate", desc: "Syllabus and layout of certified online/offline workshops." },
-    { name: "Ghar Par Mushroom Farming Manual", path: "/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026", desc: "Detailed home cultivation, bag preparation strategy." }
+    { name: "Ghar Par Mushroom Farming Manual", path: "/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026", desc: "Detailed home cultivation, bag preparation strategy." },
+    { name: "Commercial Mushroom Farming India", path: "/blog/commercial-mushroom-farming-india", desc: "Ultimate guide on setting up a commercial mushroom farm in India." }
   ];
 
   const dynamicBlogPosts = Array.from({ length: 10 }, (_, i) => ({

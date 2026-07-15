@@ -87,6 +87,7 @@ import ArticleGharParMushroomFarming from "./pages/ArticleGharParMushroomFarming
 import ArticleUltimateGuideHinglish from "./pages/ArticleUltimateGuideHinglish";
 import ArticleUSAProfitGuide from "./pages/ArticleUSAProfitGuide";
 import ArticleUSAMedicinalIncome from "./pages/ArticleUSAMedicinalIncome";
+import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
 import SEO from "./components/SEO";
 import {
   generateReviewSchema,
@@ -6782,6 +6783,7 @@ const AnimatedRoutes = () => {
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/tamil-nadu/coimbatore" element={<ArticleCoimbatoreTraining />} />
           <Route path="/cities/tamil-nadu/madurai" element={<ArticleMaduraiTraining />} />
+          <Route path="/cities/tamil-nadu/tiruchirappalli" element={<ArticleTiruchirappalliTraining />} />
           <Route path="/mushroom-farming-madurai-tamil-nadu" element={<ArticleMaduraiTraining />} />
           <Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
@@ -6818,14 +6820,17 @@ const AnimatedRoutes = () => {
           <Route path="/mushroom-farming-udaipur-rajasthan" element={<ArticleUdaipurTraining />} />
           <Route path="/mushroom-farming-udaipur" element={<ArticleUdaipurTraining />} />
           <Route path="/cities/uttar-pradesh/lucknow" element={<ArticleLucknowTraining />} />
+          <Route path="/cities/uttar-pradesh/kanpur" element={<ArticleKanpurTraining />} />
           <Route path="/cities/madhya-pradesh/indore" element={<ArticleIndoreTraining />} />
           <Route path="/cities/madhya-pradesh/bhopal" element={<ArticleBhopalTraining />} />
           <Route path="/cities/madhya-pradesh/gwalior" element={<ArticleGwaliorTraining />} />
           <Route path="/cities/maharashtra/nagpur" element={<ArticleNagpurTraining />} />
+          <Route path="/cities/maharashtra/aurangabad" element={<ArticleAurangabadTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
+          <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
@@ -6847,6 +6852,7 @@ import ArticleMangaloreTraining from './pages/ArticleMangaloreTraining';
 import ArticleChennaiTraining from './pages/ArticleChennaiTraining';
 import ArticleCoimbatoreTraining from './pages/ArticleCoimbatoreTraining';
 import ArticleMaduraiTraining from './pages/ArticleMaduraiTraining';
+import ArticleTiruchirappalliTraining from './pages/ArticleTiruchirappalliTraining';
 import ArticleMumbaiTraining from './pages/ArticleMumbaiTraining';
 import ArticleDelhiTraining from './pages/ArticleDelhiTraining';
 import ArticleGurugramTraining from './pages/ArticleGurugramTraining';
@@ -6864,10 +6870,12 @@ import ArticleJaipurTraining from './pages/ArticleJaipurTraining';
 import ArticleBikanerTraining from './pages/ArticleBikanerTraining';
 import ArticleUdaipurTraining from './pages/ArticleUdaipurTraining';
 import ArticleLucknowTraining from './pages/ArticleLucknowTraining';
+import ArticleKanpurTraining from './pages/ArticleKanpurTraining';
 import ArticleIndoreTraining from './pages/ArticleIndoreTraining';
 import ArticleBhopalTraining from './pages/ArticleBhopalTraining';
 import ArticleGwaliorTraining from './pages/ArticleGwaliorTraining';
 import ArticleNagpurTraining from './pages/ArticleNagpurTraining';
+import ArticleAurangabadTraining from './pages/ArticleAurangabadTraining';
 import ArticleRaipurTraining from './pages/ArticleRaipurTraining';
 import ArticleKochiTraining from './pages/ArticleKochiTraining';
 import ArticleThiruvananthapuramTraining from './pages/ArticleThiruvananthapuramTraining';
