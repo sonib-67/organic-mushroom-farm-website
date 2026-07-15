@@ -6814,6 +6814,9 @@ const AnimatedRoutes = () => {
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerTraining />} />
           <Route path="/mushroom-farming-bikaner-rajasthan" element={<ArticleBikanerTraining />} />
           <Route path="/mushroom-farming-bikaner" element={<ArticleBikanerTraining />} />
+          <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurTraining />} />
+          <Route path="/mushroom-farming-udaipur-rajasthan" element={<ArticleUdaipurTraining />} />
+          <Route path="/mushroom-farming-udaipur" element={<ArticleUdaipurTraining />} />
           <Route path="/cities/uttar-pradesh/lucknow" element={<ArticleLucknowTraining />} />
           <Route path="/cities/madhya-pradesh/indore" element={<ArticleIndoreTraining />} />
           <Route path="/cities/madhya-pradesh/bhopal" element={<ArticleBhopalTraining />} />
@@ -6859,6 +6862,7 @@ import ArticlePatnaTraining from './pages/ArticlePatnaTraining';
 import ArticleChandigarhTraining from './pages/ArticleChandigarhTraining';
 import ArticleJaipurTraining from './pages/ArticleJaipurTraining';
 import ArticleBikanerTraining from './pages/ArticleBikanerTraining';
+import ArticleUdaipurTraining from './pages/ArticleUdaipurTraining';
 import ArticleLucknowTraining from './pages/ArticleLucknowTraining';
 import ArticleIndoreTraining from './pages/ArticleIndoreTraining';
 import ArticleBhopalTraining from './pages/ArticleBhopalTraining';
