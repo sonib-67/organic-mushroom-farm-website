@@ -255,6 +255,7 @@ function prerenderTurnkeyProjects() {
     <meta name="twitter:description" content="Grow rooms, compost units, spawn lab & full EPC turnkey mushroom farm setup — Pan-India delivery from Jabalpur, MP." />
     <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
     <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
+    <meta name="twitter:url" content="https://organicmushroomfarm.shop/turnkey-projects" />
 
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dtpktdkqw/image/upload/w_32,h_32/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
     <link rel="apple-touch-icon" href="https://res.cloudinary.com/dtpktdkqw/image/upload/w_180,h_180/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />

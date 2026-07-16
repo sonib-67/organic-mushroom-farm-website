@@ -30,8 +30,8 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
   // Ensure path starts with a slash
   const formattedPath = activePath.startsWith('/') ? activePath : '/' + activePath;
   
-  // Construct clean canonical URL (ignoring trailing slash for root to match siteUrl exactly)
-  const fullUrl = `${siteUrl}${formattedPath === '/' ? '' : formattedPath}`;
+  // Construct clean canonical URL
+  const fullUrl = `${siteUrl}${formattedPath === '/' ? '/' : formattedPath}`;
 
   const defaultSchemas = [
     generateOrganizationSchema(),
@@ -69,6 +69,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
       <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
+      <meta name="twitter:url" content={fullUrl} />
 
       {/* JSON-LD Schemas */}
       {finalSchemas.map((schema, index) => (

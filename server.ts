@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import fs from 'fs';
 import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
@@ -368,9 +369,56 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
+    
+    // Serve turnkey-projects prerendered file explicitly
+    app.get(['/turnkey-projects', '/turnkey-projects/'], (req, res) => {
+      res.sendFile(path.join(distPath, 'turnkey-projects', 'index.html'));
+    });
+
+    // Serve all other static assets (disabling automatic index.html directory serving so we can dynamically inject meta tags on /)
+    app.use(express.static(distPath, { index: false }));
+
+    // Fallback handler to dynamically inject canonical, og:url, and twitter:url
     app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const filePath = path.join(distPath, 'index.html');
+      if (fs.existsSync(filePath)) {
+        let html = fs.readFileSync(filePath, 'utf8');
+        
+        // Clean up any double slashes and construct the correct self-referencing URL
+        const siteUrl = "https://organicmushroomfarm.shop";
+        const cleanPath = req.path.replace(/\/+/g, '/');
+        
+        // Match canonical URL style exactly: homepage gets trailing slash, subpages do not
+        const formattedPath = cleanPath === '/' ? '/' : (cleanPath.endsWith('/') ? cleanPath.slice(0, -1) : cleanPath);
+        const fullUrl = `${siteUrl}${formattedPath}`;
+
+        // 1. Remove any hardcoded canonical tag if present (to avoid duplication)
+        html = html.replace(/<link\s+rel=["']canonical["']\s+href=["'][^"']*["']\s*\/?>/gi, '');
+
+        // 2. Insert the correct self-referencing canonical tag right after <head>
+        const canonicalTag = `<link rel="canonical" href="${fullUrl}" />`;
+        html = html.replace('<head>', `<head>\n    ${canonicalTag}`);
+
+        // 3. Update/Inject Open Graph URL tag
+        const ogUrlTag = `<meta property="og:url" content="${fullUrl}" />`;
+        if (html.includes('property="og:url"')) {
+          html = html.replace(/<meta\s+property=["']og:url["']\s+content=["'][^"']*["']\s*\/?>/gi, ogUrlTag);
+        } else {
+          html = html.replace('</head>', `    ${ogUrlTag}\n  </head>`);
+        }
+
+        // 4. Update/Inject Twitter URL tag
+        const twitterUrlTag = `<meta name="twitter:url" content="${fullUrl}" />`;
+        if (html.includes('name="twitter:url"')) {
+          html = html.replace(/<meta\s+name=["']twitter:url["']\s+content=["'][^"']*["']\s*\/?>/gi, twitterUrlTag);
+        } else {
+          html = html.replace('</head>', `    ${twitterUrlTag}\n  </head>`);
+        }
+
+        res.send(html);
+      } else {
+        res.status(404).send('Not Found');
+      }
     });
   }
 
