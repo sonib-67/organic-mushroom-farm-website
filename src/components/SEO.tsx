@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
 import { 
   generateReviewSchema, 
   generateLocalBusinessSchema, 
@@ -18,20 +17,11 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas }) => {
-  const location = useLocation();
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
   const siteUrl = "https://organicmushroomfarm.shop";
-  
-  // Use explicit url if provided, otherwise fallback to current pathname
-  const activePath = url || location.pathname;
-  
-  // Ensure path starts with a slash
-  const formattedPath = activePath.startsWith('/') ? activePath : '/' + activePath;
-  
-  // Construct clean canonical URL
-  const fullUrl = `${siteUrl}${formattedPath === '/' ? '/' : formattedPath}`;
+  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
 
   const defaultSchemas = [
     generateOrganizationSchema(),
@@ -69,7 +59,6 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
       <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
-      <meta name="twitter:url" content={fullUrl} />
 
       {/* JSON-LD Schemas */}
       {finalSchemas.map((schema, index) => (

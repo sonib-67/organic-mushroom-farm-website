@@ -403,13 +403,13 @@ export const SHIPPING_DETAILS = {
       "@type": "QuantitativeValue",
       "minValue": 0,
       "maxValue": 1,
-      "unitCode": "d"
+      "unitCode": "DAY"
     },
     "transitTime": {
       "@type": "QuantitativeValue",
       "minValue": 3,
       "maxValue": 7,
-      "unitCode": "d"
+      "unitCode": "DAY"
     }
   }
 };

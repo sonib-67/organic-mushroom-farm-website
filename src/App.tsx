@@ -5511,85 +5511,12 @@ const TurnkeyProjectsPage = () => {
     },
   ];
 
-  const turnkeyCustomSchemas = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "@id": "https://organicmushroomfarm.shop/turnkey-projects#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://organicmushroomfarm.shop"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Turnkey Projects",
-          "item": "https://organicmushroomfarm.shop/turnkey-projects"
-        }
-      ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "@id": "https://organicmushroomfarm.shop/turnkey-projects#service",
-      "name": "Turnkey Mushroom Farm Project Setup",
-      "serviceType": "Turnkey Mushroom Farm EPC & Installation",
-      "description": "End-to-end turnkey mushroom farm projects including insulated grow rooms, compost & pasteurisation units, spawn lab setup, DPR preparation and subsidy assistance.",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Organic Mushroom Farm",
-        "legalName": "Agrimotion Engineering Private Limited",
-        "url": "https://organicmushroomfarm.shop/",
-        "telephone": "+919203544140",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Main Naka Katangi",
-          "addressLocality": "Jabalpur",
-          "addressRegion": "Madhya Pradesh",
-          "postalCode": "483105",
-          "addressCountry": "IN"
-        }
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "India"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "25"
-      },
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Verified Customer"
-        }
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://organicmushroomfarm.shop/turnkey-projects"
-      }
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       <SEO
-        title="Turnkey Mushroom Farm Projects & Case Studies"
-        description="Turnkey mushroom farm projects by Organic Mushroom Farm — insulated grow rooms, compost & pasteurisation units, spawn lab setup, DPR & subsidy support. Pan-India installations from Jabalpur, Madhya Pradesh."
-        keywords="turnkey mushroom farm project, mushroom farm setup India, mushroom grow room construction, mushroom compost unit, mushroom pasteurisation tunnel, mushroom farm case study, mushroom project cost, mushroom farm Jabalpur, mushroom farm EPC contractor, button mushroom farm setup, oyster mushroom farm setup, mushroom farm subsidy project, commercial mushroom setup, turnkey mushroom business setup, automated mushroom farm setup, mushroom plant turnkey setup, complete mushroom cultivation setup, turnkey farming solutions"
+        title="Commercial Turnkey Mushroom Farm Setup India | Complete Setup Service"
+        description="Build your industrial mushroom unit with our commercial turnkey solutions. Expert project setups for button mushroom farming in Jabalpur, across India, USA, and Australia."
         url="/turnkey-projects"
-        schemas={turnkeyCustomSchemas}
       />
       <PageHero
         badge="Commercial Turnkey Solutions"
