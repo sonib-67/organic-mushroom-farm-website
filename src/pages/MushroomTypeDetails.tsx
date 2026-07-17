@@ -88,7 +88,7 @@ const MushroomTypeDetails = () => {
     "category": "Agricultural Setup & Spawns",
     "offers": {
       "@type": "Offer",
-      "url": window.location.href,
+      "url": `https://organicmushroomfarm.shop/mushroom-types/${slug}`,
       "priceCurrency": "INR",
       "price": info.productionCost.includes("₹") ? info.productionCost.replace(/[^0-9]/g, "") : "100",
       "itemCondition": "https://schema.org/NewCondition",

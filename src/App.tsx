@@ -2937,12 +2937,12 @@ const ContactPage = () => {
                   className={`w-full py-5 rounded-xl bg-primary-start dark:text-white text-slate-900 text-[12px] uppercase tracking-widest font-black transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 ${state.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   {state.submitting ? (
-                    <>
+    <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                       Sending...
                     </>
                   ) : (
-                    <>Send Enquiry</>
+    <>Send Enquiry</>
                   )}
                 </button>
               </form>
@@ -3771,6 +3771,7 @@ const FloatingButtons = () => {
                 : "bg-linear-to-r from-blue-600/10 to-purple-600/10 dark:border-white/10 border-black/10 dark:text-white text-slate-900 hover:border-primary-start/40 active:bg-primary-start/20"
             } ${isTrainingPage ? "gap-1 px-3 py-1.5" : "gap-1.5 px-3.5 py-2"}`;
 
+            
             const content = (
               <>
                 <item.icon
@@ -4567,7 +4568,7 @@ const MushroomTraining = () => {
   );
 };
 
-const HomePage = () => {
+const HomePage = () => { 
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
@@ -4577,7 +4578,6 @@ const HomePage = () => {
       }
     }
   }, []);
-
   return (
     <>
       <SEO
@@ -5905,12 +5905,12 @@ const TurnkeyProjectsPage = () => {
                   className={`w-full py-5 rounded-xl bg-primary-start dark:text-white text-slate-900 text-[12px] uppercase tracking-widest font-black transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 ${formState.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   {formState.submitting ? (
-                    <>
+    <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                       Submitting Project Setup enquiry...
                     </>
                   ) : (
-                    <>Submit Proposal & Get Consultation</>
+    <>Submit Proposal & Get Consultation</>
                   )}
                 </button>
               </form>
@@ -6898,11 +6898,14 @@ import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
 import ArticleBusinessPlanIndia from './pages/ArticleBusinessPlanIndia';
 
+import { HelmetProvider } from 'react-helmet-async';
+
 export default function App() {
+  const isServer = typeof window === 'undefined';
   return (
-    <BrowserRouter>
-      <MetaPixelTracker />
-      <ScrollToTop />
+    <>
+      {!isServer && <MetaPixelTracker />}
+      {!isServer && <ScrollToTop />}
       <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 bg-black">
         <Background3D />
         <Navbar />
@@ -6914,8 +6917,9 @@ export default function App() {
         <Footer />
         <FloatingButtons />
       </div>
-    </BrowserRouter>
+    </>
   );
+
 }
 
 const ComparisonTable = () => {

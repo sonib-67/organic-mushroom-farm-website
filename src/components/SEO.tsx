@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { SEOContext } from '../SEOContext';
 import { 
   generateReviewSchema, 
   generateLocalBusinessSchema, 
@@ -16,12 +18,15 @@ interface SEOProps {
   schemas?: object[];
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas }) => {
+const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }) => { console.log("SEO rendered!");
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
   const siteUrl = "https://organicmushroomfarm.shop";
-  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+  const location = useLocation();
+  const path = url || location.pathname;
+  console.log("SEO path:", path);
+  const fullUrl = `${siteUrl}${path === "/" ? "" : path}`;
 
   const defaultSchemas = [
     generateOrganizationSchema(),
@@ -33,10 +38,21 @@ const SEO: React.FC<SEOProps> = ({ title, description, keywords, url, schemas })
 
   const finalSchemas = schemas ? [...schemas, ...defaultSchemas] : defaultSchemas;
 
+  const setSEO = useContext(SEOContext);
+  if (setSEO && typeof window === 'undefined') {
+    setSEO({
+      title: `${title} | Organic Mushroom Farm India & Global`,
+      description,
+      keywords: keywords || defaultKeywords,
+      fullUrl,
+      finalSchemas
+    });
+  }
+
   return (
     <Helmet>
       {/* Title */}
-      <title>{title} | Organic Mushroom Farm India & Global</title>
+      <title>{`${title} | Organic Mushroom Farm India & Global`}</title>
 
       {/* SEO */}
       <meta name="description" content={description} />

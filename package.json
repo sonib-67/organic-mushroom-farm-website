@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "vite build && tsx scripts/crawl.ts && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
+    "build": "vite build && tsx scripts/crawl.ts && tsx scripts/prerender.ts && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist/server.cjs",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "clean": "rm -rf dist",
@@ -16,6 +16,7 @@
     "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/cors": "^2.8.19",
+    "@types/react-router-dom": "^5.3.3",
     "@vercel/speed-insights": "^2.0.0",
     "@vitejs/plugin-react": "^5.0.4",
     "cors": "^2.8.6",
