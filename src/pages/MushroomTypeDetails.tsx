@@ -240,7 +240,7 @@ const MushroomTypeDetails = () => {
                     <Thermometer size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Temperature Variables</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Temperature Variables</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.temperature}</p>
                     <p className="text-xs text-slate-400 mt-1">Must maintain tight controls in respective cropping rooms.</p>
                   </div>
@@ -251,7 +251,7 @@ const MushroomTypeDetails = () => {
                     <Droplets size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Required Humidity (RH)</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Required Humidity (RH)</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.humidity}</p>
                     <p className="text-xs text-slate-400 mt-1">Regulated through modern high pressure misting systems.</p>
                   </div>
@@ -262,7 +262,7 @@ const MushroomTypeDetails = () => {
                     <Layers size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Production Substrate</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Production Substrate</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.substrate}</p>
                     <p className="text-xs text-slate-400 mt-1">Carefully analyzed agricultural bio-waste combinations.</p>
                   </div>
@@ -273,7 +273,7 @@ const MushroomTypeDetails = () => {
                     <Calendar size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Mycelium Incubation Time</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Mycelium Incubation Time</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.incubation}</p>
                     <p className="text-xs text-slate-400 mt-1">Conducted inside fully dark incubation chambers.</p>
                   </div>
@@ -284,7 +284,7 @@ const MushroomTypeDetails = () => {
                     <TrendingUp size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Active Cropping Phase</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Active Cropping Phase</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.cropping}</p>
                     <p className="text-xs text-slate-400 mt-1">Flushes occur in multiple automated picking cycles.</p>
                   </div>
@@ -295,7 +295,7 @@ const MushroomTypeDetails = () => {
                     <Inbox size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Casing Layer Status</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Casing Layer Status</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.casing}</p>
                     <p className="text-xs text-slate-400 mt-1">{info.parameters.casing === "Required" ? "Essential for mycelium protection & pins activation." : "Can be bypassed safely to cut setup costs."}</p>
                   </div>
@@ -350,7 +350,7 @@ const MushroomTypeDetails = () => {
                       {sIdx + 1}
                     </div>
                     <div className="glass p-6 rounded-3xl border border-white/5 group-hover:border-primary-start/20 transition-all space-y-2">
-                      <h4 className="text-lg font-bold text-white">{step.Title}</h4>
+                      <h3 className="text-lg font-bold text-white">{step.Title}</h3>
                       <p className="text-sm text-slate-400 leading-relaxed font-semibold">{step.Desc}</p>
                     </div>
                   </motion.div>
@@ -530,7 +530,7 @@ const MushroomTypeDetails = () => {
                        <Sprout size={28} />}
                     </div>
                     <div>
-                      <h4 className="text-xs font-extrabold text-white group-hover:text-primary-start transition-colors leading-none uppercase">{m.name}</h4>
+                      <h3 className="text-xs font-extrabold text-white group-hover:text-primary-start transition-colors leading-none uppercase">{m.name}</h3>
                       <p className="text-[10px] font-bold italic text-slate-500 mt-1.5 leading-none">{m.scientific}</p>
                     </div>
                   </Link>

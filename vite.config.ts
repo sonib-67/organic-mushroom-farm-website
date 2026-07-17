@@ -23,6 +23,20 @@ export default defineConfig(({ mode }) => ({
     sourcemap: true,
     minify: 'esbuild',
     chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) return 'vendor-react';
+            if (id.includes('lucide-react')) return 'vendor-icons';
+            return 'vendor';
+          }
+          if (id.includes('src/pages/Article')) return 'articles';
+          if (id.includes('src/pages/')) return 'pages';
+          if (id.includes('src/data/')) return 'data';
+        }
+      }
+    },
   },
 
   preview: {
