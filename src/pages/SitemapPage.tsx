@@ -259,7 +259,10 @@ export default function SitemapPage() {
     { name: "Mushroom Farming Training course Hindi", path: "/articles/mushroom-farming-training-hindi-india", desc: "Indian central region training course information." },
     { name: "Farming Training Certificate", path: "/articles/mushroom-farming-training-online-offline-certificate", desc: "Syllabus and layout of certified online/offline workshops." },
     { name: "Ghar Par Mushroom Farming Manual", path: "/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026", desc: "Detailed home cultivation, bag preparation strategy." },
-    { name: "Commercial Mushroom Farming India", path: "/blog/commercial-mushroom-farming-india", desc: "Ultimate guide on setting up a commercial mushroom farm in India." }
+        { name: "Commercial Mushroom Farming India", path: "/blog/commercial-mushroom-farming-india", desc: "Ultimate guide on setting up a commercial mushroom farm in India." },
+        { name: "Mushroom Training Guide (Punjabi)", path: "/blog/mushroom-training-guide-punjabi", desc: "ਕਣਕ-ਝੋਨੇ ਦੇ ਚੱਕਰ ਤੋਂ ਬਾਹਰ: ਪੰਜਾਬ ਦੇ ਕਿਸਾਨਾਂ ਲਈ ਖੁੰਬਾਂ ਦੀ ਖੇਤੀ ਦੀ ਟਰੇਨਿੰਗ ਕਿਉਂ ਬਣ ਰਹੀ ਹੈ ਨਵਾਂ ਰਾਹ" },
+    { name: "Mushroom Training Guide (Hindi)", path: "/blog/mushroom-training-guide-hindi", desc: "मशरूम ट्रेनिंग कैसे करें: गांव से लेकर शहर तक कमाई का नया जरिया (2026 पूरी गाइड)" },
+    { name: "Mushroom Farming Training: Complete Guide", path: "/blog/mushroom-training-guide-english", desc: "Where to get trained in mushroom farming, varieties to learn, training costs, government support, and how the profit works in 2026." }
   ];
 
   const dynamicBlogPosts = Array.from({ length: 10 }, (_, i) => ({

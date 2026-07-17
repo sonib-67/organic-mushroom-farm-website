@@ -6831,6 +6831,9 @@ const AnimatedRoutes = () => {
           <Route path="/cities/maharashtra/aurangabad" element={<ArticleAurangabadTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
+          <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuide />} />
+          <Route path="/blog/mushroom-training-guide-punjabi" element={<ArticleMushroomTrainingGuidePunjabi />} />
+          <Route path="/blog/mushroom-training-guide-hindi" element={<ArticleMushroomTrainingGuideHindi />} />
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
@@ -6896,6 +6899,9 @@ import ArticleAmritsarTraining from './pages/ArticleAmritsarTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
+import ArticleMushroomTrainingGuideHindi from "./pages/ArticleMushroomTrainingGuideHindi";
+import ArticleMushroomTrainingGuide from "./pages/ArticleMushroomTrainingGuide";
+import ArticleMushroomTrainingGuidePunjabi from "./pages/ArticleMushroomTrainingGuidePunjabi";
 import ArticleBusinessPlanIndia from './pages/ArticleBusinessPlanIndia';
 
 import { HelmetProvider } from 'react-helmet-async';
@@ -6904,8 +6910,8 @@ export default function App() {
   const isServer = typeof window === 'undefined';
   return (
     <>
-      {!isServer && <MetaPixelTracker />}
-      {!isServer && <ScrollToTop />}
+      <MetaPixelTracker />
+      <ScrollToTop />
       <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 bg-black">
         <Background3D />
         <Navbar />
