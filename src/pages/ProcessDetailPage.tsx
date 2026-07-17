@@ -9,7 +9,7 @@ const ProcessDetailPage = () => {
   const process = PROCESS_DATA.find(p => p.id === id);
 
   if (!process) {
-    return <SafeNavigate to="/" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return (

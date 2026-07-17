@@ -211,17 +211,17 @@ export default function MushroomSEOSections() {
             <div className="grid sm:grid-cols-3 gap-4 pt-6 text-left">
               <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
                 <div className="text-primary-start font-black text-xl">30% - 45%</div>
-                <h3 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Average Profit Margin</h3>
+                <h4 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Average Profit Margin</h4>
                 <p className="text-[10px] dark:text-slate-400 text-slate-600">High efficiency converting substrate compost blocks directly into premium harvest weights.</p>
               </div>
               <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
                 <div className="text-[#25D366] font-black text-xl">30-45 Days</div>
-                <h3 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Rapid Crop Rotation Cycle</h3>
+                <h4 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Rapid Crop Rotation Cycle</h4>
                 <p className="text-[10px] dark:text-slate-400 text-slate-600">Harvest starts within index cycles of bag shifting, allowing constant cash flows throughout the months.</p>
               </div>
               <div className="p-5 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 space-y-2">
                 <div className="text-purple-500 dark:text-purple-400 font-black text-xl">Minimal Land</div>
-                <h3 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Vertical Cube Yields</h3>
+                <h4 className="text-xs font-bold dark:text-white text-slate-900 uppercase tracking-wider">Vertical Cube Yields</h4>
                 <p className="text-[10px] dark:text-slate-400 text-slate-600">Stack beds 4 to 6 layers high. Perfect for small farming plots and semi-urban outskirts.</p>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function MushroomSEOSections() {
             ].map((step, i) => (
               <div key={i} className="p-6 rounded-2xl dark:bg-black/40 bg-black/5 border dark:border-white/5 border-black/5 relative hover:border-primary-start/30 transition-all">
                 <span className="absolute top-4 right-4 text-3xl font-black dark:text-white/5 text-slate-900/10">{step.id}</span>
-                <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-2">{step.title}</h3>
+                <h4 className="text-sm font-bold dark:text-white text-slate-900 mb-2">{step.title}</h4>
                 <p className="text-[11px] dark:text-slate-400 text-slate-600 leading-normal">{step.desc}</p>
               </div>
             ))}

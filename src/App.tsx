@@ -1,11 +1,9 @@
-import { Suspense } from "react";
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
 
 import React, { useState, useEffect, useMemo } from "react";
-import SafeNavigate from "./components/SafeNavigate";
 import {
   BrowserRouter,
   Routes,
@@ -76,20 +74,20 @@ import PaymentCancelledPage from "./pages/PaymentCancelledPage";
 import ROICalculatorPage from "./pages/ROICalculatorPage";
 import Subsidy from "./pages/Subsidy";
 import Blog from "./pages/Blog";
-const ArticlePage = React.lazy(() => import("./pages/ArticlePage"));
+import ArticlePage from "./pages/ArticlePage";
 import SuccessStories from "./pages/SuccessStories";
 import ProjectSpecsPage from "./pages/ProjectSpecs";
-const ArticleBeginnerGuide = React.lazy(() => import("./pages/ArticleBeginnerGuide"));
-const ArticleOysterMushroomCultivation = React.lazy(() => import("./pages/ArticleOysterMushroomCultivation"));
-const ArticleMushroomSpawn = React.lazy(() => import("./pages/ArticleMushroomSpawn"));
-const ArticleBusinessPlanHindi = React.lazy(() => import("./pages/ArticleBusinessPlanHindi"));
-const ArticleTrainingGuideHindi = React.lazy(() => import("./pages/ArticleTrainingGuideHindi"));
-const ArticleMushroomTrainingAffordable = React.lazy(() => import("./pages/ArticleMushroomTrainingAffordable"));
-const ArticleGharParMushroomFarming = React.lazy(() => import("./pages/ArticleGharParMushroomFarming"));
-const ArticleUltimateGuideHinglish = React.lazy(() => import("./pages/ArticleUltimateGuideHinglish"));
-const ArticleUSAProfitGuide = React.lazy(() => import("./pages/ArticleUSAProfitGuide"));
+import ArticleBeginnerGuide from "./pages/ArticleBeginnerGuide";
+import ArticleOysterMushroomCultivation from "./pages/ArticleOysterMushroomCultivation";
+import ArticleMushroomSpawn from "./pages/ArticleMushroomSpawn";
+import ArticleBusinessPlanHindi from "./pages/ArticleBusinessPlanHindi";
+import ArticleTrainingGuideHindi from "./pages/ArticleTrainingGuideHindi";
+import ArticleMushroomTrainingAffordable from "./pages/ArticleMushroomTrainingAffordable";
+import ArticleGharParMushroomFarming from "./pages/ArticleGharParMushroomFarming";
+import ArticleUltimateGuideHinglish from "./pages/ArticleUltimateGuideHinglish";
+import ArticleUSAProfitGuide from "./pages/ArticleUSAProfitGuide";
 import ArticleUSAMedicinalIncome from "./pages/ArticleUSAMedicinalIncome";
-const ArticleUltimateGuideIndia = React.lazy(() => import("./pages/ArticleUltimateGuideIndia"));
+import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
 import SEO from "./components/SEO";
 import {
   generateReviewSchema,
@@ -2448,11 +2446,10 @@ const CTASection = () => {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label htmlFor="name" className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
                           Full Name *
                         </label>
                         <input
-                          id="name"
                           type="text"
                           name="name"
                           required
@@ -2464,11 +2461,10 @@ const CTASection = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <label htmlFor="phone" className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
                           Phone Number *
                         </label>
                         <input
-                          id="phone"
                           type="tel"
                           name="phone"
                           required
@@ -2482,11 +2478,10 @@ const CTASection = () => {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label htmlFor="mushroomType" className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
                           Mushroom Focus *
                         </label>
                         <select
-                          id="mushroomType"
                           name="mushroomType"
                           value={formData.mushroomType}
                           onChange={handleChange}
@@ -2511,11 +2506,10 @@ const CTASection = () => {
                       </div>
 
                       <div className="space-y-2">
-                        <label htmlFor="projectSize" className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
+                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
                           Planned Scale *
                         </label>
                         <select
-                          id="projectSize"
                           name="projectSize"
                           value={formData.projectSize}
                           onChange={handleChange}
@@ -2538,11 +2532,10 @@ const CTASection = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
+                      <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
                         Email Address (Optional)
                       </label>
                       <input
-                        id="email"
                         type="email"
                         name="email"
                         value={formData.email}
@@ -2553,11 +2546,10 @@ const CTASection = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="message" className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
+                      <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
                         Message / Requirements *
                       </label>
                       <textarea
-                        id="message"
                         name="message"
                         required
                         value={formData.message}
@@ -6623,7 +6615,7 @@ const ScrollToTop = () => {
 };
 
 const CatchAllHandler = () => {
-  return <SafeNavigate to="/" replace />;
+  return <Navigate to="/" replace />;
 };
 
 const AnimatedRoutes = () => {
@@ -6638,7 +6630,7 @@ const AnimatedRoutes = () => {
         transition={{ duration: 0.28, ease: "easeOut" }}
         className="w-full h-full"
       >
-        <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-[#09090b]"></div>}><Routes location={location}>
+        <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
           <Route
@@ -6651,7 +6643,7 @@ const AnimatedRoutes = () => {
           <Route path="/services" element={<ServicesPage />} />
           <Route
             path="/services/spawn-supply"
-            element={<SafeNavigate to="/spawn-seed" replace />}
+            element={<Navigate to="/spawn-seed" replace />}
           />
           <Route path="/services/:id" element={<ServiceDetailPage />} />
           <Route path="/process/:id" element={<ProcessDetailPage />} />
@@ -6678,7 +6670,7 @@ const AnimatedRoutes = () => {
           />
           <Route
             path="/operations"
-            element={<SafeNavigate to="/pan-india-global-operations" replace />}
+            element={<Navigate to="/pan-india-global-operations" replace />}
           />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<ArticlePage />} />
@@ -6848,7 +6840,7 @@ const AnimatedRoutes = () => {
           <Route path="/locations/pune/:slug" element={<PuneBlogPage />} />
 
           <Route path="*" element={<CatchAllHandler />} />
-        </Routes></Suspense>
+        </Routes>
       </motion.div>
     </AnimatePresence>
   );
@@ -6909,11 +6901,11 @@ import ArticleBusinessPlanIndia from './pages/ArticleBusinessPlanIndia';
 import { HelmetProvider } from 'react-helmet-async';
 
 export default function App() {
-  
+  const isServer = typeof window === 'undefined';
   return (
     <>
-      <MetaPixelTracker />
-      <ScrollToTop />
+      {!isServer && <MetaPixelTracker />}
+      {!isServer && <ScrollToTop />}
       <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 bg-black">
         <Background3D />
         <Navbar />

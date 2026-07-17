@@ -9,7 +9,7 @@ const ServiceDetailPage = () => {
   const service = SERVICES_DATA.find(s => s.id === id);
 
   if (!service) {
-    return <SafeNavigate to="/services" replace />;
+    return <Navigate to="/services" replace />;
   }
 
   return (

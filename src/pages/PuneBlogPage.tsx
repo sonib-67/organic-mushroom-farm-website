@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import SafeNavigate from "../components/SafeNavigate";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { puneBlogs } from "../data/puneBlogsData";
 import SEO from "../components/SEO";
 import { ChevronRight, ArrowLeft } from "lucide-react";
@@ -15,7 +14,7 @@ export default function PuneBlogPage() {
   }, [slug]);
 
   if (!blog) {
-    return <SafeNavigate to="/locations/pune" replace />;
+    return <Navigate to="/locations/pune" replace />;
   }
 
   return (
