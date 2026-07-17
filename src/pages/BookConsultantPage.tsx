@@ -12,6 +12,7 @@ export default function BookConsultantPage() {
   const location = useLocation();
   const [modalState, setModalState] = useState<'idle' | 'form' | 'cancelled' | 'success'>('idle');
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', preferredDate: '' });
+  const [todayDate, setTodayDate] = useState('');
 
   useEffect(() => {
     if (location.state && (location.state as any).retryFormData) {
@@ -20,6 +21,7 @@ export default function BookConsultantPage() {
     }
     // Lazily load Razorpay checkout script on consultant page mount
     loadRazorpayScript();
+    setTodayDate(new Date().toISOString().split('T')[0]);
   }, [location.state]);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -343,7 +345,7 @@ export default function BookConsultantPage() {
                     onChange={(e) => setFormData({...formData, preferredDate: e.target.value})}
                     className="w-full box-border dark:bg-black/40 bg-white border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-sm dark:text-white text-slate-900 focus:outline-none focus:border-blue-500 transition-colors"
                     required
-                    min={new Date().toISOString().split('T')[0]}
+                    min={todayDate}
                   />
                 </div>
                 <button

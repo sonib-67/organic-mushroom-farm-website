@@ -2614,8 +2614,10 @@ const TrainingPage = () => {
 };
 
 const ContactPage = () => {
+  const [todayDate, setTodayDate] = useState('');
   useEffect(() => {
     window.scrollTo(0, 0);
+    setTodayDate(new Date().toLocaleDateString());
   }, []);
 
   const [state, setState] = useState({
@@ -2847,7 +2849,7 @@ const ContactPage = () => {
                 <input
                   type="hidden"
                   name="_date"
-                  value={new Date().toLocaleDateString()}
+                  value={todayDate}
                 />
 
                 <div className="space-y-1.5">
@@ -5383,8 +5385,10 @@ const ServicesPage = () => {
 };
 
 const TurnkeyProjectsPage = () => {
+  const [todayDate, setTodayDate] = useState('');
   useEffect(() => {
     window.scrollTo(0, 0);
+    setTodayDate(new Date().toLocaleDateString());
   }, []);
 
   const [formState, setFormState] = useState({
@@ -5736,7 +5740,7 @@ const TurnkeyProjectsPage = () => {
                 <input
                   type="hidden"
                   name="_date"
-                  value={new Date().toLocaleDateString()}
+                  value={todayDate}
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -6907,7 +6911,6 @@ import ArticleBusinessPlanIndia from './pages/ArticleBusinessPlanIndia';
 import { HelmetProvider } from 'react-helmet-async';
 
 export default function App() {
-  const isServer = typeof window === 'undefined';
   return (
     <>
       <MetaPixelTracker />

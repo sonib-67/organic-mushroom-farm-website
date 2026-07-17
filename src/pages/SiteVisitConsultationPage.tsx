@@ -11,10 +11,12 @@ const SiteVisitConsultationPage = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', preferredDate: '' });
   const [loading, setLoading] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const [todayDate, setTodayDate] = useState('');
 
   useEffect(() => {
     // Lazily load Razorpay checkout script
     loadRazorpayScript();
+    setTodayDate(new Date().toISOString().split('T')[0]);
   }, []);
 
   const handleFormSubmit = async (e: React.FormEvent) => {
@@ -204,7 +206,7 @@ const SiteVisitConsultationPage = () => {
                   <input
                     type="date"
                     required
-                    min={new Date().toISOString().split('T')[0]}
+                    min={todayDate}
                     className="w-full pl-11 pr-4 py-3 bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/80 focus:border-green-500 dark:focus:border-green-500 focus:ring-4 focus:ring-green-500/10 rounded-xl outline-none transition-all duration-200 text-slate-800 dark:text-white font-medium placeholder:font-normal placeholder:text-slate-400 dark:placeholder:text-slate-500"
                     value={formData.preferredDate}
                     onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}

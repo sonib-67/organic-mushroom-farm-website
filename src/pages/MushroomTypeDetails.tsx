@@ -13,6 +13,7 @@ import { SHIPPING_DETAILS, MERCHANT_RETURN_POLICY } from '../utils/seoSchemas';
 const MushroomTypeDetails = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const [todayDate, setTodayDate] = useState('');
   const [formState, setFormState] = useState({
     submitting: false,
     succeeded: false,
@@ -25,6 +26,7 @@ const MushroomTypeDetails = () => {
   // Scroll to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
+    setTodayDate(new Date().toLocaleDateString());
   }, [slug]);
 
   if (!info) {
@@ -437,7 +439,7 @@ const MushroomTypeDetails = () => {
                 <form onSubmit={handleLeadSubmit} className="space-y-4">
                   {/* Hidden tracking */}
                   <input type="hidden" name="targeted_mushroom_variety" value={info.name} />
-                  <input type="hidden" name="_date" value={new Date().toLocaleDateString()} />
+                  <input type="hidden" name="_date" value={todayDate} />
 
                   <div className="space-y-1">
                     <label htmlFor="name" className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">Your Name *</label>
