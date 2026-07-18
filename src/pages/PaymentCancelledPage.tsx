@@ -88,6 +88,7 @@ export default function PaymentCancelledPage() {
 
           <div className="relative dark:bg-[#0A0A0A]/90 bg-white/95 backdrop-blur-2xl rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 overflow-hidden h-full text-center">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 opacity-70"></div>
+            <h1 className="sr-only">Payment Status</h1>
 
             {isWorkshop ? (
               <div>
@@ -100,9 +101,9 @@ export default function PaymentCancelledPage() {
                   <AlertCircle size={32} />
                 </motion.div>
                 
-                <h1 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
+                <h2 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
                   Registration Incomplete!
-                </h1>
+                </h2>
                 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-xs font-semibold text-red-500 mb-4">
                   <Clock size={12} className="animate-pulse" /> Offer Ending Soon (₹199 only)
@@ -174,9 +175,9 @@ export default function PaymentCancelledPage() {
                   <AlertCircle size={32} />
                 </motion.div>
                 
-                <h1 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
+                <h2 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
                   Advanced Registration Incomplete!
-                </h1>
+                </h2>
                 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs font-semibold text-purple-500 mb-4">
                   <Clock size={12} className="animate-pulse" /> Secure Spot (₹699 Only)
@@ -251,9 +252,9 @@ export default function PaymentCancelledPage() {
                   <AlertCircle size={32} />
                 </motion.div>
                 
-                <h1 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
+                <h2 className="text-2xl font-black dark:text-white text-slate-900 mb-1 tracking-tight">
                   Basic Registration Incomplete!
-                </h1>
+                </h2>
                 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-500 mb-4">
                   <Clock size={12} className="animate-pulse" /> Complete Checkout (₹299 Only)
@@ -322,7 +323,7 @@ export default function PaymentCancelledPage() {
                   </svg>
                 </motion.div>
                 
-                <h1 className="text-2xl sm:text-3xl font-black dark:text-white text-slate-900 mb-3 tracking-tight">Payment Cancelled</h1>
+                <h2 className="text-2xl sm:text-3xl font-black dark:text-white text-slate-900 mb-3 tracking-tight">Payment Cancelled</h2>
                 <p className="dark:text-slate-400 text-slate-500 text-sm sm:text-base mb-8 font-medium">
                   Your payment was not completed. No money was deducted from your account. Do you want to try again?
                 </p>
