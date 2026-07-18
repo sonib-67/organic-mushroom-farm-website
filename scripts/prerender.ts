@@ -7,13 +7,15 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Extract paths dynamically using the same logic as crawl.ts
 function getAppRoutes(): string[] {
   const content = fs.readFileSync(path.resolve(__dirname, '../src/App.tsx'), 'utf-8');
-  const routeRegex = /<Route\s+path="([^"]+)"/g;
-  let match;
+  const lines = content.split('\n');
   const routes: string[] = [];
-  while ((match = routeRegex.exec(content)) !== null) {
-    if (match[1] !== '*' && match[1] !== '/') {
-      routes.push(match[1]);
-    }
+  for (const line of lines) {
+     if (line.includes('<Route ') && line.includes('path="') && !line.includes('<Navigate ')) {
+        const match = line.match(/path="([^"]+)"/);
+        if (match && match[1] !== '*' && match[1] !== '/') {
+           routes.push(match[1]);
+        }
+     }
   }
   return routes;
 }
