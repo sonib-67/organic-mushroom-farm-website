@@ -75,8 +75,8 @@ const ArticleUdaipurTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming in Udaipur" 
-                description="उदयपुर में मशरूम फार्म सेटअप, स्पॉन सप्लाई, ऑनलाइन और ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स की पूरी..."
+                title="Mushroom Farming in Udaipur | Training, Spawn & Setup Guide" 
+                description="उदयपुर में मशरूम फार्म सेटअप, स्पॉन सप्लाई, ऑनलाइन और ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स की पूरी जानकारी।"
                 keywords="Mushroom farming in Udaipur, Mushroom training Udaipur, Mushroom spawn Udaipur, hotel mushroom supply Udaipur, Hiran Magri, Fatehpura, Sukher, Bhuwana, Udaipur resort food supply"
                 url="/cities/rajasthan/udaipur"
                 schemas={udaipurSchemas}
@@ -103,10 +103,10 @@ const ArticleUdaipurTraining = () => {
                             <MapPin size={14} /> उदयपुर विशेष (Udaipur Special)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Mushroom Farming for Hotel & Tourism Business in Udaipur |...
-</h1>
+                            Mushroom Farming for Hotel & Tourism Business in Udaipur | उदयपुर में मशरूम फार्मिंग और सेटअप गाइड 2026
+                        </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            खम्मा घणी उदयपुर! झीलों की नगरी में प्रीमियम हॉस्पिटैलिटी के...
+                            खम्मा घणी उदयपुर! झीलों की नगरी में प्रीमियम हॉस्पिटैलिटी के लिए कमर्शियल मशरूम बिजनेस शुरू करने का सम्पूर्ण रोडमैप
                         </h2>
                     </div>
 

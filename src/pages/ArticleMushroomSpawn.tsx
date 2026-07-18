@@ -8,7 +8,7 @@ const ArticleMushroomSpawn = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="What is Mushroom Spawn? Complete Beginner Guide (–27)" 
+        title="What is Mushroom Spawn? Complete Beginner Guide (2026–27) | Organic Mushroom Farm" 
         description="Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India. Complete beginner guide 2026-2027." 
       />
 

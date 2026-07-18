@@ -84,8 +84,8 @@ const ArticleBikanerTraining = () => {
             </div>
 
             <SEO 
-                title="Bikaner Mushroom Farming, Training, Spawn & Setup" 
-                description="बीकानेर में मशरूम फार्म सेटअप, स्पॉन सप्लाई, स्टूडेंट्स और किसानों के लिए ऑनलाइन-ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी..."
+                title="Bikaner Mushroom Farming, Training, Spawn & Setup | Rajasthan Guide" 
+                description="बीकानेर में मशरूम फार्म सेटअप, स्पॉन सप्लाई, स्टूडेंट्स और किसानों के लिए ऑनलाइन-ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स।"
                 keywords="Mushroom cultivation in Rajasthan, Mushroom farming in Bikaner, Mushroom spawn in Bikaner, mushroom training center in Bikaner, Gangashahar, Rani Bazar"
                 url="/cities/rajasthan/bikaner"
                 schemas={bikanerSchemas}
@@ -112,10 +112,10 @@ const ArticleBikanerTraining = () => {
                             <MapPin size={14} /> बीकानेर विशेष (Rajasthani Blog)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-बीकानेर में मशरूम री खेती (Farming), ट्रेनिंग, स्पॉन सप्लाई...
-</h1>
+                            बीकानेर में मशरूम री खेती (Farming), ट्रेनिंग, स्पॉन सप्लाई और कंसल्टेंसी
+                        </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            धोरां री धरती माथे मशरूम कल्टीवेशन सारु पूरो कस्टमाइज्ड गाइड,...
+                            धोरां री धरती माथे मशरूम कल्टीवेशन सारु पूरो कस्टमाइज्ड गाइड, फार्म सेटअप और सुविदावां
                         </h2>
                     </div>
 
@@ -691,7 +691,7 @@ const ArticleBikanerTraining = () => {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center gap-4">
-                            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" target="_blank" className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all">
+                            <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all">
                                 <Phone size={18} /> WhatsApp Support: 9203544140
                             </a>
                             <Link to="/contact" className="btn-outline px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all">

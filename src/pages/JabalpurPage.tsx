@@ -9,7 +9,7 @@ export default function JabalpurPage() {
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Jabalpur Mushroom Farming | Cities Pages"
-        description="Explore mushroom farming, training, and resources in Jabalpur. Learn more about our specialized mushroom farming techniques, training, and setup."
+        description="Explore mushroom farming, training, and resources in Jabalpur."
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">

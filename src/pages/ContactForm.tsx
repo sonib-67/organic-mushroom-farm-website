@@ -71,7 +71,7 @@ const ContactFormPage = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
-                title="Custom Mushroom Farming Project Consultation" 
+                title="Custom Mushroom Farming Project Consultation | Organic Mushroom Farm" 
                 description="Get a consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
                 schemas={[webmcpSchema]}
              />
@@ -239,8 +239,10 @@ const ContactFormPage = () => {
                                     <span className="flex-shrink-0 mx-4 text-slate-500 text-xs font-medium uppercase tracking-widest">Or</span>
                                     <div className="flex-grow border-t border-white/10"></div>
                                  </div>
-                                 <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I'm%20interested%20in%20a%20custom%20mushroom%20farming%20project." 
+                                 <a 
+                                     href="https://wa.me/919203544140?text=Hi,%20I'm%20interested%20in%20a%20custom%20mushroom%20farming%20project." 
                                      target="_blank" 
+                                     rel="noopener noreferrer" 
                                      className="w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-white bg-[#25D366] hover:bg-[#128C7E] transition-all"
                                  >
                                      Chat on WhatsApp

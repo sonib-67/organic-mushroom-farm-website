@@ -41,7 +41,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
   const setSEO = useContext(SEOContext);
   if (setSEO && typeof window === 'undefined') {
     setSEO({
-      title: title,
+      title: `${title} | Organic Mushroom Farm India & Global`,
       description,
       keywords: keywords || defaultKeywords,
       fullUrl,
@@ -52,8 +52,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
   return (
     <Helmet>
       {/* Title */}
-      <title>{title}</title>
-
+      <title>{`${title} | Organic Mushroom Farm India & Global`}</title>
 
       {/* SEO */}
       <meta name="description" content={description} />

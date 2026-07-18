@@ -40,7 +40,7 @@ export default function CareersPage() {
     <>
       <SEO 
         title="Careers | Jobs at Organic Mushroom Farm | Hiring Now"
-        description="Join India Learn about professional mushroom farming, training, and setup.'s leading organic mushroom farm. We are hiring for Farm Supervisors, Sales Executives, Digital Marketing, and providing Agriculture..."
+        description="Join India's leading organic mushroom farm. We are hiring for Farm Supervisors, Sales Executives, Digital Marketing, and providing Agriculture Internships."
         keywords="agriculture jobs india, mushroom farm jobs, farming jobs, online agriculture internship, remote digital marketing jobs"
       />
       <div className="pt-24 pb-12 overflow-hidden relative">
@@ -58,7 +58,7 @@ export default function CareersPage() {
               <a href="#open-positions" className="btn-primary px-8 py-3 rounded-full font-bold flex items-center gap-2">
                 <Search size={18} /> View Open Positions
               </a>
-              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" target="_blank" className="px-8 py-3 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 font-bold flex items-center gap-2">
+              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 font-bold flex items-center gap-2">
                 <MessageCircle size={18} /> Chat with HR
               </a>
             </div>
@@ -127,7 +127,7 @@ export default function CareersPage() {
                <div className="w-full max-w-sm relative z-10 text-center">
                  <FileText size={64} className="text-primary-start mx-auto mb-6" />
                  <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-6">Drop your details on WhatsApp</h3>
-                 <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi! I am looking for career opportunities and would like to share my resume." target="_blank" className="btn-primary w-full justify-center px-8 py-4 rounded-full font-bold flex items-center gap-2">
+                 <a href="https://wa.me/919203544140?text=Hi! I am looking for career opportunities and would like to share my resume." target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center px-8 py-4 rounded-full font-bold flex items-center gap-2">
                    <MessageCircle size={20} /> Share Resume on WhatsApp
                  </a>
                </div>

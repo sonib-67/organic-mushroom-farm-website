@@ -17,7 +17,7 @@ const ArticleMushroomFarmingMistakes = () => {
             </div>
 
             <SEO 
-                title="7 Mushroom Farming Mistakes That Cause Crop Failure in..." 
+                title="7 Mushroom Farming Mistakes That Cause Crop Failure in India" 
                 description="Why Do Many New Mushroom Farmers Fail Within the First Few Months? Learn the most common mistakes and how to avoid them."
                 keywords="mushroom farming mistakes, crop failure, mushroom training, mushroom farm setup, India"
             />
@@ -26,8 +26,8 @@ const ArticleMushroomFarmingMistakes = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-7 Mushroom Farming Mistakes That Cause Crop Failure in India...
-</h1>
+                            7 Mushroom Farming Mistakes That Cause Crop Failure in India (And How to Avoid Them)
+                        </h1>
                     </div>
 
                     <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4">
@@ -385,7 +385,7 @@ const ArticleMushroomFarmingMistakes = () => {
                     <hr className="my-12 border-t-2 dark:border-white/10 border-black/10" />
 
                     <h2 className="text-3xl font-bold dark:text-white text-slate-900 mt-10 mb-6 text-center">
-                        Mushroom Farming Hotspots Across India — States With Highest...
+                        Mushroom Farming Hotspots Across India — States With Highest Production & Customer Demand
                     </h2>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">

@@ -17,8 +17,8 @@ const ArticleChandigarhTraining = () => {
             </div>
 
             <SEO 
-                title="Chandigarh Tricity Mushroom Farming Guide" 
-                description="Chandigarh, Mohali, Panchkula Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies &..."
+                title="Chandigarh Tricity Mushroom Farming Guide 2026 | चंडीगढ़, मोहाली, पंचकुला में औषधीय मशरूम से बंपर कमाई" 
+                description="Chandigarh, Mohali, Panchkula Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support."
                 keywords="Chandigarh Mushroom Farming, Mushroom farming in Chandigarh, Mohali, Panchkula, Mushroom spawn in Tricity"
             />
             
@@ -26,8 +26,8 @@ const ArticleChandigarhTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Chandigarh Tricity Mushroom Farming Guide 2026 | चंडीगढ़,...
-</h1>
+                            Chandigarh Tricity Mushroom Farming Guide 2026 | चंडीगढ़, मोहाली, पंचकुला में औषधीय मशरूम से बंपर कमाई: Training, Setup & Subsidy
+                        </h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">

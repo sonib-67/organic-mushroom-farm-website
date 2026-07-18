@@ -194,7 +194,7 @@ const WorkshopPage = () => {
   return (
     <div className="font-sans dark:bg-[#0a0f0d] bg-slate-50 dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
       <SEO 
-        title="Agri-Business Mushroom Farming Workshop"
+        title="Agri-Business Mushroom Farming Workshop | Organic Mushroom Farm"
         description="Book your seat for ₹199. Learn commercial oyster, milky, and button mushroom cultivation, farm setups, and B2B marketing from Indian experts."
         schemas={[webmcpSchema]}
       />
@@ -314,7 +314,7 @@ const WorkshopPage = () => {
       <section id="benefits" className="py-12 md:py-24 bg-[#050806] relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10 md:mb-16">
-            <h1 className="text-xl md:text-3xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Why Join This Workshop</h1>
+            <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Why Join This Workshop</h2>
             <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2">Everything you need to build a successful and highly profitable mushroom farming business from scratch.</p>
           </div>
           
@@ -584,8 +584,10 @@ const WorkshopPage = () => {
       </div>
 
       {/* WhatsApp Floating */}
-      <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20Mushroom%20Farming%20Workshop" 
+      <a 
+        href="https://wa.me/919203544140?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20Mushroom%20Farming%20Workshop" 
         target="_blank" 
+        rel="noreferrer"
         className="fixed bottom-[90px] md:bottom-6 right-4 z-50 bg-[#25D366] hover:bg-[#128C7E] w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="text-white ml-0.5 mt-0.5" viewBox="0 0 16 16">

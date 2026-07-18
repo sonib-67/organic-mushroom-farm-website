@@ -104,8 +104,8 @@ const ArticleGharParMushroomFarming = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
       <SEO 
-        title="Mushroom Farming: Ghar Par Mushroom Kaise Ugayein —..." 
-        description="Learn how to grow mushroom at home. Complete step-by-step guide on substrate pasteurization, spawn selection, bag filling, incubation, harvesting,..."
+        title="Mushroom Farming: Ghar Par Mushroom Kaise Ugayein — India Ka Sabse Complete Guide (2026)" 
+        description="Learn how to grow mushroom at home. Complete step-by-step guide on substrate pasteurization, spawn selection, bag filling, incubation, harvesting, and state-wise training centers."
         keywords="how to grow mushroom at home, mushroom training center, button mushroom training center, oyster mushroom training center, mushroom farming training center, mushroom ki kheti, spawn seed jabalpur"
       />
 
@@ -903,8 +903,10 @@ const ArticleGharParMushroomFarming = () => {
               Mushroom business badhane ka sabse behtareen tarika yahi hai ki aap pehle chhota practical direct hands-on batch setup karein. Sirf padhte mat raho! Shuruat kijiye, hum handholding support ke sath aapke business development support ke liye ready hain.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" 
+              <a 
+                href="https://wa.me/919203544140" 
                 target="_blank" 
+                rel="noopener noreferrer" 
                 className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl transition-all transform hover:scale-105"
               >
                 <MessageCircle size={18} /> Chat Directly on WhatsApp with an Expert

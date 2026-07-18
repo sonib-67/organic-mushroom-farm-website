@@ -17,8 +17,8 @@ const ArticleNagpurTraining = () => {
             </div>
 
             <SEO 
-                title="Nagpur Mushroom Farming Business Guide" 
-                description="Nagpur Mushroom Farming complete guide in Marathi. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing..."
+                title="Nagpur Mushroom Farming Business Guide 2026 | नागपुर पॅटर्न: मशरूम शेतीतून बंपर कमाई" 
+                description="Nagpur Mushroom Farming complete guide in Marathi. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Maharashtra."
                 keywords="Nagpur Mushroom Farming, Mushroom farming in Nagpur, Mushroom spawn in Nagpur, mushroom training center in Nagpur, Dharampeth, Manish Nagar, Wardha Road, Vidarbha"
             />
             
@@ -26,10 +26,10 @@ const ArticleNagpurTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Nagpur Mushroom Farming Business Guide 2026 | नागपुर पॅटर्न:...
-</h1>
+                            Nagpur Mushroom Farming Business Guide 2026 | नागपुर पॅटर्न: मशरूम शेतीतून बंपर कमाई कशी सुरू करावी?
+                        </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup,...
+                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Maharashtra
                         </h2>
                     </div>
 

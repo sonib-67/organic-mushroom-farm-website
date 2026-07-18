@@ -17,8 +17,8 @@ const ArticleGwaliorTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming, Training, Spawn Supply ... - GwaliorTraining" 
-                description="Gwalior (ग्वालियर) में mushroom farming business कैसे शुरू करें? Online/Offline Training, Mushroom Spawn Supply, Consultancy, और Government..."
+                title="Mushroom Farming, Training, Spawn Supply & Consultancy in Gwalior | ग्वालियर मशरूम" 
+                description="Gwalior (ग्वालियर) में mushroom farming business कैसे शुरू करें? Online/Offline Training, Mushroom Spawn Supply, Consultancy, और Government Subsidy के बारे में पूरी जानकारी।"
                 keywords="Mushroom farming Gwalior, mushroom training Gwalior, mushroom spawn supplier Gwalior, commercial mushroom farming Madhya Pradesh, button mushroom Gwalior, oyster mushroom Gwalior"
             />
             

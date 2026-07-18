@@ -5,16 +5,16 @@ const ArticleBusinessPlanIndia = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="Mushroom Farming Business Plan: How to Start a..."
-                description="Learn how to start a profitable mushroom farming business in India. A step-by-step business plan, setup costs, marketing strategy, and ROI..."
+                title="Mushroom Farming Business Plan: How to Start a Profitable Mushroom Business in India"
+                description="Learn how to start a profitable mushroom farming business in India. A step-by-step business plan, setup costs, marketing strategy, and ROI analysis for 2026."
             />
             
             <article className="max-w-4xl mx-auto px-4 prose prose-invert">
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Mushroom Farming Business Plan: How to Start a Profitable...
-</h1>
+                            Mushroom Farming Business Plan: How to Start a Profitable Mushroom Business in India
+                        </h1>
                     </div>
                     
                     <div className="space-y-6 text-slate-600 dark:text-slate-400">
@@ -30,7 +30,7 @@ Mushroom Farming Business Plan: How to Start a Profitable...
                             Whether you are setting up in a metro city, a tier-1 urban area, or a rural village, having a solid Mushroom Farming Business Plan is the key to turning a small room into a highly profitable enterprise.
                         </p>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/10 border-black/10 my-8">
-                            <p className="font-bold dark:text-white text-slate-900 m-0">Need expert guidance to start? Call or WhatsApp us at <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a> for professional training, farm setup, and consultancy.</p>
+                            <p className="font-bold dark:text-white text-slate-900 m-0">Need expert guidance to start? Call or WhatsApp us at <a href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a> for professional training, farm setup, and consultancy.</p>
                         </div>
 
                         <h2 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-4">What Is a Mushroom Farming Business Plan?</h2>
@@ -116,7 +116,7 @@ Mushroom Farming Business Plan: How to Start a Profitable...
                             <li><strong><Link to="/training/offline" className="text-brand-blue hover:underline">Offline / Practical Training</Link>:</strong> Get hands-on experience in substrate preparation (straw pasteurization), spawn inoculation, harvesting techniques, and daily farm operations.</li>
                         </ul>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/10 border-black/10 my-8">
-                            <p className="font-bold dark:text-white text-slate-900 m-0">Want to learn from the experts? Get certified online or offline training tailored for the Indian market. Contact us today at <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a>.</p>
+                            <p className="font-bold dark:text-white text-slate-900 m-0">Want to learn from the experts? Get certified online or offline training tailored for the Indian market. Contact us today at <a href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a>.</p>
                         </div>
 
                         <h2 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-4">Step 4: Source High-Quality Mushroom Spawn</h2>
@@ -151,7 +151,7 @@ Mushroom Farming Business Plan: How to Start a Profitable...
                             <li><strong><Link to="/services/turnkey-setup" className="text-brand-blue hover:underline">Turnkey Mushroom Projects</Link>:</strong> Complete end-to-end solutions including farm design, equipment installation, infrastructure setup, and labor training.</li>
                         </ul>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/10 border-black/10 my-8">
-                            <p className="font-bold dark:text-white text-slate-900 m-0">Looking for complete Turnkey Setup Support in India? Let us build your farm while you focus on the business. Call <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a> for a free consultation.</p>
+                            <p className="font-bold dark:text-white text-slate-900 m-0">Looking for complete Turnkey Setup Support in India? Let us build your farm while you focus on the business. Call <a href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a> for a free consultation.</p>
                         </div>
 
                         <h2 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-4">Step 8: Understand Setup Costs & ROI Before Investing</h2>
@@ -194,7 +194,7 @@ Mushroom Farming Business Plan: How to Start a Profitable...
                         
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/10 border-black/10 my-8">
                             <h3 className="font-bold dark:text-white text-slate-900 mb-2">Ready to start your highly profitable mushroom farming journey?</h3>
-                            <p className="m-0">For complete guidance on Business Plans, Online/Offline Training, Farm Setup, Spawn Purchasing, and Turnkey Projects, contact us immediately at <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="text-brand-blue hover:underline font-bold">9203544140</a>. Let's build your success story together!</p>
+                            <p className="m-0">For complete guidance on Business Plans, Online/Offline Training, Farm Setup, Spawn Purchasing, and Turnkey Projects, contact us immediately at <a href="https://wa.me/919203544140" className="text-brand-blue hover:underline font-bold">9203544140</a>. Let's build your success story together!</p>
                         </div>
                     </div>
                 </div>

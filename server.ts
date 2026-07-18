@@ -1,5 +1,4 @@
 import express from 'express';
-import helmet from 'helmet';
 import cors from 'cors';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
@@ -24,13 +23,6 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 const app = express();
-
-// Security headers
-app.use(helmet({
-  contentSecurityPolicy: false,
-  crossOriginEmbedderPolicy: false,
-}));
-
 const PORT = 3000;
 
 app.use(cors());

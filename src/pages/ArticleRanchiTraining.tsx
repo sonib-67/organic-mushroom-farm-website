@@ -144,8 +144,8 @@ const ArticleRanchiTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming Business Setup in Ranchi" 
-                description="Ranchi (रांची) में mushroom farming business कैसे शुरू करें? Online/Offline Training, Mushroom Spawn Supply, Consultancy, और Government Subsidy के..."
+                title="Mushroom Farming Business Setup in Ranchi | Training, Consultancy & ROI Planning" 
+                description="Ranchi (रांची) में mushroom farming business कैसे शुरू करें? Online/Offline Training, Mushroom Spawn Supply, Consultancy, और Government Subsidy के बारे में पूरी जानकारी।"
                 keywords="Mushroom farming Ranchi, mushroom training Ranchi, mushroom spawn supplier Ranchi, commercial mushroom farming Jharkhand, oyster mushroom Ranchi, button mushroom Ranchi"
                 schemas={[faqSchema, localBusinessSchema]}
             />
@@ -154,8 +154,8 @@ const ArticleRanchiTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Mushroom Farming Business Setup in Ranchi | Training,...
-</h1>
+                            Mushroom Farming Business Setup in Ranchi | Training, Consultancy & ROI Planning
+                        </h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">

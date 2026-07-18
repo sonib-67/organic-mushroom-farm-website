@@ -17,8 +17,8 @@ const ArticleRaipurTraining = () => {
             </div>
 
             <SEO 
-                title="Raipur Mushroom Farming Guide" 
-                description="Raipur Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in..."
+                title="Raipur Mushroom Farming Guide 2026 | धान की खेती vs मशरूम बिज़नेस" 
+                description="Raipur Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Chhattisgarh."
                 keywords="Raipur Mushroom Farming, Mushroom farming in Raipur, Chhattisgarh, Mushroom spawn in Raipur, Mushroom training center"
             />
             
@@ -26,8 +26,8 @@ const ArticleRaipurTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-lg md:text-xl lg:text-2xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Raipur Mushroom Farming Guide 2026 | धान की खेती vs मशरूम...
-</h1>
+                            Raipur Mushroom Farming Guide 2026 | धान की खेती vs मशरूम बिज़नेस: छत्तीसगढ़ में सबसे ज्यादा मुनाफे वाला कृषि उद्योग
+                        </h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
@@ -116,7 +116,7 @@ Raipur Mushroom Farming Guide 2026 | धान की खेती vs मशर�
                                 5. Daily Fresh Mushroom Sale Business (लोकल मार्केट सप्लाई)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                आपका माल कहाँ बिकेगा? रायपुर की शास्त्री बाजार, पचपेड़ी नाका के सब्जी मार्केट, शंकर नगर के सुपरमार्केट्स और बड़े होटलों में हम <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms" target="_blank" className="text-primary-start hover:underline font-medium">Fresh Mushroom Sale</a> की डायरेक्ट सप्लाई चेन बनाने में आपकी पूरी मदद करते हैं।
+                                आपका माल कहाँ बिकेगा? रायपुर की शास्त्री बाजार, पचपेड़ी नाका के सब्जी मार्केट, शंकर नगर के सुपरमार्केट्स और बड़े होटलों में हम <a href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms" target="_blank" rel="noopener noreferrer" className="text-primary-start hover:underline font-medium">Fresh Mushroom Sale</a> की डायरेक्ट सप्लाई चेन बनाने में आपकी पूरी मदद करते हैं।
                             </p>
                         </div>
 
@@ -126,7 +126,7 @@ Raipur Mushroom Farming Guide 2026 | धान की खेती vs मशर�
                                 6. Value-Added Dry Mushroom Sale & Processing (सूखा मशरूम और सप्लीमेंट्स)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                अगर कच्चा मशरूम नहीं बिका, तो उसे सुखा लें! <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms" target="_blank" className="text-primary-start hover:underline font-medium">Dry Mushroom Sale</a> एक बहुत बड़ा बिजनेस है। ऑयस्टर और औषधीय (Medicinal) मशरूम को सुखाकर, उनका पाउडर या प्रोटीन सप्लीमेंट बनाकर आप पूरे भारत में ऑनलाइन बेच सकते हैं। इसकी लाइफ भी लंबी होती है और रेट भी ज्यादा मिलता है।
+                                अगर कच्चा मशरूम नहीं बिका, तो उसे सुखा लें! <a href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms" target="_blank" rel="noopener noreferrer" className="text-primary-start hover:underline font-medium">Dry Mushroom Sale</a> एक बहुत बड़ा बिजनेस है। ऑयस्टर और औषधीय (Medicinal) मशरूम को सुखाकर, उनका पाउडर या प्रोटीन सप्लीमेंट बनाकर आप पूरे भारत में ऑनलाइन बेच सकते हैं। इसकी लाइफ भी लंबी होती है और रेट भी ज्यादा मिलता है।
                             </p>
                         </div>
 

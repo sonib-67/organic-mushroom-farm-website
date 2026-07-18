@@ -8,8 +8,8 @@ const ArticleMushroomTrainingAffordable = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Training - Online & Offline" 
-        description="India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur MP Mein Available. Complete guide..." 
+        title="Mushroom Farming Training - Online & Offline | Certificate ke Saath Seekho Mushroom Kheti" 
+        description="India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur MP Mein Available. Complete guide with Certificate." 
       />
 
       <div className="max-w-4xl mx-auto px-4">
@@ -27,8 +27,8 @@ const ArticleMushroomTrainingAffordable = () => {
             <span className="text-[10px] font-black uppercase tracking-widest text-[#22c55e]">Mushroom Training Program</span>
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
-Mushroom Farming Training – Online & Offline | Certificate ke...
-</h1>
+            Mushroom Farming Training – Online & Offline | Certificate ke Saath Seekho Mushroom Kheti
+          </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 leading-relaxed mb-6">
             India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur Mein Available
           </p>
@@ -56,7 +56,7 @@ Mushroom Farming Training – Online & Offline | Certificate ke...
               Agar aap mushroom ki kheti shuru karna chahte hain aur nahi pata kahan se start karen — toh mushroom training bilkul aapke liye hai. Mushroom farming training ek aisa program hota hai jisme aapko step-by-step sikhaya jata hai ki mushroom kaise ugayi jaati hai, spawn kaise use hota hai, fruiting kaise hoti hai, harvesting aur packing kaise karni hai — aur sabse important — mushroom se paise kaise kamaye jaate hain.
             </p>
             <p className="mt-4 text-base leading-relaxed">
-              Organic Mushroom Farm, Jabalpur (<a rel="nofollow noopener noreferrer" href="https://organicmushroomfarm.shop" target="_blank" >organicmushroomfarm.shop</a>) ke through aap do tarah ki training le sakte hain:
+              Organic Mushroom Farm, Jabalpur (<a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer">organicmushroomfarm.shop</a>) ke through aap do tarah ki training le sakte hain:
             </p>
             <ul className="mt-4 space-y-2 text-sm">
               <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-primary-start" /> <strong>Online Mushroom Training</strong> — sirf ₹299 mein, ghar baithe</li>
@@ -142,10 +142,10 @@ Mushroom Farming Training – Online & Offline | Certificate ke...
             <span className="text-2xl font-black block mb-2 text-[#22c55e]">📱 ONLINE MUSHROOM TRAINING — SIRF ₹299</span>
             <p className="font-bold text-sm text-slate-300">Certificate ke Saath | Hindi Mein | Lifetime Access</p>
             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-              <a rel="nofollow noopener noreferrer" href="https://organicmushroomfarm.shop/training" className="inline-block bg-[#22c55e] text-black font-extrabold text-sm px-6 py-3 rounded-xl hover:scale-105 transition-transform">
+              <a href="https://organicmushroomfarm.shop/training" className="inline-block bg-[#22c55e] text-black font-extrabold text-sm px-6 py-3 rounded-xl hover:scale-105 transition-transform">
                 Register Now
               </a>
-              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" target="_blank" className="inline-block bg-slate-900 border border-white/10 text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-white/5 transition-all">
+              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-900 border border-white/10 text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-white/5 transition-all">
                 WhatsApp: 9203544140
               </a>
             </div>
@@ -479,7 +479,7 @@ Mushroom Farming Training – Online & Offline | Certificate ke...
           </h2>
           <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 my-6 text-sm leading-relaxed">
             <ol className="list-decimal pl-6 space-y-3 font-semibold text-slate-300">
-              <li>Website visit karo: <a rel="nofollow noopener noreferrer" href="https://organicmushroomfarm.shop/training" target="_blank" className="text-primary-start font-bold">organicmushroomfarm.shop</a></li>
+              <li>Website visit karo: <a href="https://organicmushroomfarm.shop/training" target="_blank" rel="noopener noreferrer" className="text-primary-start font-bold">organicmushroomfarm.shop</a></li>
               <li>Online Training — ₹299 pay karo (UPI / Card / Net Banking)</li>
               <li>WhatsApp karo <span className="text-[#22c55e]">9203544140</span> pe — confirmation layout update instructions milenge</li>
               <li>Video portal content access milega turant — explore and enjoy</li>

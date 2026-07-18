@@ -17,8 +17,8 @@ const ArticleCoimbatoreTraining = () => {
             </div>
 
             <SEO 
-                title="Coimbatore Mushroom Farming and Agritech Business..." 
-                description="கோயம்புத்தூர் காளான் வளர்ப்பு (Coimbatore Mushroom Farming) மற்றும் Agritech Business பற்றி முழுமையாக தெரிந்து கொள்ள ஒரு வழிகாட்டி. Oyster, Milky,..."
+                title="Coimbatore Mushroom Farming and Agritech Business Opportunities | கோயம்புத்தூர் காளான் வளர்ப்பு மற்றும் வேளாண் தொழில் வழிகாட்டி" 
+                description="கோயம்புத்தூர் காளான் வளர்ப்பு (Coimbatore Mushroom Farming) மற்றும் Agritech Business பற்றி முழுமையாக தெரிந்து கொள்ள ஒரு வழிகாட்டி. Oyster, Milky, Button காளான் மற்றும் லாபம் ஈட்டும் வழிமுறைகள்."
                 keywords="Mushroom farming Coimbatore, mushroom training Coimbatore, mushroom spawn supply Coimbatore, commercial mushroom farming Tamil Nadu, agritech business Coimbatore"
             />
             
@@ -26,8 +26,8 @@ const ArticleCoimbatoreTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Coimbatore Mushroom Farming and Agritech Business Opportunitie...
-</h1>
+                            Coimbatore Mushroom Farming and Agritech Business Opportunities | கோயம்புத்தூர் காளான் வளர்ப்பு மற்றும் வேளாண் தொழில் வழிகாட்டி
+                        </h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">

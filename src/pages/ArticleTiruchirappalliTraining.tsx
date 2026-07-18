@@ -17,7 +17,7 @@ const ArticleTiruchirappalliTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming Business for Young Entrepreneurs in..." 
+                title="Mushroom Farming Business for Young Entrepreneurs in Tiruchirappalli" 
                 description="Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappalli | திருச்சிராப்பள்ளியில் இளைஞர்களுக்கான ஸ்மார்ட் மஷ்ரூம் பிசினஸ் வழிகாட்டி 2026"
             />
 
@@ -35,15 +35,15 @@ const ArticleTiruchirappalliTraining = () => {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary-start/10 blur-[100px] rounded-full pointer-events-none" />
 
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappa...
-</h1>
+                        Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappalli | திருச்சிராப்பள்ளியில் இளைஞர்களுக்கான ஸ்மார்ட் மஷ்ரூம் பிசினஸ் வழிகாட்டி 2026
+                    </h1>
 
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
                         The startup culture is growing rapidly across India, and today, many young entrepreneurs are looking for businesses that require practical skills, can begin on a small scale, and offer long-term growth potential. திருச்சிராப்பள்ளியில் பல இளைஞர்கள் பாரம்பரிய வேலைகளை மட்டுமல்லாமல், நவீன வேளாண்மை மற்றும் உணவு சார்ந்த தொழில்களையும் தேர்வு செய்து வருகின்றனர். Mushroom farming இதில் மிக முக்கியமான மற்றும் லாபகரமான ஒரு தொழில் வாய்ப்பாக உருவெடுத்துள்ளது.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Why Are Young Entrepreneurs Choosing Mushroom Farming? (ஏன்...
+                        Why Are Young Entrepreneurs Choosing Mushroom Farming? (ஏன் மஷ்ரூம் பிசினஸ்?)
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Unlike many traditional agricultural businesses, commercial mushroom farming offers unique advantages that perfectly suit modern youth:
@@ -56,7 +56,7 @@ Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappa...
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Startup Opportunities in the Mushroom Industry (காளான்...
+                        Startup Opportunities in the Mushroom Industry (காளான் தொழிலில் உள்ள பல்வேறு வாய்ப்புகள்)
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Instead of focusing only on cultivation, you can build a highly profitable agribusiness through multiple channels:
@@ -122,7 +122,7 @@ Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappa...
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Tiruchirappalli Areas Covered (திருச்சி மற்றும் சுற்றியுள்ள...
+                        Tiruchirappalli Areas Covered (திருச்சி மற்றும் சுற்றியுள்ள காளான் வளர்ப்புக்கு ஏற்ற பகுதிகள்)
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Tiruchirappalli combines education, agriculture, and industrial development, creating massive potential for a mushroom farming startup. You can successfully launch your nearby mushroom farm in the following target areas:
@@ -134,7 +134,7 @@ Smart Mushroom Farming for Young Entrepreneurs in Tiruchirappa...
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Business Plan, Subsidies & Marketing (தொழில் திட்டம் மற்றும்...
+                        Business Plan, Subsidies & Marketing (தொழில் திட்டம் மற்றும் மானியங்கள்)
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         <strong>Business Plan & ROI:</strong> Before executing your mushroom farm setup, clearly evaluate your startup budget, operating costs, production capacity, and market demand.

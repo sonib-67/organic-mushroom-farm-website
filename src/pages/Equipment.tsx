@@ -94,7 +94,7 @@ const EquipmentPage = () => {
                     Not sure which equipment to buy? We provide turnkey project assistance, sourcing high-quality machinery at wholesale rates for our students.
                 </p>
                 <div className="flex gap-4">
-                    <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20looking%20for%20a%20wholesale%20quote%20for%20mushroom%20farming%20equipment." target="_blank" className="gradient-bg px-8 py-4 rounded-xl text-white font-bold inline-flex items-center gap-2">
+                    <a href="https://wa.me/919203544140?text=Hi,%20I%20am%20looking%20for%20a%20wholesale%20quote%20for%20mushroom%20farming%20equipment." target="_blank" rel="noopener noreferrer" className="gradient-bg px-8 py-4 rounded-xl text-white font-bold inline-flex items-center gap-2">
                         Get Wholesale Quote <ArrowRight size={18} />
                     </a>
                 </div>

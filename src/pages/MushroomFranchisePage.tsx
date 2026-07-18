@@ -25,7 +25,7 @@ export default function MushroomFranchisePage() {
               Join India's fastest-growing organic mushroom network. Low investment, rapid setup, high structural durability, and fully supported cold-chain & marketing workflows.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I am interested in the Mushroom Franchise Opportunity" className="btn-primary px-10 py-4 rounded-full font-bold flex items-center gap-3 text-lg">
+              <a href="https://wa.me/919203544140?text=I am interested in the Mushroom Franchise Opportunity" className="btn-primary px-10 py-4 rounded-full font-bold flex items-center gap-3 text-lg">
                 <MessageCircle size={20} /> Get Franchise Details
               </a>
               <a href="tel:9203544140" className="px-8 py-4 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 font-bold hover:dark:bg-white/5 hover:bg-black/5 transition-colors flex items-center gap-2">
@@ -73,7 +73,7 @@ export default function MushroomFranchisePage() {
                        <CheckCircle2 size={18} className="text-green-500 shrink-0" /> Yield Capability: ~ 200kg/month
                      </li>
                    </ul>
-                   <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="w-full block text-center py-4 rounded-xl border-2 border-primary-start text-primary-start font-bold hover:bg-primary-start hover:text-white transition-all">Get Quote</a>
+                   <a href="https://wa.me/919203544140" className="w-full block text-center py-4 rounded-xl border-2 border-primary-start text-primary-start font-bold hover:bg-primary-start hover:text-white transition-all">Get Quote</a>
                 </div>
                 
                 <div className="bg-primary-start border dark:border-white/10 border-black/10 rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden group">
@@ -91,7 +91,7 @@ export default function MushroomFranchisePage() {
                        <CheckCircle2 size={18} className="text-white shrink-0" /> Yield Capability: 20-30 Tons/Cycle
                      </li>
                    </ul>
-                   <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="w-full block text-center py-4 rounded-xl bg-white text-primary-start font-bold hover:bg-slate-50 transition-all">Setup Industrial Setup</a>
+                   <a href="https://wa.me/919203544140" className="w-full block text-center py-4 rounded-xl bg-white text-primary-start font-bold hover:bg-slate-50 transition-all">Setup Industrial Setup</a>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function MushroomFranchisePage() {
 
           <div className="text-center pb-24">
             <h2 className="text-3xl font-bold dark:text-white text-slate-900 mb-8">Ready to grow your territory?</h2>
-            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="btn-primary inline-flex px-12 py-5 rounded-full font-bold text-lg items-center gap-3">
+            <a href="https://wa.me/919203544140" className="btn-primary inline-flex px-12 py-5 rounded-full font-bold text-lg items-center gap-3">
               Apply via WhatsApp <ArrowRight />
             </a>
           </div>

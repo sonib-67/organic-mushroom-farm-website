@@ -86,8 +86,8 @@ const ArticleMangaloreTraining = () => {
             </div>
 
             <SEO 
-                title="ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಫಾರ್ಮಿಂಗ್" 
-                description="ಕುಡ್ಲದ ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು? ಮಶ್ರೂಮ್ ಫಾರ್ಮ್ ಸೆಟಪ್, ಟ್ರೈನಿಂಗ್, ಬೊಕ್ಕ ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಬಿಸಿನೆಸ್..."
+                title="ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಫಾರ್ಮಿಂಗ್ | Mushroom Farming in Mangalore (Tulu)" 
+                description="ಕುಡ್ಲದ ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು? ಮಶ್ರೂಮ್ ಫಾರ್ಮ್ ಸೆಟಪ್, ಟ್ರೈನಿಂಗ್, ಬೊಕ್ಕ ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಬಿಸಿನೆಸ್ ಬಗ್ಗೆ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ (ತುಳು)."
                 keywords="Mushroom farming Mangalore, organic stores Mangalore, mushroom spawn Mangalore, mushroom training Karnataka, Tulu mushroom business, ಕುಡ್ಲ ಮಶ್ರೂಮ್, ಉಡುಪಿ"
                 url="/mushroom-farming-mangalore-karnataka"
                 schemas={customSchemas}
@@ -111,7 +111,7 @@ const ArticleMangaloreTraining = () => {
                             Why Organic Stores in Mangalore Need Reliable Mushroom Suppliers
                         </h1>
                         <h2 className="text-xl md:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-4">
-                            ಕುಡ್ಲದ (ಮಂಗಳೂರು) ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ...
+                            ಕುಡ್ಲದ (ಮಂಗಳೂರು) ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು?
                         </h2>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushroom Farm — Mangalore, Karnataka Special Edition (Tulu Blog)
@@ -415,8 +415,10 @@ const ArticleMangaloreTraining = () => {
                             Connect with Organic Mushroom Farm for quality spawn, professional training, and turnkey commercial setups.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-                            <a rel="nofollow noopener noreferrer" href="https://wa.me/917389712061" 
+                            <a 
+                                href="https://wa.me/917389712061" 
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]"
                             >
                                 <MessageSquare size={18} />

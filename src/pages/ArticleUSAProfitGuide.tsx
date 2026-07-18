@@ -8,8 +8,8 @@ const ArticleUSAProfitGuide = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="The Complete Guide to Mushroom Training: How to Start..."
-        description="Whether you Learn about professional mushroom farming, training, and setup.'re in New York, California, Texas, or Florida — this guide is for anyone ready to turn mushroom farming into a real business or side..."
+        title="The Complete Guide to Mushroom Training: How to Start Growing Mushrooms for Profit in the USA"
+        description="Whether you're in New York, California, Texas, or Florida — this guide is for anyone ready to turn mushroom farming into a real business or side income."
         keywords="mushroom growing course, how to grow mushrooms at home, mushroom cultivation training, mushroom farming for beginners"
       />
 
@@ -26,8 +26,8 @@ const ArticleUSAProfitGuide = () => {
           </div>
 
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight">
-The Complete Guide to Mushroom Training: How to Start Growing...
-</h1>
+            The Complete Guide to Mushroom Training: How to Start Growing Mushrooms for Profit in the USA
+          </h1>
           
           <p className="text-xl md:text-2xl dark:text-slate-400 text-slate-600 leading-relaxed italic border-l-4 border-primary-start pl-6">
             Whether you’re in New York, California, Texas, or Florida — this guide is for anyone ready to turn mushroom farming into a real business or side income.

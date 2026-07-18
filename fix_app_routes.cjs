@@ -1,43 +1,38 @@
 const fs = require('fs');
-const path = require('path');
+let appContent = fs.readFileSync('src/App.tsx', 'utf-8');
 
-let appTsxPath = path.join(__dirname, 'src', 'App.tsx');
-let content = fs.readFileSync(appTsxPath, 'utf-8');
+const componentMap = {
+  "/cities": "<StatesPage />",
+  "/project-specs": "<ServiceDetailPage defaultId='consultancy' />",
+  "/spawn-seeds": "<ServiceDetailPage defaultId='spawn-supply' />",
+  "/compost-unit": "<ServiceDetailPage defaultId='compost-production' />",
+  "/blog/mushroom-farming-training-online-offline-certificate": "<ArticleTrainingOnlineOffline />",
+  "/blog/oyster-mushroom-cultivation-india": "<ArticleOysterCultivation />",
+  "/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026": "<ArticleGharParMushroomFarming />",
+  "/blog/turnkey-commercial-setup": "<ArticleTurnkeyCommercialSetup />",
+  "/training/online": "<TrainingPage />",
+  "/training/offline": "<TrainingPage />",
+  "/site-visit-consultation": "<SiteVisitConsultationPage />",
+  "/services/milky-mushroom": "<MushroomTypeDetails defaultSlug='milky-mushroom' />",
+  "/services/turnkey-setup": "<ServiceDetailPage defaultId='consultancy' />",
+  "/services/oyster-mushroom": "<MushroomTypeDetails defaultSlug='oyster-mushroom' />",
+  "/services/button-mushroom": "<MushroomTypeDetails defaultSlug='button-mushroom' />",
+  "/articles/oyster-mushroom-cultivation-process": "<ArticleOysterCultivation />",
+  "/articles/white-button-mushroom-business-plan": "<ArticleBusinessPlanIndia />",
+  "/operations": "<PanIndiaOperations />"
+};
 
-// Find all routes mapped to the same component
-let routeMatches = [...content.matchAll(/<Route\s+path="([^"]+)"\s+element=\{<([A-Za-z0-9_]+)\s*\/>\}\s*\/>/g)];
-
-let componentRoutes = {};
-routeMatches.forEach(match => {
-    let routePath = match[1];
-    let component = match[2];
-    if (!componentRoutes[component]) {
-        componentRoutes[component] = [];
-    }
-    componentRoutes[component].push(routePath);
-});
-
-let replacements = 0;
-for (let comp in componentRoutes) {
-    let routes = componentRoutes[comp];
-    if (routes.length > 1) {
-        // Decide canonical: usually the one starting with /cities/ or /locations/ or /states/ or /articles/
-        let canonical = routes.find(r => r.startsWith('/cities/') || r.startsWith('/locations/') || r.startsWith('/states/') || r.startsWith('/articles/')) || routes[0];
-        
-        // For non-canonical routes, change element to <Navigate to="canonical" replace />
-        routes.forEach(r => {
-            if (r !== canonical) {
-                let badRouteRegex = new RegExp(`<Route\\s+path="${r.replace(/\//g, '\\/')}"\\s+element=\\{<${comp}\\s*\\/>\\}\\s*\\/>`, 'g');
-                content = content.replace(badRouteRegex, `<Route path="${r}" element={<Navigate to="${canonical}" replace />} />`);
-                replacements++;
-            }
-        });
+for (const [path, comp] of Object.entries(componentMap)) {
+    // Some routes might already be added as <Route path="..." element={<comp />} /> by the previous script
+    // So let's just do a clean replace for ALL of them. We'll search for <Route path="..." ... /> and replace it.
+    const regexStr = `<Route[\\s]*path="${path.replace(/\\/g, '\\\\')}"[\\s]*element=\\{[^}]+\\}[\\s]*(?:\\/|><\\/Route)>`;
+    const regex = new RegExp(regexStr, 'g');
+    if (appContent.match(regex)) {
+        appContent = appContent.replace(regex, `<Route path="${path}" element={${comp}} />`);
+    } else {
+        const toInsert = `          <Route path="${path}" element={${comp}} />\n`;
+        appContent = appContent.replace('{/* Legacy redirects */}', '{/* Legacy redirects */}\n' + toInsert);
     }
 }
 
-if (replacements > 0) {
-    fs.writeFileSync(appTsxPath, content);
-    console.log(`Replaced ${replacements} duplicate routes with redirects in App.tsx`);
-} else {
-    console.log("No duplicate routes found.");
-}
+fs.writeFileSync('src/App.tsx', appContent);

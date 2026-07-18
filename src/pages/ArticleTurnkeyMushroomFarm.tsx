@@ -29,15 +29,15 @@ const ArticleTurnkeyMushroomFarm = () => {
 
             <SEO 
                 title="India’s Leading Mushroom Farm™ Project Company" 
-                description="Complete Turnkey Mushroom Farm Solutions Including DPR (Detailed Project Report), Farm Design, Grow Rooms, Compost Units, Climate Control Systems,..."
+                description="Complete Turnkey Mushroom Farm Solutions Including DPR (Detailed Project Report), Farm Design, Grow Rooms, Compost Units, Climate Control Systems, Technical Training & Government Subsidy Support Across India."
                 keywords="Mushroom Farm Setup, Commercial Mushroom Farming, Turnkey Mushroom Project, Mushroom Farm Design, AC Mushroom Plant Cost"
             />
             
             <article className="max-w-5xl mx-auto px-4 prose prose-invert">
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-6">
                     <h1 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 leading-tight">
-India’s Leading Mushroom Farm™ Project Company – Complete...
-</h1>
+                        India’s Leading Mushroom Farm™ Project Company – Complete Turnkey Mushroom Farm Solutions Including DPR (Detailed Project Report), Farm Design, Grow Rooms, Compost Units, Climate Control Systems, Technical Training & Government Subsidy Support Across India.
+                    </h1>
 
                     <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
                         Mushroom farming is no longer just a traditional seasonal hobby; it has evolved into a highly lucrative, controlled biological factory system. Across India's unique climate zones, modern commercial farming setups are rapidly replacing outdated, uncalibrated farming methods. Whether you want to establish a small-scale starter unit or an industrial-grade <strong>commercial mushroom farm setup</strong>, relying on guesswork is the fastest way to face crop failure. Success in this field demands absolute precision, automated environmental controls, and a scientific approach.

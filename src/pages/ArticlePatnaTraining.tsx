@@ -17,7 +17,7 @@ const ArticlePatnaTraining = () => {
             </div>
 
             <SEO 
-                title="Patna Mushroom Farming Business Guide" 
+                title="Patna Mushroom Farming Business Guide 2026 | पटना में बेस्ट मशरूम स्पॉन और ट्रेनिंग सेंटर" 
                 description="Patna Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Bihar."
                 keywords="Patna Mushroom Farming, Mushroom farming in Patna, Mushroom spawn in Patna, mushroom training center in Patna, Kankarbagh, Boring Road, Danapur, Bihar"
             />
@@ -26,10 +26,10 @@ const ArticlePatnaTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Patna Mushroom Farming Business Guide 2026 | पटना में बेस्ट...
-</h1>
+                            Patna Mushroom Farming Business Guide 2026 | पटना में बेस्ट मशरूम स्पॉन और ट्रेनिंग सेंटर
+                        </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup,...
+                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Bihar
                         </h2>
                     </div>
 

@@ -85,7 +85,7 @@ const ArticleGuwahatiTraining = () => {
 
             <SEO 
                 title="Professional Mushroom Farming Training Guwahati Assam" 
-                description="Mushroom farm setup, spawn supply, online/offline training, fresh/dry mushroom sale, and turnkey projects in Guwahati, Assam. Start your..."
+                description="Mushroom farm setup, spawn supply, online/offline training, fresh/dry mushroom sale, and turnkey projects in Guwahati, Assam. Start your commercial farm today!"
                 keywords="Mushroom farming Guwahati, mushroom training Guwahati, mushroom spawn Assam, oyster mushroom Guwahati, button mushroom Guwahati, organic mushroom farm"
                 url="/mushroom-farming-guwahati-assam"
                 schemas={customSchemas}
@@ -579,7 +579,7 @@ const ArticleGuwahatiTraining = () => {
                             <Link to="/contact" className="btn-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-emerald-500/20">
                                 Contact Us <ArrowRight size={18} />
                             </Link>
-                            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" target="_blank" className="bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg hover:bg-[#20ba56] transition-colors">
+                            <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="bg-[#25D366] text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg hover:bg-[#20ba56] transition-colors">
                                 <MessageSquare size={18} /> WhatsApp Chat
                             </a>
                         </div>

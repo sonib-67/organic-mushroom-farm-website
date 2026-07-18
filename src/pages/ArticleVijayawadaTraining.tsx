@@ -143,8 +143,8 @@ const ArticleVijayawadaTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming, Training, Spawn Supp... - VijayawadaTraining" 
-                description="Vijayawada (విజయవాడ) లో mushroom farming business ఎలా ప్రారంభించాలి? Online/Offline Training, Mushroom Spawn Supply, Consultancy, మరియు Government..."
+                title="Mushroom Farming, Training, Spawn Supply & Consultancy in Vijayawada | విజయవాడ మష్రూమ్ ఫార్మింగ్ గైడ్" 
+                description="Vijayawada (విజయవాడ) లో mushroom farming business ఎలా ప్రారంభించాలి? Online/Offline Training, Mushroom Spawn Supply, Consultancy, మరియు Government Subsidy వివరాలు."
                 keywords="Mushroom farming Vijayawada, mushroom training Vijayawada, mushroom spawn supplier Vijayawada, commercial mushroom farming Andhra Pradesh, milky mushroom Vijayawada, oyster mushroom Vijayawada"
                 schemas={[faqSchema, localBusinessSchema, courseSchema]}
             />
@@ -153,8 +153,8 @@ const ArticleVijayawadaTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Mushroom Farming, Training, Spawn Supply & Consultancy in...
-</h1>
+                            Mushroom Farming, Training, Spawn Supply & Consultancy in Vijayawada | విజయవాడ మష్రూమ్ ఫార్మింగ్ గైడ్
+                        </h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">

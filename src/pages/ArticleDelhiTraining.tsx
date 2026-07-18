@@ -26,8 +26,8 @@ const ArticleDelhiTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-Delhi Mushroom Farming Training Center: Start Your Profitable...
-</h1>
+                            Delhi Mushroom Farming Training Center: Start Your Profitable Agribusiness Today!
+                        </h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">

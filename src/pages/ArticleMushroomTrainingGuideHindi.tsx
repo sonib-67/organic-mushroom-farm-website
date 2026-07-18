@@ -5,7 +5,7 @@ const ArticleMushroomTrainingGuideHindi = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="मशरूम ट्रेनिंग कैसे करें: गांव से लेकर शहर तक कमाई का..."
+                title="मशरूम ट्रेनिंग कैसे करें: गांव से लेकर शहर तक कमाई का नया जरिया (2026 पूरी गाइड)"
                 description="मशरूम की खेती सीखकर अपना खुद का बिज़नेस शुरू करें। जानें मशरूम ट्रेनिंग कहां से लें, फीस, सरकारी सब्सिडी, और मुनाफा।"
             />
             
@@ -13,8 +13,8 @@ const ArticleMushroomTrainingGuideHindi = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-मशरूम ट्रेनिंग कैसे करें: गांव से लेकर शहर तक कमाई का नया...
-</h1>
+                            मशरूम ट्रेनिंग कैसे करें: गांव से लेकर शहर तक कमाई का नया जरिया (2026 पूरी गाइड)
+                        </h1>
                     </div>
                     
                     <div className="space-y-6 text-slate-600 dark:text-slate-400">
