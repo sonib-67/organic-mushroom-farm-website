@@ -12,7 +12,7 @@ const ArticleOysterMushroomCultivation = () => {
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
                 title="Oyster Mushroom Cultivation in India | Complete Guide" 
-                description="Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) India's fastest growing agribusiness. Guide for training, spawn, and bulk supply."
+                description="Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) India Learn about professional mushroom farming, training, and setup.'s fastest growing agribusiness. Guide for training, spawn, and bulk supply."
                 keywords="oyster mushroom cultivation in India, mushroom spawn near me, mushroom farming training Jabalpur, mushroom seed price India, mushroom bulk supplier"
             />
 
@@ -261,7 +261,7 @@ const ArticleOysterMushroomCultivation = () => {
                                  <h3 className="font-bold text-lg dark:text-white text-slate-900 mb-2">Bulk Fresh & Dry Mushroom Order</h3>
                                  <p className="text-sm dark:text-slate-400 text-slate-600 max-w-xl">Restaurants, Hotels, Retailers, Exporters ke liye Bulk Fresh Oyster (₹50-80/kg bulk) aur Dry Oyster (₹400-700/kg) available hai.</p>
                              </div>
-                             <a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 whitespace-nowrap">
+                             <a rel="nofollow noopener noreferrer" href="https://organicmushroomfarm.shop" target="_blank" className="btn-outline px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 whitespace-nowrap">
                                 <ShoppingCart size={16} /> Visit Shop
                              </a>
                         </div>

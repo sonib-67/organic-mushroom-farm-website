@@ -57,8 +57,8 @@ const ArticleMaduraiTraining = () => {
             </div>
 
             <SEO 
-                title="Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும் முழுமையான வழிகாட்டுதல்" 
-                description="Start your mushroom farming business in Madurai, Tamil Nadu. Get professional training, premium spawn, customized farm setup, and complete marketing support."
+                title="Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும்..." 
+                description="Start your mushroom farming business in Madurai, Tamil Nadu. Get professional training, premium spawn, customized farm setup, and complete..."
                 keywords="Mushroom farming Madurai, mushroom training Madurai, mushroom spawn Madurai, oyster mushroom Tamil Nadu, organic mushroom farm"
                 url="/mushroom-farming-madurai-tamil-nadu"
                 schemas={customSchemas}
@@ -431,10 +431,8 @@ const ArticleMaduraiTraining = () => {
                             Organic Mushroom Farm-உடன் இணைந்து training, quality spawn, farm setup guidance மற்றும் sales support-ஐ பெறுங்கள்.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-                            <a 
-                                href="https://wa.me/917389595844"
+                            <a rel="nofollow noopener noreferrer" href="https://wa.me/917389595844"
                                 target="_blank"
-                                rel="noopener noreferrer"
                                 className="px-8 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold transition-all shadow-[0_4px_20px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2"
                             >
                                 <Phone size={18} /> Contact on WhatsApp

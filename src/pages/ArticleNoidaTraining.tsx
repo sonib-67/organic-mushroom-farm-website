@@ -17,7 +17,7 @@ const ArticleNoidaTraining = () => {
             </div>
 
             <SEO 
-                title="Noida Mushroom Farming Training Center | नोएडा मशरूम खेती प्रशिक्षण केंद्र" 
+                title="Noida Mushroom Farming Training Center" 
                 description="Mushroom Farming Training in Noida, Sector 62, Sector 18, Greater Noida, Noida Extension and Nearby Villages."
                 keywords="Mushroom farming Noida, mushroom training Noida, mushroom spawn Noida, commercial mushroom farming Greater Noida"
             />
@@ -26,12 +26,12 @@ const ArticleNoidaTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Noida Mushroom Farming Training Center | नोएडा मशरूम खेती प्रशिक्षण केंद्र
-                        </h1>
+Noida Mushroom Farming Training Center | नोएडा मशरूम खेती...
+</h1>
                     </div>
 
                     <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4">
-                        Mushroom Farming Training in Noida, Sector 62, Sector 18, Greater Noida, Noida Extension and Nearby Villages
+                        Mushroom Farming Training in Noida, Sector 62, Sector 18,...
                     </h2>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">

@@ -84,8 +84,8 @@ const ArticleSiliguriTraining = () => {
             </div>
 
             <SEO 
-                title="Siliguri Mushroom Farming, Training, Spawn & Setup | West Bengal Guide" 
-                description="Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur turnkey mushroom projects in Siliguri, West Bengal."
+                title="Siliguri Mushroom Farming, Training, Spawn & Setup" 
+                description="Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur turnkey mushroom projects in..."
                 keywords="Mushroom cultivation in West Bengal, Mushroom farming in Siliguri, Mushroom spawn in Siliguri, mushroom training center in Siliguri, Sevoke Road, Pradhan Nagar"
                 url="/cities/west-bengal/siliguri"
                 schemas={siliguriSchemas}
@@ -112,10 +112,10 @@ const ArticleSiliguriTraining = () => {
                             <MapPin size={14} /> শিলিগুড়ি বিশেষ (Siliguri Special)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            শিলিগুড়িতে Mushroom Farming, Training, Spawn Supply এবং Consultancy Guide
-                        </h1>
+শিলিগুড়িতে Mushroom Farming, Training, Spawn Supply এবং...
+</h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            পশ্চিমবঙ্গের উত্তর অংশের প্রবেশদ্বারে কমার্শিয়াল বাটন মাশরুম, ওয়েস্টার মাশরুম এবং সমস্ত ভ্যারাইটির মাশরুম ব্যবসা শুরু করার সহজ গাইড
+                            পশ্চিমবঙ্গের উত্তর অংশের প্রবেশদ্বারে কমার্শিয়াল বাটন মাশরুম,...
                         </h2>
                     </div>
 

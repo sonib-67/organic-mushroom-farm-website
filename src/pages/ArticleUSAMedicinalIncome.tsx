@@ -8,8 +8,8 @@ const ArticleUSAMedicinalIncome = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)"
-        description="The wellness industry is spending billions on these three mushrooms. Here's how everyday Americans are cashing in — from their garage, basement, or backyard."
+        title="How Much Can You Really Make Growing Medicinal..."
+        description="The wellness industry is spending billions on these three mushrooms. Here's how everyday Americans are cashing in — from their garage, basement,..."
         keywords="how to grow medicinal mushrooms, lion's mane mushroom benefits, reishi mushroom for sale, how to make money growing mushrooms, medicinal mushroom business"
       />
 
@@ -26,8 +26,8 @@ const ArticleUSAMedicinalIncome = () => {
           </div>
 
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight">
-            How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)
-          </h1>
+How Much Can You Really Make Growing Medicinal Mushrooms?...
+</h1>
           
           <p className="text-xl md:text-2xl dark:text-slate-400 text-slate-600 leading-relaxed italic border-l-4 border-primary-start pl-6">
             The wellness industry is spending billions on these three mushrooms. Here’s how everyday Americans are cashing in — from their garage, basement, or backyard.
@@ -253,7 +253,7 @@ const ArticleUSAMedicinalIncome = () => {
             If you’re in a northern state with access to birch forests, <strong>add chaga to your lineup</strong>. The wild-harvest story is marketing gold and customers love it.
           </p>
 
-          <h2>The Real Numbers: What Can a Medicinal Mushroom Side Business Make in Year One?</h2>
+          <h2>The Real Numbers: What Can a Medicinal Mushroom Side Business...</h2>
           <p>Here’s a realistic income model for someone starting from scratch with $3,000–$5,000 in startup investment:</p>
           <ul>
             <li><strong>Setup:</strong> Small indoor grow room (200–400 sq ft) growing lion’s mane and reishi. Chaga sourced from a local forager or self-harvested if location allows.</li>
@@ -282,7 +282,7 @@ const ArticleUSAMedicinalIncome = () => {
             A solid mushroom training course addresses all five of these problems before you ever spend money on equipment. That’s why experienced growers consistently say that education was the best investment they made — because it prevented thousands of dollars in avoidable beginner mistakes.
           </p>
 
-          <h2>Cities in the USA With the Highest Demand for Medicinal Mushrooms Right Now</h2>
+          <h2>Cities in the USA With the Highest Demand for Medicinal...</h2>
           <p>If you’re wondering whether your city has a market, here's a quick look at where demand is strongest:</p>
           <ul>
             <li><strong>West Coast:</strong> Portland (OR), Seattle (WA), San Francisco (CA), Los Angeles (CA), Eugene (OR), Olympia (WA) — Pacific Northwest mushroom culture is deep-rooted and medicinal varieties are in constant demand.</li>

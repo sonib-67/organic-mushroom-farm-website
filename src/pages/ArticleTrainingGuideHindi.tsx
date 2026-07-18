@@ -8,7 +8,7 @@ const ArticleTrainingGuideHindi = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Training Complete Guide | India 2026" 
+        title="Mushroom Farming Training Complete Guide | India" 
         description="India mein mushroom farming training kaise aur kahan se lein? Complete guide in Hindi for offline and online mushroom cultivation courses." 
       />
 
@@ -27,8 +27,8 @@ const ArticleTrainingGuideHindi = () => {
             <span className="text-[10px] font-black uppercase tracking-widest">Training Guide</span>
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
-            Mushroom Farming Training — Complete Guide | Mushroom Ki Kheti Sikhein India Mein
-          </h1>
+Mushroom Farming Training — Complete Guide | Mushroom Ki...
+</h1>
           <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-slate-500 uppercase tracking-widest border-b dark:border-white/10 border-black/10 pb-8">
             <div className="flex items-center gap-2">
               <Calendar size={14} /> May 17, 2026
@@ -51,7 +51,7 @@ const ArticleTrainingGuideHindi = () => {
             OrganicMushroomFarm.Shop par aapko milega India ka sabse behtareen mushroom farming training program — beginner se lekar advanced level tak. Chahe aap ek chhote kisan hon ya ek bade entrepreneur, hamari training aapko complete mushroom cultivation knowledge degi.
           </p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kya Hoti Hai? | What is Mushroom Farming Training?</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kya Hoti Hai? | What is Mushroom...</h2>
           <p>
             Mushroom Farming Training ek professional course hai jisme aap sikhte hain:
           </p>
@@ -67,7 +67,7 @@ const ArticleTrainingGuideHindi = () => {
             Ye training India ke har state mein zaruri hai — whether you are in Uttar Pradesh, Bihar, Rajasthan, Maharashtra, Tamil Nadu, Andhra Pradesh, Telangana, Karnataka, West Bengal, Gujarat, Himachal Pradesh, Uttarakhand, Punjab, Haryana, Odisha, Assam, Jharkhand, Chhattisgarh, Goa, Meghalaya, Manipur, Nagaland, Mizoram, Tripura, Arunachal Pradesh, Sikkim, Jammu & Kashmir, Ladakh ya Madhya Pradesh.
           </p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Ke Types | Types of Mushroom Training in India</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Ke Types | Types of Mushroom...</h2>
 
           <h3 className="text-xl mt-8 mb-3 font-bold">Offline Training — Jabalpur, Madhya Pradesh</h3>
           <p>
@@ -200,7 +200,7 @@ const ArticleTrainingGuideHindi = () => {
             </div>
           </div>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Yeh Training Kiske Liye Hai? | Who Should Join Mushroom Farming Training?</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Yeh Training Kiske Liye Hai? | Who Should Join Mushroom...</h2>
           <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li><strong>Kisan</strong> — jo apni income double karna chahte hain (MP, UP, Bihar, Maharashtra, AP, Telangana)</li>
             <li><strong>Unemployed Youth</strong> — jo khud ka business shuru karna chahte hain</li>

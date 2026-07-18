@@ -26,8 +26,8 @@ const ArticleKochiTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-lg md:text-xl lg:text-2xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            കൊച്ചിയിലെ പഴയ ആളുകളോട് ചോദിച്ചാൽ അവർ പറയും — കേരളത്തിലെ കാലാവസ്ഥ (weather) പ്രത്യേകിച്ച് mushroom farming-ന് വേണ്ടി ഡിസൈൻ ചെയ്തതാണെന്ന്.
-                        </h1>
+കൊച്ചിയിലെ പഴയ ആളുകളോട് ചോദിച്ചാൽ അവർ പറയും — കേരളത്തിലെ...
+</h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
@@ -169,10 +169,10 @@ const ArticleKochiTraining = () => {
                     </p>
                     <ul className="list-disc pl-6 space-y-4 dark:text-slate-300 text-slate-700">
                         <li>
-                            <strong>Fresh Mushroom Sales:</strong> Retail organic stores, wholesale distributors, Marine Drive/Fort Kochi ഭാഗത്തെ hotels, supermarkets, പിന്നെ Edappally, Kakkanad ഭാഗങ്ങളിലെ online subscription delivery എന്നിവയാണ് പ്രധാന channels. ഇതിനായി <a href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms" target="_blank" rel="noopener noreferrer" className="text-primary-start hover:underline">Fresh Mushroom</a> sales channels നിങ്ങൾക്ക് ഉപയോഗിക്കാം.
+                            <strong>Fresh Mushroom Sales:</strong> Retail organic stores, wholesale distributors, Marine Drive/Fort Kochi ഭാഗത്തെ hotels, supermarkets, പിന്നെ Edappally, Kakkanad ഭാഗങ്ങളിലെ online subscription delivery എന്നിവയാണ് പ്രധാന channels. ഇതിനായി <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms" target="_blank" className="text-primary-start hover:underline">Fresh Mushroom</a> sales channels നിങ്ങൾക്ക് ഉപയോഗിക്കാം.
                         </li>
                         <li>
-                            <strong>Dry Mushroom & Value Addition:</strong> Shelf-life കൂട്ടാൻ ഇത് സഹായിക്കും. Mushroom powder, soup mix, medicinal mushroom products എന്നിവയ്ക്ക് കേരളത്തിലും ഗൾഫ് മാർക്കറ്റുകളിലും (export) വലിയ ഡിമാൻഡ് ഉണ്ട്. ഞങ്ങളുടെ <a href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms" target="_blank" rel="noopener noreferrer" className="text-primary-start hover:underline">Dry Mushroom</a> service വഴി നിങ്ങൾക്ക് സപ്പോർട്ട് ലഭിക്കുന്നതാണ്.
+                            <strong>Dry Mushroom & Value Addition:</strong> Shelf-life കൂട്ടാൻ ഇത് സഹായിക്കും. Mushroom powder, soup mix, medicinal mushroom products എന്നിവയ്ക്ക് കേരളത്തിലും ഗൾഫ് മാർക്കറ്റുകളിലും (export) വലിയ ഡിമാൻഡ് ഉണ്ട്. ഞങ്ങളുടെ <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms" target="_blank" className="text-primary-start hover:underline">Dry Mushroom</a> service വഴി നിങ്ങൾക്ക് സപ്പോർട്ട് ലഭിക്കുന്നതാണ്.
                         </li>
                     </ul>
 

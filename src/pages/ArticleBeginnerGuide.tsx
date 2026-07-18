@@ -12,7 +12,7 @@ const ArticleBeginnerGuide = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="What is Mushroom Farming? Complete Beginner Guide India 2026-2027" 
+                title="What is Mushroom Farming? Complete Beginner Guide..." 
                 description="Mushroom farming in India 2026-2027: Complete beginner guide for mushroom cultivation (mushroom ki kheti), training, spawn, and business plan."
                 keywords="mushroom farming, mushroom cultivation, oyster mushroom, mushroom spawn, mushroom ki kheti, mushroom business, mushroom training"
             />
@@ -323,7 +323,7 @@ const ArticleBeginnerGuide = () => {
                                 <a href="tel:+919203544140" className="btn-primary px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
                                     <Phone size={18} /> Call Now: 9203544140
                                 </a>
-                                <a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer" className="btn-outline px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                <a rel="nofollow noopener noreferrer" href="https://organicmushroomfarm.shop" target="_blank" className="btn-outline px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
                                     Visit Shop <ArrowRight size={18} />
                                 </a>
                             </div>

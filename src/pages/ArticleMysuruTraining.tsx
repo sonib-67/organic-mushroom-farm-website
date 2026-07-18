@@ -83,8 +83,8 @@ const ArticleMysuruTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming in Mysuru | Training, Spawn Supply & Farm Setup" 
-                description="Mushroom farming training, spawn supply, and farm setup in Mysuru, Vijayanagar, Hebbal, Kuvempu Nagar, Srirangapatna, Nanjangud, and surrounding areas."
+                title="Mushroom Farming in Mysuru" 
+                description="Mushroom farming training, spawn supply, and farm setup in Mysuru, Vijayanagar, Hebbal, Kuvempu Nagar, Srirangapatna, Nanjangud, and surrounding..."
                 keywords="Mushroom farming Mysuru, mushroom training Mysuru, mushroom spawn Mysuru, farm setup Mysuru, organic mushroom farm Karnataka"
                 url="/mushroom-farming-mysuru-karnataka"
                 schemas={customSchemas}
@@ -94,8 +94,8 @@ const ArticleMysuruTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2rem] md:rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-6 md:space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4 uppercase tracking-tight">
-                            Mysuru ನಲ್ಲಿ Mushroom Farming, Training, Spawn Supply ಮತ್ತು Mushroom Farm Setup
-                        </h1>
+Mysuru ನಲ್ಲಿ Mushroom Farming, Training, Spawn Supply ಮತ್ತು...
+</h1>
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium text-sm md:text-base">
@@ -526,10 +526,8 @@ const ArticleMysuruTraining = () => {
                             <a href="tel:+919203544140" className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all text-sm w-full sm:w-auto justify-center">
                                 <Phone size={18} /> Call Now: 9203544140
                             </a>
-                            <a 
-                                href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20Mushroom%20Farming%20in%20Mysuru.%20Please%20share%20details." 
+                            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20Mushroom%20Farming%20in%20Mysuru.%20Please%20share%20details." 
                                 target="_blank" 
-                                rel="noopener noreferrer" 
                                 className="btn-success px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all text-sm w-full sm:w-auto justify-center text-white bg-green-600 hover:bg-green-700"
                             >
                                 <MessageSquare size={18} /> WhatsApp Us

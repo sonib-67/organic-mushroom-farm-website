@@ -35,8 +35,8 @@ const ArticleAurangabadTraining = () => {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary-start/10 blur-[100px] rounded-full pointer-events-none" />
 
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-                        Mushroom Farming Business for Women Self-Help Groups (SHGs) in Aurangabad | महिला बचत गटांसाठी मशरूम व्यवसाय 2026
-                    </h1>
+Mushroom Farming Business for Women Self-Help Groups (SHGs)...
+</h1>
 
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
                         Chhatrapati Sambhajinagar (Aurangabad) मध्ये महिला बचत गट (SHGs) आणि women entrepreneurs साठी मशरूम शेती हा एक उत्तम आणि फायदेशीर व्यवसाय बनत आहे. मराठवाडा क्षेत्र में महिला बचत गट अब मशरूम खेती को स्वरोजगार और अतिरिक्त आय का मजबूत माध्यम मान रहे हैं। CIDCO, Jalna Road, Satara Parisar, Garkheda, Osmanpura, Beed Bypass आणि आजूबाजूच्या गावांमध्ये (जसे की Waluj, Shendra, Karmad, Bidkin) हा व्यवसाय वेगाने वाढत आहे, कारण याला खूप कमी जागा लागते आणि महिला घरबसल्या (Home-Based Operations) हा व्यवसाय सहज करू शकतात.

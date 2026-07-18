@@ -8,7 +8,7 @@ const OperationsPage = () => {
     <div className="min-h-screen pt-32 pb-24 relative overflow-hidden">
       <SEO 
         title="Pan India & Global Operations | Organic Mushroom Farm" 
-        description="Our expert teams provide commercial mushroom training and farm setup India services across Maharashtra, MP, UP, Rajasthan, Gujarat, USA, UK, Canada, UAE, Europe and globally." 
+        description="Our expert teams provide commercial mushroom training and farm setup India services across Maharashtra, MP, UP, Rajasthan, Gujarat, USA, UK,..." 
         keywords="mushroom training India, mushroom farm setup India, global mushroom farming consultancy, USA mushroom setup, Europe mushroom spawn"
       />
 
@@ -125,7 +125,7 @@ const OperationsPage = () => {
             Contact our specialist agri-tech consultancy team for custom global setup quotes or verified spawn order logistics.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://wa.me/919203544140" className="btn-primary px-8 py-3 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary-start/20">
+            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="btn-primary px-8 py-3 rounded-full font-bold text-xs flex items-center gap-2 shadow-lg shadow-primary-start/20">
               WhatsApp Support
             </a>
             <a href="/contact" className="glass px-8 py-3 rounded-full font-bold text-xs dark:text-white text-slate-900 hover:bg-white/5 transition-all">

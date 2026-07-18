@@ -344,7 +344,7 @@ export default function PaymentCancelledPage() {
                <p className="text-xs dark:text-slate-400 text-slate-500 mb-4">
                  If you are facing issues with payment, please reach out to us and we will assist you.
                </p>
-               <a href="https://wa.me/919203544140?text=Hi,%20I%20am%20facing%20some%20issues%20with%20an%20online%20payment." target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full dark:bg-white/5 bg-black/5 dark:text-white text-slate-900 text-sm font-bold hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
+               <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20facing%20some%20issues%20with%20an%20online%20payment." target="_blank" className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full dark:bg-white/5 bg-black/5 dark:text-white text-slate-900 text-sm font-bold hover:bg-black/10 dark:hover:bg-white/10 transition-colors">
                   <HeadphonesIcon size={16} /> Contact Support
                </a>
             </div>

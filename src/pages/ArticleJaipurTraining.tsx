@@ -17,8 +17,8 @@ const ArticleJaipurTraining = () => {
             </div>
 
             <SEO 
-                title="Jaipur Mushroom Farming Training Center | Complete Guide & Setup in Rajasthan" 
-                description="Start a highly profitable mushroom business in Rajasthan. Learn from the best Mushroom Farming Training Center in Jaipur with full setup & marketing support."
+                title="Jaipur Mushroom Farming Training Center" 
+                description="Start a highly profitable mushroom business in Rajasthan. Learn from the best Mushroom Farming Training Center in Jaipur with full setup &..."
                 keywords="Mushroom cultivation in Rajasthan, Mushroom farming in Jaipur, Mushroom spawn in Jaipur, mushroom training center in Jaipur, Vaishali Nagar, Mansarovar"
             />
             
@@ -26,10 +26,10 @@ const ArticleJaipurTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Jaipur Mushroom Farming Training Center | जयपुर मशरूम खेती प्रशिक्षण केंद्र
-                        </h1>
+Jaipur Mushroom Farming Training Center | जयपुर मशरूम खेती...
+</h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Rajasthan
+                            Complete Commercial Mushroom Cultivation Guide, Farm Setup,...
                         </h2>
                     </div>
 
@@ -147,7 +147,7 @@ const ArticleJaipurTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        5. Advanced Hyper-Local SEO Coverage: Target Areas & Villages in Jaipur
+                        5. Advanced Hyper-Local SEO Coverage: Target Areas & Villages...
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         जयपुर शहर के कोने-कोने और उससे जुड़े सभी ग्रामीण और अर्ध-शहरी इलाकों में हम अपनी सेवाएं और लॉजिस्टिक्स सपोर्ट पहुंचा रहे हैं।

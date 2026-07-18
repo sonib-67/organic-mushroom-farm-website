@@ -126,7 +126,7 @@ export default function ROICalculatorPage() {
   return (
     <div className="min-h-screen dark:bg-[#070707] bg-slate-50 pt-24 pb-12 px-4 relative z-10 selection:bg-primary-start/30 selection:text-slate-900 dark:selection:text-white">
       <SEO 
-        title="Mushroom Farm ROI Calculator | Commercial Agribusiness Planner"
+        title="Mushroom Farm ROI Calculator"
         description="Calculate mushroom farm startup costs, monthly operating expenses, production yield, and profit recovery timeline in India."
         schemas={[webmcpSchema]}
       />

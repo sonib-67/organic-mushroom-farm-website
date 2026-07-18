@@ -12,7 +12,7 @@ const ArticleJabalpurGuide = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="Mushroom Farming in Jabalpur: Complete Guide to Starting Your Profitable Business" 
+                title="Mushroom Farming in Jabalpur: Complete Guide to..." 
                 description="Master Mushroom Cultivation & Achieve ₹50,000+ Monthly Income in Madhya Pradesh. Complete Practical Guide for Jabalpur Farmers."
                 keywords="Mushroom farming Jabalpur, mushroom cultivation Jabalpur, oyster mushroom farming Jabalpur, button mushroom farming Jabalpur, how to start mushroom farming Jabalpur, mushroom farming training Jabalpur, mushroom spawn Jabalpur, mushroom farming profit Jabalpur, mushroom farming investment Jabalpur, commercial mushroom farming Jabalpur, mushroom farming Madhya Pradesh, best mushroom farming location India"
             />
@@ -52,7 +52,7 @@ const ArticleJabalpurGuide = () => {
 
                     <section className="space-y-6">
                         <h2 className="text-3xl font-bold dark:text-white text-slate-900">
-                            Why Jabalpur, Madhya Pradesh is THE Best Place for Mushroom Farming in India
+                            Why Jabalpur, Madhya Pradesh is THE Best Place for Mushroom...
                         </h2>
                         <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
                             Let me tell you why Jabalpur has become India's emerging hub for commercial mushroom farming. If you're in Jabalpur and considering mushroom farming, you're already in the best location possible.

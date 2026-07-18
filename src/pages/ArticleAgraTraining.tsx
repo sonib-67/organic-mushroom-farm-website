@@ -17,7 +17,7 @@ const ArticleAgraTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming for Export & International Markets in Agra | 2026 Guide" 
+                title="Mushroom Farming for Export & International Markets in..." 
                 description="Mushroom Farming for Export & International Markets in Agra | आगरा से मशरूम एक्सपोर्ट बिजनेस कैसे शुरू करें? Complete Guide 2026"
             />
 
@@ -35,8 +35,8 @@ const ArticleAgraTraining = () => {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary-start/10 blur-[100px] rounded-full pointer-events-none" />
 
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-                        Mushroom Farming for Export & International Markets in Agra | आगरा से मशरूम एक्सपोर्ट बिजनेस कैसे शुरू करें? Complete Guide 2026
-                    </h1>
+Mushroom Farming for Export & International Markets in Agra |...
+</h1>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
                         Can Mushroom Farmers in Agra Sell Beyond Local Markets?
@@ -147,7 +147,7 @@ const ArticleAgraTraining = () => {
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Smart Marketing & Business Expansion (डिजिटल मार्केटिंग और बिजनेस प्लान)
+                        Smart Marketing & Business Expansion (डिजिटल मार्केटिंग और...
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Before expanding into larger markets, evaluating your Business Plan & ROI is crucial. You need to assess production capacity, operating costs, and long-term growth opportunities.

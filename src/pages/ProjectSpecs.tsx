@@ -153,7 +153,7 @@ const ProjectSpecsPage = () => {
             </div>
             
             <div className="mt-12 text-center">
-              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="gradient-bg px-10 py-5 rounded-2xl text-white font-black inline-flex items-center gap-3 hover:scale-105 transition-all outline-none">
+              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" target="_blank" className="gradient-bg px-10 py-5 rounded-2xl text-white font-black inline-flex items-center gap-3 hover:scale-105 transition-all outline-none">
                   Build a Similar Project <ArrowRight size={20} />
               </a>
             </div>

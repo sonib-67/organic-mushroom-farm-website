@@ -17,8 +17,8 @@ const ArticleGurugramTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming, Training, Spawn Supply & Consultancy in Gurugram" 
-                description="Organic Mushroom Farm's page is specially designed for the people of Gurugram and NCR looking for mushroom farm setup, online/offline training, quality spawn supply, and consultancy."
+                title="Mushroom Farming, Training, Spawn Supply & Consultancy..." 
+                description="Organic Mushroom Farm Learn about professional mushroom farming, training, and setup.'s page is specially designed for the people of Gurugram and NCR looking for mushroom farm setup, online/offline training,..."
                 keywords="Mushroom farming Gurugram, mushroom training Gurgaon, mushroom spawn supply Haryana, commercial mushroom farming Gurugram"
             />
             

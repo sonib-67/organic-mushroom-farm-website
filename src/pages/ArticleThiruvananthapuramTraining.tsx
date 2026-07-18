@@ -84,8 +84,8 @@ const ArticleThiruvananthapuramTraining = () => {
             </div>
 
             <SEO 
-                title="തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn & Setup | Kerala Guide" 
-                description="Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur turnkey mushroom projects in Thiruvananthapuram, Kerala."
+                title="തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn & Setup" 
+                description="Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur ... Read more about ThiruvananthapuramTraining."
                 keywords="Mushroom cultivation in Kerala, Mushroom farming in Thiruvananthapuram, Mushroom spawn in Thiruvananthapuram, mushroom training center in Thiruvananthapuram, Technopark, Kazhakkoottam"
                 url="/cities/kerala/thiruvananthapuram"
                 schemas={tvmSchemas}
@@ -112,10 +112,10 @@ const ArticleThiruvananthapuramTraining = () => {
                             <MapPin size={14} /> തിരുവനന്തപുരം പ്രത്യേകത (Trivandrum Special)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn Supply, Consultancy & Setup
-                        </h1>
+തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn Supply,...
+</h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            കേരളത്തിന്റെ തലസ്ഥാനത്ത് കമേഴ്സ്യൽ മഷ്റൂം ബിസിനസ് ആരംഭിക്കുന്നതിനുള്ള പൂർണ്ണമായ ഗൈഡ്
+                            കേരളത്തിന്റെ തലസ്ഥാനത്ത് കമേഴ്സ്യൽ മഷ്റൂം ബിസിനസ് ആരംഭിക്കുന്ന...
                         </h2>
                     </div>
 

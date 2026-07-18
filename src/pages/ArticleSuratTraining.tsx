@@ -17,7 +17,7 @@ const ArticleSuratTraining = () => {
             </div>
 
             <SEO 
-                title="Surat Mushroom Farming Business Guide 2026 | સુરતમાં મશરૂમની ખેતી: Training & Setup" 
+                title="Surat Mushroom Farming Business Guide" 
                 description="Surat Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Gujarat."
                 keywords="Surat Mushroom Farming, Mushroom farming in Surat, Mushroom spawn in Surat, mushroom training center in Surat, Adajan, Vesu, Varachha, Katargam"
             />
@@ -26,10 +26,10 @@ const ArticleSuratTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Surat Mushroom Farming Business Guide 2026 | સુરતમાં મશરૂમની ખેતી: બમ્પર કમાણી કેવી રીતે શરૂ કરવી?
-                        </h1>
+Surat Mushroom Farming Business Guide 2026 | સુરતમાં મશરૂમની...
+</h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Gujarat
+                            Complete Commercial Mushroom Cultivation Guide, Farm Setup,...
                         </h2>
                     </div>
 
@@ -180,7 +180,7 @@ const ArticleSuratTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Google Fast Ranking Location Map: સુરતનો ખૂણે-ખૂણો કવર (Hyper-Local SEO)
+                        Google Fast Ranking Location Map: સુરતનો ખૂણે-ખૂણો કવર...
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Surat ma Google par top par avva mate ame Surat na badha j urban hubs ane rural villages ne aam cover karya chhe:

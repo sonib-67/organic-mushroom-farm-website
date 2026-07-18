@@ -210,7 +210,7 @@ export default function BookConsultantPage() {
     <div className="relative pb-24 md:pb-0 pt-16 md:pt-32 overflow-hidden min-h-screen selection:bg-blue-500/30">
       <SEO 
         title="Book 1-on-1 Call Consultation"
-        description="Book a premium 1-on-1 call consultancy for ₹59. Get expert blueprint design, subsidy advice, and troubleshooting help direct from Katangi Road, Jabalpur."
+        description="Book a premium 1-on-1 call consultancy for ₹59. Get expert blueprint design, subsidy advice, and troubleshooting help direct from Katangi Road,..."
         url="/book-consultant"
       />
       <div className="py-4 md:py-16 text-center px-2 md:px-4">

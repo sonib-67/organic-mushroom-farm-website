@@ -63,8 +63,8 @@ const SpawnSeedPage = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
-                 title="Premium Mushroom Spawn (Seed) Supplier | High Quality Spawn India"
-                 description="Buy high-quality mushroom spawn (seed) for oyster, button, and milky mushrooms. Lab-tested, high yield, contamination-free spawn with nationwide delivery."
+                 title="Premium Mushroom Spawn (Seed) Supplier"
+                 description="Buy high-quality mushroom spawn (seed) for oyster, button, and milky mushrooms. Lab-tested, high yield, contamination-free spawn with nationwide..."
              />
 
              {/* 1. Hero Section */}
@@ -82,10 +82,8 @@ const SpawnSeedPage = () => {
                          High-yield, lab-tested spawn for professional and beginner mushroom farmers.
                      </p>
                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                         <a 
-                             href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                         <a rel="nofollow noopener noreferrer" href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                              target="_blank"
-                             rel="noopener noreferrer"
                              className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2"
                          >
                              <ShoppingCart size={18} /> Buy Now
@@ -161,10 +159,8 @@ const SpawnSeedPage = () => {
                               <li className="flex items-center gap-2 text-slate-300 text-xs font-medium"><CheckCircle2 size={14} className="text-primary-start" /> Summer & Winter Strains</li>
                               <li className="flex items-center gap-2 text-slate-300 text-xs font-medium"><CheckCircle2 size={14} className="text-primary-start" /> First harvest in 21 days</li>
                           </ul>
-                          <a 
-                              href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                          <a rel="nofollow noopener noreferrer" href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                               target="_blank"
-                              rel="noopener noreferrer"
                               className="btn-outline w-full py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 mt-auto"
                           >
                               Bulk Order
@@ -178,10 +174,8 @@ const SpawnSeedPage = () => {
                               <li className="flex items-center gap-2 text-slate-300 text-xs font-medium"><CheckCircle2 size={14} className="text-primary-start" /> Up to 25% biological efficiency</li>
                               <li className="flex items-center gap-2 text-slate-300 text-xs font-medium"><CheckCircle2 size={14} className="text-primary-start" /> Disease resistant strain</li>
                           </ul>
-                          <a 
-                              href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                          <a rel="nofollow noopener noreferrer" href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                               target="_blank"
-                              rel="noopener noreferrer"
                               className="btn-primary w-full py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 mt-auto"
                           >
                               Bulk Order
@@ -194,10 +188,8 @@ const SpawnSeedPage = () => {
                               <li className="flex items-center gap-2 text-slate-300 text-xs font-medium"><CheckCircle2 size={14} className="text-primary-start" /> Thrives above 30°C</li>
                               <li className="flex items-center gap-2 text-slate-300 text-xs font-medium"><CheckCircle2 size={14} className="text-primary-start" /> Outstanding shelf life</li>
                           </ul>
-                          <a 
-                              href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                          <a rel="nofollow noopener noreferrer" href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                               target="_blank"
-                              rel="noopener noreferrer"
                               className="btn-outline w-full py-3 rounded-xl text-sm font-bold flex items-center justify-center gap-2 mt-auto"
                           >
                               Bulk Order
@@ -213,10 +205,8 @@ const SpawnSeedPage = () => {
                          <p className="text-slate-300 text-sm mb-8">
                              Best pricing for commercial farms and large-scale growers. Ensure consistent supply.
                          </p>
-                         <a 
-                             href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                         <a rel="nofollow noopener noreferrer" href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                              target="_blank"
-                             rel="noopener noreferrer"
                              className="btn-primary px-8 py-3 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2"
                          >
                              Order Now <ArrowRight size={18} />
@@ -321,10 +311,8 @@ const SpawnSeedPage = () => {
                          <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
                              Secure your high-yield spawn today and experience unparalleled growth rates and cap quality.
                          </p>
-                         <a 
-                             href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                         <a rel="nofollow noopener noreferrer" href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                              target="_blank"
-                             rel="noopener noreferrer"
                              className="btn-primary px-10 py-5 rounded-2xl text-lg font-bold flex items-center justify-center gap-3 w-full sm:w-auto mx-auto"
                          >
                              Buy Spawn Now <ArrowRight size={20} />

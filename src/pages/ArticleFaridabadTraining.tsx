@@ -17,7 +17,7 @@ const ArticleFaridabadTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming Business in Faridabad | 2026 Guide" 
+                title="Mushroom Farming Business in Faridabad" 
                 description="फरीदाबाद के इंडस्ट्रियल एरिया में Mushroom Farming Business कैसे शुरू करें? (2026 गाइड) Complete guide to mushroom farm setup in Faridabad."
             />
 
@@ -35,8 +35,8 @@ const ArticleFaridabadTraining = () => {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary-start/10 blur-[100px] rounded-full pointer-events-none" />
 
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-                        फरीदाबाद के इंडस्ट्रियल एरिया में Mushroom Farming Business कैसे शुरू करें? (2026 गाइड)
-                    </h1>
+फरीदाबाद के इंडस्ट्रियल एरिया में Mushroom Farming Business...
+</h1>
 
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                         म्हारे फरीदाबाद में इब खेती-बाड़ी का तरीक़ा बदल रह्या सै! फरीदाबाद उत्तर भारत के सबसे बड़े औद्योगिक (industrial) शहरों में से एक है। मैन्युफैक्चरिंग और इंजीनियरिंग के साथ-साथ, यहाँ residential townships, cloud kitchens, प्रीमियम रेस्टोरेंट और फूड बिज़नेस बहुत तेज़ी से बढ़ रहे हैं।

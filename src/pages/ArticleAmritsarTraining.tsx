@@ -84,8 +84,8 @@ const ArticleAmritsarTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Training & Spawn Supply in Amritsar | Organic Mushroom Farm" 
-                description="Start your mushroom farming business in Amritsar, Punjab. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
+                title="Mushroom Training & Spawn Supply in Amritsar" 
+                description="Start your mushroom farming business in Amritsar, Punjab. Get professional online & offline training, premium spawn, customized farm setup, and..."
                 keywords="Mushroom farming Amritsar, mushroom training Amritsar, mushroom spawn Punjab, oyster mushroom Amritsar, button mushroom Amritsar, organic mushroom farm"
                 url="/mushroom-farming-amritsar-punjab"
                 schemas={customSchemas}
@@ -106,8 +106,8 @@ const ArticleAmritsarTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            ਘਰ ਬੈਠੇ ਬਣੋ ਮਸ਼ਰੂਮ ਐਕਸਪਰਟ | Mushroom Training & Spawn Supply in Amritsar
-                        </h1>
+ਘਰ ਬੈਠੇ ਬਣੋ ਮਸ਼ਰੂਮ ਐਕਸਪਰਟ | Mushroom Training & Spawn Supply...
+</h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushroom Farm — Amritsar, Punjab Special Edition
                         </p>
@@ -513,10 +513,8 @@ const ArticleAmritsarTraining = () => {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-                            <a 
-                                href="https://wa.me/919203544140"
+                            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140"
                                 target="_blank"
-                                rel="noopener noreferrer"
                                 className="px-8 py-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold transition-all shadow-[0_4px_20px_rgba(16,185,129,0.3)] flex items-center justify-center gap-2"
                             >
                                 <Phone size={18} /> Contact on WhatsApp

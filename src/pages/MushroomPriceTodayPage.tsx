@@ -52,8 +52,8 @@ export default function MushroomPriceTodayPage() {
   return (
     <>
       <SEO 
-        title="Mushroom Price Today in India 2026 | Daily Wholesale & Retail Rates"
-        description="Check today's real-time mushroom prices in India. Get daily wholesale and retail rates for Button, Oyster, Milky, and Dry mushrooms across states."
+        title="Mushroom Price Today in India"
+        description="Check today Learn about professional mushroom farming, training, and setup.'s real-time mushroom prices in India. Get daily wholesale and retail rates for Button, Oyster, Milky, and Dry mushrooms across states."
         keywords="mushroom price today, daily mushroom rate, wholesale button mushroom price, oyster mushroom price, dry mushroom rates"
         schemas={generateSchemas()}
       />
@@ -69,7 +69,7 @@ export default function MushroomPriceTodayPage() {
               Get the latest daily wholesale and retail pricing for premium commercial mushrooms across major Indian markets.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <a href="https://wa.me/919203544140" className="btn-primary px-8 py-3 rounded-full font-bold flex items-center gap-2">
+              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="btn-primary px-8 py-3 rounded-full font-bold flex items-center gap-2">
                 <MessageCircle size={18} /> Bulk Order on WhatsApp
               </a>
               <a href="tel:9203544140" className="px-8 py-3 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 font-bold">
@@ -178,7 +178,7 @@ export default function MushroomPriceTodayPage() {
           <div className="glass p-10 md:p-16 rounded-[3rem] border dark:border-white/5 border-black/5 text-center mt-12 bg-linear-to-b from-transparent to-primary-start/10">
             <h2 className="text-3xl font-bold dark:text-white text-slate-900 mb-4">Need Accurate Pricing for Your Area?</h2>
             <p className="dark:text-slate-400 text-slate-600 mb-8 max-w-xl mx-auto">Click below to message our sales desk on WhatsApp and get the exact current rates and delivery feasibility for your location.</p>
-            <a href="https://wa.me/919203544140" className="btn-primary inline-flex px-10 py-4 rounded-full font-bold text-lg items-center gap-3">
+            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" className="btn-primary inline-flex px-10 py-4 rounded-full font-bold text-lg items-center gap-3">
               <MessageCircle size={24} /> Get Custom Quote
             </a>
           </div>

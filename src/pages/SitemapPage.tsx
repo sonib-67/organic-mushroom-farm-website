@@ -281,7 +281,7 @@ export default function SitemapPage() {
     <div className="min-h-screen pt-32 pb-24">
       <SEO 
         title="Site Directory & HTML Sitemap | Organic Mushroom Farm" 
-        description="Explore the complete site map directory of Organic Mushroom Farm. High-contrast index of core articles, local services, and 110+ pan-India location pathways." 
+        description="Explore the complete site map directory of Organic Mushroom Farm. High-contrast index of core articles, local services, and 110+ pan-India..." 
         keywords="site map organic mushroom farm, html sitemap, directory list mushroom training, mushroom farming list states"
       />
 
@@ -295,8 +295,7 @@ export default function SitemapPage() {
             A comprehensive, fully indexable site map index. Find main hub panels, expert articles, policies, and localized pages in one organized place.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
-              href="https://wa.me/919203544140"
+            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140"
               className="px-6 py-2.5 rounded-full border border-white/20 text-slate-300 hover:text-white text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 transition-all flex items-center gap-2"
             >
               <MessageCircle size={16} className="text-[#25D366]" />

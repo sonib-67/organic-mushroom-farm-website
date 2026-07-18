@@ -98,8 +98,8 @@ const ArticleUltimateGuideHinglish = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
       <SEO 
-        title="Mushroom Farming: Complete Guide for Spawn, Training, Setup, and Business in India" 
-        description="India's ultimate guide to starting a successful mushroom business: Covers spawn, offline/online training, setup cost margins, buyback guarantee, & city-wise guides."
+        title="Mushroom Farming: Complete Guide for Spawn, Training,..." 
+        description="India Learn about professional mushroom farming, training, and setup.'s ultimate guide to starting a successful mushroom business: Covers spawn, offline/online training, setup cost margins, buyback guarantee, &..."
         keywords="mushroom farming guide, mushroom training program, buy mushroom spawn online, mushroom buyback india, button mushroom setup, organic mushroom farm"
       />
 
@@ -237,7 +237,7 @@ const ArticleUltimateGuideHinglish = () => {
             </div>
 
             <p className="mt-6 text-sm italic dark:text-slate-400 text-slate-500 bg-slate-100 dark:bg-white/5 p-4 rounded-xl text-center">
-              Sabhi spawn certified labs se prepare kiye jaate hain aur pure India mein courier ke through bhejen jaate hain — order karne ke liye website <a href="https://organicmushroomfarm.shop" target="_blank" rel="noreferrer" className="text-emerald-500 font-bold underline">organicmushroomfarm.shop</a> par visit karein ya seedha call/WhatsApp karein.
+              Sabhi spawn certified labs se prepare kiye jaate hain aur pure India mein courier ke through bhejen jaate hain — order karne ke liye website <a rel="nofollow noopener noreferrer" href="https://organicmushroomfarm.shop" target="_blank" className="text-emerald-500 font-bold underline">organicmushroomfarm.shop</a> par visit karein ya seedha call/WhatsApp karein.
             </p>
           </div>
 
@@ -636,10 +636,8 @@ const ArticleUltimateGuideHinglish = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-              <a 
-                href="https://wa.me/919203544140" 
+              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140" 
                 target="_blank" 
-                rel="noreferrer" 
                 className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-black font-black px-8 py-4 rounded-2xl text-md transition-all shadow-lg"
               >
                 <MessageCircle size={18} /> Chat on WhatsApp (9203544140)

@@ -1429,10 +1429,8 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-8">
-            <a
-              href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
+            <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
               target="_blank"
-              rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center"
             >
               Get Free Quote
@@ -2378,10 +2376,8 @@ const CTASection = () => {
               </div>
 
               <div className="border-t border-slate-700/20 pt-6 flex flex-col sm:flex-row gap-4 items-center">
-                <a
-                  href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20starting%20mushroom%20farming.%20Please%20guide%20me."
+                <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20starting%20mushroom%20farming.%20Please%20guide%20me."
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="btn-primary w-full sm:w-auto px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-black"
                 >
                   Chat on WhatsApp
@@ -3216,10 +3212,8 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-wrap gap-3 mt-8">
-              <a
-                href="https://www.youtube.com/@organicmushroomfarm"
+              <a rel="nofollow noopener noreferrer" href="https://www.youtube.com/@organicmushroomfarm"
                 target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-red-500/10 border dark:border-white/5 border-black/5 hover:border-red-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group"
               >
                 <Youtube
@@ -3228,10 +3222,8 @@ const Footer = () => {
                 />
                 <span className="font-medium">YouTube</span>
               </a>
-              <a
-                href="https://maps.app.goo.gl/z7oQHSoLbCL9H4ov8?g_st=ic"
+              <a rel="nofollow noopener noreferrer" href="https://maps.app.goo.gl/z7oQHSoLbCL9H4ov8?g_st=ic"
                 target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-blue-500/10 border dark:border-white/5 border-black/5 hover:border-blue-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group"
               >
                 <MapPin
@@ -3240,10 +3232,8 @@ const Footer = () => {
                 />
                 <span className="font-medium">Google Profile</span>
               </a>
-              <a
-                href="https://www.pinterest.com/organicmushroomfarm"
+              <a rel="nofollow noopener noreferrer" href="https://www.pinterest.com/organicmushroomfarm"
                 target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-pink-500/10 border dark:border-white/5 border-black/5 hover:border-pink-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group"
               >
                 <ShieldCheck
@@ -4247,10 +4237,8 @@ const MushroomTraining = () => {
                   >
                     <Phone size={14} /> Call
                   </a>
-                  <a
-                    href="https://wa.me/919203544140?text=I%20am%20interested%20in%203000%20Offline%20Button%20Mushroom%20Training"
+                  <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I%20am%20interested%20in%203000%20Offline%20Button%20Mushroom%20Training"
                     target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all text-xs font-bold uppercase tracking-wider shadow-md"
                   >
                     <MessageCircle size={14} /> WhatsApp
@@ -4315,10 +4303,8 @@ const MushroomTraining = () => {
                   >
                     <Phone size={14} /> Call
                   </a>
-                  <a
-                    href="https://wa.me/919203544140?text=I%20am%20interested%20in%206000%20Offline%20Master%20Mushroom%20Training"
+                  <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=I%20am%20interested%20in%206000%20Offline%20Master%20Mushroom%20Training"
                     target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center justify-center gap-1.5 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white transition-all text-xs font-bold uppercase tracking-wider shadow-md"
                   >
                     <MessageCircle size={14} /> WhatsApp
@@ -4970,10 +4956,8 @@ const HomePage = () => {
                         Video
                       </div>
                     </div>
-                    <a
-                      href="https://youtube.com/shorts/wxLiU3nNZmM?si=6VmH86DPYKoQ72P6"
+                    <a rel="nofollow noopener noreferrer" href="https://youtube.com/shorts/wxLiU3nNZmM?si=6VmH86DPYKoQ72P6"
                       target="_blank"
-                      rel="noopener noreferrer"
                       className="relative aspect-video rounded-2xl overflow-hidden mb-4 group cursor-pointer inline-block w-full"
                     >
                       <img
@@ -5137,10 +5121,8 @@ const AboutPage = () => {
                     agri-entrepreneur through sustainable practices.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a
-                      href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
+                    <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
                       target="_blank"
-                      rel="noopener noreferrer"
                       className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2"
                     >
                       <MessageCircle size={20} /> Contact Us on WhatsApp
@@ -5198,10 +5180,8 @@ const AboutPage = () => {
                     {item.price}
                   </div>
                 )}
-                <a
-                  href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
+                <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="text-primary-start font-bold text-[10px] uppercase tracking-widest flex items-center justify-center gap-2"
                 >
                   Enquire Now <ArrowRight size={14} />
@@ -5593,10 +5573,8 @@ const TurnkeyProjectsPage = () => {
                     {model.investment}
                   </div>
                 </div>
-                <a
-                  href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20commercial%20turnkey%20mushroom%20farming.%20Please%20provide%20details."
+                <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20commercial%20turnkey%20mushroom%20farming.%20Please%20provide%20details."
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="btn-outline w-full py-3 rounded-xl text-xs font-bold uppercase tracking-widest block text-center"
                 >
                   Enquire Details
@@ -6181,10 +6159,8 @@ const FAQPage = () => {
               >
                 Contact Us
               </Link>
-              <a
-                href="https://wa.me/919203544140"
+              <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140"
                 target="_blank"
-                rel="noopener noreferrer"
                 className="btn-outline px-8 py-3 rounded-xl font-bold"
               >
                 WhatsApp Now
@@ -6579,10 +6555,8 @@ const CustomerSupportPage = () => {
                   Fast tracking, photo sharing, invoice support, and SOP
                   questions.
                 </p>
-                <a
-                  href="https://wa.me/919203544140"
+                <a rel="nofollow noopener noreferrer" href="https://wa.me/919203544140"
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 rounded-lg text-white font-bold hover:bg-green-600 transition-colors text-sm"
                 >
                   Send WhatsApp Message
@@ -6653,18 +6627,15 @@ const AnimatedRoutes = () => {
           <Route path="/spawn-seeds" element={<ServiceDetailPage defaultId='spawn-supply' />} />
           <Route path="/compost-unit" element={<ServiceDetailPage defaultId='compost-production' />} />
           <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide />} />
-          <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
-          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleGharParMushroomFarming />} />
-          <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
+          <Route path="/blog/oyster-mushroom-cultivation-india" element={<Navigate to="/articles/oyster-mushroom-cultivation-process" replace />} />
+          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<Navigate to="/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" replace />} />
+          <Route path="/blog/turnkey-commercial-setup" element={<Navigate to="/articles/turnkey-commercial-setup" replace />} />
           <Route path="/training/online" element={<TrainingPage />} />
-          <Route path="/training/offline" element={<TrainingPage />} />
+          <Route path="/training/offline" element={<Navigate to="/training/online" replace />} />
 
           <Route path="/" element={<HomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
-          <Route
-            path="/on-site-consultation"
-            element={<SiteVisitConsultationPage />}
-          />
+          <Route path="/on-site-consultation" element={<Navigate to="/site-visit-consultation" replace />} />
           <Route path="/payment-success" element={<PaymentSuccessPage />} />
           <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -6693,17 +6664,14 @@ const AnimatedRoutes = () => {
             path="/pan-india-global-operations"
             element={<OperationsPage />}
           />
-          <Route path="/operations" element={<OperationsPage />} />
+          <Route path="/operations" element={<Navigate to="/pan-india-global-operations" replace />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<ArticlePage />} />
           <Route
             path="/articles/mushroom-farming-beginner-guide-india-2026-2027"
             element={<ArticleBeginnerGuide />}
           />
-          <Route
-            path="/articles/oyster-mushroom-cultivation-india"
-            element={<ArticleOysterMushroomCultivation />}
-          />
+          <Route path="/articles/oyster-mushroom-cultivation-india" element={<Navigate to="/articles/oyster-mushroom-cultivation-process" replace />} />
           <Route
             path="/articles/what-is-mushroom-spawn-beginner-guide-india"
             element={<ArticleMushroomSpawn />}
@@ -6739,7 +6707,7 @@ const AnimatedRoutes = () => {
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
           <Route path="/workshop" element={<WorkshopPage />} />
-          <Route path="/training" element={<TrainingPage />} />
+          <Route path="/training" element={<Navigate to="/training/online" replace />} />
           <Route path="/training-checkout" element={<TrainingCheckoutPage />} />
           <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
@@ -6762,9 +6730,9 @@ const AnimatedRoutes = () => {
             element={<MushroomFranchisePage />}
           />
           <Route path="/sitemap" element={<SitemapPage />} />
-          <Route path="/site-directory" element={<SitemapPage />} />
+          <Route path="/site-directory" element={<Navigate to="/sitemap" replace />} />
 
-          <Route path="/states" element={<StatesPage />} />
+          <Route path="/states" element={<Navigate to="/cities" replace />} />
           <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
           <Route path="/madhya-pradesh/how-to-start-mushroom-farming-india" element={<ArticleMadhyaPradeshGuide />} />
           <Route path="/states/maharashtra" element={<MaharashtraPage />} />
@@ -6789,60 +6757,60 @@ const AnimatedRoutes = () => {
           <Route path="/states/assam" element={<AssamPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/cities/assam/guwahati" element={<ArticleGuwahatiTraining />} />
-          <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiTraining />} />
+          <Route path="/mushroom-farming-guwahati-assam" element={<Navigate to="/cities/assam/guwahati" replace />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruTraining />} />
-          <Route path="/mushroom-farming-mysuru-karnataka" element={<ArticleMysuruTraining />} />
+          <Route path="/mushroom-farming-mysuru-karnataka" element={<Navigate to="/cities/karnataka/mysuru" replace />} />
           <Route path="/cities/karnataka/mangalore" element={<ArticleMangaloreTraining />} />
-          <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreTraining />} />
+          <Route path="/mushroom-farming-mangalore-karnataka" element={<Navigate to="/cities/karnataka/mangalore" replace />} />
           <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
           <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
           <Route path="/cities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramTraining />} />
-          <Route path="/mushroom-farming-thiruvananthapuram-kerala" element={<ArticleThiruvananthapuramTraining />} />
-          <Route path="/mushroom-farming-thiruvananthapuram" element={<ArticleThiruvananthapuramTraining />} />
+          <Route path="/mushroom-farming-thiruvananthapuram-kerala" element={<Navigate to="/cities/kerala/thiruvananthapuram" replace />} />
+          <Route path="/mushroom-farming-thiruvananthapuram" element={<Navigate to="/cities/kerala/thiruvananthapuram" replace />} />
           <Route path="/cities/odisha/bhubaneswar" element={<ArticleBhubaneswarTraining />} />
           <Route path="/cities/jharkhand/ranchi" element={<ArticleRanchiTraining />} />
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/tamil-nadu/coimbatore" element={<ArticleCoimbatoreTraining />} />
           <Route path="/cities/tamil-nadu/madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/tamil-nadu/tiruchirappalli" element={<ArticleTiruchirappalliTraining />} />
-          <Route path="/mushroom-farming-madurai-tamil-nadu" element={<ArticleMaduraiTraining />} />
-          <Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />
+          <Route path="/mushroom-farming-madurai-tamil-nadu" element={<Navigate to="/cities/tamil-nadu/madurai" replace />} />
+          <Route path="/mushroom-farming-madurai" element={<Navigate to="/cities/tamil-nadu/madurai" replace />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/maharashtra/nashik" element={<ArticleNashikTraining />} />
-          <Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />
+          <Route path="/mushroom-farming-nashik-maharashtra" element={<Navigate to="/cities/maharashtra/nashik" replace />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
           <Route path="/cities/haryana/faridabad" element={<ArticleFaridabadTraining />} />
           <Route path="/cities/uttar-pradesh/noida" element={<ArticleNoidaTraining />} />
           <Route path="/cities/uttarakhand/dehradun" element={<ArticleDehradunTraining />} />
-          <Route path="/mushroom-farming-dehradun-uttarakhand" element={<ArticleDehradunTraining />} />
-          <Route path="/mushroom-farming-dehradun" element={<ArticleDehradunTraining />} />
+          <Route path="/mushroom-farming-dehradun-uttarakhand" element={<Navigate to="/cities/uttarakhand/dehradun" replace />} />
+          <Route path="/mushroom-farming-dehradun" element={<Navigate to="/cities/uttarakhand/dehradun" replace />} />
           <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
           <Route path="/cities/west-bengal/kolkata" element={<ArticleKolkataTraining />} />
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriTraining />} />
-          <Route path="/mushroom-farming-siliguri-west-bengal" element={<ArticleSiliguriTraining />} />
-          <Route path="/mushroom-farming-siliguri" element={<ArticleSiliguriTraining />} />
+          <Route path="/mushroom-farming-siliguri-west-bengal" element={<Navigate to="/cities/west-bengal/siliguri" replace />} />
+          <Route path="/mushroom-farming-siliguri" element={<Navigate to="/cities/west-bengal/siliguri" replace />} />
           <Route path="/cities/gujarat/ahmedabad" element={<ArticleAhmedabadTraining />} />
           <Route path="/cities/andhra-pradesh/visakhapatnam" element={<ArticleVisakhapatnamTraining />} />
           <Route path="/cities/andhra-pradesh/vijayawada" element={<ArticleVijayawadaTraining />} />
           <Route path="/cities/gujarat/surat" element={<ArticleSuratTraining />} />
           <Route path="/cities/gujarat/vadodara" element={<ArticleVadodaraTraining />} />
           <Route path="/cities/gujarat/rajkot" element={<ArticleRajkotTraining />} />
-          <Route path="/mushroom-farming-vadodara-gujarat" element={<ArticleVadodaraTraining />} />
-          <Route path="/mushroom-farming-vadodara" element={<ArticleVadodaraTraining />} />
+          <Route path="/mushroom-farming-vadodara-gujarat" element={<Navigate to="/cities/gujarat/vadodara" replace />} />
+          <Route path="/mushroom-farming-vadodara" element={<Navigate to="/cities/gujarat/vadodara" replace />} />
           <Route path="/cities/punjab/amritsar" element={<ArticleAmritsarTraining />} />
-          <Route path="/mushroom-farming-amritsar-punjab" element={<ArticleAmritsarTraining />} />
-          <Route path="/mushroom-farming-amritsar" element={<ArticleAmritsarTraining />} />
+          <Route path="/mushroom-farming-amritsar-punjab" element={<Navigate to="/cities/punjab/amritsar" replace />} />
+          <Route path="/mushroom-farming-amritsar" element={<Navigate to="/cities/punjab/amritsar" replace />} />
           <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
           <Route path="/cities/chandigarh/chandigarh" element={<ArticleChandigarhTraining />} />
           <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerTraining />} />
-          <Route path="/mushroom-farming-bikaner-rajasthan" element={<ArticleBikanerTraining />} />
-          <Route path="/mushroom-farming-bikaner" element={<ArticleBikanerTraining />} />
+          <Route path="/mushroom-farming-bikaner-rajasthan" element={<Navigate to="/cities/rajasthan/bikaner" replace />} />
+          <Route path="/mushroom-farming-bikaner" element={<Navigate to="/cities/rajasthan/bikaner" replace />} />
           <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurTraining />} />
-          <Route path="/mushroom-farming-udaipur-rajasthan" element={<ArticleUdaipurTraining />} />
-          <Route path="/mushroom-farming-udaipur" element={<ArticleUdaipurTraining />} />
+          <Route path="/mushroom-farming-udaipur-rajasthan" element={<Navigate to="/cities/rajasthan/udaipur" replace />} />
+          <Route path="/mushroom-farming-udaipur" element={<Navigate to="/cities/rajasthan/udaipur" replace />} />
           <Route path="/cities/uttar-pradesh/lucknow" element={<ArticleLucknowTraining />} />
           <Route path="/cities/uttar-pradesh/agra" element={<ArticleAgraTraining />} />
           <Route path="/cities/uttar-pradesh/kanpur" element={<ArticleKanpurTraining />} />
@@ -6853,10 +6821,10 @@ const AnimatedRoutes = () => {
           <Route path="/cities/maharashtra/aurangabad" element={<ArticleAurangabadTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
-          <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuide />} />
+          <Route path="/blog/mushroom-training-guide-english" element={<Navigate to="/blog/mushroom-farming-training-online-offline-certificate" replace />} />
           <Route path="/blog/mushroom-training-guide-punjabi" element={<ArticleMushroomTrainingGuidePunjabi />} />
           <Route path="/blog/mushroom-training-guide-hindi" element={<ArticleMushroomTrainingGuideHindi />} />
-          <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia />} />
+          <Route path="/blog/mushroom-farming-business-plan-india" element={<Navigate to="/articles/white-button-mushroom-business-plan" replace />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />

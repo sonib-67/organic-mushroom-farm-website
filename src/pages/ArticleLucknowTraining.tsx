@@ -17,8 +17,8 @@ const ArticleLucknowTraining = () => {
             </div>
 
             <SEO 
-                title="Lucknow Mushroom Farming | लखनऊ में मशरूम की खेती: Training, Setup & Subsidy" 
-                description="Lucknow Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Uttar Pradesh."
+                title="Lucknow Mushroom Farming" 
+                description="Lucknow Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in..."
                 keywords="Lucknow Mushroom Farming, Mushroom farming in Lucknow, Mushroom spawn in Lucknow, mushroom training center in Lucknow, Gomti Nagar, Aliganj, Hazratganj"
             />
             
@@ -26,10 +26,10 @@ const ArticleLucknowTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Lucknow Mushroom Farming | लखनऊ में मशरूम की खेती कैसे शुरू करें: Training, Setup और Subsidy की पूरी जानकारी
-                        </h1>
+Lucknow Mushroom Farming | लखनऊ में मशरूम की खेती कैसे शुरू...
+</h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Uttar Pradesh
+                            Complete Commercial Mushroom Cultivation Guide, Farm Setup,...
                         </h2>
                     </div>
 
@@ -184,7 +184,7 @@ const ArticleLucknowTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Target Locations & Villages: लखनऊ का कोना-कोना कवर (Hyper-Local SEO Section)
+                        Target Locations & Villages: लखनऊ का कोना-कोना कवर (Hyper-Loca...
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Lucknow के चाहे आप posh area से हों, outer bypass से हों या बिल्कुल rural ग्रामीण क्षेत्रों से, हमारी सर्विसेज हर जगह उपलब्ध हैं:

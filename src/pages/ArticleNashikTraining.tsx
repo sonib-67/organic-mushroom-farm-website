@@ -83,8 +83,8 @@ const ArticleNashikTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming Training, Spawn Supply, Consultancy & Farm Setup in Nashik" 
-                description="Start your mushroom farming business in Nashik with Organic Mushroom Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
+                title="Mushroom Farming Training, Spawn Supply, Consultancy &..." 
+                description="Start your mushroom farming business in Nashik with Organic Mushroom Farm. Get professional online & offline training, premium spawn, customized..."
                 keywords="Mushroom farming Nashik, mushroom training Nashik, mushroom spawn Maharashtra, oyster mushroom Nashik, button mushroom Nashik, organic mushroom farm"
                 url="/mushroom-farming-nashik-maharashtra"
                 schemas={customSchemas}
@@ -105,8 +105,8 @@ const ArticleNashikTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Mushroom Farming Training, Spawn Supply, Consultancy & Farm Setup in Nashik | Organic Mushroom Farm
-                        </h1>
+Mushroom Farming Training, Spawn Supply, Consultancy & Farm...
+</h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushroom Farm — Nashik, Maharashtra Special Edition
                         </p>

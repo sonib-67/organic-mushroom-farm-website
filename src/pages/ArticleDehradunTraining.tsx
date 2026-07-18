@@ -84,7 +84,7 @@ const ArticleDehradunTraining = () => {
             </div>
 
             <SEO 
-                title="देहरादून में Mushroom Farming, Training, Spawn Supply और Consultancy" 
+                title="देहरादून में Mushroom Farming, Training, Spawn Supply..." 
                 description="देहरादून में मशरूम फार्म सेटअप, स्पॉन सप्लाई, ऑनलाइन और ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स।"
                 keywords="Mushroom farming Dehradun, mushroom training Dehradun, mushroom spawn Uttarakhand, oyster mushroom Dehradun, button mushroom Dehradun, organic mushroom farm"
                 url="/mushroom-farming-dehradun-uttarakhand"
@@ -393,10 +393,8 @@ const ArticleDehradunTraining = () => {
                             Organic Mushroom Farm के साथ जुड़कर training, quality spawn, farm setup guidance और marketing support प्राप्त करें।
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
-                            <a 
-                                href="https://wa.me/917389712061" 
+                            <a rel="nofollow noopener noreferrer" href="https://wa.me/917389712061" 
                                 target="_blank"
-                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium transition-all"
                             >
                                 <MessageSquare size={18} />

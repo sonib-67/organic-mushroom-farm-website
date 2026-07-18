@@ -17,7 +17,7 @@ const ArticleVisakhapatnamTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming, Training, Spawn Supply & Consultancy in Visakhapatnam" 
+                title="Mushroom Farming, Training, Spawn S... - VisakhapatnamTraining" 
                 description="విశాఖపట్నం మరియు దాని చుట్టుపక్కల ఉన్న వారి కోసం ప్రత్యేకంగా తయారు చేయబడింది — mushroom farm setup, online/offline training, spawn supply."
                 keywords="Mushroom farming Visakhapatnam, mushroom training Vizag, mushroom spawn supply Andhra Pradesh, commercial mushroom farming Vizag"
             />
@@ -26,8 +26,8 @@ const ArticleVisakhapatnamTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Mushroom Farming, Training, Spawn Supply & Consultancy in Visakhapatnam
-                        </h1>
+Mushroom Farming, Training, Spawn Supply & Consultancy in...
+</h1>
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">

@@ -12,8 +12,8 @@ const ArticleMadhyaPradeshGuide = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="How to Start Mushroom Farming in India: Complete Guide 2026-2027" 
-                description="Complete guide to beginning your mushroom cultivation business in 2026-2027. A comprehensive guide for profitable mushroom farming in Madhya Pradesh & across India."
+                title="How to Start Mushroom Farming in India: Complete..." 
+                description="Complete guide to beginning your mushroom cultivation business in 2026-2027. A comprehensive guide for profitable mushroom farming in Madhya..."
                 keywords="Mushroom farming India, how to start mushroom farming, oyster mushroom farming, button mushroom farming, mushroom cultivation training, mushroom farming profit, mushroom farming investment, commercial mushroom farming, mushroom farming Madhya Pradesh, mushroom spawn, mushroom farming business"
             />
 
@@ -52,7 +52,7 @@ const ArticleMadhyaPradeshGuide = () => {
 
                     <section className="space-y-6">
                         <h2 className="text-3xl font-bold dark:text-white text-slate-900">
-                            Why Mushroom Farming in India is the Best Agricultural Business to Start in 2026-2027
+                            Why Mushroom Farming in India is the Best Agricultural...
                         </h2>
                         <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
                             Let me be straight with you: mushroom farming business is absolutely booming in India right now. Here's why I think more farmers are shifting toward mushroom cultivation:
