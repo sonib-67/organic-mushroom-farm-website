@@ -7,7 +7,7 @@ const ExpertiseDetailsPage = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
-                 title="Our Expertise"
+                 title="Our Expertise | Organic Mushroom Farm"
                  description="Detailed insights into our precision engineering, expert training, and quality guarantee."
              />
 

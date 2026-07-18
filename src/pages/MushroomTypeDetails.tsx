@@ -126,7 +126,7 @@ const MushroomTypeDetails = ({ defaultSlug }: { defaultSlug?: string }) => {
   return (
     <div className="min-h-screen bg-transparent text-[var(--text-body)]">
       <SEO 
-        title={info.seoTitle}
+        title={`${info.seoTitle} | Organic Mushroom Farm`}
         description={info.seoDescription}
         schemas={[mushroomSchema]}
       />

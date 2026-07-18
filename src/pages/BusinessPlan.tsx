@@ -7,7 +7,7 @@ const BusinessPlan = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Business Plan India" 
+        title="Mushroom Farming Business Plan India | Organic Mushroom Farm" 
         description="Explore our detailed mission, market strategy, and operational roadmap to becoming India's leading organic fungi hub. Learn about our hub-and-spoke farming model." 
       />
 

@@ -71,7 +71,7 @@ const ContactFormPage = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
-                title="Custom Mushroom Farming Project Consultation" 
+                title="Custom Mushroom Farming Project Consultation | Organic Mushroom Farm" 
                 description="Get a consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
                 schemas={[webmcpSchema]}
              />

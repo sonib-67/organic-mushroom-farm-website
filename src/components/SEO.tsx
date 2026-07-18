@@ -38,30 +38,10 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
 
   const finalSchemas = schemas ? [...schemas, ...defaultSchemas] : defaultSchemas;
 
-  const getOptimizedTitle = (baseTitle: string) => {
-    const brandTerms = ["Organic Mushroom Farm", "Mushroom Farm", "India", "Global"];
-    const hasBrand = brandTerms.some(term => baseTitle.toLowerCase().includes(term.toLowerCase()));
-    
-    // If it already has brand or is too long (Google usually truncates around 60 chars)
-    if (hasBrand || baseTitle.length >= 50) {
-      return baseTitle;
-    }
-    
-    // If there's room, add short branding
-    const shortSuffix = " | Organic Mushroom Farm";
-    if (baseTitle.length + shortSuffix.length <= 60) {
-      return `${baseTitle}${shortSuffix}`;
-    }
-    
-    return baseTitle;
-  };
-
-  const optimizedTitle = getOptimizedTitle(title);
-
   const setSEO = useContext(SEOContext);
   if (setSEO && typeof window === 'undefined') {
     setSEO({
-      title: optimizedTitle,
+      title: `${title} | Organic Mushroom Farm India & Global`,
       description,
       keywords: keywords || defaultKeywords,
       fullUrl,
@@ -72,7 +52,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
   return (
     <Helmet>
       {/* Title */}
-      <title>{optimizedTitle}</title>
+      <title>{`${title} | Organic Mushroom Farm India & Global`}</title>
 
       {/* SEO */}
       <meta name="description" content={description} />
@@ -82,7 +62,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
       <link rel="canonical" href={fullUrl} />
 
       {/* Open Graph */}
-      <meta property="og:title" content={optimizedTitle} />
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
@@ -91,7 +71,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
 
       {/* Twitter (no image as per your requirement) */}
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={optimizedTitle} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
       <meta name="twitter:image:alt" content="Organic Mushroom Farm" />

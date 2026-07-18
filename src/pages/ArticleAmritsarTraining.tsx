@@ -84,7 +84,7 @@ const ArticleAmritsarTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Training & Spawn Supply in Amritsar" 
+                title="Mushroom Training & Spawn Supply in Amritsar | Organic Mushroom Farm" 
                 description="Start your mushroom farming business in Amritsar, Punjab. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
                 keywords="Mushroom farming Amritsar, mushroom training Amritsar, mushroom spawn Punjab, oyster mushroom Amritsar, button mushroom Amritsar, organic mushroom farm"
                 url="/mushroom-farming-amritsar-punjab"
