@@ -8,7 +8,7 @@ const ArticleMushroomSpawn = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="What is Mushroom Spawn? Complete Beginner Guide (2026–27) | Organic Mushroom Farm" 
+        title="What is Mushroom Spawn? Complete Beginner Guide (2026–27)" 
         description="Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India. Complete beginner guide 2026-2027." 
       />
 
@@ -44,7 +44,7 @@ const ArticleMushroomSpawn = () => {
         <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary-start">
           
           <p className="lead text-xl dark:text-slate-300 text-slate-700 font-medium mb-8">
-            Mushroom Seeds | Mushroom Cultivation Guide India | Organic Mushroom Farm<br/>
+            Mushroom Seeds | Mushroom Cultivation Guide India<br/>
             organicmushroomfarm.shop | Call / WhatsApp: 9203544140<br/>
             Serving Pan India + UAE + UK + USA + Canada + Nepal + Bangladesh
           </p>
@@ -310,7 +310,7 @@ const ArticleMushroomSpawn = () => {
             </div>
           </div>
 
-          <h2 className="text-2xl mt-10 mb-4 text-primary-start">Our Services | Organic Mushroom Farm — Jabalpur, MP</h2>
+          <h2 className="text-2xl mt-10 mb-4 text-primary-start">Our Services — Jabalpur, MP</h2>
           <p>We offer four core services designed to support mushroom farmers at every stage of their journey:</p>
           
           <div className="space-y-4 my-6">

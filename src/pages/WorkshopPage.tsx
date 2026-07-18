@@ -194,7 +194,7 @@ const WorkshopPage = () => {
   return (
     <div className="font-sans dark:bg-[#0a0f0d] bg-slate-50 dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
       <SEO 
-        title="Agri-Business Mushroom Farming Workshop | Organic Mushroom Farm"
+        title="Agri-Business Mushroom Farming Workshop"
         description="Book your seat for ₹199. Learn commercial oyster, milky, and button mushroom cultivation, farm setups, and B2B marketing from Indian experts."
         schemas={[webmcpSchema]}
       />

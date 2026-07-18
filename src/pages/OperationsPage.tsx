@@ -7,7 +7,7 @@ const OperationsPage = () => {
   return (
     <div className="min-h-screen pt-32 pb-24 relative overflow-hidden">
       <SEO 
-        title="Pan India & Global Operations | Organic Mushroom Farm" 
+        title="Pan India & Global Operations" 
         description="Our expert teams provide commercial mushroom training and farm setup India services across Maharashtra, MP, UP, Rajasthan, Gujarat, USA, UK, Canada, UAE, Europe and globally." 
         keywords="mushroom training India, mushroom farm setup India, global mushroom farming consultancy, USA mushroom setup, Europe mushroom spawn"
       />

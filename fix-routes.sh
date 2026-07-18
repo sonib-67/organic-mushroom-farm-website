@@ -1,0 +1,33 @@
+#!/bin/bash
+sed -i 's|<Route path="/mushroom-farming-mysuru-karnataka" element={<ArticleMysuruTraining />} />|<Route path="/mushroom-farming-mysuru-karnataka" element={<Navigate to="/cities/karnataka/mysuru" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreTraining />} />|<Route path="/mushroom-farming-mangalore-karnataka" element={<Navigate to="/cities/karnataka/mangalore" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-thiruvananthapuram-kerala" element={<ArticleThiruvananthapuramTraining />} />|<Route path="/mushroom-farming-thiruvananthapuram-kerala" element={<Navigate to="/cities/kerala/thiruvananthapuram" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-thiruvananthapuram" element={<ArticleThiruvananthapuramTraining />} />|<Route path="/mushroom-farming-thiruvananthapuram" element={<Navigate to="/cities/kerala/thiruvananthapuram" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-madurai-tamil-nadu" element={<ArticleMaduraiTraining />} />|<Route path="/mushroom-farming-madurai-tamil-nadu" element={<Navigate to="/cities/tamil-nadu/madurai" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />|<Route path="/mushroom-farming-madurai" element={<Navigate to="/cities/tamil-nadu/madurai" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />|<Route path="/mushroom-farming-nashik-maharashtra" element={<Navigate to="/cities/maharashtra/nashik" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-dehradun-uttarakhand" element={<ArticleDehradunTraining />} />|<Route path="/mushroom-farming-dehradun-uttarakhand" element={<Navigate to="/cities/uttarakhand/dehradun" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-dehradun" element={<ArticleDehradunTraining />} />|<Route path="/mushroom-farming-dehradun" element={<Navigate to="/cities/uttarakhand/dehradun" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-siliguri-west-bengal" element={<ArticleSiliguriTraining />} />|<Route path="/mushroom-farming-siliguri-west-bengal" element={<Navigate to="/cities/west-bengal/siliguri" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-siliguri" element={<ArticleSiliguriTraining />} />|<Route path="/mushroom-farming-siliguri" element={<Navigate to="/cities/west-bengal/siliguri" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-vadodara-gujarat" element={<ArticleVadodaraTraining />} />|<Route path="/mushroom-farming-vadodara-gujarat" element={<Navigate to="/cities/gujarat/vadodara" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-vadodara" element={<ArticleVadodaraTraining />} />|<Route path="/mushroom-farming-vadodara" element={<Navigate to="/cities/gujarat/vadodara" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-amritsar-punjab" element={<ArticleAmritsarTraining />} />|<Route path="/mushroom-farming-amritsar-punjab" element={<Navigate to="/cities/punjab/amritsar" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-amritsar" element={<ArticleAmritsarTraining />} />|<Route path="/mushroom-farming-amritsar" element={<Navigate to="/cities/punjab/amritsar" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-bikaner-rajasthan" element={<ArticleBikanerTraining />} />|<Route path="/mushroom-farming-bikaner-rajasthan" element={<Navigate to="/cities/rajasthan/bikaner" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-bikaner" element={<ArticleBikanerTraining />} />|<Route path="/mushroom-farming-bikaner" element={<Navigate to="/cities/rajasthan/bikaner" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-udaipur-rajasthan" element={<ArticleUdaipurTraining />} />|<Route path="/mushroom-farming-udaipur-rajasthan" element={<Navigate to="/cities/rajasthan/udaipur" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/mushroom-farming-udaipur" element={<ArticleUdaipurTraining />} />|<Route path="/mushroom-farming-udaipur" element={<Navigate to="/cities/rajasthan/udaipur" replace />} />|g' src/App.tsx
+
+sed -i 's|<Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia />} />|<Route path="/articles/white-button-mushroom-business-plan" element={<Navigate to="/blog/mushroom-farming-business-plan-india" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleGharParMushroomFarming />} />|<Route path="/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<Navigate to="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide />} />|<Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<Navigate to="/blog/mushroom-training-guide-english" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation />} />|<Route path="/articles/oyster-mushroom-cultivation-process" element={<Navigate to="/blog/oyster-mushroom-cultivation-india" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />|<Route path="/articles/turnkey-mushroom-farm-setup-india" element={<Navigate to="/blog/turnkey-commercial-setup" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />|<Route path="/articles/turnkey-commercial-setup" element={<Navigate to="/blog/turnkey-commercial-setup" replace />} />|g' src/App.tsx
+
+sed -i 's|<Route path="/site-directory" element={<SitemapPage />} />|<Route path="/site-directory" element={<Navigate to="/sitemap" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/cities" element={<StatesPage />} />|<Route path="/cities" element={<Navigate to="/states" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/training/online" element={<TrainingPage />} />|<Route path="/training/online" element={<Navigate to="/training" replace />} />|g' src/App.tsx
+sed -i 's|<Route path="/training/offline" element={<TrainingPage />} />|<Route path="/training/offline" element={<Navigate to="/training" replace />} />|g' src/App.tsx
+

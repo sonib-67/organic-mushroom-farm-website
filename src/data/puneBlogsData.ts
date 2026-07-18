@@ -2,7 +2,7 @@ export const puneBlogs = [
   {
     id: 1,
     slug: "mushroom-training-center",
-    title: "Mushroom Training Center Kothrud Pune | Organic Mushroom Farm",
+    title: "Mushroom Training Center Kothrud Pune",
     metaDesc: "Kothrud, Pune मध्ये hands-on mushroom training center. Oyster आिण button mushroom cultivation िशका experts कडून. Practical + theory training, ₹299 पासून सुरू.",
     h1: "Kothrud, Pune येथे Mushroom Training Center – Organic Mushroom Farm",
     intro: "Kothrud हा Pune चा एक popular residential आिण educational area आहे, आिण इथल्या अनेक रिहवाशांना आता mushroom farming मध्ये interest वाढत आहे. Organic Mushroom Farm तफेर् Kothrud पिरसरातील लोकांसाठी संपूणर् mushroom training center उपलब्ध आहे, िजथेतुम्ही oyster mushroom आिण button mushroom ची लागवड प्रत्यक्ष practical पद्धतीनेिशकूशकता. आमचं training module िबिगनसर्साठी सोपंठेवलेलंआहे — spawn तयार करण्यापासून ते harvesting आिण packaging पयर्ंत सगळं काही cover होतं. Kothrud, Karve Nagar, Erandwane या भागातील िवद्याथीर् आिण गृिहणी दोघांनाही हे training उपयोगी पडतं, कारण कमी जागेत आिण कमी investment मध्येहा business सुरू करता येतो.",
@@ -14,7 +14,7 @@ export const puneBlogs = [
   {
     id: 2,
     slug: "government-mushroom-training-center",
-    title: "Government Mushroom Training Center Wakad Pune | Organic Mushroom Farm",
+    title: "Government Mushroom Training Center Wakad Pune",
     metaDesc: "Wakad Pune मध्ये government-recognized mushroom training. सरकारी yojana आिणि subsidy माहितीसोबत complete training. आजच चौकशी करा.",
     h1: "Wakad, Pune येथे Government Mushroom Training Center",
     intro: "Wakad हा Pune चा rapidly growing IT आिण residential hub आहे. इथल्या अनेक रहिवाशांना सरकारी योजनांच्या मदतीने mushroom farming सुरु करायची इच्छा असते, पण योग्य मार्गदर्शन मिळत नाही. Organic Mushroom Farm चं Wakad केंद्र government training guidelines नुसार structured training देतं — ज्यामध्ये KVK, NABARD आिण राज्य कृषी विभागाच्या योजनांची माहिती सुद्धा दिली जाते. हे training विशेषतः त्या लोकांसाठी उपयोगी आहे ज्यांना subsidy घेऊन commercial scale वर business सुरु करायचा आहे. Hinjewadi आिण Baner जवळ राहणाऱ्या IT professionals नी सुद्धा weekend batches साठी नोंदणी केली आहे.",
