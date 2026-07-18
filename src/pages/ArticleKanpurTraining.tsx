@@ -141,19 +141,6 @@ const ArticleKanpurTraining = () => {
                         Kanpur aur uske aaspaas ke regions ek modern, tech-driven mushroom business build karne ke liye behtareen opportunities offer kar rahe hain. Sahi knowledge aur digital tools ke sath, aap is sector mein massive success achieve kar sakte hain.
                     </p>
 
-                    <div className="mb-12 aspect-video rounded-2xl overflow-hidden shadow-lg border border-black/10 dark:border-white/10">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://www.www.youtube-nocookie.com/embed/9E_wLhlY-oQ?si=REph6x6ygX4zA0k5" 
-                            title="YouTube video player" 
-                            frameBorder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            referrerPolicy="strict-origin-when-cross-origin" 
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">
                         <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Ready to Grow Your Agribusiness?</h2>
                         <div className="flex flex-col sm:flex-row items-center gap-4">
