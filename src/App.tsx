@@ -6644,8 +6644,8 @@ const AnimatedRoutes = () => {
           <Route path="/site-visit-consultation" element={<SiteVisitConsultationPage />} />
           <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom' />} />
           <Route path="/services/turnkey-setup" element={<ServiceDetailPage defaultId='consultancy' />} />
-          <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster-mushroom' />} />
-          <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='button-mushroom' />} />
+          <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster' />} />
+          <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='white-button' />} />
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia />} />
 
@@ -6670,10 +6670,7 @@ const AnimatedRoutes = () => {
           <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route
-            path="/services/spawn-supply"
-            element={<Navigate to="/spawn-seed" replace />}
-          />
+          
           <Route path="/services/:id" element={<ServiceDetailPage />} />
           <Route path="/process/:id" element={<ProcessDetailPage />} />
           <Route path="/model-details" element={<ModelDetailsPage />} />
