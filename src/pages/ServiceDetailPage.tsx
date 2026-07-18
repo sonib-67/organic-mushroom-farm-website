@@ -4,8 +4,9 @@ import DetailView from '../components/DetailView';
 import { SERVICES_DATA } from '../data/services';
 import SEO from '../components/SEO';
 
-const ServiceDetailPage = () => {
-  const { id } = useParams<{ id: string }>();
+const ServiceDetailPage = ({ defaultId }: { defaultId?: string }) => {
+  const params = useParams<{ id: string }>();
+  const id = defaultId || params.id;
   const service = SERVICES_DATA.find(s => s.id === id);
 
   if (!service) {

@@ -10,8 +10,9 @@ import SEO from '../components/SEO';
 import { mushroomDetails } from '../data/mushroomDetailData';
 import { SHIPPING_DETAILS, MERCHANT_RETURN_POLICY } from '../utils/seoSchemas';
 
-const MushroomTypeDetails = () => {
-  const { slug } = useParams<{ slug: string }>();
+const MushroomTypeDetails = ({ defaultSlug }: { defaultSlug?: string }) => {
+  const params = useParams<{ slug: string }>();
+  const slug = defaultSlug || params.slug;
   const navigate = useNavigate();
   const [todayDate, setTodayDate] = useState('');
   const [formState, setFormState] = useState({

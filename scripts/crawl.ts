@@ -3,15 +3,17 @@ import path from 'path';
 
 function getAppRoutes(): string[] {
   const content = fs.readFileSync(path.resolve('./src/App.tsx'), 'utf-8');
-  const lines = content.split('\n');
+  // Match full <Route ... /> elements
+  const routeRegex = /<Route[\s\S]*?path="([^"]+)"[\s\S]*?(?:>|\/>)/g;
+  let match;
   const routes: string[] = [];
-  for (const line of lines) {
-     if (line.includes('<Route ') && line.includes('path="') && !line.includes('<Navigate ')) {
-        const match = line.match(/path="([^"]+)"/);
-        if (match && match[1] !== '*' && match[1] !== '/') {
-           routes.push(match[1]);
-        }
-     }
+  while ((match = routeRegex.exec(content)) !== null) {
+    const fullTag = match[0];
+    if (!fullTag.includes('<Navigate ')) {
+      if (match[1] !== '*' && match[1] !== '/') {
+        routes.push(match[1]);
+      }
+    }
   }
   return routes;
 }
@@ -28,7 +30,29 @@ function extractMatches(filePath: string, regex: RegExp): string[] {
 }
 
 const allPaths = new Set<string>();
-const staticPaths = getAppRoutes();
+
+const legacyRoutesToSkip = [
+  "/cities",
+  "/project-specs",
+  "/spawn-seeds",
+  "/compost-unit",
+  "/blog/mushroom-farming-training-online-offline-certificate",
+  "/blog/oyster-mushroom-cultivation-india",
+  "/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026",
+  "/blog/turnkey-commercial-setup",
+  "/training/online",
+  "/training/offline",
+  "/site-visit-consultation",
+  "/services/milky-mushroom",
+  "/services/turnkey-setup",
+  "/services/oyster-mushroom",
+  "/services/button-mushroom",
+  "/articles/oyster-mushroom-cultivation-process",
+  "/articles/white-button-mushroom-business-plan",
+  "/operations"
+];
+
+const staticPaths = getAppRoutes().filter(p => !legacyRoutesToSkip.includes(p));
 
 const servicesIds = extractMatches(path.resolve('./src/data/services.ts'), /id:\s*'([^']+)'/g);
 const processesIds = extractMatches(path.resolve('./src/data/processes.ts'), /id:\s*'([^']+)'/g);

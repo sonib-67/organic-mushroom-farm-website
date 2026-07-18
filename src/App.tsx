@@ -89,6 +89,11 @@ import ArticleUSAProfitGuide from "./pages/ArticleUSAProfitGuide";
 import ArticleUSAMedicinalIncome from "./pages/ArticleUSAMedicinalIncome";
 import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
 import SEO from "./components/SEO";
+import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
+import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
+
+import OperationsPage from "./pages/OperationsPage";
+
 import {
   generateReviewSchema,
   generateLocalBusinessSchema,
@@ -6636,24 +6641,24 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           {/* Legacy redirects */}
-          <Route path="/site-visit-consultation" element={<Navigate to="/on-site-consultation" replace />} />
-          <Route path="/services/milky-mushroom" element={<Navigate to="/mushroom-types/milky-mushroom" replace />} />
-          <Route path="/services/turnkey-setup" element={<Navigate to="/services/consultancy" replace />} />
-          <Route path="/services/oyster-mushroom" element={<Navigate to="/mushroom-types/oyster-mushroom" replace />} />
-          <Route path="/services/button-mushroom" element={<Navigate to="/mushroom-types/button-mushroom" replace />} />
-          <Route path="/articles/oyster-mushroom-cultivation-process" element={<Navigate to="/articles/oyster-mushroom-cultivation-india" replace />} />
-          <Route path="/articles/white-button-mushroom-business-plan" element={<Navigate to="/blog/mushroom-farming-business-plan-india" replace />} />
+          <Route path="/site-visit-consultation" element={<SiteVisitConsultationPage />} />
+          <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom' />} />
+          <Route path="/services/turnkey-setup" element={<ServiceDetailPage defaultId='consultancy' />} />
+          <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster-mushroom' />} />
+          <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='button-mushroom' />} />
+          <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation />} />
+          <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia />} />
 
-          <Route path="/cities" element={<Navigate to="/states" replace />} />
-          <Route path="/project-specs" element={<Navigate to="/services/consultancy" replace />} />
-          <Route path="/spawn-seeds" element={<Navigate to="/services/spawn-supply" replace />} />
-          <Route path="/compost-unit" element={<Navigate to="/services/compost-production" replace />} />
-          <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<Navigate to="/articles/mushroom-farming-training-online-offline-certificate" replace />} />
-          <Route path="/blog/oyster-mushroom-cultivation-india" element={<Navigate to="/articles/oyster-mushroom-cultivation-india" replace />} />
-          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<Navigate to="/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" replace />} />
-          <Route path="/blog/turnkey-commercial-setup" element={<Navigate to="/articles/turnkey-commercial-setup" replace />} />
-          <Route path="/training/online" element={<Navigate to="/training" replace />} />
-          <Route path="/training/offline" element={<Navigate to="/training" replace />} />
+          <Route path="/cities" element={<StatesPage />} />
+          <Route path="/project-specs" element={<ServiceDetailPage defaultId='consultancy' />} />
+          <Route path="/spawn-seeds" element={<ServiceDetailPage defaultId='spawn-supply' />} />
+          <Route path="/compost-unit" element={<ServiceDetailPage defaultId='compost-production' />} />
+          <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide />} />
+          <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
+          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleGharParMushroomFarming />} />
+          <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
+          <Route path="/training/online" element={<TrainingPage />} />
+          <Route path="/training/offline" element={<TrainingPage />} />
 
           <Route path="/" element={<HomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
@@ -6692,10 +6697,7 @@ const AnimatedRoutes = () => {
             path="/pan-india-global-operations"
             element={<OperationsPage />}
           />
-          <Route
-            path="/operations"
-            element={<Navigate to="/pan-india-global-operations" replace />}
-          />
+          <Route path="/operations" element={<OperationsPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<ArticlePage />} />
           <Route
