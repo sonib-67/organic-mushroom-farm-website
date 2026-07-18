@@ -142,9 +142,9 @@ export default function MushroomSEOSections() {
           <div className="badge mx-auto bg-primary-start/10 text-primary-start border border-primary-start/20 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-widest">
             India's Leading Agro-Academy Hub
           </div>
-          <h1 className="text-3xl md:text-6xl font-black tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-6xl font-black tracking-tight leading-tight">
             Comprehensive <span className="gradient-text">Mushroom Training in India</span>
-          </h1>
+          </h2>
           <p className="text-sm md:text-lg max-w-3xl mx-auto dark:text-slate-400 text-slate-600 font-medium">
             Master scientific cultivation under the <strong className="dark:text-white text-slate-900 font-semibold">best mushroom training institute in India</strong>. 
             We provide expert-curated <strong className="dark:text-white text-slate-900 font-semibold">mushroom farming training</strong>, high-yield premium spawn, 

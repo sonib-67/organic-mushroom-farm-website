@@ -36,7 +36,7 @@ const MushroomTypeDetails = ({ defaultSlug }: { defaultSlug?: string }) => {
         <div className="w-20 h-20 bg-red-500/10 border border-red-500/20 text-red-500 rounded-full flex items-center justify-center mb-6">
           <HelpCircle size={44} />
         </div>
-        <h1 className="text-3xl font-extrabold text-white mb-2 uppercase tracking-tight">Variety Not Found</h1>
+        <h2 className="text-3xl font-extrabold text-white mb-2 uppercase tracking-tight">Variety Not Found</h2>
         <p className="text-slate-400 max-w-sm mb-8 font-medium">The requested mushroom variety setup details could not be loaded or is in preparation.</p>
         <Link to="/mushroom-types" className="btn-outline px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-widest text-white">
           Back to Varieties
