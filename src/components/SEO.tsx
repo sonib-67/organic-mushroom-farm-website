@@ -24,14 +24,14 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
 
   const siteUrl = "https://organicmushroomfarm.shop";
   const location = useLocation();
-  const path = url || location.pathname;
+  const path = location.pathname;
   console.log("SEO path:", path);
   const fullUrl = `${siteUrl}${path === "/" ? "" : path}`;
 
   const defaultSchemas = [
     generateOrganizationSchema(),
     generateWebsiteSchema(),
-    generateLocalBusinessSchema(url || ""),
+    generateLocalBusinessSchema(location.pathname),
     generateFounderSchema(),
     generateReviewSchema(title)
   ];
