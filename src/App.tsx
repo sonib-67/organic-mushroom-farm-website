@@ -110,7 +110,6 @@ import { parseSEOPathname } from "./utils/seoPathParser";
 import MushroomPriceTodayPage from "./pages/MushroomPriceTodayPage";
 import MushroomFranchisePage from "./pages/MushroomFranchisePage";
 import WorkshopPage from "./pages/WorkshopPage";
-import OperationsPage from "./pages/OperationsPage";
 
 import MadhyaPradeshPage from "./pages/MadhyaPradeshPage";
 import JabalpurPage from "./pages/JabalpurPage";
@@ -6921,12 +6920,9 @@ import ArticleRajkotTraining from './pages/ArticleRajkotTraining';
 import ArticleAmritsarTraining from './pages/ArticleAmritsarTraining';
 
 import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
-import ArticleTurnkeyCommercialSetup from './pages/ArticleTurnkeyCommercialSetup';
 import ArticleMushroomTrainingGuideHindi from "./pages/ArticleMushroomTrainingGuideHindi";
 import ArticleMushroomTrainingGuide from "./pages/ArticleMushroomTrainingGuide";
 import ArticleMushroomTrainingGuidePunjabi from "./pages/ArticleMushroomTrainingGuidePunjabi";
-import ArticleBusinessPlanIndia from './pages/ArticleBusinessPlanIndia';
-
 import { HelmetProvider } from 'react-helmet-async';
 
 export default function App() {

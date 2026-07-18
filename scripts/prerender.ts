@@ -99,12 +99,15 @@ async function prerender() {
     try {
       const { html, seoData } = render(url);
 
-      let appHtml = template.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
-      
-      const schemasHtml = seoData?.finalSchemas 
-        ? seoData.finalSchemas.map((s: any) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n')
-        : '';
+      // Strip hoisted SEO elements (title, meta, link) prepended by React 19's renderToString
+      let cleanHtml = html;
+      const rootIndex = html.indexOf('<div');
+      if (rootIndex > 0) {
+        cleanHtml = html.substring(rootIndex);
+      }
 
+      let appHtml = template.replace('<div id="root"></div>', `<div id="root">${cleanHtml}</div>`);
+      
       const helmetContent = seoData ? `
         <title>${seoData.title}</title>
         <meta name="description" content="${seoData.description}" />
@@ -119,7 +122,6 @@ async function prerender() {
         <meta name="twitter:title" content="${seoData.title}" />
         <meta name="twitter:description" content="${seoData.description}" />
         <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
-        ${schemasHtml}
       ` : '';
       
       // Inject helmet content right after <head> or replace the placeholder
