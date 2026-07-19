@@ -2584,7 +2584,7 @@ const CTASection = () => {
   );
 };
 
-const TrainingPage = () => {
+const TrainingPage = ({ metaDesc }: { metaDesc?: string }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -6644,23 +6644,23 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           {/* Legacy redirects */}
           <Route path="/site-visit-consultation" element={<SiteVisitConsultationPage />} />
-          <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom' />} />
-          <Route path="/services/turnkey-setup" element={<ServiceDetailPage defaultId='consultancy' />} />
-          <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster' />} />
-          <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='white-button' />} />
-          <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation />} />
-          <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia />} />
+          <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom'  metaDesc="Expert Milky Mushroom cultivation services & training. Get high-yield spawn, optimal summer farming parameters, and professional seeding guidance. " />} />
+          <Route path="/services/turnkey-setup" element={<ServiceDetailPage defaultId='consultancy'  metaDesc="Looking for a turnkey mushroom farm setup? Join our offline/online training & get expert EPC consultancy for climate-controlled grow rooms in India. " />} />
+          <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster'  metaDesc="Expert Oyster mushroom consultancy services. We offer commercial training, premium spawn supply, and turnkey infrastructure setup for maximum farm yields. " />} />
+          <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='white-button'  metaDesc="Professional Button mushroom cultivation services and consultancy. We provide high-yield spawn, standardized compost, and climate control setup guidance. " />} />
+          <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
+          <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
 
-          <Route path="/cities" element={<StatesPage />} />
-          <Route path="/project-specs" element={<ServiceDetailPage defaultId='consultancy' />} />
-          <Route path="/spawn-seeds" element={<ServiceDetailPage defaultId='spawn-supply' />} />
-          <Route path="/compost-unit" element={<ServiceDetailPage defaultId='compost-production' />} />
-          <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide />} />
-          <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation />} />
-          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleGharParMushroomFarming />} />
-          <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
-          <Route path="/training/online" element={<TrainingPage />} />
-          <Route path="/training/offline" element={<TrainingPage />} />
+          <Route path="/cities" element={<StatesPage  metaDesc="Find top mushroom farming training centers, spawn suppliers, and local agribusiness resources in your city. Select your region to start growing today! " />} />
+          <Route path="/project-specs" element={<ServiceDetailPage defaultId='consultancy'  metaDesc="Download detailed project specifications for commercial mushroom farms. Access complete infrastructure setup plans, financial ROI models, and expert SOPs. " />} />
+          <Route path="/spawn-seeds" element={<ServiceDetailPage defaultId='spawn-supply'  metaDesc="Order top-grade mushroom seeds pan-India. Get disease-free, high-yielding hybrid spawn varieties suited for oyster, button, and milky mushrooms." />} />
+          <Route path="/compost-unit" element={<ServiceDetailPage defaultId='compost-production'  metaDesc="Set up a commercial compost unit for button mushrooms. Learn about Phase II pasteurization, bulk substrate preparation, and infrastructure requirements. " />} />
+          <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
+          <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivation  metaDesc="Learn the step-by-step process of commercial Oyster mushroom farming in India. Master temperature control, humidity management, and high-yield techniques. " />} />
+          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleGharParMushroomFarming  metaDesc="Learn how to grow mushrooms at home in India. Read our complete 2026 beginner's guide covering bag preparation, spawn seeding, incubation, and daily care." />} />
+          <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup  metaDesc="Discover expert insights on starting a commercial mushroom plant. Learn about compost units, climate control, and end-to-end turnkey EPC projects." />} />
+          <Route path="/training/online" element={<TrainingPage  metaDesc="Learn commercial mushroom cultivation from home. Enroll in our ₹299 or ₹699 online training courses covering Oyster, Button, and Milky farming techniques. " />} />
+          <Route path="/training/offline" element={<TrainingPage  metaDesc="Attend hands-on offline mushroom farming training. Master practical skills in substrate making, spawn running, and harvesting for a commercial setup. " />} />
 
           <Route path="/" element={<HomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
@@ -6696,7 +6696,7 @@ const AnimatedRoutes = () => {
             path="/pan-india-global-operations"
             element={<OperationsPage />}
           />
-          <Route path="/operations" element={<OperationsPage />} />
+          <Route path="/operations" element={<OperationsPage  metaDesc="Explore our worldwide mushroom farm operations. From local Indian states to global markets, our expert teams deliver top-tier turnkey setups & consultancy. " />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<ArticlePage />} />
           <Route
@@ -6742,7 +6742,7 @@ const AnimatedRoutes = () => {
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/success-story/:id" element={<ProjectSpecsPage />} />
           <Route path="/workshop" element={<WorkshopPage />} />
-          <Route path="/training" element={<TrainingPage />} />
+          <Route path="/training" element={<TrainingPage  metaDesc="Start your mushroom farming journey! Join our professional training for Oyster, Button, and Milky varieties. Basic & Advanced courses starting at ₹299." />} />
           <Route path="/training-checkout" element={<TrainingCheckoutPage />} />
           <Route path="/turnkey-projects" element={<TurnkeyProjectsPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
@@ -6767,7 +6767,7 @@ const AnimatedRoutes = () => {
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/site-directory" element={<SitemapPage />} />
 
-          <Route path="/states" element={<StatesPage />} />
+          <Route path="/states" element={<StatesPage  metaDesc="Explore state-wise mushroom farming resources across India. Connect with regional experts, locate farm setup consultants, and access government guides." />} />
           <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
           <Route path="/madhya-pradesh/how-to-start-mushroom-farming-india" element={<ArticleMadhyaPradeshGuide />} />
           <Route path="/states/maharashtra" element={<MaharashtraPage />} />
@@ -6855,11 +6855,11 @@ const AnimatedRoutes = () => {
           <Route path="/cities/maharashtra/nagpur" element={<ArticleNagpurTraining />} />
           <Route path="/cities/maharashtra/aurangabad" element={<ArticleAurangabadTraining />} />
           <Route path="/articles/turnkey-mushroom-farm-setup-india" element={<ArticleTurnkeyMushroomFarm />} />
-          <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup />} />
-          <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuide />} />
+          <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup  metaDesc="Read our complete guide on turnkey commercial mushroom farm setup. Learn about EPC consultancy, climate-controlled grow rooms, and infrastructure." />} />
+          <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuide  metaDesc="Complete 2026 English guide on mushroom farming training. Compare varieties, training costs, government subsidies, and long-term agribusiness profitability. " />} />
           <Route path="/blog/mushroom-training-guide-punjabi" element={<ArticleMushroomTrainingGuidePunjabi />} />
           <Route path="/blog/mushroom-training-guide-hindi" element={<ArticleMushroomTrainingGuideHindi />} />
-          <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia />} />
+          <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia  metaDesc="Master the 2026 mushroom farming business plan in India. Understand commercial setup costs, profit margins, ROI analysis, and local marketing strategies. " />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />

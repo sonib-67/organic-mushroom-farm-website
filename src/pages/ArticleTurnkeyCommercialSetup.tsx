@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import SEO from '../components/SEO';
 
-const ArticleTurnkeyCommercialSetup = () => {
+const ArticleTurnkeyCommercialSetup = ({ metaDesc }: { metaDesc?: string }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -15,9 +15,10 @@ const ArticleTurnkeyCommercialSetup = () => {
             </div>
 
             <SEO 
-                title="TURNKEY COMMERCIAL MUSHROOM FARM SETUP" 
-                description="Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure"
-            />
+        title="TURNKEY COMMERCIAL MUSHROOM FARM SETUP" 
+               
+        description={metaDesc || "Complete EPC Project Consultancy, Climate-Controlled Grow Rooms & Compost Infrastructure"}
+      />
             
             <article className="max-w-4xl mx-auto px-4 prose prose-invert">
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-6">

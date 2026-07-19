@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { BookOpen, MapPin, CheckCircle2, TrendingUp, Phone, ArrowRight, Sprout, Building2, ShoppingCart } from 'lucide-react';
 import SEO from '../components/SEO';
 
-const ArticleOysterMushroomCultivation = () => {
+const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -12,7 +12,7 @@ const ArticleOysterMushroomCultivation = () => {
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
                 title="Oyster Mushroom Cultivation in India | Complete Guide" 
-                description="Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) India's fastest growing agribusiness. Guide for training, spawn, and bulk supply."
+                description={metaDesc || "Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) India's fastest growing agribusiness. Guide for training, spawn, and bulk supply."}
                 keywords="oyster mushroom cultivation in India, mushroom spawn near me, mushroom farming training Jabalpur, mushroom seed price India, mushroom bulk supplier"
             />
 

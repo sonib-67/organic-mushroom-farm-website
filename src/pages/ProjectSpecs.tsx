@@ -52,7 +52,7 @@ const dummyData = {
   }
 };
 
-const ProjectSpecsPage = () => {
+const ProjectSpecsPage = ({ metaDesc }: { metaDesc?: string }) => {
   const { id } = useParams<{ id: string }>();
   const data = id ? dummyData[id as keyof typeof dummyData] : dummyData["rajesh-kumar"];
   const specData = data || dummyData["rajesh-kumar"];

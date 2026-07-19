@@ -3,12 +3,12 @@ import { motion } from 'motion/react';
 import { MapPin, Globe, Award, ShieldCheck, Sprout, Building, Users } from 'lucide-react';
 import SEO from '../components/SEO';
 
-const OperationsPage = () => {
+const OperationsPage = ({ metaDesc }: { metaDesc?: string }) => {
   return (
     <div className="min-h-screen pt-32 pb-24 relative overflow-hidden">
       <SEO 
         title="Pan India & Global Operations | Organic Mushroom Farm" 
-        description="Our expert teams provide commercial mushroom training and farm setup India services across Maharashtra, MP, UP, Rajasthan, Gujarat, USA, UK, Canada, UAE, Europe and globally." 
+        description={metaDesc || "Our expert teams provide commercial mushroom training and farm setup India services across Maharashtra, MP, UP, Rajasthan, Gujarat, USA, UK, Canada, UAE, Europe and globally."} 
         keywords="mushroom training India, mushroom farm setup India, global mushroom farming consultancy, USA mushroom setup, Europe mushroom spawn"
       />
 

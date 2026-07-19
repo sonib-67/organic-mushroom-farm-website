@@ -4,7 +4,7 @@ import DetailView from '../components/DetailView';
 import { SERVICES_DATA } from '../data/services';
 import SEO from '../components/SEO';
 
-const ServiceDetailPage = ({ defaultId }: { defaultId?: string }) => {
+const ServiceDetailPage = ({ defaultId, metaDesc }: { defaultId?: string, metaDesc?: string }) => {
   const params = useParams<{ id: string }>();
   const id = defaultId || params.id;
   const service = SERVICES_DATA.find(s => s.id === id);
@@ -17,7 +17,7 @@ const ServiceDetailPage = ({ defaultId }: { defaultId?: string }) => {
     <>
       <SEO 
         title={`${service.title} - Commercial Farming Services`}
-        description={service.description || `Read detailed specifications and professional setup procedures for our ${service.title} mushroom services.`}
+        description={metaDesc || service.description || `Read detailed specifications and professional setup procedures for our ${service.title} mushroom services.`}
         url={`/services/${id}`}
       />
       <DetailView data={service} />

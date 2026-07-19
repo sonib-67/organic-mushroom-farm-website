@@ -10,7 +10,7 @@ import SEO from '../components/SEO';
 import { mushroomDetails } from '../data/mushroomDetailData';
 import { SHIPPING_DETAILS, MERCHANT_RETURN_POLICY } from '../utils/seoSchemas';
 
-const MushroomTypeDetails = ({ defaultSlug }: { defaultSlug?: string }) => {
+const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, metaDesc?: string }) => {
   const params = useParams<{ slug: string }>();
   const slug = defaultSlug || params.slug;
   const navigate = useNavigate();
@@ -127,7 +127,7 @@ const MushroomTypeDetails = ({ defaultSlug }: { defaultSlug?: string }) => {
     <div className="min-h-screen bg-transparent text-[var(--text-body)]">
       <SEO 
         title={`${info.seoTitle} | Organic Mushroom Farm`}
-        description={info.seoDescription}
+        description={metaDesc || info.seoDescription}
         schemas={[mushroomSchema]}
       />
 

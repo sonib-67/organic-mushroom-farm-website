@@ -9,7 +9,7 @@ import {
 import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 
-const ArticleGharParMushroomFarming = () => {
+const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -105,7 +105,7 @@ const ArticleGharParMushroomFarming = () => {
     <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
       <SEO 
         title="Mushroom Farming: Ghar Par Mushroom Kaise Ugayein — India Ka Sabse Complete Guide (2026)" 
-        description="Learn how to grow mushroom at home. Complete step-by-step guide on substrate pasteurization, spawn selection, bag filling, incubation, harvesting, and state-wise training centers."
+        description={metaDesc || "Learn how to grow mushroom at home. Complete step-by-step guide on substrate pasteurization, spawn selection, bag filling, incubation, harvesting, and state-wise training centers."}
         keywords="how to grow mushroom at home, mushroom training center, button mushroom training center, oyster mushroom training center, mushroom farming training center, mushroom ki kheti, spawn seed jabalpur"
       />
 

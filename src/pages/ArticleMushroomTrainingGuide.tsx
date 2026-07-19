@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
-const ArticleMushroomTrainingGuide = () => {
+const ArticleMushroomTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="Mushroom Farming Training: The Complete Guide to Starting a Profitable Mushroom Cultivation Business"
-                description="Where to get trained in mushroom farming, varieties to learn, training costs, government support, and how the profit works in 2026."
-            />
+        title="Mushroom Farming Training: The Complete Guide to Starting a Profitable Mushroom Cultivation Business"
+               
+        description={metaDesc || "Where to get trained in mushroom farming, varieties to learn, training costs, government support, and how the profit works in 2026."}
+      />
             
             <article className="max-w-4xl mx-auto px-4 prose prose-invert">
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">

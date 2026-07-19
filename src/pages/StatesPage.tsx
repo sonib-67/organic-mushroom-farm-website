@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import { ChevronRight, Map } from "lucide-react";
 
-export default function StatesPage() {
+export default function StatesPage({ metaDesc }: { metaDesc?: string }) {
   return (
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Mushroom Farming States | Cities Pages"
-        description="Select a state to explore mushroom farming resources, training centers, and local guides."
+        description={metaDesc || "Select a state to explore mushroom farming resources, training centers, and local guides."}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
