@@ -60,7 +60,7 @@ export default function KarnatakaPage() {
             </div>
           </Link>
           <Link
-            to="/mushroom-farming-mangalore-karnataka"
+            to="/cities/karnataka/mangalore"
             className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
           >
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">

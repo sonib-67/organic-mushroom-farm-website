@@ -87,7 +87,7 @@ const ArticleDehradunTraining = () => {
                 title="देहरादून में Mushroom Farming, Training, Spawn Supply और Consultancy" 
                 description="देहरादून में मशरूम फार्म सेटअप, स्पॉन सप्लाई, ऑनलाइन और ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स।"
                 keywords="Mushroom farming Dehradun, mushroom training Dehradun, mushroom spawn Uttarakhand, oyster mushroom Dehradun, button mushroom Dehradun, organic mushroom farm"
-                url="/mushroom-farming-dehradun-uttarakhand"
+                url="/cities/uttarakhand/dehradun"
                 schemas={customSchemas}
             />
             

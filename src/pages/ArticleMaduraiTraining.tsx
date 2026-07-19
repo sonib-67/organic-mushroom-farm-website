@@ -60,7 +60,7 @@ const ArticleMaduraiTraining = () => {
                 title="Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும் முழுமையான வழிகாட்டுதல்" 
                 description="Start your mushroom farming business in Madurai, Tamil Nadu. Get professional training, premium spawn, customized farm setup, and complete marketing support."
                 keywords="Mushroom farming Madurai, mushroom training Madurai, mushroom spawn Madurai, oyster mushroom Tamil Nadu, organic mushroom farm"
-                url="/mushroom-farming-madurai-tamil-nadu"
+                url="/cities/tamil-nadu/madurai"
                 schemas={customSchemas}
             />
             

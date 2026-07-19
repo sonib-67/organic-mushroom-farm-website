@@ -87,7 +87,7 @@ const ArticleGuwahatiTraining = () => {
                 title="Professional Mushroom Farming Training Guwahati Assam" 
                 description="Mushroom farm setup, spawn supply, online/offline training, fresh/dry mushroom sale, and turnkey projects in Guwahati, Assam. Start your commercial farm today!"
                 keywords="Mushroom farming Guwahati, mushroom training Guwahati, mushroom spawn Assam, oyster mushroom Guwahati, button mushroom Guwahati, organic mushroom farm"
-                url="/mushroom-farming-guwahati-assam"
+                url="/cities/assam/guwahati"
                 schemas={customSchemas}
             />
             

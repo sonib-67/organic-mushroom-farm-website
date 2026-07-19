@@ -86,7 +86,7 @@ const ArticleMysuruTraining = () => {
                 title="Mushroom Farming in Mysuru | Training, Spawn Supply & Farm Setup" 
                 description="Mushroom farming training, spawn supply, and farm setup in Mysuru, Vijayanagar, Hebbal, Kuvempu Nagar, Srirangapatna, Nanjangud, and surrounding areas."
                 keywords="Mushroom farming Mysuru, mushroom training Mysuru, mushroom spawn Mysuru, farm setup Mysuru, organic mushroom farm Karnataka"
-                url="/mushroom-farming-mysuru-karnataka"
+                url="/cities/karnataka/mysuru"
                 schemas={customSchemas}
             />
             

@@ -136,7 +136,7 @@ const ArticleRaipurTraining = () => {
                                 7. Expert Mushroom Consultancy (विशेषज्ञों की सलाह)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                फसल में हरा या पीला फंगस लग जाना एक आम बात है। हमारी <Link to="/on-site-consultation" className="text-primary-start hover:underline font-medium">Mushroom Consultancy</Link> सर्विस के जरिए हमारे एक्सपर्ट्स आपके फार्म का समय-समय पर ऑडिट करते हैं और पैदावार बढ़ाने के पक्के उपाय बताते हैं।
+                                फसल में हरा या पीला फंगस लग जाना एक आम बात है। हमारी <Link to="/site-visit-consultation" className="text-primary-start hover:underline font-medium">Mushroom Consultancy</Link> सर्विस के जरिए हमारे एक्सपर्ट्स आपके फार्म का समय-समय पर ऑडिट करते हैं और पैदावार बढ़ाने के पक्के उपाय बताते हैं।
                             </p>
                         </div>
 
