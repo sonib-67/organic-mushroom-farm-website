@@ -89,7 +89,7 @@ const ArticleMangaloreTraining = () => {
                 title="ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಫಾರ್ಮಿಂಗ್ | Mushroom Farming in Mangalore (Tulu)" 
                 description="ಕುಡ್ಲದ ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು? ಮಶ್ರೂಮ್ ಫಾರ್ಮ್ ಸೆಟಪ್, ಟ್ರೈನಿಂಗ್, ಬೊಕ್ಕ ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಬಿಸಿನೆಸ್ ಬಗ್ಗೆ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ (ತುಳು)."
                 keywords="Mushroom farming Mangalore, organic stores Mangalore, mushroom spawn Mangalore, mushroom training Karnataka, Tulu mushroom business, ಕುಡ್ಲ ಮಶ್ರೂಮ್, ಉಡುಪಿ"
-                url="/cities/karnataka/mangalore"
+                url="/mushroom-farming-mangalore-karnataka"
                 schemas={customSchemas}
             />
             

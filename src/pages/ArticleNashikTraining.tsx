@@ -86,7 +86,7 @@ const ArticleNashikTraining = () => {
                 title="Mushroom Farming Training, Spawn Supply, Consultancy & Farm Setup in Nashik" 
                 description="Start your mushroom farming business in Nashik with Organic Mushroom Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
                 keywords="Mushroom farming Nashik, mushroom training Nashik, mushroom spawn Maharashtra, oyster mushroom Nashik, button mushroom Nashik, organic mushroom farm"
-                url="/cities/maharashtra/nashik"
+                url="/mushroom-farming-nashik-maharashtra"
                 schemas={customSchemas}
             />
             

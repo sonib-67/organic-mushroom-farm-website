@@ -582,7 +582,7 @@ export default function SitemapPage() {
 
                                     <div className="grid grid-cols-2 gap-2">
                                       <Link 
-                                        to={customCityUrls[city.slug] || `/mushroom-farming-${city.slug}`}
+                                        to={`/mushroom-farming-${city.slug}`}
                                         className="text-[10px] px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 font-medium flex items-center gap-1.5 transition-colors truncate"
                                       >
                                         <Sprout size={10} className="text-primary-start" />

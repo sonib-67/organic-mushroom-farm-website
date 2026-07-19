@@ -6660,7 +6660,10 @@ const AnimatedRoutes = () => {
 
           <Route path="/" element={<HomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
-          <Route path="/on-site-consultation" element={<Navigate to="/site-visit-consultation" replace />} />
+          <Route
+            path="/on-site-consultation"
+            element={<SiteVisitConsultationPage />}
+          />
           <Route path="/payment-success" element={<PaymentSuccessPage />} />
           <Route path="/payment-cancelled" element={<PaymentCancelledPage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -6758,7 +6761,7 @@ const AnimatedRoutes = () => {
             element={<MushroomFranchisePage />}
           />
           <Route path="/sitemap" element={<SitemapPage />} />
-          <Route path="/site-directory" element={<Navigate to="/sitemap" replace />} />
+          <Route path="/site-directory" element={<SitemapPage />} />
 
           <Route path="/states" element={<StatesPage  metaDesc="Explore state-wise mushroom farming resources across India. Connect with regional experts, locate farm setup consultants, and access government guides." />} />
           <Route path="/states/madhya-pradesh" element={<MadhyaPradeshPage />} />
@@ -6785,60 +6788,60 @@ const AnimatedRoutes = () => {
           <Route path="/states/assam" element={<AssamPage />} />
           <Route path="/cities/madhya-pradesh/jabalpur" element={<ArticleJabalpurGuide />} />
           <Route path="/cities/assam/guwahati" element={<ArticleGuwahatiTraining />} />
-          <Route path="/mushroom-farming-guwahati-assam" element={<Navigate to="/cities/assam/guwahati" replace />} />
+          <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiTraining />} />
           <Route path="/cities/karnataka/bangalore" element={<ArticleBangaloreTraining />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruTraining />} />
-          <Route path="/mushroom-farming-mysuru-karnataka" element={<Navigate to="/cities/karnataka/mysuru" replace />} />
+          <Route path="/mushroom-farming-mysuru-karnataka" element={<ArticleMysuruTraining />} />
           <Route path="/cities/karnataka/mangalore" element={<ArticleMangaloreTraining />} />
-          <Route path="/mushroom-farming-mangalore-karnataka" element={<Navigate to="/cities/karnataka/mangalore" replace />} />
+          <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreTraining />} />
           <Route path="/cities/chhattisgarh/raipur" element={<ArticleRaipurTraining />} />
           <Route path="/cities/kerala/kochi" element={<ArticleKochiTraining />} />
           <Route path="/cities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramTraining />} />
-          <Route path="/mushroom-farming-thiruvananthapuram-kerala" element={<Navigate to="/cities/kerala/thiruvananthapuram" replace />} />
-          <Route path="/mushroom-farming-thiruvananthapuram" element={<Navigate to="/cities/kerala/thiruvananthapuram" replace />} />
+          <Route path="/mushroom-farming-thiruvananthapuram-kerala" element={<ArticleThiruvananthapuramTraining />} />
+          <Route path="/mushroom-farming-thiruvananthapuram" element={<ArticleThiruvananthapuramTraining />} />
           <Route path="/cities/odisha/bhubaneswar" element={<ArticleBhubaneswarTraining />} />
           <Route path="/cities/jharkhand/ranchi" element={<ArticleRanchiTraining />} />
           <Route path="/cities/tamil-nadu/chennai" element={<ArticleChennaiTraining />} />
           <Route path="/cities/tamil-nadu/coimbatore" element={<ArticleCoimbatoreTraining />} />
           <Route path="/cities/tamil-nadu/madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/tamil-nadu/tiruchirappalli" element={<ArticleTiruchirappalliTraining />} />
-          <Route path="/mushroom-farming-madurai-tamil-nadu" element={<Navigate to="/cities/tamil-nadu/madurai" replace />} />
-          <Route path="/mushroom-farming-madurai" element={<Navigate to="/cities/tamil-nadu/madurai" replace />} />
+          <Route path="/mushroom-farming-madurai-tamil-nadu" element={<ArticleMaduraiTraining />} />
+          <Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/maharashtra/nashik" element={<ArticleNashikTraining />} />
-          <Route path="/mushroom-farming-nashik-maharashtra" element={<Navigate to="/cities/maharashtra/nashik" replace />} />
+          <Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
           <Route path="/cities/haryana/faridabad" element={<ArticleFaridabadTraining />} />
           <Route path="/cities/uttar-pradesh/noida" element={<ArticleNoidaTraining />} />
           <Route path="/cities/uttarakhand/dehradun" element={<ArticleDehradunTraining />} />
-          <Route path="/mushroom-farming-dehradun-uttarakhand" element={<Navigate to="/cities/uttarakhand/dehradun" replace />} />
-          <Route path="/mushroom-farming-dehradun" element={<Navigate to="/cities/uttarakhand/dehradun" replace />} />
+          <Route path="/mushroom-farming-dehradun-uttarakhand" element={<ArticleDehradunTraining />} />
+          <Route path="/mushroom-farming-dehradun" element={<ArticleDehradunTraining />} />
           <Route path="/cities/telangana/hyderabad" element={<ArticleHyderabadTraining />} />
           <Route path="/cities/west-bengal/kolkata" element={<ArticleKolkataTraining />} />
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriTraining />} />
-          <Route path="/mushroom-farming-siliguri-west-bengal" element={<Navigate to="/cities/west-bengal/siliguri" replace />} />
-          <Route path="/mushroom-farming-siliguri" element={<Navigate to="/cities/west-bengal/siliguri" replace />} />
+          <Route path="/mushroom-farming-siliguri-west-bengal" element={<ArticleSiliguriTraining />} />
+          <Route path="/mushroom-farming-siliguri" element={<ArticleSiliguriTraining />} />
           <Route path="/cities/gujarat/ahmedabad" element={<ArticleAhmedabadTraining />} />
           <Route path="/cities/andhra-pradesh/visakhapatnam" element={<ArticleVisakhapatnamTraining />} />
           <Route path="/cities/andhra-pradesh/vijayawada" element={<ArticleVijayawadaTraining />} />
           <Route path="/cities/gujarat/surat" element={<ArticleSuratTraining />} />
           <Route path="/cities/gujarat/vadodara" element={<ArticleVadodaraTraining />} />
           <Route path="/cities/gujarat/rajkot" element={<ArticleRajkotTraining />} />
-          <Route path="/mushroom-farming-vadodara-gujarat" element={<Navigate to="/cities/gujarat/vadodara" replace />} />
-          <Route path="/mushroom-farming-vadodara" element={<Navigate to="/cities/gujarat/vadodara" replace />} />
+          <Route path="/mushroom-farming-vadodara-gujarat" element={<ArticleVadodaraTraining />} />
+          <Route path="/mushroom-farming-vadodara" element={<ArticleVadodaraTraining />} />
           <Route path="/cities/punjab/amritsar" element={<ArticleAmritsarTraining />} />
-          <Route path="/mushroom-farming-amritsar-punjab" element={<Navigate to="/cities/punjab/amritsar" replace />} />
-          <Route path="/mushroom-farming-amritsar" element={<Navigate to="/cities/punjab/amritsar" replace />} />
+          <Route path="/mushroom-farming-amritsar-punjab" element={<ArticleAmritsarTraining />} />
+          <Route path="/mushroom-farming-amritsar" element={<ArticleAmritsarTraining />} />
           <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
           <Route path="/cities/chandigarh" element={<ArticleChandigarhTraining />} />
           <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerTraining />} />
-          <Route path="/mushroom-farming-bikaner-rajasthan" element={<Navigate to="/cities/rajasthan/bikaner" replace />} />
-          <Route path="/mushroom-farming-bikaner" element={<Navigate to="/cities/rajasthan/bikaner" replace />} />
+          <Route path="/mushroom-farming-bikaner-rajasthan" element={<ArticleBikanerTraining />} />
+          <Route path="/mushroom-farming-bikaner" element={<ArticleBikanerTraining />} />
           <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurTraining />} />
-          <Route path="/mushroom-farming-udaipur-rajasthan" element={<Navigate to="/cities/rajasthan/udaipur" replace />} />
-          <Route path="/mushroom-farming-udaipur" element={<Navigate to="/cities/rajasthan/udaipur" replace />} />
+          <Route path="/mushroom-farming-udaipur-rajasthan" element={<ArticleUdaipurTraining />} />
+          <Route path="/mushroom-farming-udaipur" element={<ArticleUdaipurTraining />} />
           <Route path="/cities/uttar-pradesh/lucknow" element={<ArticleLucknowTraining />} />
           <Route path="/cities/uttar-pradesh/agra" element={<ArticleAgraTraining />} />
           <Route path="/cities/uttar-pradesh/kanpur" element={<ArticleKanpurTraining />} />

@@ -86,7 +86,7 @@ const ArticleVadodaraTraining = () => {
                 title="Vadodara Mushroom Farm Setup, Training & Spawn Supply | Complete Solutions" 
                 description="Start your mushroom farming and supply business in Vadodara with Organic Mushroom Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete restaurant marketing support."
                 keywords="Mushroom farming Vadodara, mushroom training Vadodara, mushroom spawn Gujarat, oyster mushroom Vadodara, button mushroom Vadodara, organic mushroom farm"
-                url="/cities/gujarat/vadodara"
+                url="/mushroom-farming-vadodara-gujarat"
                 schemas={customSchemas}
             />
             
