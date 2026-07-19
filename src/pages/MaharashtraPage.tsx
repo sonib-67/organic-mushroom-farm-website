@@ -8,7 +8,7 @@ export default function MaharashtraPage() {
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Maharashtra Mushroom Farming | Cities Pages"
-        description="Discover top-rated commercial mushroom farming training, turnkey setup services, and expert guidance in Maharashtra to start your successful business."
+        description="Find the best mushroom farming training, farm setups, and expert advice in Maharashtra."
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
@@ -25,7 +25,7 @@ export default function MaharashtraPage() {
             Maharashtra Mushroom Resources
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl">
-            Select a city in Maharashtra to view local mushroom farming centers, training courses, and spawn availability.
+            Choose a city in Maharashtra to find local mushroom training, experts, and seed suppliers.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function MaharashtraPage() {
               Mumbai
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, cultivation resources, and commercial setups in Mumbai.
+              Get mushroom training, growing tips, and farm setups in Mumbai.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
@@ -52,7 +52,7 @@ export default function MaharashtraPage() {
               Pune
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, cultivation resources, and offline courses in Pune.
+              Find mushroom training, growing tips, and classes in Pune.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
@@ -66,7 +66,7 @@ export default function MaharashtraPage() {
               Nagpur
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, cultivation resources, and commercial setups in Nagpur.
+              Get mushroom training, growing tips, and farm setups in Nagpur.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
@@ -80,7 +80,7 @@ export default function MaharashtraPage() {
               Aurangabad
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom Farming Business for Women Self-Help Groups (SHGs) in Aurangabad.
+              Start a mushroom farm with Women Self-Help Groups in Aurangabad.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
@@ -94,7 +94,7 @@ export default function MaharashtraPage() {
               Nashik
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training (online & offline), premium spawn supply, commercial farm setup, and consultancy services in Nashik, Maharashtra.
+              Get mushroom training, seeds, farm setups, and expert advice in Nashik.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />

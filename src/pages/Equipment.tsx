@@ -9,28 +9,28 @@ const EquipmentPage = () => {
       title: "Core Infrastructure",
       icon: Zap,
       items: [
-        { name: "Humidifiers & Foggers", desc: "Automated ultrasonic systems to maintain 80-90% relative humidity essential for pinning." },
-        { name: "Temperature Control", desc: "Industrial AC units and high-speed exhaust fans for precise thermodynamic balance." },
-        { name: "Racks & Shelves", desc: "Galvanized vertical racking systems designed to maximize cubic growth area." },
-        { name: "LED Lighting", desc: "Balanced spectrum LED setups specifically for mushroom pinning induction." }
+        { name: "Humidifiers & Foggers", desc: "Automatic systems to keep the air moist, which is important for mushroom growth." },
+        { name: "Temperature Control", desc: "Air conditioners and fans to control the temperature and fresh air." },
+        { name: "Racks & Shelves", desc: "Strong shelves to save space and grow more mushrooms." },
+        { name: "LED Lighting", desc: "Special LED lights to help mushrooms start growing." }
       ]
     },
     {
       title: "Cultivation Tools",
       icon: Hammer,
       items: [
-        { name: "Pressure Sprayers", desc: "Fine-mist sprayer pumps for maintaining hydration without damaging mycelium." },
-        { name: "Digital Hygrometers", desc: "Industrial-grade sensors for real-time monitoring of temp and moisture." },
-        { name: "PP Bags & Trays", desc: "BPA-free polypropylene bags and wooden/plastic incubation trays." }
+        { name: "Pressure Sprayers", desc: "Sprayers that give a fine mist to water mushrooms gently." },
+        { name: "Digital Hygrometers", desc: "High-quality sensors to check temperature and humidity." },
+        { name: "PP Bags & Trays", desc: "Safe plastic bags and trays for growing." }
       ]
     },
     {
       title: "Raw Materials",
       icon: FlaskConical,
       items: [
-        { name: "Lab-Tested Spawn", desc: "High-yield hybrid mushroom seeds (spawn) verified for genetic stability." },
-        { name: "Quality Substrate", desc: "Premium wheat straw, paddy straw, and hardwood sawdust sourcing." },
-        { name: "Sterilization Units", desc: "Industrial-grade autoclaves and chemical sterilization tanks for substrate prep." }
+        { name: "Lab-Tested Spawn", desc: "High-quality mushroom seeds (spawn) that give good yields." },
+        { name: "Quality Substrate", desc: "Good quality wheat straw, paddy straw, and sawdust." },
+        { name: "Sterilization Units", desc: "Equipment to clean and prepare the growing material." }
       ]
     }
   ];
@@ -53,7 +53,7 @@ const EquipmentPage = () => {
             The <span className="gradient-text">Grow Tech</span> Stack
           </h1>
           <p className="text-slate-400 text-lg leading-relaxed">
-            Essential infrastructure and professional-grade materials required for industrial mushroom production.
+            Essential tools and materials needed for commercial mushroom farming.
           </p>
         </motion.div>
       </section>
@@ -91,7 +91,7 @@ const EquipmentPage = () => {
             <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Industrial Setup Assistance</h3>
                 <p className="text-slate-400 text-lg leading-relaxed mb-8">
-                    Not sure which equipment to buy? We provide turnkey project assistance, sourcing high-quality machinery at wholesale rates for our students.
+                    Not sure what to buy? We help you choose and get high-quality equipment at wholesale prices.
                 </p>
                 <div className="flex gap-4">
                     <a href="https://wa.me/919203544140?text=Hi,%20I%20am%20looking%20for%20a%20wholesale%20quote%20for%20mushroom%20farming%20equipment." target="_blank" rel="noopener noreferrer" className="gradient-bg px-8 py-4 rounded-xl text-white font-bold inline-flex items-center gap-2">

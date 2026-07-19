@@ -8,7 +8,7 @@ export default function AndhraPradeshPage() {
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Mushroom Farming in Andhra Pradesh | Cities"
-        description="Find premium mushroom farming training, commercial setups, spawn supply, and agribusiness resources across cities in Andhra Pradesh."
+        description="Find mushroom farming training, farm setups, seeds, and resources in Andhra Pradesh cities."
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
@@ -25,7 +25,7 @@ export default function AndhraPradeshPage() {
             Andhra Pradesh Cities
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl">
-            Select a city in Andhra Pradesh to find local mushroom farming training centers, consultants, and premium spawn suppliers.
+            Choose a city in Andhra Pradesh to find local mushroom training, experts, and seed suppliers.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function AndhraPradeshPage() {
               Visakhapatnam
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, cultivation resources, and commercial setups in Visakhapatnam.
+              Get mushroom training, growing tips, and farm setups in Visakhapatnam.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
@@ -53,7 +53,7 @@ export default function AndhraPradeshPage() {
               Vijayawada
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, agritech business opportunities, and cultivation resources in Vijayawada.
+              Find mushroom training, business ideas, and growing tips in Vijayawada.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />

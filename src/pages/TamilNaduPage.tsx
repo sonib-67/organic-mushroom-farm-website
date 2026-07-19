@@ -38,7 +38,7 @@ export default function TamilNaduPage() {
               Chennai
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, cultivation resources, and commercial setups in Chennai.
+              Get mushroom training, growing tips, and farm setups in Chennai.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
@@ -53,7 +53,7 @@ export default function TamilNaduPage() {
               Coimbatore
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mb-6">
-              Mushroom training, agritech business opportunities, and cultivation resources in Coimbatore.
+              Find mushroom training, business ideas, and growing tips in Coimbatore.
             </p>
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />

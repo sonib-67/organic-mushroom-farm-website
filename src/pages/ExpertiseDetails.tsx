@@ -22,7 +22,7 @@ const ExpertiseDetailsPage = () => {
                          Bridging <span className="gradient-text">Technology</span> & Cultivation
                      </h1>
                      <p className="text-slate-400 text-lg leading-relaxed mb-10">
-                         Discover how our expertise transforms traditional farming into a high-yield industrial powerhouse.
+                         See how we help you start and grow a successful commercial mushroom farm.
                      </p>
                  </motion.div>
              </section>
@@ -41,7 +41,7 @@ const ExpertiseDetailsPage = () => {
                            <div>
                                 <h2 className="text-3xl font-bold text-white mb-4">Precision Engineering</h2>
                                 <p className="text-slate-300 text-lg mb-6 leading-relaxed">
-                                    Our turnkey builds employ sophisticated Internet of Things (IoT) sensors to continuously monitor and adjust climate conditions.
+                                    Our farms use smart sensors to check and adjust the temperature and humidity automatically.
                                 </p>
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-3 text-slate-400">
@@ -50,7 +50,7 @@ const ExpertiseDetailsPage = () => {
                                     </li>
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
-                                        <span><strong>Humidity Control:</strong> Ultrasonic humidifiers linked to precision hygrometers maintain the strict 85-90% relative humidity required for A-grade quality button mushrooms.</span>
+                                        <span><strong>Humidity Control:</strong> Special humidifiers keep the air moist, which is essential for growing high-quality mushrooms.</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
@@ -74,16 +74,16 @@ const ExpertiseDetailsPage = () => {
                            <div>
                                 <h2 className="text-3xl font-bold text-white mb-4">Expert Training</h2>
                                 <p className="text-slate-300 text-lg mb-6 leading-relaxed">
-                                    We bridge the knowledge gap through intensive, hands-on education programs.
+                                    We teach you everything you need to know with hands-on training.
                                 </p>
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
-                                        <span><strong>Physical Training Center (Jabalpur):</strong> Immerse yourself in a fully operational commercial farm. Learn spawning, casing preparation, and harvesting techniques directly from seasoned growers.</span>
+                                        <span><strong>Physical Training Center (Jabalpur):</strong> Learn directly on a working farm. Practice making beds, adding seeds, and harvesting.</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
-                                        <span><strong>Online Certification:</strong> Master the theoretical foundations—from compost biology to disease identification—through structured digital modules and live webinars.</span>
+                                        <span><strong>Online Certification:</strong> Learn the basics online, including how to make compost and identify diseases.</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
@@ -107,16 +107,16 @@ const ExpertiseDetailsPage = () => {
                            <div>
                                 <h2 className="text-3xl font-bold text-white mb-4">Quality Guarantee</h2>
                                 <p className="text-slate-300 text-lg mb-6 leading-relaxed">
-                                    Our commitment to quality ensures long-term operational success and maximum yield.
+                                    We use high-quality materials to make sure your farm lasts and produces a lot.
                                 </p>
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
-                                        <span><strong>ISI-Grade Infrastructure:</strong> We construct our grow rooms using heavy-duty Galvanized Iron (GI) or Mild Steel (MS) racking structures, rated to support massive compost weights over decades of use.</span>
+                                        <span><strong>ISI-Grade Infrastructure:</strong> We build strong metal shelves that can hold heavy mushroom beds for many years.</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />
-                                        <span><strong>Premium Hybrid Spawn:</strong> Our seeds possess exceptional genetic vigor, guaranteeing rapid mycelial colonization, disease resistance, and higher biological efficiency.</span>
+                                        <span><strong>Premium Hybrid Spawn:</strong> Our high-quality seeds grow fast, resist diseases, and give a great harvest.</span>
                                     </li>
                                     <li className="flex items-start gap-3 text-slate-400">
                                         <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} />

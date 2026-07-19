@@ -250,13 +250,13 @@ export const jabalpurBlogs = [
     id: 20,
     slug: "mushroom-farming-training-government-online",
     title: "Online Government Mushroom Training Resources | Jabalpur Guide",
-    metaDesc: "Looking for government-backed mushroom farming training online? Here is what's available and how it compares to in-person courses.",
+    metaDesc: "Looking for government mushroom farming training online? See what is available and how it compares to in-person classes.",
     h1: "Online Government Mushroom Training Resources",
-    intro: "While most government mushroom training is conducted in person due to the hands-on nature of cultivation, several agricultural institutes publish online resources, recorded sessions, and e-learning material through platforms linked to ICAR and state agricultural universities. This page outlines what online options exist and where they fall short compared to in-person, hands-on training.",
+    intro: "Most government mushroom training happens in person because you need hands-on practice. However, some farming institutes share online resources and recorded classes. You can find these on websites linked to ICAR and state universities. This page explains the online options and why hands-on training is often better.",
     faq: [
-      { q: "Can I fully learn mushroom cultivation online?", a: "Online resources are useful for understanding theory, but most experienced trainers recommend hands-on practice for the practical skills involved, like recognising contamination." },
-      { q: "Where can I find official online material?", a: "ICAR-affiliated institutes and state agricultural universities sometimes publish guides and recorded sessions on their official websites." },
-      { q: "Is online training a good starting point before in-person training?", a: "Yes, reviewing basic concepts online before attending hands-on training can help you get more out of the practical sessions." }
+      { q: "Can I fully learn mushroom cultivation online?", a: "Online learning is good for the basics. But trainers say you need hands-on practice for skills like spotting bad molds." },
+      { q: "Where can I find official online material?", a: "State farming universities and ICAR institutes often put guides and videos on their websites." },
+      { q: "Is online training a good starting point before in-person training?", a: "Yes! Learning the basics online first can help you understand more during the hands-on classes." }
     ]
   },
   {
