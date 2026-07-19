@@ -12,7 +12,7 @@ export default function MadhyaPradeshPage() {
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Madhya Pradesh Mushroom Farming | Cities Pages"
-        description="Explore mushroom farming, training, and resources in Madhya Pradesh."
+        description="Discover top-rated commercial mushroom farming training, turnkey setup services, and expert guidance in Madhya Pradesh to start your successful business."
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">

@@ -5153,7 +5153,7 @@ const AboutPage = () => {
               <div className="absolute inset-0 gradient-bg opacity-10 blur-[100px] rounded-full"></div>
               <img
                 src="training images/trainingmushroom.jpg"
-                alt="Who We Are - Leading Organic Mushroom Farm Training and Commercial Turnkey Setup Experts in India, USA, Australia"
+                alt="Organic Mushroom Farm Training & Commercial Setup Experts"
                 className="relative z-10 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl opacity-80"
               />
             </div>
@@ -5375,8 +5375,11 @@ const ServicesPage = () => {
                 <Link
                   to={`/services/${s.id}`}
                   className="text-primary-start font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all"
+                  aria-label={`Learn more about ${s.title}`}
+                  title={`Learn more about ${s.title}`}
                 >
-                  Learn More <ArrowRight size={14} />
+                  Learn More <span className="sr-only">about {s.title}</span>
+                  <ArrowRight size={14} aria-hidden="true" />
                 </Link>
               </motion.div>
             ))}
@@ -6835,7 +6838,7 @@ const AnimatedRoutes = () => {
           <Route path="/mushroom-farming-amritsar-punjab" element={<ArticleAmritsarTraining />} />
           <Route path="/mushroom-farming-amritsar" element={<ArticleAmritsarTraining />} />
           <Route path="/cities/bihar/patna" element={<ArticlePatnaTraining />} />
-          <Route path="/cities/chandigarh/chandigarh" element={<ArticleChandigarhTraining />} />
+          <Route path="/cities/chandigarh" element={<ArticleChandigarhTraining />} />
           <Route path="/cities/rajasthan/jaipur" element={<ArticleJaipurTraining />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerTraining />} />
           <Route path="/mushroom-farming-bikaner-rajasthan" element={<ArticleBikanerTraining />} />

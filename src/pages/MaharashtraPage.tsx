@@ -8,7 +8,7 @@ export default function MaharashtraPage() {
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Maharashtra Mushroom Farming | Cities Pages"
-        description="Explore mushroom farming, training, and resources in Maharashtra."
+        description="Discover top-rated commercial mushroom farming training, turnkey setup services, and expert guidance in Maharashtra to start your successful business."
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">

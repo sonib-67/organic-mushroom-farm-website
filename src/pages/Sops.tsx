@@ -8,7 +8,7 @@ const SopsPage = () => {
         <div className="min-h-screen pt-32 pb-20">
              <SEO 
                  title="Standard Operating Procedures | Technical Documentation"
-                 description="Technical SOPs for Tunnel Ops, Spawning, Casing, and Hygiene."
+                 description="Access comprehensive standard operating procedures (SOPs) for commercial mushroom farming, including tunnel operations, spawning, casing, and hygiene management."
              />
 
              <section className="section-padding text-center">

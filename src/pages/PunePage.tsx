@@ -9,7 +9,7 @@ export default function PunePage() {
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
         title="Pune Mushroom Farming | Cities Pages"
-        description="Explore mushroom farming, training, and resources in Pune."
+        description="Discover top-rated mushroom farming training, commercial setup services, and expert guidance tailored for Pune. Learn to grow organic mushrooms successfully."
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
