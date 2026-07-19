@@ -79,7 +79,7 @@ const ArticleBeginnerGuide = () => {
                                 </ul>
                             </div>
                             <div className="relative rounded-3xl overflow-hidden">
-                                <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png" alt="Different types of mushrooms India" className="w-full h-full object-cover" />
+                                <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378173/Screenshot_2026-01-17_125022_nvavd2.png" alt="Different types of mushrooms India" className="w-full h-full object-cover"  width="843" height="494" />
                             </div>
                         </div>
                     </section>

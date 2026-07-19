@@ -150,7 +150,7 @@ const BlogPage = () => {
                     <div className="optionalParent" style={{ marginTop: '20px' }}>
                         <div className="clear foot" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                             <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="button !bg-primary-start" defaultValue="Subscribe" />
-                            <p style={{margin: "10px auto 0"}}><a href="http://eepurl.com/bACEnyjC7lT" title="Mailchimp - email marketing made easy and fun"><span style={{display: "inline-block", backgroundColor: "transparent", borderRadius: "4px"}}><img className="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style={{width: "220px", height: "40px", display: "flex", padding: "2px 0px", justifyContent: "center", alignItems: "center"}} /></span></a></p>
+                            <p style={{margin: "10px auto 0"}}><a href="http://eepurl.com/bACEnyjC7lT" title="Mailchimp - email marketing made easy and fun"><span style={{display: "inline-block", backgroundColor: "transparent", borderRadius: "4px"}}><img className="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style={{width: "220px", height: "40px", display: "flex", padding: "2px 0px", justifyContent: "center", alignItems: "center"}}  width="1000" height="295" /></span></a></p>
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ const ArticleIndoreTraining = () => {
                         </h2>
                     </div>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908722/301854_wbuzmm.jpg" alt="Mushroom Farming Training Center Indore" className="w-full h-auto rounded-3xl mb-8 shadow-lg" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908722/301854_wbuzmm.jpg" alt="Mushroom Farming Training Center Indore" className="w-full h-auto rounded-3xl mb-8 shadow-lg"  width="980" height="370" />
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         क्लीन सिटी और देश के सबसे बड़े फूड और बिजनेस हब में से एक—इंदौर में अब कृषि और स्टार्टअप के क्षेत्र में एक नया ट्रेंड तेजी से बढ़ रहा है। बढ़ती आबादी, फिटनेस के प्रति दीवानगी और होटल्स-रेस्टोरेंट्स की भारी मांग के कारण 
@@ -73,7 +73,7 @@ const ArticleIndoreTraining = () => {
                         इंदौर में अपनी वेबसाइट को टॉप पर रैंक कराने और एक सफल मशरूम बिजनेस मॉडल सेट करने के लिए हमने इन 11 सबसे ज्यादा सर्च किए जाने वाले सेक्टर्स को पूरी तरह से कस्टमाइज किया है:
                     </p>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908723/mushroom_setup_e2wvji.png" alt="Mushroom Farm Setup Infrastructure" className="w-full h-auto rounded-3xl my-8 shadow-lg bg-white/5 p-2" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908723/mushroom_setup_e2wvji.png" alt="Mushroom Farm Setup Infrastructure" className="w-full h-auto rounded-3xl my-8 shadow-lg bg-white/5 p-2"  width="470" height="475" />
 
                     <div className="space-y-6">
                         <div>
@@ -187,7 +187,7 @@ const ArticleIndoreTraining = () => {
                         </div>
                     </div>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908722/301852_gteosb.jpg" alt="Commercial Mushroom Farming Project Indore" className="w-full h-auto rounded-3xl my-8 shadow-lg" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908722/301852_gteosb.jpg" alt="Commercial Mushroom Farming Project Indore" className="w-full h-auto rounded-3xl my-8 shadow-lg"  width="980" height="370" />
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
                         Google Fast Ranking Hyper-Local Coverage: इंदौर का कोना-कोना और आसपास के गांव

@@ -33,7 +33,7 @@ const ArticleNagpurTraining = () => {
                         </h2>
                     </div>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png" alt="Mushroom Farming Training Center Nagpur" className="w-full h-auto rounded-3xl mb-8 shadow-lg" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png" alt="Mushroom Farming Training Center Nagpur" className="w-full h-auto rounded-3xl mb-8 shadow-lg"  width="1911" height="896" />
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         राम राम नागपूरकर! संत्र्यांची नगरी आणि भारताचा मध्य बिंदू (Geographical Center) असलेलं आपलं नागपूर आता कृषी व्यवसायात (Agri-Business) एक नवा इतिहास रचत आहे. विदर्भातील हवामान आणि पारंपरिक शेतीतील (सोयाबीन, कापूस) वाढता धोका पाहता, आता नागपूरचे प्रगतशील शेतकरी, तरुण आणि महिला व्यावसायिक एका आधुनिक आणि हाय-प्रॉफिट स्टार्टअपकडे वळत आहेत, ते म्हणजे 

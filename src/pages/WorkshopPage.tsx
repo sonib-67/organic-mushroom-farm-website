@@ -205,7 +205,7 @@ const WorkshopPage = () => {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden">
-                <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain" />
+                <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain"  width="120" height="120" />
               </div>
               <span className="font-bold text-base md:text-lg tracking-tight dark:text-white text-slate-900 whitespace-nowrap">Organic Mushroom Farm</span>
             </Link>
@@ -305,7 +305,7 @@ const WorkshopPage = () => {
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901052/Screenshot_2026-06-08_120816_pittyu.png" 
               alt="Mushroom Farming Workshop" 
               className="w-full h-auto object-cover md:h-[600px]"
-            />
+             width="1344" height="663" />
           </div>
         </div>
       </section>
@@ -349,32 +349,32 @@ const WorkshopPage = () => {
           {/* Top Row - 4 items */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-3 md:mb-4 items-start">
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901050/Screenshot_2026-06-08_120804_myrcoc.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901050/Screenshot_2026-06-08_120804_myrcoc.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="1912" height="942" />
             </div>
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900956/Screenshot_2026-06-08_120832_z6sizr.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900956/Screenshot_2026-06-08_120832_z6sizr.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="1299" height="493" />
             </div>
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900921/Screenshot_2026-06-08_120840_ichkxe.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900921/Screenshot_2026-06-08_120840_ichkxe.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="868" height="444" />
             </div>
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777382179/Screenshot_2026-04-24_201116_b29aci.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="1340" height="617" />
             </div>
           </div>
           
           {/* Bottom Row - 4 items (2 columns) */}
           <div className="grid grid-cols-2 gap-3 md:gap-4 items-start">
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-01-30_124943_ylpdme.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-01-30_124943_ylpdme.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="577" height="440" />
             </div>
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="466" height="326" />
             </div>
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378181/Screenshot_2026-02-22_165318_cyla5n.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378181/Screenshot_2026-02-22_165318_cyla5n.png" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="471" height="421" />
             </div>
             <div className="rounded-2xl overflow-hidden relative group border dark:border-white/10 border-black/10">
-              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378062/images_wrrupm.jpg" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" />
+              <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378062/images_wrrupm.jpg" alt="Gallery" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"  width="300" height="168" />
             </div>
           </div>
         </div>
@@ -538,7 +538,7 @@ const WorkshopPage = () => {
             <div>
                <Link to="/" className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain"  width="120" height="120" />
                   </div>
                   <span className="font-bold text-2xl tracking-tight dark:text-white text-slate-900">Organic Mushroom Farm</span>
                </Link>

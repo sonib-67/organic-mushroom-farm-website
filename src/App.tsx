@@ -667,7 +667,7 @@ const CompanyProfile = () => {
                   alt="Organic Mushroom Farm"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
-                />
+                 width="120" height="120" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-1">
@@ -1018,7 +1018,7 @@ const Navbar = () => {
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
               alt="Organic Mushroom Farm"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
-            />
+             width="120" height="120" />
             <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
@@ -1176,7 +1176,7 @@ const Navbar = () => {
                       src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
                       alt="Organic Mushroom Farm"
                       className="w-full h-full object-contain"
-                    />
+                     width="120" height="120" />
                   </div>
                   <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">
                     Organic <span className="gradient-text">Mushroom Farm</span>
@@ -3194,7 +3194,7 @@ const Footer = () => {
                 src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
                 alt="Organic Mushroom Farm"
                 className="w-14 h-14 object-contain"
-              />
+               width="120" height="120" />
               <span className="text-lg font-bold tracking-tight dark:text-white text-slate-900">
                 Organic <span className="gradient-text">Mushroom Farm</span>
               </span>
@@ -4490,12 +4490,11 @@ const MushroomTraining = () => {
                 transition={{ delay: i * 0.1 }}
                 className="aspect-square rounded-md md:rounded-2xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
-                <img
-                  loading="lazy"
+                <img loading="lazy"
                   src={img.src}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
-                />
+                 width="800" height="600" />
               </motion.div>
             ))}
           </div>
@@ -4981,7 +4980,7 @@ const HomePage = () => {
                         src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg"
                         alt="Mushroom Farming Training Video - Commercial Cultivation SOPs India"
                         className="w-full h-full object-cover opacity-60"
-                      />
+                       width="1080" height="1080" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center pl-1 shadow-2xl">
                           <Play size={20} fill="currentColor" />
@@ -5151,11 +5150,10 @@ const AboutPage = () => {
             </motion.div>
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-10 blur-[100px] rounded-full"></div>
-              <img
-                src="training images/trainingmushroom.jpg"
+              <img src="training images/trainingmushroom.jpg"
                 alt="Organic Mushroom Farm Training & Commercial Setup Experts"
                 className="relative z-10 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl opacity-80"
-              />
+               width="800" height="600" />
             </div>
           </div>
         </div>
@@ -5217,11 +5215,10 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <img
-                src="training images/mushroomgrowth.jpg"
+              <img src="training images/mushroomgrowth.jpg"
                 alt="Why Choose Us - High Yield Button Mushroom Growth and Organic Cultivation Training in Jabalpur India"
                 className="rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl"
-              />
+               width="800" height="600" />
             </div>
             <div className="order-1 lg:order-2">
               <div className="badge mb-4">The Commercial Advantage</div>
@@ -6010,12 +6007,11 @@ const GalleryPage = () => {
                 transition={{ delay: i * 0.1 }}
                 className="group relative aspect-[4/3] rounded-3xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
-                <img
-                  loading="lazy"
+                <img loading="lazy"
                   src={img.src}
                   alt={img.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-                />
+                 width="800" height="600" />
                 <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="absolute bottom-6 left-6">
                     <span className="badge text-[10px]">{img.category}</span>

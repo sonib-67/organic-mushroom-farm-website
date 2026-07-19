@@ -33,7 +33,7 @@ const ArticleBhopalTraining = () => {
                         </h2>
                     </div>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901052/Screenshot_2026-06-08_120816_pittyu.png" alt="Mushroom Farming Training Center Bhopal" className="w-full h-auto rounded-3xl mb-8 shadow-lg" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780901052/Screenshot_2026-06-08_120816_pittyu.png" alt="Mushroom Farming Training Center Bhopal" className="w-full h-auto rounded-3xl mb-8 shadow-lg"  width="1344" height="663" />
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         मध्य प्रदेश की राजधानी और झीलों के शहर—भोपाल में अब पारंपरिक खेती (सोयाबीन, गेहूं) के साथ-साथ एग्रीकल्चर स्टार्टअप्स का एक नया दौर शुरू हो चुका है। जहां पारंपरिक फसलों में मौसम की मार और भारी नुकसान का खतरा हमेशा बना रहता है, वहीं 
@@ -73,7 +73,7 @@ const ArticleBhopalTraining = () => {
                         भोपाल में अपनी वेबसाइट को सर्च इंजन के टॉप पेज पर लाने और एक सफल बिजनेस मॉडल स्थापित करने के लिए हमने इन 11 सबसे महत्वपूर्ण बिजनेस पिलर्स को पूरी तरह कस्टमाइज किया है:
                     </p>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900958/Screenshot_2026-06-08_120826_mwt1nu.png" alt="Mushroom Farm Setup Infrastructure Bhopal" className="w-full h-auto rounded-3xl my-8 shadow-lg bg-white/5 p-2" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1780900958/Screenshot_2026-06-08_120826_mwt1nu.png" alt="Mushroom Farm Setup Infrastructure Bhopal" className="w-full h-auto rounded-3xl my-8 shadow-lg bg-white/5 p-2"  width="1409" height="489" />
 
                     <div className="space-y-6">
                         <div>
@@ -187,7 +187,7 @@ const ArticleBhopalTraining = () => {
                         </div>
                     </div>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png" alt="Commercial Mushroom Farming Project Bhopal" className="w-full h-auto rounded-3xl my-8 shadow-lg" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png" alt="Commercial Mushroom Farming Project Bhopal" className="w-full h-auto rounded-3xl my-8 shadow-lg"  width="1911" height="896" />
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
                         Hyper-Local SEO Coverage: भोपाल का कोना-कोना और नजदीकी ग्रामीण क्षेत्र

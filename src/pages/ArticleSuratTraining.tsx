@@ -33,7 +33,7 @@ const ArticleSuratTraining = () => {
                         </h2>
                     </div>
 
-                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png" alt="Mushroom Farming Training Center Surat" className="w-full h-auto rounded-3xl mb-8 shadow-lg" />
+                    <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378147/img_5794_tjestw.png" alt="Mushroom Farming Training Center Surat" className="w-full h-auto rounded-3xl mb-8 shadow-lg"  width="1911" height="896" />
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
                         Why Surat is a Goldmine for Mushroom Cultivation?
