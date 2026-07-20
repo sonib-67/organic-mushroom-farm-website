@@ -7,7 +7,7 @@ export default function StatesPage({ metaDesc }: { metaDesc?: string }) {
   return (
     <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
       <SEO
-        title="Mushroom Farming States | Cities Pages"
+        title="Mushroom Farming Centers & Resources by City"
         description={metaDesc || "Select a state to explore mushroom farming resources, training centers, and local guides."}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

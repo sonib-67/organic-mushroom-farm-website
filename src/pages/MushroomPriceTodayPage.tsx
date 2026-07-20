@@ -52,7 +52,7 @@ export default function MushroomPriceTodayPage() {
   return (
     <>
       <SEO 
-        title="Mushroom Price Today in India 2026 | Daily Wholesale & Retail Rates"
+        title="Mushroom Price Today 2026 | Daily Wholesale Rates"
         description="Check today's real-time mushroom prices in India. Get daily wholesale and retail rates for Button, Oyster, Milky, and Dry mushrooms across states."
         keywords="mushroom price today, daily mushroom rate, wholesale button mushroom price, oyster mushroom price, dry mushroom rates"
         schemas={generateSchemas()}

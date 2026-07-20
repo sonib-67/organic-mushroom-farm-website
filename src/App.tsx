@@ -4586,7 +4586,7 @@ const HomePage = () => {
   return (
     <>
       <SEO
-        title="Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom"
+        title="Organic Mushroom Farm | Setup, Spawn & Training"
         description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP."
         schemas={[
           generateGlobalFAQSchema(),

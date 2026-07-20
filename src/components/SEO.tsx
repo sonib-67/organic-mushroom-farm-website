@@ -19,6 +19,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }) => { console.log("SEO rendered!");
+  const finalTitle = title.includes("Organic Mushroom Farm") ? title : (title.length > 35 ? title : `${title} | Organic Mushroom Farm`);
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
 
@@ -77,7 +78,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
   const setSEO = useContext(SEOContext);
   if (setSEO && typeof window === 'undefined') {
     setSEO({
-      title: `${title} | Organic Mushroom Farm India & Global`,
+      title: finalTitle,
       description: finalDescription,
       keywords: keywords || defaultKeywords,
       fullUrl,
@@ -88,7 +89,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
   return (
     <Helmet>
       {/* Title */}
-      <title>{`${title} | Organic Mushroom Farm India & Global`}</title>
+      <title>{finalTitle}</title>
 
       {/* SEO */}
       <meta name="description" content={finalDescription} />
@@ -98,7 +99,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
       <link rel="canonical" href={fullUrl} />
 
       {/* Open Graph */}
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={finalTitle} />
       <meta property="og:description" content={finalDescription} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
@@ -107,7 +108,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
 
       {/* Twitter (no image as per your requirement) */}
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
       <meta name="twitter:image:alt" content="Organic Mushroom Farm" />

@@ -16,7 +16,7 @@ const ServiceDetailPage = ({ defaultId, metaDesc }: { defaultId?: string, metaDe
   return (
     <>
       <SEO 
-        title={`${service.title} - Commercial Farming Services`}
+        title={`${service.title} Services`}
         description={metaDesc || service.description || `Read detailed specifications and professional setup procedures for our ${service.title} mushroom services.`}
         url={`/services/${id}`}
       />
