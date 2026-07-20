@@ -115,7 +115,7 @@ const ArticleBikanerTraining = () => {
                             बीकानेर में मशरूम री खेती (Farming), ट्रेनिंग, स्पॉन सप्लाई और कंसल्टेंसी
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            धोरां री धरती माथे मशरूम कल्टीवेशन सारु पूरो कस्टमाइज्ड गाइड, फार्म सेटअप और सुविदावां
+                            बीकानेर में मशरूम कल्टीवेशन गाइड और फार्म सेटअप
                         </h2>
                     </div>
 

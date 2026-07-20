@@ -43,7 +43,7 @@ const ArticleTiruchirappalliTraining = () => {
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Why Are Young Entrepreneurs Choosing Mushroom Farming? (ஏன் மஷ்ரூம் பிசினஸ்?)
+                        Why Are Young Entrepreneurs Choosing Mushroom Farming?
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Unlike many traditional agricultural businesses, commercial mushroom farming offers unique advantages that perfectly suit modern youth:
@@ -56,7 +56,7 @@ const ArticleTiruchirappalliTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Startup Opportunities in the Mushroom Industry (காளான் தொழிலில் உள்ள பல்வேறு வாய்ப்புகள்)
+                        Startup Opportunities in the Mushroom Industry
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Instead of focusing only on cultivation, you can build a highly profitable agribusiness through multiple channels:
@@ -122,7 +122,7 @@ const ArticleTiruchirappalliTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Tiruchirappalli Areas Covered (திருச்சி மற்றும் சுற்றியுள்ள காளான் வளர்ப்புக்கு ஏற்ற பகுதிகள்)
+                        Tiruchirappalli Areas Covered (காளான் வளர்ப்புக்கு ஏற்ற பகுதிகள்)
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Tiruchirappalli combines education, agriculture, and industrial development, creating massive potential for a mushroom farming startup. You can successfully launch your nearby mushroom farm in the following target areas:
@@ -134,7 +134,7 @@ const ArticleTiruchirappalliTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Business Plan, Subsidies & Marketing (தொழில் திட்டம் மற்றும் மானியங்கள்)
+                        Business Plan, Subsidies & Marketing
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         <strong>Business Plan & ROI:</strong> Before executing your mushroom farm setup, clearly evaluate your startup budget, operating costs, production capacity, and market demand.

@@ -120,7 +120,7 @@ const ArticleAhmedabadTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Hyper-Local SEO: Ahmedabad Areas & Nearby Villages Covered (<Link to="/training" className="text-primary-start hover:underline">https://organicmushroomfarm.shop/training</Link>)
+                        Ahmedabad Areas & Nearby Villages Covered
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         જો તમે અમદાવાદના કોઈપણ ખૂણે કે આસપાસના ગ્રામ્ય વિસ્તારોમાં રહેતા હોવ, તો અમારી સેવાઓ તમારા સુધી ઉપલબ્ધ છે. અમે આ તમામ લોકેશન્સને પ્રાઈમરી સપોર્ટ ઝોનમાં કવર કરીએ છીએ:

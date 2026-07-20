@@ -115,7 +115,7 @@ const ArticleSiliguriTraining = () => {
                             শিলিগুড়িতে Mushroom Farming, Training, Spawn Supply এবং Consultancy Guide
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            পশ্চিমবঙ্গের উত্তর অংশের প্রবেশদ্বারে কমার্শিয়াল বাটন মাশরুম, ওয়েস্টার মাশরুম এবং সমস্ত ভ্যারাইটির মাশরুম ব্যবসা শুরু করার সহজ গাইড
+                            শিলিগুড়িতে কমার্শিয়াল মাশরুম ব্যবসা শুরু করার সহজ গাইড
                         </h2>
                     </div>
 

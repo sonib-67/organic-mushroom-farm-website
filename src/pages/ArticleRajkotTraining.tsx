@@ -43,7 +43,7 @@ const ArticleRajkotTraining = () => {
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Why Supermarkets Need Reliable Mushroom Suppliers? (સુપરમાર્કેટને મશરૂમ સપ્લાયરની કેમ જરૂર છે?)
+                        સુપરમાર્કેટને મશરૂમ સપ્લાયરની કેમ જરૂર છે?
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Local sabzi mandi ki tarah supermarkets mein normal supply nahi chalti. સુપરમાર્કેટને નિયમિતપણે નીચે મુજબની વસ્તુઓ જોઈએ છે:
@@ -121,7 +121,7 @@ const ArticleRajkotTraining = () => {
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Business Plan, ROI & Government Subsidy (બિઝનેસ પ્લાન અને સરકારી સબસિડી)
+                        બિઝનેસ પ્લાન અને સરકારી સબસિડી
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Bina kisi planning ke business shuru karna risky ho sakta hai. કોઈપણ રોકાણ કરતા પહેલા રિટેલ માર્કેટની માંગ, ઉત્પાદન ક્ષમતા અને ઓપરેટિંગ ખર્ચનું મૂલ્યાંકન કરવું જોઈએ.
@@ -156,7 +156,7 @@ const ArticleRajkotTraining = () => {
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Start Your Mushroom Farming Training Today and join the best mushroom cultivation institute in India!
+                        Start Your Mushroom Farming Training Today!
                     </h2>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

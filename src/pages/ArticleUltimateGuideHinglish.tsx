@@ -157,7 +157,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center gap-3 text-slate-900 dark:text-white">
               <span className="bg-emerald-500 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-              Mushroom Farming Kya Hai aur Yeh Itna Popular Kyun Ho Raha Hai?
+              Mushroom Farming Kya Hai aur Yeh Popular Kyun Hai?
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6">
               Mushroom ek fungus hai jo mitti mein nahi, balki organic substrate — jaise paddy straw, sawdust, ya compost — par bags ya racks mein ugaya jata hai. Isliye iske liye bade khet ki zaroorat nahi padti. Ek 200-500 sq ft ka kamra, shed ya tarpaulin ke neeche ki jagah bhi kaafi hai shuruaat karne ke liye.
@@ -193,7 +193,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center gap-3 text-slate-900 dark:text-white">
               <span className="bg-emerald-500 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
-              Mushroom Spawn — Local Edible Mushroom Ki Sabhi Varieties
+              Mushroom Spawn — Edible Mushroom Ki Sabhi Varieties
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6 bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/15">
               <strong>Spawn matlab mushroom ka 'beej'</strong> — aur mushroom farming ki success 70% spawn ki quality par depend karti hai. Hum lab-tested, high-yield spawn supply karte hain, pan India delivery ke sath. Neeche sabse zyada demand wali varieties di gayi hain:
@@ -247,7 +247,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center gap-3 text-slate-900 dark:text-white">
               <span className="bg-emerald-500 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
-              Medicinal Mushroom Farming — High Value, High Demand Segment
+              Medicinal Mushroom Farming — High Value, High Demand
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6">
               Local edible mushroom ke sath-sath medicinal mushroom ka segment bhi tezi se grow kar raha hai. Reishi, Cordyceps aur Lion's Mane jaise mushroom traditional Chinese, Tibetan aur Ayurvedic medicine systems mein centuries se use hote rahe hain, aur ab modern wellness industry — supplements, extracts, mushroom coffee — mein bhi inki demand bahut zyada hai.
@@ -297,7 +297,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center gap-3 text-slate-900 dark:text-white">
               <span className="bg-emerald-500 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">4</span>
-              Mushroom Farming Training — Online aur Offline, Beginner se Expert Tak
+              Mushroom Farming Training — Beginner se Expert Tak
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6">
               Sabse zyada beginners isi wajah se fail hote hain ki unhone bina training ke seedha farming shuru kar di. Contamination aur humidity control jaise basic mistakes hi sabse zyada nuksan karti hain. Isliye hum training ko sabse pehla aur sabse zaroori step maante hain.
@@ -459,7 +459,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center gap-3 text-slate-900 dark:text-white">
               <span className="bg-emerald-500 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">7</span>
-              Mushroom Buyback Guarantee — Aapka Market Risk Hum Kam Karte Hain
+              Mushroom Buyback Guarantee — Aapka Market Risk Kam
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6">
               Naye growers ki sabse badi chinta yeh hoti hai — <em>'mushroom toh ugaa lenge, lekin bechenge kahan?'</em>. Isi problem ko solve karne ke liye hum <strong>Buyback Support</strong> provide karte hain — jisme aapka produced mushroom (fresh ya dry, including medicinal varieties jaise Ganoderma/Reishi) hum se connect ho kar bik sakta hai, market rate ke hisaab se.
@@ -477,7 +477,7 @@ const ArticleUltimateGuideHinglish = () => {
           <div>
             <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center gap-3 text-slate-900 dark:text-white">
               <span className="bg-emerald-500 text-black w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">8</span>
-              Fresh aur Dry Mushroom — Pan India aur International Delivery
+              Fresh aur Dry Mushroom — Pan India International Delivery
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6">
               Hum sirf farming inputs hi nahi, balki ready mushroom products bhi sell karte hain:

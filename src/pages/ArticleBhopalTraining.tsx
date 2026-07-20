@@ -29,7 +29,7 @@ const ArticleBhopalTraining = () => {
                             Bhopal Mushroom Business Guide 2026 | भोपाल में मशरूम की खेती कैसे शुरू करें: Training, Setup और Subsidy की पूरी जानकारी
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Madhya Pradesh
+                            Commercial Mushroom Cultivation Guide in Madhya Pradesh
                         </h2>
                     </div>
 

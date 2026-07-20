@@ -3,6 +3,23 @@ import { motion } from 'motion/react';
 import { MapPin, Globe, Award, ShieldCheck, Sprout, Building, Users } from 'lucide-react';
 import SEO from '../components/SEO';
 
+const domesticLocations = [
+  "Mumbai", "Delhi", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", 
+  "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", 
+  "Bhopal", "Visakhapatnam", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra", 
+  "Nashik", "Faridabad", "Meerut", "Rajkot", "Varanasi", "Srinagar", "Aurangabad", 
+  "Dhanbad", "Amritsar", "Allahabad", "Howrah", "Ranchi", "Gwalior", "Jabalpur", 
+  "Coimbatore", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Guwahati", 
+  "Chandigarh"
+];
+
+const globalLocations = [
+  "USA", "Australia", "UK", "Canada", "UAE", "Saudi Arabia", "South Africa", 
+  "Kenya", "Nigeria", "Europe", "Germany", "France", "Italy", "Spain", 
+  "Netherlands", "New Zealand", "Singapore", "Malaysia", "Philippines", 
+  "Vietnam", "Japan", "South Korea"
+];
+
 const OperationsPage = ({ metaDesc }: { metaDesc?: string }) => {
   return (
     <div className="min-h-screen pt-32 pb-24 relative overflow-hidden">
@@ -54,11 +71,18 @@ const OperationsPage = ({ metaDesc }: { metaDesc?: string }) => {
                 Our teams provide <strong>mushroom training in India</strong> and <strong>farm setup services</strong> across major regions including Madhya Pradesh, Maharashtra, Uttar Pradesh, and Bihar. We aim to build a strong network of successful mushroom farms.
               </p>
               
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/5">
-                <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Serving Pan India Cities, Towns & Villages:</h4>
-                <p className="text-xs dark:text-slate-400 text-slate-500 leading-relaxed text-justify">
-                  Mumbai, Delhi, Bangalore, Hyderabad, Ahmedabad, Chennai, Kolkata, Surat, Pune, Jaipur, Lucknow, Kanpur, Nagpur, Indore, Thane, Bhopal, Visakhapatnam, Patna, Vadodara, Ghaziabad, Ludhiana, Agra, Nashik, Faridabad, Meerut, Rajkot, Varanasi, Srinagar, Aurangabad, Dhanbad, Amritsar, Allahabad, Howrah, Ranchi, Gwalior, Jabalpur, Coimbatore, Vijayawada, Jodhpur, Madurai, Raipur, Kota, Guwahati, Chandigarh, and many other cities, towns, and villages across India.
-                </p>
+              <div className="p-5 rounded-2xl bg-white/5 border border-white/5 mt-auto">
+                <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-4">Serving Pan India Cities:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {domesticLocations.map((loc, idx) => (
+                    <span key={idx} className="px-3 py-1.5 text-[11px] font-semibold dark:text-slate-300 text-slate-700 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full hover:bg-primary-start/10 hover:border-primary-start/30 transition-colors cursor-default">
+                      {loc}
+                    </span>
+                  ))}
+                  <span className="px-3 py-1.5 text-[11px] font-medium dark:text-slate-400 text-slate-500 rounded-full italic">
+                    + Many More...
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -76,11 +100,18 @@ const OperationsPage = ({ metaDesc }: { metaDesc?: string }) => {
                 We offer professional consultancy services worldwide. Our standard procedures, high-yield methods, and climate control setups work effectively in any country.
               </p>
               
-              <div className="p-5 rounded-2xl bg-white/5 border border-white/5">
-                <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Global Reach & International Mushroom Farming Consultancy:</h4>
-                <p className="text-xs dark:text-slate-400 text-slate-500 leading-relaxed text-justify">
-                  USA, Australia, UK, Canada, UAE, Saudi Arabia, South Africa, Kenya, Nigeria, Europe, Germany, France, Italy, Spain, Netherlands, New Zealand, Singapore, Malaysia, Philippines, Vietnam, Japan, South Korea, and other farming hubs worldwide.
-                </p>
+              <div className="p-5 rounded-2xl bg-white/5 border border-white/5 mt-auto">
+                <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest mb-4">Global Reach & International Consultancy:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {globalLocations.map((loc, idx) => (
+                    <span key={idx} className="px-3 py-1.5 text-[11px] font-semibold dark:text-slate-300 text-slate-700 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-full hover:bg-accent/10 hover:border-accent/30 transition-colors cursor-default">
+                      {loc}
+                    </span>
+                  ))}
+                  <span className="px-3 py-1.5 text-[11px] font-medium dark:text-slate-400 text-slate-500 rounded-full italic">
+                    + Other Hubs Worldwide
+                  </span>
+                </div>
               </div>
             </div>
           </div>

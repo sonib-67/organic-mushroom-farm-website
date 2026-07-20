@@ -51,7 +51,7 @@ const ArticleTrainingGuideHindi = () => {
             OrganicMushroomFarm.Shop par aapko milega India ka sabse behtareen mushroom farming training program — beginner se lekar advanced level tak. Chahe aap ek chhote kisan hon ya ek bade entrepreneur, hamari training aapko complete mushroom cultivation knowledge degi.
           </p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kya Hoti Hai? | What is Mushroom Farming Training?</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kya Hoti Hai?</h2>
           <p>
             Mushroom Farming Training ek professional course hai jisme aap sikhte hain:
           </p>
@@ -67,7 +67,7 @@ const ArticleTrainingGuideHindi = () => {
             Ye training India ke har state mein zaruri hai — whether you are in Uttar Pradesh, Bihar, Rajasthan, Maharashtra, Tamil Nadu, Andhra Pradesh, Telangana, Karnataka, West Bengal, Gujarat, Himachal Pradesh, Uttarakhand, Punjab, Haryana, Odisha, Assam, Jharkhand, Chhattisgarh, Goa, Meghalaya, Manipur, Nagaland, Mizoram, Tripura, Arunachal Pradesh, Sikkim, Jammu & Kashmir, Ladakh ya Madhya Pradesh.
           </p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Ke Types | Types of Mushroom Training in India</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Ke Types in India</h2>
 
           <h3 className="text-xl mt-8 mb-3 font-bold">Offline Training — Jabalpur, Madhya Pradesh</h3>
           <p>
@@ -200,7 +200,7 @@ const ArticleTrainingGuideHindi = () => {
             </div>
           </div>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Yeh Training Kiske Liye Hai? | Who Should Join Mushroom Farming Training?</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Yeh Training Kiske Liye Hai? | Who Should Join?</h2>
           <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li><strong>Kisan</strong> — jo apni income double karna chahte hain (MP, UP, Bihar, Maharashtra, AP, Telangana)</li>
             <li><strong>Unemployed Youth</strong> — jo khud ka business shuru karna chahte hain</li>

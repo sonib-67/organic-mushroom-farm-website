@@ -29,7 +29,7 @@ const ArticleSuratTraining = () => {
                             Surat Mushroom Farming Business Guide 2026 | સુરતમાં મશરૂમની ખેતી: બમ્પર કમાણી કેવી રીતે શરૂ કરવી?
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Gujarat
+                            Commercial Mushroom Cultivation Guide in Gujarat
                         </h2>
                     </div>
 
@@ -180,7 +180,7 @@ const ArticleSuratTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Google Fast Ranking Location Map: સુરતનો ખૂણે-ખૂણો કવર (Hyper-Local SEO)
+                        Location Map: સુરતનો ખૂણે-ખૂણો કવર
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Surat ma Google par top par avva mate ame Surat na badha j urban hubs ane rural villages ne aam cover karya chhe:

@@ -253,7 +253,7 @@ const ArticleUSAMedicinalIncome = () => {
             If you’re in a northern state with access to birch forests, <strong>add chaga to your lineup</strong>. The wild-harvest story is marketing gold and customers love it.
           </p>
 
-          <h2>The Real Numbers: What Can a Medicinal Mushroom Side Business Make in Year One?</h2>
+          <h2>What Can a Medicinal Mushroom Side Business Make in Year One?</h2>
           <p>Here’s a realistic income model for someone starting from scratch with $3,000–$5,000 in startup investment:</p>
           <ul>
             <li><strong>Setup:</strong> Small indoor grow room (200–400 sq ft) growing lion’s mane and reishi. Chaga sourced from a local forager or self-harvested if location allows.</li>
@@ -282,7 +282,7 @@ const ArticleUSAMedicinalIncome = () => {
             A solid mushroom training course addresses all five of these problems before you ever spend money on equipment. That’s why experienced growers consistently say that education was the best investment they made — because it prevented thousands of dollars in avoidable beginner mistakes.
           </p>
 
-          <h2>Cities in the USA With the Highest Demand for Medicinal Mushrooms Right Now</h2>
+          <h2>US Cities With Highest Demand for Medicinal Mushrooms</h2>
           <p>If you’re wondering whether your city has a market, here's a quick look at where demand is strongest:</p>
           <ul>
             <li><strong>West Coast:</strong> Portland (OR), Seattle (WA), San Francisco (CA), Los Angeles (CA), Eugene (OR), Olympia (WA) — Pacific Northwest mushroom culture is deep-rooted and medicinal varieties are in constant demand.</li>

@@ -29,7 +29,7 @@ const ArticlePatnaTraining = () => {
                             Patna Mushroom Farming Business Guide 2026 | पटना में बेस्ट मशरूम स्पॉन और ट्रेनिंग सेंटर
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Bihar
+                            Commercial Mushroom Cultivation Guide in Bihar
                         </h2>
                     </div>
 

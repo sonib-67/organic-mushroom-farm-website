@@ -29,7 +29,7 @@ const ArticleNagpurTraining = () => {
                             Nagpur Mushroom Farming Business Guide 2026 | नागपुर पॅटर्न: मशरूम शेतीतून बंपर कमाई कशी सुरू करावी?
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Maharashtra
+                            Commercial Mushroom Cultivation Guide in Maharashtra
                         </h2>
                     </div>
 

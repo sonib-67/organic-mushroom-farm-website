@@ -29,7 +29,7 @@ const ArticleIndoreTraining = () => {
                             Indore Mushroom Farming Training Center | इंदौर में मशरूम की खेती कैसे शुरू करें: Training, Setup और 50% तक Subsidy की पूरी गाइड
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Complete Commercial Mushroom Cultivation Guide, Farm Setup, Spawn Supply, and Market Linkages in Madhya Pradesh
+                            Commercial Mushroom Cultivation Guide in Madhya Pradesh
                         </h2>
                     </div>
 
@@ -190,7 +190,7 @@ const ArticleIndoreTraining = () => {
                     <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782908722/301852_gteosb.jpg" alt="Commercial Mushroom Farming Project Indore" className="w-full h-auto rounded-3xl my-8 shadow-lg"  width="980" height="370" />
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Google Fast Ranking Hyper-Local Coverage: इंदौर का कोना-कोना और आसपास के गांव
+                        Hyper-Local Coverage: इंदौर का कोना-कोना और आसपास के गांव
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Google में नंबर #1 पर आने के लिए हमने इंदौर के सभी शहरी और ग्रामीण इलाकों को इस प्रकार मैप किया है कि कोई भी व्यक्ति अपने नजदीकी एरिया से सर्च करे, तो उसे आपकी ही वेबसाइट मिले:

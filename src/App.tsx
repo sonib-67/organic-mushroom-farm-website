@@ -200,7 +200,7 @@ const ProductionSOP = () => {
           <div className="badge mx-auto mb-4">60-Day Commercial Cycle</div>
           <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
             Commercial Mushroom Production Cycle{" "}
-            <span className="gradient-text">SOPs for India & Worldwide</span>
+            <span className="gradient-text">SOPs</span>
           </h2>
           <p className="max-w-lg mx-auto text-[11px] md:text-sm dark:text-slate-400 text-slate-600">
             Standardized operational procedures for high-yield button and oyster mushroom cultivation globally.
@@ -397,7 +397,7 @@ const CriticalParameters = () => {
             <Link to="/mushroom-types" className="hover:text-current transition-colors">
               Critical{" "}
               <span className="gradient-text">
-                Parameters for High-Yield Mushroom Production
+                Parameters for High-Yield Production
               </span>
             </Link>
           </h2>
@@ -553,7 +553,7 @@ const MushroomComparison = () => {
           <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
             <Link to="/blog" className="hover:text-current transition-colors">
               High-Yield Commercial Mushroom{" "}
-              <span className="gradient-text">Genetics & Types Table</span>
+              <span className="gradient-text">Genetics</span>
             </Link>
           </h2>
         </div>
@@ -767,7 +767,7 @@ const CompanyProfile = () => {
             <h2 className="text-[18px] md:text-3xl tracking-tight leading-tight uppercase">
               Bridging Technology &{" "}
               <span className="gradient-text">
-                Organic Cultivation Setup Worldwide
+                Organic Cultivation Setup
               </span>
             </h2>
             <div className="grid gap-4">
@@ -3035,7 +3035,7 @@ const StatesSection = () => {
         <h2 className="mb-4 uppercase tracking-tight">
           Active Commercial Project{" "}
           <span className="gradient-text">
-            Hubs Across India, USA, Australia & Global Regions
+            Hubs Globally
           </span>
         </h2>
         <p className="max-w-3xl mx-auto mb-10 font-medium leading-relaxed dark:text-slate-400 text-slate-600">
@@ -5097,7 +5097,7 @@ const AboutPage = () => {
               <h2 className="mb-6 uppercase tracking-tight">
                 Our Mission &{" "}
                 <span className="gradient-text">
-                  Global Vision for Organic Agriculture
+                  Vision for Organic Agriculture
                 </span>
               </h2>
               <div className="space-y-6">
@@ -5167,7 +5167,7 @@ const AboutPage = () => {
             <h2 className="uppercase tracking-tight">
               Core{" "}
               <span className="gradient-text">
-                Mushroom Farming Operations & Consultancy
+                Mushroom Operations & Consultancy
               </span>
             </h2>
             <p className="dark:text-slate-400 text-slate-600 mt-4 max-w-2xl mx-auto">
@@ -5225,7 +5225,7 @@ const AboutPage = () => {
               <h2 className="mb-8 uppercase tracking-tight">
                 Why Choose{" "}
                 <span className="gradient-text">
-                  Us for Turnkey Projects Pan India & Abroad?
+                  Us for Turnkey Projects?
                 </span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-6">

@@ -106,7 +106,7 @@ const ArticleUdaipurTraining = () => {
                             Mushroom Farming for Hotel & Tourism Business in Udaipur | उदयपुर में मशरूम फार्मिंग और सेटअप गाइड 2026
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            खम्मा घणी उदयपुर! झीलों की नगरी में प्रीमियम हॉस्पिटैलिटी के लिए कमर्शियल मशरूम बिजनेस शुरू करने का सम्पूर्ण रोडमैप
+                            उदयपुर में कमर्शियल मशरूम बिजनेस शुरू करने का सम्पूर्ण रोडमैप
                         </h2>
                     </div>
 

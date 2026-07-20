@@ -116,7 +116,7 @@ const ArticleKolkataTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Areas We Cover: Kolkata City & All Nearby Villages (<Link to="/training" className="text-primary-start hover:underline">https://organicmushroomfarm.shop/training</Link>)
+                        Areas We Cover: Kolkata City & All Nearby Villages
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         আমরা কলকাতা শহরের প্রতিটি কোণায় এবং আশেপাশের গ্রামীণ অঞ্চলের চাষিদের কাছে আমাদের পরিষেবা পৌঁছে দিচ্ছি। 

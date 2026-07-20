@@ -385,7 +385,7 @@ const ArticleMushroomFarmingMistakes = () => {
                     <hr className="my-12 border-t-2 dark:border-white/10 border-black/10" />
 
                     <h2 className="text-3xl font-bold dark:text-white text-slate-900 mt-10 mb-6 text-center">
-                        Mushroom Farming Hotspots Across India — States With Highest Production & Customer Demand
+                        Mushroom Farming Hotspots Across India — Highest Production States
                     </h2>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">

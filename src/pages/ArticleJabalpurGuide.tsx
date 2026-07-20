@@ -52,7 +52,7 @@ const ArticleJabalpurGuide = () => {
 
                     <section className="space-y-6">
                         <h2 className="text-3xl font-bold dark:text-white text-slate-900">
-                            Why Jabalpur, Madhya Pradesh is THE Best Place for Mushroom Farming in India
+                            Why Jabalpur is THE Best Place for Mushroom Farming in India
                         </h2>
                         <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
                             Let me tell you why Jabalpur has become India's emerging hub for commercial mushroom farming. If you're in Jabalpur and considering mushroom farming, you're already in the best location possible.

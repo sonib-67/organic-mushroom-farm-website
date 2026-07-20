@@ -52,7 +52,7 @@ const ArticleMadhyaPradeshGuide = () => {
 
                     <section className="space-y-6">
                         <h2 className="text-3xl font-bold dark:text-white text-slate-900">
-                            Why Mushroom Farming in India is the Best Agricultural Business to Start in 2026-2027
+                            Why Mushroom Farming is the Best Agricultural Business
                         </h2>
                         <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
                             Let me be straight with you: mushroom farming business is absolutely booming in India right now. Here's why I think more farmers are shifting toward mushroom cultivation:

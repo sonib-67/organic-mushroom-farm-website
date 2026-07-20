@@ -111,7 +111,7 @@ const ArticleMangaloreTraining = () => {
                             Why Organic Stores in Mangalore Need Reliable Mushroom Suppliers
                         </h1>
                         <h2 className="text-xl md:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-4">
-                            ಕುಡ್ಲದ (ಮಂಗಳೂರು) ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು?
+                            ಮಂಗಳೂರು ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಗಳಿಗೆ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ ಅಗತ್ಯ
                         </h2>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushroom Farm — Mangalore, Karnataka Special Edition (Tulu Blog)

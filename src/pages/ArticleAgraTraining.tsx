@@ -147,7 +147,7 @@ const ArticleAgraTraining = () => {
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Smart Marketing & Business Expansion (डिजिटल मार्केटिंग और बिजनेस प्लान)
+                        Smart Marketing & Business Expansion
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Before expanding into larger markets, evaluating your Business Plan & ROI is crucial. You need to assess production capacity, operating costs, and long-term growth opportunities.

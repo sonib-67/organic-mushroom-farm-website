@@ -115,7 +115,7 @@ const ArticleThiruvananthapuramTraining = () => {
                             തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn Supply, Consultancy & Setup
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            കേരളത്തിന്റെ തലസ്ഥാനത്ത് കമേഴ്സ്യൽ മഷ്റൂം ബിസിനസ് ആരംഭിക്കുന്നതിനുള്ള പൂർണ്ണമായ ഗൈഡ്
+                            തിരുവനന്തപുരത്ത് കമേഴ്സ്യൽ മഷ്റൂം ബിസിനസ് ആരംഭിക്കുന്നതിനുള്ള ഗൈഡ്
                         </h2>
                     </div>
 

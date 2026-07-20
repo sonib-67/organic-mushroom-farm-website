@@ -55,7 +55,7 @@ const ArticleBusinessPlanHindi = () => {
           </p>
           <p className="font-bold text-primary-start text-xl">To chaliye shuru karte hain!</p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">2026 Mein Mushroom Farming Kyun? | Why Mushroom Farming is the Best Business in 2026</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">2026 Mein Mushroom Farming Kyun? | Best Business in 2026</h2>
           <p>
             Bhai, numbers baat karte hain. India ka mushroom market 2025 mein USD 1.78 billion tha — aur experts bol rahe hain ki 2035 tak yeh USD 5.29 billion ho jayega. That's a 12.84% growth every single year. Duniya bhar ka mushroom market abhi USD 79.83 billion ka hai aur 2030 tak USD 117 billion cross karega.
           </p>
@@ -77,7 +77,7 @@ const ArticleBusinessPlanHindi = () => {
             </ul>
           </div>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Kaun Si Mushroom Ugayen? | Best Mushroom Varieties for Farming in India — 2026 Guide</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Kaun Si Mushroom Ugayen? | Best Varieties for Farming</h2>
           <p>
             Mushroom ki variety aapki location, climate, investment, aur target market ke hisaab se choose karni chahiye. Yahan India ki top mushroom varieties hain jo 2026 mein sabse zyada search aur sell ho rahi hain:
           </p>
@@ -118,7 +118,7 @@ const ArticleBusinessPlanHindi = () => {
             <strong>Beginners ke liye best choice hai Oyster Mushroom</strong> — fast growth, easy cultivation, aur Pan India demand. Agar aap directly export market target karna chahte ho toh Lion's Mane ya Shiitake ki taraf bhi soch sakte ho.
           </p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Step-by-Step Mushroom Farming Business Plan | Mushroom Business Kaise Shuru Karein — 2026</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Step-by-Step Mushroom Farming Business Plan 2026</h2>
           
           <h3 className="text-xl mt-8 mb-3 font-bold">Step 1: Market Research aur Target Market Decide Karo</h3>
           <p>
@@ -207,7 +207,7 @@ const ArticleBusinessPlanHindi = () => {
             Selling ke options: local sabzi market, restaurants, hotels, online grocery apps, ya dried mushroom banake export karo. Har option se alag-alag return milta hai.
           </p>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training India 2026 | Mushroom Kheti Sikhne Ka Sahi Tarika</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training 2026 | Kheti Sikhne Ka Tarika</h2>
           <p>
             Yaar, ek baat honest taur pe bolun — bina training ke mushroom farming mein bahut zyada risk hota hai. Contamination, wrong substrate, wrong temperature — in teeno mein se koi bhi cheez galat ho toh poori crop barbaad. Aur yeh loss bahut deta hai.
           </p>
@@ -241,7 +241,7 @@ const ArticleBusinessPlanHindi = () => {
             </div>
           </div>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Profit 2026 | Kitna Kamaoge? — Complete Income Calculator</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Profit 2026 | Complete Income Calculator</h2>
           <p>
             Yeh table fresh oyster mushroom ki local selling pe based hai. Agar aap dry mushroom bechte ho ya spawn supply karte ho toh aur zyada income hogi. Export karein toh multiply by 2 to 3.
           </p>
@@ -288,7 +288,7 @@ const ArticleBusinessPlanHindi = () => {
             </p>
           </div>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Global Mushroom Market 2026 to 2027 | International Export Opportunities</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Global Mushroom Market 2026 to 2027 | Export Opportunities</h2>
           <p>
             Yaar, Indian organic mushroom duniya mein ek hot commodity ban chuki hai. Ye cities aur countries sabse zyada import karti hain — aur India se export karne ke liye yahi best markets hain:
           </p>
