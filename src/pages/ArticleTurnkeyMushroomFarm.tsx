@@ -44,7 +44,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                     </p>
 
                     <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
-                        At <strong>Organic Mushroom Farm</strong>, we focus on transforming empty sheds into fully optimized, harvest-ready infrastructure. By utilizing an in-house manufacturing ecosystem for PUF insulated panels and heavy-duty structural shelving, we deliver professional-grade builds at wholesale B2B pricing models—effectively saving agripreneurs 15% to 25% over standard market rates.
+                        At <strong>Organic Mushrooms Farm</strong>, we focus on transforming empty sheds into fully optimized, harvest-ready infrastructure. By utilizing an in-house manufacturing ecosystem for PUF insulated panels and heavy-duty structural shelving, we deliver professional-grade builds at wholesale B2B pricing models—effectively saving agripreneurs 15% to 25% over standard market rates.
                     </p>
 
                     <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
@@ -355,7 +355,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                     </ul>
 
                     <p className="dark:text-slate-400 text-slate-600 leading-relaxed">
-                        By combining precision engineering with a standardized 60-day process, <strong>Organic Mushroom Farm</strong> helps modern agripreneurs minimize risk and maximize commercial yields. Ready to move from an empty plot of land to your very first premium harvest? Connect with our project engineering team today to receive a customized layout drawing, detailed bill of quantities (BOQ), and expert guidance on local government subsidies tailored directly to your home city.
+                        By combining precision engineering with a standardized 60-day process, <strong>Organic Mushrooms Farm</strong> helps modern agripreneurs minimize risk and maximize commercial yields. Ready to move from an empty plot of land to your very first premium harvest? Connect with our project engineering team today to receive a customized layout drawing, detailed bill of quantities (BOQ), and expert guidance on local government subsidies tailored directly to your home city.
                     </p>
 
                     <hr className="dark:border-white/10 border-black/10 my-8" />
@@ -504,7 +504,7 @@ const ArticleTurnkeyMushroomFarm = () => {
                                             <p className="dark:text-slate-400 text-slate-600">Use the natural climate to your advantage. Read our guide on setting up climate-controlled mushroom cultivation units in the hilly terrains of Himachal Pradesh.</p>
                                         </li>
                                         <li>
-                                            <h4 className="font-bold dark:text-white text-slate-900">Uttarakhand: Organic Mushroom Farming Business Opportunities in Uttarakhand</h4>
+                                            <h4 className="font-bold dark:text-white text-slate-900">Uttarakhand: organic mushroom farming Business Opportunities in Uttarakhand</h4>
                                             <p className="dark:text-slate-400 text-slate-600">Capitalize on the organic farming trend. Explore highly profitable organic mushroom farming business opportunities and setup guidelines in Uttarakhand.</p>
                                         </li>
                                     </ul>
@@ -584,8 +584,8 @@ const ArticleTurnkeyMushroomFarm = () => {
                                             <p className="dark:text-slate-400 text-slate-600">Combine traditional wisdom with modern profits. Discover the best practices for log and bag-based mushroom cultivation methods in Nagaland.</p>
                                         </li>
                                         <li>
-                                            <h4 className="font-bold dark:text-white text-slate-900">Sikkim: 100% Organic Mushroom Farming Farm Setup in Sikkim</h4>
-                                            <p className="dark:text-slate-400 text-slate-600">Align with India's first organic state. Learn the guidelines and strict protocols for setting up a certified 100% organic mushroom farm in Sikkim.</p>
+                                            <h4 className="font-bold dark:text-white text-slate-900">Sikkim: 100% organic mushroom farming Farm Setup in Sikkim</h4>
+                                            <p className="dark:text-slate-400 text-slate-600">Align with India's first organic state. Learn the guidelines and strict protocols for setting up a certified 100% organic mushrooms farm in Sikkim.</p>
                                         </li>
                                         <li>
                                             <h4 className="font-bold dark:text-white text-slate-900">Tripura: Commercial Spawn and Substrate Mushroom Farm in Tripura</h4>
@@ -712,8 +712,8 @@ const ArticleTurnkeyMushroomFarm = () => {
                                             <p className="dark:text-slate-400 text-slate-600">Calculate your project costs. Find out the total indoor mushroom farming room setup cost and cooling load calculations required for high yield in Nagpur.</p>
                                         </li>
                                         <li>
-                                            <h4 className="font-bold dark:text-white text-slate-900">Nashik: Organic Mushroom Farm Setup and Supply Chain Integration</h4>
-                                            <p className="dark:text-slate-400 text-slate-600">Integrate with Maharashtra's leading agro-hub. Learn about organic mushroom farm setup and supply chain practices for rapid delivery from Nashik.</p>
+                                            <h4 className="font-bold dark:text-white text-slate-900">Nashik: Organic Mushrooms Farm Setup and Supply Chain Integration</h4>
+                                            <p className="dark:text-slate-400 text-slate-600">Integrate with Maharashtra's leading agro-hub. Learn about organic mushrooms farm setup and supply chain practices for rapid delivery from Nashik.</p>
                                         </li>
                                         <li>
                                             <h4 className="font-bold dark:text-white text-slate-900">Dehradun: Cool Climate Button Mushroom Farm Setup Guide</h4>

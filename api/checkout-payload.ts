@@ -27,7 +27,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
       key_id: key_id,
       amount: amount,
       currency: "INR",
-      name: "Organic Mushroom Farm",
+      name: "Organic Mushrooms Farm",
       description: purpose,
       prefill: {
         name: name || "",

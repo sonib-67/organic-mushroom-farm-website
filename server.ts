@@ -110,7 +110,7 @@ app.post('/api/create-order', async (req, res) => {
       purpose = "Advanced Commercial Cultivation Training";
     } else if (productType === "workshop") {
       amount = 19900; // 199 INR
-      purpose = "Organic Mushroom Farming Workshop";
+      purpose = "organic mushroom farming Workshop";
     } else if (productType === "consultation") {
       amount = 5900;
       purpose = "Expert 1-on-1 Business Consultation Slot";
@@ -148,7 +148,7 @@ app.post('/api/create-order', async (req, res) => {
       amount: order.amount,
       currency: order.currency,
       key_id: RAZORPAY_KEY_ID,
-      name: "Organic Mushroom Farm",
+      name: "Organic Mushrooms Farm",
       description: purpose,
       prefill: {
         name: name || "",

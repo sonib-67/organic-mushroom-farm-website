@@ -34,7 +34,7 @@ const ArticleDehradunTraining = () => {
                     "name": "मशरूम स्पॉन देहरादून में कहां मिलेगा?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Organic Mushroom Farm से पैन-इंडिया डिलीवरी के साथ देहरादून और आसपास के सभी इलाकों में स्पॉन मिलता है।"
+                        "text": "Organic Mushrooms Farm से पैन-इंडिया डिलीवरी के साथ देहरादून और आसपास के सभी इलाकों में स्पॉन मिलता है।"
                     }
                 },
                 {
@@ -50,9 +50,9 @@ const ArticleDehradunTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-dehradun-uttarakhand",
+            "name": "Organic Mushrooms Farm",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-dehradun-uttarakhand",
             "areaServed": [
                 "देहरादून", "Rajpur Road", "Clement Town", "Prem Nagar", "Vasant Vihar",
                 "Sahastradhara Road", "Ballupur", "Jakhan", "Dharampur", "Doiwala",
@@ -69,8 +69,8 @@ const ArticleDehradunTraining = () => {
             "description": "स्पॉन हैंडलिंग, कल्टिवेशन, हार्वेस्टिंग, पैकेजिंग और मार्केटिंग को कवर करने वाली ऑनलाइन और ऑफलाइन मशरूम फार्मिंग ट्रेनिंग।",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         }
     ];
@@ -86,7 +86,7 @@ const ArticleDehradunTraining = () => {
             <SEO 
                 title="देहरादून में Mushroom Farming, Training, Spawn Supply और Consultancy" 
                 description="देहरादून में मशरूम फार्म सेटअप, स्पॉन सप्लाई, ऑनलाइन और ऑफलाइन ट्रेनिंग, फ्रेश और ड्राई मशरूम सेल, कंसल्टेंसी और टर्नकी मशरूम प्रोजेक्ट्स।"
-                keywords="Mushroom farming Dehradun, mushroom training Dehradun, mushroom spawn Uttarakhand, oyster mushroom Dehradun, button mushroom Dehradun, organic mushroom farm"
+                keywords="Mushroom farming Dehradun, mushroom training Dehradun, mushroom spawn Uttarakhand, oyster mushroom Dehradun, button mushroom Dehradun, organic mushrooms farm"
                 url="/mushroom-farming-dehradun-uttarakhand"
                 schemas={customSchemas}
             />
@@ -109,7 +109,7 @@ const ArticleDehradunTraining = () => {
                             देहरादून में Mushroom Farming, Training, Spawn Supply और Consultancy
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Dehradun, Uttarakhand Special Edition
+                            Organic Mushrooms Farm — Dehradun, Uttarakhand Special Edition
                         </p>
                     </div>
 
@@ -122,7 +122,7 @@ const ArticleDehradunTraining = () => {
                             देहरादून और उत्तराखंड के कई किसान अब पारंपरिक खेती के साथ mushroom cultivation को जोड़ रहे हैं, क्योंकि इसमें कम जगह, controlled environment और बेहतर दाम मिलने वाले उत्पाद शामिल हैं।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushroom Farm</Link> के तौर पर हम देहरादून और आसपास के <strong>Doiwala, Rishikesh, Mussoorie, Vikasnagar, Raipur, Maldevta, Bhogpur और Doiwala Rural Area</strong> के किसानों, छात्रों और उद्यमियों को <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh और dry mushroom sale, <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> और turnkey project जैसी सेवाएं देते हैं। इस पेज में हम बताएंगे कि देहरादून में mushroom business कैसे शुरू करें और इसे भविष्य की स्मार्ट कृषि के तौर पर कैसे आगे बढ़ाएं।
+                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> के तौर पर हम देहरादून और आसपास के <strong>Doiwala, Rishikesh, Mussoorie, Vikasnagar, Raipur, Maldevta, Bhogpur और Doiwala Rural Area</strong> के किसानों, छात्रों और उद्यमियों को <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh और dry mushroom sale, <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> और turnkey project जैसी सेवाएं देते हैं। इस पेज में हम बताएंगे कि देहरादून में mushroom business कैसे शुरू करें और इसे भविष्य की स्मार्ट कृषि के तौर पर कैसे आगे बढ़ाएं।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg font-medium text-emerald-600 dark:text-emerald-400">
                             Agar aap Dehradun ya aas-paas ke kisi bhi area se hain aur smart farming ke through ek sustainable business banana chahte hain, to yeh guide bilkul aapke liye hai.
@@ -335,7 +335,7 @@ const ArticleDehradunTraining = () => {
 
                     {/* Why Choose Us */}
                     <div className="p-6 md:p-8 rounded-[2rem] dark:bg-emerald-950/20 bg-emerald-50/50 border border-emerald-500/10 space-y-4">
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Kyun Chunein Organic Mushroom Farm?</h3>
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Kyun Chunein Organic Mushrooms Farm?</h3>
                         <ul className="space-y-2.5 pl-0 list-none">
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Jabalpur base se pura India mein spawn delivery ka experience</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Dehradun ke tourism aur local market ko samajhne wali team</span></li>
@@ -390,7 +390,7 @@ const ArticleDehradunTraining = () => {
                             देहरादून में स्मार्ट मशरूम फार्मिंग शुरू करें!
                         </h3>
                         <p className="text-sm dark:text-slate-400 text-slate-600 max-w-2xl mx-auto">
-                            Organic Mushroom Farm के साथ जुड़कर training, quality spawn, farm setup guidance और marketing support प्राप्त करें।
+                            Organic Mushrooms Farm के साथ जुड़कर training, quality spawn, farm setup guidance और marketing support प्राप्त करें।
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
                             <a 

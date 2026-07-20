@@ -4,14 +4,14 @@ export const PUNE_BLOGS_PART_1 = [
     path: "mushroom-training-center",
     keyword: "mushroom training center",
     category: "Training Centers",
-    title: "Mushroom Training Center Kothrud Pune | Organic Mushroom Farm",
-    h1: "Kothrud, Pune येथे Mushroom Training Center – Organic Mushroom Farm",
+    title: "Mushroom Training Center Kothrud Pune | Organic Mushrooms Farm",
+    h1: "Kothrud, Pune येथे Mushroom Training Center – Organic Mushrooms Farm",
     area: "Kothrud",
     meta: "Kothrud, Pune मध्ये hands-on mushroom training center. Oyster आणि button mushroom cultivation शिका experts कडून. Practical + theory training, ₹299 पासून सुरू.",
-    intro: "Kothrud हा Pune चा एक popular residential आणि educational area आहे, आणि इथल्या अनेक रहिवाशांना आता mushroom farming मध्ये interest वाढत आहे. Organic Mushroom Farm तर्फे Kothrud परिसरातील लोकांसाठी संपूर्ण mushroom training center उपलब्ध आहे, जिथे तुम्ही oyster mushroom आणि button mushroom ची लागवड प्रत्यक्ष practical पद्धतीने शिकू शकता. आमचं training module बिगिनर्ससाठी सोपं ठेवलेलं आहे — spawn तयार करण्यापासून ते harvesting आणि packaging पर्यंत सगळं काही cover होतं. Kothrud, Karve Nagar, Erandwane या भागातील विद्यार्थी आणि गृहिणी दोघांनाही हे training उपयोगी पडतं, कारण कमी जागेत आणि कमी investment मध्ये हा business सुरू करता येतो.",
+    intro: "Kothrud हा Pune चा एक popular residential आणि educational area आहे, आणि इथल्या अनेक रहिवाशांना आता mushroom farming मध्ये interest वाढत आहे. Organic Mushrooms Farm तर्फे Kothrud परिसरातील लोकांसाठी संपूर्ण mushroom training center उपलब्ध आहे, जिथे तुम्ही oyster mushroom आणि button mushroom ची लागवड प्रत्यक्ष practical पद्धतीने शिकू शकता. आमचं training module बिगिनर्ससाठी सोपं ठेवलेलं आहे — spawn तयार करण्यापासून ते harvesting आणि packaging पर्यंत सगळं काही cover होतं. Kothrud, Karve Nagar, Erandwane या भागातील विद्यार्थी आणि गृहिणी दोघांनाही हे training उपयोगी पडतं, कारण कमी जागेत आणि कमी investment मध्ये हा business सुरू करता येतो.",
     faqs: [
       { q: "Kothrud मध्ये training साठी किती वेळ लागतो?", a: "आमचं basic training एका दिवसात पूर्ण होतं, आणि advanced module 2-3 दिवसांचं असतं." },
-      { q: "Training नंतर spawn कुठून मिळेल?", a: "Organic Mushroom Farm कडून तुम्हाला verified spawn pan India delivery सोबत मिळू शकतो." }
+      { q: "Training नंतर spawn कुठून मिळेल?", a: "Organic Mushrooms Farm कडून तुम्हाला verified spawn pan India delivery सोबत मिळू शकतो." }
     ],
     links: []
   },
@@ -20,11 +20,11 @@ export const PUNE_BLOGS_PART_1 = [
     path: "government-mushroom-training-center",
     keyword: "government mushroom training center",
     category: "Training Centers",
-    title: "Government Mushroom Training Center Wakad Pune | Organic Mushroom Farm",
+    title: "Government Mushroom Training Center Wakad Pune | Organic Mushrooms Farm",
     h1: "Wakad, Pune येथे Government Mushroom Training Center",
     area: "Wakad",
     meta: "Wakad Pune मध्ये government-recognized mushroom training. सरकारी योजना आणि subsidy माहितीसोबत complete training. आजच चौकशी करा.",
-    intro: "Wakad हा Pune चा rapidly growing IT आणि residential hub आहे. इथल्या अनेक रहिवाशांना सरकारी योजनांच्या मदतीने mushroom farming सुरू करायची इच्छा असते, पण योग्य मार्गदर्शन मिळत नाही. Organic Mushroom Farm चं Wakad केंद्र government training guidelines नुसार structured training देतं — ज्यामध्ये KVK, NABARD आणि राज्य कृषी विभागाच्या योजनांची माहिती सुद्धा दिली जाते. हे training विशेषतः: त्या लोकांसाठी उपयोगी आहे ज्यांना subsidy घेऊन commercial scale वर business सुरू करायचा आहे. Hinjewadi आणि Baner जवळ राहणाऱ्या IT professionals नी सुद्धा weekend batches साठी नोंदणी केली आहे.",
+    intro: "Wakad हा Pune चा rapidly growing IT आणि residential hub आहे. इथल्या अनेक रहिवाशांना सरकारी योजनांच्या मदतीने mushroom farming सुरू करायची इच्छा असते, पण योग्य मार्गदर्शन मिळत नाही. Organic Mushrooms Farm चं Wakad केंद्र government training guidelines नुसार structured training देतं — ज्यामध्ये KVK, NABARD आणि राज्य कृषी विभागाच्या योजनांची माहिती सुद्धा दिली जाते. हे training विशेषतः: त्या लोकांसाठी उपयोगी आहे ज्यांना subsidy घेऊन commercial scale वर business सुरू करायचा आहे. Hinjewadi आणि Baner जवळ राहणाऱ्या IT professionals नी सुद्धा weekend batches साठी नोंदणी केली आहे.",
     faqs: [
       { q: "Government training मध्ये काय वेगळं असतं?", a: "यामध्ये scheme eligibility, subsidy process, आणि documentation याबद्दल detailed मार्गदर्शन दिलं जातं." },
       { q: "Wakad केंद्रावर weekend batch आहे का?", a: "हो, working professionals साठी weekend आणि evening batches उपलब्ध आहेत." }
@@ -39,8 +39,8 @@ export const PUNE_BLOGS_PART_1 = [
     title: "Mushroom Training Center Near Me – Hinjewadi Pune",
     h1: "Hinjewadi, Pune जवळ Mushroom Training Center",
     area: "Hinjewadi",
-    meta: "Hinjewadi मध्ये राहता आणि 'mushroom training near me' शोधताय? Organic Mushroom Farm चं नजीकचं training center इथे आहे. IT professionals साठी weekend batch.",
-    intro: "Hinjewadi IT Park मध्ये काम करणाऱ्या अनेक professionals ना side-income किंवा future business म्हणून mushroom farming मध्ये रस आहे, पण रोजच्या busy schedule मुळे लांब जाणं शक्य नसतं. म्हणूनच Organic Mushroom Farm ने Hinjewadi परिसरातील लोकांसाठी जवळचं, सोयीस्कर training center तयार केलं आहे. इथे तुम्हाला weekend किंवा evening slots मध्ये practical training मिळतं — कमी वेळेत जास्त शिकायला मिळेल अशा पद्धतीने curriculum design केलेला आहे. Phase 1, Phase 2, Phase 3 या भागातील रहिवाशांसाठी हे सर्वात जवळचं आणि trusted training center आहे.",
+    meta: "Hinjewadi मध्ये राहता आणि 'mushroom training near me' शोधताय? Organic Mushrooms Farm चं नजीकचं training center इथे आहे. IT professionals साठी weekend batch.",
+    intro: "Hinjewadi IT Park मध्ये काम करणाऱ्या अनेक professionals ना side-income किंवा future business म्हणून mushroom farming मध्ये रस आहे, पण रोजच्या busy schedule मुळे लांब जाणं शक्य नसतं. म्हणूनच Organic Mushrooms Farm ने Hinjewadi परिसरातील लोकांसाठी जवळचं, सोयीस्कर training center तयार केलं आहे. इथे तुम्हाला weekend किंवा evening slots मध्ये practical training मिळतं — कमी वेळेत जास्त शिकायला मिळेल अशा पद्धतीने curriculum design केलेला आहे. Phase 1, Phase 2, Phase 3 या भागातील रहिवाशांसाठी हे सर्वात जवळचं आणि trusted training center आहे.",
     faqs: [
       { q: "Hinjewadi Phase जवळ center आहे का?", a: "हो, Hinjewadi Phase 1-3 मधून सहज पोहोचता येईल असं location आहे." },
       { q: "Working professionals साठी कोणता batch best आहे?", a: "Saturday-Sunday weekend batch सर्वात जास्त popular आहे." }
@@ -56,7 +56,7 @@ export const PUNE_BLOGS_PART_1 = [
     h1: "Baner, Pune येथे Mushroom Farming Training Center",
     area: "Baner",
     meta: "Baner Pune मध्ये complete mushroom farming training center. Business angle सोबत spawn, packaging आणि selling याबद्दल practical माहिती.",
-    intro: "Baner हा Pune मधला एक upscale आणि business-minded area आहे, जिथे अनेकजण स्वतःचा side-business किंवा full-time farming venture सुरू करण्याचा विचार करतात. Organic Mushroom Farm चं Baner training center फक्त cultivation नाही, तर संपूर्ण business model शिकवतं — स्पॉन सोर्सिंग, ग्रोइंग, पॅकेजिंग आणि लोकल मार्केटमध्ये विक्री कशी करायची हे सगळं. आमच्या trainers ना स्वतःच्या farm वरचा प्रत्यक्ष अनुभव आहे, त्यामुळे theory सोबत practical insights सुद्धा मिळतात. Baner-Pashan road वरील रहिवाशांसाठी हे केंद्र अगदी जवळ आहे.",
+    intro: "Baner हा Pune मधला एक upscale आणि business-minded area आहे, जिथे अनेकजण स्वतःचा side-business किंवा full-time farming venture सुरू करण्याचा विचार करतात. Organic Mushrooms Farm चं Baner training center फक्त cultivation नाही, तर संपूर्ण business model शिकवतं — स्पॉन सोर्सिंग, ग्रोइंग, पॅकेजिंग आणि लोकल मार्केटमध्ये विक्री कशी करायची हे सगळं. आमच्या trainers ना स्वतःच्या farm वरचा प्रत्यक्ष अनुभव आहे, त्यामुळे theory सोबत practical insights सुद्धा मिळतात. Baner-Pashan road वरील रहिवाशांसाठी हे केंद्र अगदी जवळ आहे.",
     faqs: [
       { q: "Training मध्ये business plan पण शिकवला जातो का?", a: "हो, profit calculation आणि marketing strategy दोन्ही cover होतात." },
       { q: "Investment किती लागेल farming सुरू करायला?", a: "सुरुवात फक्त काही हजार रुपयांमध्ये करता येते, training मध्ये exact breakdown दिला जातो." }
@@ -71,8 +71,8 @@ export const PUNE_BLOGS_PART_1 = [
     title: "Best Mushroom Training Center in Aundh, Pune",
     h1: "Aundh, Pune मधील Best Mushroom Training Center",
     area: "Aundh",
-    meta: "Aundh Pune मधलं सर्वोत्तम mushroom training center कोणतं? Organic Mushroom Farm चे verified trainers, hands-on practical session आणि certification.",
-    intro: "सर्वोत्तम training center शोधताना लोक trainer चा अनुभव, hands-on practice, आणि नंतरचा support किती मिळतो हे बघतात. Organic Mushroom Farm चं Aundh केंद्र या तिन्ही बाबतीत पुढे आहे — आमचे trainers स्वतः 2021 पासून commercial farming करत आहेत, त्यामुळे फक्त पुस्तकी ज्ञान नाही तर real farm experience शिकवला जातो. Training नंतर spawn supply, troubleshooting support आणि buyback assistance सुद्धा दिली जाते, जे इतर अनेक केंद्रांमध्ये मिळत नाही. Aundh, ITI Road आणि DP Road जवळच्या रहिवाशांसाठी हे एक trusted नाव बनलं आहे.",
+    meta: "Aundh Pune मधलं सर्वोत्तम mushroom training center कोणतं? Organic Mushrooms Farm चे verified trainers, hands-on practical session आणि certification.",
+    intro: "सर्वोत्तम training center शोधताना लोक trainer चा अनुभव, hands-on practice, आणि नंतरचा support किती मिळतो हे बघतात. Organic Mushrooms Farm चं Aundh केंद्र या तिन्ही बाबतीत पुढे आहे — आमचे trainers स्वतः 2021 पासून commercial farming करत आहेत, त्यामुळे फक्त पुस्तकी ज्ञान नाही तर real farm experience शिकवला जातो. Training नंतर spawn supply, troubleshooting support आणि buyback assistance सुद्धा दिली जाते, जे इतर अनेक केंद्रांमध्ये मिळत नाही. Aundh, ITI Road आणि DP Road जवळच्या रहिवाशांसाठी हे एक trusted नाव बनलं आहे.",
     faqs: [
       { q: "Training नंतर ongoing support मिळतो का?", a: "हो, WhatsApp support आणि follow-up guidance दिली जाते." },
       { q: "Certificate मिळतं का training नंतर?", a: "हो, completion certificate दिलं जातं." }

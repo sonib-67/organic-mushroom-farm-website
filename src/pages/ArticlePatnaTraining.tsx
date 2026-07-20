@@ -40,7 +40,7 @@ const ArticlePatnaTraining = () => {
                         चाहे आप कंकड़बाग के स्टूडेंट हों, बोरिंग रोड के युवा उद्यमी हों या दानापुर और बिहटा के किसान भाई—<strong>Mushroom Farming in Patna</strong> कम जगह और कम लागत में शानदार मुनाफा देने वाला सबसे जबरदस्त एग्री-स्टार्टअप बन चुका है। लेकिन किसी भी नए किसान का सबसे बड़ा सवाल होता है: "बढ़िया क्वालिटी का मशरूम बीज (Spawn) कहाँ मिलेगा?"
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        यहीं पर <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushroom Farm</Link> आपके लिए एक 'वन-स्टॉप सॉल्यूशन' लेकर आया है, जहाँ आपको ट्रेनिंग से लेकर माल बेचने तक की पूरी सुविधा मिलती है।
+                        यहीं पर <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushrooms Farm</Link> आपके लिए एक 'वन-स्टॉप सॉल्यूशन' लेकर आया है, जहाँ आपको ट्रेनिंग से लेकर माल बेचने तक की पूरी सुविधा मिलती है।
                     </p>
 
                     <div className="space-y-6 mt-12">
@@ -157,7 +157,7 @@ const ArticlePatnaTraining = () => {
                             <p className="text-sm dark:text-slate-300 text-slate-700">उत्तर: हम Mushroom Spawn Sale के तहत ऑर्डर मिलने के 24 से 48 घंटे के भीतर पटना और आसपास के जिलों (हाजीपुर, बिहटा, मसौढ़ी) में फ्रेश और लैब-टेस्टेड स्पॉन डिलीवर कर देते हैं।</p>
                         </div>
                         <div className="bg-black/5 dark:bg-white/5 p-6 rounded-2xl border border-black/5 dark:border-white/5">
-                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q4. क्या माल बेचने में Organic Mushroom Farm मदद करेगा?</h3>
+                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q4. क्या माल बेचने में Organic Mushrooms Farm मदद करेगा?</h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">उत्तर: हाँ! हमारा Mushroom Marketing Support आपको पटना की लोकल मंडियों, बड़े होटल्स, और रिटेल चेन्स से डायरेक्ट जोड़ता है, ताकि आपका फ्रेश या ड्राई मशरूम कभी बर्बाद न हो।</p>
                         </div>
                     </div>
@@ -169,7 +169,7 @@ const ArticlePatnaTraining = () => {
                         बिहार में अब युवा नौकरी मांगने वाले नहीं, बल्कि रोजगार देने वाले बन रहे हैं। पटना में मशरूम की खेती सिर्फ एक फसल नहीं, बल्कि लाखों रुपये महीने कमाने वाला एक बेहतरीन स्टार्टअप है। अगर सही बीज, सही तकनीकी ज्ञान और पक्का इरादा हो, तो सफलता पक्की है।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        Organic Mushroom Farm आपके इस सफर में आपका सच्चा साथी है।
+                        Organic Mushrooms Farm आपके इस सफर में आपका सच्चा साथी है।
                     </p>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

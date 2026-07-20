@@ -64,7 +64,7 @@ const ProjectSpecsPage = ({ metaDesc }: { metaDesc?: string }) => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title={`Project Specs: ${specData.name} | Organic Mushroom Farm`} 
+        title={`Project Specs: ${specData.name} | Organic Mushrooms Farm`} 
         description={`Detailed project specifications, equipment used, and ROI for ${specData.name}'s mushroom farming setup.`} 
       />
 

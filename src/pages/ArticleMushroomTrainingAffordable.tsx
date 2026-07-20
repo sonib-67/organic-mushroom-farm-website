@@ -56,7 +56,7 @@ const ArticleMushroomTrainingAffordable = () => {
               Agar aap mushroom ki kheti shuru karna chahte hain aur nahi pata kahan se start karen — toh mushroom training bilkul aapke liye hai. Mushroom farming training ek aisa program hota hai jisme aapko step-by-step sikhaya jata hai ki mushroom kaise ugayi jaati hai, spawn kaise use hota hai, fruiting kaise hoti hai, harvesting aur packing kaise karni hai — aur sabse important — mushroom se paise kaise kamaye jaate hain.
             </p>
             <p className="mt-4 text-base leading-relaxed">
-              Organic Mushroom Farm, Jabalpur (<a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer">organicmushroomfarm.shop</a>) ke through aap do tarah ki training le sakte hain:
+              Organic Mushrooms Farm, Jabalpur (<a href="https://organicmushroomsfarm.com" target="_blank" rel="noopener noreferrer">organicmushroomsfarm.com</a>) ke through aap do tarah ki training le sakte hain:
             </p>
             <ul className="mt-4 space-y-2 text-sm">
               <li className="flex items-center gap-2"><CheckCircle2 size={16} className="text-primary-start" /> <strong>Online Mushroom Training</strong> — sirf ₹299 mein, ghar baithe</li>
@@ -142,7 +142,7 @@ const ArticleMushroomTrainingAffordable = () => {
             <span className="text-2xl font-black block mb-2 text-[#22c55e]">📱 ONLINE MUSHROOM TRAINING — SIRF ₹299</span>
             <p className="font-bold text-sm text-slate-300">Certificate ke Saath | Hindi Mein | Lifetime Access</p>
             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
-              <a href="https://organicmushroomfarm.shop/training" className="inline-block bg-[#22c55e] text-black font-extrabold text-sm px-6 py-3 rounded-xl hover:scale-105 transition-transform">
+              <a href="https://organicmushroomsfarm.com/training" className="inline-block bg-[#22c55e] text-black font-extrabold text-sm px-6 py-3 rounded-xl hover:scale-105 transition-transform">
                 Register Now
               </a>
               <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-900 border border-white/10 text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-white/5 transition-all">
@@ -159,7 +159,7 @@ const ArticleMushroomTrainingAffordable = () => {
             Jinhe practically farm dekhna hai, hands-on kaam karna hai, aur expert se seedha baat karni hai — unke liye hamari offline training Jabalpur, Madhya Pradesh mein available hai.
           </p>
           <p>
-            <strong>Organic Mushroom Farm Jabalpur</strong> mein ek live working farm hai jahan aap asli mushroom cultivation process dekhoge aur khud karoge. Yahan oyster, milky, aur button mushroom ki commercial cultivation hoti hai.
+            <strong>Organic Mushrooms Farm Jabalpur</strong> mein ek live working farm hai jahan aap asli mushroom cultivation process dekhoge aur khud karoge. Yahan oyster, milky, aur button mushroom ki commercial cultivation hoti hai.
           </p>
 
           <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 my-8">
@@ -190,7 +190,7 @@ const ArticleMushroomTrainingAffordable = () => {
               <tbody className="divide-y divide-white/5 text-slate-300">
                 <tr>
                   <td className="p-4 font-bold text-white border-r border-white/5">Location</td>
-                  <td className="p-4">Organic Mushroom Farm, Jabalpur, Madhya Pradesh</td>
+                  <td className="p-4">Organic Mushrooms Farm, Jabalpur, Madhya Pradesh</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-bold text-white border-r border-white/5">Duration</td>
@@ -214,7 +214,7 @@ const ArticleMushroomTrainingAffordable = () => {
                 </tr>
                 <tr>
                   <td className="p-4 font-bold text-white border-r border-white/5">Official Site</td>
-                  <td className="p-4">organicmushroomfarm.shop</td>
+                  <td className="p-4">organicmushroomsfarm.com</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-bold text-white border-r border-white/5">Scheduling Code</td>
@@ -352,7 +352,7 @@ const ArticleMushroomTrainingAffordable = () => {
             </li>
           </ul>
           <p className="italic text-xs font-bold text-orange-400">
-            * Certificate Organic Mushroom Farm, Jabalpur, Madhya Pradesh ki taraf se issue hota hai — officially stamped aur signed.
+            * Certificate Organic Mushrooms Farm, Jabalpur, Madhya Pradesh ki taraf se issue hota hai — officially stamped aur signed.
           </p>
 
           {/* Section: Who Should Join */}
@@ -479,7 +479,7 @@ const ArticleMushroomTrainingAffordable = () => {
           </h2>
           <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 my-6 text-sm leading-relaxed">
             <ol className="list-decimal pl-6 space-y-3 font-semibold text-slate-300">
-              <li>Website visit karo: <a href="https://organicmushroomfarm.shop/training" target="_blank" rel="noopener noreferrer" className="text-primary-start font-bold">organicmushroomfarm.shop</a></li>
+              <li>Website visit karo: <a href="https://organicmushroomsfarm.com/training" target="_blank" rel="noopener noreferrer" className="text-primary-start font-bold">organicmushroomsfarm.com</a></li>
               <li>Online Training — ₹299 pay karo (UPI / Card / Net Banking)</li>
               <li>WhatsApp karo <span className="text-[#22c55e]">9203544140</span> pe — confirmation layout update instructions milenge</li>
               <li>Video portal content access milega turant — explore and enjoy</li>
@@ -502,7 +502,7 @@ const ArticleMushroomTrainingAffordable = () => {
               },
               {
                 q: "Q2: Kya training ke baad certificate milega?",
-                a: "Haan. Online aur offline dono training ke baad Organic Mushroom Farm ka official certificate milega. Ye government schemes aur bank loans mein useful hota hai."
+                a: "Haan. Online aur offline dono training ke baad Organic Mushrooms Farm ka official certificate milega. Ye government schemes aur bank loans mein useful hota hai."
               },
               {
                 q: "Q3: Training Hindi mein hogi ya English mein?",

@@ -8,7 +8,7 @@ const ArticleMushroomSpawn = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="What is Mushroom Spawn? Complete Beginner Guide (2026–27) | Organic Mushroom Farm" 
+        title="What is Mushroom Spawn? Complete Beginner Guide (2026–27) | Organic Mushrooms Farm" 
         description="Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India. Complete beginner guide 2026-2027." 
       />
 
@@ -44,8 +44,8 @@ const ArticleMushroomSpawn = () => {
         <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary-start">
           
           <p className="lead text-xl dark:text-slate-300 text-slate-700 font-medium mb-8">
-            Mushroom Seeds | Mushroom Cultivation Guide India | Organic Mushroom Farm<br/>
-            organicmushroomfarm.shop | Call / WhatsApp: 9203544140<br/>
+            Mushroom Seeds | Mushroom Cultivation Guide India | Organic Mushrooms Farm<br/>
+            organicmushroomsfarm.com | Call / WhatsApp: 9203544140<br/>
             Serving Pan India + UAE + UK + USA + Canada + Nepal + Bangladesh
           </p>
 
@@ -128,7 +128,7 @@ const ArticleMushroomSpawn = () => {
             <li>Fastest colonization of all spawn types</li>
             <li>Easiest to use — simply mix into pasteurized substrate</li>
             <li>Best for beginners starting mushroom farming from scratch</li>
-            <li>Available Pan India — order online from <Link to="/">organicmushroomfarm.shop</Link></li>
+            <li>Available Pan India — order online from <Link to="/">organicmushroomsfarm.com</Link></li>
           </ul>
 
           <h3 className="text-xl mt-8 mb-3 font-bold">Sawdust Spawn — Best for Wood-Loving Varieties</h3>
@@ -183,7 +183,7 @@ const ArticleMushroomSpawn = () => {
           
           <div className="bg-primary-start/10 border-l-4 border-primary-start p-4 rounded-r-xl my-6">
             <p className="m-0 text-sm italic">
-              <strong>Pro Tip:</strong> Always source spawn from a certified lab or trusted supplier. Organic Mushroom Farm (Jabalpur, Madhya Pradesh) supplies high-quality, lab-certified grain spawn, sawdust spawn, and more — with Pan India delivery to all states and cities. Visit <Link to="/">organicmushroomfarm.shop</Link> or call <strong>9203544140</strong>.
+              <strong>Pro Tip:</strong> Always source spawn from a certified lab or trusted supplier. Organic Mushrooms Farm (Jabalpur, Madhya Pradesh) supplies high-quality, lab-certified grain spawn, sawdust spawn, and more — with Pan India delivery to all states and cities. Visit <Link to="/">organicmushroomsfarm.com</Link> or call <strong>9203544140</strong>.
             </p>
           </div>
 
@@ -280,7 +280,7 @@ const ArticleMushroomSpawn = () => {
 
           <h2 className="text-2xl mt-10 mb-4 text-primary-start">Where to Buy Mushroom Spawn in India | Pan India Spawn Supplier</h2>
           <p>
-            Organic Mushroom Farm, based in Jabalpur, Madhya Pradesh, is a trusted spawn supplier and mushroom farming resource serving customers across all Indian states and internationally. We deliver quality spawn to:
+            Organic Mushrooms Farm, based in Jabalpur, Madhya Pradesh, is a trusted spawn supplier and mushroom farming resource serving customers across all Indian states and internationally. We deliver quality spawn to:
           </p>
           
           <div className="grid sm:grid-cols-2 gap-4 my-6 text-sm">
@@ -310,7 +310,7 @@ const ArticleMushroomSpawn = () => {
             </div>
           </div>
 
-          <h2 className="text-2xl mt-10 mb-4 text-primary-start">Our Services | Organic Mushroom Farm — Jabalpur, MP</h2>
+          <h2 className="text-2xl mt-10 mb-4 text-primary-start">Our Services | Organic Mushrooms Farm — Jabalpur, MP</h2>
           <p>We offer four core services designed to support mushroom farmers at every stage of their journey:</p>
           
           <div className="space-y-4 my-6">
@@ -353,7 +353,7 @@ const ArticleMushroomSpawn = () => {
             </div>
             <div>
               <h4 className="font-bold text-lg">Q5: What is organic mushroom farming?</h4>
-              <p className="text-slate-500 mt-2">Organic mushroom farming means growing mushrooms without synthetic fertilizers, pesticides, or chemical additives — using only natural substrates (straw, sawdust, bran) and clean water. Organic-certified mushrooms command premium prices both domestically and in export markets like UAE, UK, USA, and Canada.</p>
+              <p className="text-slate-500 mt-2">organic mushroom farming means growing mushrooms without synthetic fertilizers, pesticides, or chemical additives — using only natural substrates (straw, sawdust, bran) and clean water. Organic-certified mushrooms command premium prices both domestically and in export markets like UAE, UK, USA, and Canada.</p>
             </div>
             <div>
               <h4 className="font-bold text-lg">Q6: How big is the mushroom market in India?</h4>

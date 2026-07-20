@@ -505,13 +505,13 @@ const CompanyProfile = () => {
               "img",
               {
                 src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-                alt: "Organic Mushroom Farm",
+                alt: "Organic Mushrooms Farm",
                 className: "w-full h-full object-contain",
                 referrerPolicy: "no-referrer"
               }
             ) }),
             /* @__PURE__ */ jsxs("div", { children: [
-              /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold dark:text-white text-slate-900 mb-1", children: "Organic Mushroom Farm" }),
+              /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold dark:text-white text-slate-900 mb-1", children: "Organic Mushrooms Farm" }),
               /* @__PURE__ */ jsx("p", { className: "text-primary-start font-black text-[10px] uppercase tracking-[0.3em]", children: "Premium Infrastructure Partner" })
             ] })
           ] }),
@@ -810,7 +810,7 @@ const Navbar = () => {
                   "img",
                   {
                     src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-                    alt: "Organic Mushroom Farm",
+                    alt: "Organic Mushrooms Farm",
                     className: "w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
                   }
                 ),
@@ -951,7 +951,7 @@ const Navbar = () => {
                   "img",
                   {
                     src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-                    alt: "Organic Mushroom Farm",
+                    alt: "Organic Mushrooms Farm",
                     className: "w-full h-full object-contain"
                   }
                 ) }),
@@ -1408,7 +1408,7 @@ const WhyChooseUs = () => {
             children: [
               "Why Choose",
               " ",
-              /* @__PURE__ */ jsx("span", { className: "gradient-text", children: /* @__PURE__ */ jsx(Link, { to: "/states", children: "Organic Mushroom Farm for Your Project?" }) })
+              /* @__PURE__ */ jsx("span", { className: "gradient-text", children: /* @__PURE__ */ jsx(Link, { to: "/states", children: "Organic Mushrooms Farm for Your Project?" }) })
             ]
           }
         ),
@@ -2349,8 +2349,8 @@ const ContactPage = () => {
             {
               icon: Mail,
               label: "Email Support",
-              values: ["support@organicmushroomfarm.shop"],
-              href: "mailto:support@organicmushroomfarm.shop"
+              values: ["support@organicmushroomsfarm.com"],
+              href: "mailto:support@organicmushroomsfarm.com"
             }
           ].map((item, i) => /* @__PURE__ */ jsxs(
             "a",
@@ -2706,7 +2706,7 @@ const Footer = () => {
             "img",
             {
               src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-              alt: "Organic Mushroom Farm",
+              alt: "Organic Mushrooms Farm",
               className: "w-14 h-14 object-contain"
             }
           ),
@@ -2839,7 +2839,7 @@ const Footer = () => {
       ] })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600", children: [
-      /* @__PURE__ */ jsx("div", { className: "mb-6 md:mb-0", children: "\xA9 2026 Organic Mushroom Farm. All Rights Reserved." }),
+      /* @__PURE__ */ jsx("div", { className: "mb-6 md:mb-0", children: "\xA9 2026 Organic Mushrooms Farm. All Rights Reserved." }),
       /* @__PURE__ */ jsx("div", { className: "flex gap-6 flex-wrap justify-center", children: [
         {
           label: "Instagram",
@@ -3151,7 +3151,7 @@ const FloatingButtons = () => {
             href: "https://wa.me/919203544140",
             target: "_blank",
             rel: "noopener noreferrer",
-            "aria-label": "Contact Organic Mushroom Farm on WhatsApp",
+            "aria-label": "Contact Organic Mushrooms Farm on WhatsApp",
             initial: { scale: 0, opacity: 0 },
             animate: { scale: 1, opacity: 1 },
             whileHover: { scale: 1.1 },
@@ -3883,7 +3883,7 @@ const MushroomTraining = () => {
           "Looking for the best",
           " ",
           /* @__PURE__ */ jsx("span", { className: "dark:text-white text-slate-900 font-bold", children: "mushroom farming training in India" }),
-          "? At Organic Mushroom Farm, we provide the most comprehensive",
+          "? At Organic Mushrooms Farm, we provide the most comprehensive",
           " ",
           /* @__PURE__ */ jsx("span", { className: "dark:text-white text-slate-900 font-bold", children: "button mushroom training course" }),
           " ",
@@ -3929,7 +3929,7 @@ const HomePage = () => {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Organic Mushroom Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom",
+        title: "Organic Mushrooms Farm | Commercial Mushroom Setup, Spawn, Training, Fresh & Dry Mushroom",
         description: "Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP.",
         schemas: [
           generateGlobalFAQSchema(),
@@ -4327,15 +4327,15 @@ const AboutPage = () => {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "About Organic Mushroom Farm | Leading Commercial Infrastructure & Training Partner",
-        description: "Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally."
+        title: "About Organic Mushrooms Farm | Leading Commercial Infrastructure & Training Partner",
+        description: "Learn about Organic Mushrooms Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally."
       }
     ),
     /* @__PURE__ */ jsx(
       PageHero,
       {
         badge: "Our Commercial Journey",
-        title: "About Organic Mushroom Farm | Global Setup Experts",
+        title: "About Organic Mushrooms Farm | Global Setup Experts",
         description: "Empowering modern India and global markets through sustainable, high-yield organic mushroom cultivation."
       }
     ),
@@ -4399,7 +4399,7 @@ const AboutPage = () => {
           "img",
           {
             src: "training images/trainingmushroom.jpg",
-            alt: "Who We Are - Leading Organic Mushroom Farm Training and Commercial Turnkey Setup Experts in India, USA, Australia",
+            alt: "Who We Are - Leading Organic Mushrooms Farm Training and Commercial Turnkey Setup Experts in India, USA, Australia",
             className: "relative z-10 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl opacity-80"
           }
         )
@@ -4496,14 +4496,14 @@ const AboutPage = () => {
       /* @__PURE__ */ jsxs("h3", { className: "text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 uppercase tracking-tight leading-loose", children: [
         "Pioneering Commercial",
         " ",
-        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "Organic Mushroom Farm Katangi" }),
+        /* @__PURE__ */ jsx("span", { className: "gradient-text", children: "Organic Mushrooms Farm Katangi" }),
         " ",
         "& ",
         /* @__PURE__ */ jsx(Link, { to: "/cities/madhya-pradesh/jabalpur", className: "text-primary-start hover:underline", children: "Jabalpur" })
       ] }),
       /* @__PURE__ */ jsxs("p", { className: "dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed", children: [
         "Our commercial ",
-        /* @__PURE__ */ jsx("strong", { children: "organic mushroom farm in Katangi" }),
+        /* @__PURE__ */ jsx("strong", { children: "organic mushrooms farm in Katangi" }),
         " ",
         "road, Jabalpur, serves as a model for aspiring farmers across the region and globe. We are proud to provide the most reliable",
         " ",
@@ -5138,7 +5138,7 @@ const GalleryPage = () => {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Commercial Organic Mushroom Farm Gallery | Project Photos & Setup",
+        title: "Commercial Organic Mushrooms Farm Gallery | Project Photos & Setup",
         description: "View photos of our commercial button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful turnkey farming project setups across India.",
         url: "/gallery"
       }
@@ -5191,7 +5191,7 @@ const FAQPage = () => {
     },
     {
       q: "What is the cost of commercial mushroom farming setup?",
-      a: "A small-scale organic mushroom farm India setup for beginners starts around \u20B92-5 Lakhs. For commercial units (20T-30T), investment ranges from \u20B915-25 Lakhs. We assist with cost-effective commercial turnkey solutions."
+      a: "A small-scale organic mushrooms farm India setup for beginners starts around \u20B92-5 Lakhs. For commercial units (20T-30T), investment ranges from \u20B915-25 Lakhs. We assist with cost-effective commercial turnkey solutions."
     },
     {
       q: "Do you provide mushroom training in all states of India?",
@@ -5235,7 +5235,7 @@ const FAQPage = () => {
     },
     {
       q: "Pune mushroom farming training center near me?",
-      a: "\u091C\u0930 \u0924\u0941\u092E\u094D\u0939\u0940 \u092A\u0941\u0923\u0947, \u092A\u093F\u0902\u092A\u0930\u0940-\u091A\u093F\u0902\u091A\u0935\u0921 \u0915\u093F\u0902\u0935\u093E \u0906\u0938\u092A\u093E\u0938\u091A\u094D\u092F\u093E \u092D\u093E\u0917\u093E\u0924 \u0909\u0924\u094D\u0915\u0943\u0937\u094D\u091F \u092A\u094D\u0930\u0936\u093F\u0915\u094D\u0937\u0923 \u0915\u0947\u0902\u0926\u094D\u0930 \u0936\u094B\u0927\u0924 \u0905\u0938\u093E\u0932, \u0924\u0930 'Organic Mushroom Farm' \u0939\u0947 \u0938\u0930\u094D\u0935\u093E\u0924 \u0935\u093F\u0936\u094D\u0935\u0938\u0928\u0940\u092F \u0928\u093E\u0935 \u0906\u0939\u0947. \u0906\u092E\u094D\u0939\u0940 \u0938\u0902\u092A\u0942\u0930\u094D\u0923 \u0915\u0932\u094D\u091F\u093F\u0935\u094D\u0939\u0947\u0936\u0928, \u0938\u094D\u092A\u0949\u0928 \u092C\u0928\u0935\u0923\u0947, \u092E\u093E\u0930\u094D\u0915\u0947\u091F\u093F\u0902\u0917 \u0906\u0923\u093F \u092C\u0901\u0915 \u0938\u092C\u0938\u093F\u0921\u0940 \u0915\u0928\u094D\u0938\u0932\u094D\u091F\u0928\u094D\u0938\u0940\u091A\u0947 \u0911\u0928\u0932\u093E\u0908\u0928 \u0935 \u0911\u092B\u0932\u093E\u0908\u0928 \u092A\u094D\u0930\u0945\u0915\u094D\u091F\u093F\u0915\u0932 \u091F\u094D\u0930\u0947\u0928\u093F\u0902\u0917 \u0926\u0947\u0924\u094B."
+      a: "\u091C\u0930 \u0924\u0941\u092E\u094D\u0939\u0940 \u092A\u0941\u0923\u0947, \u092A\u093F\u0902\u092A\u0930\u0940-\u091A\u093F\u0902\u091A\u0935\u0921 \u0915\u093F\u0902\u0935\u093E \u0906\u0938\u092A\u093E\u0938\u091A\u094D\u092F\u093E \u092D\u093E\u0917\u093E\u0924 \u0909\u0924\u094D\u0915\u0943\u0937\u094D\u091F \u092A\u094D\u0930\u0936\u093F\u0915\u094D\u0937\u0923 \u0915\u0947\u0902\u0926\u094D\u0930 \u0936\u094B\u0927\u0924 \u0905\u0938\u093E\u0932, \u0924\u0930 'Organic Mushrooms Farm' \u0939\u0947 \u0938\u0930\u094D\u0935\u093E\u0924 \u0935\u093F\u0936\u094D\u0935\u0938\u0928\u0940\u092F \u0928\u093E\u0935 \u0906\u0939\u0947. \u0906\u092E\u094D\u0939\u0940 \u0938\u0902\u092A\u0942\u0930\u094D\u0923 \u0915\u0932\u094D\u091F\u093F\u0935\u094D\u0939\u0947\u0936\u0928, \u0938\u094D\u092A\u0949\u0928 \u092C\u0928\u0935\u0923\u0947, \u092E\u093E\u0930\u094D\u0915\u0947\u091F\u093F\u0902\u0917 \u0906\u0923\u093F \u092C\u0901\u0915 \u0938\u092C\u0938\u093F\u0921\u0940 \u0915\u0928\u094D\u0938\u0932\u094D\u091F\u0928\u094D\u0938\u0940\u091A\u0947 \u0911\u0928\u0932\u093E\u0908\u0928 \u0935 \u0911\u092B\u0932\u093E\u0908\u0928 \u092A\u094D\u0930\u0945\u0915\u094D\u091F\u093F\u0915\u0932 \u091F\u094D\u0930\u0947\u0928\u093F\u0902\u0917 \u0926\u0947\u0924\u094B."
     },
     {
       q: "\u0911\u0928\u0932\u093E\u0908\u0928 \u092E\u0936\u0930\u0942\u092E \u092A\u094D\u0930\u0936\u093F\u0915\u094D\u0937\u0923 \u0909\u092A\u0932\u092C\u094D\u0927 \u0906\u0939\u0947 \u0915\u093E?",
@@ -5251,7 +5251,7 @@ const FAQPage = () => {
     },
     {
       q: "Mushroom Spawn Supplier in Pune \u0915\u0941\u0920\u0947 \u092E\u093F\u0933\u0947\u0932?",
-      a: "Organic Mushroom Farm \u092A\u0941\u0923\u0947 \u0906\u0923\u093F \u0906\u0938\u092A\u093E\u0938\u091A\u094D\u092F\u093E \u0938\u0930\u094D\u0935 \u091C\u093F\u0932\u094D\u0939\u094D\u092F\u093E\u0902\u092E\u0927\u094D\u092F\u0947 \u0909\u091A\u094D\u091A \u092A\u094D\u0930\u0924\u0940\u091A\u0947, \u0932\u0945\u092C-\u0938\u0930\u094D\u091F\u093F\u092B\u093E\u0907\u0921 \u0906\u0923\u093F \u0926\u0930\u094D\u091C\u0947\u0926\u093E\u0930 \u092E\u0936\u0930\u0942\u092E \u0938\u094D\u092A\u0949\u0928 (Oyster, Milky, Button & Medicinal F1 Spawn) \u0918\u0930\u092A\u094B\u091A \u0921\u093F\u0932\u093F\u0935\u094D\u0939\u0930\u0940 \u0926\u094D\u0935\u093E\u0930\u0947 \u0938\u0941\u0930\u0915\u094D\u0937\u093F\u0924\u092A\u0923\u0947 \u092A\u0941\u0930\u0935\u0924\u0947."
+      a: "Organic Mushrooms Farm \u092A\u0941\u0923\u0947 \u0906\u0923\u093F \u0906\u0938\u092A\u093E\u0938\u091A\u094D\u092F\u093E \u0938\u0930\u094D\u0935 \u091C\u093F\u0932\u094D\u0939\u094D\u092F\u093E\u0902\u092E\u0927\u094D\u092F\u0947 \u0909\u091A\u094D\u091A \u092A\u094D\u0930\u0924\u0940\u091A\u0947, \u0932\u0945\u092C-\u0938\u0930\u094D\u091F\u093F\u092B\u093E\u0907\u0921 \u0906\u0923\u093F \u0926\u0930\u094D\u091C\u0947\u0926\u093E\u0930 \u092E\u0936\u0930\u0942\u092E \u0938\u094D\u092A\u0949\u0928 (Oyster, Milky, Button & Medicinal F1 Spawn) \u0918\u0930\u092A\u094B\u091A \u0921\u093F\u0932\u093F\u0935\u094D\u0939\u0930\u0940 \u0926\u094D\u0935\u093E\u0930\u0947 \u0938\u0941\u0930\u0915\u094D\u0937\u093F\u0924\u092A\u0923\u0947 \u092A\u0941\u0930\u0935\u0924\u0947."
     },
     {
       q: "Button Mushroom Farming Pune \u092E\u0927\u094D\u092F\u0947 \u0915\u0930\u0924\u093E \u092F\u0947\u0924\u0947 \u0915\u093E?",
@@ -5339,7 +5339,7 @@ const FAQPage = () => {
       /* @__PURE__ */ jsxs("p", { className: "text-slate-500 text-xs leading-relaxed max-w-4xl mx-auto", children: [
         "Our commercial mushroom training and turnkey setup services are available in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar, Delhi, \u0930\u093E\u091C\u0938\u094D\u0925\u093E\u0928, \u0917\u0941\u091C\u0930\u093E\u0924, \u092A\u0902\u091C\u093E\u092C, \u0939\u0930\u093F\u092F\u093E\u0923\u093E, \u091B\u0924\u094D\u0924\u0940\u0938\u0917\u0922\u093C, \u091D\u093E\u0930\u0916\u0902\u0921, \u092A\u0936\u094D\u091A\u093F\u092E \u092C\u0902\u0917\u093E\u0932, \u0909\u0924\u094D\u0924\u0930\u093E\u0916\u0902\u0921, \u0914\u0930 \u0905\u0928\u094D\u092F \u0938\u092D\u0940 \u0930\u093E\u091C\u094D\u092F\u094B\u0902 \u092E\u0947\u0902\u0964 We are committed to fostering the biggest",
         " ",
-        /* @__PURE__ */ jsx("strong", { children: "commercial organic mushroom farm India" }),
+        /* @__PURE__ */ jsx("strong", { children: "commercial organic mushrooms farm India" }),
         " network worldwide."
       ] })
     ] }) }),
@@ -5354,7 +5354,7 @@ const TermsOfServicePage = () => {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Terms of Service | Organic Mushroom Farm",
+        title: "Terms of Service | Organic Mushrooms Farm",
         description: "Our standardized commercial service agreement and terms for cooperative training sessions, global spawn trade, and turnkey projects.",
         url: "/terms"
       }
@@ -5369,7 +5369,7 @@ const TermsOfServicePage = () => {
     ),
     /* @__PURE__ */ jsx("section", { className: "section-padding pt-0 pb-32", children: /* @__PURE__ */ jsx("div", { className: "max-w-4xl mx-auto px-4 prose prose-invert", children: /* @__PURE__ */ jsxs("div", { className: "glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10", children: [
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900", children: "1. Commercial Service Agreement" }),
-      /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "By enrolling in our training programs or contracting our commercial farm setup services, you agree to abide by the terms and conditions outlined below. Organic Mushroom Farm provides technical consultancy and educational resources for mushroom farming business success." }),
+      /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "By enrolling in our training programs or contracting our commercial farm setup services, you agree to abide by the terms and conditions outlined below. Organic Mushrooms Farm provides technical consultancy and educational resources for mushroom farming business success." }),
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "2. Payment Terms" }),
       /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "Our current pricing for training is standardized at \u20B9399 for Online access and \u20B93000 for Offline practical workshops. Commercial Turnkey project payments are structured in phases as per the project quotation provided." }),
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "3. No Refund Policy" }),
@@ -5377,7 +5377,7 @@ const TermsOfServicePage = () => {
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "4. User Responsibilities" }),
       /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "Users are responsible for maintaining the confidentiality of their training portal access. For commercial farm setups, the client must ensure site readiness and electricity requirements as per our technical specifications." }),
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "5. Limitation of Liability" }),
-      /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "While we provide high-precision SOPs and infrastructure, biological yields depend on local commercial management. Organic Mushroom Farm is not liable for fluctuations in biological yields or market price changes of mushrooms globally." }),
+      /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "While we provide high-precision SOPs and infrastructure, biological yields depend on local commercial management. Organic Mushrooms Farm is not liable for fluctuations in biological yields or market price changes of mushrooms globally." }),
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "6. Governing Law" }),
       /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "These terms are governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Jabalpur, Madhya Pradesh." })
     ] }) }) })
@@ -5391,8 +5391,8 @@ const PrivacyPolicyPage = () => {
     /* @__PURE__ */ jsx(
       SEO,
       {
-        title: "Privacy Policy | Organic Mushroom Farm",
-        description: "Read our privacy policy about how we protect your personal and commercial data at Organic Mushroom Farm.",
+        title: "Privacy Policy | Organic Mushrooms Farm",
+        description: "Read our privacy policy about how we protect your personal and commercial data at Organic Mushrooms Farm.",
         url: "/privacy"
       }
     ),
@@ -5416,7 +5416,7 @@ const PrivacyPolicyPage = () => {
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "5. Cookies Usage" }),
       /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "Our website uses cookies to enhance your browsing experience and analyze site traffic. You can choose to disable cookies in your browser settings." }),
       /* @__PURE__ */ jsx("h2", { className: "dark:text-white text-slate-900 mt-10", children: "6. Contact Info" }),
-      /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "If you have any questions regarding your privacy, please contact us at support@organicmushroomfarm.shop or call us at +91 9203544140." })
+      /* @__PURE__ */ jsx("p", { className: "dark:text-slate-400 text-slate-600", children: "If you have any questions regarding your privacy, please contact us at support@organicmushroomsfarm.com or call us at +91 9203544140." })
     ] }) }) })
   ] });
 };
@@ -5429,7 +5429,7 @@ const RefundPolicyPage = () => {
       SEO,
       {
         title: "Refund Policy",
-        description: "Review the refund terms and conditions for training programs, consultancy, and turnkey commercial projects at Organic Mushroom Farm.",
+        description: "Review the refund terms and conditions for training programs, consultancy, and turnkey commercial projects at Organic Mushrooms Farm.",
         url: "/refund-policy"
       }
     ),
@@ -5471,7 +5471,7 @@ const ShippingPolicyPage = () => {
       SEO,
       {
         title: "Shipping Policy",
-        description: "Learn about the shipping and delivery guidelines of premium mushroom spawn (seed) and industrial farming equipment at Organic Mushroom Farm.",
+        description: "Learn about the shipping and delivery guidelines of premium mushroom spawn (seed) and industrial farming equipment at Organic Mushrooms Farm.",
         url: "/shipping-policy"
       }
     ),
@@ -5523,7 +5523,7 @@ const CustomerSupportPage = () => {
       SEO,
       {
         title: "Customer Support",
-        description: "Reach out to the Organic Mushroom Farm dedicated customer service division. Get answers on order tracking, training, and commercial turnkey consultation.",
+        description: "Reach out to the Organic Mushrooms Farm dedicated customer service division. Get answers on order tracking, training, and commercial turnkey consultation.",
         url: "/support"
       }
     ),

@@ -10,8 +10,8 @@
       <head>
         <title>
           <xsl:choose>
-            <xsl:when test="sitemap:sitemapindex">Sitemap Index | Organic Mushroom Farm</xsl:when>
-            <xsl:otherwise>Sitemap XML | Organic Mushroom Farm</xsl:otherwise>
+            <xsl:when test="sitemap:sitemapindex">Sitemap Index | Organic Mushrooms Farm</xsl:when>
+            <xsl:otherwise>Sitemap XML | Organic Mushrooms Farm</xsl:otherwise>
           </xsl:choose>
         </title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -343,7 +343,7 @@
 
           <!-- Standard Bottom Brand Panel -->
           <div class="footer">
-            <div class="footer-logo">Organic Mushroom Farm Ecosystem</div>
+            <div class="footer-logo">Organic Mushrooms Farm Ecosystem</div>
             <div>Professional Spawn Supply, High Yield Training &amp; Turnkey Agro Solutions</div>
           </div>
 

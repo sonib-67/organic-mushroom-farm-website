@@ -48,7 +48,7 @@ const ArticleTrainingGuideHindi = () => {
           </p>
 
           <p>
-            OrganicMushroomFarm.Shop par aapko milega India ka sabse behtareen mushroom farming training program — beginner se lekar advanced level tak. Chahe aap ek chhote kisan hon ya ek bade entrepreneur, hamari training aapko complete mushroom cultivation knowledge degi.
+            organicmushroomsfarm.com par aapko milega India ka sabse behtareen mushroom farming training program — beginner se lekar advanced level tak. Chahe aap ek chhote kisan hon ya ek bade entrepreneur, hamari training aapko complete mushroom cultivation knowledge degi.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kya Hoti Hai?</h2>
@@ -71,7 +71,7 @@ const ArticleTrainingGuideHindi = () => {
 
           <h3 className="text-xl mt-8 mb-3 font-bold">Offline Training — Jabalpur, Madhya Pradesh</h3>
           <p>
-            OrganicMushroomFarm.Shop ka headquarter Jabalpur, MP mein hai jahan aap personally aake hands-on training le sakte hain. Ye training specially useful hai:
+            organicmushroomsfarm.com ka headquarter Jabalpur, MP mein hai jahan aap personally aake hands-on training le sakte hain. Ye training specially useful hai:
           </p>
           <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li>Kisan jo direct khet se farming seekhna chahte hain</li>
@@ -154,7 +154,7 @@ const ArticleTrainingGuideHindi = () => {
                 <li>Spawn quality check kaise karein</li>
                 <li>Apna spawn supply business kaise shuru karein</li>
               </ul>
-              <p className="mt-4 text-xs italic">OrganicMushroomFarm.Shop — India ka trusted spawn supplier — Jabalpur se Pan India delivery.</p>
+              <p className="mt-4 text-xs italic">organicmushroomsfarm.com — India ka trusted spawn supplier — Jabalpur se Pan India delivery.</p>
             </div>
 
             <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5">
@@ -255,7 +255,7 @@ const ArticleTrainingGuideHindi = () => {
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Training Kaise Join Karein? | How to Enroll</h2>
           <p>Training join karna bahut simple hai:</p>
           <ul className="list-decimal pl-6 mb-6 space-y-2 text-sm font-medium">
-            <li>OrganicMushroomFarm.Shop visit karein</li>
+            <li>organicmushroomsfarm.com visit karein</li>
             <li>Training section mein apna preferred course choose karein</li>
             <li>Registration form fill karein</li>
             <li>Payment karein (flexible payment options available)</li>
@@ -278,7 +278,7 @@ const ArticleTrainingGuideHindi = () => {
             </div>
             <div>
               <h4 className="font-bold text-lg">Q3. Kya training ke baad certificate milta hai?</h4>
-              <p className="text-slate-500 mt-2 text-sm">Haan! Training complete karne ke baad OrganicMushroomFarm.Shop ka official Certificate of Completion milta hai jo aapke agri-business portfolio mein kaam aayega.</p>
+              <p className="text-slate-500 mt-2 text-sm">Haan! Training complete karne ke baad organicmushroomsfarm.com ka official Certificate of Completion milta hai jo aapke agri-business portfolio mein kaam aayega.</p>
             </div>
             <div>
               <h4 className="font-bold text-lg">Q4. Kya training ke baad spawn supply aur support milega?</h4>

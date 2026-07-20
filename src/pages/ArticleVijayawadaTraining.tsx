@@ -25,7 +25,7 @@ const ArticleVijayawadaTraining = () => {
           "name": "Where can I buy mushroom spawn in Vijayawada?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can buy high-quality Oyster, Milky, and Button mushroom spawn directly from Organic Mushroom Farm in Vijayawada. We provide fast delivery."
+            "text": "You can buy high-quality Oyster, Milky, and Button mushroom spawn directly from Organic Mushrooms Farm in Vijayawada. We provide fast delivery."
           }
         },
         {
@@ -58,7 +58,7 @@ const ArticleVijayawadaTraining = () => {
     const localBusinessSchema = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Organic Mushroom Farm",
+      "name": "Organic Mushrooms Farm",
       "description": "Leading mushroom farming company in Vijayawada offering Farm Setup, Online/Offline Training, Spawn Supply, Fresh/Dry Mushroom Sale, Consultancy, and Turnkey Projects.",
       "address": {
         "@type": "PostalAddress",
@@ -108,7 +108,7 @@ const ArticleVijayawadaTraining = () => {
       "description": "Learn professional mushroom cultivation in Vijayawada. Our training covers farm setup, spawn management, climate control, harvesting, and marketing strategies for high ROI.",
       "provider": {
         "@type": "Organization",
-        "name": "Organic Mushroom Farm"
+        "name": "Organic Mushrooms Farm"
       },
       "courseMode": ["online", "offline"],
       "educationalCredentialAwarded": "Certificate of Completion",
@@ -162,7 +162,7 @@ const ArticleVijayawadaTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        మీరు Vijayawada, Gannavaram, లేదా Amaravati ప్రాంతాల్లో ఒక లాభదాయకమైన వ్యాపారం ప్రారంభించాలనుకుంటున్నారా? Organic Mushroom Farm మీకు అండగా ఉంటుంది. కేవలం పుట్టగొడుగులు పండించడం మాత్రమే కాకుండా, ఒక పూర్తి స్థాయి మష్రూమ్ ఎకోసిస్టమ్ను ఎలా నిర్మించాలో మేము మీకు నేర్పిస్తాము.
+                        మీరు Vijayawada, Gannavaram, లేదా Amaravati ప్రాంతాల్లో ఒక లాభదాయకమైన వ్యాపారం ప్రారంభించాలనుకుంటున్నారా? Organic Mushrooms Farm మీకు అండగా ఉంటుంది. కేవలం పుట్టగొడుగులు పండించడం మాత్రమే కాకుండా, ఒక పూర్తి స్థాయి మష్రూమ్ ఎకోసిస్టమ్ను ఎలా నిర్మించాలో మేము మీకు నేర్పిస్తాము.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -195,10 +195,10 @@ const ArticleVijayawadaTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
-                        Organic Mushroom Farm: Our Official Services in Vijayawada
+                        Organic Mushrooms Farm: Our Official Services in Vijayawada
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        మీ మష్రూమ్ ఫార్మింగ్ ప్రయాణంలో ప్రతి దశలోనూ Organic Mushroom Farm మీకు ప్రొఫెషనల్ సపోర్ట్ అందిస్తుంది.
+                        మీ మష్రూమ్ ఫార్మింగ్ ప్రయాణంలో ప్రతి దశలోనూ Organic Mushrooms Farm మీకు ప్రొఫెషనల్ సపోర్ట్ అందిస్తుంది.
                     </p>
 
                     <div className="space-y-6 mb-8">
@@ -259,7 +259,7 @@ const ArticleVijayawadaTraining = () => {
                         </div>
                         <div>
                             <h4 className="font-bold dark:text-white text-slate-900 mb-1">3. Where can I buy mushroom spawn in Vijayawada?</h4>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">మీరు Organic Mushroom Farm నుండి అత్యుత్తమ క్వాలిటీ గల Oyster, Milky, మరియు Button mushroom spawn కొనుగోలు చేయవచ్చు. మేము విజయవాడ అంతటా డెలివరీ చేస్తాము.</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">మీరు Organic Mushrooms Farm నుండి అత్యుత్తమ క్వాలిటీ గల Oyster, Milky, మరియు Button mushroom spawn కొనుగోలు చేయవచ్చు. మేము విజయవాడ అంతటా డెలివరీ చేస్తాము.</p>
                         </div>
                         <div>
                             <h4 className="font-bold dark:text-white text-slate-900 mb-1">4. What government subsidy is available in AP?</h4>
@@ -268,8 +268,8 @@ const ArticleVijayawadaTraining = () => {
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-bold bg-primary-start/10 p-4 rounded-xl border border-primary-start/20 text-center">
-                        Why Choose Organic Mushroom Farm?<br/>
-                        <span className="font-medium text-sm">విజయవాడలో పుట్టగొడుగుల పెంపకం గురించి ఎవరైనా "mushroom farm near me" లేదా "mushroom spawn supplier in Vijayawada" అని గూగుల్ లో వెతికితే, ముందుగా వినిపించే పేరు 'Organic Mushroom Farm'. మన స్థానిక వాతావరణం, ఇక్కడి మార్కెట్ పరిస్థితులు, మరియు తెలుగు రాష్ట్రాల వ్యవసాయ విధానాలపై మాకు పూర్తి అవగాహన ఉంది.</span>
+                        Why Choose Organic Mushrooms Farm?<br/>
+                        <span className="font-medium text-sm">విజయవాడలో పుట్టగొడుగుల పెంపకం గురించి ఎవరైనా "mushroom farm near me" లేదా "mushroom spawn supplier in Vijayawada" అని గూగుల్ లో వెతికితే, ముందుగా వినిపించే పేరు 'Organic Mushrooms Farm'. మన స్థానిక వాతావరణం, ఇక్కడి మార్కెట్ పరిస్థితులు, మరియు తెలుగు రాష్ట్రాల వ్యవసాయ విధానాలపై మాకు పూర్తి అవగాహన ఉంది.</span>
                     </p>
 
                     <div className="bg-linear-to-r from-sky-500/10 to-indigo-500/10 p-8 rounded-3xl mt-12 border border-sky-500/20">

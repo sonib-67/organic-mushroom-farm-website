@@ -42,9 +42,9 @@ const ArticleUdaipurTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/cities/rajasthan/udaipur",
+            "name": "Organic Mushrooms Farm",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/cities/rajasthan/udaipur",
             "areaServed": [
                 "Udaipur", "Hiran Magri", "Pratapnagar", "Nathdwara", "Rajsamand",
                 "Gogunda", "Eklingji", "Bedla", "Balicha Belt", "Fatehpura",
@@ -60,8 +60,8 @@ const ArticleUdaipurTraining = () => {
             "description": "Learn professional mushroom cultivation, spawn management, farm setup, and hotel marketing in Udaipur.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         }
     ];

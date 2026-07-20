@@ -39,8 +39,8 @@ export default function CareersPage() {
   return (
     <>
       <SEO 
-        title="Careers | Jobs at Organic Mushroom Farm | Hiring Now"
-        description="Join India's leading organic mushroom farm. We are hiring for Farm Supervisors, Sales Executives, Digital Marketing, and providing Agriculture Internships."
+        title="Careers | Jobs at Organic Mushrooms Farm | Hiring Now"
+        description="Join India's leading organic mushrooms farm. We are hiring for Farm Supervisors, Sales Executives, Digital Marketing, and providing Agriculture Internships."
         keywords="agriculture jobs india, mushroom farm jobs, farming jobs, online agriculture internship, remote digital marketing jobs"
       />
       <div className="pt-24 pb-12 overflow-hidden relative">

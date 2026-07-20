@@ -18,7 +18,7 @@ const ArticleGurugramTraining = () => {
 
             <SEO 
                 title="Mushroom Farming, Training, Spawn Supply & Consultancy in Gurugram" 
-                description="Organic Mushroom Farm's page is specially designed for the people of Gurugram and NCR looking for mushroom farm setup, online/offline training, quality spawn supply, and consultancy."
+                description="Organic Mushrooms Farm's page is specially designed for the people of Gurugram and NCR looking for mushroom farm setup, online/offline training, quality spawn supply, and consultancy."
                 keywords="Mushroom farming Gurugram, mushroom training Gurgaon, mushroom spawn supply Haryana, commercial mushroom farming Gurugram"
             />
             
@@ -39,7 +39,7 @@ const ArticleGurugramTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        Organic Mushroom Farm's page is specially designed for the people of Gurugram and NCR jo <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">mushroom farm setup</Link>, <Link to="/training" className="text-primary-start hover:underline">online/offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">quality spawn supply</Link>, fresh & dry mushroom delivery, or a proper <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> and <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> dhundh rahe hain. Let’s get straight to business.
+                        Organic Mushrooms Farm's page is specially designed for the people of Gurugram and NCR jo <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">mushroom farm setup</Link>, <Link to="/training" className="text-primary-start hover:underline">online/offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">quality spawn supply</Link>, fresh & dry mushroom delivery, or a proper <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> and <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> dhundh rahe hain. Let’s get straight to business.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />

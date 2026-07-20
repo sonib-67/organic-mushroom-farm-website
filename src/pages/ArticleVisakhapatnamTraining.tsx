@@ -39,7 +39,7 @@ const ArticleVisakhapatnamTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        ఈ పేజీ ప్రత్యేకంగా Visakhapatnam మరియు దాని చుట్టుపక్కల ఉన్న వారి కోసం తయారు చేయబడింది — వారికి <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">mushroom farm setup</Link>, <Link to="/training" className="text-primary-start hover:underline">online లేదా offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">spawn supply</Link>, fresh మరియు dry mushroom sale, లేదా ఒక సరైన <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> మరియు <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> కావాలి అనుకుంటే. Organic Mushroom Farm ఈ మొత్తం journey లో మీకు తోడుగా ఉంటుంది.
+                        ఈ పేజీ ప్రత్యేకంగా Visakhapatnam మరియు దాని చుట్టుపక్కల ఉన్న వారి కోసం తయారు చేయబడింది — వారికి <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">mushroom farm setup</Link>, <Link to="/training" className="text-primary-start hover:underline">online లేదా offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">spawn supply</Link>, fresh మరియు dry mushroom sale, లేదా ఒక సరైన <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> మరియు <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> కావాలి అనుకుంటే. Organic Mushrooms Farm ఈ మొత్తం journey లో మీకు తోడుగా ఉంటుంది.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -314,7 +314,7 @@ const ArticleVisakhapatnamTraining = () => {
                     </ul>
 
                     <h2 className="text-3xl font-bold dark:text-white text-slate-900 mt-10 mb-6 text-center">
-                        Why Choose Organic Mushroom Farm
+                        Why Choose Organic Mushrooms Farm
                     </h2>
 
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700 mb-8 max-w-2xl mx-auto">

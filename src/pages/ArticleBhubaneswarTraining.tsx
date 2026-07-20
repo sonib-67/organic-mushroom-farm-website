@@ -35,7 +35,7 @@ const ArticleBhubaneswarTraining = () => {
                     </h2>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶାର ରାଜଧାନୀ, ଆଜିକାଲି କେବଳ ଏକ IT ଓ Education Hub ଭାବେ ନୁହେଁ, ବରଂ ଏକ ନୂଆ agribusiness destination ଭାବେ ଉଭା ହେଉଛି। <Link to="/" className="text-primary-start hover:underline">Mushroom Farming in Bhubaneswar</Link> ଏବେ ଏକ ଚର୍ଚ୍ଚିତ ବିଷୟ, ଯେଉଁଠି ଯୁବକ, ଛାତ୍ର, ମହିଳା, ଚାକିରି ଛାଡିଥିବା ପ୍ରୋଫେସନାଲ୍ ଏବଂ କୃଷକ ମାନେ ଏକ profitable business model ଭାବେ ଏହାକୁ ଗ୍ରହଣ କରୁଛନ୍ତି। Organic Mushroom Farm ଟିମ୍ <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link>, <Link to="/training" className="text-primary-start hover:underline">Online Mushroom Training</Link>, <Link to="/workshop" className="text-primary-start hover:underline">Offline Mushroom Training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn Sale</Link>, Fresh ଓ Dry Mushroom Sale, <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link>, Turnkey Project ଏବଂ Government Subsidy Support ପାଇଁ ଭୁବନେଶ୍ୱର ଓ ଆଖପାଖ ସମସ୍ତ ଅଞ୍ଚଳରେ ସେବା ଦେଉଛି।
+                        ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶାର ରାଜଧାନୀ, ଆଜିକାଲି କେବଳ ଏକ IT ଓ Education Hub ଭାବେ ନୁହେଁ, ବରଂ ଏକ ନୂଆ agribusiness destination ଭାବେ ଉଭା ହେଉଛି। <Link to="/" className="text-primary-start hover:underline">Mushroom Farming in Bhubaneswar</Link> ଏବେ ଏକ ଚର୍ଚ୍ଚିତ ବିଷୟ, ଯେଉଁଠି ଯୁବକ, ଛାତ୍ର, ମହିଳା, ଚାକିରି ଛାଡିଥିବା ପ୍ରୋଫେସନାଲ୍ ଏବଂ କୃଷକ ମାନେ ଏକ profitable business model ଭାବେ ଏହାକୁ ଗ୍ରହଣ କରୁଛନ୍ତି। Organic Mushrooms Farm ଟିମ୍ <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link>, <Link to="/training" className="text-primary-start hover:underline">Online Mushroom Training</Link>, <Link to="/workshop" className="text-primary-start hover:underline">Offline Mushroom Training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn Sale</Link>, Fresh ଓ Dry Mushroom Sale, <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link>, Turnkey Project ଏବଂ Government Subsidy Support ପାଇଁ ଭୁବନେଶ୍ୱର ଓ ଆଖପାଖ ସମସ୍ତ ଅଞ୍ଚଳରେ ସେବା ଦେଉଛି।
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
@@ -58,7 +58,7 @@ const ArticleBhubaneswarTraining = () => {
 
                     <h3 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-2">Bhubaneswar ର Climate Suitability</h3>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        ଓଡ଼ିଶାର humid, tropical climate — ବିଶେଷ କରି <Link to="/services/oyster-mushroom" className="text-primary-start hover:underline">Oyster</Link> ଓ <Link to="/services/milky-mushroom" className="text-primary-start hover:underline">Milky Mushroom</Link> ପାଇଁ ବହୁତ ଭଲ। ବର୍ଷା ଋତୁରେ (June-September) natural humidity ଅଧିକ ରହିବାରୁ mushroom bed ପାଇଁ ideal condition ମିଳେ। ଠଣ୍ଡା ଋତୁରେ (November-February) <Link to="/services/button-mushroom" className="text-primary-start hover:underline">Button Mushroom</Link> farming ପାଇଁ temperature suitable ରହେ। Summer season (April-June) ରେ temperature control ପାଇଁ shade net, cooling system ଏବଂ humidity chamber ଆବଶ୍ୟକ ପଡ଼େ, ଯାହା ପାଇଁ Organic Mushroom Farm ର <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link> Team farmer ମାନଙ୍କୁ guide କରେ।
+                        ଓଡ଼ିଶାର humid, tropical climate — ବିଶେଷ କରି <Link to="/services/oyster-mushroom" className="text-primary-start hover:underline">Oyster</Link> ଓ <Link to="/services/milky-mushroom" className="text-primary-start hover:underline">Milky Mushroom</Link> ପାଇଁ ବହୁତ ଭଲ। ବର୍ଷା ଋତୁରେ (June-September) natural humidity ଅଧିକ ରହିବାରୁ mushroom bed ପାଇଁ ideal condition ମିଳେ। ଠଣ୍ଡା ଋତୁରେ (November-February) <Link to="/services/button-mushroom" className="text-primary-start hover:underline">Button Mushroom</Link> farming ପାଇଁ temperature suitable ରହେ। Summer season (April-June) ରେ temperature control ପାଇଁ shade net, cooling system ଏବଂ humidity chamber ଆବଶ୍ୟକ ପଡ଼େ, ଯାହା ପାଇଁ Organic Mushrooms Farm ର <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link> Team farmer ମାନଙ୍କୁ guide କରେ।
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -84,7 +84,7 @@ const ArticleBhubaneswarTraining = () => {
                         Online Mushroom Training Program
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        ଯେଉଁମାନେ ଘରେ ବସି ମଶ୍ରୁମ ଚାଷ ଶିଖିବାକୁ ଚାହାଁନ୍ତି, ସେମାନଙ୍କ ପାଇଁ Organic Mushroom Farm ର <Link to="/training" className="text-primary-start hover:underline">Online Mushroom Training</Link> ଏକ ବେଷ୍ଟ ଅପ୍ସନ୍। Bhubaneswar, Cuttack ବା ଦୂରାଞ୍ଚଳରେ ରହୁଥିବା students, housewife, private job holder — ସମସ୍ତେ ଏଥିରେ ଅଂଶଗ୍ରହଣ କରିପାରିବେ।
+                        ଯେଉଁମାନେ ଘରେ ବସି ମଶ୍ରୁମ ଚାଷ ଶିଖିବାକୁ ଚାହାଁନ୍ତି, ସେମାନଙ୍କ ପାଇଁ Organic Mushrooms Farm ର <Link to="/training" className="text-primary-start hover:underline">Online Mushroom Training</Link> ଏକ ବେଷ୍ଟ ଅପ୍ସନ୍। Bhubaneswar, Cuttack ବା ଦୂରାଞ୍ଚଳରେ ରହୁଥିବା students, housewife, private job holder — ସମସ୍ତେ ଏଥିରେ ଅଂଶଗ୍ରହଣ କରିପାରିବେ।
                     </p>
                     <p className="font-bold dark:text-white text-slate-900 mb-2">Training modules ରେ ଥାଏ:</p>
                     <ul className="list-disc pl-6 space-y-2 dark:text-slate-300 text-slate-700 mb-4">
@@ -283,7 +283,7 @@ const ArticleBhubaneswarTraining = () => {
                     </ul>
 
                     <h2 className="text-3xl font-bold dark:text-white text-slate-900 mt-10 mb-6 text-center">
-                        Organic Mushroom Farm କୁ କାହିଁକି ବାଛିବେ?
+                        Organic Mushrooms Farm କୁ କାହିଁକି ବାଛିବେ?
                     </h2>
 
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700 mb-8 max-w-2xl mx-auto">
@@ -312,7 +312,7 @@ const ArticleBhubaneswarTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">3. Mushroom spawn କେଉଁଠି କିଣିବି?</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">Organic Mushroom Farm ମାଧ୍ୟମରେ <Link to="/services/oyster-mushroom" className="text-primary-start hover:underline">Oyster</Link>, <Link to="/services/button-mushroom" className="text-primary-start hover:underline">Button</Link>, <Link to="/services/milky-mushroom" className="text-primary-start hover:underline">Milky</Link> ଓ Shiitake spawn direct order କରି Bhubaneswar ଓ ଆଖପାଖ ଅଞ୍ଚଳକୁ delivery ପାଇପାରିବେ।</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">Organic Mushrooms Farm ମାଧ୍ୟମରେ <Link to="/services/oyster-mushroom" className="text-primary-start hover:underline">Oyster</Link>, <Link to="/services/button-mushroom" className="text-primary-start hover:underline">Button</Link>, <Link to="/services/milky-mushroom" className="text-primary-start hover:underline">Milky</Link> ଓ Shiitake spawn direct order କରି Bhubaneswar ଓ ଆଖପାଖ ଅଞ୍ଚଳକୁ delivery ପାଇପାରିବେ।</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">4. Mushroom training ପାଇଁ କିପରି join କରିବି?</h3>

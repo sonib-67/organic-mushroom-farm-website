@@ -34,7 +34,7 @@ const ArticleMysuruTraining = () => {
               "name": "Mushroom spawn Mysuru mein kahan milega?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Organic Mushroom Farm se pan-India delivery ke saath Mysuru aur aas-paas ke sabhi areas mein spawn milta hai."
+                "text": "Organic Mushrooms Farm se pan-India delivery ke saath Mysuru aur aas-paas ke sabhi areas mein spawn milta hai."
               }
             },
             {
@@ -50,9 +50,9 @@ const ArticleMysuruTraining = () => {
         {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "Organic Mushroom Farm",
-          "image": "https://organicmushroomfarm.shop/logo.png",
-          "url": "https://organicmushroomfarm.shop/mushroom-farming-mysuru-karnataka",
+          "name": "Organic Mushrooms Farm",
+          "image": "https://organicmushroomsfarm.com/logo.png",
+          "url": "https://organicmushroomsfarm.com/mushroom-farming-mysuru-karnataka",
           "areaServed": [
             "Mysuru", "Vijayanagar", "Hebbal", "Kuvempu Nagar", "Nazarbad",
             "Hootagalli", "Bogadi", "Gokulam", "Jayalakshmipuram", "Srirangapatna",
@@ -68,8 +68,8 @@ const ArticleMysuruTraining = () => {
           "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur marketing.",
           "provider": {
             "@type": "Organization",
-            "name": "Organic Mushroom Farm",
-            "sameAs": "https://organicmushroomfarm.shop"
+            "name": "Organic Mushrooms Farm",
+            "sameAs": "https://organicmushroomsfarm.com"
           }
         }
     ];
@@ -85,7 +85,7 @@ const ArticleMysuruTraining = () => {
             <SEO 
                 title="Mushroom Farming in Mysuru | Training, Spawn Supply & Farm Setup" 
                 description="Mushroom farming training, spawn supply, and farm setup in Mysuru, Vijayanagar, Hebbal, Kuvempu Nagar, Srirangapatna, Nanjangud, and surrounding areas."
-                keywords="Mushroom farming Mysuru, mushroom training Mysuru, mushroom spawn Mysuru, farm setup Mysuru, organic mushroom farm Karnataka"
+                keywords="Mushroom farming Mysuru, mushroom training Mysuru, mushroom spawn Mysuru, farm setup Mysuru, organic mushrooms farm Karnataka"
                 url="/mushroom-farming-mysuru-karnataka"
                 schemas={customSchemas}
             />
@@ -102,7 +102,7 @@ const ArticleMysuruTraining = () => {
                         ಅರಮನೆಗಳ ನಗರ ಮೈಸೂರು, ಇಂದು ಪ್ರವಾಸೋದ್ಯಮ ಮತ್ತು ಆರೋಗ್ಯಕರ ಆಹಾರ ಮಾರುಕಟ್ಟೆಯ ಬೆಳವಣಿಗೆಯೊಂದಿಗೆ ಒಂದು ಹೊಸ ಕೃಷಿ ಅವಕಾಶವನ್ನೂ ಕಂಡುಕೊಳ್ಳುತ್ತಿದೆ — ಅದೇ <strong><Link to="/blog" className="text-primary-start hover:underline">mushroom farming</Link></strong>. Vijayanagar, Hebbal, Kuvempu Nagar, Nazarbad, Hootagalli, Bogadi, Gokulam ಮತ್ತು Jayalakshmipuram ನಂತಹ ಪ್ರದೇಶಗಳಲ್ಲಿ ರೈತರು, ವಿದ್ಯಾರ್ಥಿಗಳು, ಮಹಿಳಾ ಉದ್ಯಮಿಗಳು ಮತ್ತು ಯುವ ವ್ಯಾಪಾರಿಗಳು ಈಗ mushroom farming ಅನ್ನು ಗಂಭೀರ ವ್ಯವಹಾರವಾಗಿ ಪರಿಗಣಿಸುತ್ತಿದ್ದಾರೆ.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium text-sm md:text-base">
-                        <strong><Link to="/" className="text-primary-start hover:underline font-bold">Organic Mushroom Farm</Link></strong> ಆಗಿ ನಾವು ಮೈಸೂರು ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ Srirangapatna, Nanjangud, Hunsur, KRS, Yelwala, Kadakola, Belavadi ಮತ್ತು Hinkal ಪ್ರದೇಶಗಳ ಜನರಿಗೆ <strong><Link to="/articles/turnkey-commercial-setup" className="text-primary-start hover:underline font-bold">farm setup</Link>, <Link to="/spawn-seed" className="text-primary-start hover:underline font-bold">spawn supply</Link>, <Link to="/training" className="text-primary-start hover:underline font-bold">online/offline training</Link>, fresh ಮತ್ತು dry mushroom sale, <Link to="/book-consultant" className="text-primary-start hover:underline font-bold">consultancy</Link> ಮತ್ತು <Link to="/turnkey-projects" className="text-primary-start hover:underline font-bold">turnkey project</Link></strong> ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತಿದ್ದೇವೆ. ಈ ಪುಟದಲ್ಲಿ ನಾವು ಮೈಸೂರಿನಲ್ಲಿ mushroom business ಅನ್ನು ಹೇಗೆ ಪ್ರಾರಂಭಿಸುವುದು, ಅದನ್ನು full-time ವ್ಯವಹಾರವಾಗಿ ಹೇಗೆ ಬೆಳೆಸುವುದು ಎಂಬುದನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ನೋಡೋಣ.
+                        <strong><Link to="/" className="text-primary-start hover:underline font-bold">Organic Mushrooms Farm</Link></strong> ಆಗಿ ನಾವು ಮೈಸೂರು ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ Srirangapatna, Nanjangud, Hunsur, KRS, Yelwala, Kadakola, Belavadi ಮತ್ತು Hinkal ಪ್ರದೇಶಗಳ ಜನರಿಗೆ <strong><Link to="/articles/turnkey-commercial-setup" className="text-primary-start hover:underline font-bold">farm setup</Link>, <Link to="/spawn-seed" className="text-primary-start hover:underline font-bold">spawn supply</Link>, <Link to="/training" className="text-primary-start hover:underline font-bold">online/offline training</Link>, fresh ಮತ್ತು dry mushroom sale, <Link to="/book-consultant" className="text-primary-start hover:underline font-bold">consultancy</Link> ಮತ್ತು <Link to="/turnkey-projects" className="text-primary-start hover:underline font-bold">turnkey project</Link></strong> ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತಿದ್ದೇವೆ. ಈ ಪುಟದಲ್ಲಿ ನಾವು ಮೈಸೂರಿನಲ್ಲಿ mushroom business ಅನ್ನು ಹೇಗೆ ಪ್ರಾರಂಭಿಸುವುದು, ಅದನ್ನು full-time ವ್ಯವಹಾರವಾಗಿ ಹೇಗೆ ಬೆಳೆಸುವುದು ಎಂಬುದನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ನೋಡೋಣ.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium text-sm md:text-base">
                         Agar aap Mysuru ya aas-paas ke kisi area se ho aur mushroom farming ko ek full-time business banana chahte ho, to yeh guide bilkul aapke liye hai — practical aur local jaankari ke saath.
@@ -410,7 +410,7 @@ const ArticleMysuruTraining = () => {
                     </ul>
 
                     <h2 className="text-lg md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4 border-l-4 border-primary-start pl-4 uppercase">
-                        Kyun Chunein Organic Mushroom Farm?
+                        Kyun Chunein Organic Mushrooms Farm?
                     </h2>
                     <ul className="list-disc pl-5 space-y-1.5 dark:text-slate-300 text-slate-700 text-sm md:text-base">
                         <li>Jabalpur base se pura India mein spawn delivery ka experience</li>

@@ -55,15 +55,15 @@ const ArticleVadodaraTraining = () => {
             "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur marketing in Vadodara, Gujarat.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         },
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-vadodara-gujarat",
+            "name": "Organic Mushrooms Farm",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-vadodara-gujarat",
             "areaServed": [
                 "Vadodara", "Alkapuri", "Fatehgunj", "Manjalpur", "Gotri", "Kreilibaug",
                 "Akota", "Waghodia Road", "Sayajigunj", "Halol", "Dabhoi", "Padra",
@@ -84,8 +84,8 @@ const ArticleVadodaraTraining = () => {
 
             <SEO 
                 title="Vadodara Mushroom Farm Setup, Training & Spawn Supply | Complete Solutions" 
-                description="Start your mushroom farming and supply business in Vadodara with Organic Mushroom Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete restaurant marketing support."
-                keywords="Mushroom farming Vadodara, mushroom training Vadodara, mushroom spawn Gujarat, oyster mushroom Vadodara, button mushroom Vadodara, organic mushroom farm"
+                description="Start your mushroom farming and supply business in Vadodara with Organic Mushrooms Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete restaurant marketing support."
+                keywords="Mushroom farming Vadodara, mushroom training Vadodara, mushroom spawn Gujarat, oyster mushroom Vadodara, button mushroom Vadodara, organic mushrooms farm"
                 url="/mushroom-farming-vadodara-gujarat"
                 schemas={customSchemas}
             />
@@ -108,7 +108,7 @@ const ArticleVadodaraTraining = () => {
                             Vadodara Mushroom Farm Setup, Training & Spawn Supply | Complete Solutions
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Vadodara, Gujarat Special Edition
+                            Organic Mushrooms Farm — Vadodara, Gujarat Special Edition
                         </p>
                     </div>
 
@@ -118,7 +118,7 @@ const ArticleVadodaraTraining = () => {
                             વડોદરા, ગુજરાતનું સાંસ્કૃતિક પાટનગર, હવે ફૂડ અને હોસ્પિટાલિટી ઈન્ડસ્ટ્રીના ઝડપી વિકાસ માટે પણ ઓળખાવા લાગ્યું છે. Alkapuri, Fatehgunj, Manjalpur, Gotri, Karelibaug, Akota, Waghodia Road અને Sayajigunj જેવા વિસ્તારોમાં restaurant, café, cloud kitchen અને hotel ની સંખ્યા સતત વધી રહી છે — અને એની સાથે mushroom ની માંગ પણ.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushroom Farm</Link> તરીકે અમે વડોદરા અને આસપાસના Halol, Dabhoi, Padra, Karjan, Sevasi, Bhayli, Vemali અને Waghodia Rural વિસ્તારના ખેડૂતો, વિદ્યાર્થીઓ, મહિલા ઉદ્યોગસાહસિકો અને નવા વ્યવસાયિકોને <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh અને dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> અને <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> સેવા આપીએ છીએ. આ પેજ પર આપણે જોઈશું કે વડોદરામાં mushroom business કેવી રીતે શરૂ કરવો, કઈ તકો છે અને અમારી સાથે કેવી રીતે જોડાવું.
+                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> તરીકે અમે વડોદરા અને આસપાસના Halol, Dabhoi, Padra, Karjan, Sevasi, Bhayli, Vemali અને Waghodia Rural વિસ્તારના ખેડૂતો, વિદ્યાર્થીઓ, મહિલા ઉદ્યોગસાહસિકો અને નવા વ્યવસાયિકોને <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh અને dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> અને <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> સેવા આપીએ છીએ. આ પેજ પર આપણે જોઈશું કે વડોદરામાં mushroom business કેવી રીતે શરૂ કરવો, કઈ તકો છે અને અમારી સાથે કેવી રીતે જોડાવું.
                         </p>
                         <div className="p-4 rounded-xl dark:bg-emerald-950/30 bg-emerald-50 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
                             Agar aap Vadodara ya aas-paas ke kisi area se hain aur mushroom supply ya farming business shuru karna chahte hain, to yeh page bilkul aapke liye hai — poori practical aur local jaankari ke saath.
@@ -419,7 +419,7 @@ const ArticleVadodaraTraining = () => {
 
                     {/* Why Choose Us */}
                     <div className="p-6 md:p-8 rounded-[2rem] dark:bg-emerald-950/20 bg-emerald-50/50 border border-emerald-500/10 space-y-4">
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Kyun Chunein Organic Mushroom Farm?</h3>
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Kyun Chunein Organic Mushrooms Farm?</h3>
                         <ul className="space-y-2.5 pl-0 list-none">
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Jabalpur base se pura India mein spawn delivery ka experience</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Vadodara ke local food industry aur market ko samajhne wali team</span></li>

@@ -7,7 +7,7 @@ export const PUNE_BLOGS_PART_2 = [
     title: "Government Mushroom Training Center Near Me – Katraj Pune",
     h1: "Katraj, Pune जवळ Government Mushroom Training Center",
     area: "Katraj",
-    meta: "Katraj आणि Sinhagad Road जवळ government-style mushroom training center शोधताय? Organic Mushroom Farm इथे उपलब्ध आहे.",
+    meta: "Katraj आणि Sinhagad Road जवळ government-style mushroom training center शोधताय? Organic Mushrooms Farm इथे उपलब्ध आहे.",
     intro: "Katraj हा भाग Sinhagad Road आणि आसपासच्या semi-rural परिसराला जोडणारा महत्त्वाचा point आहे, आणि इथून अनेक शेतकरी कुटुंबं आणि छोटे जमीनधारक training साठी येतात. 'Government training center near me' शोधणाऱ्या लोकांसाठी आमचं केंद्र योग्य पर्याय आहे, कारण इथे सरकारी guidelines नुसार structured curriculum शिकवला जातो. Katraj, Dhankawadi, Bibwewadi या भागातील शेतकऱ्यांसाठी हे केंद्र अगदी जवळ आणि सोयीस्कर आहे.",
     faqs: [
       { q: "Katraj केंद्रावर कोणत्या भाषेत training दिलं जातं?", a: "मराठी, हिंदी आणि English तिन्ही भाषांमध्ये training दिलं जातं." },
@@ -103,7 +103,7 @@ export const PUNE_BLOGS_PART_2 = [
     title: "Mushroom Cultivation Training Near Me – Bavdhan Pune",
     h1: "Bavdhan, Pune जवळ Mushroom Cultivation Training",
     area: "Bavdhan",
-    meta: "Bavdhan जवळ mushroom cultivation training शोधताय? Organic Mushroom Farm चं nearby केंद्र practical sessions सोबत उपलब्ध आहे.",
+    meta: "Bavdhan जवळ mushroom cultivation training शोधताय? Organic Mushrooms Farm चं nearby केंद्र practical sessions सोबत उपलब्ध आहे.",
     intro: "Bavdhan हा गेल्या काही वर्षांत वेगाने वाढणारा residential area बनला आहे, आणि इथल्या नवीन रहिवाशांना cultivation बद्दल practical, जवळचं training हवं असतं. 'Near me' शोधणाऱ्या अशा लोकांसाठी आमचं केंद्र सोयीस्कर आहे — इथे spawn पासून harvesting पर्यंतची संपूर्ण cultivation process प्रत्यक्ष दाखवली जाते. Bavdhan, Bhugaon आणि Pirangut जवळच्या रहिवाशांसाठी हे जवळचं आणि विश्वासाचं ठिकाण आहे, जिथे एका दिवसातच basic cultivation समजून घेता येतं.",
     faqs: [
       { q: "Bavdhan मधून center किती जवळ आहे?", a: "Bavdhan पासून training location साधारण 20-25 मिनिटांच्या अंतरावर आहे." },

@@ -25,7 +25,7 @@ const ArticleRanchiTraining = () => {
           "name": "Where can I buy high-quality mushroom spawn in Ranchi?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "आप सीधे Organic Mushroom Farm के रांची वितरण केंद्र से प्रयोगशाला-प्रमाणित, उच्च गुणवत्ता वाले मास्टर स्पॉन (Oyster, Button, Milky seed) खरीद सकते हैं। हम पूरे रांची जिले और आस-पास के क्षेत्रों में सुरक्षित होम डिलीवरी की सुविधा भी देते हैं।"
+            "text": "आप सीधे Organic Mushrooms Farm के रांची वितरण केंद्र से प्रयोगशाला-प्रमाणित, उच्च गुणवत्ता वाले मास्टर स्पॉन (Oyster, Button, Milky seed) खरीद सकते हैं। हम पूरे रांची जिले और आस-पास के क्षेत्रों में सुरक्षित होम डिलीवरी की सुविधा भी देते हैं।"
           }
         },
         {
@@ -58,7 +58,7 @@ const ArticleRanchiTraining = () => {
     const localBusinessSchema = {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Organic Mushroom Farm Ranchi",
+      "name": "Organic Mushrooms Farm Ranchi",
       "description": "Premium mushroom farming company in Ranchi, Jharkhand. Providing certified Mushroom Farm Setup, Online and Offline Mushroom Training, High-Yielding Spawn Supply, Project Consultancy, and Turnkey Commercial Farm Execution.",
       "url": "https://www.organicmushroomfarm.com/cities/jharkhand/ranchi",
       "telephone": "+91-9203544140",
@@ -163,7 +163,7 @@ const ArticleRanchiTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        झारखंड कर माटी और रांची कर मौसम मशरूम लागी वरदान नखे। आज के समय में लोग स्वास्थ्य को लेकर बहुत सचेत हो रहे हैं। रांची के बड़े-बड़े होटलों, लालपुर के सुपरमार्केट्स और डोरंडा (Doranda) के घरों में Organic Mushrooms और Gourmet Mushrooms की मांग दिन-ब-दिन बढ़ती जा रही है। अगर रऊरे भी रांची में रह के कम पूंजी में एगो बढ़िया बिज़नेस शुरू करेक चाहत हैं, तो Organic Mushroom Farm रऊरे लागी पूरा गाइडलाइन और सपोर्ट लेके तैयार है।
+                        झारखंड कर माटी और रांची कर मौसम मशरूम लागी वरदान नखे। आज के समय में लोग स्वास्थ्य को लेकर बहुत सचेत हो रहे हैं। रांची के बड़े-बड़े होटलों, लालपुर के सुपरमार्केट्स और डोरंडा (Doranda) के घरों में Organic Mushrooms और Gourmet Mushrooms की मांग दिन-ब-दिन बढ़ती जा रही है। अगर रऊरे भी रांची में रह के कम पूंजी में एगो बढ़िया बिज़नेस शुरू करेक चाहत हैं, तो Organic Mushrooms Farm रऊरे लागी पूरा गाइडलाइन और सपोर्ट लेके तैयार है।
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -196,10 +196,10 @@ const ArticleRanchiTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
-                        Organic Mushroom Farm: Our Official Services in Ranchi
+                        Organic Mushrooms Farm: Our Official Services in Ranchi
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        हम Organic Mushroom Farm के माध्यम से रांची के नए और अनुभवी उत्पादकों को एक ही छत के नीचे सभी जरूरी सुविधाएं और तकनीकी सहायता (technical support) प्रदान करते हैं:
+                        हम Organic Mushrooms Farm के माध्यम से रांची के नए और अनुभवी उत्पादकों को एक ही छत के नीचे सभी जरूरी सुविधाएं और तकनीकी सहायता (technical support) प्रदान करते हैं:
                     </p>
 
                     <div className="space-y-6 mb-8">
@@ -262,7 +262,7 @@ const ArticleRanchiTraining = () => {
                         </div>
                         <div>
                             <h4 className="font-bold dark:text-white text-slate-900 mb-1">3. Where can I buy high-quality mushroom spawn in Ranchi?</h4>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">आप सीधे Organic Mushroom Farm के रांची वितरण केंद्र से उच्च गुणवत्ता वाले स्पॉन (Oyster, Button, Milky) खरीद सकते हैं। हम होम डिलीवरी देते हैं।</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">आप सीधे Organic Mushrooms Farm के रांची वितरण केंद्र से उच्च गुणवत्ता वाले स्पॉन (Oyster, Button, Milky) खरीद सकते हैं। हम होम डिलीवरी देते हैं।</p>
                         </div>
                         <div>
                             <h4 className="font-bold dark:text-white text-slate-900 mb-1">4. What government subsidies are available for mushroom projects in Jharkhand?</h4>
@@ -271,7 +271,7 @@ const ArticleRanchiTraining = () => {
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-bold bg-primary-start/10 p-4 rounded-xl border border-primary-start/20 text-center">
-                        Why Choose Organic Mushroom Farm in Ranchi?<br/>
+                        Why Choose Organic Mushrooms Farm in Ranchi?<br/>
                         <span className="font-medium text-sm">हम रांची की ज़मीनी हकीकत और झारखंड सरकार की योजनाओं को गहराई से समझते हैं। "Mushroom farm near me" या "Mushroom consultancy in Ranchi" खोजने पर आपको सबसे विश्वसनीय मार्गदर्शन यहीं मिलेगा।</span>
                     </p>
 

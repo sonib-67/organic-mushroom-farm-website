@@ -8,4 +8,4 @@ Disallow: /private/
 Disallow: /*.json$
 
 # Sitemap location
-Sitemap: https://organicmushroomfarm.shop/sitemap-main.xml
+Sitemap: https://organicmushroomsfarm.com/sitemap-main.xml

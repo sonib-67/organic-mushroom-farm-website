@@ -280,9 +280,9 @@ export default function SitemapPage() {
   return (
     <div className="min-h-screen pt-32 pb-24">
       <SEO 
-        title="Site Directory & HTML Sitemap | Organic Mushroom Farm" 
-        description="Explore the complete site map directory of Organic Mushroom Farm. High-contrast index of core articles, local services, and 110+ pan-India location pathways." 
-        keywords="site map organic mushroom farm, html sitemap, directory list mushroom training, mushroom farming list states"
+        title="Site Directory & HTML Sitemap | Organic Mushrooms Farm" 
+        description="Explore the complete site map directory of Organic Mushrooms Farm. High-contrast index of core articles, local services, and 110+ pan-India location pathways." 
+        keywords="site map organic mushrooms farm, html sitemap, directory list mushroom training, mushroom farming list states"
       />
 
       <section className="max-w-7xl mx-auto px-4 md:px-8 mb-12">

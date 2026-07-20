@@ -41,13 +41,13 @@ const ArticleJaipurTraining = () => {
                         मशरूम (Medicinal Mushrooms) की लगातार बढ़ती मांग ने जयपुर को राजस्थान का सबसे बड़ा मशरूम हब बना दिया है।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        यदि आप एक किसान हैं, छात्र हैं, कामकाजी महिला हैं, या एग्री-स्टार्टअप शुरू करना चाहते हैं, तो <strong>Organic Mushroom Farm</strong> आपको
+                        यदि आप एक किसान हैं, छात्र हैं, कामकाजी महिला हैं, या एग्री-स्टार्टअप शुरू करना चाहते हैं, तो <strong>Organic Mushrooms Farm</strong> आपको
                         पूरी तरह से प्रैक्टिकल और व्यावसायिक मार्गदर्शन प्रदान करता है। हम केवल ट्रेनिंग ही नहीं देते, बल्कि आपके बिजनेस को जमीन से उठाकर
                         एक ब्रांड बनाने तक हर कदम पर आपके साथ खड़े रहते हैं।
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        1. Comprehensive Services Offered by Organic Mushroom Farm
+                        1. Comprehensive Services Offered by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         जयपुर और राजस्थान के सभी जिलों के लिए हमारी सेवाएं पूरी तरह से कस्टमाइज्ड और कमर्शियल ओरिएंटेड हैं:
@@ -178,7 +178,7 @@ const ArticleJaipurTraining = () => {
                         6. Strategic Marketing Support & Network Development
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        नए मशरूम उत्पादकों के सामने सबसे बड़ी चुनौती होती है—"माल कहां बेचें?" इसके लिए <strong>Organic Mushroom Farm</strong> आपको एक
+                        नए मशरूम उत्पादकों के सामने सबसे बड़ी चुनौती होती है—"माल कहां बेचें?" इसके लिए <strong>Organic Mushrooms Farm</strong> आपको एक
                         रेडीमेड मार्केटिंग इकोसिस्टम प्रदान करता है:
                     </p>
                     <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
@@ -192,7 +192,7 @@ const ArticleJaipurTraining = () => {
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                             सही शुरुआत ही बड़ी सफलता की कुंजी है। आज ही अपने नजदीकी जयपुर केंद्र से संपर्क करें और मशरूम फार्मिंग क्रांति का
                             हिस्सा बनें! <br /><br />
-                            <strong>Organic Mushroom Farm - Your Trusted Agri-Business Partner in Rajasthan.</strong>
+                            <strong>Organic Mushrooms Farm - Your Trusted Agri-Business Partner in Rajasthan.</strong>
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center gap-4">

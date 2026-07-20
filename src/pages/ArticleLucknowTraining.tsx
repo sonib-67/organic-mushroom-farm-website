@@ -39,7 +39,7 @@ const ArticleLucknowTraining = () => {
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         यदि आप Lucknow, Gomti Nagar, Indira Nagar, Aliganj या Lucknow के किसी भी ग्रामीण क्षेत्र से हैं और अपना खुद का बिजनेस शुरू करना चाहते हैं, तो 
-                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushroom Farm </Link> 
+                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushrooms Farm </Link> 
                         आपको शुरुआत से लेकर मार्केट में माल बेचने तक की पूरी सुविधा एक ही छत के नीचे दे रहा है।
                     </p>
 
@@ -65,7 +65,7 @@ const ArticleLucknowTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Complete 360° Mushroom Business Services by Organic Mushroom Farm
+                        Complete 360° Mushroom Business Services by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         Lucknow में top rank पर आने और एक सफल mushroom entrepreneur बनने के लिए आपको इन core areas पर काम करना होगा, जो हम completely provide करते हैं:
@@ -212,7 +212,7 @@ const ArticleLucknowTraining = () => {
                         Lucknow और उत्तर प्रदेश के बाकी हिस्सों में मशरूम की खेती अब सिर्फ एक पारंपरिक खेती नहीं, बल्कि एक high-profit startup बन चुकी है। अगर आप सही ट्रेनिंग, प्रीमियम क्वालिटी स्पॉन, टेक्निकल फार्म डिज़ाइन और एक मजबूत मार्केटिंग प्लान के साथ आगे बढ़ते हैं, तो कम ज़मीन और कम लागत में भी एक शानदार सेटअप खड़ा किया जा सकता है।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        चाहे आपका मूल मक़सद एक छोटा home setup लगाना हो या बड़ा commercial turnkey project setup करना—Organic Mushroom Farm आपको हर मोड़ पर सपोर्ट करने के लिए तैयार है।
+                        चाहे आपका मूल मक़सद एक छोटा home setup लगाना हो या बड़ा commercial turnkey project setup करना—Organic Mushrooms Farm आपको हर मोड़ पर सपोर्ट करने के लिए तैयार है।
                     </p>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

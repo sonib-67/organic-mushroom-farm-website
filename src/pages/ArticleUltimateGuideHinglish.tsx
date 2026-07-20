@@ -100,7 +100,7 @@ const ArticleUltimateGuideHinglish = () => {
       <SEO 
         title="Mushroom Farming: Complete Guide for Spawn, Training, Setup, and Business in India" 
         description="India's ultimate guide to starting a successful mushroom business: Covers spawn, offline/online training, setup cost margins, buyback guarantee, & city-wise guides."
-        keywords="mushroom farming guide, mushroom training program, buy mushroom spawn online, mushroom buyback india, button mushroom setup, organic mushroom farm"
+        keywords="mushroom farming guide, mushroom training program, buy mushroom spawn online, mushroom buyback india, button mushroom setup, organic mushrooms farm"
       />
 
       {/* Header section */}
@@ -147,7 +147,7 @@ const ArticleUltimateGuideHinglish = () => {
               Chahe aap ek student ho, koi farmer ho, ghar baithi housewife ho ya phir naukri chhod ke apna khud ka business start karna chahta ho — mushroom farming ek aisa option hai jisme kam jagah, kam paisa aur kam time mein achha income generate kiya ja sakta hai.
             </p>
             <p className="dark:text-slate-300 text-slate-700 text-lg leading-relaxed">
-              <strong>Organic Mushroom Farm, Jabalpur (Madhya Pradesh)</strong> se hum pure India mein — har state, har shakar, har gaon tak — apni services pahuncha rahe hain. Sath hi humara network UAE, UK, USA, Canada, Nepal aur Bangladesh tak pahunch chuka hai. Is ek hi blog mein hum sab kuchh cover kar rahe hain: local edible mushroom se lekar high value medicinal mushroom tak, online aur offline mushroom training, complete farm setup, turnkey project model, mushroom buyback guarantee, har variety ka mushroom spawn, aur fresh-dry mushroom ka business — sab simple Hinglish mein, bina kisi bhari-bharkam technical jargon ke.
+              <strong>Organic Mushrooms Farm, Jabalpur (Madhya Pradesh)</strong> se hum pure India mein — har state, har shakar, har gaon tak — apni services pahuncha rahe hain. Sath hi humara network UAE, UK, USA, Canada, Nepal aur Bangladesh tak pahunch chuka hai. Is ek hi blog mein hum sab kuchh cover kar rahe hain: local edible mushroom se lekar high value medicinal mushroom tak, online aur offline mushroom training, complete farm setup, turnkey project model, mushroom buyback guarantee, har variety ka mushroom spawn, aur fresh-dry mushroom ka business — sab simple Hinglish mein, bina kisi bhari-bharkam technical jargon ke.
             </p>
           </div>
 
@@ -237,7 +237,7 @@ const ArticleUltimateGuideHinglish = () => {
             </div>
 
             <p className="mt-6 text-sm italic dark:text-slate-400 text-slate-500 bg-slate-100 dark:bg-white/5 p-4 rounded-xl text-center">
-              Sabhi spawn certified labs se prepare kiye jaate hain aur pure India mein courier ke through bhejen jaate hain — order karne ke liye website <a href="https://organicmushroomfarm.shop" target="_blank" rel="noreferrer" className="text-emerald-500 font-bold underline">organicmushroomfarm.shop</a> par visit karein ya seedha call/WhatsApp karein.
+              Sabhi spawn certified labs se prepare kiye jaate hain aur pure India mein courier ke through bhejen jaate hain — order karne ke liye website <a href="https://organicmushroomsfarm.com" target="_blank" rel="noreferrer" className="text-emerald-500 font-bold underline">organicmushroomsfarm.com</a> par visit karein ya seedha call/WhatsApp karein.
             </p>
           </div>
 
@@ -555,7 +555,7 @@ const ArticleUltimateGuideHinglish = () => {
               India Ke Har State aur Top City Mein Hamari Service
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed mb-6">
-              Organic Mushroom Farm, Jabalpur (Madhya Pradesh) se hum pure India mein spawn delivery, training enrollment, setup consulting aur buyback support de rahe hain — North se South, East se West, har region cover hota hai:
+              Organic Mushrooms Farm, Jabalpur (Madhya Pradesh) se hum pure India mein spawn delivery, training enrollment, setup consulting aur buyback support de rahe hain — North se South, East se West, har region cover hota hai:
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 text-sm mb-8">
@@ -632,7 +632,7 @@ const ArticleUltimateGuideHinglish = () => {
               13. Conclusion — Apna Mushroom Farming Safar Aaj Hi Shuru Karein
             </h2>
             <p className="dark:text-slate-300 text-slate-700 text-md leading-relaxed max-w-3xl mx-auto">
-              Mushroom farming sirf ek business idea nahi, balki ek complete ecosystem hai — training, setup, spawn, production aur buyback, sab ek dusre se juda hua. Agar aap Madhya Pradesh, ya India ke kisi bhi state, ya phir UAE, UK, USA, Canada, Nepal, Bangladesh jaise kisi bhi country se ho — <strong>Organic Mushroom Farm, Jabalpur</strong> aapke har step par sath hai.
+              Mushroom farming sirf ek business idea nahi, balki ek complete ecosystem hai — training, setup, spawn, production aur buyback, sab ek dusre se juda hua. Agar aap Madhya Pradesh, ya India ke kisi bhi state, ya phir UAE, UK, USA, Canada, Nepal, Bangladesh jaise kisi bhi country se ho — <strong>Organic Mushrooms Farm, Jabalpur</strong> aapke har step par sath hai.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">

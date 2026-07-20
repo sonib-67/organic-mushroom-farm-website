@@ -128,7 +128,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
           </p>
 
           <div className="flex flex-wrap justify-center items-center gap-6 text-sm dark:text-slate-400 text-slate-600 font-medium mb-6">
-            <span className="flex items-center gap-1.5"><User size={16} className="text-emerald-500" /> By <strong>Tanish</strong> (Founder, Organic Mushroom Farm, Jabalpur)</span>
+            <span className="flex items-center gap-1.5"><User size={16} className="text-emerald-500" /> By <strong>Tanish</strong> (Founder, Organic Mushrooms Farm, Jabalpur)</span>
             <span className="hidden md:inline">•</span>
             <span className="flex items-center gap-1.5"><Calendar size={16} className="text-emerald-500" /> Written: June 10, 2026</span>
             <span className="hidden md:inline">•</span>
@@ -168,7 +168,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               Sochte ho mushroom farming karna hai lekin samajh nahi aata kahan se shuru karein? Ya fir bahut baar Google search kiya — <strong>how to grow mushroom at home</strong>, <strong>mushroom training center near me</strong>, <strong>government mushroom training center</strong>, <strong>button mushroom training center</strong> — lekin sahi aur seedha javab nahi mila? Toh yeh article sirf aapke liye hi likha gaya hai.
             </p>
             <p className="dark:text-slate-300 text-slate-700 text-lg leading-relaxed">
-              Main Tanish hoon — <strong>Organic Mushroom Farm, Jabalpur</strong> ka founder. 2021 se hum mushroom farming segment mein act kar rahe hain aur hazaron farmers aur enthusiasts ko offline-online train kar chuke hain. Is absolute guide mein maine apna professional business setup ka secret experience nichodh kar daal diya hai jo kisi bhi absolute beginner ko first harvest ready karne ke liye mandatory hai. Seedha, bina kisi faltu ke words ke.
+              Main Tanish hoon — <strong>Organic Mushrooms Farm, Jabalpur</strong> ka founder. 2021 se hum mushroom farming segment mein act kar rahe hain aur hazaron farmers aur enthusiasts ko offline-online train kar chuke hain. Is absolute guide mein maine apna professional business setup ka secret experience nichodh kar daal diya hai jo kisi bhi absolute beginner ko first harvest ready karne ke liye mandatory hai. Seedha, bina kisi faltu ke words ke.
             </p>
           </section>
 
@@ -631,7 +631,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-white border dark:border-white/5 border-black/5 shadow-sm space-y-3">
                 <h3 className="font-extrabold text-emerald-500 text-base">📍 Madhya Pradesh (MP) & CG</h3>
                 <ul className="text-xs dark:text-slate-300 text-slate-600 space-y-1.5 list-disc pl-4">
-                  <li>Organic Mushroom Farm, Jabalpur — Our verified training headquarters</li>
+                  <li>Organic Mushrooms Farm, Jabalpur — Our verified training headquarters</li>
                   <li>Diamond Fresh Mushroom & Training Center, Gwalior</li>
                   <li>JNKVV Agricultural University, Bhopal and Gwalior state units</li>
                   <li>KVK Raipur and Indira Gandhi Krishi Vishwavidyalaya (IGKV Raipur)</li>
@@ -866,7 +866,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
           <section id="our-ecosystem" className="p-8 rounded-3xl dark:bg-emerald-950/10 bg-emerald-50 border border-emerald-500/10 text-center space-y-6 font-medium">
             <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white">Our Complete Integrated Ecosystem for Mushroom Growers</h3>
             <p className="text-sm dark:text-slate-300 text-slate-700 max-w-3xl mx-auto leading-relaxed">
-              Organic Mushroom Farm (Jabalpur) is not just a training center. We provide a complete 360-degree ecosystem to ensure our farmers succeed. Explore our specialized services pages:
+              Organic Mushrooms Farm (Jabalpur) is not just a training center. We provide a complete 360-degree ecosystem to ensure our farmers succeed. Explore our specialized services pages:
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
               <Link to="/training" className="p-3 rounded-xl bg-white dark:bg-black/60 border border-emerald-500/10 hover:border-emerald-500 dark:text-white text-slate-900 font-bold transition-all transform hover:scale-[1.02]">
@@ -919,7 +919,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               </Link>
             </div>
             <div className="text-xs text-slate-500 pt-4">
-              📞 Help Desk Support: +91 9203544140 or Jabalpur Headquarters | organicmushroomfarm.shop
+              📞 Help Desk Support: +91 9203544140 or Jabalpur Headquarters | organicmushroomsfarm.com
             </div>
           </section>
 

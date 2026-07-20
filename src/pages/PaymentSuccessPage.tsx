@@ -21,7 +21,7 @@ export default function PaymentSuccessPage() {
 
   if (type === 'training_basic') {
     courseOrServiceName = 'Basic Mushroom Training Program (₹299)';
-    messageText = `Hello Organic Mushroom Farm Team,
+    messageText = `Hello Organic Mushrooms Farm Team,
 
 ✅ Payment Successful
 
@@ -43,7 +43,7 @@ I am excited to start my mushroom farming journey.
 Thank you.`;
   } else if (type === 'training_advanced') {
     courseOrServiceName = 'Advance Mushroom Cultivation Training Program (₹699)';
-    messageText = `Hello Organic Mushroom Farm Team,
+    messageText = `Hello Organic Mushrooms Farm Team,
 
 ✅ Payment Successful
 
@@ -67,7 +67,7 @@ I am excited to learn advanced mushroom farming techniques and build a successfu
 Thank you.`;
   } else if (type === 'workshop') {
     courseOrServiceName = 'Mushroom Workshop (₹199)';
-    messageText = `Hello Organic Mushroom Farm Team,
+    messageText = `Hello Organic Mushrooms Farm Team,
 
 ✅ Payment Successful
 
@@ -89,7 +89,7 @@ Looking forward to attending the workshop.
 Thank you.`;
   } else if (type === 'consultant') {
     courseOrServiceName = 'Mushroom Consultancy Call (₹59)';
-    messageText = `Hello Organic Mushroom Farm Team,
+    messageText = `Hello Organic Mushrooms Farm Team,
 
 ✅ Payment Successful
 
@@ -111,7 +111,7 @@ Looking forward to discussing my mushroom farming project.
 Thank you.`;
   } else {
     courseOrServiceName = 'Mushroom Cultivation Training';
-    messageText = `Hello Organic Mushroom Farm Team,
+    messageText = `Hello Organic Mushrooms Farm Team,
 
 ✅ Payment Successful
 

@@ -55,15 +55,15 @@ const ArticleNashikTraining = () => {
             "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur marketing in Nashik, Maharashtra.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         },
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-nashik-maharashtra",
+            "name": "Organic Mushrooms Farm",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-nashik-maharashtra",
             "areaServed": [
                 "Nashik", "Gangapur Road", "Panchavati", "Indira Nagar", "Satpur", "Ambad",
                 "Nashik Road", "College Road", "CIDCO", "Sinnar", "Niphad", "Igatpuri",
@@ -84,8 +84,8 @@ const ArticleNashikTraining = () => {
 
             <SEO 
                 title="Mushroom Farming Training, Spawn Supply, Consultancy & Farm Setup in Nashik" 
-                description="Start your mushroom farming business in Nashik with Organic Mushroom Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
-                keywords="Mushroom farming Nashik, mushroom training Nashik, mushroom spawn Maharashtra, oyster mushroom Nashik, button mushroom Nashik, organic mushroom farm"
+                description="Start your mushroom farming business in Nashik with Organic Mushrooms Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
+                keywords="Mushroom farming Nashik, mushroom training Nashik, mushroom spawn Maharashtra, oyster mushroom Nashik, button mushroom Nashik, organic mushrooms farm"
                 url="/mushroom-farming-nashik-maharashtra"
                 schemas={customSchemas}
             />
@@ -105,10 +105,10 @@ const ArticleNashikTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Mushroom Farming Training, Spawn Supply, Consultancy & Farm Setup in Nashik | Organic Mushroom Farm
+                            Mushroom Farming Training, Spawn Supply, Consultancy & Farm Setup in Nashik | Organic Mushrooms Farm
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Nashik, Maharashtra Special Edition
+                            Organic Mushrooms Farm — Nashik, Maharashtra Special Edition
                         </p>
                     </div>
 
@@ -118,7 +118,7 @@ const ArticleNashikTraining = () => {
                             नाशिक — द्राक्ष आणि वाईनयार्ड्ससाठी प्रसिद्ध असलेलं हे शहर, आता एका नव्या कृषी संधीकडे वळत आहे — ती म्हणजे <strong>mushroom farming</strong>. Gangapur Road, Panchavati, Indira Nagar, Satpur, Ambad, Nashik Road आणि आजूबाजूच्या गावांमध्ये शेतकरी, विद्यार्थी, महिला उद्योजक आणि तरुण व्यावसायिक आता mushroom farming कडे एक गंभीर व्यवसाय संधी म्हणून बघत आहेत.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushroom Farm</Link> म्हणून आम्ही नाशिक आणि आसपासच्या Sinnar, Niphad, Igatpuri, Yeola, Trimbakeshwar, Ozar, Pimpalgaon आणि Dindori भागातील लोकांना <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh आणि dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> आणि <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> ही सेवा पुरवत आहोत. या पानावर आपण बघू की नाशिकमध्ये mushroom business कसा सुरू करायचा, कोणकोणत्या संधी आहेत आणि आमच्याशी कसं जोडून घ्यायचं.
+                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> म्हणून आम्ही नाशिक आणि आसपासच्या Sinnar, Niphad, Igatpuri, Yeola, Trimbakeshwar, Ozar, Pimpalgaon आणि Dindori भागातील लोकांना <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh आणि dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> आणि <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> ही सेवा पुरवत आहोत. या पानावर आपण बघू की नाशिकमध्ये mushroom business कसा सुरू करायचा, कोणकोणत्या संधी आहेत आणि आमच्याशी कसं जोडून घ्यायचं.
                         </p>
                         <div className="p-4 rounded-xl dark:bg-emerald-950/30 bg-emerald-50 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
                             Agar aap Nashik ya aas-paas ke kisi bhi area se ho aur mushroom farming shuru karna chahte ho, to yeh guide bilkul aapke liye hi likha gaya hai — poora practical, local aur real jankari ke saath.
@@ -458,7 +458,7 @@ const ArticleNashikTraining = () => {
                     {/* Why Choose */}
                     <div className="p-6 rounded-3xl dark:bg-white/5 bg-black/5 border border-white/5 space-y-4">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            Kyun Chunein Organic Mushroom Farm?
+                            Kyun Chunein Organic Mushrooms Farm?
                         </h2>
                         <ul className="space-y-2 pl-0 list-none">
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="dark:text-slate-300 text-slate-700 text-sm">Jabalpur base se pura India mein spawn delivery ka experience</span></li>

@@ -34,7 +34,7 @@ const ArticleRaipurTraining = () => {
                         "जय जोहार संगवारियो!" हमारा <Link to="/states/chhattisgarh" className="text-primary-start hover:underline">छत्तीसगढ़</Link>, जिसे हम प्यार से 'धान का कटोरा' कहते हैं, अब सिर्फ पारंपरिक खेती तक सीमित नहीं रह गया है। रायपुर, नवा रायपुर (अटल नगर), टाटीबंध, अभनपुर और आरंग के हमारे किसान भाई और युवा अब समझ चुके हैं कि सिर्फ धान या गेहूं की खेती में मौसम की मार और बढ़ती लागत का रिस्क बहुत ज्यादा है।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        यही वजह है कि पूरे रायपुर और दुर्ग-भिलाई बेल्ट में पारंपरिक खेती (Traditional Farming) के साथ-साथ एक नया और स्मार्ट एग्री-बिजनेस बहुत तेजी से पॉपुलर हो रहा है—<strong>Mushroom Farming in Raipur, Chhattisgarh</strong>। यह कम जगह, कम पानी और बंद कमरे में 12 महीने बंपर कमाई देने वाला व्यवसाय है। अगर आप भी खेती से जुड़े एक पक्के बिजनेस मॉडल की तलाश में हैं, तो <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushroom Farm</Link> आपके लिए लेकर आया है एक कंपलीट गाइड और सपोर्ट सिस्टम!
+                        यही वजह है कि पूरे रायपुर और दुर्ग-भिलाई बेल्ट में पारंपरिक खेती (Traditional Farming) के साथ-साथ एक नया और स्मार्ट एग्री-बिजनेस बहुत तेजी से पॉपुलर हो रहा है—<strong>Mushroom Farming in Raipur, Chhattisgarh</strong>। यह कम जगह, कम पानी और बंद कमरे में 12 महीने बंपर कमाई देने वाला व्यवसाय है। अगर आप भी खेती से जुड़े एक पक्के बिजनेस मॉडल की तलाश में हैं, तो <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushrooms Farm</Link> आपके लिए लेकर आया है एक कंपलीट गाइड और सपोर्ट सिस्टम!
                     </p>
 
                     <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
@@ -63,7 +63,7 @@ const ArticleRaipurTraining = () => {
                     </div>
 
                     <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        360° Mushroom Business Support by Organic Mushroom Farm
+                        360° Mushroom Business Support by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         रायपुर और पूरे छत्तीसगढ़ में अगर आप अपनी मशरूम फार्मिंग जर्नी शुरू करना चाहते हैं, तो हम आपको इन 11 सबसे जरूरी सर्विस के साथ पूरा सपोर्ट देते हैं:
@@ -216,7 +216,7 @@ const ArticleRaipurTraining = () => {
                             <p className="text-sm dark:text-slate-300 text-slate-700">उत्तर: आप हमारी Online Mushroom Training के जरिए घर बैठे सीख सकते हैं या रायपुर के हमारे सेंटर पर आकर Offline Mushroom Training लेकर प्रैक्टिकल नॉलेज ले सकते हैं।</p>
                         </div>
                         <div className="bg-black/5 dark:bg-white/5 p-6 rounded-2xl border border-black/5 dark:border-white/5">
-                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q3. क्या Organic Mushroom Farm माल बेचने में मदद करता है?</h3>
+                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q3. क्या Organic Mushrooms Farm माल बेचने में मदद करता है?</h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">उत्तर: जी हाँ! हमारा Mushroom Marketing Support आपको रायपुर के लोकल वेंडर्स, होटल्स और सुपरमार्केट्स से डायरेक्ट कनेक्ट करता है ताकि आपका फ्रेश या ड्राई मशरूम आसानी से बिक सके。</p>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 {
   "$schema": "https://webmcp.dev/schema/mcp-v1.json",
   "mcpVersion": "1.0",
-  "name": "Organic Mushroom Farm India Tools",
+  "name": "Organic Mushrooms Farm India Tools",
   "description": "Interactive WebMCP tools for organic mushroom farming training, workshop booking, and ROI planning in India.",
   "tools": [
     {

@@ -69,7 +69,7 @@ const WorkshopPage = () => {
         name: formData.name,
         phone: formData.phone,
         email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-        productType: 'Organic Mushroom Farming Workshop',
+        productType: 'organic mushroom farming Workshop',
         amount: '₹199',
         status: 'INITIATED',
         orderId: payload.order_id
@@ -91,7 +91,7 @@ const WorkshopPage = () => {
             name: formData.name,
             phone: formData.phone,
             email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-            productType: 'Organic Mushroom Farming Workshop',
+            productType: 'organic mushroom farming Workshop',
             amount: '₹199',
             status: 'DONE',
             orderId: payload.order_id,
@@ -109,7 +109,7 @@ const WorkshopPage = () => {
               name: formData.name,
               phone: formData.phone,
               email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-              productType: 'Organic Mushroom Farming Workshop',
+              productType: 'organic mushroom farming Workshop',
               amount: '₹199',
               status: 'CANCELLED',
               orderId: payload.order_id
@@ -137,7 +137,7 @@ const WorkshopPage = () => {
                name: formData.name,
                phone: formData.phone,
                email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-               productType: 'Organic Mushroom Farming Workshop',
+               productType: 'organic mushroom farming Workshop',
                amount: '₹199',
                status: 'FAILED',
                orderId: payload.order_id,
@@ -194,7 +194,7 @@ const WorkshopPage = () => {
   return (
     <div className="font-sans dark:bg-[#0a0f0d] bg-slate-50 dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
       <SEO 
-        title="Agri-Business Mushroom Farming Workshop | Organic Mushroom Farm"
+        title="Agri-Business Mushroom Farming Workshop | Organic Mushrooms Farm"
         description="Book your seat for ₹199. Learn commercial oyster, milky, and button mushroom cultivation, farm setups, and B2B marketing from Indian experts."
         schemas={[webmcpSchema]}
       />
@@ -207,7 +207,7 @@ const WorkshopPage = () => {
               <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden">
                 <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain"  width="120" height="120" />
               </div>
-              <span className="font-bold text-base md:text-lg tracking-tight dark:text-white text-slate-900 whitespace-nowrap">Organic Mushroom Farm</span>
+              <span className="font-bold text-base md:text-lg tracking-tight dark:text-white text-slate-900 whitespace-nowrap">Organic Mushrooms Farm</span>
             </Link>
           </div>
           
@@ -385,7 +385,7 @@ const WorkshopPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-xl md:text-3xl font-black mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Watch Real Mushroom Training</h2>
-            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2">See our experts in action and learn what happens inside a commercial organic mushroom farm.</p>
+            <p className="dark:text-slate-400 text-slate-600 max-w-2xl mx-auto text-sm md:text-lg px-2">See our experts in action and learn what happens inside a commercial organic mushrooms farm.</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
@@ -540,7 +540,7 @@ const WorkshopPage = () => {
                   <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
                     <img src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" alt="Logo" className="w-full h-full object-contain"  width="120" height="120" />
                   </div>
-                  <span className="font-bold text-2xl tracking-tight dark:text-white text-slate-900">Organic Mushroom Farm</span>
+                  <span className="font-bold text-2xl tracking-tight dark:text-white text-slate-900">Organic Mushrooms Farm</span>
                </Link>
                <p className="dark:text-slate-400 text-slate-600 mb-8 max-w-sm">Empowering Indian farmers and entrepreneurs with modern, highly profitable organic mushroom farming methods.</p>
                
@@ -566,7 +566,7 @@ const WorkshopPage = () => {
           </div>
           
           <div className="border-t dark:border-white/10 border-black/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-             <p className="text-slate-500 text-sm">© 2026 Organic Mushroom Farm. All rights reserved.</p>
+             <p className="text-slate-500 text-sm">© 2026 Organic Mushrooms Farm. All rights reserved.</p>
              <div className="flex gap-6 text-sm text-slate-500">
                <Link to="/terms" className="hover:dark:text-white text-slate-900 transition-colors">Terms</Link>
                <Link to="/privacy" className="hover:dark:text-white text-slate-900 transition-colors">Privacy</Link>

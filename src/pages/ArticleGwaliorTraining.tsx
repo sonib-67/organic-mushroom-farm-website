@@ -35,7 +35,7 @@ const ArticleGwaliorTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        अगर आप भी ग्वालियर या चंबल संभाग (Chambal Region) में एक successful agribusiness शुरू करना चाहते हैं, तो Organic Mushroom Farm आपके लिए एक complete ecosystem लेकर आया है। हम सिर्फ मशरूम उगाना नहीं सिखाते, बल्कि आपको एक सफल entrepreneur बनाते हैं।
+                        अगर आप भी ग्वालियर या चंबल संभाग (Chambal Region) में एक successful agribusiness शुरू करना चाहते हैं, तो Organic Mushrooms Farm आपके लिए एक complete ecosystem लेकर आया है। हम सिर्फ मशरूम उगाना नहीं सिखाते, बल्कि आपको एक सफल entrepreneur बनाते हैं।
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -69,10 +69,10 @@ const ArticleGwaliorTraining = () => {
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
-                        Organic Mushroom Farm: Our Official Services
+                        Organic Mushrooms Farm: Our Official Services
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        हम Organic Mushroom Farm में ग्वालियर के लोगों के लिए end-to-end solutions प्रोवाइड करते हैं:
+                        हम Organic Mushrooms Farm में ग्वालियर के लोगों के लिए end-to-end solutions प्रोवाइड करते हैं:
                     </p>
 
                     <div className="space-y-6 mb-8">
@@ -137,7 +137,7 @@ const ArticleGwaliorTraining = () => {
                         </div>
                         <div>
                             <h4 className="font-bold dark:text-white text-slate-900 mb-1">3. Where can I buy mushroom spawn in Gwalior?</h4>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">आप Organic Mushroom Farm से उच्च गुणवत्ता वाले (quality) Oyster, Button, और Milky mushroom spawn खरीद सकते हैं। हम पूरे ग्वालियर और आस-पास के क्षेत्रों में डिलीवरी देते हैं।</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">आप Organic Mushrooms Farm से उच्च गुणवत्ता वाले (quality) Oyster, Button, और Milky mushroom spawn खरीद सकते हैं। हम पूरे ग्वालियर और आस-पास के क्षेत्रों में डिलीवरी देते हैं।</p>
                         </div>
                         <div>
                             <h4 className="font-bold dark:text-white text-slate-900 mb-1">4. What government subsidy is available in Madhya Pradesh?</h4>
@@ -146,7 +146,7 @@ const ArticleGwaliorTraining = () => {
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-bold bg-primary-start/10 p-4 rounded-xl border border-primary-start/20 text-center">
-                        Why Choose Organic Mushroom Farm in Gwalior?<br/>
+                        Why Choose Organic Mushrooms Farm in Gwalior?<br/>
                         <span className="font-medium text-sm">हम सिर्फ एक mushroom seed supplier नहीं हैं, हम आपके बिज़नेस पार्टनर हैं। Gwalior के local market dynamics, MP Government की policies, और यहाँ के weather patterns की हमें गहरी समझ है। "Mushroom farm near me" या "Mushroom training near me" सर्च करने पर आपको सबसे reliable और practical guidance हमारे पास ही मिलेगी।</span>
                     </p>
 

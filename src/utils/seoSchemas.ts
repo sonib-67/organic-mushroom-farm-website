@@ -7,7 +7,7 @@ export const SOCIAL_PROFILES = [
 
 export const GOOGLE_MAPS_BUSINESS_LINK = "https://maps.app.goo.gl/z7oQHSoLbCL9H4ov8?g_st=ic";
 
-export const generateReviewSchema = (itemName: string = "Organic Mushroom Farm Training & Franchise") => {
+export const generateReviewSchema = (itemName: string = "Organic Mushrooms Farm Training & Franchise") => {
   // Simple deterministic hash based on item name to keep ratings consistent per page and avoid hydration mismatch
   let hash = 0;
   for (let i = 0; i < itemName.length; i++) {
@@ -59,7 +59,7 @@ export const generateReviewSchema = (itemName: string = "Organic Mushroom Farm T
     "description": "Premium industrial-grade mushroom spawn (seed), expert commercial training programs, and fully integrated turnkey climate-controlled mushroom farm setups.",
     "brand": {
       "@type": "Brand",
-      "name": "Organic Mushroom Farm"
+      "name": "Organic Mushrooms Farm"
     },
     "offers": {
       "@type": "Offer",
@@ -99,10 +99,10 @@ export const generateLocalBusinessSchema = (path: string = "") => {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Organic Mushroom Farm",
+    "name": "Organic Mushrooms Farm",
     "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-    "@id": `https://organicmushroomfarm.shop/${path ? path.replace(/^\//, '') : '#localbusiness'}`,
-    "url": `https://organicmushroomfarm.shop${path}`,
+    "@id": `https://organicmushroomsfarm.com/${path ? path.replace(/^\//, '') : '#localbusiness'}`,
+    "url": `https://organicmushroomsfarm.com${path}`,
     "telephone": "+919203544140",
     "email": "support@mushroomtraining.online",
     "priceRange": "₹Standard",
@@ -170,9 +170,9 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Organic Mushroom Farm",
-    "alternateName": "Organic Mushroom Farm Jabalpur",
-    "url": "https://organicmushroomfarm.shop",
+    "name": "Organic Mushrooms Farm",
+    "alternateName": "Organic Mushrooms Farm Jabalpur",
+    "url": "https://organicmushroomsfarm.com",
     "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "telephone": "+919203544140",
@@ -206,13 +206,13 @@ export const generateWebsiteSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Organic Mushroom Farm",
-    "url": "https://organicmushroomfarm.shop",
+    "name": "Organic Mushrooms Farm",
+    "url": "https://organicmushroomsfarm.com",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://organicmushroomfarm.shop/blog?search={search_term_string}"
+        "urlTemplate": "https://organicmushroomsfarm.com/blog?search={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -227,8 +227,8 @@ export const generateCourseSchema = () => {
     "description": "Comprehensive online & offline coaching covering spawn laboratory techniques, substrate sterilized preparation, climate-controlled farming setups, and disease management.",
     "provider": {
       "@type": "Organization",
-      "name": "Organic Mushroom Farm",
-      "sameAs": "https://organicmushroomfarm.shop"
+      "name": "Organic Mushrooms Farm",
+      "sameAs": "https://organicmushroomsfarm.com"
     },
     "courseMode": "online",
     "hasCourseInstance": {
@@ -251,7 +251,7 @@ export const generateFounderSchema = () => {
     "jobTitle": "Agri-Tech Mushroom Consultant & Founder",
     "worksFor": {
       "@type": "Organization",
-      "name": "Organic Mushroom Farm"
+      "name": "Organic Mushrooms Farm"
     },
     "image": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
     "description": "Tanish Soni is a preeminent commercial agriculture technology specialist and mushroom farming consultant in India, with extensive tenure setting up high-yield climate-controlled units.",
@@ -265,10 +265,10 @@ export const generateWebpageSchema = (title: string, description: string, path: 
     "@type": "WebPage",
     "name": title,
     "description": description,
-    "url": `https://organicmushroomfarm.shop${path}`,
+    "url": `https://organicmushroomsfarm.com${path}`,
     "publisher": {
       "@type": "Organization",
-      "name": "Organic Mushroom Farm",
+      "name": "Organic Mushrooms Farm",
       "logo": "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
     }
   };
@@ -282,7 +282,7 @@ export const generateBreadcrumbSchema = (items: { name: string, url: string }[])
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://organicmushroomfarm.shop${item.url}`
+      "item": `https://organicmushroomsfarm.com${item.url}`
     }))
   };
 };
@@ -374,7 +374,7 @@ export const generateGlobalFAQSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": "https://organicmushroomfarm.shop/#faq",
+    "@id": "https://organicmushroomsfarm.com/#faq",
     "mainEntity": GLOBAL_FAQS.map(faq => ({
       "@type": "Question",
       "name": faq.q,
@@ -427,9 +427,9 @@ export const generateGlobalProductsSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "@id": "https://organicmushroomfarm.shop/#itemlist",
+    "@id": "https://organicmushroomsfarm.com/#itemlist",
     "name": "Mushroom Products & Courses",
-    "url": "https://organicmushroomfarm.shop/",
+    "url": "https://organicmushroomsfarm.com/",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -437,17 +437,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Oyster Mushroom Spawn",
-          "description": "Premium quality Oyster Mushroom Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/oyster-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/oyster-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Oyster Mushroom Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/oyster-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/oyster-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "500.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -459,17 +459,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Button Mushroom Spawn",
-          "description": "Premium quality Button Mushroom Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/button-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/button-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Button Mushroom Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/button-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/button-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "800.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -481,17 +481,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Milky Mushroom Spawn",
-          "description": "Premium quality Milky Mushroom Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/milky-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/milky-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Milky Mushroom Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/milky-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/milky-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "600.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -503,17 +503,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Shiitake Mushroom Spawn",
-          "description": "Premium quality Shiitake Mushroom Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/shiitake-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/shiitake-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Shiitake Mushroom Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/shiitake-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/shiitake-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "1200.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -525,17 +525,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Reishi / Ganoderma Mushroom Spawn",
-          "description": "Premium quality Reishi / Ganoderma Mushroom Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/reishi-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/reishi-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Reishi / Ganoderma Mushroom Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/reishi-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/reishi-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "1500.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -547,17 +547,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Lion's Mane Mushroom Spawn",
-          "description": "Premium quality Lion's Mane Mushroom Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/lions-mane-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/lions-mane-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Lion's Mane Mushroom Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/lions-mane-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/lions-mane-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "1400.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -569,17 +569,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Cordyceps Militaris Spawn",
-          "description": "Premium quality Cordyceps Militaris Spawn from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/cordyceps-spawn.jpg",
-          "url": "https://organicmushroomfarm.shop/product/cordyceps-spawn",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Cordyceps Militaris Spawn from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/cordyceps-spawn.jpg",
+          "url": "https://organicmushroomsfarm.com/product/cordyceps-spawn",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "2000.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -591,17 +591,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Fresh Oyster Mushroom",
-          "description": "Premium quality Fresh Oyster Mushroom from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/fresh-oyster.jpg",
-          "url": "https://organicmushroomfarm.shop/product/fresh-oyster",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Fresh Oyster Mushroom from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/fresh-oyster.jpg",
+          "url": "https://organicmushroomsfarm.com/product/fresh-oyster",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "200.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -613,17 +613,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Dry Shiitake Mushroom",
-          "description": "Premium quality Dry Shiitake Mushroom from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/dry-shiitake.jpg",
-          "url": "https://organicmushroomfarm.shop/product/dry-shiitake",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Dry Shiitake Mushroom from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/dry-shiitake.jpg",
+          "url": "https://organicmushroomsfarm.com/product/dry-shiitake",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "1800.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -635,17 +635,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Dry Reishi Mushroom",
-          "description": "Premium quality Dry Reishi Mushroom from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/dry-reishi.jpg",
-          "url": "https://organicmushroomfarm.shop/product/dry-reishi",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Dry Reishi Mushroom from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/dry-reishi.jpg",
+          "url": "https://organicmushroomsfarm.com/product/dry-reishi",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "2500.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -657,17 +657,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Dry Oyster Mushroom",
-          "description": "Premium quality Dry Oyster Mushroom from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/dry-oyster.jpg",
-          "url": "https://organicmushroomfarm.shop/product/dry-oyster",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Dry Oyster Mushroom from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/dry-oyster.jpg",
+          "url": "https://organicmushroomsfarm.com/product/dry-oyster",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "1000.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -679,17 +679,17 @@ export const generateGlobalProductsSchema = () => {
         "item": {
           "@type": "Product",
           "name": "Dry Lion's Mane Mushroom",
-          "description": "Premium quality Dry Lion's Mane Mushroom from Organic Mushroom Farm.",
-          "image": "https://organicmushroomfarm.shop/images/dry-lions-mane.jpg",
-          "url": "https://organicmushroomfarm.shop/product/dry-lions-mane",
-          "brand": { "@type": "Brand", "name": "Organic Mushroom Farm" },
+          "description": "Premium quality Dry Lion's Mane Mushroom from Organic Mushrooms Farm.",
+          "image": "https://organicmushroomsfarm.com/images/dry-lions-mane.jpg",
+          "url": "https://organicmushroomsfarm.com/product/dry-lions-mane",
+          "brand": { "@type": "Brand", "name": "Organic Mushrooms Farm" },
           "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "25" },
           "offers": {
             "@type": "Offer",
             "price": "3000.00",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "seller": { "@type": "Organization", "name": "Organic Mushroom Farm" },
+            "seller": { "@type": "Organization", "name": "Organic Mushrooms Farm" },
             "shippingDetails": SHIPPING_DETAILS,
             "hasMerchantReturnPolicy": MERCHANT_RETURN_POLICY
           }
@@ -702,8 +702,8 @@ export const generateGlobalProductsSchema = () => {
           "@type": "Course",
           "name": "Oyster Mushroom Cultivation Training",
           "description": "Oyster Mushroom Cultivation Training - Professional mushroom farming training online and offline.",
-          "url": "https://organicmushroomfarm.shop/courses/oyster",
-          "provider": { "@type": "Organization", "name": "Organic Mushroom Farm", "url": "https://organicmushroomfarm.shop/" },
+          "url": "https://organicmushroomsfarm.com/courses/oyster",
+          "provider": { "@type": "Organization", "name": "Organic Mushrooms Farm", "url": "https://organicmushroomsfarm.com/" },
           "inLanguage": ["hi", "en"],
           "courseMode": ["online", "offline"],
           "offers": {
@@ -721,8 +721,8 @@ export const generateGlobalProductsSchema = () => {
           "@type": "Course",
           "name": "Button Mushroom Cultivation Training",
           "description": "Button Mushroom Cultivation Training - Professional mushroom farming training online and offline.",
-          "url": "https://organicmushroomfarm.shop/courses/button",
-          "provider": { "@type": "Organization", "name": "Organic Mushroom Farm", "url": "https://organicmushroomfarm.shop/" },
+          "url": "https://organicmushroomsfarm.com/courses/button",
+          "provider": { "@type": "Organization", "name": "Organic Mushrooms Farm", "url": "https://organicmushroomsfarm.com/" },
           "inLanguage": ["hi", "en"],
           "courseMode": ["online", "offline"],
           "offers": {
@@ -740,8 +740,8 @@ export const generateGlobalProductsSchema = () => {
           "@type": "Course",
           "name": "All Varieties Mushroom Farming Course",
           "description": "All Varieties Mushroom Farming Course - Professional mushroom farming training online and offline.",
-          "url": "https://organicmushroomfarm.shop/courses/all-varieties",
-          "provider": { "@type": "Organization", "name": "Organic Mushroom Farm", "url": "https://organicmushroomfarm.shop/" },
+          "url": "https://organicmushroomsfarm.com/courses/all-varieties",
+          "provider": { "@type": "Organization", "name": "Organic Mushrooms Farm", "url": "https://organicmushroomsfarm.com/" },
           "inLanguage": ["hi", "en"],
           "courseMode": ["online", "offline"],
           "offers": {
@@ -760,17 +760,17 @@ export const generateGlobalServiceSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://organicmushroomfarm.shop/#service",
+    "@id": "https://organicmushroomsfarm.com/#service",
     "name": "Mushroom Farm Setup Service",
     "serviceType": "Mushroom Farm Turnkey Setup",
     "description": "Complete turnkey mushroom farm setup service.",
-    "provider": { "@id": "https://organicmushroomfarm.shop/#business" },
+    "provider": { "@id": "https://organicmushroomsfarm.com/#business" },
     "areaServed": { "@type": "Country", "name": "India" },
     "offers": {
       "@type": "Offer",
       "priceCurrency": "INR",
       "availability": "https://schema.org/InStock",
-      "url": "https://organicmushroomfarm.shop"
+      "url": "https://organicmushroomsfarm.com"
     }
   };
 };

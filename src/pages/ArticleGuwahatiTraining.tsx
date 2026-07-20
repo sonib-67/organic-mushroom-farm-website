@@ -35,7 +35,7 @@ const ArticleGuwahatiTraining = () => {
                     "name": "Mushroom spawn Guwahati mein kahan milega?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Organic Mushroom Farm se pan-India delivery ke saath Guwahati aur aas-paas ke sabhi areas mein spawn milta hai."
+                        "text": "Organic Mushrooms Farm se pan-India delivery ke saath Guwahati aur aas-paas ke sabhi areas mein spawn milta hai."
                     }
                 },
                 {
@@ -55,15 +55,15 @@ const ArticleGuwahatiTraining = () => {
             "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur marketing.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         },
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-guwahati-assam",
+            "name": "Organic Mushrooms Farm",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-guwahati-assam",
             "areaServed": [
                 "Guwahati", "Beltola", "Dispur", "Six Mile", "Zoo Road", "Maligaon",
                 "Jalukbari", "Chandmari", "Pan Bazar", "Ganeshguri", "Hatigaon",
@@ -86,7 +86,7 @@ const ArticleGuwahatiTraining = () => {
             <SEO 
                 title="Professional Mushroom Farming Training Guwahati Assam" 
                 description="Mushroom farm setup, spawn supply, online/offline training, fresh/dry mushroom sale, and turnkey projects in Guwahati, Assam. Start your commercial farm today!"
-                keywords="Mushroom farming Guwahati, mushroom training Guwahati, mushroom spawn Assam, oyster mushroom Guwahati, button mushroom Guwahati, organic mushroom farm"
+                keywords="Mushroom farming Guwahati, mushroom training Guwahati, mushroom spawn Assam, oyster mushroom Guwahati, button mushroom Guwahati, organic mushrooms farm"
                 url="/mushroom-farming-guwahati-assam"
                 schemas={customSchemas}
             />
@@ -109,7 +109,7 @@ const ArticleGuwahatiTraining = () => {
                             Guwahati ত Mushroom Farming, Training, Spawn Supply আৰু Consultancy
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Guwahati, Assam Special Edition
+                            Organic Mushrooms Farm — Guwahati, Assam Special Edition
                         </p>
                     </div>
 
@@ -122,7 +122,7 @@ const ArticleGuwahatiTraining = () => {
                             গুৱাহাটী, অসমৰ সৰ্ববৃহৎ চহৰ, আজিকালি এটা নতুন কৃষি সুযোগৰ কেন্দ্ৰ হৈ পৰিছে — সেয়া হ'ল <strong>mushroom farming</strong>। ব্ৰহ্মপুত্ৰৰ পাৰত থকা এই চহৰখনৰ আৰ্দ্ৰ আৱহাৱা, ভাল পানী সম্পদ আৰু ঘনবসতিপূৰ্ণ বজাৰ ব্যৱস্থাই ইয়াক oyster mushroom, button mushroom, milky mushroom আৰু এতিয়া medicinal mushroom খেতিৰ বাবেও এক আদৰ্শ ঠাই কৰি তুলিছে। Beltola ৰ ঘৰুৱা কৃষকৰ পৰা Six Mile আৰু Zoo Road ৰ ব্যৱসায়ীলৈকে, বহুতেই এতিয়া mushroom farming ক এক গুৰুত্বপূৰ্ণ আয়ৰ উৎস হিচাপে দেখিছে।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushroom Farm</Link> হিচাপে আমি গুৱাহাটী আৰু ইয়াৰ চাৰিওফালে থকা Dispur, Maligaon, Jalukbari, Chandmari, Pan Bazar, North Guwahati, Rangia, Hajo আৰু Sonapur সমূহ অঞ্চলৰ কৃষক, ছাত্ৰ, গৃহিণী আৰু নতুন উদ্যোগীসকলক <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh আৰু dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> আৰু <Link to="/articles/turnkey-mushroom-farm-setup-india" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> সেৱা আগবঢ়াই আহিছোঁ। এই পৃষ্ঠাটোত আমি বিতংভাৱে আলোচনা কৰিম যে গুৱাহাটীত mushroom business কেনেকৈ আৰম্ভ কৰিব লাগে, কি কি সুবিধা আছে, আৰু আপুনি কেনেকৈ আমাৰ সৈতে যোগাযোগ কৰি লাভান্বিত হ'ব পাৰে।
+                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> হিচাপে আমি গুৱাহাটী আৰু ইয়াৰ চাৰিওফালে থকা Dispur, Maligaon, Jalukbari, Chandmari, Pan Bazar, North Guwahati, Rangia, Hajo আৰু Sonapur সমূহ অঞ্চলৰ কৃষক, ছাত্ৰ, গৃহিণী আৰু নতুন উদ্যোগীসকলক <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh আৰু dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> আৰু <Link to="/articles/turnkey-mushroom-farm-setup-india" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> সেৱা আগবঢ়াই আহিছোঁ। এই পৃষ্ঠাটোত আমি বিতংভাৱে আলোচনা কৰিম যে গুৱাহাটীত mushroom business কেনেকৈ আৰম্ভ কৰিব লাগে, কি কি সুবিধা আছে, আৰু আপুনি কেনেকৈ আমাৰ সৈতে যোগাযোগ কৰি লাভান্বিত হ'ব পাৰে।
                         </p>
                         <div className="p-4 rounded-xl dark:bg-emerald-950/30 bg-emerald-50 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
                             Agar aap Guwahati ya aas-paas ke kisi bhi area se hain aur mushroom farming shuru karna chahte hain, to yeh guide aapke liye hi likha gaya hai — pura practical, local aur real jankari ke saath.
@@ -462,7 +462,7 @@ const ArticleGuwahatiTraining = () => {
                     {/* Why Us */}
                     <div className="space-y-4 pt-6 border-t dark:border-white/10 border-black/10">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            Kyun Chunein Organic Mushroom Farm?
+                            Kyun Chunein Organic Mushrooms Farm?
                         </h2>
                         <ul className="space-y-2.5 pl-0 list-none">
                             <li className="flex gap-2.5 items-center"><CheckCircle2 className="text-emerald-500 shrink-0" size={18} /> <span className="dark:text-slate-300 text-slate-700">Jabalpur base se pura India mein spawn delivery ka experience</span></li>

@@ -334,7 +334,7 @@ const ArticleMadhyaPradeshGuide = () => {
                         <div className="relative z-10">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-6">Start Your Mushroom Journey Today</h2>
                             <p className="dark:text-white text-slate-900/80 mb-10 text-lg max-w-2xl mx-auto">
-                                Get access to the best mushroom spawn, professional training, and setup support with <strong>Organic Mushroom Farm</strong>.
+                                Get access to the best mushroom spawn, professional training, and setup support with <strong>Organic Mushrooms Farm</strong>.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                                 <a href="tel:+919203544140" className="btn-primary px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">

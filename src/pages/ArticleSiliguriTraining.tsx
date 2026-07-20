@@ -34,7 +34,7 @@ const ArticleSiliguriTraining = () => {
                     "name": "Mushroom spawn Siliguri mein kahan milega?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Organic Mushroom Farm se pan-India delivery ke saath Siliguri aur aas-paas ke sabhi areas mein spawn milta hai."
+                        "text": "Organic Mushrooms Farm se pan-India delivery ke saath Siliguri aur aas-paas ke sabhi areas mein spawn milta hai."
                     }
                 },
                 {
@@ -50,9 +50,9 @@ const ArticleSiliguriTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-siliguri-west-bengal",
+            "name": "Organic Mushrooms Farm",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-siliguri-west-bengal",
             "areaServed": [
                 "Siliguri", "Sevoke Road", "Pradhan Nagar", "Hakim Para", "Hill Cart Road",
                 "Matigara", "Champasari", "Salugara", "Ashram Para", "Bagdogra",
@@ -69,8 +69,8 @@ const ArticleSiliguriTraining = () => {
             "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur regional/export marketing.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         }
     ];
@@ -125,7 +125,7 @@ const ArticleSiliguriTraining = () => {
                             শিলিগুড়িকে বলা হয় <strong>&quot;Gateway to North-East India&quot;</strong> — কারণ এই শহর পশ্চিমবঙ্গকে সিকিম, আসাম, ভুটান এবং নেপালের সাথে সংযুক্ত করে। এই কৌশলগত অবস্থানের কারণে শিলিগুড়ি আজ একটি গুরুত্বপূর্ণ বাণিজ্যিক এবং লজিস্টিক্স হাব হয়ে উঠেছে। Sevoke Road, Pradhan Nagar, Hakim Para, Hill Cart Road, Matigara, Champasari, Salugara এবং Ashram Para-র মতো এলাকাগুলিতে এখন <strong>mushroom farming</strong> কেবল একটি চাষবাস নয়, বরং একটি export-quality business হিসেবে গড়ে উঠছে।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Mushroom entrepreneur-দের জন্য এর মানে হলো — একটি শহর থেকেই একাধিক আঞ্চলিক বাজারে প্রবেশাধিকার। Organic Mushroom Farm হিসেবে আমরা শিলিগুড়ি এবং আশেপাশের Bagdogra, Jalpaiguri, Kurseong, Islampur, Naxalbari, Phansidewa, Matigara এবং Fulbari অঞ্চলের কৃষক, ছাত্র এবং উদ্যোক্তাদের <strong>farm setup, spawn supply, online/offline training, fresh এবং dry mushroom sale, consultancy এবং turnkey project</strong> পরিষেবা প্রদান করছি।
+                            Mushroom entrepreneur-দের জন্য এর মানে হলো — একটি শহর থেকেই একাধিক আঞ্চলিক বাজারে প্রবেশাধিকার। Organic Mushrooms Farm হিসেবে আমরা শিলিগুড়ি এবং আশেপাশের Bagdogra, Jalpaiguri, Kurseong, Islampur, Naxalbari, Phansidewa, Matigara এবং Fulbari অঞ্চলের কৃষক, ছাত্র এবং উদ্যোক্তাদের <strong>farm setup, spawn supply, online/offline training, fresh এবং dry mushroom sale, consultancy এবং turnkey project</strong> পরিষেবা প্রদান করছি।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
                             Agar aap Siliguri ya North Bengal ke kisi bhi area se ho aur mushroom business ko regional aur cross-border level tak le jaana chahte ho, to yeh guide bilkul aapke liye likha gaya hai।
@@ -552,7 +552,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Why Us */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Kyun Chunein Organic Mushroom Farm?
+                            Kyun Chunein Organic Mushrooms Farm?
                         </h3>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
                             <li>Jabalpur base se pura India mein spawn delivery ka experience</li>

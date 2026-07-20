@@ -96,7 +96,7 @@ const ArticleBeginnerGuide = () => {
                                     <MapPin className="text-primary-start" /> Jabalpur, Bhopal, Indore (Madhya Pradesh)
                                 </div>
                                 <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
-                                    Madhya Pradesh mushroom farming ka emerging hub ban chuka hai. <strong>Jabalpur</strong> mein Organic Mushroom Farm ka headquarter hone se local farmers ko best quality spawn aur technical support mil raha hai.
+                                    Madhya Pradesh mushroom farming ka emerging hub ban chuka hai. <strong>Jabalpur</strong> mein Organic Mushrooms Farm ka headquarter hone se local farmers ko best quality spawn aur technical support mil raha hai.
                                 </p>
                                 <ul className="text-xs space-y-2 text-slate-500 italic font-medium">
                                     <li>• <strong>Jabalpur:</strong> Farmers yahan monthly Rs.30,000-50,000 tak kama rahe hain. Practical training ka sabse bada center yahi hai.</li>
@@ -202,7 +202,7 @@ const ArticleBeginnerGuide = () => {
                                     <h3 className="text-xl font-bold dark:text-white text-slate-900">Spawn Inoculation (High Quality Seeds)</h3>
                                     <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
                                         Jab substrate thanda ho jaye, tab usme <strong>Lab-Certified High Quality Spawn</strong> milayein. Hamesha dhyaan rakhein ki spawn fresh ho. 
-                                        <em> Note: Organic Mushroom Farm Jabalpur Pan-India door-step delivery provide karta hai.</em>
+                                        <em> Note: Organic Mushrooms Farm Jabalpur Pan-India door-step delivery provide karta hai.</em>
                                     </p>
                                 </div>
                             </div>
@@ -300,7 +300,7 @@ const ArticleBeginnerGuide = () => {
                             {[
                                 { q: "Kya ghar pe mushroom farming ho sakti hai?", a: "Haan! Sirf ek chhota kamra chahiye. Bahut log apne storeroom ya balcony mein mushroom farming shuru karte hain." },
                                 { q: "Kya Training zaroori hai?", a: "Bilkul. Technical knowledge ke bina crop fail ho sakti hai. Hum Jabalpur mein practical workshops aur online certificate courses dete hain. Call: 9203544140" },
-                                { q: "Mushroom spawn kahan milega?", a: "Organic Mushroom Farm se aap F1 Hybrid spawn Pan India kahin bhi mangwa sakte hain. WhatsApp: 9203544140" },
+                                { q: "Mushroom spawn kahan milega?", a: "Organic Mushrooms Farm se aap F1 Hybrid spawn Pan India kahin bhi mangwa sakte hain. WhatsApp: 9203544140" },
                                 { q: "Kitne din mein income shuru hogi?", a: "Mushroom ka cycle bahut short hota hai. 25-35 din mein pehli harvest aur income aapke haath mein hoti hai." },
                                 { q: "Government subsidy milti hai?", a: "Haan! NABARD, NHB aur MIDH ke through 40% se 50% tak ki subsidy milti hai. Hum documentation mein poori help karte hain." }
                             ].map((faq, i) => (
@@ -317,13 +317,13 @@ const ArticleBeginnerGuide = () => {
                         <div className="relative z-10">
                             <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-6">Aaj Hi Shuru Karein</h2>
                             <p className="dark:text-white text-slate-900/80 mb-10 text-lg max-w-2xl mx-auto">
-                                Start your commercial mushroom journey with <strong>Organic Mushroom Farm Jabalpur</strong>. Quality spawn, turn-key setups, and expert mentorship.
+                                Start your commercial mushroom journey with <strong>Organic Mushrooms Farm Jabalpur</strong>. Quality spawn, turn-key setups, and expert mentorship.
                             </p>
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                                 <a href="tel:+919203544140" className="btn-primary px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
                                     <Phone size={18} /> Call Now: 9203544140
                                 </a>
-                                <a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer" className="btn-outline px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                                <a href="https://organicmushroomsfarm.com" target="_blank" rel="noopener noreferrer" className="btn-outline px-10 py-5 rounded-2xl font-black text-sm flex items-center gap-2 hover:scale-105 transition-all">
                                     Visit Shop <ArrowRight size={18} />
                                 </a>
                             </div>
@@ -338,7 +338,7 @@ const ArticleBeginnerGuide = () => {
             {/* Tags / Footer Meta */}
             <section className="max-w-5xl mx-auto px-4 mt-12">
                 <div className="flex flex-wrap gap-2 justify-center">
-                    {["mushroom farming", "mushroom cultivation india", "oyster mushroom", "button mushroom", "mushroom spawn", "mushroom training jabalpur", "mushroom ki kheti", "how to grow mushroom", "mushroom business plan", "mushroom farming profit", "organic mushroom farm", "mushroom supplier india"].map(tag => (
+                    {["mushroom farming", "mushroom cultivation india", "oyster mushroom", "button mushroom", "mushroom spawn", "mushroom training jabalpur", "mushroom ki kheti", "how to grow mushroom", "mushroom business plan", "mushroom farming profit", "organic mushrooms farm", "mushroom supplier india"].map(tag => (
                         <span key={tag} className="text-[9px] px-3 py-1 rounded-full dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-slate-600 uppercase font-black tracking-widest">
                             {tag}
                         </span>

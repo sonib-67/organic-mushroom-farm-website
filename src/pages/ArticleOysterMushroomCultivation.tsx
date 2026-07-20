@@ -32,7 +32,7 @@ const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) =
                         Mushroom Farming Training | Mushroom Spawn/Seed Supply | Bulk & Retail Mushroom | Pan India Delivery
                     </p>
                     <div className="flex items-center justify-center gap-2 text-sm text-slate-500 font-bold uppercase tracking-widest mb-10">
-                         By Organic Mushroom Farm, Jabalpur, Madhya Pradesh | organicmushroomfarm.shop | Call: 9203544140
+                         By Organic Mushrooms Farm, Jabalpur, Madhya Pradesh | organicmushroomsfarm.com | Call: 9203544140
                     </div>
                 </motion.div>
             </section>
@@ -132,7 +132,7 @@ const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) =
                         <div className="space-y-6">
                              <div className="pl-4 border-l-2 border-accent">
                                  <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">Mushroom Spawn (Seed) – Sabse Zaroori Cheez</h3>
-                                 <p className="dark:text-slate-400 text-slate-600 text-sm mb-3">Mushroom spawn ko mushroom ka seed kaha jata hai. Yeh mushroom cultivation ka base hai. Acha spawn = achhi yield. Kharab spawn = waste of time and money. Organic Mushroom Farm, Jabalpur se aap high-quality oyster mushroom spawn/seed Pan India delivery ke saath khareed sakte hain.</p>
+                                 <p className="dark:text-slate-400 text-slate-600 text-sm mb-3">Mushroom spawn ko mushroom ka seed kaha jata hai. Yeh mushroom cultivation ka base hai. Acha spawn = achhi yield. Kharab spawn = waste of time and money. Organic Mushrooms Farm, Jabalpur se aap high-quality oyster mushroom spawn/seed Pan India delivery ke saath khareed sakte hain.</p>
                                  <ul className="list-disc pl-5 text-sm dark:text-slate-300 text-slate-700 space-y-1">
                                      <li><strong>Spawn Type:</strong> Grain-based (wheat straw), sawdust, liquid spawn</li>
                                      <li><strong>Purity:</strong> Contamination-free, lab-tested mycelium</li>
@@ -197,7 +197,7 @@ const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) =
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
                                 <h3 className="font-bold text-primary-start mb-2">Central India – MP & CG</h3>
-                                <p className="text-sm dark:text-slate-300 text-slate-700">Jabalpur, Bhopal, Indore, Raipur, Bilaspur. Oct to Mar ideal. Spawn supply from Organic Mushroom Farm Jabalpur poore region mein available hai.</p>
+                                <p className="text-sm dark:text-slate-300 text-slate-700">Jabalpur, Bhopal, Indore, Raipur, Bilaspur. Oct to Mar ideal. Spawn supply from Organic Mushrooms Farm Jabalpur poore region mein available hai.</p>
                             </div>
                              <div className="dark:bg-white/5 bg-black/5 p-6 rounded-2xl border dark:border-white/10 border-black/10">
                                 <h3 className="font-bold text-primary-start mb-2">North India – UP, Bihar, Del, Raj</h3>
@@ -216,7 +216,7 @@ const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) =
 
                      <section className="p-8 rounded-[3rem] bg-linear-to-br from-primary-start/20 to-accent/20 border border-primary-start/20">
                         <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-6 flex items-center gap-3"><BookOpen /> Mushroom Farming Training</h2>
-                        <p className="dark:text-slate-300 text-slate-700 text-sm md:text-base leading-relaxed mb-6">Organic Mushroom Farm Jabalpur mein practical training programs available hain. Yeh training specifically design ki gayi hai India ke farmers, housewives, students, unemployed youth aur entrepreneurs ke liye.</p>
+                        <p className="dark:text-slate-300 text-slate-700 text-sm md:text-base leading-relaxed mb-6">Organic Mushrooms Farm Jabalpur mein practical training programs available hain. Yeh training specifically design ki gayi hai India ke farmers, housewives, students, unemployed youth aur entrepreneurs ke liye.</p>
                         <ul className="list-disc pl-5 text-sm dark:text-slate-300 text-slate-700 space-y-2 font-medium mb-6">
                             <li><strong>Training Mode:</strong> Online + Offline (Jabalpur center ya aapke city mein on-site)</li>
                             <li><strong>Duration:</strong> 1 din basic training / 3-5 din complete commercial training</li>
@@ -261,7 +261,7 @@ const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) =
                                  <h3 className="font-bold text-lg dark:text-white text-slate-900 mb-2">Bulk Fresh & Dry Mushroom Order</h3>
                                  <p className="text-sm dark:text-slate-400 text-slate-600 max-w-xl">Restaurants, Hotels, Retailers, Exporters ke liye Bulk Fresh Oyster (₹50-80/kg bulk) aur Dry Oyster (₹400-700/kg) available hai.</p>
                              </div>
-                             <a href="https://organicmushroomfarm.shop" target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 whitespace-nowrap">
+                             <a href="https://organicmushroomsfarm.com" target="_blank" rel="noopener noreferrer" className="btn-outline px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 whitespace-nowrap">
                                 <ShoppingCart size={16} /> Visit Shop
                              </a>
                         </div>
@@ -272,11 +272,11 @@ const ArticleOysterMushroomCultivation = ({ metaDesc }: { metaDesc?: string }) =
                         <div className="space-y-4">
                             <div className="p-5 rounded-2xl glass border border-white/10 group">
                                 <h4 className="font-bold text-primary-start group-hover:text-accent transition-colors mb-2">Q1. Oyster mushroom farming mein kitna kharcha aata hai?</h4>
-                                <p className="text-sm text-slate-600 dark:text-slate-300">Small scale: Rs. 3,000-5,000. Commercial: Rs. 50,000-1,00,000+. Organic Mushroom Farm se kit, training aur guidance sab milti hai.</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-300">Small scale: Rs. 3,000-5,000. Commercial: Rs. 50,000-1,00,000+. Organic Mushrooms Farm se kit, training aur guidance sab milti hai.</p>
                             </div>
                             <div className="p-5 rounded-2xl glass border border-white/10 group">
                                 <h4 className="font-bold text-primary-start group-hover:text-accent transition-colors mb-2">Q2. Mushroom spawn kahan se kharidein?</h4>
-                                <p className="text-sm text-slate-600 dark:text-slate-300">Organic Mushroom Farm Jabalpur se Pan India delivery available hai. WhatsApp: 9203544140</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-300">Organic Mushrooms Farm Jabalpur se Pan India delivery available hai. WhatsApp: 9203544140</p>
                             </div>
                             <div className="p-5 rounded-2xl glass border border-white/10 group">
                                 <h4 className="font-bold text-primary-start group-hover:text-accent transition-colors mb-2">Q3. Kya oyster mushroom ghar par uga sakte hain?</h4>

@@ -9,7 +9,7 @@ export default function MushroomFranchisePage() {
     <>
       <SEO 
         title="Mushroom Franchise Opportunity | Low Investment, High ROI"
-        description="Start a profitable mushroom franchise business with Organic Mushroom Farm. Complete turnkey setup, training, marketing support, and guaranteed ROI."
+        description="Start a profitable mushroom franchise business with Organic Mushrooms Farm. Complete turnkey setup, training, marketing support, and guaranteed ROI."
         keywords="mushroom franchise, organic farming franchise, low investment franchise, agriculture franchise india, mushroom business ROI"
       />
       <div className="pt-24 pb-12 overflow-hidden relative">

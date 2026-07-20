@@ -12,7 +12,7 @@ const ArticleMaduraiTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
+            "name": "Organic Mushrooms Farm",
             "areaServed": "Madurai, Tamil Nadu",
             "address": {
                 "@type": "PostalAddress",
@@ -29,7 +29,7 @@ const ArticleMaduraiTraining = () => {
             "description": "Practical and online training covering mushroom cultivation, spawn management, harvesting and business planning.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm"
+                "name": "Organic Mushrooms Farm"
             }
         },
         {
@@ -59,7 +59,7 @@ const ArticleMaduraiTraining = () => {
             <SEO 
                 title="Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும் முழுமையான வழிகாட்டுதல்" 
                 description="Start your mushroom farming business in Madurai, Tamil Nadu. Get professional training, premium spawn, customized farm setup, and complete marketing support."
-                keywords="Mushroom farming Madurai, mushroom training Madurai, mushroom spawn Madurai, oyster mushroom Tamil Nadu, organic mushroom farm"
+                keywords="Mushroom farming Madurai, mushroom training Madurai, mushroom spawn Madurai, oyster mushroom Tamil Nadu, organic mushrooms farm"
                 url="/mushroom-farming-madurai-tamil-nadu"
                 schemas={customSchemas}
             />
@@ -82,7 +82,7 @@ const ArticleMaduraiTraining = () => {
                             Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும் முழுமையான வழிகாட்டுதல்
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Madurai, Tamil Nadu Special Edition
+                            Organic Mushrooms Farm — Madurai, Tamil Nadu Special Edition
                         </p>
                     </div>
 
@@ -92,7 +92,7 @@ const ArticleMaduraiTraining = () => {
                             மதுரை என்றாலே நமக்கு முதலில் நினைவுக்கு வருவது மீனாட்சி அம்மன் கோவில், ஜிகர்தண்டா, மற்றும் "தூங்கா நகரம்" என்ற அடையாளம். ஆனால் இப்போது மதுரையில் ஒரு புதிய, அமைதியான business trend வளர்ந்து வருகிறது — <Link to="/blog" className="text-emerald-500 hover:underline font-semibold">mushroom farming</Link>. மட்டுத்தாவணி, அண்ணா நகர், KK நகர், திருநகர், தேவாலயம் தெரு, செல்லூர், திருப்பரங்குன்றம் முதல் ஓத்தக்கடை, அலங்காநல்லூர், வடிபட்டி வரை உள்ள கிராமங்களில் இருந்தும் இளைஞர்கள், விவசாயிகள், பட்டதாரிகள், பெண் தொழில்முனைவோர் இப்போது காளான் சாகுபடியை ஒரு serious income opportunity ஆக பார்க்கிறார்கள்.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            இந்த பக்கம் <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushroom Farm</Link> சார்பாக, மதுரை மற்றும் சுற்றுவட்டார பகுதிகளில் <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">mushroom farm setup</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, fresh மற்றும் dry mushroom sale, மற்றும் ஒரு சரியான <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">business plan & consultancy</Link> தேடும் அனைவருக்கும் தயார் செய்யப்பட்டுள்ளது.
+                            இந்த பக்கம் <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> சார்பாக, மதுரை மற்றும் சுற்றுவட்டார பகுதிகளில் <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">mushroom farm setup</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, fresh மற்றும் dry mushroom sale, மற்றும் ஒரு சரியான <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">business plan & consultancy</Link> தேடும் அனைவருக்கும் தயார் செய்யப்பட்டுள்ளது.
                         </p>
                     </div>
 
@@ -310,7 +310,7 @@ const ArticleMaduraiTraining = () => {
 
                     {/* Why Choose Us */}
                     <div className="p-6 md:p-8 rounded-[2rem] dark:bg-emerald-950/20 bg-emerald-50/50 border border-emerald-500/10 space-y-4">
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Why Choose Organic Mushroom Farm</h3>
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Why Choose Organic Mushrooms Farm</h3>
                         <ul className="space-y-2.5 pl-0 list-none">
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Practical hands-on மற்றும் online — இரண்டு training options</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Consistent yield தரும் quality spawn</span></li>
@@ -428,7 +428,7 @@ const ArticleMaduraiTraining = () => {
                             மதுரையில் காளான் தொழில் தொடங்க தயாரா?
                         </h3>
                         <p className="text-sm dark:text-slate-400 text-slate-600 max-w-2xl mx-auto">
-                            Organic Mushroom Farm-உடன் இணைந்து training, quality spawn, farm setup guidance மற்றும் sales support-ஐ பெறுங்கள்.
+                            Organic Mushrooms Farm-உடன் இணைந்து training, quality spawn, farm setup guidance மற்றும் sales support-ஐ பெறுங்கள்.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
                             <a 

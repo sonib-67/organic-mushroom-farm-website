@@ -19,11 +19,11 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }) => { console.log("SEO rendered!");
-  const finalTitle = title.includes("Organic Mushroom Farm") ? title : (title.length > 35 ? title : `${title} | Organic Mushroom Farm`);
+  const finalTitle = title.includes("Organic Mushrooms Farm") ? title : (title.length > 35 ? title : `${title} | Organic Mushrooms Farm`);
   const defaultKeywords =
-    "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushroom farm, mushroom training India";
+    "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushrooms farm, mushroom training India";
 
-  const siteUrl = "https://organicmushroomfarm.shop";
+  const siteUrl = "https://organicmushroomsfarm.com";
   const location = useLocation();
   const path = location.pathname;
 
@@ -104,14 +104,14 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
       <meta property="og:type" content="website" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
-      <meta property="og:image:alt" content="Organic Mushroom Farm" />
+      <meta property="og:image:alt" content="Organic Mushrooms Farm" />
 
       {/* Twitter (no image as per your requirement) */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={finalTitle} />
       <meta name="twitter:description" content={finalDescription} />
       <meta name="twitter:image" content="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png" />
-      <meta name="twitter:image:alt" content="Organic Mushroom Farm" />
+      <meta name="twitter:image:alt" content="Organic Mushrooms Farm" />
 
       {/* JSON-LD Schemas */}
       {finalSchemas.map((schema, index) => (

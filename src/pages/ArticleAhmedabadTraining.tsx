@@ -34,7 +34,7 @@ const ArticleAhmedabadTraining = () => {
                         અમદાવાદ અને તેની આસપાસના વિસ્તારોમાં આજે હેલ્ધી લાઈફસ્ટાઈલ અને ઓર્ગેનિક ફૂડનો ક્રેઝ ઝડપથી વધી રહ્યો છે. આ બદલાવને કારણે <Link to="/" className="text-primary-start hover:underline">Mushroom Farming</Link> in Ahmedabad (અમદાવાદમાં મશરૂમની ખેતી) એક સુપર પ્રોફિટેબલ એગ્રી-બિઝનેસ મોડલ તરીકે ઉભરી આવ્યું છે. જો તમે ખેડૂત હોવ, સ્ટુડન્ટ, મહિલા ઉદ્યોગસાહસિક (women entrepreneur) કે પછી સ્ટાર્ટઅપ ફાઉન્ડર—મશરૂમની ખેતી ઓછા રોકાણમાં અને ઓછી જગ્યામાં બમ્પર કમાણી કરવાનો એક બેસ્ટ સ્કોપ આપે છે.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        જો તમે પણ અમદાવાદ, ગાંધીનગર કે ગુજરાતમાં તમારો પોતાનો મશરૂમ બિઝનેસ શરૂ કરવા માંગો છો, તો <strong>Organic Mushroom Farm</strong> તમને સેટઅપથી લઈને માર્કેટિંગ સુધીનો કમ્પ્લીટ સપોર્ટ પૂરો પાડે છે.
+                        જો તમે પણ અમદાવાદ, ગાંધીનગર કે ગુજરાતમાં તમારો પોતાનો મશરૂમ બિઝનેસ શરૂ કરવા માંગો છો, તો <strong>Organic Mushrooms Farm</strong> તમને સેટઅપથી લઈને માર્કેટિંગ સુધીનો કમ્પ્લીટ સપોર્ટ પૂરો પાડે છે.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -163,7 +163,7 @@ const ArticleAhmedabadTraining = () => {
                             અમદાવાદ અને સમગ્ર ગુજરાતમાં મશરૂમ ફાર્મિંગ એ માત્ર ખેતી નથી, પણ એક હાઈ-રીટર્ન આપતો મોર્ડન એગ્રી-બિઝનેસ ઓપ્શન છે. પ્રોપર ટ્રેનિંગ, ક્વોલિટી સ્પોન, રાઈટ ફાર્મ સેટઅપ અને સોલિડ માર્કેટિંગ પ્લાન સાથે તમે આ બિઝનેસમાં ખૂબ જ ટૂંકા સમયમાં સેટ થઈ શકો છો.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            ભલે તમારો ગોલ એક નાનું હોમ-બેઝ્ડ સેટઅપ શરૂ કરવાનો હોય કે મોટું કોમર્શિયલ પ્રોડક્શન યુનિટ—<strong>Organic Mushroom Farm</strong> તમારી સાથે છે. આજે જ અમારો સંપર્ક કરો અને ગુજરાતના આ ગ્રોઈંગ એગ્રીકલ્ચર રિવોલ્યુશનનો ભાગ બનો!
+                            ભલે તમારો ગોલ એક નાનું હોમ-બેઝ્ડ સેટઅપ શરૂ કરવાનો હોય કે મોટું કોમર્શિયલ પ્રોડક્શન યુનિટ—<strong>Organic Mushrooms Farm</strong> તમારી સાથે છે. આજે જ અમારો સંપર્ક કરો અને ગુજરાતના આ ગ્રોઈંગ એગ્રીકલ્ચર રિવોલ્યુશનનો ભાગ બનો!
                         </p>
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <a href="tel:+919203544140" className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:scale-105 transition-all">

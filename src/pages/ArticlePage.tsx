@@ -163,18 +163,18 @@ Adding sun-exposed button mushrooms to your diet is an easy, plant-based way to 
     title: "Mushroom Farming in India 2027 — Complete Guide",
     date: "April 30, 2027",
     category: "Business Trends",
-    metaTitle: "Mushroom Farming in India 2027 — Complete Guide: Spawn, Training, Setup, Fresh & Dry Mushroom Supply Pan India | OrganicMushroomFarm.shop",
-    metaDescription: "Buy mushroom spawn, get mushroom farming training, complete mushroom setup kit — Pan India delivery. Organic Mushroom Farm serves all states, districts & villages across India. Order now at organicmushroomfarm.shop",
+    metaTitle: "Mushroom Farming in India 2027 — Complete Guide: Spawn, Training, Setup, Fresh & Dry Mushroom Supply Pan India | organicmushroomsfarm.com",
+    metaDescription: "Buy mushroom spawn, get mushroom farming training, complete mushroom setup kit — Pan India delivery. Organic Mushrooms Farm serves all states, districts & villages across India. Order now at organicmushroomsfarm.com",
     content: `
-Are you looking to start **mushroom farming in India**? Whether you are a farmer, entrepreneur, student, or homemaker — [Organic Mushroom Farm](https://organicmushroomfarm.shop) is your one-stop solution for **mushroom spawn, mushroom training, mushroom setup kits, fresh mushrooms, and dry mushrooms** — delivered Pan India to every state, district, and village.
+Are you looking to start **mushroom farming in India**? Whether you are a farmer, entrepreneur, student, or homemaker — [Organic Mushrooms Farm](https://organicmushroomsfarm.com) is your one-stop solution for **mushroom spawn, mushroom training, mushroom setup kits, fresh mushrooms, and dry mushrooms** — delivered Pan India to every state, district, and village.
 
 मशरूम की खेती आज भारत का सबसे तेजी से बढ़ता हुआ कृषि व्यवसाय बन गया है। कम लागत, कम जगह और ज्यादा मुनाफे के कारण लाखों किसान और युवा उद्यमी इस व्यवसाय को अपना रहे हैं।
 
 ---
 
-## What is Organic Mushroom Farm? | हम कौन हैं?
+## What is Organic Mushrooms Farm? | हम कौन हैं?
 
-[Organic Mushroom Farm](https://organicmushroomfarm.shop) is a **Pan India mushroom farming ecosystem** providing:
+[Organic Mushrooms Farm](https://organicmushroomsfarm.com) is a **Pan India mushroom farming ecosystem** providing:
 
 - 🍄 **Mushroom Spawn (Seed)** — All varieties, bulk & retail
 - 🎓 **Mushroom Farming Training** — Online & Offline
@@ -187,7 +187,7 @@ Are you looking to start **mushroom farming in India**? Whether you are a farmer
 
 ## Mushroom Spawn India — Buy Online Pan India | मशरूम स्पॉन खरीदें
 
-**Mushroom spawn** (मशरूम बीज) is the foundation of successful mushroom farming. At [organicmushroomfarm.shop](https://organicmushroomfarm.shop), we supply **high-quality mushroom spawn** for all varieties:
+**Mushroom spawn** (मशरूम बीज) is the foundation of successful mushroom farming. At [organicmushroomsfarm.com](https://organicmushroomsfarm.com), we supply **high-quality mushroom spawn** for all varieties:
 
 ### Types of Mushroom Spawn Available:
 
@@ -204,7 +204,7 @@ Are you looking to start **mushroom farming in India**? Whether you are a farmer
 - **Bulk Orders:** Special discounts for bulk buyers
 - **Pan India Delivery:** Fast shipping to all states
 
-👉 **[Buy Mushroom Spawn Now](https://organicmushroomfarm.shop)**
+👉 **[Buy Mushroom Spawn Now](https://organicmushroomsfarm.com)**
 
 ---
 
@@ -237,7 +237,7 @@ Are you looking to start **mushroom farming in India**? Whether you are a farmer
 - Marketing & selling mushrooms
 - How to earn ₹30,000-₹1,00,000/month from mushroom farming
 
-👉 **[Enroll in Mushroom Training](https://organicmushroomfarm.shop)**
+👉 **[Enroll in Mushroom Training](https://organicmushroomsfarm.com)**
 
 ---
 
@@ -260,7 +260,7 @@ Starting mushroom farming from scratch? Our **complete mushroom setup kit** incl
 - **Commercial Kit** — 500-1000 bags (Full business)
 - **Custom Kit** — As per your requirement
 
-👉 **[Get Complete Mushroom Setup](https://organicmushroomfarm.shop)**
+👉 **[Get Complete Mushroom Setup](https://organicmushroomsfarm.com)**
 
 ---
 
@@ -298,7 +298,7 @@ We supply **fresh mushrooms** directly from our organic farm:
 - Export quality packaging
 - Competitive wholesale prices
 
-👉 **[Order Dry Mushrooms Bulk](https://organicmushroomfarm.shop)**
+👉 **[Order Dry Mushrooms Bulk](https://organicmushroomsfarm.com)**
 
 ---
 
@@ -429,7 +429,7 @@ Guwahati, Dibrugarh, Silchar, Jorhat, Nagaon, Tinsukia, Tezpur, Bongaigaon, Siva
 
 ---
 
-## Why Choose Organic Mushroom Farm? | हमें क्यों चुनें?
+## Why Choose Organic Mushrooms Farm? | हमें क्यों चुनें?
 
 - ✅ **Pan India Delivery** — हर राज्य, जिला, गांव तक
 - ✅ **High Quality Spawn** — उच्च गुणवत्ता के बीज
@@ -471,10 +471,10 @@ A: Haan, hum India ke har pin code pe delivery karte hain — cities, towns, aur
 
 **Ready to start your mushroom farming journey?**
 
-🌐 **Website:** [organicmushroomfarm.shop](https://organicmushroomfarm.shop)
-📦 **Order Spawn:** [organicmushroomfarm.shop](https://organicmushroomfarm.shop)
-🎓 **Training:** [organicmushroomfarm.shop](https://organicmushroomfarm.shop)
-🛠️ **Setup Kit:** [organicmushroomfarm.shop](https://organicmushroomfarm.shop)
+🌐 **Website:** [organicmushroomsfarm.com](https://organicmushroomsfarm.com)
+📦 **Order Spawn:** [organicmushroomsfarm.com](https://organicmushroomsfarm.com)
+🎓 **Training:** [organicmushroomsfarm.com](https://organicmushroomsfarm.com)
+🛠️ **Setup Kit:** [organicmushroomsfarm.com](https://organicmushroomsfarm.com)
 
 **Pan India Delivery | Bulk & Retail | Expert Support**
 
@@ -484,21 +484,21 @@ A: Haan, hum India ke har pin code pe delivery karte hain — cities, towns, aur
 
 Use these anchor texts when sharing this blog on other platforms:
 
-1. [mushroom spawn supplier india](https://organicmushroomfarm.shop)
-2. [mushroom farming training india](https://organicmushroomfarm.shop)
-3. [organic mushroom farm india](https://organicmushroomfarm.shop)
-4. [buy mushroom spawn online india](https://organicmushroomfarm.shop)
-5. [mushroom setup kit india](https://organicmushroomfarm.shop)
-6. [dry mushroom wholesale india](https://organicmushroomfarm.shop)
-7. [fresh mushroom supplier india](https://organicmushroomfarm.shop)
-8. [mushroom farming training pan india](https://organicmushroomfarm.shop)
-9. [oyster mushroom spawn india](https://organicmushroomfarm.shop)
-10. [mushroom farming business india 2027](https://organicmushroomfarm.shop)
+1. [mushroom spawn supplier india](https://organicmushroomsfarm.com)
+2. [mushroom farming training india](https://organicmushroomsfarm.com)
+3. [organic mushrooms farm india](https://organicmushroomsfarm.com)
+4. [buy mushroom spawn online india](https://organicmushroomsfarm.com)
+5. [mushroom setup kit india](https://organicmushroomsfarm.com)
+6. [dry mushroom wholesale india](https://organicmushroomsfarm.com)
+7. [fresh mushroom supplier india](https://organicmushroomsfarm.com)
+8. [mushroom farming training pan india](https://organicmushroomsfarm.com)
+9. [oyster mushroom spawn india](https://organicmushroomsfarm.com)
+10. [mushroom farming business india 2027](https://organicmushroomsfarm.com)
 
 ---
 
-*Published by: [Organic Mushroom Farm](https://organicmushroomfarm.shop) | Pan India Mushroom Farming Ecosystem*
-*Keywords: mushroom farming india, mushroom spawn india, mushroom training india, mushroom setup india, fresh mushroom india, dry mushroom india, organic mushroom farm, pan india mushroom supply 2027*
+*Published by: [Organic Mushrooms Farm](https://organicmushroomsfarm.com) | Pan India Mushroom Farming Ecosystem*
+*Keywords: mushroom farming india, mushroom spawn india, mushroom training india, mushroom setup india, fresh mushroom india, dry mushroom india, organic mushrooms farm, pan india mushroom supply 2027*
     `
   },
   "default": {
@@ -552,7 +552,7 @@ const ArticlePage = () => {
               <Calendar size={16} /> {article.date}
             </span>
             <span className="flex items-center gap-2 text-slate-400 text-sm font-medium">
-              <User size={16} /> Organic Mushroom Farm Team
+              <User size={16} /> Organic Mushrooms Farm Team
             </span>
           </div>
 

@@ -61,10 +61,10 @@ const ArticleSuratTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        360° Comprehensive Services by Organic Mushroom Farm
+                        360° Comprehensive Services by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        Surat ma aapni website ne Google na top page par rank karva mate <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushroom Farm</Link> ame aa 11 highly-searched terms ne ekdam human-written layout ma set karya chhe:
+                        Surat ma aapni website ne Google na top page par rank karva mate <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushrooms Farm</Link> ame aa 11 highly-searched terms ne ekdam human-written layout ma set karya chhe:
                     </p>
 
                     <div className="space-y-6">
@@ -214,7 +214,7 @@ const ArticleSuratTraining = () => {
                             <p className="text-sm dark:text-slate-300 text-slate-700">Ans: Gujarat ma horticulture department ane NHB antargat tamara project na size par 30% thi laine 50% sudhi ni <Link to="/subsidy" className="text-primary-start hover:underline">Government Subsidy</Link> available chhe. Amari team tamne any DPR preparation ma guide kare chhe.</p>
                         </div>
                         <div className="bg-black/5 dark:bg-white/5 p-6 rounded-2xl border border-black/5 dark:border-white/5">
-                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q3. Organic Mushroom Farm pase thi malya pachhi marketing support male chhe?</h3>
+                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q3. Organic Mushrooms Farm pase thi malya pachhi marketing support male chhe?</h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">Ans: Ha, ame tamne pooro Mushroom Marketing Support aapiye chhe, jema tamne Surat na local wholesale buyers, hotels, restaurants, organic grocery counters ane online delivery apps (Blinkit, BigBasket) sathe direct connect krvama help male chhe.</p>
                         </div>
                     </div>
@@ -226,7 +226,7 @@ const ArticleSuratTraining = () => {
                         Surat na market ma have mushroom ni kheti ek sadharan kisani nathi, pan ochi jamin ane ocha paani ma bamber return aapto ek modern high-tech business chhe. Sahi scientific training, top quality seeds (Spawn), modern infrastructure ane mazboot business plan hoy, to tame bht j ocha samay ma potano moto brand banavi shako chho.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        Chahe tamro goal ghar na ek khona thi nana scale par shuru karvano hoy ya pachi mota export-oriented automated plant no hoy—Organic Mushroom Farm tamari sathe hamesha ubhu chhe.
+                        Chahe tamro goal ghar na ek khona thi nana scale par shuru karvano hoy ya pachi mota export-oriented automated plant no hoy—Organic Mushrooms Farm tamari sathe hamesha ubhu chhe.
                     </p>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

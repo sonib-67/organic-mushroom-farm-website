@@ -41,7 +41,7 @@ const ArticleBhopalTraining = () => {
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         अगर आप MP Nagar, Kolar Road, Bairagarh, Hoshangabad Road या Bhopal के किसी भी ग्रामीण व अर्ध-शहरी इलाके से हैं और खुद का एक एग्री-बिजनेस खड़ा करना चाहते हैं, तो 
-                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushroom Farm </Link> 
+                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushrooms Farm </Link> 
                         आपको सही साइंटिफिक गाइडेंस, हाई-क्वालिटी इनपुट्स और एंड-टू-एंड बिजनेस सपोर्ट देने के लिए पूरी तरह तैयार है।
                     </p>
 
@@ -67,7 +67,7 @@ const ArticleBhopalTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        360° Comprehensive Services by Organic Mushroom Farm
+                        360° Comprehensive Services by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         भोपाल में अपनी वेबसाइट को सर्च इंजन के टॉप पेज पर लाने और एक सफल बिजनेस मॉडल स्थापित करने के लिए हमने इन 11 सबसे महत्वपूर्ण बिजनेस पिलर्स को पूरी तरह कस्टमाइज किया है:
@@ -218,7 +218,7 @@ const ArticleBhopalTraining = () => {
                         भोपाल और पूरे मध्य प्रदेश के मार्केट में मशरूम की खेती अब सिर्फ एक पारंपरिक किसानी का हिस्सा नहीं है, बल्कि यह कम निवेश में हाई-रिटर्न देने वाला एक बेहतरीन मॉडर्न वर्टिकल स्टार्टअप बन चुका है। अगर आप सही साइंटिफिक ट्रेनिंग, प्रीमियम क्वालिटी के स्पॉन (Spawn), आधुनिक फार्म इंफ्रास्ट्रक्चर और एक सही बिजनेस प्लान के साथ कदम आगे बढ़ाते हैं, तो आप इस बिजनेस से बेहद शानदार मुनाफा कमा सकते हैं।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        चाहे आपका लक्ष्य घर के एक कोने में छोटा सेटअप लगाना हो या फिर बड़े पैमाने पर कमर्शियल प्रोजेक्ट खड़ा करना—Organic Mushroom Farm आपके इस पूरे सफर को आसान और सफल बनाने के लिए प्रतिबद्ध है।
+                        चाहे आपका लक्ष्य घर के एक कोने में छोटा सेटअप लगाना हो या फिर बड़े पैमाने पर कमर्शियल प्रोजेक्ट खड़ा करना—Organic Mushrooms Farm आपके इस पूरे सफर को आसान और सफल बनाने के लिए प्रतिबद्ध है।
                     </p>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

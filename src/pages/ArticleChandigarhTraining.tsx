@@ -37,7 +37,7 @@ const ArticleChandigarhTraining = () => {
                         आजकल चंडीगढ़ के सेक्टर 17, सेक्टर 34, एलांते मॉल के प्रीमियम कैफे और मोहाली के फिटनेस सेंटर्स में एक चीज की सबसे ज्यादा डिमांड है—Medicinal Mushroom (औषधीय मशरूम)। लोग अपनी हेल्थ, फिटनेस और इम्युनिटी को लेकर इतने जागरूक हो गए हैं कि मशरूम और मशरूम सप्लीमेंट्स हाथों-हाथ बिक रहे हैं।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        अगर आप चंडीगढ़, मोहाली, पंचकुला, ज़ीरकपुर या खरड़ के आसपास रहते हैं और खुद का एक सॉलिड स्टार्टअप शुरू करना चाहते हैं, तो <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushroom Farm</Link> आपके लिए लेकर आया है एक 360° बिजनेस मॉडल!
+                        अगर आप चंडीगढ़, मोहाली, पंचकुला, ज़ीरकपुर या खरड़ के आसपास रहते हैं और खुद का एक सॉलिड स्टार्टअप शुरू करना चाहते हैं, तो <Link to="/" className="text-primary-start hover:underline font-semibold">Organic Mushrooms Farm</Link> आपके लिए लेकर आया है एक 360° बिजनेस मॉडल!
                     </p>
 
                     <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
@@ -66,7 +66,7 @@ const ArticleChandigarhTraining = () => {
                     </div>
 
                     <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        Organic Mushroom Farm: आपका पूरा बिजनेस पार्टनर (11 Core Services)
+                        Organic Mushrooms Farm: आपका पूरा बिजनेस पार्टनर (11 Core Services)
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         गूगल पर सबसे ज्यादा सर्च की जाने वाली मशरूम फार्मिंग की जरूरतों को हमने एक ही छत के नीचे ला दिया है। एक सफल मशरूम बिज़नेसमैन बनने के लिए हम आपको ये सभी सर्विसेस देते हैं:
@@ -219,7 +219,7 @@ const ArticleChandigarhTraining = () => {
                             <p className="text-sm dark:text-slate-300 text-slate-700">उत्तर: NHB (National Horticulture Board) और पंजाब/हरियाणा कृषि विभाग के अंतर्गत प्रोजेक्ट कॉस्ट पर भारी सब्सिडी मिलती है। हमारी टीम बैंक लोन और <Link to="/subsidy" className="text-primary-start hover:underline">Government Subsidy</Link> के लिए जरूरी DPR तैयार करने में आपकी पूरी मदद करती है।</p>
                         </div>
                         <div className="bg-black/5 dark:bg-white/5 p-6 rounded-2xl border border-black/5 dark:border-white/5">
-                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q3. औषधीय (Medicinal) मशरूम बेचने में Organic Mushroom Farm कैसे मदद करेगा?</h3>
+                            <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">Q3. औषधीय (Medicinal) मशरूम बेचने में Organic Mushrooms Farm कैसे मदद करेगा?</h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">उत्तर: औषधीय मशरूम महंगे होते हैं और इन्हें लोकल सब्जी मंडी की जगह सप्लीमेंट कंपनियों को बेचा जाता है। हमारा Mushroom Marketing Support आपको बड़े B2B बायर्स और ई-कॉमर्स प्लेटफॉर्म्स से कनेक्ट करता है।</p>
                         </div>
                     </div>

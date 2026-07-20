@@ -86,12 +86,12 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
     "description": info.seoDescription,
     "brand": {
       "@type": "Brand",
-      "name": "Organic Mushroom Farm"
+      "name": "Organic Mushrooms Farm"
     },
     "category": "Agricultural Setup & Spawns",
     "offers": {
       "@type": "Offer",
-      "url": `https://organicmushroomfarm.shop/mushroom-types/${slug}`,
+      "url": `https://organicmushroomsfarm.com/mushroom-types/${slug}`,
       "priceCurrency": "INR",
       "price": info.productionCost.includes("₹") ? info.productionCost.replace(/[^0-9]/g, "") : "100",
       "itemCondition": "https://schema.org/NewCondition",
@@ -126,7 +126,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
   return (
     <div className="min-h-screen bg-transparent text-[var(--text-body)]">
       <SEO 
-        title={`${info.seoTitle} | Organic Mushroom Farm`}
+        title={`${info.seoTitle} | Organic Mushrooms Farm`}
         description={metaDesc || info.seoDescription}
         schemas={[mushroomSchema]}
       />

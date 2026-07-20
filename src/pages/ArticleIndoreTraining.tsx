@@ -41,7 +41,7 @@ const ArticleIndoreTraining = () => {
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         अगर आप Vijay Nagar, Palasia, Rau, Super Corridor या Indore के किसी भी ग्रामीण क्षेत्र से हैं और कम लागत व कम जगह में अपना खुद का व्यवसाय शुरू करना चाहते हैं, तो 
-                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushroom Farm </Link> 
+                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushrooms Farm </Link> 
                         आपको ट्रेनिंग से लेकर टेक्निकल इंफ्रास्ट्रक्चर और मार्केट लिंकेज तक की पूरी 360° सपोर्ट प्रदान कर रहा है।
                     </p>
 
@@ -67,7 +67,7 @@ const ArticleIndoreTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        360° Mushroom Business Services by Organic Mushroom Farm
+                        360° Mushroom Business Services by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         इंदौर में अपनी वेबसाइट को टॉप पर रैंक कराने और एक सफल मशरूम बिजनेस मॉडल सेट करने के लिए हमने इन 11 सबसे ज्यादा सर्च किए जाने वाले सेक्टर्स को पूरी तरह से कस्टमाइज किया है:
@@ -218,7 +218,7 @@ const ArticleIndoreTraining = () => {
                         इंदौर और पूरे मध्य प्रदेश में मशरूम की खेती अब केवल एक पारंपरिक किसानी नहीं रह गई है, बल्कि यह एक मॉडर्न, हाई-प्रॉफिट और कम जगह में किया जाने वाला वर्टिकल फार्मिंग स्टार्टअप बन चुका है। सही साइंटिफिक ट्रेनिंग, प्रीमियम क्वालिटी के बीज (Spawn), आधुनिक फार्म डिजाइन और एक मजबूत मार्केटिंग रणनीति के साथ आप बेहद कम समय में इस बिजनेस को नई ऊंचाइयों पर ले जा सकते हैं।
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        चाहे आप घर के एक कमरे से शुरुआत करना चाहते हों या फिर बड़े पैमाने पर एक्सपोर्ट ओरिएंटेड टर्नकी प्रोजेक्ट लगाना चाहते हों—Organic Mushroom Farm आपके इस सफर में आपका सबसे भरोसेमंद पार्टनर है।
+                        चाहे आप घर के एक कमरे से शुरुआत करना चाहते हों या फिर बड़े पैमाने पर एक्सपोर्ट ओरिएंटेड टर्नकी प्रोजेक्ट लगाना चाहते हों—Organic Mushrooms Farm आपके इस सफर में आपका सबसे भरोसेमंद पार्टनर है।
                     </p>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

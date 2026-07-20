@@ -41,7 +41,7 @@ const ArticleNagpurTraining = () => {
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                         कमी जागा, कमी पाण्याचा वापर आणि नियंत्रित वातावरणात (Controlled Environment) वर्षभर चालणारा हा व्यवसाय नागपूर, धरमपेठ, मनिष नगर ते थेट ग्रामीण भागातील लोकांसाठी खात्रीशीर उत्पन्नाचा स्रोत बनत आहे. जर तुम्हालाही नागपुरात स्वतःचा मशरूम ब्रँड सुरू करायचा असेल, तर 
-                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushroom Farm </Link> 
+                        <Link to="/" className="text-primary-start hover:underline font-semibold"> Organic Mushrooms Farm </Link> 
                         तुम्हाला कल्टिव्हेशनपासून ते थेट मार्केटमध्ये माल विकण्यापर्यंत संपूर्ण 360° सपोर्ट देत आहे.
                     </p>
 
@@ -67,7 +67,7 @@ const ArticleNagpurTraining = () => {
                     </div>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">
-                        360° Comprehensive Services by Organic Mushroom Farm
+                        360° Comprehensive Services by Organic Mushrooms Farm
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                         नागपुरात आपल्या वेबसाईटला गुगलच्या पहिल्या पेजवर टॉपला आणण्यासाठी आम्ही सर्वात जास्त सर्च केले जाणारे हे 11 बिझनेस पिलर्स पूर्णपणे कस्टमाइज्ड भाषेत तयार केले आहेत:
@@ -214,7 +214,7 @@ const ArticleNagpurTraining = () => {
                         नागपूर आणि संपूर्ण विदर्भाच्या मार्केटमध्ये मशरूमची शेती आता फक्त एक पारंपरिक शेती उरलेली नाही, तर कमी गुंतवणुकीत आणि कमी जागेत बंपर परतावा देणारा हा एक हाय-टेक मॉडर्न एग्री-बिजनेस बनला आहे. योग्य सायंटिफिक ट्रेनिंग, उत्तम दर्जाचे बियाणे (Spawn), आधुनिक फार्म सेटअप आणि योग्य बिझनेस प्लॅनच्या जोडीने तुम्ही या क्षेत्रात खूप मोठी झेप घेऊ शकता.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        तुमचे ध्येय घराच्या कोपऱ्यात लहान युनिट सुरू करणे असो किंवा मोठा कमर्शियल प्लांट उभारणे असो—Organic Mushroom Farm तुमच्या या प्रवासात तुमचा सर्वात विश्वासू भागीदार आहे.
+                        तुमचे ध्येय घराच्या कोपऱ्यात लहान युनिट सुरू करणे असो किंवा मोठा कमर्शियल प्लांट उभारणे असो—Organic Mushrooms Farm तुमच्या या प्रवासात तुमचा सर्वात विश्वासू भागीदार आहे.
                     </p>
 
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">

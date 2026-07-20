@@ -34,7 +34,7 @@ const ArticleAmritsarTraining = () => {
                     "name": "Mushroom spawn Amritsar mein kahan milega?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Organic Mushroom Farm se pan-India delivery ke saath Amritsar aur aas-paas ke sabhi areas mein spawn milta hai."
+                        "text": "Organic Mushrooms Farm se pan-India delivery ke saath Amritsar aur aas-paas ke sabhi areas mein spawn milta hai."
                     }
                 },
                 {
@@ -50,9 +50,9 @@ const ArticleAmritsarTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-amritsar-punjab",
+            "name": "Organic Mushrooms Farm",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-amritsar-punjab",
             "areaServed": [
                 "Amritsar", "Ranjit Avenue", "Majitha Road", "Chheharta", "Batala Road",
                 "Verka", "Putlighar", "Lawrence Road", "Mall Road", "Ajnala",
@@ -69,8 +69,8 @@ const ArticleAmritsarTraining = () => {
             "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur marketing.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         }
     ];
@@ -84,9 +84,9 @@ const ArticleAmritsarTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Training & Spawn Supply in Amritsar | Organic Mushroom Farm" 
+                title="Mushroom Training & Spawn Supply in Amritsar | Organic Mushrooms Farm" 
                 description="Start your mushroom farming business in Amritsar, Punjab. Get professional online & offline training, premium spawn, customized farm setup, and complete marketing support."
-                keywords="Mushroom farming Amritsar, mushroom training Amritsar, mushroom spawn Punjab, oyster mushroom Amritsar, button mushroom Amritsar, organic mushroom farm"
+                keywords="Mushroom farming Amritsar, mushroom training Amritsar, mushroom spawn Punjab, oyster mushroom Amritsar, button mushroom Amritsar, organic mushrooms farm"
                 url="/mushroom-farming-amritsar-punjab"
                 schemas={customSchemas}
             />
@@ -109,7 +109,7 @@ const ArticleAmritsarTraining = () => {
                             ਘਰ ਬੈਠੇ ਬਣੋ ਮਸ਼ਰੂਮ ਐਕਸਪਰਟ | Mushroom Training & Spawn Supply in Amritsar
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Amritsar, Punjab Special Edition
+                            Organic Mushrooms Farm — Amritsar, Punjab Special Edition
                         </p>
                     </div>
 
@@ -119,7 +119,7 @@ const ArticleAmritsarTraining = () => {
                             ਅੰਮ੍ਰਿਤਸਰ ਦੇ ਕਿਸਾਨ ਪੀੜ੍ਹੀਆਂ ਤੋਂ ਕਣਕ ਅਤੇ ਝੋਨੇ ਦੀ ਖੇਤੀ 'ਤੇ ਨਿਰਭਰ ਰਹੇ ਹਨ। ਪਰ ਵਧਦੀ ਖੇਤੀ ਲਾਗਤ, ਮੌਸਮ ਦੀ ਅਨਿਸ਼ਚਿਤਤਾ ਅਤੇ ਘਟਦੇ ਮੁਨਾਫ਼ੇ ਨੇ ਹੁਣ ਕਿਸਾਨਾਂ ਨੂੰ ਨਵੇਂ ਵਿਕਲਪਾਂ ਵੱਲ ਤੋਰਿਆ છે — ਅਤੇ ਇਹਨਾਂ ਵਿੱਚੋਂ ਸਭ ਤੋਂ ਤੇਜ਼ੀ ਨਾਲ ਵਧ ਰਿਹਾ ਹੈ <Link to="/blog" className="text-emerald-500 hover:underline font-semibold">mushroom farming</Link>। Ranjit Avenue, Majitha Road, Chheharta, Batala Road, Verka, Putlighar, Lawrence Road ਅਤੇ Mall Road ਵਰਗੇ ਇਲਾਕਿਆਂ ਵਿੱਚ ਕਿਸਾਨ, ਵਿਦਿਆਰਥੀ ਅਤੇ ਨੌਜਵਾਨ ਹੁਣ ਇਸ ਨੂੰ ਗੰਭੀਰਤਾ ਨਾਲ ਲੈ ਰਹੇ ਹਨ।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushroom Farm</Link> ਵੱਲੋਂ ਅਸੀਂ ਅੰਮ੍ਰਿਤਸਰ ਅਤੇ ਆਲੇ-ਦੁਆਲੇ ਦੇ Ajnala, Tarn Taran, Attari, Jandiala Guru, Chogawan, Lopoke ਅਤੇ Verka Rural Belt ਦੇ ਕਿਸਾਨਾਂ ਅਤੇ ਉੱਦਮੀਆਂ ਨੂੰ <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh ਅਤੇ dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> ਅਤੇ <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> ਸੇਵਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ। ਇਸ ਪੇਜ ਵਿੱਚ ਅਸੀਂ ਦੱਸਾਂਗੇ ਕਿ ਅੰਮ੍ਰਿਤਸਰ ਵਿੱਚ mushroom business ਕਿਵੇਂ ਸ਼ੁਰੂ ਕਰਨਾ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਵਾਧੂ ਆਮਦਨ ਦਾ ਸਥਾਈ ਸਰੋਤ ਕਿਵੇਂ ਬਣਾਉਣਾ ਹੈ।
+                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> ਵੱਲੋਂ ਅਸੀਂ ਅੰਮ੍ਰਿਤਸਰ ਅਤੇ ਆਲੇ-ਦੁਆਲੇ ਦੇ Ajnala, Tarn Taran, Attari, Jandiala Guru, Chogawan, Lopoke ਅਤੇ Verka Rural Belt ਦੇ ਕਿਸਾਨਾਂ ਅਤੇ ਉੱਦਮੀਆਂ ਨੂੰ <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh ਅਤੇ dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> ਅਤੇ <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> ਸੇਵਾਵਾਂ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ। ਇਸ ਪੇਜ ਵਿੱਚ ਅਸੀਂ ਦੱਸਾਂਗੇ ਕਿ ਅੰਮ੍ਰਿਤਸਰ ਵਿੱਚ mushroom business ਕਿਵੇਂ ਸ਼ੁਰੂ ਕਰਨਾ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਵਾਧੂ ਆਮਦਨ ਦਾ ਸਥਾਈ ਸਰੋਤ ਕਿਵੇਂ ਬਣਾਉਣਾ ਹੈ।
                         </p>
                         <div className="p-4 rounded-xl dark:bg-emerald-950/30 bg-emerald-50 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
                             Agar aap Amritsar ya Punjab ke kisi bhi area se ho aur traditional farming ke saath extra income ka zariya dhoondh rahe ho, to yeh guide bilkul aapke liye hai — poori practical aur local jaankari ke saath.
@@ -387,7 +387,7 @@ const ArticleAmritsarTraining = () => {
 
                     {/* Why Choose Us */}
                     <div className="p-6 md:p-8 rounded-[2rem] dark:bg-emerald-950/20 bg-emerald-50/50 border border-emerald-500/10 space-y-4">
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Kyun Chunein Organic Mushroom Farm?</h3>
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">Kyun Chunein Organic Mushrooms Farm?</h3>
                         <ul className="space-y-2.5 pl-0 list-none">
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Jabalpur base se pura India mein spawn delivery ka experience</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1" /> <span className="text-sm dark:text-slate-300 text-slate-700">Punjab ke local farming culture aur mandi system ko samajhne wali team</span></li>

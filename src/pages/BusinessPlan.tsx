@@ -7,7 +7,7 @@ const BusinessPlan = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Business Plan India | Organic Mushroom Farm" 
+        title="Mushroom Farming Business Plan India | Organic Mushrooms Farm" 
         description="Explore our detailed mission, market strategy, and operational roadmap to becoming India's leading organic fungi hub. Learn about our hub-and-spoke farming model." 
       />
 
@@ -46,7 +46,7 @@ const BusinessPlan = () => {
           </div>
           <h2 className="text-2xl font-bold text-white mb-4">Business Overview</h2>
           <p className="text-slate-400 leading-relaxed">
-            Organic Mushroom Farm stands at the intersection of agriculture and technology. As a premium producer, lab-grade spawn supplier, and educational hub, we are democratizing the high-value mushroom farming industry in India.
+            Organic Mushrooms Farm stands at the intersection of agriculture and technology. As a premium producer, lab-grade spawn supplier, and educational hub, we are democratizing the high-value mushroom farming industry in India.
           </p>
         </div>
         <div className="glass p-10 rounded-[3rem] border border-white/5">

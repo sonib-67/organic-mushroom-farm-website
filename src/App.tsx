@@ -664,14 +664,14 @@ const CompanyProfile = () => {
               <div className="w-20 h-20 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center shadow-2xl overflow-hidden p-3 group-hover:scale-105 transition-all">
                 <img
                   src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
-                  alt="Organic Mushroom Farm"
+                  alt="Organic Mushrooms Farm"
                   className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                  width="120" height="120" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-1">
-                  Organic Mushroom Farm
+                  Organic Mushrooms Farm
                 </h2>
                 <p className="text-primary-start font-black text-[10px] uppercase tracking-[0.3em]">
                   Premium Infrastructure Partner
@@ -1016,7 +1016,7 @@ const Navbar = () => {
           >
             <img
               src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
-              alt="Organic Mushroom Farm"
+              alt="Organic Mushrooms Farm"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
              width="120" height="120" />
             <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
@@ -1174,7 +1174,7 @@ const Navbar = () => {
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg overflow-hidden p-1.5 shrink-0">
                     <img
                       src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
-                      alt="Organic Mushroom Farm"
+                      alt="Organic Mushrooms Farm"
                       className="w-full h-full object-contain"
                      width="120" height="120" />
                   </div>
@@ -1685,7 +1685,7 @@ const WhyChooseUs = () => {
             Why Choose{" "}
             <span className="gradient-text">
               <Link to="/states">
-                Organic Mushroom Farm for Your Project?
+                Organic Mushrooms Farm for Your Project?
               </Link>
             </span>
           </motion.h2>
@@ -2766,8 +2766,8 @@ const ContactPage = () => {
                 {
                   icon: Mail,
                   label: "Email Support",
-                  values: ["support@organicmushroomfarm.shop"],
-                  href: "mailto:support@organicmushroomfarm.shop",
+                  values: ["support@organicmushroomsfarm.com"],
+                  href: "mailto:support@organicmushroomsfarm.com",
                 },
               ].map((item, i) => (
                 <a
@@ -3192,7 +3192,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-6">
               <img
                 src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
-                alt="Organic Mushroom Farm"
+                alt="Organic Mushrooms Farm"
                 className="w-14 h-14 object-contain"
                width="120" height="120" />
               <span className="text-lg font-bold tracking-tight dark:text-white text-slate-900">
@@ -3331,7 +3331,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
           <div className="mb-6 md:mb-0">
-            © 2026 Organic Mushroom Farm. All Rights Reserved.
+            © 2026 Organic Mushrooms Farm. All Rights Reserved.
           </div>
           <div className="flex gap-6 flex-wrap justify-center">
             {[
@@ -3672,7 +3672,7 @@ const FloatingButtons = () => {
             href="https://wa.me/919203544140"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contact Organic Mushroom Farm on WhatsApp"
+            aria-label="Contact Organic Mushrooms Farm on WhatsApp"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}
@@ -4515,7 +4515,7 @@ const MushroomTraining = () => {
               <span className="dark:text-white text-slate-900 font-bold">
                 mushroom farming training in India
               </span>
-              ? At Organic Mushroom Farm, we provide the most comprehensive{" "}
+              ? At Organic Mushrooms Farm, we provide the most comprehensive{" "}
               <span className="dark:text-white text-slate-900 font-bold">
                 button mushroom training course
               </span>{" "}
@@ -4586,7 +4586,7 @@ const HomePage = () => {
   return (
     <>
       <SEO
-        title="Organic Mushroom Farm | Setup, Spawn & Training"
+        title="Organic Mushrooms Farm | Setup, Spawn & Training"
         description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms. Complete turnkey mushroom setup available Pan India, USA, Australia. Based in Jabalpur, MP."
         schemas={[
           generateGlobalFAQSchema(),
@@ -5075,12 +5075,12 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="About Organic Mushroom Farm | Leading Commercial Infrastructure & Training Partner"
-        description="Learn about Organic Mushroom Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally."
+        title="About Organic Mushrooms Farm | Leading Commercial Infrastructure & Training Partner"
+        description="Learn about Organic Mushrooms Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally."
       />
       <PageHero
         badge="Our Commercial Journey"
-        title="About Organic Mushroom Farm | Global Setup Experts"
+        title="About Organic Mushrooms Farm | Global Setup Experts"
         description="Empowering modern India and global markets through sustainable, high-yield organic mushroom cultivation."
       />
 
@@ -5151,7 +5151,7 @@ const AboutPage = () => {
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-10 blur-[100px] rounded-full"></div>
               <img src="training images/trainingmushroom.jpg"
-                alt="Organic Mushroom Farm Training & Commercial Setup Experts"
+                alt="Organic Mushrooms Farm Training & Commercial Setup Experts"
                 className="relative z-10 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl opacity-80"
                width="800" height="600" />
             </div>
@@ -5274,11 +5274,11 @@ const AboutPage = () => {
         <div className="max-w-4xl mx-auto px-4 prose prose-invert text-center">
           <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 uppercase tracking-tight leading-loose">
             Pioneering Commercial{" "}
-            <span className="gradient-text">Organic Mushroom Farm Katangi</span>{" "}
+            <span className="gradient-text">Organic Mushrooms Farm Katangi</span>{" "}
             & <Link to="/cities/madhya-pradesh/jabalpur" className="text-primary-start hover:underline">Jabalpur</Link>
           </h3>
           <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
-            Our commercial <strong>organic mushroom farm in Katangi</strong>{" "}
+            Our commercial <strong>organic mushrooms farm in Katangi</strong>{" "}
             road, Jabalpur, serves as a model for aspiring farmers across the
             region and globe. We are proud to provide the most reliable{" "}
             <strong>mushroom training in Madhya Pradesh</strong>, focusing on
@@ -5987,7 +5987,7 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Commercial Organic Mushroom Farm Gallery | Project Photos & Setup"
+        title="Commercial Organic Mushrooms Farm Gallery | Project Photos & Setup"
         description="View photos of our commercial button mushroom farm in Katangi Road, Jabalpur, training sessions, and successful turnkey farming project setups across India."
         url="/gallery"
       />
@@ -6042,7 +6042,7 @@ const FAQPage = () => {
     },
     {
       q: "What is the cost of commercial mushroom farming setup?",
-      a: "A small-scale organic mushroom farm India setup for beginners starts around ₹2-5 Lakhs. For commercial units (20T-30T), investment ranges from ₹15-25 Lakhs. We assist with cost-effective commercial turnkey solutions.",
+      a: "A small-scale organic mushrooms farm India setup for beginners starts around ₹2-5 Lakhs. For commercial units (20T-30T), investment ranges from ₹15-25 Lakhs. We assist with cost-effective commercial turnkey solutions.",
     },
     {
       q: "Do you provide mushroom training in all states of India?",
@@ -6086,7 +6086,7 @@ const FAQPage = () => {
     },
     {
       q: "Pune mushroom farming training center near me?",
-      a: "जर तुम्ही पुणे, पिंपरी-चिंचवड किंवा आसपासच्या भागात उत्कृष्ट प्रशिक्षण केंद्र शोधत असाल, तर 'Organic Mushroom Farm' हे सर्वात विश्वसनीय नाव आहे. आम्ही संपूर्ण कल्टिव्हेशन, स्पॉन बनवणे, मार्केटिंग आणि बँक सबसिडी कन्सल्टन्सीचे ऑनलाईन व ऑफलाईन प्रॅक्टिकल ट्रेनिंग देतो.",
+      a: "जर तुम्ही पुणे, पिंपरी-चिंचवड किंवा आसपासच्या भागात उत्कृष्ट प्रशिक्षण केंद्र शोधत असाल, तर 'Organic Mushrooms Farm' हे सर्वात विश्वसनीय नाव आहे. आम्ही संपूर्ण कल्टिव्हेशन, स्पॉन बनवणे, मार्केटिंग आणि बँक सबसिडी कन्सल्टन्सीचे ऑनलाईन व ऑफलाईन प्रॅक्टिकल ट्रेनिंग देतो.",
     },
     {
       q: "ऑनलाईन मशरूम प्रशिक्षण उपलब्ध आहे का?",
@@ -6102,7 +6102,7 @@ const FAQPage = () => {
     },
     {
       q: "Mushroom Spawn Supplier in Pune कुठे मिळेल?",
-      a: "Organic Mushroom Farm पुणे आणि आसपासच्या सर्व जिल्ह्यांमध्ये उच्च प्रतीचे, लॅब-सर्टिफाइड आणि दर्जेदार मशरूम स्पॉन (Oyster, Milky, Button & Medicinal F1 Spawn) घरपोच डिलिव्हरी द्वारे सुरक्षितपणे पुरवते.",
+      a: "Organic Mushrooms Farm पुणे आणि आसपासच्या सर्व जिल्ह्यांमध्ये उच्च प्रतीचे, लॅब-सर्टिफाइड आणि दर्जेदार मशरूम स्पॉन (Oyster, Milky, Button & Medicinal F1 Spawn) घरपोच डिलिव्हरी द्वारे सुरक्षितपणे पुरवते.",
     },
     {
       q: "Button Mushroom Farming Pune मध्ये करता येते का?",
@@ -6205,7 +6205,7 @@ const FAQPage = () => {
             Delhi, राजस्थान, गुजरात, पंजाब, हरियाणा, छत्तीसगढ़, झारखंड, पश्चिम
             बंगाल, उत्तराखंड, और अन्य सभी राज्यों में। We are committed to
             fostering the biggest{" "}
-            <strong>commercial organic mushroom farm India</strong> network
+            <strong>commercial organic mushrooms farm India</strong> network
             worldwide.
           </p>
         </div>
@@ -6223,7 +6223,7 @@ const TermsOfServicePage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Terms of Service | Organic Mushroom Farm"
+        title="Terms of Service | Organic Mushrooms Farm"
         description="Our standardized commercial service agreement and terms for cooperative training sessions, global spawn trade, and turnkey projects."
         url="/terms"
       />
@@ -6241,7 +6241,7 @@ const TermsOfServicePage = () => {
             <p className="dark:text-slate-400 text-slate-600">
               By enrolling in our training programs or contracting our
               commercial farm setup services, you agree to abide by the terms
-              and conditions outlined below. Organic Mushroom Farm provides
+              and conditions outlined below. Organic Mushrooms Farm provides
               technical consultancy and educational resources for mushroom
               farming business success.
             </p>
@@ -6308,8 +6308,8 @@ const PrivacyPolicyPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Privacy Policy | Organic Mushroom Farm"
-        description="Read our privacy policy about how we protect your personal and commercial data at Organic Mushroom Farm."
+        title="Privacy Policy | Organic Mushrooms Farm"
+        description="Read our privacy policy about how we protect your personal and commercial data at Organic Mushrooms Farm."
         url="/privacy"
       />
       <PageHero
@@ -6370,7 +6370,7 @@ const PrivacyPolicyPage = () => {
             </h2>
             <p className="dark:text-slate-400 text-slate-600">
               If you have any questions regarding your privacy, please contact
-              us at support@organicmushroomfarm.shop or call us at +91
+              us at support@organicmushroomsfarm.com or call us at +91
               9203544140.
             </p>
           </div>
@@ -6388,7 +6388,7 @@ const RefundPolicyPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Refund Policy"
-        description="Review the refund terms and conditions for training programs, consultancy, and turnkey commercial projects at Organic Mushroom Farm."
+        description="Review the refund terms and conditions for training programs, consultancy, and turnkey commercial projects at Organic Mushrooms Farm."
         url="/refund-policy"
       />
       <PageHero
@@ -6456,7 +6456,7 @@ const ShippingPolicyPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Shipping Policy"
-        description="Learn about the shipping and delivery guidelines of premium mushroom spawn (seed) and industrial farming equipment at Organic Mushroom Farm."
+        description="Learn about the shipping and delivery guidelines of premium mushroom spawn (seed) and industrial farming equipment at Organic Mushrooms Farm."
         url="/shipping-policy"
       />
       <PageHero
@@ -6534,7 +6534,7 @@ const CustomerSupportPage = () => {
     <div className="min-h-screen">
       <SEO
         title="Customer Support"
-        description="Reach out to the Organic Mushroom Farm dedicated customer service division. Get answers on order tracking, training, and commercial turnkey consultation."
+        description="Reach out to the Organic Mushrooms Farm dedicated customer service division. Get answers on order tracking, training, and commercial turnkey consultation."
         url="/support"
       />
       <PageHero

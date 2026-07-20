@@ -35,7 +35,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       purpose = "Advanced Commercial Cultivation Training";
     } else if (productType === "workshop") {
       amount = 19900;
-      purpose = "Organic Mushroom Farming Workshop";
+      purpose = "organic mushroom farming Workshop";
     } else if (productType === "consultation") {
       amount = 5900;
       purpose = "Expert 1-on-1 Business Consultation Slot";
@@ -75,7 +75,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       amount: order.amount,
       currency: order.currency,
       key_id: RAZORPAY_KEY_ID,
-      name: "Organic Mushroom Farm",
+      name: "Organic Mushrooms Farm",
       description: purpose,
       prefill: {
         name: name || "",

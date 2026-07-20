@@ -34,7 +34,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     "name": "Mushroom spawn Thiruvananthapuram mein kahan milega?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Organic Mushroom Farm se pan-India delivery ke saath Thiruvananthapuram aur aas-paas ke sabhi areas mein spawn milta hai."
+                        "text": "Organic Mushrooms Farm se pan-India delivery ke saath Thiruvananthapuram aur aas-paas ke sabhi areas mein spawn milta hai."
                     }
                 },
                 {
@@ -50,9 +50,9 @@ const ArticleThiruvananthapuramTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-thiruvananthapuram-kerala",
+            "name": "Organic Mushrooms Farm",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-thiruvananthapuram-kerala",
             "areaServed": [
                 "Thiruvananthapuram", "Kazhakkoottam", "Technopark", "Kowdiar", "Pattom",
                 "Kesavadasapuram", "Sreekaryam", "Vazhuthacaud", "Peroorkada",
@@ -69,8 +69,8 @@ const ArticleThiruvananthapuramTraining = () => {
             "description": "Online aur offline mushroom farming training covering spawn handling, cultivation, harvesting, packaging aur marketing.",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         }
     ];
@@ -128,7 +128,7 @@ const ArticleThiruvananthapuramTraining = () => {
                             തിരുവനന്തപുരം കേരളത്തിന്റെ തലസ്ഥാനം മാത്രമല്ല, ദക്ഷിണേന്ത്യയിലെ ഏറ്റവും വേഗത്തിൽ വളരുന്ന ടെക്നോളജി നഗരങ്ങളിലൊന്നു കൂടിയാണ്. Technopark-ന്റെ വളർച്ചയോടെ, വിദ്യാഭ്യാസ സ്ഥാപനങ്ങൾ, ആശുപത്രികൾ, പ്രീമിയം റെസിഡൻഷ്യൽ കമ്യൂണിറ്റികൾ എന്നിവയോടൊപ്പം ആരോഗ്യകരമായ ഭക്ഷണത്തിന്റെ ആവശ്യകതയും വർഷം തോറും വർദ്ധിച്ചുവരികയാണ്. Kazhakkoottam, Kowdiar, Pattom, Vazhuthacaud, Kesavadasapuram, Sreekaryam, Technopark, Peroorkada പോലുള്ള സ്ഥലങ്ങളിൽ ഇന്ന് <strong>mushroom farming</strong> വീടുകൾക്കും കഫേകൾക്കും ആരോഗ്യബോധമുള്ള ഉപഭോക്താക്കൾക്കും പ്രിയപ്പെട്ട ഒരു choice ആയി മാറുകയാണ്.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Organic Mushroom Farm എന്ന നിലയിൽ ഞങ്ങൾ തിരുവനന്തപുരത്തും അതിനടുത്തുള്ള Neyyattinkara, Attingal, Varkala, Kattakada, Vizhinjam, Balaramapuram, Vellanad, Kadinamkulam തുടങ്ങിയ പ്രദേശങ്ങളിലെ കർഷകർക്കും വിദ്യാർത്ഥികൾക്കും IT പ്രൊഫഷണലുകൾക്കും <strong>farm setup, spawn supply, online/offline training, fresh, dry mushroom sale, consultancy, turnkey project</strong> എന്നീ സേവനങ്ങൾ നൽകുന്നു. ഈ പേജിൽ തിരുവനന്തപുരത്ത് mushroom business എങ്ങനെ തുടങ്ങാം എന്ന് വിശദമായി നോക്കാം.
+                            Organic Mushrooms Farm എന്ന നിലയിൽ ഞങ്ങൾ തിരുവനന്തപുരത്തും അതിനടുത്തുള്ള Neyyattinkara, Attingal, Varkala, Kattakada, Vizhinjam, Balaramapuram, Vellanad, Kadinamkulam തുടങ്ങിയ പ്രദേശങ്ങളിലെ കർഷകർക്കും വിദ്യാർത്ഥികൾക്കും IT പ്രൊഫഷണലുകൾക്കും <strong>farm setup, spawn supply, online/offline training, fresh, dry mushroom sale, consultancy, turnkey project</strong> എന്നീ സേവനങ്ങൾ നൽകുന്നു. ഈ പേജിൽ തിരുവനന്തപുരത്ത് mushroom business എങ്ങനെ തുടങ്ങാം എന്ന് വിശദമായി നോക്കാം.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
                             Agar aap Thiruvananthapuram ya aas-paas ke kisi bhi area se ho aur IT job ke saath ek side business shuru karna chahte ho, to yeh guide bilkul aapke liye hai।
@@ -540,7 +540,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Why Us */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Kyun Chunein Organic Mushroom Farm?
+                            Kyun Chunein Organic Mushrooms Farm?
                         </h3>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
                             <li>Jabalpur base se pura India mein spawn delivery ka experience</li>

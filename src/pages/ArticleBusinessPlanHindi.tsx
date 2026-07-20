@@ -133,14 +133,14 @@ const ArticleBusinessPlanHindi = () => {
             Mushroom farming mein spawn woh seed hai jisse aapki crop shuru hoti hai. Jaise achi beej se achi fasal aati hai, waise hi quality spawn se achha mushroom yield aata hai. Kharab spawn matlab kharab crop — loss guaranteed.
           </p>
           <p>
-            Madhya Pradesh ke Jabalpur, Indore, Bhopal, Gwalior, Satna, Ujjain, Rewa mein spawn suppliers hain. Lekin certified organic spawn abhi bhi rare hai. <strong>organicmushroomfarm.shop</strong> se aap Pan India delivery ke saath certified organic spawn order kar sakte ho.
+            Madhya Pradesh ke Jabalpur, Indore, Bhopal, Gwalior, Satna, Ujjain, Rewa mein spawn suppliers hain. Lekin certified organic spawn abhi bhi rare hai. <strong>organicmushroomsfarm.com</strong> se aap Pan India delivery ke saath certified organic spawn order kar sakte ho.
           </p>
           <ul className="list-disc pl-6 mb-6 space-y-2 text-sm">
             <li><strong>Oyster mushroom spawn price:</strong> Rs. 80 to 120 per kg (grain spawn)</li>
             <li><strong>Button mushroom spawn:</strong> Rs. 100 to 150 per kg</li>
             <li><strong>Milky mushroom spawn:</strong> Rs. 100 to 130 per kg</li>
             <li><strong>Shiitake ya Lion's Mane spawn:</strong> Rs. 200 to 400 per kg (premium variety)</li>
-            <li><strong>Order karo:</strong> <Link to="/">organicmushroomfarm.shop</Link> | WhatsApp: <strong>9203544140</strong></li>
+            <li><strong>Order karo:</strong> <Link to="/">organicmushroomsfarm.com</Link> | WhatsApp: <strong>9203544140</strong></li>
           </ul>
 
           <h3 className="text-xl mt-8 mb-3 font-bold">Step 3: Farm Setup aur Infrastructure — Kitna Lagega?</h3>
@@ -212,7 +212,7 @@ const ArticleBusinessPlanHindi = () => {
             Yaar, ek baat honest taur pe bolun — bina training ke mushroom farming mein bahut zyada risk hota hai. Contamination, wrong substrate, wrong temperature — in teeno mein se koi bhi cheez galat ho toh poori crop barbaad. Aur yeh loss bahut deta hai.
           </p>
           <p>
-            Sahi training se aap pehle hi batch mein profit kama sakte ho. <strong>organicmushroomfarm.shop</strong> par online aur offline dono training available hai — beginner se advanced level tak.
+            Sahi training se aap pehle hi batch mein profit kama sakte ho. <strong>organicmushroomsfarm.com</strong> par online aur offline dono training available hai — beginner se advanced level tak.
           </p>
 
           <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border dark:border-white/10 border-black/10 my-6">
@@ -327,7 +327,7 @@ const ArticleBusinessPlanHindi = () => {
             ))}
           </div>
 
-          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Hamare Services | organicmushroomfarm.shop — Jabalpur, MP</h2>
+          <h2 className="text-2xl mt-12 mb-4 text-primary-start">Hamare Services | organicmushroomsfarm.com — Jabalpur, MP</h2>
           <p>
             Hum Jabalpur, Madhya Pradesh se operate karte hain aur Pan India service dete hain. Abhi tak hazaron farmers ko hum guide kar chuke hain — beginners se le kar commercial growers tak.
           </p>
@@ -372,15 +372,15 @@ const ArticleBusinessPlanHindi = () => {
             </div>
             <div>
               <h4 className="font-bold text-lg">Q4. Kahan se mushroom spawn milega?</h4>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">organicmushroomfarm.shop se certified organic mushroom spawn online order karein — Pan India courier delivery milti hai. Aap Jabalpur, Bhopal, Indore, Rewa, Satna, Gwalior, Delhi, Mumbai, Bangalore, Hyderabad, Chennai, Kolkata, Pune — kahan bhi ho, 3 to 5 din mein spawn pahunch jaata hai. Call ya WhatsApp: 9203544140.</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">organicmushroomsfarm.com se certified organic mushroom spawn online order karein — Pan India courier delivery milti hai. Aap Jabalpur, Bhopal, Indore, Rewa, Satna, Gwalior, Delhi, Mumbai, Bangalore, Hyderabad, Chennai, Kolkata, Pune — kahan bhi ho, 3 to 5 din mein spawn pahunch jaata hai. Call ya WhatsApp: 9203544140.</p>
             </div>
             <div>
               <h4 className="font-bold text-lg">Q5. Training kahan se lein?</h4>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">organicmushroomfarm.shop par online aur Jabalpur, Madhya Pradesh mein offline training available hai. Hum cover karte hain: spawn selection, substrate preparation, pasteurization, spawning, incubation, fruiting, harvesting, drying, packaging, aur marketing — sab kuch ek hi training mein. Beginners aur experienced dono ke liye alag batches available hain.</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">organicmushroomsfarm.com par online aur Jabalpur, Madhya Pradesh mein offline training available hai. Hum cover karte hain: spawn selection, substrate preparation, pasteurization, spawning, incubation, fruiting, harvesting, drying, packaging, aur marketing — sab kuch ek hi training mein. Beginners aur experienced dono ke liye alag batches available hain.</p>
             </div>
             <div>
               <h4 className="font-bold text-lg">Q6. Organic mushroom aur normal mushroom mein kya fark?</h4>
-              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Organic mushroom wo hai jo bina chemical fertilizer, pesticide, ya synthetic growth promoter ke natural substrate par ugayi jaaye. Organic certification milne ke baad price 30 to 50% zyada milta hai. Export markets — especially EU, USA, UK — mein organic certified mushroom ki specific demand hoti hai. organicmushroomfarm.shop ka spawn certified organic hai.</p>
+              <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">Organic mushroom wo hai jo bina chemical fertilizer, pesticide, ya synthetic growth promoter ke natural substrate par ugayi jaaye. Organic certification milne ke baad price 30 to 50% zyada milta hai. Export markets — especially EU, USA, UK — mein organic certified mushroom ki specific demand hoti hai. organicmushroomsfarm.com ka spawn certified organic hai.</p>
             </div>
             <div>
               <h4 className="font-bold text-lg">Q7. Dried mushroom kaise banayein aur export karein?</h4>

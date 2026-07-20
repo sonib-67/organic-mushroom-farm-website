@@ -98,7 +98,7 @@ for (const urlPath of allPaths) {
   else if (urlPath.startsWith('/services') || urlPath.startsWith('/process')) { priority = "0.90"; }
 
   mainXml += `  <url>
-    <loc>https://organicmushroomfarm.shop${urlPath}</loc>
+    <loc>https://organicmushroomsfarm.com${urlPath}</loc>
     <lastmod>${dateInfo}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -121,7 +121,7 @@ let indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://organicmushroomfarm.shop/sitemap-main.xml</loc>
+    <loc>https://organicmushroomsfarm.com/sitemap-main.xml</loc>
   </sitemap>
 </sitemapindex>`;
 

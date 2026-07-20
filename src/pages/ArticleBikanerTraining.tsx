@@ -34,7 +34,7 @@ const ArticleBikanerTraining = () => {
                     "name": "मशरूम स्पॉन बीकानेर में कहां मिलेगा?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Organic Mushroom Farm से पैन-इंडिया डिलीवरी के साथ बीकानेर और आसपास के सभी इलाकों में स्पॉन मिलता है।"
+                        "text": "Organic Mushrooms Farm से पैन-इंडिया डिलीवरी के साथ बीकानेर और आसपास के सभी इलाकों में स्पॉन मिलता है।"
                     }
                 },
                 {
@@ -50,9 +50,9 @@ const ArticleBikanerTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-bikaner-rajasthan",
+            "name": "Organic Mushrooms Farm",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-bikaner-rajasthan",
             "areaServed": [
                 "बीकानेर", "Gangashahar", "Mukta Prasad Nagar", "Pawanpuri", "Karni Nagar",
                 "Rani Bazar", "Jai Narayan Vyas Colony", "Shastri Nagar", "Lalgarh",
@@ -69,8 +69,8 @@ const ArticleBikanerTraining = () => {
             "description": "स्टूडेंट्स, किसानों और उद्यमियों के लिए स्पॉन कल्टिवेशन, हार्वेस्टिंग, पैकेजिंग और मार्केटिंग को कवर करने वाली ऑनलाइन और ऑफलाइन मशरूम फार्मिंग ट्रेनिंग।",
             "provider": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
-                "sameAs": "https://organicmushroomfarm.shop"
+                "name": "Organic Mushrooms Farm",
+                "sameAs": "https://organicmushroomsfarm.com"
             }
         }
     ];
@@ -128,7 +128,7 @@ const ArticleBikanerTraining = () => {
                             बीकानेर — धोरां री धरती, ऊंट, भुजिया और रसगुल्लां सारु पूरी दुनिया में मोटो नाम कमावण वालो ओ प्यारो शहर अब एक नई ओळखाण बणा रह्यो है — भणाई-लिखाई (शिक्षा) और खेती-बाड़ी (Agribusiness) रे मेल री। गंगाशहर, मुक्ता प्रसाद नगर, पवनपुरी, करणी नगर, राणी बाजार, जय नारायण व्यास कॉलोनी, शास्त्री नगर और लालगढ़ जिया इलाकां रा कॉलेज और यूनिवर्सिटी रा टाबर (students) अब मशरूम री खेती (mushroom farming) ने खाली खेती कोनी, बल्कि एक जोरदार करियर और स्टार्टअप रे मौके री तरां देख रह्या है।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            एक ऑर्गेनिक मशरूम फार्म (Organic Mushroom Farm) रे नाते, म्हे बीकानेर और अणरे आसपास रा नोखा, देशनोक, कोलायत, लूणकरणसर, नापासर, श्रीडूंगरगढ़, खाजूवाला और कोलायत ग्रामीण क्षेत्रां (Kolayat Rural Region) रा टाबरां, किसाणां और नौजवान उद्यमियों ने फार्म सेटअप (farm setup), स्पॉन सप्लाई (spawn supply), ऑनलाइन/ऑफलाइन ट्रेनिंग (online/offline training), ताजा और सुख्या मशरूमां री बिक्री (fresh & dry mushroom sale), कंसल्टेंसी (consultancy) और टर्नकी प्रोजेक्ट (turnkey project) री सगळी सुविदावां देवां हां। ईं पेज में म्हे थाने बतास्यां के बीकानेर री पावन धरा माथे मशरूम फार्मिंग ने आप आपरो करियर और बिजनेस री तरां क्यां बणा सको हो।
+                            एक ऑर्गेनिक मशरूम फार्म (Organic Mushrooms Farm) रे नाते, म्हे बीकानेर और अणरे आसपास रा नोखा, देशनोक, कोलायत, लूणकरणसर, नापासर, श्रीडूंगरगढ़, खाजूवाला और कोलायत ग्रामीण क्षेत्रां (Kolayat Rural Region) रा टाबरां, किसाणां और नौजवान उद्यमियों ने फार्म सेटअप (farm setup), स्पॉन सप्लाई (spawn supply), ऑनलाइन/ऑफलाइन ट्रेनिंग (online/offline training), ताजा और सुख्या मशरूमां री बिक्री (fresh & dry mushroom sale), कंसल्टेंसी (consultancy) और टर्नकी प्रोजेक्ट (turnkey project) री सगळी सुविदावां देवां हां। ईं पेज में म्हे थाने बतास्यां के बीकानेर री पावन धरा माथे मशरूम फार्मिंग ने आप आपरो करियर और बिजनेस री तरां क्यां बणा सको हो।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
                             अणी सारु, जे थे बीकानेर या अणरे आसपास रे कोई भी इलाका रा छात्र, किसान या उद्यमी हो और मशरूम री खेती सीख'र आपरो खुद रो बिजनेस बणावणो चाहो, तो ओ लेख बिल्कुल थारे ही काम रो है।
@@ -574,7 +574,7 @@ const ArticleBikanerTraining = () => {
                     {/* क्यों चुनें */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Kyun Chunein Organic Mushroom Farm?
+                            Kyun Chunein Organic Mushrooms Farm?
                         </h3>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
                             <li>जबलपुर सु आखा भारत (pan-India) में चोखो बीज डिलीवरी रो मोटो अनुभव।</li>
@@ -687,7 +687,7 @@ const ArticleBikanerTraining = () => {
                         <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Ready to Grow Your Agribusiness?</h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                             सही शुरुआत ही बड़ी सफलता की कुंजी है। आज ही अपने नजदीकी बीकानेर केंद्र से संपर्क करें और मशरूम फार्मिंग क्रांति का हिस्सा बनें! <br /><br />
-                            <strong>Organic Mushroom Farm - Your Trusted Agri-Business Partner in Rajasthan.</strong>
+                            <strong>Organic Mushrooms Farm - Your Trusted Agri-Business Partner in Rajasthan.</strong>
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center gap-4">

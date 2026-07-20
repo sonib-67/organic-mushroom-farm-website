@@ -42,9 +42,9 @@ const ArticleMangaloreTraining = () => {
         {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Organic Mushroom Farm - Mangalore",
-            "image": "https://organicmushroomfarm.shop/logo.png",
-            "url": "https://organicmushroomfarm.shop/mushroom-farming-mangalore-karnataka",
+            "name": "Organic Mushrooms Farm - Mangalore",
+            "image": "https://organicmushroomsfarm.com/logo.png",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-mangalore-karnataka",
             "areaServed": [
                 "Mangalore", "Kadri", "Hampankatta", "Lalbagh", "Kankanady", 
                 "Bejai", "Surathkal", "Derebail", "Bondel", "Udupi", 
@@ -60,19 +60,19 @@ const ArticleMangaloreTraining = () => {
             "description": "ಕುಡ್ಲದ ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು? - A complete guide in Tulu.",
             "author": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm"
+                "name": "Organic Mushrooms Farm"
             },
             "publisher": {
                 "@type": "Organization",
-                "name": "Organic Mushroom Farm",
+                "name": "Organic Mushrooms Farm",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://organicmushroomfarm.shop/logo.png"
+                    "url": "https://organicmushroomsfarm.com/logo.png"
                 }
             },
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://organicmushroomfarm.shop/mushroom-farming-mangalore-karnataka"
+                "@id": "https://organicmushroomsfarm.com/mushroom-farming-mangalore-karnataka"
             }
         }
     ];
@@ -114,7 +114,7 @@ const ArticleMangaloreTraining = () => {
                             ಮಂಗಳೂರು ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಗಳಿಗೆ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ ಅಗತ್ಯ
                         </h2>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
-                            Organic Mushroom Farm — Mangalore, Karnataka Special Edition (Tulu Blog)
+                            Organic Mushrooms Farm — Mangalore, Karnataka Special Edition (Tulu Blog)
                         </p>
                     </div>
 
@@ -412,7 +412,7 @@ const ArticleMangaloreTraining = () => {
                             <br/><span className="text-emerald-600 dark:text-emerald-400 text-base">ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಫಾರ್ಮಿಂಗ್ ಬಿಸಿನೆಸ್ ಸುರು ಮಲ್ಪುಲೆ!</span>
                         </h3>
                         <p className="text-sm dark:text-slate-400 text-slate-600 max-w-2xl mx-auto">
-                            Connect with Organic Mushroom Farm for quality spawn, professional training, and turnkey commercial setups.
+                            Connect with Organic Mushrooms Farm for quality spawn, professional training, and turnkey commercial setups.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">
                             <a 
