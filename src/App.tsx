@@ -88,6 +88,7 @@ import ArticleUltimateGuideHinglish from "./pages/ArticleUltimateGuideHinglish";
 import ArticleUSAProfitGuide from "./pages/ArticleUSAProfitGuide";
 import ArticleUSAMedicinalIncome from "./pages/ArticleUSAMedicinalIncome";
 import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
+import ArticleTamilTrainingGuide from "./pages/ArticleTamilTrainingGuide";
 import SEO from "./components/SEO";
 import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
 import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
@@ -6856,6 +6857,7 @@ const AnimatedRoutes = () => {
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia  metaDesc="Master the 2026 mushroom farming business plan in India. Understand commercial setup costs, profit margins, ROI analysis, and local marketing strategies. " />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
+          <Route path="/blog/mushroom-farming-training-tamil-guide" element={<ArticleTamilTrainingGuide />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />

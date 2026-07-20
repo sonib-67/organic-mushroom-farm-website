@@ -33,6 +33,7 @@ const blogPosts = [
     color: "text-green-500",
     bg: "bg-green-500/5",
     posts: [
+      { id: "mushroom-farming-training-tamil-guide", customPath: "/blog/mushroom-farming-training-tamil-guide", title: "காளான் சாகுபடி பயிற்சி மற்றும் காளான் பண்ணை அமைப்பு: முழுமையான வழிகாட்டி", excerpt: "காளான் சாகுபடி எப்படி தொடங்குவது, என்ன பயிற்சி தேவை, மற்றும் காளான் பண்ணை அமைப்பு (Mushroom Setup) செய்வதற்கான படிப்படியான வழிகாட்டி.", date: "July 20, 2026" },
       { id: "mushroom-training-guide-punjabi", customPath: "/blog/mushroom-training-guide-punjabi", title: "ਕਣਕ-ਝੋਨੇ ਦੇ ਚੱਕਰ ਤੋਂ ਬਾਹਰ: ਪੰਜਾਬ ਦੇ ਕਿਸਾਨਾਂ ਲਈ ਖੁੰਬਾਂ ਦੀ ਖੇਤੀ ਦੀ ਟਰੇਨਿੰਗ ਕਿਉਂ ਬਣ ਰਹੀ ਹੈ ਨਵਾਂ ਰਾਹ", excerpt: "ਪੰਜਾਬ ਵਿੱਚ ਖੁੰਬਾਂ ਦੀ ਖੇਤੀ ਦੀ ਟਰੇਨਿੰਗ ਬਾਰੇ ਪੂਰੀ ਜਾਣਕਾਰੀ। PAU ਲੁਧਿਆਣਾ, KVK, ਅਤੇ ਸੋਲਨ ਤੋਂ ਟਰੇਨਿੰਗ, ਸਬਸਿਡੀ, ਅਤੇ ਮੁਨਾਫੇ ਬਾਰੇ ਜਾਣੋ।", date: "July 17, 2026" },
       { id: "mushroom-training-guide-english", customPath: "/blog/mushroom-training-guide-english", title: "Mushroom Farming Training: The Complete Guide to Starting a Profitable Mushroom Cultivation Business", excerpt: "Where to get trained in mushroom farming, varieties to learn, training costs, government support, and how the profit works in 2026.", date: "July 17, 2026" },
       { id: "mushroom-training-guide-hindi", customPath: "/blog/mushroom-training-guide-hindi", title: "मशरूम ट्रेनिंग कैसे करें: गांव से लेकर शहर तक कमाई का नया जरिया (2026 पूरी गाइड)", excerpt: "अगर आप भी सोच रहे हैं कि मशरूम की खेती सीखकर अपना खुद का बिज़नेस शुरू करूं, तो ये ब्लॉग आपके लिए ही है।", date: "July 17, 2026" },
