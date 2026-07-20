@@ -6621,9 +6621,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-const CatchAllHandler = () => {
-  return <Navigate to="/" replace />;
-};
+import NotFoundPage from "./pages/NotFoundPage";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -6863,7 +6861,7 @@ const AnimatedRoutes = () => {
           <Route path="/locations/pune" element={<PunePage />} />
           <Route path="/locations/pune/:slug" element={<PuneBlogPage />} />
 
-          <Route path="*" element={<CatchAllHandler />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
