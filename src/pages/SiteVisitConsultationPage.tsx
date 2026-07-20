@@ -134,6 +134,7 @@ const SiteVisitConsultationPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pt-24 pb-12 flex items-center justify-center px-4 selection:bg-green-500/30">
+      <h2 className="sr-only">Expert On-Site Consultation for Your Mushroom Farm Setup</h2>
       <SEO 
         title="On Site Visit Consultation | Organic Mushroom Farm" 
         description="Book your site visit consultation for organic mushroom farming. Visit our farm in Jabalpur."

@@ -525,6 +525,17 @@ const ArticlePage = () => {
 
   return (
     <div className="min-h-screen pt-32 pb-20">
+      <h2 className="sr-only">
+        {id === "1" ? "Step-by-Step Guide to Commercial Oyster Mushroom Cultivation" :
+         id === "2" ? "Best Practices for Growing High-Quality Button Mushrooms" :
+         id === "3" ? "Milky Mushroom Farming: Temperature Control and Yield Tips" :
+         id === "4" ? "Understanding the Initial Setup Costs for a Mushroom Farm" :
+         id === "5" ? "Preparing the Perfect Compost for Maximum Mushroom Yield" :
+         id === "6" ? "Common Mushroom Diseases and Effective Organic Treatments" :
+         id === "7" ? "How to Market and Sell Your Fresh Mushrooms Locally" :
+         id === "8" ? "Selecting the Best Quality Spawn for Your Cultivation Unit" :
+         id === "9" ? "Seasonal Mushroom Farming Tips for Consistent Harvests" : ""}
+      </h2>
       <SEO 
         title={seoTitle} 
         description={seoDescription} 

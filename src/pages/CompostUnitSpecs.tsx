@@ -7,6 +7,7 @@ import SEO from '../components/SEO';
 const CompostUnitSpecsPage = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
+      <h2 className="sr-only">Standard Specifications for High-Yield Mushroom Compost Units</h2>
       <SEO 
         title="Compost Unit Specs | Phase-I & Phase-II Details" 
         description="Technical specifications for 2000-Bag and 3000-Bag compost units including Phase-I and Phase-II durations." 
