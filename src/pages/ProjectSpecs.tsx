@@ -63,11 +63,6 @@ const ProjectSpecsPage = ({ metaDesc }: { metaDesc?: string }) => {
 
   return (
     <div className="min-h-screen pt-32 pb-20">
-      <h2 className="sr-only">
-        {id === "sneha-sharma" ? "Success Story: Building a Highly Profitable Mushroom Farm" :
-         id === "amit-singhal" ? "A Journey to Commercial Mushroom Cultivation Success" :
-         id === "rajesh-kumar" ? "Inspiring Results in Large-Scale Mushroom Production" : ""}
-      </h2>
       <SEO 
         title={`Project Specs: ${specData.name} | Organic Mushroom Farm`} 
         description={`Detailed project specifications, equipment used, and ROI for ${specData.name}'s mushroom farming setup.`} 

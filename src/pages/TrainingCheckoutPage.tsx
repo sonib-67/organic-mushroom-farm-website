@@ -214,7 +214,6 @@ export default function TrainingCheckoutPage() {
 
   return (
     <div className="min-h-screen dark:bg-[#070707] bg-slate-50 flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[999999] overflow-hidden">
-      <h2 className="sr-only">Secure Your Spot: Complete Your Training Registration</h2>
       <SEO 
         title="Checkout - Organic Mushroom Farm" 
         description="Complete your registration for our professional commercial mushroom farming and cultivation training." 

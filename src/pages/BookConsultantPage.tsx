@@ -208,7 +208,6 @@ export default function BookConsultantPage() {
 
   return (
     <div className="relative pb-24 md:pb-0 pt-16 md:pt-32 overflow-hidden min-h-screen selection:bg-blue-500/30">
-      <h2 className="sr-only">Schedule a Session with Our Mushroom Cultivation Experts</h2>
       <SEO 
         title="Book 1-on-1 Call Consultation"
         description="Book a premium 1-on-1 call consultancy for ₹59. Get expert blueprint design, subsidy advice, and troubleshooting help direct from Katangi Road, Jabalpur."

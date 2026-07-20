@@ -988,7 +988,7 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("scroll", handleScrollSpy);
     };
-  }, [window.location.pathname]);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -1001,7 +1001,7 @@ const Navbar = () => {
     };
   }, [mobileMenuOpen]);
 
-  if (window.location.pathname === "/workshop") return null;
+  if (location.pathname === "/workshop") return null;
 
   return (
     <>
@@ -1031,13 +1031,13 @@ const Navbar = () => {
               const hash = isHashLink ? item.href.split("#")[1] : null;
 
               const isActive = isHashLink
-                ? window.location.pathname === "/" && activeSection === hash
-                : window.location.pathname === item.href &&
+                ? location.pathname === "/" && activeSection === hash
+                : location.pathname === item.href &&
                   !location.hash &&
                   activeSection === null;
 
               const linkProps =
-                isHashLink && window.location.pathname === "/"
+                isHashLink && location.pathname === "/"
                   ? {
                       href: `#${hash}`,
                       onClick: (e: any) => {
@@ -1065,7 +1065,7 @@ const Navbar = () => {
               if (isHashLink) {
                 return (
                   <div key={item.name} className="relative">
-                    {window.location.pathname === "/" ? (
+                    {location.pathname === "/" ? (
                       <a
                         {...linkProps}
                         className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
@@ -1202,14 +1202,14 @@ const Navbar = () => {
                   const isHashLink = item.href.includes("#");
                   const hash = isHashLink ? item.href.split("#")[1] : null;
                   const isActive = isHashLink
-                    ? window.location.pathname === "/" && activeSection === hash
-                    : window.location.pathname === item.href &&
+                    ? location.pathname === "/" && activeSection === hash
+                    : location.pathname === item.href &&
                       !location.hash &&
                       activeSection === null;
 
                   return (
                     <div key={item.name} className="w-full">
-                      {isHashLink && window.location.pathname === "/" ? (
+                      {isHashLink && location.pathname === "/" ? (
                         <a
                           href={`#${hash}`}
                           onClick={(e) => {
@@ -2597,11 +2597,6 @@ const TrainingPage = ({ metaDesc }: { metaDesc?: string }) => {
         keywords="Mushroom farming training India, learn oyster mushroom cultivation, button mushroom course, milky mushroom training, start mushroom farm online."
         url="/training"
       />
-      <h2 className="sr-only">
-        {window.location.pathname === "/training/online" ? "Learn Anywhere: Advanced Online Mushroom Farming Course" :
-         window.location.pathname === "/training/offline" ? "Hands-On Offline Mushroom Cultivation Workshops" :
-         "Master Commercial Mushroom Farming: Comprehensive Training Programs"}
-      </h2>
       <MushroomTraining />
 
       {/* Additional Page Specific Content */}
@@ -2742,7 +2737,6 @@ const ContactPage = () => {
               <span className="text-primary-start">Mushroom Farming</span>{" "}
               Business Worldwide
             </h1>
-          
             <p className="dark:text-slate-400 text-slate-600 text-sm md:text-lg max-w-2xl mx-auto font-medium px-2">
               Ready to build a commercial factory or a small unit? Our
               specialists are here to guide you through every step of button and
@@ -3159,7 +3153,7 @@ const StatesSection = () => {
 
 const Footer = () => {
   const location = useLocation();
-  if (window.location.pathname === "/workshop") return null;
+  if (location.pathname === "/workshop") return null;
 
   return (
     <footer className="pt-20 pb-24 md:pb-12 bg-black/50 border-t dark:border-white/5 border-black/5">
@@ -3623,7 +3617,7 @@ const FloatingButtons = () => {
     window.addEventListener("hashchange", handleHashChange);
 
     const onScroll = () => {
-      if (window.location.pathname !== "/") return;
+      if (location.pathname !== "/") return;
       const sections = ["farming-models", "compost-units", "market"];
       let active = "";
       for (const section of sections) {
@@ -3647,17 +3641,17 @@ const FloatingButtons = () => {
       window.removeEventListener("hashchange", handleHashChange);
       window.removeEventListener("scroll", onScroll);
     };
-  }, [window.location.pathname]);
+  }, [location.pathname]);
 
-  const isTrainingPage = window.location.pathname === "/training";
+  const isTrainingPage = location.pathname === "/training";
   const showTrainingCTA = ![
     "/training-checkout",
     "/payment-success",
     "/payment-cancelled",
     "/workshop",
-  ].includes(window.location.pathname);
+  ].includes(location.pathname);
 
-  if (window.location.pathname === "/workshop") return null;
+  if (location.pathname === "/workshop") return null;
 
   const mobileNavItems = [
     { label: "Book Consultant", href: "/book-consultant", icon: Calendar },
@@ -3772,9 +3766,9 @@ const FloatingButtons = () => {
             if (isHashLink) {
               const hash = item.href.split("#")[1];
               isActive =
-                window.location.pathname === "/" && currentHash === "#" + hash;
+                location.pathname === "/" && currentHash === "#" + hash;
             } else {
-              isActive = window.location.pathname === item.href;
+              isActive = location.pathname === item.href;
             }
 
             const className = `snap-start shrink-0 flex items-center justify-center rounded-full border transition-all active:scale-95 ${
@@ -3802,7 +3796,7 @@ const FloatingButtons = () => {
               if (isHashLink) {
                 e.preventDefault();
                 const hash = item.href.split("#")[1];
-                if (window.location.pathname === "/") {
+                if (location.pathname === "/") {
                   const element = document.getElementById(hash);
                   if (element) {
                     const offset = 100;
@@ -6636,7 +6630,7 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={window.location.pathname}
+        key={location.pathname}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -12 }}

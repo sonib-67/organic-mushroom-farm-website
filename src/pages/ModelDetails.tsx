@@ -7,7 +7,6 @@ import SEO from '../components/SEO';
 const ModelDetailsPage = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
-      <h2 className="sr-only">Profitable Mushroom Farming Business Models & Shed Details</h2>
       <SEO 
         title="Farming Model Details | High-Yield Infrastructure" 
         description="Detailed specifications for our recommended commercial mushroom farming models." 
