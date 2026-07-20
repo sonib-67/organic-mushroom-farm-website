@@ -797,9 +797,9 @@ const CompanyProfile = () => {
                     <b.icon size={22} />
                   </div>
                   <div>
-                    <h4 className="dark:text-white text-slate-900 font-bold text-[14px] mb-1">
-                      {b.title}
-                    </h4>
+                    <h3 className="dark:text-white text-slate-900 font-bold text-[14px] mb-1">
+                        {b.title}
+                      </h3>
                     <p className="text-slate-500 text-[12px] leading-snug">
                       {b.desc}
                     </p>
@@ -1720,9 +1720,9 @@ const WhyChooseUs = () => {
                   <item.icon className="text-primary-start" size={24} />
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-3">
-                  {item.title}
-                </h3>
+                <h2 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-3">
+                    {item.title}
+                  </h2>
 
                 <p className="mb-6 flex-1 italic text-slate-500">
                   {item.subtitle}
@@ -1953,9 +1953,9 @@ const FarmingModels = () => {
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">
                   Recommended Commercial Setup
                 </div>
-                <h4 className="text-2xl font-bold dark:text-white text-slate-900 mb-4 leading-tight">
-                  {getRecommendedSetup().title}
-                </h4>
+                <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4 leading-tight">
+                    {getRecommendedSetup().title}
+                  </h3>
                 <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-8 max-w-sm">
                   {getRecommendedSetup().desc}
                 </p>
@@ -2409,8 +2409,8 @@ const CTASection = () => {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold dark:text-white text-slate-900">
-                        Inquiry Received!
-                      </h3>
+                          Inquiry Received!
+                        </h3>
                       <p className="dark:text-slate-400 text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
                         Thank you for your response. Our commercial farming
                         expert specialists will review your project scale and
@@ -2830,9 +2830,9 @@ const ContactPage = () => {
               className="bg-white/[0.02] border dark:border-white/10 border-black/10 p-6 md:p-10 rounded-3xl"
             >
               <div className="mb-8 text-center md:text-left">
-                <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">
+                <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">
                   Mushroom Farming Setup Enquiry Form
-                </h3>
+                </h2>
                 <p className="dark:text-slate-400 text-slate-600 text-sm font-medium">
                   Please fill in your details for a callback regarding
                   commercial mushroom setups.
@@ -2980,9 +2980,9 @@ const ContactPage = () => {
               <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-6 border border-green-500/30">
                 <CheckCircle2 size={32} />
               </div>
-              <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">
+              <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">
                 Enquiry Received
-              </h3>
+              </h2>
               <p className="dark:text-slate-400 text-slate-600 text-sm mb-8 leading-relaxed font-medium">
                 Thank you! Your commercial setup enquiry has been received. Our
                 expert will call you within{" "}
@@ -3428,8 +3428,8 @@ const StickyRazorpayButton = ({
                   <Sparkles size={12} /> Live Your Farming Dream
                 </div>
                 <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
-                  Select <span className="gradient-text font-black">Your Training Plan</span>
-                </h3>
+                    Select <span className="gradient-text font-black">Your Training Plan</span>
+                  </h3>
                 <p className="dark:text-slate-400 text-slate-500 text-xs md:text-sm font-medium mt-1">
                   Choose the plan that suits you best. Secure checkout with Razorpay.
                 </p>
@@ -3488,9 +3488,9 @@ const StickyRazorpayButton = ({
                   <span className="badge bg-blue-500/10 text-blue-500 text-[9px] font-bold uppercase tracking-widest mb-2 self-start py-0.5 px-2 rounded-full">
                     Beginner
                   </span>
-                  <h4 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                  <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
                     Basic Cultivation Training
-                  </h4>
+                  </h3>
                   <div className="flex items-baseline gap-1.5 mb-4">
                     <span className="text-2xl md:text-3xl font-black gradient-text">₹299</span>
                     <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
@@ -3541,9 +3541,9 @@ const StickyRazorpayButton = ({
                   <span className="badge bg-purple-500/10 text-purple-400 text-[9px] font-bold uppercase tracking-widest mb-2 self-start py-0.5 px-2 rounded-full">
                     Entrepreneur
                   </span>
-                  <h4 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                  <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
                     Advanced Commercial Training
-                  </h4>
+                  </h3>
                   <div className="flex items-baseline gap-1.5 mb-4">
                     <span className="text-2xl md:text-3xl font-black text-purple-500">₹699</span>
                     <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
@@ -4044,8 +4044,8 @@ const MushroomTraining = () => {
               Simple & Transparent Models
             </div>
             <h3 className="text-xl md:text-3xl font-extrabold dark:text-white text-slate-900 mb-1.5 md:mb-3 tracking-tight uppercase">
-              Choose Your <span className="gradient-text font-black">Training Program</span>
-            </h3>
+                Choose Your <span className="gradient-text font-black">Training Program</span>
+              </h3>
             <p className="dark:text-slate-400 text-slate-600 text-[10px] md:text-sm max-w-xl mx-auto font-medium leading-relaxed">
               Start with self-paced online courses or gain hands-on commercial experience at our practical farm workshops.
             </p>
@@ -4335,8 +4335,8 @@ const MushroomTraining = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-4 md:mb-12">
             <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
-              What You Will <span className="gradient-text">Get</span>
-            </h3>
+                What You Will <span className="gradient-text">Get</span>
+              </h3>
             <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-[9px] md:text-sm">
               Everything you need to succeed in commercial mushroom farming.
             </p>
@@ -4355,8 +4355,8 @@ const MushroomTraining = () => {
                   <item.icon className="w-3 h-3 md:w-6 md:h-6" />
                 </div>
                 <h4 className="text-[10px] md:text-xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-2 leading-tight">
-                  {item.title}
-                </h4>
+                    {item.title}
+                  </h4>
                 <p className="dark:text-slate-400 text-slate-600 text-[8px] md:text-sm leading-tight md:leading-relaxed">
                   {item.desc}
                 </p>
@@ -4371,8 +4371,8 @@ const MushroomTraining = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-4 md:mb-12">
             <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
-              Training <span className="gradient-text">Curriculum</span>
-            </h3>
+                Training <span className="gradient-text">Curriculum</span>
+              </h3>
             <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-[9px] md:text-sm">
               Master every aspect of the commercial cultivation ecosystem.
             </p>
@@ -4952,8 +4952,8 @@ const HomePage = () => {
                       </div>
                     </div>
                     <h4 className="dark:text-white text-slate-900 font-bold text-lg mb-2">
-                      Mushroom Farming Beginner Guide India 2026-2027
-                    </h4>
+                        Mushroom Farming Beginner Guide India 2026-2027
+                      </h4>
                     <p className="dark:text-slate-400 text-slate-600 text-xs leading-relaxed">
                       Complete guide on how to start mushroom farming (mushroom
                       ki kheti) from scratch for beginners.
@@ -5106,8 +5106,8 @@ const AboutPage = () => {
                     <Briefcase size={60} />
                   </div>
                   <h3 className="dark:text-white text-slate-900 text-lg font-bold mb-2">
-                    Our Mission
-                  </h3>
+                      Our Mission
+                    </h3>
                   <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
                     Our startup is dedicated to{" "}
                     <strong>
@@ -5124,8 +5124,8 @@ const AboutPage = () => {
                     <ShieldCheck size={60} />
                   </div>
                   <h3 className="dark:text-white text-slate-900 text-lg font-bold mb-2">
-                    Our Vision
-                  </h3>
+                      Our Vision
+                    </h3>
                   <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
                     We aim to lead the revolution in{" "}
                     <strong>
@@ -5364,8 +5364,8 @@ const ServicesPage = () => {
                   <s.icon size={26} />
                 </div>
                 <h3 className="dark:text-white text-slate-900 font-bold text-xl mb-4">
-                  {s.title}
-                </h3>
+                    {s.title}
+                  </h3>
                 <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-6 font-medium">
                   {s.desc}
                 </p>
@@ -5717,8 +5717,8 @@ const TurnkeyProjectsPage = () => {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold dark:text-white text-slate-900">
-                    Enquiry Submitted Successfully!
-                  </h3>
+                      Enquiry Submitted Successfully!
+                    </h3>
                   <p className="dark:text-slate-400 text-slate-600 text-sm max-w-sm mx-auto font-medium">
                     Thank you for submitting your project layout requirements.
                     Our lead engineer Tanish Soni will contact you via phone or
@@ -6167,9 +6167,9 @@ const FAQPage = () => {
           </div>
 
           <div className="mt-16 glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
-            <h3 className="dark:text-white text-slate-900 font-bold mb-4">
+            <h1 className="text-3xl md:text-5xl dark:text-white text-slate-900 font-bold mb-4">
               Still have commercial setup questions?
-            </h3>
+            </h1>
             <p className="dark:text-slate-400 text-slate-600 text-sm mb-6">
               Our global experts are available for a consultation.
             </p>
@@ -6196,9 +6196,9 @@ const FAQPage = () => {
       {/* Pan India Service Mentions for SEO */}
       <section className="section-padding dark:bg-white/5 bg-black/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="dark:text-white text-slate-900 font-bold mb-8 uppercase tracking-widest text-sm">
+          <h2 className="dark:text-white text-slate-900 font-bold mb-8 uppercase tracking-widest text-sm">
             Serving Pan India & Global Markets
-          </h3>
+          </h2>
           <p className="text-slate-500 text-xs leading-relaxed max-w-4xl mx-auto">
             Our commercial mushroom training and turnkey setup services are
             available in Madhya Pradesh, Maharashtra, Uttar Pradesh, Bihar,

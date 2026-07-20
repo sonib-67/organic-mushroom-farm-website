@@ -100,7 +100,7 @@ export default function MushroomPriceTodayPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {(activeTab === 'wholesale' ? prices.wholesale : prices.retail).map((item, i) => (
                 <div key={i} className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 hover:border-primary-start/50 transition-colors">
-                  <h3 className="font-bold dark:text-white text-slate-900 text-lg mb-4">{item.type}</h3>
+                  <h2 className="font-bold dark:text-white text-slate-900 text-lg mb-4">{item.type}</h2>
                   <div className="text-3xl font-black gradient-text mb-4">{item.avg}</div>
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between text-sm">

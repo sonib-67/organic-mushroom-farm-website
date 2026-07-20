@@ -143,9 +143,9 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
           
           {/* Section: Quick Index */}
           <div className="p-6 md:p-8 rounded-3xl dark:bg-white/[0.01] bg-slate-100/80 border dark:border-white/5 border-black/5 space-y-4">
-            <h3 className="font-extrabold text-slate-900 dark:text-white flex items-center gap-2 text-lg uppercase tracking-wider">
+            <h2 className="font-extrabold text-slate-900 dark:text-white flex items-center gap-2 text-lg uppercase tracking-wider">
               <BookMarked size={20} className="text-emerald-500" /> Quick Index - What You Will Learn Today
-            </h3>
+            </h2>
             <div className="grid sm:grid-cols-2 gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-semibold underline decoration-dotted">
               <a href="#intro" className="hover:text-emerald-500">1. Introduction by Founder Tanish</a>
               <a href="#why-farming" className="hover:text-emerald-500">2. Mushroom Farming Kyun? — The Reality Check</a>
@@ -464,9 +464,9 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
 
             {/* Profits matrix card */}
             <div className="p-6 md:p-8 rounded-[2rem] dark:bg-white/[0.02] bg-slate-100 border dark:border-white/5 border-black/5 space-y-4">
-              <h4 className="font-extrabold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+              <h3 className="font-extrabold text-slate-900 dark:text-white text-lg flex items-center gap-2">
                 💰 Net Return Matrix Breakdown
-              </h4>
+              </h3>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-sm">
                 <div className="bg-white/50 dark:bg-black/40 p-4 rounded-xl border dark:border-white/5 border-black/5 text-center">
                   <span className="text-slate-400 font-bold block mb-1 uppercase text-[10px]">Expected Total Yield</span>
@@ -526,9 +526,9 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
 
             {/* Highlights bullet list */}
             <div className="bg-gradient-to-r from-emerald-500/10 to-teal-500/10 p-6 rounded-3xl border border-emerald-500/20">
-              <h4 className="font-extrabold dark:text-white text-slate-900 mb-3 flex items-center gap-2">
+              <h3 className="font-extrabold dark:text-white text-slate-900 mb-3 flex items-center gap-2">
                 ✨ Key Highlights of Our Training Centers System
-              </h4>
+              </h3>
               <ul className="grid sm:grid-cols-2 gap-3 text-xs sm:text-sm dark:text-slate-300 text-slate-700 font-semibold font-medium">
                 <li className="flex items-center gap-2">🟢 <span className="text-emerald-500">✔</span> Sirf theory nahi — andhere and fruiting setup rooms mein real practical handworks</li>
                 <li className="flex items-center gap-2">🟢 <span className="text-emerald-500">✔</span> Substrate preparation, steam boiling, inoculation setups complete steps self practices</li>
@@ -593,7 +593,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               
               {/* UP */}
               <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-white border dark:border-white/5 border-black/5 shadow-sm space-y-3">
-                <h4 className="font-extrabold text-emerald-500 text-base">📍 Uttar Pradesh (UP)</h4>
+                <h3 className="font-extrabold text-emerald-500 text-base">📍 Uttar Pradesh (UP)</h3>
                 <ul className="text-xs dark:text-slate-300 text-slate-600 space-y-1.5 list-disc pl-4">
                   <li>Mushroom training center aliganj lucknow — Private centers available</li>
                   <li>Government center in Lucknow — PMKVY and KVK Lucknow coordinates</li>
@@ -605,7 +605,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
 
               {/* Bihar & Jharkhand */}
               <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-white border dark:border-white/5 border-black/5 shadow-sm space-y-3">
-                <h4 className="font-extrabold text-emerald-500 text-base">📍 Bihar & Jharkhand</h4>
+                <h3 className="font-extrabold text-emerald-500 text-base">📍 Bihar & Jharkhand</h3>
                 <ul className="text-xs dark:text-slate-300 text-slate-600 space-y-1.5 list-disc pl-4">
                   <li>Top apex center: Dr. Rajendra Prasad Central Agricultural University, Samastipur (Pusa)</li>
                   <li>KVK Patna — Private and subsidized government programs</li>
@@ -617,7 +617,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
 
               {/* Maharashtra */}
               <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-white border dark:border-white/5 border-black/5 shadow-sm space-y-3">
-                <h4 className="font-extrabold text-emerald-500 text-base">📍 Maharashtra</h4>
+                <h3 className="font-extrabold text-emerald-500 text-base">📍 Maharashtra</h3>
                 <ul className="text-xs dark:text-slate-300 text-slate-600 space-y-1.5 list-disc pl-4">
                   <li>Pune Centers — MPKV Rahuri and Pune private farm classes</li>
                   <li>Ahmednagar operators — Active commercial players</li>
@@ -629,7 +629,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
 
               {/* MP */}
               <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-white border dark:border-white/5 border-black/5 shadow-sm space-y-3">
-                <h4 className="font-extrabold text-emerald-500 text-base">📍 Madhya Pradesh (MP) & CG</h4>
+                <h3 className="font-extrabold text-emerald-500 text-base">📍 Madhya Pradesh (MP) & CG</h3>
                 <ul className="text-xs dark:text-slate-300 text-slate-600 space-y-1.5 list-disc pl-4">
                   <li>Organic Mushroom Farm, Jabalpur — Our verified training headquarters</li>
                   <li>Diamond Fresh Mushroom & Training Center, Gwalior</li>
@@ -641,7 +641,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
 
               {/* North & South India */}
               <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-white border dark:border-white/5 border-black/5 shadow-sm space-y-3 col-span-1 md:col-span-2">
-                <h4 className="font-extrabold text-emerald-500 text-base">📍 South India, Haryana & Rajasthan Details</h4>
+                <h3 className="font-extrabold text-emerald-500 text-base">📍 South India, Haryana & Rajasthan Details</h3>
                 <div className="grid sm:grid-cols-3 gap-4 text-xs dark:text-slate-300 text-slate-600">
                   <div>
                     <strong>South India:</strong> UAS Bangalore, Mysore private agricultural models, PJTSAU Hyderabad coordinates, plus TNAU Coimbatore campus modules.

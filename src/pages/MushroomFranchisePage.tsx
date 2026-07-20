@@ -45,7 +45,7 @@ export default function MushroomFranchisePage() {
                  <div className="w-16 h-16 rounded-2xl bg-primary-start/10 text-primary-start flex items-center justify-center mb-6">
                    <b.icon size={32} />
                  </div>
-                 <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">{b.title}</h3>
+                 <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">{b.title}</h2>
                  <p className="dark:text-slate-400 text-slate-600 leading-relaxed">{b.desc}</p>
                </div>
             ))}

@@ -36,7 +36,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
         <div className="w-20 h-20 bg-red-500/10 border border-red-500/20 text-red-500 rounded-full flex items-center justify-center mb-6">
           <HelpCircle size={44} />
         </div>
-        <h2 className="text-3xl font-extrabold text-white mb-2 uppercase tracking-tight">Variety Not Found</h2>
+        <h1 className="text-3xl font-extrabold text-white mb-2 uppercase tracking-tight">Variety Not Found</h1>
         <p className="text-slate-400 max-w-sm mb-8 font-medium">The requested mushroom variety setup details could not be loaded or is in preparation.</p>
         <Link to="/mushroom-types" className="btn-outline px-6 py-3 rounded-xl text-xs font-bold uppercase tracking-widest text-white">
           Back to Varieties
@@ -187,7 +187,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
               >
                 <div className="space-y-4 text-center">
                   <div>
-                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-1">{info.name}</h3>
+                    <h2 className="text-xl font-black uppercase tracking-tight text-white mb-1">{info.name}</h2>
                     <p className="text-xs font-mono text-primary-start italic">{info.scientific}</p>
                   </div>
                   
@@ -243,7 +243,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                     <Thermometer size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Temperature Variables</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Temperature Variables</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.temperature}</p>
                     <p className="text-xs text-slate-400 mt-1">Must maintain tight controls in respective cropping rooms.</p>
                   </div>
@@ -254,7 +254,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                     <Droplets size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Required Humidity (RH)</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Required Humidity (RH)</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.humidity}</p>
                     <p className="text-xs text-slate-400 mt-1">Regulated through modern high pressure misting systems.</p>
                   </div>
@@ -265,7 +265,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                     <Layers size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Production Substrate</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Production Substrate</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.substrate}</p>
                     <p className="text-xs text-slate-400 mt-1">Carefully analyzed agricultural bio-waste combinations.</p>
                   </div>
@@ -276,7 +276,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                     <Calendar size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Mycelium Incubation Time</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Mycelium Incubation Time</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.incubation}</p>
                     <p className="text-xs text-slate-400 mt-1">Conducted inside fully dark incubation chambers.</p>
                   </div>
@@ -287,7 +287,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                     <TrendingUp size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Active Cropping Phase</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Active Cropping Phase</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.cropping}</p>
                     <p className="text-xs text-slate-400 mt-1">Flushes occur in multiple automated picking cycles.</p>
                   </div>
@@ -298,7 +298,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                     <Inbox size={22} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Casing Layer Status</h4>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Casing Layer Status</h3>
                     <p className="text-sm font-bold text-white">{info.parameters.casing}</p>
                     <p className="text-xs text-slate-400 mt-1">{info.parameters.casing === "Required" ? "Essential for mycelium protection & pins activation." : "Can be bypassed safely to cut setup costs."}</p>
                   </div>
@@ -353,7 +353,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                       {sIdx + 1}
                     </div>
                     <div className="glass p-6 rounded-3xl border border-white/5 group-hover:border-primary-start/20 transition-all space-y-2">
-                      <h4 className="text-lg font-bold text-white">{step.Title}</h4>
+                      <h3 className="text-lg font-bold text-white">{step.Title}</h3>
                       <p className="text-sm text-slate-400 leading-relaxed font-semibold">{step.Desc}</p>
                     </div>
                   </motion.div>
@@ -533,7 +533,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc }: { defaultSlug?: string, 
                        <Sprout size={28} />}
                     </div>
                     <div>
-                      <h4 className="text-xs font-extrabold text-white group-hover:text-primary-start transition-colors leading-none uppercase">{m.name}</h4>
+                      <h3 className="text-xs font-extrabold text-white group-hover:text-primary-start transition-colors leading-none uppercase">{m.name}</h3>
                       <p className="text-[10px] font-bold italic text-slate-500 mt-1.5 leading-none">{m.scientific}</p>
                     </div>
                   </Link>

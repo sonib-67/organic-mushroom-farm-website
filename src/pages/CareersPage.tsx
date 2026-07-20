@@ -74,7 +74,7 @@ export default function CareersPage() {
             ].map((b, i) => (
                <div key={i} className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 hover:-translate-y-2 transition-transform">
                  <b.icon className="text-primary-start mb-4" size={32} />
-                 <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">{b.title}</h3>
+                 <h2 className="text-xl font-bold dark:text-white text-slate-900 mb-2">{b.title}</h2>
                  <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">{b.desc}</p>
                </div>
             ))}

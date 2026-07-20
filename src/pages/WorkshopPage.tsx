@@ -279,17 +279,17 @@ const WorkshopPage = () => {
           >
             <div className="flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 backdrop-blur-sm">
               <Users className="w-6 h-6 text-purple-400 mb-2 md:mb-3" />
-              <h3 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">5000+</h3>
+              <h2 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">5000+</h2>
               <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600">Students</p>
             </div>
             <div className="flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 backdrop-blur-sm">
               <MapPin className="w-6 h-6 text-blue-400 mb-2 md:mb-3" />
-              <h3 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Pan India</h3>
+              <h2 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Pan India</h2>
               <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600">Reach</p>
             </div>
             <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-center p-4 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-black/[0.02] border dark:border-white/5 border-black/5 backdrop-blur-sm">
               <Clock className="w-6 h-6 text-green-400 mb-2 md:mb-3" />
-              <h3 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">24x7</h3>
+              <h2 className="text-lg md:text-xl font-bold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">24x7</h2>
               <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600">Support</p>
             </div>
           </motion.div>
@@ -447,7 +447,7 @@ const WorkshopPage = () => {
                     {review.author.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm md:text-base text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">{review.author}</h4>
+                    <h3 className="font-bold text-sm md:text-base text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">{review.author}</h3>
                     <p className="text-xs md:text-sm text-blue-400">{review.role}</p>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ const WorkshopPage = () => {
             
             <div className="flex flex-col md:items-end justify-center">
                <div className="text-center md:text-right dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-2xl p-8 backdrop-blur-md max-w-sm">
-                 <h4 className="text-lg md:text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Ready to Start?</h4>
+                 <h3 className="text-lg md:text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Ready to Start?</h3>
                  <p className="dark:text-slate-400 text-slate-600 mb-6 text-sm">Join 5000+ others who have already transformed their lives.</p>
                  <button onClick={handlePayment} className="w-full py-3 bg-white text-black font-bold rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform">
                    Join Workshop Now
