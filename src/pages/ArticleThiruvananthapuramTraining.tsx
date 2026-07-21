@@ -84,10 +84,10 @@ const ArticleThiruvananthapuramTraining = () => {
             </div>
 
             <SEO 
-                title="കൂൺ കൃഷി Training & Farm Setup in Thiruvananthapuram" 
-                description="തിരുവനന്തപുരത്ത് മികച്ച കൂൺ കൃഷി (Mushroom farming) ആരംഭിക്കുക! ഞങ്ങൾ Practical training, Farm setup, ഒപ്പം മികച്ച Spawn എന്നിവ നൽകുന്നു."
+                title="തിരുവനന്തപുരം കൂൺ കൃഷി: Training & Farm Setup" 
+                description="Organic Mushroom Farm-നൊപ്പം തിരുവനന്തപുരത്ത് നിങ്ങളുടെ കൂൺ ബിസിനസ്സ് തുടങ്ങുക. മികച്ച Training, Farm Setup, ഒപ്പം നല്ല Spawn ഞങ്ങൾ നൽകുന്നു."
                 keywords="Mushroom cultivation in Kerala, Mushroom farming in Thiruvananthapuram, Mushroom spawn in Thiruvananthapuram, mushroom training center in Thiruvananthapuram, Technopark, Kazhakkoottam"
-                url="/mushroom-farming-thiruvananthapuram-kerala"
+                url="/cities/kerala/thiruvananthapuram"
                 schemas={tvmSchemas}
             />
             
@@ -112,23 +112,23 @@ const ArticleThiruvananthapuramTraining = () => {
                             <MapPin size={14} /> തിരുവനന്തപുരം പ്രത്യേകത (Trivandrum Special)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Thiruvananthapuram-ൽ ലാഭകരമായ (Profitable) Mushroom Farming Training & Setup
+                            തിരുവനന്തപുരം ജില്ലയിൽ Mushroom Farm Setup ഒപ്പം പ്രൊഫഷണൽ Training
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            Thiruvananthapuram-ൽ ഒരു വലിയ Mushroom Farm എങ്ങനെ ആരംഭിക്കാം?
+                            തിരുവനന്തപുരത്തെ സംരംഭകർക്ക് ഒരു മികച്ച കൂൺ കൃഷി ഗൈഡ്
                         </h2>
                     </div>
 
                     {/* Introduction */}
                     <div className="space-y-4">
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Thiruvananthapuram and the surrounding regions offer a highly favorable environment for agriculture. ഇവിടെ ഹോട്ടലുകളിലും സൂപ്പർമാർക്കറ്റുകളിലും (in hotels and supermarkets here) ഓയ്സ്റ്റർ, മിൽക്കി കൂണുകൾക്ക് വലിയ ആവശ്യക്കാരുണ്ട്. If you want a secure income, mushroom farming is a highly recommended agribusiness.
+                            കേരളത്തിൽ, പ്രത്യേകിച്ച് തിരുവനന്തപുരത്ത് (In Kerala, especially in Thiruvananthapuram), സംരംഭകർക്കും കർഷകർക്കും കുറഞ്ഞ ചിലവിൽ തുടങ്ങാൻ കഴിയുന്ന മികച്ച ബിസിനസ്സാണ് കൂൺ കൃഷി. Hotels, local markets, and supermarkets are actively looking for regular suppliers of fresh Oyster and Milky mushrooms. This is your chance to build a highly profitable agribusiness.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Organic Mushroom Farm നിങ്ങൾക്ക് നൽകുന്നു മികച്ച നേരിട്ടുള്ള പരിശീലനം (offline/online practical training). നിങ്ങളുടെ ബജറ്റ് അനുസരിച്ച് ഒരു മികച്ച ഫാം നിർമ്മിക്കാൻ (to build a great farm according to your budget) ഞങ്ങളുടെ farm setup services നിങ്ങളെ സഹായിക്കും. ഒപ്പം ഉയർന്ന നിലവാരമുള്ള വിത്തുകളും (spawn) ലഭ്യമാണ്.
+                            നിങ്ങളെ സഹായിക്കാൻ ഞങ്ങൾ തയ്യാറാണ്! നിങ്ങളുടെ സ്ഥല സൗകര്യത്തിനനുസരിച്ച് (According to your space availability), a complete turnkey farm setup and step-by-step practical training are provided by our experienced team. കൃത്യമായ താപനില നിലനിർത്താനുള്ള സജ്ജീകരണങ്ങളും (climate control setups) ഞങ്ങൾ ഒരുക്കിത്തരുന്നു.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
-                            കൂൺ ഉൽപ്പാദനം മാത്രമല്ല, തിരുവനന്തപുരത്തെ വിപണിയിൽ അത് എങ്ങനെ വിറ്റഴിക്കാം (sales and marketing strategies in the local market) എന്നതിനെക്കുറിച്ചും ഞങ്ങൾ കൃത്യമായ മാർഗ്ഗനിർദ്ദേശം നൽകുന്നു. Build your dream mushroom farm today!
+                            കൂടാതെ, ഉയർന്ന വിളവ് നൽകുന്ന കൂൺ വിത്തുകൾ (high-yielding premium mushroom spawn) നിങ്ങൾക്ക് ഞങ്ങളിൽ നിന്ന് ലഭിക്കും. ഉൽപ്പാദനത്തിന് ശേഷം അവ മാർക്കറ്റിൽ എവിടെ വിൽക്കണം (sales and marketing support) എന്ന ഗൈഡൻസും ഞങ്ങൾ ഉറപ്പുനൽകുന്നു. Take the first step today!
                         </p>
                     </div>
 

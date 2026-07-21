@@ -27,6 +27,16 @@ const PORT = 3000;
 
 app.use(cors());
 
+// Global SEO Header
+app.use((req, res, next) => {
+  if (req.path.startsWith('/payment-cancelled') || req.path.startsWith('/payment-success')) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  } else {
+    res.setHeader('X-Robots-Tag', 'index, follow');
+  }
+  next();
+});
+
 // Ahrefs Verification Endpoint
 app.get('/ahrefs_d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130', (req, res) => {
   res.setHeader('Content-Type', 'text/plain');

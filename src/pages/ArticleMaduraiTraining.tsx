@@ -57,8 +57,8 @@ const ArticleMaduraiTraining = () => {
             </div>
 
             <SEO 
-                title="Madurai-ல் Mushroom Farm Setup & Training" 
-                description="Start your profitable mushroom business in Madurai. Get expert காளான் வளர்ப்பு (cultivation) training, custom farm setup & premium spawn supply."
+                title="லாபகரமான காளான் வளர்ப்பு: Training & Setup Madurai" 
+                description="Organic Mushroom Farm brings you complete agribusiness support in Madurai. Join our expert offline classes for காளான் வளர்ப்பு and get turnkey farm setup solutions."
                 keywords="Mushroom farming Madurai, mushroom training Madurai, mushroom spawn Madurai, oyster mushroom Tamil Nadu, organic mushrooms farm"
                 url="/mushroom-farming-madurai"
                 schemas={customSchemas}
@@ -79,7 +79,7 @@ const ArticleMaduraiTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Expert Mushroom Farming Training & Farm Setup in Madurai 
+                            மதுரையில் வெற்றிகரமான Mushroom Farming: Training, Spawn & Setup
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushrooms Farm — Madurai, Tamil Nadu Special Edition
@@ -89,16 +89,16 @@ const ArticleMaduraiTraining = () => {
                     {/* Introduction */}
                     <div className="space-y-4">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            மதுரையில் Mushroom Business ஏன் தொடங்க வேண்டும்?
+                            Madurai-ல் Commercial காளான் விவசாயம் (Mushroom Farming) எப்படி செய்வது?
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-                            Madurai is a fast-growing city where the demand for Oyster and Button mushrooms in local hotels, restaurants, and supermarkets is increasing rapidly. நீங்களும் மதுரையில் ஒரு profitable agribusiness தொடங்க நினைத்தால், காளான் வளர்ப்பு (mushroom farming) ஒரு சிறந்த வாய்ப்பு.
+                            Madurai is rapidly becoming a hotspot for modern agriculture. மதுரையில் உள்ள முன்னணி ஹோட்டல்கள் மற்றும் மார்க்கெட்டுகளில் (In top hotels and markets in Madurai) fresh Oyster mushrooms-க்கு அதிக தட்டுப்பாடு மற்றும் தேவை உள்ளது. This makes commercial mushroom farming a highly lucrative agribusiness opportunity.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            Organic Mushroom Farm offers specialized practical training (பயிற்சி) and complete farm setup services for youth, women, and farmers in Madurai. மதுரை climate-க்கு ஏற்ற சிறந்த mushroom varieties மற்றும் high-quality spawn (காளான் வித்துக்கள்) நாங்கள் வழங்குகிறோம்.
+                            As a beginner, you need the right guidance to prevent losses. அதற்காகவே நாங்கள் (That is why we) provide advanced practical training and A-to-Z farm setup services customized specially for Madurai's weather. உங்கள் பண்ணைக்கே நேரடியாக தரமான காளான் வித்துக்கள் (Premium mushroom spawn delivered directly to your farm) நாங்கள் வழங்குகிறோம்.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            We don't just stop at training! உற்பத்தி செய்த காளான்களை Madurai local market-ல் எப்படி விற்பனை செய்வது (marketing and sales support) என்பதற்கான முழுமையான வழிகாட்டுதலையும் எங்கள் experts வழங்குகிறார்கள். Start your mushroom farm today!
+                            Your success is our priority. காளான்களை உற்பத்தி செய்த பிறகு, அதனை லோக்கல் மார்க்கெட்டில் எப்படி லாபகரமாக விற்பது (how to sell it profitably in the local market) என்பதற்கான பிரத்யேக marketing and sales strategies-ஐ நாங்கள் கற்றுத்தருகிறோம். Start building your agribusiness today!
                         </p>
                     </div>
 

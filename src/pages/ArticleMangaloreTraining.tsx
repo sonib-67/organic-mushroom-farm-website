@@ -86,10 +86,10 @@ const ArticleMangaloreTraining = () => {
             </div>
 
             <SEO 
-                title="ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಫಾರ್ಮಿಂಗ್ | Mushroom Farming in Mangalore (Tulu)" 
-                description="ಕುಡ್ಲದ ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲೆಗ್ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ದ ಅಗತ್ಯ ದಾಯೆ ಎಚ್ಚಾವೊಂದುಂಡು? ಮಶ್ರೂಮ್ ಫಾರ್ಮ್ ಸೆಟಪ್, ಟ್ರೈನಿಂಗ್, ಬೊಕ್ಕ ಕುಡ್ಲಡ್ ಮಶ್ರೂಮ್ ಬಿಸಿನೆಸ್ ಬಗ್ಗೆ ಸಂಪೂರ್ಣ ಮಾಹಿತಿ (ತುಳು)."
+                title="ಮಂಗಳೂರಿನಲ್ಲಿ Commercial Mushroom Setup & Training" 
+                description="Organic Mushroom Farm ನೊಂದಿಗೆ ಲಾಭದಾಯಕ agribusiness ಪ್ರಾರಂಭಿಸಿ! Get expert mushroom training, custom commercial farm setup, and premium spawn supply."
                 keywords="Mushroom farming Mangalore, organic stores Mangalore, mushroom spawn Mangalore, mushroom training Karnataka, Tulu mushroom business, ಕುಡ್ಲ ಮಶ್ರೂಮ್, ಉಡುಪಿ"
-                url="/mushroom-farming-mangalore-karnataka"
+                url="/cities/karnataka/mangalore"
                 schemas={customSchemas}
             />
             
@@ -108,10 +108,10 @@ const ArticleMangaloreTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Why Organic Stores in Mangalore Need Reliable Mushroom Suppliers
+                            ಮಂಗಳೂರಿನಲ್ಲಿ Profitable Mushroom Business: Farm Setup & Expert Training
                         </h1>
                         <h2 className="text-xl md:text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-4">
-                            ಮಂಗಳೂರು ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಗಳಿಗೆ ಮಶ್ರೂಮ್ ಸಪ್ಲೈಯರ್ಸ್‌ ಅಗತ್ಯ
+                            ಮಂಗಳೂರಿನಲ್ಲಿ B2B Mushroom Business ಏಕೆ ಲಾಭದಾಯಕ?
                         </h2>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushrooms Farm — Mangalore, Karnataka Special Edition (Tulu Blog)
@@ -120,23 +120,14 @@ const ArticleMangaloreTraining = () => {
 
                     {/* Section 1 */}
                     <div className="space-y-4">
-                        <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 flex items-center gap-2 border-l-4 border-emerald-500 pl-4">
-                            <TrendingUp className="text-emerald-500" /> The Rapid Growth of the Organic Food Market in Mangalore
-                        </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold text-lg">
-                            ಕುಡ್ಲಡ್ ಆರ್ಗ್ಯಾನಿಕ್ ಫುಡ್ ಮಾರ್ಕೆಟ್‌ದ ಮಲ್ಲ ಬುಳೆವಣಿಗೆ
+                            Mangalore's growing network of organic grocery stores, cafes, and coastal resorts has created a massive B2B demand for high-quality Oyster, Button, and Milky mushrooms. ಮಂಗಳೂರಿನ ಹವಾಮಾನವು (Mangalore's climate) ಈ ಕೃಷಿಗೆ (for this farming) ತುಂಬಾ ಸೂಕ್ತವಾಗಿದೆ. Building a dedicated supply chain here offers incredible ROI.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base">
-                            Over the last few years, the organic food market in Mangalore has exploded, becoming one of Karnataka's fastest-growing hubs for healthy eating and premium grocery products. Today's consumers actively seek out fresh, chemical-free, and protein-rich foods, creating a highly profitable opportunity for local mushroom farmers and suppliers.
-                        </p>
-                        <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800">
-                            ಕರಿನ ಒಂತೆ ವರ್ಸೊರ್ದು, ಕುಡ್ಲದ ಆರ್ಗ್ಯಾನಿಕ್ ಫುಡ್ ಮಾರ್ಕೆಟ್ ಬಾರಿ ಮಲ್ಲ ಮಟ್ಟಡ್ ಬುಳೆದಂಡ್, ಬೊಕ್ಕ ಕುಡ್ಲ ಕರ್ನಾಟಕದ ಒಂಜಿ ಮಲ್ಲ ಹೆಲ್ದಿ ಈಟಿಂಗ್ ಬೊಕ್ಕ ಪ್ರೀಮಿಯಂ ಗ್ರೋಸರಿ ಹಬ್ ಆದ್ ಬದಲಾತ್ಂಡ್. ಇತ್ತೆದ ಜನಕುಲು ಫ್ರೆಶ್, ಕೆಮಿಕಲ್-ಇಜ್ಜಂದಿನ ಬೊಕ್ಕ ಪ್ರೋಟೀನ್-ಇತ್ತಿನ ತಿನಸ್ಲೆನ್ ನಾಡೊಂದುಲ್ಲೆರ್. ಉಂದು ಲೋಕಲ್ ಮಶ್ರೂಮ್ ಕೃಷಿಕೆರೆಗ್ ಬೊಕ್ಕ ಸಪ್ಲೈಯರ್ಸ್‌ಗ್ ಎಡ್ಡೆ ಲಾಭದ ಅವಕಾಶನ್ ಉಂಡು ಮಲ್ತ್‌ದ್ ಕೊರ್ತುಂಡು.
+                            To help you tap into this local B2B market, Organic Mushroom Farm provides highly specialized practical training and end-to-end commercial farm setup services. ನಿಮ್ಮ ಬಜೆಟ್ ಮತ್ತು ಜಾಗಕ್ಕೆ ತಕ್ಕಂತೆ (According to your budget and space), we design the ideal infrastructure and supply top-tier mushroom spawn.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base">
-                            In prime residential and commercial hubs like Kadri, Hampankatta, Lalbagh, Kankanady, Bejai, Surathkal, Derebail, and surrounding villages, the demand for fresh organic mushrooms is skyrocketing across supermarkets, organic stores, and health-focused retail outlets.
-                        </p>
-                        <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl border border-emerald-100 dark:border-emerald-800">
-                            ಕದ್ರಿ, ಹಂಪನಕಟ್ಟೆ, ಲಾಲ್‌ಬಾಗ್, ಕಂಕನಾಡಿ, ಬಿಜೈ, ಸುರತ್ಕಲ್, ದೇರೆಬೈಲ್ ಬೊಕ್ಕ ಸುತ್ತಮುತ್ತದ ಗ್ರಾಮೊಲೆಡ್ ಸೂಪರ್‌ಮಾರ್ಕೆಟ್‌ಲು, ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್‌ಲು ಬೊಕ್ಕ ಹೆಲ್ತ್-ಫೋಕಸ್ಡ್ ರಿಟೇಲ್ ಔಟ್‌ಲೆಟ್‌ಲೆಡ್ ಫ್ರೆಶ್ ಆರ್ಗ್ಯಾನಿಕ್ ಮಶ್ರೂಮ್‌ದ ಬೇಡಿಕೆ ಬಾರಿ ಎಚ್ಚಾತ್ಂಡ್. ಕುಡ್ಲ ಬೊಕ್ಕ ಸುತ್ತಮುತ್ತದ ಜಾಗೆಲೆಡ್ ಆರೋಗ್ಯಕರವಾಯಿನ ತಿನಸ್‌ದ ಬೇಡಿಕೆ ಎಚ್ಚಾವೊಂದು ಇಪ್ಪುನೈರ್ದಾವರ ಮಶ್ರೂಮ್ ಉತ್ಪನ್ನೊಲೆಗ್ ಪೊಸ ಮಾರ್ಕೆಟ್‌ಲು ಸೃಷ್ಟಿ ಆವೊಂದುಂಡು.
+                            Growing the crop is only the first step. ಮಂಗಳೂರಿನ ಆರ್ಗ್ಯಾನಿಕ್ ಸ್ಟೋರ್ಗಳು ಮತ್ತು B2B ಕ್ಲೈಂಟ್ಗಳಿಗೆ (To organic stores and B2B clients in Mangalore) ಹೇಗೆ ಮಾರಾಟ ಮಾಡುವುದು (how to sell) ಎಂಬುದರ ಬಗ್ಗೆ our team provides proven marketing and sales strategies to ensure your stock is always sold out at good margins
                         </p>
                     </div>
 
