@@ -40,7 +40,7 @@ const ArticleOrganicMushroomHealthBenefits = () => {
                     </p>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-lg">
-                        Whether you are looking to boost your gym recovery, improve your gut health, or switch to sustainable food choices, incorporating varieties like Button, Oyster, and Milky mushrooms into your lifestyle can be a game-changer.
+                        Whether you are looking to boost your gym recovery, improve your gut health, or switch to sustainable food choices, incorporating varieties like <Link to="/services/button-mushroom" className="text-blue-500 hover:underline">Button</Link>, <Link to="/services/oyster-mushroom" className="text-blue-500 hover:underline">Oyster</Link>, and <Link to="/services/milky-mushroom" className="text-blue-500 hover:underline">Milky</Link> mushrooms into your lifestyle can be a game-changer.
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-lg">
@@ -60,19 +60,19 @@ const ArticleOrganicMushroomHealthBenefits = () => {
                             <li className="flex gap-4">
                                 <div className="mt-1"><CheckCircle2 className="text-green-500" size={20} /></div>
                                 <div className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                                    <strong className="dark:text-white text-slate-900">Oyster Mushrooms:</strong> Known for their beautiful shelf-like appearance and delicate texture, the Oyster mushroom benefits extend far beyond their culinary appeal. They are exceptionally rich in antioxidants, particularly ergothioneine, which protects cells from oxidative damage. They are also an excellent source of lean plant-based protein and dietary fiber.
+                                    <strong className="dark:text-white text-slate-900"><Link to="/services/oyster-mushroom" className="hover:text-blue-500 transition-colors">Oyster Mushrooms:</Link></strong> Known for their beautiful shelf-like appearance and delicate texture, the Oyster mushroom benefits extend far beyond their culinary appeal. They are exceptionally rich in antioxidants, particularly ergothioneine, which protects cells from oxidative damage. They are also an excellent source of lean plant-based protein and dietary fiber.
                                 </div>
                             </li>
                             <li className="flex gap-4">
                                 <div className="mt-1"><CheckCircle2 className="text-green-500" size={20} /></div>
                                 <div className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                                    <strong className="dark:text-white text-slate-900">Button Mushrooms:</strong> The most popular variety worldwide, fresh button mushrooms are packed with B-vitamins (like riboflavin, niacin, and pantothenic acid) which help convert food into usable energy. They are also one of the few natural non-animal sources of Vitamin D.
+                                    <strong className="dark:text-white text-slate-900"><Link to="/services/button-mushroom" className="hover:text-blue-500 transition-colors">Button Mushrooms:</Link></strong> The most popular variety worldwide, fresh button mushrooms are packed with B-vitamins (like riboflavin, niacin, and pantothenic acid) which help convert food into usable energy. They are also one of the few natural non-animal sources of Vitamin D.
                                 </div>
                             </li>
                             <li className="flex gap-4">
                                 <div className="mt-1"><CheckCircle2 className="text-green-500" size={20} /></div>
                                 <div className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                                    <strong className="dark:text-white text-slate-900">Milky Mushrooms:</strong> Native to warm climates, the health benefits of milky mushrooms include a remarkably high shelf life and a rich content of soluble fibers like beta-glucans. These compounds are scientifically proven to enhance immune cell function and regulate blood sugar levels.
+                                    <strong className="dark:text-white text-slate-900"><Link to="/services/milky-mushroom" className="hover:text-blue-500 transition-colors">Milky Mushrooms:</Link></strong> Native to warm climates, the health benefits of milky mushrooms include a remarkably high shelf life and a rich content of soluble fibers like beta-glucans. These compounds are scientifically proven to enhance immune cell function and regulate blood sugar levels.
                                 </div>
                             </li>
                         </ul>
@@ -134,7 +134,7 @@ const ArticleOrganicMushroomHealthBenefits = () => {
                             The environment in which a mushroom grows dictates its final quality. Because mushrooms are highly bio-absorptive—meaning they soak up everything from their surrounding substrate—it is crucial to source them from farms that prioritize purity.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            The best organic mushroom farm practices strictly avoid chemical fertilizers, synthetic pesticides, or artificial growth regulators. Instead, they utilize pasteurized organic agricultural waste (like clean straw or organic compost) and maintain pristine humidity and temperature controls. When you buy fresh mushrooms online from a certified organic source, you ensure that you are putting 100% pure nutrition into your body, free from chemical residues.
+                            The <Link to="/articles/turnkey-commercial-setup" className="text-blue-500 hover:underline">best organic mushroom farm</Link> practices strictly avoid chemical fertilizers, synthetic pesticides, or artificial growth regulators. Instead, they utilize pasteurized organic agricultural waste (like clean straw or organic compost) and maintain pristine humidity and temperature controls. When you buy fresh mushrooms online from a certified organic source, you ensure that you are putting 100% pure nutrition into your body, free from chemical residues.
                         </p>
                     </div>
 
@@ -167,8 +167,8 @@ const ArticleOrganicMushroomHealthBenefits = () => {
                             Whether you want to incorporate high-quality mushrooms into your diet or start your own organic farm, we provide premium products and expert training.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Link to="/products" className="bg-white text-blue-900 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-colors">
-                                Shop Organic Mushrooms
+                            <Link to="/spawn-seeds" className="bg-white text-blue-900 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 transition-colors">
+                                Shop Mushroom Spawn
                             </Link>
                             <Link to="/training" className="bg-white/20 backdrop-blur border border-white/30 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/30 transition-colors">
                                 Join Farming Training
