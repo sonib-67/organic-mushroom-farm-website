@@ -83,8 +83,8 @@ const ArticleMysuruTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming in Mysuru | Training, Spawn Supply & Farm Setup" 
-                description="Mushroom farming training, spawn supply, and farm setup in Mysuru, Vijayanagar, Hebbal, Kuvempu Nagar, Srirangapatna, Nanjangud, and surrounding areas."
+                title="Top Mushroom Farming Training & Farm Setup in Mysuru" 
+                description="Launch a successful agribusiness in Mysuru! We provide practical cultivation training, turnkey farm setup services, and premium quality spawn."
                 keywords="Mushroom farming Mysuru, mushroom training Mysuru, mushroom spawn Mysuru, farm setup Mysuru, organic mushrooms farm Karnataka"
                 url="/mushroom-farming-mysuru-karnataka"
                 schemas={customSchemas}
@@ -94,18 +94,21 @@ const ArticleMysuruTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2rem] md:rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-6 md:space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4 uppercase tracking-tight">
-                            Mysuru ನಲ್ಲಿ Mushroom Farming, Training, Spawn Supply ಮತ್ತು Mushroom Farm Setup
+                            Complete Mushroom Farming Training & Setup Solutions in Mysuru (ಮೈಸೂರು)
                         </h1>
                     </div>
 
+                    <h2 className="text-lg md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4 border-l-4 border-primary-start pl-4 uppercase">
+                        ಮೈಸೂರಿನಲ್ಲಿ Mushroom Business ಏಕೆ શરૂ ಮಾಡಬೇಕು?
+                    </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium text-sm md:text-base">
-                        ಅರಮನೆಗಳ ನಗರ ಮೈಸೂರು, ಇಂದು ಪ್ರವಾಸೋದ್ಯಮ ಮತ್ತು ಆರೋಗ್ಯಕರ ಆಹಾರ ಮಾರುಕಟ್ಟೆಯ ಬೆಳವಣಿಗೆಯೊಂದಿಗೆ ಒಂದು ಹೊಸ ಕೃಷಿ ಅವಕಾಶವನ್ನೂ ಕಂಡುಕೊಳ್ಳುತ್ತಿದೆ — ಅದೇ <strong><Link to="/blog" className="text-primary-start hover:underline">mushroom farming</Link></strong>. Vijayanagar, Hebbal, Kuvempu Nagar, Nazarbad, Hootagalli, Bogadi, Gokulam ಮತ್ತು Jayalakshmipuram ನಂತಹ ಪ್ರದೇಶಗಳಲ್ಲಿ ರೈತರು, ವಿದ್ಯಾರ್ಥಿಗಳು, ಮಹಿಳಾ ಉದ್ಯಮಿಗಳು ಮತ್ತು ಯುವ ವ್ಯಾಪಾರಿಗಳು ಈಗ mushroom farming ಅನ್ನು ಗಂಭೀರ ವ್ಯವಹಾರವಾಗಿ ಪರಿಗಣಿಸುತ್ತಿದ್ದಾರೆ.
+                        Mysuru is an excellent hub for agribusiness. ಮೈಸೂರಿನಲ್ಲಿ (in Mysuru) hotels, restaurants, and local markets have a huge growing demand for fresh Oyster and Button mushrooms. ನೀವು profitable agribusiness start ಮಾಡಲು ಯೋಚಿಸುತ್ತಿದ್ದರೆ, mushroom farming is one of the best and low-investment options.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium text-sm md:text-base">
-                        <strong><Link to="/" className="text-primary-start hover:underline font-bold">Organic Mushrooms Farm</Link></strong> ಆಗಿ ನಾವು ಮೈಸೂರು ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ Srirangapatna, Nanjangud, Hunsur, KRS, Yelwala, Kadakola, Belavadi ಮತ್ತು Hinkal ಪ್ರದೇಶಗಳ ಜನರಿಗೆ <strong><Link to="/articles/turnkey-commercial-setup" className="text-primary-start hover:underline font-bold">farm setup</Link>, <Link to="/spawn-seed" className="text-primary-start hover:underline font-bold">spawn supply</Link>, <Link to="/training" className="text-primary-start hover:underline font-bold">online/offline training</Link>, fresh ಮತ್ತು dry mushroom sale, <Link to="/book-consultant" className="text-primary-start hover:underline font-bold">consultancy</Link> ಮತ್ತು <Link to="/turnkey-projects" className="text-primary-start hover:underline font-bold">turnkey project</Link></strong> ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತಿದ್ದೇವೆ. ಈ ಪುಟದಲ್ಲಿ ನಾವು ಮೈಸೂರಿನಲ್ಲಿ mushroom business ಅನ್ನು ಹೇಗೆ ಪ್ರಾರಂಭಿಸುವುದು, ಅದನ್ನು full-time ವ್ಯವಹಾರವಾಗಿ ಹೇಗೆ ಬೆಳೆಸುವುದು ಎಂಬುದನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ನೋಡೋಣ.
+                        Organic Mushroom Farm provides hands-on practical cultivation training (ತರಬೇತಿ) and complete custom farm setup for beginners in Mysuru. ಮೈಸೂರಿನ ಹವಾಮಾನಕ್ಕೆ (for Mysuru's climate) suitable ಆಗಿರುವ mushroom varieties and premium quality spawn (ಮಶ್ರೂಮ್ ಬೀಜಗಳು - biyane) ನಾವು supply ಮಾಡುತ್ತೇವೆ.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium text-sm md:text-base">
-                        Agar aap Mysuru ya aas-paas ke kisi area se ho aur mushroom farming ko ek full-time business banana chahte ho, to yeh guide bilkul aapke liye hai — practical aur local jaankari ke saath.
+                        Our support doesn't end with production! ಬೆಳೆದ ಮಶ್ರೂಮ್ಗಳನ್ನು Mysuru local market, supermarkets, and restaurants ಗೆ ಹೇಗೆ sell ಮಾಡುವುದು (marketing support and sales strategy) ಎಂಬುದರ ಬಗ್ಗೆ full professional guidance ನಾವು ನೀಡುತ್ತೇವೆ. Start your journey today!
                     </p>
 
                     <hr className="border-slate-200 dark:border-white/10" />

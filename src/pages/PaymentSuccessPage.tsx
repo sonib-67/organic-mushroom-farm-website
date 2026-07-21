@@ -179,6 +179,7 @@ Thank you.`;
           <h1 className="text-2xl md:text-4xl font-black dark:text-white text-slate-900 tracking-tight mb-2 md:mb-3 relative z-10">
             Payment Successful 🎉
           </h1>
+          <h2>Done</h2>
           <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-1 font-medium">Thank you for joining our program</p>
           <p className="text-emerald-500 dark:text-emerald-400 text-xs md:text-sm mb-5 font-bold uppercase tracking-wider">{courseOrServiceName}</p>
 

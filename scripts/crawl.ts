@@ -31,25 +31,8 @@ function extractMatches(filePath: string, regex: RegExp): string[] {
 
 const allPaths = new Set<string>();
 
-const legacyRoutesToSkip = [
-  "/cities",
-  "/project-specs",
-  "/spawn-seeds",
-  "/compost-unit",
-  "/blog/mushroom-farming-training-online-offline-certificate",
-  "/blog/oyster-mushroom-cultivation-india",
-  "/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026",
-  "/blog/turnkey-commercial-setup",
-  "/training/online",
-  "/training/offline",
-  "/site-visit-consultation",
-  "/services/milky-mushroom",
-  "/services/turnkey-setup",
-  "/services/oyster-mushroom",
-  "/services/button-mushroom",
-  "/articles/oyster-mushroom-cultivation-process",
-  "/articles/white-button-mushroom-business-plan",
-  "/operations"
+const legacyRoutesToSkip: string[] = [
+  // User wants these in the sitemap now!
 ];
 
 const staticPaths = getAppRoutes().filter(p => !legacyRoutesToSkip.includes(p));

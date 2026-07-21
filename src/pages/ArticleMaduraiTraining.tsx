@@ -57,10 +57,10 @@ const ArticleMaduraiTraining = () => {
             </div>
 
             <SEO 
-                title="Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும் முழுமையான வழிகாட்டுதல்" 
-                description="Start your mushroom farming business in Madurai, Tamil Nadu. Get professional training, premium spawn, customized farm setup, and complete marketing support."
+                title="Madurai-ல் Mushroom Farm Setup & Training" 
+                description="Start your profitable mushroom business in Madurai. Get expert காளான் வளர்ப்பு (cultivation) training, custom farm setup & premium spawn supply."
                 keywords="Mushroom farming Madurai, mushroom training Madurai, mushroom spawn Madurai, oyster mushroom Tamil Nadu, organic mushrooms farm"
-                url="/mushroom-farming-madurai-tamil-nadu"
+                url="/mushroom-farming-madurai"
                 schemas={customSchemas}
             />
             
@@ -79,7 +79,7 @@ const ArticleMaduraiTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Madurai Mushroom Hub: பயிற்சி, ஸ்பான் மற்றும் முழுமையான வழிகாட்டுதல்
+                            Expert Mushroom Farming Training & Farm Setup in Madurai 
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushrooms Farm — Madurai, Tamil Nadu Special Edition
@@ -88,11 +88,17 @@ const ArticleMaduraiTraining = () => {
 
                     {/* Introduction */}
                     <div className="space-y-4">
+                        <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
+                            மதுரையில் Mushroom Business ஏன் தொடங்க வேண்டும்?
+                        </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-                            மதுரை என்றாலே நமக்கு முதலில் நினைவுக்கு வருவது மீனாட்சி அம்மன் கோவில், ஜிகர்தண்டா, மற்றும் "தூங்கா நகரம்" என்ற அடையாளம். ஆனால் இப்போது மதுரையில் ஒரு புதிய, அமைதியான business trend வளர்ந்து வருகிறது — <Link to="/blog" className="text-emerald-500 hover:underline font-semibold">mushroom farming</Link>. மட்டுத்தாவணி, அண்ணா நகர், KK நகர், திருநகர், தேவாலயம் தெரு, செல்லூர், திருப்பரங்குன்றம் முதல் ஓத்தக்கடை, அலங்காநல்லூர், வடிபட்டி வரை உள்ள கிராமங்களில் இருந்தும் இளைஞர்கள், விவசாயிகள், பட்டதாரிகள், பெண் தொழில்முனைவோர் இப்போது காளான் சாகுபடியை ஒரு serious income opportunity ஆக பார்க்கிறார்கள்.
+                            Madurai is a fast-growing city where the demand for Oyster and Button mushrooms in local hotels, restaurants, and supermarkets is increasing rapidly. நீங்களும் மதுரையில் ஒரு profitable agribusiness தொடங்க நினைத்தால், காளான் வளர்ப்பு (mushroom farming) ஒரு சிறந்த வாய்ப்பு.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            இந்த பக்கம் <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> சார்பாக, மதுரை மற்றும் சுற்றுவட்டார பகுதிகளில் <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">mushroom farm setup</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, fresh மற்றும் dry mushroom sale, மற்றும் ஒரு சரியான <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">business plan & consultancy</Link> தேடும் அனைவருக்கும் தயார் செய்யப்பட்டுள்ளது.
+                            Organic Mushroom Farm offers specialized practical training (பயிற்சி) and complete farm setup services for youth, women, and farmers in Madurai. மதுரை climate-க்கு ஏற்ற சிறந்த mushroom varieties மற்றும் high-quality spawn (காளான் வித்துக்கள்) நாங்கள் வழங்குகிறோம்.
+                        </p>
+                        <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
+                            We don't just stop at training! உற்பத்தி செய்த காளான்களை Madurai local market-ல் எப்படி விற்பனை செய்வது (marketing and sales support) என்பதற்கான முழுமையான வழிகாட்டுதலையும் எங்கள் experts வழங்குகிறார்கள். Start your mushroom farm today!
                         </p>
                     </div>
 

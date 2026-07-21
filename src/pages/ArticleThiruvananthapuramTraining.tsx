@@ -84,10 +84,10 @@ const ArticleThiruvananthapuramTraining = () => {
             </div>
 
             <SEO 
-                title="തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn & Setup | Kerala Guide" 
-                description="Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur turnkey mushroom projects in Thiruvananthapuram, Kerala."
+                title="കൂൺ കൃഷി Training & Farm Setup in Thiruvananthapuram" 
+                description="തിരുവനന്തപുരത്ത് മികച്ച കൂൺ കൃഷി (Mushroom farming) ആരംഭിക്കുക! ഞങ്ങൾ Practical training, Farm setup, ഒപ്പം മികച്ച Spawn എന്നിവ നൽകുന്നു."
                 keywords="Mushroom cultivation in Kerala, Mushroom farming in Thiruvananthapuram, Mushroom spawn in Thiruvananthapuram, mushroom training center in Thiruvananthapuram, Technopark, Kazhakkoottam"
-                url="/cities/kerala/thiruvananthapuram"
+                url="/mushroom-farming-thiruvananthapuram-kerala"
                 schemas={tvmSchemas}
             />
             
@@ -112,26 +112,23 @@ const ArticleThiruvananthapuramTraining = () => {
                             <MapPin size={14} /> തിരുവനന്തപുരം പ്രത്യേകത (Trivandrum Special)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            തിരുവനന്തപുരത്ത് Mushroom Farming, Training, Spawn Supply, Consultancy & Setup
+                            Thiruvananthapuram-ൽ ലാഭകരമായ (Profitable) Mushroom Farming Training & Setup
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            തിരുവനന്തപുരത്ത് കമേഴ്സ്യൽ മഷ്റൂം ബിസിനസ് ആരംഭിക്കുന്നതിനുള്ള ഗൈഡ്
+                            Thiruvananthapuram-ൽ ഒരു വലിയ Mushroom Farm എങ്ങനെ ആരംഭിക്കാം?
                         </h2>
                     </div>
 
                     {/* Introduction */}
                     <div className="space-y-4">
-                        <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            ആമുഖം
-                        </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            തിരുവനന്തപുരം കേരളത്തിന്റെ തലസ്ഥാനം മാത്രമല്ല, ദക്ഷിണേന്ത്യയിലെ ഏറ്റവും വേഗത്തിൽ വളരുന്ന ടെക്നോളജി നഗരങ്ങളിലൊന്നു കൂടിയാണ്. Technopark-ന്റെ വളർച്ചയോടെ, വിദ്യാഭ്യാസ സ്ഥാപനങ്ങൾ, ആശുപത്രികൾ, പ്രീമിയം റെസിഡൻഷ്യൽ കമ്യൂണിറ്റികൾ എന്നിവയോടൊപ്പം ആരോഗ്യകരമായ ഭക്ഷണത്തിന്റെ ആവശ്യകതയും വർഷം തോറും വർദ്ധിച്ചുവരികയാണ്. Kazhakkoottam, Kowdiar, Pattom, Vazhuthacaud, Kesavadasapuram, Sreekaryam, Technopark, Peroorkada പോലുള്ള സ്ഥലങ്ങളിൽ ഇന്ന് <strong>mushroom farming</strong> വീടുകൾക്കും കഫേകൾക്കും ആരോഗ്യബോധമുള്ള ഉപഭോക്താക്കൾക്കും പ്രിയപ്പെട്ട ഒരു choice ആയി മാറുകയാണ്.
+                            Thiruvananthapuram and the surrounding regions offer a highly favorable environment for agriculture. ഇവിടെ ഹോട്ടലുകളിലും സൂപ്പർമാർക്കറ്റുകളിലും (in hotels and supermarkets here) ഓയ്സ്റ്റർ, മിൽക്കി കൂണുകൾക്ക് വലിയ ആവശ്യക്കാരുണ്ട്. If you want a secure income, mushroom farming is a highly recommended agribusiness.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Organic Mushrooms Farm എന്ന നിലയിൽ ഞങ്ങൾ തിരുവനന്തപുരത്തും അതിനടുത്തുള്ള Neyyattinkara, Attingal, Varkala, Kattakada, Vizhinjam, Balaramapuram, Vellanad, Kadinamkulam തുടങ്ങിയ പ്രദേശങ്ങളിലെ കർഷകർക്കും വിദ്യാർത്ഥികൾക്കും IT പ്രൊഫഷണലുകൾക്കും <strong>farm setup, spawn supply, online/offline training, fresh, dry mushroom sale, consultancy, turnkey project</strong> എന്നീ സേവനങ്ങൾ നൽകുന്നു. ഈ പേജിൽ തിരുവനന്തപുരത്ത് mushroom business എങ്ങനെ തുടങ്ങാം എന്ന് വിശദമായി നോക്കാം.
+                            Organic Mushroom Farm നിങ്ങൾക്ക് നൽകുന്നു മികച്ച നേരിട്ടുള്ള പരിശീലനം (offline/online practical training). നിങ്ങളുടെ ബജറ്റ് അനുസരിച്ച് ഒരു മികച്ച ഫാം നിർമ്മിക്കാൻ (to build a great farm according to your budget) ഞങ്ങളുടെ farm setup services നിങ്ങളെ സഹായിക്കും. ഒപ്പം ഉയർന്ന നിലവാരമുള്ള വിത്തുകളും (spawn) ലഭ്യമാണ്.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
-                            Agar aap Thiruvananthapuram ya aas-paas ke kisi bhi area se ho aur IT job ke saath ek side business shuru karna chahte ho, to yeh guide bilkul aapke liye hai।
+                            കൂൺ ഉൽപ്പാദനം മാത്രമല്ല, തിരുവനന്തപുരത്തെ വിപണിയിൽ അത് എങ്ങനെ വിറ്റഴിക്കാം (sales and marketing strategies in the local market) എന്നതിനെക്കുറിച്ചും ഞങ്ങൾ കൃത്യമായ മാർഗ്ഗനിർദ്ദേശം നൽകുന്നു. Build your dream mushroom farm today!
                         </p>
                     </div>
 

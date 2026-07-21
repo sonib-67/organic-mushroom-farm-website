@@ -84,10 +84,10 @@ const ArticleGuwahatiTraining = () => {
             </div>
 
             <SEO 
-                title="Professional Mushroom Farming Training Guwahati Assam" 
-                description="Mushroom farm setup, spawn supply, online/offline training, fresh/dry mushroom sale, and turnkey projects in Guwahati, Assam. Start your commercial farm today!"
+                title="গুৱাহাটীত Best Mushroom Farm Setup & Training" 
+                description="Start your agribusiness in Guwahati! আমি আগবঢ়াইছোঁ expert cultivation training, complete farm setup, আৰু premium quality spawn (বীজ) যোগান।"
                 keywords="Mushroom farming Guwahati, mushroom training Guwahati, mushroom spawn Assam, oyster mushroom Guwahati, button mushroom Guwahati, organic mushrooms farm"
-                url="/mushroom-farming-guwahati-assam"
+                url="/cities/assam/guwahati"
                 schemas={customSchemas}
             />
             
@@ -106,7 +106,7 @@ const ArticleGuwahatiTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Guwahati ত Mushroom Farming, Training, Spawn Supply আৰু Consultancy
+                            গুৱাহাটীত (Guwahati) Professional Mushroom Farming Training আৰু Farm Setup
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushrooms Farm — Guwahati, Assam Special Edition
@@ -116,17 +116,17 @@ const ArticleGuwahatiTraining = () => {
                     {/* Introduction */}
                     <div className="space-y-4">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            Introduction
+                            গুৱাহাটীত Mushroom Business কিয় আৰম্ভ কৰিব?
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            গুৱাহাটী, অসমৰ সৰ্ববৃহৎ চহৰ, আজিকালি এটা নতুন কৃষি সুযোগৰ কেন্দ্ৰ হৈ পৰিছে — সেয়া হ'ল <strong>mushroom farming</strong>। ব্ৰহ্মপুত্ৰৰ পাৰত থকা এই চহৰখনৰ আৰ্দ্ৰ আৱহাৱা, ভাল পানী সম্পদ আৰু ঘনবসতিপূৰ্ণ বজাৰ ব্যৱস্থাই ইয়াক oyster mushroom, button mushroom, milky mushroom আৰু এতিয়া medicinal mushroom খেতিৰ বাবেও এক আদৰ্শ ঠাই কৰি তুলিছে। Beltola ৰ ঘৰুৱা কৃষকৰ পৰা Six Mile আৰু Zoo Road ৰ ব্যৱসায়ীলৈকে, বহুতেই এতিয়া mushroom farming ক এক গুৰুত্বপূৰ্ণ আয়ৰ উৎস হিচাপে দেখিছে।
+                            Assam and Northeast India have a massive demand for fresh mushrooms. গুৱাহাটীত (in Guwahati) থকা হোটেল, ৰেষ্টুৰেণ্ট আৰু স্থানীয় বজাৰত Oyster আৰু Button মাচৰুমৰ চাহিদা দ্ৰুতভাৱে বৃদ্ধি পাইছে। If you are looking for a profitable business, mushroom farming is a great choice.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> হিচাপে আমি গুৱাহাটী আৰু ইয়াৰ চাৰিওফালে থকা Dispur, Maligaon, Jalukbari, Chandmari, Pan Bazar, North Guwahati, Rangia, Hajo আৰু Sonapur সমূহ অঞ্চলৰ কৃষক, ছাত্ৰ, গৃহিণী আৰু নতুন উদ্যোগীসকলক <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh আৰু dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> আৰু <Link to="/articles/turnkey-mushroom-farm-setup-india" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> সেৱা আগবঢ়াই আহিছোঁ। এই পৃষ্ঠাটোত আমি বিতংভাৱে আলোচনা কৰিম যে গুৱাহাটীত mushroom business কেনেকৈ আৰম্ভ কৰিব লাগে, কি কি সুবিধা আছে, আৰু আপুনি কেনেকৈ আমাৰ সৈতে যোগাযোগ কৰি লাভান্বিত হ'ব পাৰে।
+                            Organic Mushroom Farm-এ গুৱাহাটীৰ কৃষক, মহিলা আৰু নিবনুৱা যুৱক-যুৱতীসকলৰ বাবে practical cultivation training (প্ৰশিক্ষণ) আৰু complete custom farm setup ৰ সুবিধা লৈ আহিছে। অসমৰ জলবায়ুৰ উপযোগী মাচৰুমৰ প্ৰজাতি আৰু উচ্চ মানদণ্ডৰ spawn (মাচৰুমৰ বীজ) আমি যোগান ধৰোঁ।
                         </p>
-                        <div className="p-4 rounded-xl dark:bg-emerald-950/30 bg-emerald-50 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
-                            Agar aap Guwahati ya aas-paas ke kisi bhi area se hain aur mushroom farming shuru karna chahte hain, to yeh guide aapke liye hi likha gaya hai — pura practical, local aur real jankari ke saath.
-                        </div>
+                        <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
+                            We provide full end-to-end support! উৎপাদিত মাচৰুম গুৱাহাটীৰ বজাৰত কেনেদৰে বিক্ৰী কৰিব (marketing and sales strategy), তাৰ সম্পূৰ্ণ প্ৰফেচনেল গাইডেন্স আমাৰ এক্সপাৰ্টসকলে প্ৰদান কৰে। Start your farm setup journey today!
+                        </p>
                     </div>
 
                     {/* Section 1 */}

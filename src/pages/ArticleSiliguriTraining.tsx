@@ -84,10 +84,10 @@ const ArticleSiliguriTraining = () => {
             </div>
 
             <SEO 
-                title="Siliguri Mushroom Farming, Training, Spawn & Setup | West Bengal Guide" 
-                description="Mushroom farm setup, spawn supply, online aur offline training, fresh aur dry mushroom sale, consultancy aur turnkey mushroom projects in Siliguri, West Bengal."
+                title="Siliguri-তে সেরা Mushroom Training ও Farm Setup" 
+                description="উত্তরবঙ্গে (North Bengal) মাশরুম চাষ করে লাভজনক ব্যবসা গড়ুন! Siliguri-তে প্র্যাক্টিক্যাল Training, কমার্শিয়াল Farm Setup এবং Spawn Supply পান।"
                 keywords="Mushroom cultivation in West Bengal, Mushroom farming in Siliguri, Mushroom spawn in Siliguri, mushroom training center in Siliguri, Sevoke Road, Pradhan Nagar"
-                url="/cities/west-bengal/siliguri"
+                url="/mushroom-farming-siliguri"
                 schemas={siliguriSchemas}
             />
             
@@ -112,23 +112,23 @@ const ArticleSiliguriTraining = () => {
                             <MapPin size={14} /> শিলিগুড়ি বিশেষ (Siliguri Special)
                         </div>
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            শিলিগুড়িতে Mushroom Farming, Training, Spawn Supply এবং Consultancy Guide
+                            শিলিগুড়িতে মাশরুম চাষের সম্পূর্ণ গাইড: Training, Setup ও Consultancy
                         </h1>
                         <h2 className="text-lg md:text-xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                            শিলিগুড়িতে কমার্শিয়াল মাশরুম ব্যবসা শুরু করার সহজ গাইড
+                            Siliguri-তে Commercial Mushroom Business কীভাবে করবেন?
                         </h2>
                     </div>
 
                     {/* Introduction */}
                     <div className="space-y-4">
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            শিলিগুড়িকে বলা হয় <strong>&quot;Gateway to North-East India&quot;</strong> — কারণ এই শহর পশ্চিমবঙ্গকে সিকিম, আসাম, ভুটান এবং নেপালের সাথে সংযুক্ত করে। এই কৌশলগত অবস্থানের কারণে শিলিগুড়ি আজ একটি গুরুত্বপূর্ণ বাণিজ্যিক এবং লজিস্টিক্স হাব হয়ে উঠেছে। Sevoke Road, Pradhan Nagar, Hakim Para, Hill Cart Road, Matigara, Champasari, Salugara এবং Ashram Para-র মতো এলাকাগুলিতে এখন <strong>mushroom farming</strong> কেবল একটি চাষবাস নয়, বরং একটি export-quality business হিসেবে গড়ে উঠছে।
+                            Siliguri and the entire North Bengal region have the perfect weather for mushroom cultivation. শিলিগুড়ির লোকাল মার্কেট থেকে শুরু করে বড় বড় রেস্টুরেন্টে মাশরুমের ব্যাপক চাহিদা রয়েছে। If you want a high-ROI agribusiness, this is the right time to start.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Mushroom entrepreneur-দের জন্য এর মানে হলো — একটি শহর থেকেই একাধিক আঞ্চলিক বাজারে প্রবেশাধিকার। Organic Mushrooms Farm হিসেবে আমরা শিলিগুড়ি এবং আশেপাশের Bagdogra, Jalpaiguri, Kurseong, Islampur, Naxalbari, Phansidewa, Matigara এবং Fulbari অঞ্চলের কৃষক, ছাত্র এবং উদ্যোক্তাদের <strong>farm setup, spawn supply, online/offline training, fresh এবং dry mushroom sale, consultancy এবং turnkey project</strong> পরিষেবা প্রদান করছি।
+                            Organic Mushroom Farm আপনাকে দিচ্ছে হাতে-কলমে (hands-on) মাশরুম চাষের ট্রেনিং। শুধু তাই নয়, আপনার বাজেট অনুযায়ী একটি পারফেক্ট commercial farm setup করতে আমরা সম্পূর্ণ সাহায্য করি, সাথে দিচ্ছি হাই-কোয়ালিটি মাশরুম স্পন (Spawn/বীজ)।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
-                            Agar aap Siliguri ya North Bengal ke kisi bhi area se ho aur mushroom business ko regional aur cross-border level tak le jaana chahte ho, to yeh guide bilkul aapke liye likha gaya hai।
+                            মাশরুম উৎপাদন করার পর সেটা কোথায় বিক্রি করবেন? Don't worry! শিলিগুড়ির বাজারে মাশরুম সেলস এবং মার্কেটিংয়ের (marketing support) সম্পূর্ণ গাইডেন্স আমরা প্রোভাইড করি। Start your commercial journey today!
                         </p>
                     </div>
 

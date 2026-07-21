@@ -83,10 +83,10 @@ const ArticleVadodaraTraining = () => {
             </div>
 
             <SEO 
-                title="Vadodara Mushroom Farm Setup, Training & Spawn Supply | Complete Solutions" 
-                description="Start your mushroom farming and supply business in Vadodara with Organic Mushrooms Farm. Get professional online & offline training, premium spawn, customized farm setup, and complete restaurant marketing support."
+                title="Vadodara's Best Mushroom Farm Setup & Cultivation Training" 
+                description="Start your mushroom agribusiness in Vadodara! We offer expert cultivation training, commercial farm setup solutions, and high-quality spawn (biyaran)."
                 keywords="Mushroom farming Vadodara, mushroom training Vadodara, mushroom spawn Gujarat, oyster mushroom Vadodara, button mushroom Vadodara, organic mushrooms farm"
-                url="/mushroom-farming-vadodara-gujarat"
+                url="/mushroom-farming-vadodara"
                 schemas={customSchemas}
             />
             
@@ -105,7 +105,7 @@ const ArticleVadodaraTraining = () => {
                 <div className="glass p-6 md:p-12 rounded-[2.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center border-b dark:border-white/10 border-black/10 pb-8">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold dark:text-white text-slate-900 leading-tight mb-4">
-                            Vadodara Mushroom Farm Setup, Training & Spawn Supply | Complete Solutions
+                            Advanced Mushroom Farming Training & Commercial Setup in Vadodara
                         </h1>
                         <p className="text-brand-blue font-semibold tracking-wider uppercase text-xs md:text-sm">
                             Organic Mushrooms Farm — Vadodara, Gujarat Special Edition
@@ -115,10 +115,13 @@ const ArticleVadodaraTraining = () => {
                     {/* Introduction */}
                     <div className="space-y-4">
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-                            વડોદરા, ગુજરાતનું સાંસ્કૃતિક પાટનગર, હવે ફૂડ અને હોસ્પિટાલિટી ઈન્ડસ્ટ્રીના ઝડપી વિકાસ માટે પણ ઓળખાવા લાગ્યું છે. Alkapuri, Fatehgunj, Manjalpur, Gotri, Karelibaug, Akota, Waghodia Road અને Sayajigunj જેવા વિસ્તારોમાં restaurant, café, cloud kitchen અને hotel ની સંખ્યા સતત વધી રહી છે — અને એની સાથે mushroom ની માંગ પણ.
+                            વડોદરા (બરોડા) એક ઝડપથી વિકસતું શહેર છે, જ્યાં લોકોના આહારમાં અને મોટી હોટેલ્સમાં ઓઇસ્ટર અને બટન મશરૂમની માંગ સતત વધી રહી છે. જો તમે વડોદરામાં તમારો પોતાનો નફાકારક વ્યવસાય શરૂ કરવા માંગતા હોવ, તો મશરૂમની ખેતી એક શ્રેષ્ઠ વિકલ્પ છે.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            <Link to="/" className="text-emerald-500 hover:underline font-semibold">Organic Mushrooms Farm</Link> તરીકે અમે વડોદરા અને આસપાસના Halol, Dabhoi, Padra, Karjan, Sevasi, Bhayli, Vemali અને Waghodia Rural વિસ્તારના ખેડૂતો, વિદ્યાર્થીઓ, મહિલા ઉદ્યોગસાહસિકો અને નવા વ્યવસાયિકોને <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">farm setup</Link>, <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn supply</Link>, <Link to="/training" className="text-emerald-500 hover:underline font-semibold">online/offline training</Link>, fresh અને dry mushroom sale, <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> અને <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> સેવા આપીએ છીએ. આ પેજ પર આપણે જોઈશું કે વડોદરામાં mushroom business કેવી રીતે શરૂ કરવો, કઈ તકો છે અને અમારી સાથે કેવી રીતે જોડાવું.
+                            અમે (Organic Mushroom Farm) વડોદરાના યુવાનો, ખેડૂતો અને મહિલાઓ માટે ખાસ પ્રેક્ટિકલ ટ્રેનિંગ (Mushroom Training) અને સંપૂર્ણ ફાર્મ સેટઅપની (Farm Setup) સુવિધા લઈને આવ્યા છીએ. વડોદરાના આબોહવા (Climate) મુજબ કયું મશરૂમ શ્રેષ્ઠ રહેશે, તેનું માર્ગદર્શન અને ઉચ્ચ ગુણવત્તાવાળા મશરૂમ બિયારણ (Premium Spawn) અમે પૂરા પાડીએ છીએ.
+                        </p>
+                        <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
+                            માત્ર ખેતી જ નહીં, પરંતુ તૈયાર થયેલા મશરૂમને વડોદરાના લોકલ માર્કેટમાં, રેસ્ટોરન્ટ્સ અને સુપરમાર્કેટમાં કેવી રીતે વેચવું (Marketing Support), તેની સંપૂર્ણ વ્યાવસાયિક તાલીમ પણ અમારા નિષ્ણાતો દ્વારા આપવામાં આવે છે. આજે જ તમારું પોતાનું મશરૂમ ફાર્મ શરૂ કરો!
                         </p>
                         <div className="p-4 rounded-xl dark:bg-emerald-950/30 bg-emerald-50 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
                             Agar aap Vadodara ya aas-paas ke kisi area se hain aur mushroom supply ya farming business shuru karna chahte hain, to yeh page bilkul aapke liye hai — poori practical aur local jaankari ke saath.
