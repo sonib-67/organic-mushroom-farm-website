@@ -75,7 +75,7 @@ const NotFoundPage = () => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-[140px] sm:text-[180px] md:text-[220px] font-black text-[#7b51f8] select-none tracking-tighter leading-none mb-2"
+          className="text-[100px] sm:text-[140px] md:text-[180px] font-black text-[#7b51f8] select-none tracking-tighter leading-none mb-2"
         >
           404
         </motion.div>
@@ -86,16 +86,16 @@ const NotFoundPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold dark:text-white text-slate-900 mt-2 mb-6 tracking-tight leading-tight"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold dark:text-white text-slate-900 mt-2 mb-4 tracking-tight leading-tight"
         >
-          Oops! This Page <br className="hidden sm:block" /> Couldn't Be <span className="text-[#7b51f8] text-inherit">Found</span>.
+          Oops! This Page Couldn't Be <span className="text-[#7b51f8]">Found</span>.
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="text-lg sm:text-xl dark:text-slate-400 text-slate-600 max-w-lg mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg dark:text-slate-400 text-slate-600 max-w-lg mx-auto mb-8 leading-relaxed"
         >
           The page you're looking for may have been moved, renamed, or no longer exists. Explore India's trusted platform for mushroom farming training, Mushroom Spawn (seed), consultancy, and complete turnkey farm solutions.
         </motion.p>
@@ -104,23 +104,23 @@ const NotFoundPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-col items-center gap-4 w-full max-w-[320px]"
+          className="flex flex-col items-center gap-3 w-full max-w-[280px]"
         >
           <Link
             to="/"
-            className="w-full py-4 rounded-2xl bg-[#7b51f8] text-white font-bold tracking-wide transition-all hover:bg-[#6a42d9] shadow-lg shadow-[#7b51f8]/20 flex items-center justify-center text-lg"
+            className="w-full py-3 rounded-xl bg-[#7b51f8] text-white font-bold tracking-wide transition-all hover:bg-[#6a42d9] shadow-lg shadow-[#7b51f8]/20 flex items-center justify-center text-base"
           >
             Back to Home
           </Link>
           <Link
             to="/training"
-            className="w-full py-4 rounded-2xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-lg shadow-sm"
+            className="w-full py-3 rounded-xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-base shadow-sm"
           >
             Explore Mushroom Training
           </Link>
           <Link
             to="/services"
-            className="w-full py-4 rounded-2xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-lg shadow-sm"
+            className="w-full py-3 rounded-xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-base shadow-sm"
           >
             Explore Services
           </Link>
@@ -128,7 +128,7 @@ const NotFoundPage = () => {
             href="https://wa.me/919926839352"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 rounded-2xl bg-[#25D366] text-white font-bold tracking-wide transition-all hover:bg-[#20bd5a] flex items-center justify-center text-lg shadow-sm"
+            className="w-full py-3 rounded-xl bg-[#25D366] text-white font-bold tracking-wide transition-all hover:bg-[#20bd5a] flex items-center justify-center text-base shadow-sm"
           >
             Contact Us
           </a>
