@@ -5,11 +5,11 @@ import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
-import { setupEmailListener } from './src/emailService';
+import { processEmailNotification } from './src/emailService';
 
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, getDoc, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
@@ -24,7 +24,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 // Initialize email listener
-setupEmailListener(db);
+// setupEmailListener removed for Vercel compatibility
 
 const app = express();
 const PORT = 3000;
@@ -118,7 +118,7 @@ app.post('/api/create-order', async (req, res) => {
     const order = await razorpay.orders.create(options);
     
     try {
-      await setDoc(doc(db, 'registrations', order.id), {
+      const regData = {
         name: name || "",
         email: email || "",
         mobile: mobile || "",
@@ -129,7 +129,10 @@ app.post('/api/create-order', async (req, res) => {
         orderId: order.id,
         createdAt: new Date().toISOString(),
         notificationSent: false
-      });
+      };
+      await setDoc(doc(db, 'registrations', order.id), regData);
+      // Vercel fix: send email synchronously
+      processEmailNotification(db, order.id, regData).catch(err => console.error("Email send error:", err));
     } catch (e) {
       console.error("Error saving to registrations", e);
     }
@@ -204,6 +207,15 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                     paymentId: payment.id,
                     notificationSent: false
                 }, { merge: true });
+                // Vercel fix: Fetch doc and send email synchronously
+                try {
+                  const updatedDocSnap = await getDoc(doc(db, 'registrations', targetOrderId));
+                  if (updatedDocSnap.exists()) {
+                    await processEmailNotification(db, targetOrderId, updatedDocSnap.data());
+                  }
+                } catch(e) {
+                  console.error("Failed to send webhook email:", e);
+                }
             }
 
             const customersRef = collection(db, 'customers');
@@ -260,6 +272,15 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                     paymentId: payment.id,
                     notificationSent: false
                 }, { merge: true });
+                // Vercel fix: Fetch doc and send email synchronously
+                try {
+                  const updatedDocSnap = await getDoc(doc(db, 'registrations', targetOrderId));
+                  if (updatedDocSnap.exists()) {
+                    await processEmailNotification(db, targetOrderId, updatedDocSnap.data());
+                  }
+                } catch(e) {
+                  console.error("Failed to send webhook email:", e);
+                }
             }
 
             await addDoc(collection(db, 'payments'), {
