@@ -22,7 +22,6 @@ const blogPosts = [
     color: "text-red-500",
     bg: "bg-red-500/5",
     posts: [
-      { customPath: "/blog/organic-mushrooms-health-benefits-nutrition-cultivation-uses", title: "Organic Mushrooms: Health Benefits, Nutrition, Cultivation & Uses", excerpt: "Discover the incredible health benefits of organic mushrooms like Oyster, Button, and Milky. Learn about nutrition, mushroom powder, and healthy pickles.", date: "July 21, 2026" },
       { id: 4, title: "The Brain-Boosting Secrets of Lion’s Mane", excerpt: "Scientific insights into how this mushroom improves focus and memory.", date: "March 28, 2027" },
       { id: 5, title: "Mushrooms vs Meat: The Ultimate Protein Showdown", excerpt: "Comprehensive comparison of nutritional density and environmental impact.", date: "March 20, 2027" },
       { id: 6, title: "Vitamin D Deficiency? Eat Button Mushrooms", excerpt: "How to maximize Vitamin D absorption from your daily mushroom intake.", date: "March 12, 2027" }
