@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
+import { Helmet } from "react-helmet-async";
 import SEO from "../components/SEO";
 
 const NotFoundPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-[#0a0a0a]">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <SEO
         title="404 | Organic Mushrooms Farm"
         description="The page you requested could not be found."
