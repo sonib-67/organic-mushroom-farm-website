@@ -5,17 +5,8 @@ import { Helmet } from "react-helmet-async";
 import SEO from "../components/SEO";
 
 const PlugAnimation = () => (
-  <div className="relative w-full h-48 sm:h-56 flex items-center justify-center mb-8 sm:mb-12 mt-4 sm:mt-8">
-    <motion.div
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[160px] sm:text-[220px] md:text-[250px] font-black text-[#7b51f8] select-none tracking-tighter leading-none"
-    >
-      404
-    </motion.div>
-
-    <div className="relative z-10 w-full max-w-[280px] sm:max-w-[360px] flex items-center justify-between mt-16 sm:mt-24">
+  <div className="relative w-full h-32 sm:h-40 flex items-center justify-center mb-8">
+    <div className="relative z-10 w-full max-w-[280px] sm:max-w-[360px] flex items-center justify-between mt-4">
       {/* Left Plug (Male) */}
       <motion.div 
         className="flex items-center w-1/2 justify-end"
@@ -80,6 +71,15 @@ const NotFoundPage = () => {
       />
 
       <div className="max-w-2xl w-full text-center relative z-10 flex flex-col items-center">
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-[140px] sm:text-[180px] md:text-[220px] font-black text-[#7b51f8] select-none tracking-tighter leading-none mb-2"
+        >
+          404
+        </motion.div>
+        
         <PlugAnimation />
 
         <motion.h1
@@ -88,7 +88,7 @@ const NotFoundPage = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold dark:text-white text-slate-900 mt-2 mb-6 tracking-tight leading-tight"
         >
-          Oops! You've <br className="hidden sm:block" /> drifted <span className="text-[#7b51f8]">offline</span>.
+          Oops! This Page <br className="hidden sm:block" /> Couldn't Be <span className="text-[#7b51f8]">Found</span>.
         </motion.h1>
 
         <motion.p
@@ -97,14 +97,14 @@ const NotFoundPage = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="text-lg sm:text-xl dark:text-slate-400 text-slate-600 max-w-lg mx-auto mb-10 leading-relaxed"
         >
-          The page you are looking for doesn't exist or has been moved to a more premium location. Let's get you back on track to growing your business.
+          The page you're looking for may have been moved, renamed, or no longer exists. Explore India's trusted platform for mushroom farming training, premium spawn, consultancy, and complete turnkey farm solutions.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
-          className="flex flex-col items-center gap-4 w-full max-w-[280px]"
+          className="flex flex-col items-center gap-4 w-full max-w-[320px]"
         >
           <Link
             to="/"
@@ -113,17 +113,25 @@ const NotFoundPage = () => {
             Back to Home
           </Link>
           <Link
+            to="/training"
+            className="w-full py-4 rounded-2xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-lg shadow-sm"
+          >
+            Explore Mushroom Training
+          </Link>
+          <Link
             to="/services"
             className="w-full py-4 rounded-2xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-lg shadow-sm"
           >
             Explore Services
           </Link>
-          <Link
-            to="/training"
-            className="w-full py-4 rounded-2xl bg-white dark:bg-black border border-slate-200 dark:border-white/10 dark:text-white text-slate-900 font-bold tracking-wide transition-all hover:border-[#7b51f8] hover:text-[#7b51f8] flex items-center justify-center text-lg shadow-sm"
+          <a
+            href="https://wa.me/919926839352"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-4 rounded-2xl bg-[#25D366] text-white font-bold tracking-wide transition-all hover:bg-[#20bd5a] flex items-center justify-center text-lg shadow-sm"
           >
-            View Plans
-          </Link>
+            Contact Us
+          </a>
         </motion.div>
       </div>
     </div>
