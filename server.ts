@@ -5,10 +5,11 @@ import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
+import { processEmailsForRegistration } from './src/emailService';
 
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, getDoc, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
@@ -21,6 +22,9 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
+
+// Initialize email listener
+
 
 const app = express();
 const PORT = 3000;
@@ -58,46 +62,6 @@ app.use(express.json());
 const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
 const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
 const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || "Sonib491@";
-
-async function sendToFormspree(payload: {
-  customerName: string;
-  customerEmail: string;
-  customerPhone: string;
-  orderId: string;
-  paymentId: string;
-  amount: string;
-  productType: string;
-  paymentStatus: 'DONE' | 'FAILED';
-}) {
-  try {
-    const response = await fetch('https://formspree.io/f/mwvazwnl', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        subject: `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`,
-        name: payload.customerName,
-        email: payload.customerEmail,
-        phone: payload.customerPhone,
-        orderId: payload.orderId,
-        paymentId: payload.paymentId,
-        amount: payload.amount,
-        productType: payload.productType,
-        paymentStatus: payload.paymentStatus,
-        dateTime: new Date().toLocaleString()
-      })
-    });
-    if (!response.ok) {
-      console.error("[Formspree] Error:", await response.text());
-    } else {
-      console.log("[Formspree] Notification sent successfully");
-    }
-  } catch (err) {
-    console.error("[Formspree] Failed to send:", err);
-  }
-}
 
 const razorpay = new Razorpay({
   key_id: RAZORPAY_KEY_ID,
@@ -152,6 +116,36 @@ app.post('/api/create-order', async (req, res) => {
     };
 
     const order = await razorpay.orders.create(options);
+    
+    try {
+      await setDoc(doc(db, 'registrations', order.id), {
+        name: name || "",
+        email: email || "",
+        mobile: mobile || "",
+        amount: amount / 100,
+        productType: productType || "",
+        paymentStatus: "INITIATED",
+        paymentId: "",
+        orderId: order.id,
+        createdAt: new Date().toISOString(),
+        notificationSent: false
+      });
+      // Send INITIATED email
+      processEmailsForRegistration(order.id, {
+        name: name || "",
+        email: email || "",
+        mobile: mobile || "",
+        amount: amount / 100,
+        productType: productType || "",
+        paymentStatus: "INITIATED",
+        paymentId: "",
+        orderId: order.id,
+        createdAt: new Date().toISOString(),
+        notificationSent: false
+      }, db);
+    } catch (e) {
+      console.error("Error saving to registrations", e);
+    }
 
     res.json({
       order_id: order.id,
@@ -213,20 +207,22 @@ app.post('/api/razorpay-webhook', async (req, res) => {
     };
 
     if (event.event === 'payment.captured') {
-        // Notify Formspree
-        await sendToFormspree({
-            customerName,
-            customerEmail,
-            customerPhone,
-            orderId: payment.order_id || '',
-            paymentId: payment.id,
-            amount: amountStr,
-            productType,
-            paymentStatus: 'DONE'
-        });
 
         // Save to Firebase (Customers)
         try {
+            const targetOrderId = notes.repayForOrderId || payment.order_id;
+            if (targetOrderId) {
+                await setDoc(doc(db, 'registrations', targetOrderId), {
+                    paymentStatus: 'SUCCESS',
+                    paymentId: payment.id,
+                    notificationSent: false
+                }, { merge: true });
+                const docSnap = await getDoc(doc(db, 'registrations', targetOrderId));
+                if (docSnap.exists()) {
+                    processEmailsForRegistration(targetOrderId, docSnap.data(), db);
+                }
+            }
+
             const customersRef = collection(db, 'customers');
             const q = query(customersRef, where('email', '==', customerEmail));
             const querySnapshot = await getDocs(q);
@@ -273,19 +269,20 @@ app.post('/api/razorpay-webhook', async (req, res) => {
         }
 
     } else if (event.event === 'payment.failed') {
-        // Notify Formspree
-        await sendToFormspree({
-            customerName,
-            customerEmail,
-            customerPhone,
-            orderId: payment.order_id || '',
-            paymentId: payment.id,
-            amount: amountStr,
-            productType,
-            paymentStatus: 'FAILED'
-        });
-
         try {
+            const targetOrderId = notes.repayForOrderId || payment.order_id;
+            if (targetOrderId) {
+                await setDoc(doc(db, 'registrations', targetOrderId), {
+                    paymentStatus: 'FAILED',
+                    paymentId: payment.id,
+                    notificationSent: false
+                }, { merge: true });
+                const docSnap = await getDoc(doc(db, 'registrations', targetOrderId));
+                if (docSnap.exists()) {
+                    processEmailsForRegistration(targetOrderId, docSnap.data(), db);
+                }
+            }
+
             await addDoc(collection(db, 'payments'), {
                 payment_id: payment.id,
                 order_id: payment.order_id || '',
@@ -296,8 +293,8 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                 amount: payment.amount,
                 created_at: new Date().toISOString()
             });
-        } catch (dbError) {
-             console.error("Firebase DB error:", dbError);
+        } catch (dbError) { 
+            console.error("Firebase DB error:", dbError);
         }
     }
 
@@ -308,15 +305,95 @@ app.post('/api/razorpay-webhook', async (req, res) => {
   }
 });
 
+
+// Repay Order API
+app.post('/api/repay-order', async (req, res) => {
+  try {
+    const { oldOrderId } = req.body;
+    if (!oldOrderId) {
+      return res.status(400).json({ error: 'Missing oldOrderId' });
+    }
+
+    const docRef = doc(db, 'registrations', oldOrderId);
+    const docSnap = await getDoc(docRef);
+    
+    if (!docSnap.exists()) {
+      return res.status(404).json({ error: 'Order not found' });
+    }
+    
+    const data = docSnap.data();
+    if (data.paymentStatus === 'SUCCESS') {
+      return res.status(400).json({ error: 'Payment already completed' });
+    }
+
+    const { name, mobile, email, productType, amount } = data;
+    
+    const options = {
+      amount: Math.round(Number(amount) * 100), // convert rupees back to paise
+      currency: "INR",
+      receipt: `rct_repay_${Date.now()}`,
+      notes: {
+        productType: productType || "",
+        customerName: name || "",
+        customerEmail: email || "",
+        customerPhone: mobile || "",
+        repayForOrderId: oldOrderId
+      }
+    };
+
+    const order = await razorpay.orders.create(options);
+    
+    res.json({
+      order_id: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      key_id: RAZORPAY_KEY_ID,
+      name: "Organic Mushrooms Farm",
+      description: "Complete your payment",
+      prefill: {
+        name: name || "",
+        email: email || "",
+        contact: mobile || ""
+      },
+      notes: options.notes,
+      theme: { color: "#7E22CE" }
+    });
+  } catch (error) {
+    console.error("Repay API Error:", error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+// Cancelled payment endpoint
+app.post('/api/payment-cancelled', async (req, res) => {
+  try {
+    const { orderId } = req.body;
+    if (orderId) {
+      await setDoc(doc(db, 'registrations', orderId), {
+        paymentStatus: 'CANCELLED',
+        notificationSent: false
+      }, { merge: true });
+      
+      const docSnap = await getDoc(doc(db, 'registrations', orderId));
+      if (docSnap.exists()) {
+         processEmailsForRegistration(orderId, docSnap.data(), db);
+      }
+    }
+    res.status(200).send('OK');
+  } catch (error) {
+    console.error("Error updating cancelled payment:", error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 // Location API
 app.get('/api/location', async (req, res) => {
   try {
     const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').toString().split(',')[0].trim();
-    
+        
     // Ignore localhost for GeoIP lookup, fallback to a dummy IP for testing if needed
     const geo = geoip.lookup(clientIp === '::1' || clientIp === '127.0.0.1' ? '8.8.8.8' : clientIp);
-
-    
+        
     if (geo) {
       return res.status(200).json({
         ip: clientIp,
@@ -354,7 +431,7 @@ app.post('/api/track', async (req, res) => {
         session_id: session_id || '',
         url: url || '',
         user_agent: user_agent || req.headers['user-agent'] || '',
-        user_id: user_id || null, // null if not logged in / identified
+        user_id: user_id || null,
         utm_params: utm_params || {},
         client_ip: client_ip,
         created_at: new Date().toISOString()
@@ -371,6 +448,7 @@ app.post('/api/track', async (req, res) => {
 
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {
+    const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",

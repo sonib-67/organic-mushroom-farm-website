@@ -101,6 +101,7 @@ export default function BookConsultantPage() {
         },
         modal: {
           ondismiss: function() {
+            fetch("/api/payment-cancelled", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ orderId: payload.order_id }) }).catch(() => {});
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
               name: formData.name,
