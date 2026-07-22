@@ -6822,6 +6822,8 @@ const AnimatedRoutes = () => {
           <Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/maharashtra/nashik" element={<ArticleNashikTraining />} />
+          <Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />
+          <Route path="/mushroom-farming-nashik" element={<ArticleNashikTraining />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
           <Route path="/cities/haryana/faridabad" element={<ArticleFaridabadTraining />} />
@@ -6866,6 +6868,8 @@ const AnimatedRoutes = () => {
           <Route path="/articles/turnkey-commercial-setup" element={<ArticleTurnkeyCommercialSetup  metaDesc="Read our complete guide on turnkey commercial mushroom farm setup. Learn about EPC consultancy, climate-controlled grow rooms, and infrastructure." />} />
           <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuide  metaDesc="Complete 2026 English guide on mushroom farming training. Compare varieties, training costs, government subsidies, and long-term agribusiness profitability. " />} />
           <Route path="/blog/mushroom-training-guide-punjabi" element={<ArticleMushroomTrainingGuidePunjabi />} />
+              <Route path="/blog/organic-mushrooms-health-benefits-nutrition-cultivation-uses" element={<ArticleOrganicMushroomHealthBenefits />} />
+
           <Route path="/blog/mushroom-training-guide-hindi" element={<ArticleMushroomTrainingGuideHindi />} />
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia  metaDesc="Master the 2026 mushroom farming business plan in India. Understand commercial setup costs, profit margins, ROI analysis, and local marketing strategies. " />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
@@ -6935,6 +6939,8 @@ import ArticleTurnkeyMushroomFarm from './pages/ArticleTurnkeyMushroomFarm';
 import ArticleMushroomTrainingGuideHindi from "./pages/ArticleMushroomTrainingGuideHindi";
 import ArticleMushroomTrainingGuide from "./pages/ArticleMushroomTrainingGuide";
 import ArticleMushroomTrainingGuidePunjabi from "./pages/ArticleMushroomTrainingGuidePunjabi";
+import ArticleOrganicMushroomHealthBenefits from "./pages/ArticleOrganicMushroomHealthBenefits";
+
 import { HelmetProvider } from 'react-helmet-async';
 
 export default function App() {
