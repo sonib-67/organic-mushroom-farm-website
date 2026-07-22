@@ -5,11 +5,11 @@ import { createServer as createViteServer } from 'vite';
 import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
-import { processEmailsForRegistration } from './src/emailService';
+import { setupEmailListener } from './src/emailService';
 
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, setDoc, doc, getDocs, getDoc, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
@@ -24,7 +24,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db = getFirestore(firebaseApp);
 
 // Initialize email listener
-
+setupEmailListener(db);
 
 const app = express();
 const PORT = 3000;
@@ -130,19 +130,6 @@ app.post('/api/create-order', async (req, res) => {
         createdAt: new Date().toISOString(),
         notificationSent: false
       });
-      // Send INITIATED email
-      processEmailsForRegistration(order.id, {
-        name: name || "",
-        email: email || "",
-        mobile: mobile || "",
-        amount: amount / 100,
-        productType: productType || "",
-        paymentStatus: "INITIATED",
-        paymentId: "",
-        orderId: order.id,
-        createdAt: new Date().toISOString(),
-        notificationSent: false
-      }, db);
     } catch (e) {
       console.error("Error saving to registrations", e);
     }
@@ -217,10 +204,6 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                     paymentId: payment.id,
                     notificationSent: false
                 }, { merge: true });
-                const docSnap = await getDoc(doc(db, 'registrations', targetOrderId));
-                if (docSnap.exists()) {
-                    processEmailsForRegistration(targetOrderId, docSnap.data(), db);
-                }
             }
 
             const customersRef = collection(db, 'customers');
@@ -277,10 +260,6 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                     paymentId: payment.id,
                     notificationSent: false
                 }, { merge: true });
-                const docSnap = await getDoc(doc(db, 'registrations', targetOrderId));
-                if (docSnap.exists()) {
-                    processEmailsForRegistration(targetOrderId, docSnap.data(), db);
-                }
             }
 
             await addDoc(collection(db, 'payments'), {
@@ -373,11 +352,6 @@ app.post('/api/payment-cancelled', async (req, res) => {
         paymentStatus: 'CANCELLED',
         notificationSent: false
       }, { merge: true });
-      
-      const docSnap = await getDoc(doc(db, 'registrations', orderId));
-      if (docSnap.exists()) {
-         processEmailsForRegistration(orderId, docSnap.data(), db);
-      }
     }
     res.status(200).send('OK');
   } catch (error) {
@@ -454,7 +428,7 @@ async function startServer() {
       appType: "spa",
     });
     app.use(vite.middlewares);
-  } else if (!process.env.VERCEL) {
+  } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
@@ -467,8 +441,4 @@ async function startServer() {
   });
 }
 
-if (process.env.NODE_ENV !== 'production' || process.env.VITE_DEV_SERVER === 'true' || !process.env.VERCEL) {
-  startServer();
-}
-
-export default app;
+startServer();
