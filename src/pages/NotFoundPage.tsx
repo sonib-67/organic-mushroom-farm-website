@@ -86,9 +86,9 @@ const NotFoundPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold dark:text-white text-slate-900 mt-2 mb-6 tracking-tight leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold dark:text-white text-slate-900 mt-2 mb-6 tracking-tight leading-tight"
         >
-          Oops! This Page <br className="hidden sm:block" /> Couldn't Be <span className="text-[#7b51f8]">Found</span>.
+          Oops! This Page <br className="hidden sm:block" /> Couldn't Be <span className="text-[#7b51f8] text-inherit">Found</span>.
         </motion.h1>
 
         <motion.p
@@ -97,7 +97,7 @@ const NotFoundPage = () => {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="text-lg sm:text-xl dark:text-slate-400 text-slate-600 max-w-lg mx-auto mb-10 leading-relaxed"
         >
-          The page you're looking for may have been moved, renamed, or no longer exists. Explore India's trusted platform for mushroom farming training, premium spawn, consultancy, and complete turnkey farm solutions.
+          The page you're looking for may have been moved, renamed, or no longer exists. Explore India's trusted platform for mushroom farming training, Mushroom Spawn (seed), consultancy, and complete turnkey farm solutions.
         </motion.p>
 
         <motion.div
