@@ -1,20 +1,33 @@
 const fs = require('fs');
-let content = fs.readFileSync('scripts/prerender.ts', 'utf-8');
+let code = fs.readFileSync('scripts/prerender.ts', 'utf-8');
 
-const betterWay = `function getAppRoutes(): string[] {
-  const content = fs.readFileSync(path.resolve(__dirname, '../src/App.tsx'), 'utf-8');
-  const lines = content.split('\\n');
-  const routes: string[] = [];
-  for (const line of lines) {
-     if (line.includes('<Route ') && line.includes('path="') && !line.includes('<Navigate ')) {
-        const match = line.match(/path="([^"]+)"/);
-        if (match && match[1] !== '*' && match[1] !== '/') {
-           routes.push(match[1]);
-        }
-     }
+// We add the logic to also prerender a 404 page.
+// In the `for (const url of paths)` loop we can handle it.
+// Or just add it at the end of the script.
+
+code = code.replace(
+  "await vite.close();",
+  `
+  // Generate 404.html for Vercel
+  try {
+    const { html, seoData } = render('/404-not-found-page'); // A route that triggers NotFoundPage
+    let cleanHtml = html;
+    const rootIndex = html.indexOf('<div');
+    if (rootIndex > 0) cleanHtml = html.substring(rootIndex);
+    
+    let appHtml = template.replace('<div id="root"></div>', \`<div id="root">\${cleanHtml}</div>\`);
+    const helmetContent = seoData ? \`
+      <title>\${seoData.title}</title>
+      <meta name="description" content="\${seoData.description}" />
+    \` : '';
+    appHtml = appHtml.replace('<!--title-placeholder-->', helmetContent);
+    fs.writeFileSync(path.join(__dirname, '../dist/404.html'), appHtml, 'utf-8');
+    console.log('✓ Prerendered 404.html');
+  } catch (err) {
+    console.error('Failed to prerender 404.html', err);
   }
-  return routes;
-}`;
+  await vite.close();
+  `
+);
 
-content = content.replace(/function getAppRoutes\(\): string\[\] \{[\s\S]*?return routes;\n\}/, betterWay);
-fs.writeFileSync('scripts/prerender.ts', content);
+fs.writeFileSync('scripts/prerender.ts', code, 'utf-8');

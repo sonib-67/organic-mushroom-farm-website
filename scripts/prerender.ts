@@ -142,7 +142,27 @@ async function prerender() {
     }
   }
 
+  
+  // Generate 404.html for Vercel
+  try {
+    const { html, seoData } = render('/404-not-found-page'); // A route that triggers NotFoundPage
+    let cleanHtml = html;
+    const rootIndex = html.indexOf('<div');
+    if (rootIndex > 0) cleanHtml = html.substring(rootIndex);
+    
+    let appHtml = template.replace('<div id="root"></div>', `<div id="root">${cleanHtml}</div>`);
+    const helmetContent = seoData ? `
+      <title>${seoData.title}</title>
+      <meta name="description" content="${seoData.description}" />
+    ` : '';
+    appHtml = appHtml.replace('<!--title-placeholder-->', helmetContent);
+    fs.writeFileSync(path.join(__dirname, '../dist/404.html'), appHtml, 'utf-8');
+    console.log('✓ Prerendered 404.html');
+  } catch (err) {
+    console.error('Failed to prerender 404.html', err);
+  }
   await vite.close();
+  
   console.log('Prerendering completed.');
 }
 
