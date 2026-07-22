@@ -3,12 +3,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/sitemap-main.xml", "destination": "/sitemap-main.xml" },
-    { "source": "/sitemap.xsl", "destination": "/sitemap.xsl" },
-    { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!api|.*\\.xml|.*\\.xsl|.*\\.txt|.*\\.html|assets).*)" , "destination": "/index.html" }
   ],
   "headers": [
     {
