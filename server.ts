@@ -467,4 +467,8 @@ async function startServer() {
   });
 }
 
-startServer();
+if (process.env.NODE_ENV !== 'production' || process.env.VITE_DEV_SERVER === 'true' || !process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
