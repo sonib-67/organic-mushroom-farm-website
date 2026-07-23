@@ -22,7 +22,7 @@ try {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST']);
-    return res.status(405).end(`Method \${req.method} Not Allowed`);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
   try {
@@ -65,7 +65,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const options = {
       amount: Math.round(Number(amount) * 100), // convert rupees back to paise
       currency: "INR",
-      receipt: `rct_repay_\${Date.now()}`,
+      receipt: `rct_repay_${Date.now()}`,
       notes: {
         productType: productType || "",
         customerName: name || "",

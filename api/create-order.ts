@@ -3,7 +3,6 @@ import Razorpay from 'razorpay';
 import crypto from 'crypto';
 import { initializeApp } from "firebase/app";
 import { getFirestore, setDoc, doc } from "firebase/firestore";
-import { processEmailNotification } from '../src/emailService';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
@@ -107,7 +106,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         };
         await setDoc(doc(db, 'registrations', order.id), regData);
         // We don't necessarily send an email on INITIATED, but processEmailNotification handles this
-        processEmailNotification(db, order.id, regData).catch(err => console.error("Email send error:", err));
+        // Email for INITIATED status is not required.
       }
     } catch (e) {
       console.error("Error saving to registrations", e);
@@ -131,6 +130,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   } catch (error) {
     console.error("Error creating Razorpay order:", error);
-    return res.status(500).json({ error: "Failed to create order" });
+    return res.status(500).json({ error: "Failed to create order", details: error instanceof Error ? error.message : String(error) });
   }
 }
