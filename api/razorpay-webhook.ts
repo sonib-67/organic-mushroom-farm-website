@@ -2,7 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import crypto from 'crypto';
 
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, collection, addDoc, setDoc, doc, getDocs, getDoc, query, where } from "firebase/firestore";
+import { processEmailNotification } from '../src/emailService';
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
@@ -247,7 +248,48 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     amount: payment.amount,
                     created_at: new Date().toISOString()
                 }, { merge: true });
+                const failedTargetOrderId = notes.repayForOrderId || payment.order_id;
+                if (failedTargetOrderId) {
+                    await setDoc(doc(db, 'registrations', failedTargetOrderId), {
+                        paymentStatus: 'FAILED',
+                        paymentId: payment.id,
+                        notificationSent: false
+                    }, { merge: true });
+                    try {
+                      const updatedDocSnap = await getDoc(doc(db, 'registrations', failedTargetOrderId));
+                      if (updatedDocSnap.exists()) {
+                        await processEmailNotification(db, failedTargetOrderId, updatedDocSnap.data());
+                      }
+                    } catch(e) {
+                      console.error("Failed to send webhook email:", e);
+                    }
+                }
 
+                
+
+
+                
+                
+
+                
+                
+                
+                const capturedTargetOrderId = notes.repayForOrderId || payment.order_id;
+                if (capturedTargetOrderId) {
+                    await setDoc(doc(db, 'registrations', capturedTargetOrderId), {
+                        paymentStatus: 'SUCCESS',
+                        paymentId: payment.id,
+                        notificationSent: false
+                    }, { merge: true });
+                    try {
+                      const updatedDocSnap = await getDoc(doc(db, 'registrations', capturedTargetOrderId));
+                      if (updatedDocSnap.exists()) {
+                        await processEmailNotification(db, capturedTargetOrderId, updatedDocSnap.data());
+                      }
+                    } catch(e) {
+                      console.error("Failed to send webhook email:", e);
+                    }
+                }
                 if (productType === "consultation") {
                     await addDoc(collection(db, 'consultant_bookings'), {
                         customer_name: customerName,
@@ -268,6 +310,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                         created_at: new Date().toISOString()
                     });
                 }
+            
+                
+
             } catch (firestoreError) {
                 console.error("Firestore captured error:", firestoreError);
             }
