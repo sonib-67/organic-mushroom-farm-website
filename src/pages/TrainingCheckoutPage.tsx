@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../utils/formspree';
-import { sendEmailNotification } from '../utils/emailNotification';
 import SEO from '../components/SEO';
 
 export default function TrainingCheckoutPage() {
@@ -82,17 +81,7 @@ export default function TrainingCheckoutPage() {
         prefill: payload.prefill,
         notes: payload.notes,
         theme: payload.theme,
-        handler: async function (response: any) {
-          await sendEmailNotification({
-            event: "payment_success",
-            email: formData.email,
-            name: formData.name,
-            amount: payload.amount / 100,
-            service: `Training - ${selectedTitle}`,
-            orderId: payload.order_id,
-            paymentId: response.razorpay_payment_id
-          });
-
+        handler: function (response: any) {
           // Notify Formspree that payment is successful
           sendPaymentNotificationToFormspree({
             name: formData.name,
@@ -129,18 +118,8 @@ export default function TrainingCheckoutPage() {
           }, 400);
         },
         modal: {
-          ondismiss: async function() {
+          ondismiss: function() {
             setLoading(false);
-
-            await sendEmailNotification({
-              event: "payment_cancelled",
-              email: formData.email,
-              name: formData.name,
-              amount: payload.amount / 100,
-              service: `Training - ${selectedTitle}`,
-              reason: "User closed the payment window"
-            });
-
             // Notify Formspree that payment form cancelled/not complete
             sendPaymentNotificationToFormspree({
               name: formData.name,
@@ -182,14 +161,6 @@ export default function TrainingCheckoutPage() {
           value: payload.amount / 100,
           currency: payload.currency,
           content_name: `Training - ${selectedTitle}`
-        });
-
-        await sendEmailNotification({
-          event: "payment_initiated",
-          email: formData.email,
-          name: formData.name,
-          amount: payload.amount / 100,
-          service: `Training - ${selectedTitle}`
         });
 
         const rzp = new (window as any).Razorpay(options);

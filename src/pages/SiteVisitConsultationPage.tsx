@@ -4,7 +4,6 @@ import { MapPin, Calendar, User, Phone, CheckCircle, Clock } from 'lucide-react'
 import { useNavigate } from 'react-router-dom';
 import { loadRazorpayScript } from '../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../utils/formspree';
-import { sendEmailNotification } from '../utils/emailNotification';
 import SEO from '../components/SEO';
 
 const SiteVisitConsultationPage = () => {
@@ -62,17 +61,7 @@ const SiteVisitConsultationPage = () => {
         prefill: { ...payload.prefill, contact: formData.phone, name: formData.name },
         notes: payload.notes,
         theme: payload.theme,
-        handler: async function (response: any) {
-          await sendEmailNotification({
-            event: "payment_success",
-            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-            name: formData.name,
-            amount: payload.amount / 100,
-            service: 'On Site Visit Consultation Slot',
-            orderId: payload.order_id,
-            paymentId: response.razorpay_payment_id
-          });
-
+        handler: function (response: any) {
           // Notify Formspree that payment is DONE
           sendPaymentNotificationToFormspree({
             name: formData.name,
@@ -90,18 +79,8 @@ const SiteVisitConsultationPage = () => {
           setLoading(false);
         },
         modal: {
-          ondismiss: async function() {
+          ondismiss: function() {
             setLoading(false);
-
-            await sendEmailNotification({
-              event: "payment_cancelled",
-              email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-              name: formData.name,
-              amount: payload.amount / 100,
-              service: 'On Site Visit Consultation Slot',
-              reason: "User closed the payment window"
-            });
-
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
               name: formData.name,
@@ -121,14 +100,6 @@ const SiteVisitConsultationPage = () => {
       await loadRazorpayScript();
 
       if (typeof window !== "undefined" && (window as any).Razorpay) {
-        await sendEmailNotification({
-          event: "payment_initiated",
-          email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-          name: formData.name,
-          amount: payload.amount / 100,
-          service: 'On Site Visit Consultation Slot'
-        });
-
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
