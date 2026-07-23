@@ -1,25 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Razorpay from 'razorpay';
 import crypto from 'crypto';
-import { initializeApp } from "firebase/app";
-import { getFirestore, setDoc, doc } from "firebase/firestore";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyC-xRGrHfCUi1BGxE1ewXbmEwuvn54UDH4",
-  authDomain: "nic-mushrooom-farm.firebaseapp.com",
-  projectId: "nic-mushrooom-farm",
-  storageBucket: "nic-mushrooom-farm.firebasestorage.app",
-  messagingSenderId: "541611352556",
-  appId: "1:541611352556:web:597e7c729a169decbda0c9"
-};
-let db: any;
-try {
-  const firebaseApp = initializeApp(firebaseConfig);
-  db = getFirestore(firebaseApp);
-} catch (error) {
-  console.error("Firebase init error:", error);
-}
-
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -87,31 +68,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     };
 
-    
     const order = await razorpay.orders.create(options);
-
-    try {
-      if (db) {
-        const regData = {
-          name: name || "",
-          email: email || "",
-          mobile: mobile || "",
-          amount: amount / 100,
-          productType: productType || "",
-          paymentStatus: "INITIATED",
-          paymentId: "",
-          orderId: order.id,
-          createdAt: new Date().toISOString(),
-          notificationSent: false
-        };
-        await setDoc(doc(db, 'registrations', order.id), regData);
-        // We don't necessarily send an email on INITIATED, but processEmailNotification handles this
-        // Email for INITIATED status is not required.
-      }
-    } catch (e) {
-      console.error("Error saving to registrations", e);
-    }
-
 
     return res.status(200).json({
       order_id: order.id,
@@ -130,6 +87,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
   } catch (error) {
     console.error("Error creating Razorpay order:", error);
-    return res.status(500).json({ error: "Failed to create order", details: error instanceof Error ? error.message : String(error) });
+    return res.status(500).json({ error: "Failed to create order" });
   }
 }

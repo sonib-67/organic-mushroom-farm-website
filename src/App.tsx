@@ -105,7 +105,6 @@ import {
 import MetaPixelTracker from "./components/MetaPixelTracker";
 import MushroomSEOSections from "./components/MushroomSEOSections";
 import SiteVisitConsultationPage from "./pages/SiteVisitConsultationPage";
-import RepayPage from "./pages/RepayPage";
 import SitemapPage from "./pages/SitemapPage";
 import CareersPage from "./pages/CareersPage";
 import { parseSEOPathname } from "./utils/seoPathParser";
@@ -6654,7 +6653,6 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           {/* Legacy redirects */}
           <Route path="/site-visit-consultation" element={<SiteVisitConsultationPage />} />
-          <Route path="/repay/:orderId" element={<RepayPage />} />
           <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom'  metaDesc="Expert Milky Mushroom cultivation services & training. Get high-yield spawn, optimal summer farming parameters, and professional seeding guidance. " />} />
           <Route path="/services/turnkey-setup" element={<ServiceDetailPage defaultId='consultancy'  metaDesc="Looking for a turnkey mushroom farm setup? Join our offline/online training & get expert EPC consultancy for climate-controlled grow rooms in India. " />} />
           <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster'  metaDesc="Expert Oyster mushroom consultancy services. We offer commercial training, premium spawn supply, and turnkey infrastructure setup for maximum farm yields. " />} />

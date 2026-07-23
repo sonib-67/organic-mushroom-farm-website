@@ -103,7 +103,6 @@ const WorkshopPage = () => {
         },
         modal: {
           ondismiss: function() {
-            fetch("/api/payment-cancelled", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ orderId: payload.order_id }) }).catch(() => {});
             setLoading(false);
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
