@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../utils/formspree';
+import { sendEmailNotification } from '../utils/emailNotification';
 import SEO from '../components/SEO';
 
 export default function BookConsultantPage() {
@@ -65,7 +66,17 @@ export default function BookConsultantPage() {
         prefill: payload.prefill,
         notes: payload.notes,
         theme: payload.theme,
-        handler: function (response: any) {
+        handler: async function (response: any) {
+          await sendEmailNotification({
+            event: "payment_success",
+            email: formData.email,
+            name: formData.name,
+            amount: payload.amount / 100,
+            service: '1-on-1 Consultation',
+            orderId: payload.order_id,
+            paymentId: response.razorpay_payment_id
+          });
+
           // Notify Formspree that payment is DONE
           sendPaymentNotificationToFormspree({
             name: formData.name,
@@ -100,7 +111,16 @@ export default function BookConsultantPage() {
           navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(formData.email)}&type=consultant`);
         },
         modal: {
-          ondismiss: function() {
+          ondismiss: async function() {
+            await sendEmailNotification({
+              event: "payment_cancelled",
+              email: formData.email,
+              name: formData.name,
+              amount: payload.amount / 100,
+              service: '1-on-1 Consultation',
+              reason: "User closed the payment window"
+            });
+
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
               name: formData.name,
@@ -142,6 +162,15 @@ export default function BookConsultantPage() {
           currency: payload.currency,
           content_name: '1-on-1 Consultation'
         });
+
+        await sendEmailNotification({
+          event: "payment_initiated",
+          email: formData.email,
+          name: formData.name,
+          amount: payload.amount / 100,
+          service: '1-on-1 Consultation'
+        });
+
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
