@@ -92,6 +92,7 @@ import ArticleTamilTrainingGuide from "./pages/ArticleTamilTrainingGuide";
 import SEO from "./components/SEO";
 import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
 import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
+import ArticleMushroomFarmingRussia from "./pages/ArticleMushroomFarmingRussia";
 
 import OperationsPage from "./pages/OperationsPage";
 
@@ -6873,6 +6874,7 @@ const AnimatedRoutes = () => {
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
           <Route path="/blog/mushroom-farming-training-tamil-guide" element={<ArticleTamilTrainingGuide />} />
+          <Route path="/blog/mushroom-farming-russia" element={<ArticleMushroomFarmingRussia />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
