@@ -225,10 +225,10 @@ app.post('/api/razorpay-webhook', async (req, res) => {
                 email: customerEmail,
                 amount: (payment.amount / 100).toString(),
                 currency: payment.currency || 'INR',
-                payment_id: payment.id
+                paymentId: payment.id
             })
         }).catch(err => {
-            console.error("[Email API] Failed to send email:", err);
+            console.error("Email API Error:", err);
         });
 
         // Notify Formspree
