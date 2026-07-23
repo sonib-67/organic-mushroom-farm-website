@@ -212,25 +212,7 @@ app.post('/api/razorpay-webhook', async (req, res) => {
       amount: amountStr
     };
 
-    if (event.event === 'payment.captured' || event.event === 'order.paid') {
-        // Send Email via Email API non-blocking
-        fetch('https://ais-pre-hrvwiu6bx64zzphnza72oq-583298446277.asia-east1.run.app/api/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'x-api-key': process.env.EMAIL_API_KEY || ''
-            },
-            body: JSON.stringify({
-                event: 'payment_success',
-                email: customerEmail,
-                amount: (payment.amount / 100).toString(),
-                currency: payment.currency || 'INR',
-                paymentId: payment.id
-            })
-        }).catch(err => {
-            console.error("Email API Error:", err);
-        });
-
+    if (event.event === 'payment.captured') {
         // Notify Formspree
         await sendToFormspree({
             customerName,
