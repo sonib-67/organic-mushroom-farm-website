@@ -176,7 +176,7 @@ const ArticleDehradunTraining = () => {
                     {/* Mushroom Varieties */}
                     <div className="space-y-4 pt-6 border-t dark:border-white/10 border-black/10">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            Commercial Business के लिए उपयुक्त Mushroom Varieties
+                            Commercial Business के लिए उपयुक्त <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Mushroom Varieties</Link>
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                             {[
@@ -190,7 +190,7 @@ const ArticleDehradunTraining = () => {
                                 { title: "Cordyceps Mushroom", desc: "High-value medicinal mushroom" },
                             ].map((item, idx) => (
                                 <div key={idx} className="p-4 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                    <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">{item.title}</h3>
+                                    <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">{item.title}</Link></h3>
                                     <p className="text-xs dark:text-slate-400 text-slate-600">{item.desc}</p>
                                 </div>
                             ))}
@@ -204,38 +204,38 @@ const ArticleDehradunTraining = () => {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                             <div className="glass p-6 rounded-2xl border border-white/5 space-y-3">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">Mushroom Farm Setup</h3>
-                                <p className="text-sm dark:text-slate-400 text-slate-600">एक सफल Mushroom Farm Setup में आम तौर पर शामिल होता है: Production Room, Ventilation System, Humidity Management, साफ पानी का स्रोत, Storage Area, और Quality Spawn. <strong>Rajpur Road, Vasant Vihar, Ballupur और Jakhan</strong> जैसे इलाकों में site visit करके हम customized setup plan भी तैयार करते हैं।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup</Link></h3>
+                                <p className="text-sm dark:text-slate-400 text-slate-600">एक सफल <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline">Mushroom Farm Setup</Link> में आम तौर पर शामिल होता है: Production Room, Ventilation System, Humidity Management, साफ पानी का स्रोत, Storage Area, और Quality Spawn. <strong>Rajpur Road, Vasant Vihar, Ballupur और Jakhan</strong> जैसे इलाकों में site visit करके हम customized setup plan भी तैयार करते हैं。</p>
                             </div>
                             
                             <div className="glass p-6 rounded-2xl border border-white/5 space-y-3">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">Online Mushroom Training</h3>
-                                <p className="text-sm dark:text-slate-400 text-slate-600">Online Mushroom Training में सीखने को मिलता है: Mushroom Cultivation, Spawn Management, Disease Prevention, Harvesting, Marketing, Business Planning. निवेश करने से पहले सीखना जोखिम को काफी हद तक कम कर देता है। <em>Hindi mein hi poori training di jaati hai, taaki samajhne mein koi dikkat na ho.</em></p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/training" className="hover:text-emerald-500 transition-colors">Online Mushroom Training</Link></h3>
+                                <p className="text-sm dark:text-slate-400 text-slate-600">Online <Link to="/training" className="text-emerald-500 hover:underline">Mushroom Training</Link> में सीखने को मिलता है: Mushroom Cultivation, Spawn Management, Disease Prevention, Harvesting, Marketing, Business Planning. निवेश करने से पहले सीखना जोखिम को काफी हद तक कम कर देता है। <em>Hindi mein hi poori training di jaati hai, taaki samajhne mein koi dikkat na ho.</em></p>
                             </div>
                             
                             <div className="glass p-6 rounded-2xl border border-white/5 space-y-3">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">Offline Mushroom Training</h3>
-                                <p className="text-sm dark:text-slate-400 text-slate-600">Hands-on practical sessions में शामिल है: Live Demonstrations, Bed Preparation, Spawn Handling, Crop Management, Harvesting Techniques. <strong>Clement Town, Prem Nagar और Sahastradhara Road</strong> के लोग practical experience के लिए offline training को प्राथमिकता देते हैं।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/training" className="hover:text-emerald-500 transition-colors">Offline Mushroom Training</Link></h3>
+                                <p className="text-sm dark:text-slate-400 text-slate-600">Hands-on practical sessions में शामिल है: Live Demonstrations, Bed Preparation, Spawn Handling, Crop Management, Harvesting Techniques. <strong>Clement Town, Prem Nagar और Sahastradhara Road</strong> के लोग practical experience के लिए offline training को प्राथमिकता देते हैं。</p>
                             </div>
                             
                             <div className="glass p-6 rounded-2xl border border-white/5 space-y-3">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">Mushroom Spawn Supply</h3>
-                                <p className="text-sm dark:text-slate-400 text-slate-600">Healthy spawn production के सबसे ज़रूरी factors में से एक है। हम उपलब्ध कराते हैं: Oyster, Button, और Milky Mushroom Spawn. देहरादून, Doiwala, Rishikesh, Mussoorie, Vikasnagar, Raipur, Maldevta और Bhogpur Belt तक pan-India delivery के साथ spawn पहुंचाया जाता है।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link></h3>
+                                <p className="text-sm dark:text-slate-400 text-slate-600">Healthy spawn production के सबसे ज़रूरी factors में से एक है। हम उपलब्ध कराते हैं: <Link to="/spawn-seed" className="text-emerald-500 hover:underline">Oyster, Button, और Milky Mushroom Spawn</Link>. देहरादून, Doiwala, Rishikesh, Mussoorie, Vikasnagar, Raipur, Maldevta और Bhogpur Belt तक pan-India delivery के साथ spawn पहुंचाया जाता है।</p>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Fresh Mushroom Business</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Business</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Fresh mushrooms इन्हें सप्लाई किए जा सकते हैं: Hotels, Resorts, Restaurants, Organic Food Stores, Retail Markets. पर्यटन उद्योग की वजह से देहरादून में बढ़ती मांग को सहारा मिलता है, खासकर Mussoorie और Rishikesh जाने वाले रास्तों पर।</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Dry Mushroom Products</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Dry Mushroom Products</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">बहुत से उद्यमी इनका भी उत्पादन करते हैं: Dry Mushrooms, Mushroom Powder, Healthy Food Products, Functional Food Ingredients. Value-added products se additional income ke naye raste khulte hain.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Medicinal Mushroom के अवसर</h3>
-                                <p className="text-xs dark:text-slate-400 text-slate-600">Wellness के प्रति जागरूकता बढ़ने से Lion's Mane, Reishi और Cordyceps जैसे medicinal mushroom की मांग बढ़ रही है। ये premium price पर बिकते हैं और शिक्षित, health-conscious ग्राहकों में इनकी लोकप्रियता तेज़ी से बढ़ रही है।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Medicinal Mushroom</Link> के अवसर</h3>
+                                <p className="text-xs dark:text-slate-400 text-slate-600">Wellness के प्रति जागरूकता बढ़ने से <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Lion's Mane, Reishi और Cordyceps</Link> जैसे medicinal mushroom की मांग बढ़ रही है। ये premium price पर बिकते हैं और शिक्षित, health-conscious ग्राहकों में इनकी लोकप्रियता तेज़ी से बढ़ रही है।</p>
                             </div>
                         </div>
                     </div>
@@ -243,21 +243,21 @@ const ArticleDehradunTraining = () => {
                     {/* More Services */}
                     <div className="space-y-4 pt-6 border-t dark:border-white/10 border-black/10">
                         <div>
-                            <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Mushroom Consultancy & Turnkey Projects</h3>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link> & <Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Turnkey Projects</Link></h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">
-                                Professional consultancy में Farm Planning, Technical Guidance, Market Development, और Business Expansion शामिल है। बड़े investors के लिए हम turnkey project देते हैं — जिसमें infrastructure planning, farm design, equipment guidance और operational systems सब कुछ शामिल है।
+                                Professional <Link to="/book-consultant" className="text-emerald-500 hover:underline">consultancy</Link> में Farm Planning, Technical Guidance, Market Development, और Business Expansion शामिल है। बड़े investors के लिए हम <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline">turnkey project</Link> देते हैं — जिसमें infrastructure planning, farm design, equipment guidance और operational systems सब कुछ शामिल है।
                             </p>
                         </div>
                         <div>
-                            <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Business Plan & ROI Analysis</h3>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/business-plan" className="hover:text-emerald-500 transition-colors">Business Plan & ROI Analysis</Link></h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">
                                 निवेश से पहले सफल उद्यमी Investment Budget, Production Capacity, Operating Expenses, Customer Demand, और Growth Opportunities का आकलन करते हैं। आपके scale के हिसाब से हम customized <Link to="/business-plan" className="text-emerald-500 hover:underline">business plan और project report</Link> तैयार करके देते हैं, जो bank loan या subsidy application के लिए भी काम आता है।
                             </p>
                         </div>
                         <div>
-                            <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Government Subsidy & Marketing Support</h3>
+                            <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government Subsidy</Link> & Marketing Support</h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">
-                                पात्र किसान और उद्यमी agriculture, food processing और self-employment से जुड़ी मौजूदा सरकारी योजनाओं का लाभ eligibility के आधार पर उठा सकते हैं। Marketing activities में Brand Building, Hotel Partnerships, Retail Networks, Online Promotion और Customer Retention शामिल है।
+                                पात्र किसान और उद्यमी agriculture, food processing और self-employment से जुड़ी मौजूदा सरकारी योजनाओं का लाभ eligibility के आधार पर उठा सकते हैं। <Link to="/subsidy" className="text-emerald-500 hover:underline">Subsidy opportunities check karein.</Link> Marketing activities में Brand Building, Hotel Partnerships, Retail Networks, Online Promotion और Customer Retention शामिल है।
                             </p>
                         </div>
                     </div>

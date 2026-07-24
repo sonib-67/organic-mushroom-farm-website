@@ -281,7 +281,7 @@ const ArticleVadodaraTraining = () => {
                                 <p className="text-xs dark:text-slate-400 text-slate-600">ઘણા growers Dry Mushrooms, Mushroom Powder, Packaged Products અને Functional Food Ingredients માં પણ વિસ્તરે છે. Inka shelf life zyada hota hai aur additional revenue ka accha zariya banta hai.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link></h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Consultancy સેવા મદદ કરે છે: Farm Planning, Market Development, Infrastructure Design અને Expansion Strategies. Professional guidance se startup risk kaafi kam ho jata hai.</p>
                             </div>
                         </div>
@@ -290,17 +290,17 @@ const ArticleVadodaraTraining = () => {
                             <div>
                                 <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Turnkey Mushroom Projects</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    મોટા investors માટે અમે <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> આપીએ છીએ — જેમાં farm design, infrastructure planning, equipment guidance અને operational systems બધું જ સામેલ છે.
+                                    મોટા investors માટે અમે <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> આપીએ છીએ — જેમાં farm design, infrastructure planning, equipment guidance અને operational systems બધું જ સામેલ છે.
                                 </p>
                             </div>
                             <div>
                                 <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/blog/mushroom-farming-business-plan-india" className="hover:text-emerald-500 transition-colors">Business Plan & ROI Analysis</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    રોકાણ પહેલા ઉદ્યોગસાહસિકોએ ધ્યાનમાં લેવું જોઈએ: Production Capacity, Market Demand, Operating Costs, Revenue Potential, અને Customer Base. Aapke scale ke hisaab se hum <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">customized business plan & project report</Link> taiyaar karke dete hain, jo bank loan ya subsidy application ke liye bhi use ho sakta hai.
+                                    રોકાણ પહેલા ઉદ્યોગસાહસિકોએ ધ્યાનમાં લેવું જોઈએ: Production Capacity, Market Demand, Operating Costs, Revenue Potential, અને Customer Base. Aapke scale ke hisaab se hum <Link to="/blog/mushroom-farming-business-plan-india" className="text-emerald-500 hover:underline font-semibold">customized business plan & project report</Link> taiyaar karke dete hain, jo bank loan ya subsidy application ke liye bhi use ho sakta hai.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Government Subsidy Opportunities</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government Subsidy Opportunities</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     પાત્ર ખેડૂતો અને ઉદ્યોગસાહસિકો હાલની agriculture અને entrepreneurship support યોજનાઓનો લાભ eligibility ના આધારે લઈ શકે છે. અમે યોગ્ય યોજના ઓળખવામાં અને <Link to="/subsidy" className="text-emerald-500 hover:underline font-semibold">Government Subsidy support</Link> documentation તૈયાર કરવામાં મદદ કરીએ છીએ.
                                 </p>

@@ -202,7 +202,7 @@ const ArticleAmritsarTraining = () => {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">Online Mushroom Training</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2"><Link to="/training" className="hover:text-emerald-500 transition-colors">Online Mushroom Training</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600 mb-4">
                                     ਨਿਵੇਸ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ, ਬਹੁਤ ਸਾਰੇ ਕਿਸਾਨ ਪੂਰੀ cultivation process ਸਿੱਖਣਾ ਪਸੰਦ ਕਰਦੇ ਹਨ। Training ਵਿੱਚ ਸ਼ਾਮਲ ਹੈ: Mushroom Cultivation, Spawn Management, Crop Management, Harvesting, Packaging, Marketing, Business Planning. Punjabi ਅਤੇ Hindi ਦੋਵਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ support ਮੌਜੂਦ ਹੈ, ਤਾਂ ਜੋ ਘਰ ਬੈਠੇ ਹੀ ਸਿਖਲਾਈ ਲਈ ਜਾ ਸਕੇ।
                                 </p>
@@ -211,7 +211,7 @@ const ArticleAmritsarTraining = () => {
                                 </Link>
                             </div>
                             <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">Offline Mushroom Training</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2"><Link to="/training" className="hover:text-emerald-500 transition-colors">Offline Mushroom Training</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600 mb-4">
                                     Practical sessions ਵਿੱਚ ਸ਼ਾਮਲ ਹੈ: Live Demonstrations, Bed Preparation, Spawn Handling, Harvesting, Farm Management. Ranjit Avenue, Majitha Road, Chheharta ਅਤੇ Batala Road ਦੇ ਲੋਕ hands-on experience ਲਈ offline training ਨੂੰ ਤਰਜੀਹ ਦਿੰਦੇ ਹਨ, ਜਿਸ ਨਾਲ beginner mistakes ਘੱਟ ਹੁੰਦੀਆਂ ਹਨ।
                                 </p>
@@ -226,15 +226,15 @@ const ArticleAmritsarTraining = () => {
                     <div className="space-y-6 pt-6 border-t dark:border-white/10 border-black/10">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-4">
-                                <h3 className="text-lg font-bold dark:text-white text-slate-900">Mushroom Farm Setup</h3>
+                                <h3 className="text-lg font-bold dark:text-white text-slate-900"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     ਇੱਕ ਸਫਲ <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">Mushroom Farm Setup</Link> ਲਈ ਆਮ ਤੌਰ 'ਤੇ ਲੋੜ ਹੁੰਦੀ ਹੈ: Growing Room, Humidity Control, Ventilation, Storage Area, ਅਤੇ Quality Mushroom Spawn. Verka, Putlighar, Lawrence Road ਅਤੇ Mall Road ਵਿੱਚ site visit ਕਰਕੇ ਵੀ ਅਸੀਂ customized setup plan ਬਣਾ ਕੇ ਦਿੰਦੇ ਹਾਂ।
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-lg font-bold dark:text-white text-slate-900">Mushroom Spawn Supply</h3>
+                                <h3 className="text-lg font-bold dark:text-white text-slate-900"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    Reliable spawn cultivation ਦੀ ਸਫਲਤਾ ਲਈ ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ factor ਹੈ। ਅਸੀਂ ਮੁਹੱਈਆ ਕਰਵਾਉਂਦੇ ਹਾਂ: Oyster Mushroom Spawn, Button Mushroom Spawn, Milky Mushroom Spawn. Amritsar, Ajnala, Tarn Taran, Attari, Jandiala Guru, Chogawan, Lopoke ਅਤੇ Verka Rural Belt ਤੱਕ pan-India delivery ਨਾਲ <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn</Link> ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ।
+                                    Reliable spawn cultivation ਦੀ ਸਫਲਤਾ ਲਈ ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ factor ਹੈ। ਅਸੀਂ ਮੁਹੱਈਆ ਕਰਵਾਉਂਦੇ ਹਾਂ: <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Oyster Mushroom Spawn, Button Mushroom Spawn, Milky Mushroom Spawn</Link>. Amritsar, Ajnala, Tarn Taran, Attari, Jandiala Guru, Chogawan, Lopoke ਅਤੇ Verka Rural Belt ਤੱਕ pan-India delivery ਨਾਲ <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn</Link> ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ।
                                 </p>
                             </div>
                         </div>
@@ -248,30 +248,30 @@ const ArticleAmritsarTraining = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Fresh Mushroom Sale</h3>
-                                <p className="text-xs dark:text-slate-400 text-slate-600">Fresh mushrooms ਇਹਨਾਂ ਨੂੰ ਸਪਲਾਈ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ: Hotels, Restaurants, Dhabas, Retail Markets, Organic Stores. ਪੰਜਾਬ ਦੀ ਖਾਣ-ਪੀਣ ਦੀ ਸਨਅਤ, ਖਾਸ ਕਰਕੇ dhaba culture, ਮਜ਼ਬੂਤ ਮੰਗ ਪੈਦਾ ਕਰਦੀ ਹੈ।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Sale</Link></h3>
+                                <p className="text-xs dark:text-slate-400 text-slate-600">Fresh mushrooms ਇਹਨਾਂ ਨੂੰ ਸਪਲਾਈ ਕੀਤੇ ਜਾ ਸਕਦੇ ਹਨ: Hotels, Restaurants, Dhabas, Retail Markets, Organic Stores. ਪੰਜਾਬ ਦੀ ਖਾਣ-ਪੀਣ ਦੀ ਸਨਅਤ, ਖਾਸ ਕਰਕੇ dhaba culture, ਮਜ਼ਬੂਤ ਮੰਗ ਪੈਦਾ ਕਰਦੀ ਹੈ。</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Dry Mushroom Business</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Dry Mushroom Business</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">ਬਹੁਤ ਸਾਰੇ growers ਇਸ ਵਿੱਚ ਵਿਸਥਾਰ ਕਰਦੇ ਹਨ: Dry Mushrooms, Mushroom Powder, Packaged Products, Functional Food Ingredients. Inka shelf life zyada hota hai aur market reach bhi badh jaata hai.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Medicinal Mushroom ਦੇ ਮੌਕੇ</h3>
-                                <p className="text-xs dark:text-slate-400 text-slate-600">Wellness ਪ੍ਰਤੀ ਜਾਗਰੂਕਤਾ ਵਧਣ ਨਾਲ Lion's Mane, Reishi ਅਤੇ Cordyceps ਵਰਗੇ medicinal mushroom ਦੀ ਮੰਗ ਵਧ ਰਹੀ ਹੈ। ਇਹ premium price 'ਤੇ ਵਿਕਦੇ ਹਨ ਅਤੇ ਵਧੀਆ ਮੁਨਾਫ਼ਾ ਦਿੰਦੇ ਹਨ।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Medicinal Mushroom</Link> ਦੇ ਮੌਕੇ</h3>
+                                <p className="text-xs dark:text-slate-400 text-slate-600">Wellness ਪ੍ਰਤੀ ਜਾਗਰੂਕਤਾ ਵਧਣ ਨਾਲ <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Lion's Mane, Reishi ਅਤੇ Cordyceps</Link> ਵਰਗੇ medicinal mushroom ਦੀ ਮੰਗ ਵਧ ਰਹੀ ਹੈ। ਇਹ premium price 'ਤੇ ਵਿਕਦੇ ਹਨ ਅਤੇ ਵਧੀਆ ਮੁਨਾਫ਼ਾ ਦਿੰਦੇ ਹਨ।</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 mt-6">
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Mushroom Consultancy</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     Professional <Link to="/book-consultant" className="text-emerald-500 hover:underline font-semibold">consultancy</Link> ਮਦਦ ਕਰਦੀ ਹੈ: Farm Planning, Technical Guidance, Business Development, Market Expansion. Expert advice se business mistakes kaafi kam ho jaati hain.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Turnkey Mushroom Projects</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Turnkey Mushroom Projects</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    ਵੱਡੇ investors ਲਈ ਅਸੀਂ <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> ਦਿੰਦੇ ਹਾਂ — ਇਸ ਵਿੱਚ farm design, infrastructure planning, equipment selection ਅਤੇ operational guidance ਸਭ ਸ਼ਾਮਲ ਹੈ।
+                                    ਵੱਡੇ investors ਲਈ ਅਸੀਂ <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> ਦਿੰਦੇ ਹਾਂ — ਇਸ ਵਿੱਚ farm design, infrastructure planning, equipment selection ਅਤੇ operational guidance ਸਭ ਸ਼ਾਮਲ ਹੈ।
                                 </p>
                             </div>
                             <div>
@@ -281,7 +281,7 @@ const ArticleAmritsarTraining = () => {
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Government Subsidy Opportunities</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government Subsidy Opportunities</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     ਯੋਗ ਕਿਸਾਨ ਅਤੇ ਉੱਦਮੀ ਖੇਤੀਬਾੜੀ, food processing ਅਤੇ entrepreneurship support ਯੋਜਨਾਵਾਂ ਦਾ ਲਾਭ eligibility ਦੇ ਆਧਾਰ 'ਤੇ ਲੈ ਸਕਦੇ ਹਨ। ਸਹੀ ਯੋਜਨਾ ਪਛਾਣਨ ਅਤੇ documentation ਤਿਆਰ ਕਰਨ ਵਿੱਚ ਅਸੀਂ ਮਦਦ ਕਰਦੇ ਹਾਂ। <Link to="/subsidy" className="text-emerald-500 hover:underline font-semibold">Subsidy opportunities check karo.</Link>
                                 </p>

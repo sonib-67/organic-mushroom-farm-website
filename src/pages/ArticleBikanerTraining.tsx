@@ -164,24 +164,24 @@ const ArticleBikanerTraining = () => {
                         </h3>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
-                                <h4 className="font-bold dark:text-white text-slate-900 mb-2">मशरूम प्रोडक्शन (Mushroom Production)</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900 mb-2"><Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">मशरूम प्रोडक्शन</Link> (Mushroom Production)</h4>
                                 <p className="text-sm dark:text-slate-300 text-slate-600">बड़े पैमाने माथे मशरूम कल्टीवेशन सरू कर'र खुद रो उत्पादन रो व्यापार बणावणो।</p>
                             </div>
                             <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
-                                <h4 className="font-bold dark:text-white text-slate-900 mb-2">मशरूम स्पॉन सप्लाई (Mushroom Spawn Supply)</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900 mb-2"><Link to="/spawn-seed" className="hover:text-primary-start transition-colors">मशरूम स्पॉन सप्लाई</Link> (Mushroom Spawn Supply)</h4>
                                 <p className="text-sm dark:text-slate-300 text-slate-600">चोखी क्वालिटी रो बीज बणाणो और बेेचणो — ओ एक बारो-मास चालण वालो पक्को धंधो है।</p>
                             </div>
                             <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
-                                <h4 className="font-bold dark:text-white text-slate-900 mb-2">ताजा मशरूम रो धंधो (Fresh Mushroom Business)</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900 mb-2"><Link to="/contact" className="hover:text-primary-start transition-colors">ताजा मशरूम रो धंधो</Link> (Fresh Mushroom Business)</h4>
                                 <p className="text-sm dark:text-slate-300 text-slate-600">बीकानेर और आस-पास रा रेस्टोरेंट, होटल और सब्जी री दुकानदारां ने ताजा मशरूम सप्लाई करणो।</p>
                             </div>
                             <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
-                                <h4 className="font-bold dark:text-white text-slate-900 mb-2">सूखा मशरूम रो काम (Dry Mushroom Processing)</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900 mb-2"><Link to="/contact" className="hover:text-primary-start transition-colors">सूखा मशरूम रो काम</Link> (Dry Mushroom Processing)</h4>
                                 <p className="text-sm dark:text-slate-300 text-slate-600">मशरूम ने सुखा'र उणरो पाउडर बणाणो या वैल्यु एडेड प्रोडक्ट्स बणा'र देश-विदेश में बेचणो।</p>
                             </div>
                         </div>
                         <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
-                            <h4 className="font-bold dark:text-white text-slate-900 mb-2">मशरूम कंसल्टेंसी (Mushroom Consultancy)</h4>
+                            <h4 className="font-bold dark:text-white text-slate-900 mb-2"><Link to="/book-consultant" className="hover:text-primary-start transition-colors">मशरूम कंसल्टेंसी</Link> (Mushroom Consultancy)</h4>
                             <p className="text-sm dark:text-slate-300 text-slate-600">बीकानेर रा किसाणां और नवयुवकां ने मशरूम बिजनेस सरू करवाण में मदद देवणी — ओ एक ज्ञान-आधारित (knowledge-based) चोखो करियर है।</p>
                         </div>
                     </div>
@@ -191,7 +191,7 @@ const ArticleBikanerTraining = () => {
                     {/* ऑनलाइन */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Online Mushroom Training
+                            <Link to="/training" className="hover:text-primary-start transition-colors">Online Mushroom Training</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             टाबर कदेई भी और कठे सु भी सीख सके है — भणाई-लिखाई रे सागे-सागे। इण ट्रेनिंग में म्हे सिखास्यां:
@@ -215,7 +215,7 @@ const ArticleBikanerTraining = () => {
                     {/* ऑफलाइन */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Offline Mushroom Training
+                            <Link to="/training" className="hover:text-primary-start transition-colors">Offline Mushroom Training</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             इणमें थारे सारु प्रैक्टिकल क्लासेज होसी:
@@ -237,17 +237,17 @@ const ArticleBikanerTraining = () => {
                     {/* वैराइटी */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Students को कौन-कौन सी Mushroom Varieties पता होनी चाहिए
+                            Students को कौन-कौन सी <Link to="/mushroom-types" className="hover:text-primary-start transition-colors">Mushroom Varieties</Link> पता होनी चाहिए
                         </h3>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
-                            <li><strong>ऑयस्टर मशरूम (Oyster Mushroom)</strong> — नया सरू करण वाळा सारु सबसे आसान।</li>
-                            <li><strong>बटन मशरूम (Button Mushroom)</strong> — भारत में सबसे ज्यादा खावण वाळो लोकप्रिय मशरूम।</li>
-                            <li><strong>मिल्की मशरूम (Milky Mushroom)</strong> — गर्मियों में कमर्शियल फार्मिंग सारु मोटो अवसर।</li>
-                            <li><strong>शिटाके मशरूम (Shiitake Mushroom)</strong> — प्रीमियम और गोर्मे कैटगरी रो मशरूम।</li>
-                            <li><strong>लायंस मेन मशरूम (Lion's Mane Mushroom)</strong> — दिमागी तागत सारु वधतो वैलनेस मार्केट।</li>
-                            <li><strong>रिशी मशरूम (Reishi Mushroom)</strong> — चमत्कारी औषधीय मशरूम कैटगरी।</li>
-                            <li><strong>टर्की टेल मशरूम (Turkey Tail Mushroom)</strong> — सेहत सारु गुणकारी मशरूम।</li>
-                            <li><strong>कोर्डिसेप्स मशरूम (Cordyceps Mushroom)</strong> — घणो ई कीमती और वीआईपी औषधीय मशरूम।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">ऑयस्टर मशरूम</Link> (Oyster Mushroom)</strong> — नया सरू करण वाळा सारु सबसे आसान।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">बटन मशरूम</Link> (Button Mushroom)</strong> — भारत में सबसे ज्यादा खावण वाळो लोकप्रिय मशरूम।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">मिल्की मशरूम</Link> (Milky Mushroom)</strong> — गर्मियों में कमर्शियल फार्मिंग सारु मोटो अवसर।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">शिटाके मशरूम</Link> (Shiitake Mushroom)</strong> — प्रीमियम और गोर्मे कैटगरी रो मशरूम।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">लायंस मेन मशरूम</Link> (Lion's Mane Mushroom)</strong> — दिमागी तागत सारु वधतो वैलनेस मार्केट।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">रिशी मशरूम</Link> (Reishi Mushroom)</strong> — चमत्कारी औषधीय मशरूम कैटगरी।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">टर्की टेल मशरूम</Link> (Turkey Tail Mushroom)</strong> — सेहत सारु गुणकारी मशरूम।</li>
+                            <li><strong><Link to="/mushroom-types" className="hover:text-primary-start transition-colors">कोर्डिसेप्स मशरूम</Link> (Cordyceps Mushroom)</strong> — घणो ई कीमती और वीआईपी औषधीय मशरूम।</li>
                         </ul>
                     </div>
 
@@ -256,10 +256,10 @@ const ArticleBikanerTraining = () => {
                     {/* फार्म सेटअप */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Farm Setup
+                            <Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">Mushroom Farm Setup</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            एक बढ़िया ढांचा आळे मशरूम फार्म (Planned Mushroom Farm Setup) में ओ सब होवे:
+                            एक बढ़िया ढांचा आळे मशरूम फार्म (Planned <Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">Mushroom Farm Setup</Link>) में ओ सब होवे:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
                             <li>ग्रोइंग रूम (Growing Room - उगावण रो कमरो)</li>
@@ -278,10 +278,10 @@ const ArticleBikanerTraining = () => {
                     {/* स्पॉन सप्लाई */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Spawn Supply
+                            <Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Mushroom Spawn Supply</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            नीरो और चोखो स्पॉन (Healthy Spawn) ही बढ़िया पैदवार री नींव है। म्हे थारे सारु ओ बीज देवा हां:
+                            नीरो और चोखो स्पॉन (Healthy <Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Spawn</Link>) ही बढ़िया पैदवार री नींव है। म्हे थारे सारु ओ बीज देवा हां:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
                             <li>ऑयस्टर मशरूम स्पॉन (Oyster Spawn)</li>
@@ -298,7 +298,7 @@ const ArticleBikanerTraining = () => {
                     {/* फ्रेश सेल */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Fresh Mushroom Sale
+                            <Link to="/contact" className="hover:text-primary-start transition-colors">Fresh Mushroom Sale</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             ताजा मशरूम थे इन जगां माथे सप्लाई कर सको हो:
@@ -319,7 +319,7 @@ const ArticleBikanerTraining = () => {
                     {/* ड्राई बिजनेस */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Dry Mushroom Business
+                            <Link to="/contact" className="hover:text-primary-start transition-colors">Dry Mushroom Business</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             स्टूडेंट्स और नौजवान उद्यमी इण काम ने भी सरू कर सके है:
@@ -340,10 +340,10 @@ const ArticleBikanerTraining = () => {
                     {/* मेडिसिनल मशरूम */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Medicinal Mushroom के अवसर
+                            <Link to="/mushroom-types" className="hover:text-primary-start transition-colors">Medicinal Mushroom</Link> के अवसर
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            सेहत और तंदुरुस्ती सारु जागरूकता वधण सु लायंस मेन, रिशी और कोर्डिसेप्स जिया औषधीय मशरूमां री मांग घणी वध रही है। बीकानेर रा पढ़्या-लिख्या शहरी लोकां में इण री लोकप्रियता जोर सोर सु वध रही है और आं री कीमत भी घणी चोखी (Premium Price) मिले है।
+                            सेहत और तंदुरुस्ती सारु जागरूकता वधण सु <Link to="/mushroom-types" className="hover:text-primary-start transition-colors">लायंस मेन, रिशी और कोर्डिसेप्स जिया औषधीय मशरूमां</Link> री मांग घणी वध रही है। बीकानेर रा पढ़्या-लिख्या शहरी लोकां में इण री लोकप्रियता जोर सोर सु वध रही है और आं री कीमत भी घणी चोखी (Premium Price) मिले है।
                         </p>
                     </div>
 
@@ -352,7 +352,7 @@ const ArticleBikanerTraining = () => {
                     {/* कंसल्टेंसी */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Consultancy
+                            <Link to="/book-consultant" className="hover:text-primary-start transition-colors">Mushroom Consultancy</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             कंसल्टेंसी सर्विस या करियर दोनूं री तरां घणी उपयोगी है, जिणमें शामिल है:
@@ -373,10 +373,10 @@ const ArticleBikanerTraining = () => {
                     {/* टर्नकी प्रोजेक्ट */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Turnkey Mushroom Projects
+                            <Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">Turnkey Mushroom Projects</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            मोटा इन्वेस्टर्स सारु म्हे टर्नकी प्रोजेक्ट (Turnkey Project) री सुविदा देवां हां — जिणमें ढांचा बणाण री योजना (Infrastructure Planning), फार्म रो नक़्शो (Farm Design), मशीनरी री सलाह (Equipment Guidance) और ऑपरेशनल सिस्टम (Operational Systems) शामिल है। टर्नकी सपोर्ट सु बड़ो फार्म बणाणो घणो ई सहेलो हो जावे।
+                            मोटा इन्वेस्टर्स सारु म्हे <Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">टर्नकी प्रोजेक्ट</Link> (Turnkey Project) री सुविदा देवां हां — जिणमें ढांचा बणाण री योजना (Infrastructure Planning), फार्म रो नक़्शो (Farm Design), मशीनरी री सलाह (Equipment Guidance) और ऑपरेशनल सिस्टम (Operational Systems) शामिल है। टर्नकी सपोर्ट सु बड़ो फार्म बणाणो घणो ई सहेलो हो जावे।
                         </p>
                     </div>
 
@@ -385,7 +385,7 @@ const ArticleBikanerTraining = () => {
                     {/* बिजनेस प्लान */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Business Plan & ROI Analysis
+                            <Link to="/business-plan" className="hover:text-primary-start transition-colors">Business Plan & ROI Analysis</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             मशरूम बिजनेस सरू करण सु पे'ली नौजवान उद्यमी ने इण चीजां रो हिसाब लगाणो चाईजे:
@@ -398,7 +398,7 @@ const ArticleBikanerTraining = () => {
                             <li>रोज रो खर्चो (Operating Costs)</li>
                         </ul>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            बढ़िया प्लानिंग कर'र काम सरू कर्या सु नुकसान होण रो डर घणो कम हो जावे। थारे स्केल रे मुजब म्हे कस्टमाइज्ड बिजनेस प्लान और प्रोजेक्ट रिपोर्ट बणा'र देवां हां।
+                            बढ़िया प्लानिंग कर'र काम सरू कर्या सु नुकसान होण रो डर घणो कम हो जावे। थारे स्केल रे मुजब म्हे <Link to="/business-plan" className="hover:text-primary-start transition-colors">कस्टमाइज्ड बिजनेस प्लान और प्रोजेक्ट रिपोर्ट</Link> बणा'र देवां हां।
                         </p>
                     </div>
 
@@ -407,10 +407,10 @@ const ArticleBikanerTraining = () => {
                     {/* सब्सिडी */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Government Subsidy Opportunities
+                            <Link to="/subsidy" className="hover:text-primary-start transition-colors">Government Subsidy Opportunities</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            पात्र किसान, स्टार्टअप्स और उद्यमी खेती-बाड़ी (Agriculture), फूड प्रोसेसिंग और खुद रा रोजगार (self-employment) सु जुड़ी सरकारी योजनावां रो लाभ योग्यता रे आधार माथे ले सके है। सही योजना री ओळखाण करण और कागज (documentation) तैयार करवाण में म्हे थारी पूरी मदद करां हां।
+                            पात्र किसान, स्टार्टअप्स और उद्यमी खेती-बाड़ी (Agriculture), फूड प्रोसेसिंग और खुद रा रोजगार (self-employment) सु जुड़ी <Link to="/subsidy" className="hover:text-primary-start transition-colors">सरकारी योजनावां</Link> रो लाभ योग्यता रे आधार माथे ले सके है। सही योजना री ओळखाण करण और कागज (documentation) तैयार करवाण में म्हे थारी पूरी मदद करां हां।
                         </p>
                     </div>
 

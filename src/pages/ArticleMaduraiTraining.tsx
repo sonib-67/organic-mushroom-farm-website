@@ -224,7 +224,7 @@ const ArticleMaduraiTraining = () => {
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Government Subsidy & Marketing Support</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government Subsidy</Link> & Marketing Support</h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     Available schemes மற்றும் eligibility-ஐ பொறுத்து subsidies கிடைக்கலாம். Marketing support-ல் Brand development, Packaging, Restaurant partnerships, Online promotion എന്നിവ focus செய்யப்படும்.
                                 </p>
@@ -344,19 +344,19 @@ const ArticleMaduraiTraining = () => {
                                     a: "Profit variety, scale, production quality மற்றும் local buyer network-ஐ பொறுத்தது."
                                 },
                                 {
-                                    q: "3. Mushroom spawn எங்கே வாங்குவது?",
+                                    q: <>3. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> எங்கே வாங்குவது?</>,
                                     a: "Quality-assured oyster, button மற்றும் milky mushroom spawn direct-ஆக supply கிடைக்கும், மதுரைக்குள் delivery-ம் possible."
                                 },
                                 {
-                                    q: "4. Mushroom training எப்படி join செய்வது?",
+                                    q: <>4. <Link to="/training" className="hover:text-emerald-500 transition-colors">Mushroom training</Link> எப்படி join செய்வது?</>,
                                     a: "Online மற்றும் offline, இரண்டு formats-ம் available — உங்கள் availability-ஐ பொறுத்து தேர்வு செய்யலாம்."
                                 },
                                 {
-                                    q: "5. Online training கிடைக்குமா?",
+                                    q: <>5. <Link to="/training" className="hover:text-emerald-500 transition-colors">Online training</Link> கிடைக்குமா?</>,
                                     a: "ஆம், working professionals மற்றும் busy schedule உள்ளவர்களுக்கு online training convenient."
                                 },
                                 {
-                                    q: "6. Offline/hands-on training-ம் கிடைக்குமா?",
+                                    q: <>6. <Link to="/training" className="hover:text-emerald-500 transition-colors">Offline/hands-on training</Link>-ம் கிடைக்குமா?</>,
                                     a: "ஆம், practical demonstration மற்றும் live sessions offline training-ல் cover செய்யப்படும்."
                                 },
                                 {
@@ -372,23 +372,23 @@ const ArticleMaduraiTraining = () => {
                                     a: "ஆம், குறைந்த capital மற்றும் சிறிய இடத்தில் மாணவர்களும் side-business ஆக தொடங்கலாம்."
                                 },
                                 {
-                                    q: "10. Government subsidy கிடைக்குமா?",
+                                    q: <>10. <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government subsidy</Link> கிடைக்குமா?</>,
                                     a: "சில agriculture மற்றும் self-employment schemes allied activities-க்கு support செய்கின்றன; current eligibility மற்றும் benefits-க்கு local Krishi Vigyan Kendra அல்லது வங்கியில் verify செய்துகொள்ளவும்."
                                 },
                                 {
                                     q: "11. மதுரைக்கு எந்த mushroom variety best?",
-                                    a: "Beginners-க்கு oyster mushroom எளிமையானது; heat-tolerant milky mushroom-ம் suitable; button mushroom-க்கு cooling setup தேவை."
+                                    a: <><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster mushroom</Link> beginners-க்கு எளிமையானது; heat-tolerant milky mushroom-ம் suitable; button mushroom-க்கு cooling setup தேவை.</>
                                 },
                                 {
                                     q: "12. Mushroom-ஐ எப்படி விற்பது?",
                                     a: "Hotels, restaurants, organic stores, supermarkets மற்றும் online platforms — multiple channels available, marketing support இதில் help செய்யும்."
                                 },
                                 {
-                                    q: "13. Consultancy service கிடைக்குமா?",
+                                    q: <>13. <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">Consultancy service</Link> கிடைக்குமா?</>,
                                     a: "ஆம், farm planning முதல் market development வரை consultancy available."
                                 },
                                 {
-                                    q: "14. Turnkey project setup கிடைக்குமா?",
+                                    q: <>14. <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey project setup</Link> கிடைக்குமா?</>,
                                     a: "ஆம், பெரிய scale investors-க்கு complete farm design முதல் operational setup வரை turnkey solutions available."
                                 },
                                 {
@@ -408,7 +408,7 @@ const ArticleMaduraiTraining = () => {
                                     a: "இந்த products-ஐ மதுரைக்கு மட்டும் limit செய்யாமல் online அல்லது pan-India-வும் விற்கலாம்."
                                 },
                                 {
-                                    q: "19. மதுரையில் medicinal mushroom (Lion's Mane, Reishi, Cordyceps) market எப்படி உள்ளது?",
+                                    q: <>19. மதுரையில் <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">medicinal mushroom</Link> (Lion's Mane, Reishi, Cordyceps) market எப்படி உள்ளது?</>,
                                     a: "மதுரையின் health-conscious consumer base இதை ஒரு promising, early-stage category ஆக மாற்றுகிறது."
                                 },
                                 {
