@@ -12,7 +12,7 @@ const ArticleJabalpurGuide = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="Mushroom Farming in Jabalpur: Complete Guide to Starting Your Profitable Business" 
+                title="जबलपुर से सफल मशरूम एग्री-बिजनेस की शुरुआत | एक्सपर्ट मार्गदर्शन" 
                 description="Master Mushroom Cultivation & Achieve ₹50,000+ Monthly Income in Madhya Pradesh. Complete Practical Guide for Jabalpur Farmers."
                 keywords="Mushroom farming Jabalpur, mushroom cultivation Jabalpur, oyster mushroom farming Jabalpur, button mushroom farming Jabalpur, how to start mushroom farming Jabalpur, mushroom farming training Jabalpur, mushroom spawn Jabalpur, mushroom farming profit Jabalpur, mushroom farming investment Jabalpur, commercial mushroom farming Jabalpur, mushroom farming Madhya Pradesh, best mushroom farming location India"
             />
@@ -26,7 +26,7 @@ const ArticleJabalpurGuide = () => {
                 >
                     <div className="badge mx-auto mb-6">Complete Practical Guide for Jabalpur Farmers</div>
                     <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight leading-tight">
-                        Mushroom Farming in Jabalpur: <span className="gradient-text">Complete Guide to Starting Your Profitable Mushroom Farm Business</span>
+                        जबलपुर से सफल मशरूम एग्री-बिजनेस की शुरुआत | एक्सपर्ट मार्गदर्शन
                     </h1>
                     <p className="dark:text-slate-400 text-slate-600 text-lg md:text-xl leading-relaxed">
                         Master Mushroom Cultivation & Achieve ₹50,000+ Monthly Income in Madhya Pradesh

@@ -160,10 +160,10 @@ Adding sun-exposed button mushrooms to your diet is an easy, plant-based way to 
   },
 
   "10": {
-    title: "Mushroom Farming in India 2027 — Complete Guide",
+    title: "Mushroom Training Profit Guide USA | Costs, Earnings & Business Tips",
     date: "April 30, 2027",
     category: "Business Trends",
-    metaTitle: "Mushroom Farming in India 2027 — Complete Guide: Spawn, Training, Setup, Fresh & Dry Mushroom Supply Pan India | organicmushroomsfarm.com",
+    metaTitle: "Mushroom Training Profit Guide USA | Costs, Earnings & Business Tips",
     metaDescription: "Buy mushroom spawn, get mushroom farming training, complete mushroom setup kit — Pan India delivery. Organic Mushrooms Farm serves all states, districts & villages across India. Order now at organicmushroomsfarm.com",
     content: `
 Are you looking to start **mushroom farming in India**? Whether you are a farmer, entrepreneur, student, or homemaker — [Organic Mushrooms Farm](https://organicmushroomsfarm.com) is your one-stop solution for **mushroom spawn, mushroom training, mushroom setup kits, fresh mushrooms, and dry mushrooms** — delivered Pan India to every state, district, and village.

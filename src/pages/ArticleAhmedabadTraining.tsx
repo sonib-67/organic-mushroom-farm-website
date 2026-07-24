@@ -17,7 +17,7 @@ const ArticleAhmedabadTraining = () => {
             </div>
 
             <SEO 
-                title="Ahmedabad Mushroom Farming: Complete Guide to Setup, Training & Business Opportunities in Gujarat" 
+                title="અમદાવાદમાં વ્યાવસાયિક મશરૂમ ખેતી તાલીમ | ફાર્મ સેટઅપ નિષ્ણાતો" 
                 description="Start Your Profitable Agribusiness Today! Premium mushroom farming training, spawn supply and commercial setup in Ahmedabad, Gujarat."
                 keywords="Mushroom cultivation in Gujarat, Mushroom farming in Ahmedabad, Mushroom spawn price near me, mushroom training Ahmedabad"
             />
@@ -26,7 +26,7 @@ const ArticleAhmedabadTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Ahmedabad Mushroom Farming: Complete Guide to Setup, Training, & Business Opportunities in Gujarat
+                            અમદાવાદમાં વ્યાવસાયિક મશરૂમ ખેતી તાલીમ | ફાર્મ સેટઅપ નિષ્ણાતો
                         </h1>
                     </div>
 

@@ -17,7 +17,7 @@ const ArticleAgraTraining = () => {
             </div>
 
             <SEO 
-                title="Mushroom Farming for Export & International Markets in Agra | 2026 Guide" 
+                title="आगरा में मशरूम बिजनेस की नई शुरुआत | एक्सपर्ट फार्मिंग गाइड" 
                 description="Mushroom Farming for Export & International Markets in Agra | आगरा से मशरूम एक्सपोर्ट बिजनेस कैसे शुरू करें? Complete Guide 2026"
             />
 
@@ -33,9 +33,8 @@ const ArticleAgraTraining = () => {
 
                 <div className="glass p-8 md:p-12 rounded-3xl border border-black/5 dark:border-white/5 shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary-start/10 blur-[100px] rounded-full pointer-events-none" />
-
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-                        Mushroom Farming for Export & International Markets in Agra | आगरा से मशरूम एक्सपोर्ट बिजनेस कैसे शुरू करें? Complete Guide 2026
+                        आगरा में मशरूम बिजनेस की नई शुरुआत | एक्सपर्ट फार्मिंग गाइड
                     </h1>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-12 mb-6 border-l-4 border-primary-start pl-4">

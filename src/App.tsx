@@ -6657,7 +6657,7 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           {/* Legacy redirects */}
           <Route path="/site-visit-consultation" element={<SiteVisitConsultationPage />} />
-          <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom'  metaDesc="Expert Milky Mushroom cultivation services & training. Get high-yield spawn, optimal summer farming parameters, and professional seeding guidance. " />} />
+          <Route path="/services/milky-mushroom" element={<MushroomTypeDetails defaultSlug='milky-mushroom' metaTitle="Milky Mushroom Cultivation Specialists | Farm Planning & Business Success" metaDesc="Expert Milky Mushroom cultivation services & training. Get high-yield spawn, optimal summer farming parameters, and professional seeding guidance. " />} />
           <Route path="/services/turnkey-setup" element={<ServiceDetailPage defaultId='consultancy'  metaDesc="Looking for a turnkey mushroom farm setup? Join our offline/online training & get expert EPC consultancy for climate-controlled grow rooms in India. " />} />
           <Route path="/services/oyster-mushroom" element={<MushroomTypeDetails defaultSlug='oyster'  metaDesc="Expert Oyster mushroom consultancy services. We offer commercial training, premium spawn supply, and turnkey infrastructure setup for maximum farm yields. " />} />
           <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='white-button'  metaDesc="Professional Button mushroom cultivation services and consultancy. We provide high-yield spawn, standardized compost, and climate control setup guidance. " />} />

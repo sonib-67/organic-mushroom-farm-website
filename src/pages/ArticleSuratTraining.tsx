@@ -17,7 +17,7 @@ const ArticleSuratTraining = () => {
             </div>
 
             <SEO 
-                title="Surat Mushroom Farming Business Guide 2026 | સુરતમાં મશરૂમની ખેતી: Training & Setup" 
+                title="સુરતમાં કમર્શિયલ મશરૂમ ફાર્મિંગ તાલીમ | સફળ બિઝનેસ માર્ગદર્શન" 
                 description="Surat Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Gujarat."
                 keywords="Surat Mushroom Farming, Mushroom farming in Surat, Mushroom spawn in Surat, mushroom training center in Surat, Adajan, Vesu, Varachha, Katargam"
             />
@@ -26,7 +26,7 @@ const ArticleSuratTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Surat Mushroom Farming Business Guide 2026 | સુરતમાં મશરૂમની ખેતી: બમ્પર કમાણી કેવી રીતે શરૂ કરવી?
+                            સુરતમાં કમર્શિયલ મશરૂમ ફાર્મિંગ તાલીમ | સફળ બિઝનેસ માર્ગદર્શન
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                             Commercial Mushroom Cultivation Guide in Gujarat

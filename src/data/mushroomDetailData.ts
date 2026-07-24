@@ -135,7 +135,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Milky mushroom is a highly profitable option for farmers in <strong>Madhya Pradesh, Uttar Pradesh, Bihar, Maharashtra, Tamil Nadu, and West Bengal</strong> during dry summer spells. It is extensively sold in wholesale markets as a summer substitute for button mushrooms.",
-    seoTitle: "Milky Mushroom Farming in India | Low Cost Summer Cultivation",
+    seoTitle: "Milky Mushroom Guide | Benefits, Cultivation & Growing Techniques",
     seoDescription: "Complete Milky Mushroom (Calocybe indica) cultivation method. Read about summer farming parameters, wheat straw pasteurization, casing soil recipe, and spawn seeding.",
     keywords: ["Milky mushroom farming", "Calocybe indica spawn", "summer mushroom cultivation", "casing soil recipe", "mushroom spawn price India", "low cost mushroom setup"]
   },
@@ -190,7 +190,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Dry oyster mushrooms command excellent <strong>export margins</strong> in Japan, USA, and Europe. Fresh oysters are heavily supplied to high-end Chinese restaurants, star hotels, and organic food chain outlets across modern Indian metros.",
-    seoTitle: "Oyster Mushroom Farming Guide | Dhingri Mushroom Training",
+    seoTitle: "All Varieties Oyster Mushroom Farming Guide | Training & Farm Setup",
     seoDescription: "Step-by-step Oyster Mushroom (Pleurotus) cultivation process. Learn agricultural waste pasteurization, spawn rates, drying techniques, and commercial yield parameters.",
     keywords: ["Oyster mushroom cultivation", "Dhingri mushroom training", "Pleurotus ostreatus guide", "buy oyster spawn seed", "dry mushroom business India"]
   },
@@ -355,7 +355,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Ganoderma lucidum enjoys continuous purchase interest from <strong>ayurvedic brands, wellness supplements startups, and premium export agencies</strong> in Southeast Asia and Europe.",
-    seoTitle: "Ganoderma Lucidum Reishi Mushroom Farming Setup Price India",
+    seoTitle: "Reishi Mushroom (Ganoderma lucidum) | Benefits, Cultivation & Uses",
     seoDescription: "Exhaustive details on Reishi Mushroom (Ganoderma lucidum) commercial cultivation. Find optimal temperature, sawdust sterilization methods, and dry supply prices.",
     keywords: ["Reishi mushroom farming", "Ganoderma lucidum spawn", "medicinal mushroom cultivation", "dry reishi cost India", "ayurvedic extract mushroom setup"]
   },
@@ -465,7 +465,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Paddy straw mushroom has a massive consumer base in <strong>Bhubaneswar, Cuttack, Kolkata, Guwahati, and Cochin</strong>, where fresh daily landings are grabbed within hours at wholesale mandis.",
-    seoTitle: "Paddy Straw Mushroom Cultivation in Odisha and West Bengal",
+    seoTitle: "Paddy Straw Mushroom (Volvariella volvacea) | Cultivation & Benefits",
     seoDescription: "Exhaustive review of Paddy Straw (Volvariella volvacea) agricultural setup. Learn fast bed construction, bundle parameters, temperature heat preservation, and harvesting tips.",
     keywords: ["Paddy straw mushroom", "Volvariella volvacea spawn", "paddy straw bed cultivation", "Odisha mushroom farming", "fast-growing crop setup"]
   }

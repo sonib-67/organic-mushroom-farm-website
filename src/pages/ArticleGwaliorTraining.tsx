@@ -17,7 +17,7 @@ const ArticleGwaliorTraining = () => {
             </div>
 
             <SEO 
-                title="Commercial Mushroom Farming Training in Gwalior | Spawn Supplier" 
+                title="ग्वालियर में कमर्शियल मशरूम फार्मिंग ट्रेनिंग | बिजनेस सेटअप विशेषज्ञ" 
                 description="Gwalior (ग्वालियर) में mushroom farming business कैसे शुरू करें? Online/Offline Training, Mushroom Spawn Supply, Consultancy, और Government Subsidy के बारे में पूरी जानकारी।"
                 keywords="Mushroom farming Gwalior, mushroom training Gwalior, mushroom spawn supplier Gwalior, commercial mushroom farming Madhya Pradesh, button mushroom Gwalior, oyster mushroom Gwalior"
             />
@@ -26,7 +26,7 @@ const ArticleGwaliorTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Commercial Mushroom Farming Training in Gwalior | Spawn Supplier
+                            ग्वालियर में कमर्शियल मशरूम फार्मिंग ट्रेनिंग | बिजनेस सेटअप विशेषज्ञ
                         </h1>
                     </div>
 

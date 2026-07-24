@@ -17,7 +17,7 @@ const ArticleKolkataTraining = () => {
             </div>
 
             <SEO 
-                title="Kolkata Mushroom Farming: Start Your Profitable Agribusiness in West Bengal" 
+                title="কলকাতায় বাণিজ্যিক মাশরুম চাষ প্রশিক্ষণ | ফার্ম সেটআপ বিশেষজ্ঞ" 
                 description="Start Your Profitable Agribusiness Today! Premium mushroom farming training, spawn supply and commercial setup in Kolkata, West Bengal."
                 keywords="Mushroom cultivation in West Bengal, Oyester mushroom farming profit, Mushroom spawn price near me, mushroom training Kolkata"
             />
@@ -26,7 +26,7 @@ const ArticleKolkataTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Kolkata Mushroom Farming: Start Your Profitable Agribusiness in West Bengal
+                            কলকাতায় বাণিজ্যিক মাশরুম চাষ প্রশিক্ষণ | ফার্ম সেটআপ বিশেষজ্ঞ
                         </h1>
                     </div>
 

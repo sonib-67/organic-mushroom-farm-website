@@ -104,7 +104,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
   return (
     <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
       <SEO 
-        title="Mushroom Farming: Ghar Par Mushroom Kaise Ugayein — India Ka Sabse Complete Guide (2026)" 
+        title="How to Grow Mushrooms at Home in India (2026) | Beginner's Guide" 
         description={metaDesc || "Learn how to grow mushroom at home. Complete step-by-step guide on substrate pasteurization, spawn selection, bag filling, incubation, harvesting, and state-wise training centers."}
         keywords="how to grow mushroom at home, mushroom training center, button mushroom training center, oyster mushroom training center, mushroom farming training center, mushroom ki kheti, spawn seed jabalpur"
       />
@@ -121,7 +121,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
             🏆 ALL KEYWORDS INTEGRATED & 4000+ WORDS IN-DEPTH Hindi-English Roadmap Guide
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-6">
-            Mushroom Farming: <span className="gradient-text bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">Ghar Par Mushroom Kaise Ugayein</span>
+            How to Grow Mushrooms at Home in India (2026) | Beginner's Guide
           </h1>
           <p className="dark:text-slate-300 text-slate-700 text-lg md:text-2xl font-semibold max-w-4xl mx-auto leading-relaxed mb-6">
             Sochte ho mushroom farming karna hai lekin samajh nahi aata kahan se shuru karein? Yeh hai India Ka Sabse Complete Guide (2026) bina kisi bina faltu ki bakwaas ke! 🍄

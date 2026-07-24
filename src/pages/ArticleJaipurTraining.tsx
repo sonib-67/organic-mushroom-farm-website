@@ -17,7 +17,7 @@ const ArticleJaipurTraining = () => {
             </div>
 
             <SEO 
-                title="Jaipur Mushroom Farming Training Center | Complete Guide & Setup in Rajasthan" 
+                title="जयपुर में आधुनिक मशरूम खेती प्रशिक्षण | सफल बिजनेस की शुरुआत" 
                 description="Start a highly profitable mushroom business in Rajasthan. Learn from the best Mushroom Farming Training Center in Jaipur with full setup & marketing support."
                 keywords="Mushroom cultivation in Rajasthan, Mushroom farming in Jaipur, Mushroom spawn in Jaipur, mushroom training center in Jaipur, Vaishali Nagar, Mansarovar"
             />
@@ -26,7 +26,7 @@ const ArticleJaipurTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Jaipur Mushroom Farming Training Center | जयपुर मशरूम खेती प्रशिक्षण केंद्र
+                            जयपुर में आधुनिक मशरूम खेती प्रशिक्षण | सफल बिजनेस की शुरुआत
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                             Commercial Mushroom Cultivation Guide in Rajasthan
