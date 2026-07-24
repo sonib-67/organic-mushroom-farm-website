@@ -188,14 +188,14 @@ const ArticleThiruvananthapuramTraining = () => {
                             ഞങ്ങളുടെ പരിശീലനവും വിത്ത് വിതരണവും എല്ലാ പ്രീമിയം കമേഴ്സ്യൽ ഇനങ്ങളെയും ഉൾക്കൊള്ളുന്നു:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
-                            <li><strong>Oyster Mushroom (ചിപ്പി കൂൺ)</strong> — വളർത്താൻ എളുപ്പം, beginners-ന് ideal.</li>
-                            <li><strong>Button Mushroom (ബട്ടൺ കൂൺ)</strong> — ഏറ്റവും കൂടുതൽ ഉപയോഗിക്കുന്ന ഭക്ഷ്യ മഷ്റൂം.</li>
-                            <li><strong>Milky Mushroom (പാൽ കൂൺ)</strong> — ചൂടുള്ള കാലാവസ്ഥയിൽ commercial cultivation-ന് അനുയോജ്യം.</li>
-                            <li><strong>Shiitake Mushroom</strong> — പ്രീമിയം ഗൗർമെറ്റ് മാർക്കറ്റ് കാറ്റഗറി.</li>
-                            <li><strong>Lion&apos;s Mane Mushroom</strong> — വെൽനസ് മേഖലയിൽ വർദ്ധിച്ചുവരുന്ന ഡിമാൻഡ്.</li>
-                            <li><strong>Reishi Mushroom</strong> — ഔഷധ കൂൺ മേഖലയിൽ വളരെ പ്രശസ്തം.</li>
-                            <li><strong>Turkey Tail Mushroom</strong> — പ്രതിരോധ ശേഷി വർദ്ധിപ്പിക്കുന്ന ഫങ്ഷണൽ ഫുഡ്.</li>
-                            <li><strong>Cordyceps Mushroom</strong> — അതിവേഗം വളരുന്ന പ്രീമിയം ഔഷധ കൂൺ.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster Mushroom</Link> (ചിപ്പി കൂൺ)</strong> — വളർത്താൻ എളുപ്പം, beginners-ന് ideal.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Button Mushroom</Link> (ബട്ടൺ കൂൺ)</strong> — ഏറ്റവും കൂടുതൽ ഉപയോഗിക്കുന്ന ഭക്ഷ്യ മഷ്റൂം.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Milky Mushroom</Link> (പാൽ കൂൺ)</strong> — ചൂടുള്ള കാലാവസ്ഥയിൽ commercial cultivation-ന് അനുയോജ്യം.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Shiitake Mushroom</Link></strong> — പ്രീമിയം ഗൗർമെറ്റ് മാർക്കറ്റ് കാറ്റഗറി.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Lion&apos;s Mane Mushroom</Link></strong> — വെൽനസ് മേഖലയിൽ വർദ്ധിച്ചുവരുന്ന ഡിമാൻഡ്.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Reishi Mushroom</Link></strong> — ഔഷധ കൂൺ മേഖലയിൽ വളരെ പ്രശസ്തം.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Turkey Tail Mushroom</Link></strong> — പ്രതിരോധ ശേഷി വർദ്ധിപ്പിക്കുന്ന ഫങ്ഷണൽ ഫുഡ്.</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Cordyceps Mushroom</Link></strong> — അതിവേഗം വളരുന്ന പ്രീമിയം ഔഷധ കൂൺ.</li>
                         </ul>
                     </div>
 
@@ -204,7 +204,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Setup */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Farm Setup
+                            <Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             ഒരു professional Mushroom Farm Setup-ൽ സാധാരണയായി ഉൾപ്പെടുന്നു:
@@ -227,7 +227,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Online Training */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Online Mushroom Training
+                            <Link to="/training" className="hover:text-emerald-500 transition-colors">Online Mushroom Training</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Online Mushroom Training-ലൂടെ പഠിക്കാൻ കഴിയും:
@@ -250,7 +250,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Offline Training */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Offline Mushroom Training
+                            <Link to="/training" className="hover:text-emerald-500 transition-colors">Offline Mushroom Training</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Hands-on practical sessions-ൽ ഉൾപ്പെടുന്നു:
@@ -272,15 +272,15 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Spawn */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Spawn Supply
+                            <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Reliable spawn ആണ് വിജയകരമായ production-ന്റെ അടിസ്ഥാനം. ഞങ്ങൾ നൽകുന്നു:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
-                            <li>Oyster Mushroom Spawn (ചിപ്പി കൂൺ വിത്ത്)</li>
-                            <li>Button Mushroom Spawn (ബട്ടൺ കൂൺ വിത്ത്)</li>
-                            <li>Milky Mushroom Spawn (പാൽ കൂൺ വിത്ത്)</li>
+                            <li><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster Mushroom</Link> Spawn (ചിപ്പി കൂൺ വിത്ത്)</li>
+                            <li><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Button Mushroom</Link> Spawn (ബട്ടൺ കൂൺ വിത്ത്)</li>
+                            <li><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Milky Mushroom</Link> Spawn (പാൽ കൂൺ വിത്ത്)</li>
                         </ul>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             തിരുവനന്തപുരം, Neyyattinkara, Attingal, Varkala, Kattakada, Vizhinjam, Balaramapuram, Vellanad, Kadinamkulam വരെ pan-India delivery-യോടെ spawn എത്തിക്കുന്നു.
@@ -292,7 +292,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Fresh Sale */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Fresh Mushroom Sale
+                            <Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Sale</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Fresh mushrooms ഇവർക്ക് സപ്ലൈ ചെയ്യാം:
@@ -334,7 +334,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Medicinal */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Medicinal Mushroom അവസരങ്ങൾ
+                            <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Medicinal Mushroom</Link> അവസരങ്ങൾ
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Wellness-നെക്കുറിച്ചുള്ള അവബോധം വർദ്ധിക്കുന്നതോടെ Lion&apos;s Mane, Reishi, Cordyceps പോലുള്ള medicinal mushroom-കൾക്ക് ഡിമാൻഡ് വർദ്ധിക്കുന്നു. ഇവ premium price-ൽ വിൽക്കുന്നു, IT professionals ഉൾപ്പെടെയുള്ള educated, health-conscious ഉപഭോക്താക്കൾക്കിടയിൽ ഇവയുടെ ജനപ്രീതി വേഗത്തിൽ വർദ്ധിക്കുന്നു.
@@ -346,7 +346,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Consultancy */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Consultancy
+                            <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Professional consultancy-ൽ ഉൾപ്പെടുന്നു:
@@ -367,7 +367,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Turnkey */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Turnkey Mushroom Projects
+                            <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey Mushroom Projects</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             വലിയ investors-ന് ഞങ്ങൾ <strong>turnkey project</strong> നൽകുന്നു — ഇതിൽ farm design, infrastructure planning, equipment guidance, operational systems എല്ലാം ഉൾപ്പെടുന്നു.
@@ -379,7 +379,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Business Plan */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Business Plan & ROI Analysis
+                            <Link to="/business-plan" className="hover:text-emerald-500 transition-colors">Business Plan</Link> & ROI Analysis
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             നിക്ഷേപിക്കുന്നതിന് മുമ്പ് സംരംഭകർ വിലയിരുത്തേണ്ടത്:
@@ -401,7 +401,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Subsidies */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Government Subsidy Opportunities
+                            <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government Subsidy Opportunities</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             യോഗ്യരായ കർഷകർക്കും സംരംഭകർക്കും agriculture, food processing, self-employment സംബന്ധിച്ച നിലവിലെ സർക്കാർ പദ്ധതികളുടെ ആനുകൂല്യം eligibility അനുസരിച്ച് ലഭിക്കാം. ശരിയായ പദ്ധതി തിരിച്ചറിയാനും documentation തയ്യാറാക്കാനും ഞങ്ങൾ സഹായിക്കുന്നു.
@@ -567,19 +567,19 @@ const ArticleThiruvananthapuramTraining = () => {
                                 <p className="text-sm">Sahi management aur consistent café/hospital demand ke saath monthly accha margin possible hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৩. Mushroom spawn എവിടെ ലഭിക്കും?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৩. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> എവിടെ ലഭിക്കും?</h4>
                                 <p className="text-sm">ഞങ്ങളിൽ നിന്ന് മുഴുവൻ Kerala-യിലേക്കും pan-India delivery-യോടെ spawn വാങ്ങാം.</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৪. Training kaise join karein?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৪. <Link to="/training" className="hover:text-emerald-500 transition-colors">Training</Link> kaise join karein?</h4>
                                 <p className="text-sm">WhatsApp ke through contact karke online ya offline training ke liye registration kiya ja sakta hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৫. Online training ലഭ്യമാണോ?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৫. <Link to="/training" className="hover:text-emerald-500 transition-colors">Online training</Link> ലഭ്യമാണോ?</h4>
                                 <p className="text-sm">അതെ, Malayalam, Hindi രണ്ട് ഭാഷകളിലും support-ഓടെ complete online training ലഭ്യമാണ്.</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৬. തിരുവനന്തപുരത്ത് offline training ലഭിക്കുമോ?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৬. തിരുവനന്തപുരത്ത് <Link to="/training" className="hover:text-emerald-500 transition-colors">offline training</Link> ലഭിക്കുമോ?</h4>
                                 <p className="text-sm">അതെ, തിരുവനന്തപുരത്ത് practical hands-on offline training-ന്റെ സൗകര്യമുണ്ട്.</p>
                             </div>
                             <div>
@@ -595,23 +595,23 @@ const ArticleThiruvananthapuramTraining = () => {
                                 <p className="text-sm">Bilkul, kam investment aur time mein students ke liye bhi yeh accha option hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">10. Government subsidy ലഭ്യമാണോ?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">10. <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government subsidy</Link> ലഭ്യമാണോ?</h4>
                                 <p className="text-sm">Eligibility criteria അനുസരിച്ച് ചില പദ്ധതികളിലൂടെ സഹായം ലഭിക്കാം, ഞങ്ങൾ guidance നൽകുന്നു.</p>
                             </div>
                             <div>
                                 <h4 className="font-bold dark:text-white text-slate-900">11. ഏത് mushroom variety ആണ് ഏറ്റവും മികച്ചത്?</h4>
-                                <p className="text-sm">Oyster mushroom beginners-ന് തുടങ്ങാൻ ഏറ്റവും എളുപ്പമുള്ളത്.</p>
+                                <p className="text-sm"><Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Oyster mushroom</Link> beginners-ന് തുടങ്ങാൻ ഏറ്റവും എളുപ്പമുള്ളത്.</p>
                             </div>
                             <div>
                                 <h4 className="font-bold dark:text-white text-slate-900">12. IT job ke saath mushroom farming kaise manage karein?</h4>
                                 <p className="text-sm">Weekend-focused schedule, semi-automated setup aur reliable spawn ke saath — hum aapke busy schedule ke hisaab se guidance dete hain।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">13. നിങ്ങൾ consultancy നൽകുന്നുണ്ടോ?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">13. നിങ്ങൾ <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">consultancy</Link> നൽകുന്നുണ്ടോ?</h4>
                                 <p className="text-sm">അതെ, production മുതൽ marketing വരെ പൂർണ്ണമായ consultancy ലഭ്യമാണ്.</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">14. Turnkey project bhi milta hai?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">14. <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey project</Link> bhi milta hai?</h4>
                                 <p className="text-sm">Ha, bade investors ke liye complete turnkey mushroom project setup diya jata hai।</p>
                             </div>
                             <div>
@@ -631,15 +631,15 @@ const ArticleThiruvananthapuramTraining = () => {
                                 <p className="text-sm">ശരിയായ storage-ഓടെ dry mushroom മാസങ്ങളോളം നല്ല quality-യിൽ നിലനിൽക്കും.</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">19. Medicinal mushroom farming profitable ആണോ?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">19. <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Medicinal mushroom</Link> farming profitable ആണോ?</h4>
                                 <p className="text-sm">അതെ, Lion&apos;s Mane, Reishi പോലുള്ള varieties premium price-ൽ വിൽക്കുന്നു, margin കൂടുതലാണ്.</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">20. Business plan എങ്ങനെ ലഭിക്കും?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">20. <Link to="/business-plan" className="hover:text-emerald-500 transition-colors">Business plan</Link> എങ്ങനെ ലഭിക്കും?</h4>
                                 <p className="text-sm">നിങ്ങളുടെ scale അനുസരിച്ച് customized project report, ROI analysis നൽകും.</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">21. Contact എങ്ങനെ ചെയ്യാം?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">21. <Link to="/contact" className="hover:text-emerald-500 transition-colors">Contact</Link> എങ്ങനെ ചെയ്യാം?</h4>
                                 <p className="text-sm">WhatsApp വഴി നേരിട്ട് ബന്ധപ്പെടാം, അതിന്റെ response ഏറ്റവും വേഗതയുള്ളതാണ്.</p>
                             </div>
                         </div>

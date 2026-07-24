@@ -119,7 +119,7 @@ const ArticleGuwahatiTraining = () => {
                             গুৱাহাটীত Mushroom Business কিয় আৰম্ভ কৰিব?
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            Assam and Northeast India have a massive demand for fresh mushrooms. গুৱাহাটীত (in Guwahati) থকা হোটেল, ৰেষ্টুৰেণ্ট আৰু স্থানীয় বজাৰত Oyster আৰু Button মাচৰুমৰ চাহিদা দ্ৰুতভাৱে বৃদ্ধি পাইছে। If you are looking for a profitable business, mushroom farming is a great choice.
+                            Assam and Northeast India have a massive demand for fresh mushrooms. গুৱাহাটীত (in Guwahati) থকা হোটেল, ৰেষ্টুৰেণ্ট আৰু স্থানীয় বজাৰত <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster</Link> আৰু <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Button</Link> মাচৰুমৰ চাহিদা দ্ৰুতভাৱে বৃদ্ধি পাইছে। If you are looking for a profitable business, mushroom farming is a great choice.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Organic Mushroom Farm-এ গুৱাহাটীৰ কৃষক, মহিলা আৰু নিবনুৱা যুৱক-যুৱতীসকলৰ বাবে practical cultivation training (প্ৰশিক্ষণ) আৰু complete custom farm setup ৰ সুবিধা লৈ আহিছে। অসমৰ জলবায়ুৰ উপযোগী মাচৰুমৰ প্ৰজাতি আৰু উচ্চ মানদণ্ডৰ spawn (মাচৰুমৰ বীজ) আমি যোগান ধৰোঁ।
@@ -158,9 +158,9 @@ const ArticleGuwahatiTraining = () => {
                             অসমৰ জলবায়ু — humid subtropical — mushroom farming ৰ বাবে প্ৰায় প্ৰাকৃতিকভাৱে উপযুক্ত। গুৱাহাটীত সাধাৰণতে:
                         </p>
                         <ul className="space-y-2 pl-0 list-none">
-                            <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1.5" /> <span className="dark:text-slate-300 text-slate-700"><strong>Humidity 70-90%</strong> — যিটো oyster আৰু button mushroom ৰ বাবে আদৰ্শ</span></li>
+                            <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1.5" /> <span className="dark:text-slate-300 text-slate-700"><strong>Humidity 70-90%</strong> — যিটো <Link to="/mushroom-types" className="text-emerald-500 hover:underline">oyster</Link> আৰু <Link to="/mushroom-types" className="text-emerald-500 hover:underline">button mushroom</Link> ৰ বাবে আদৰ্শ</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1.5" /> <span className="dark:text-slate-300 text-slate-700"><strong>Monsoon সময় (June-September)</strong> — natural humidity ৰ কাৰণে কম artificial control ৰ প্ৰয়োজন হয়</span></li>
-                            <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1.5" /> <span className="dark:text-slate-300 text-slate-700"><strong>Winter (November-February)</strong> — button mushroom আৰু milky mushroom ৰ বাবে সৰ্বোত্তম সময়</span></li>
+                            <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1.5" /> <span className="dark:text-slate-300 text-slate-700"><strong>Winter (November-February)</strong> — <Link to="/mushroom-types" className="text-emerald-500 hover:underline">button mushroom</Link> আৰু <Link to="/mushroom-types" className="text-emerald-500 hover:underline">milky mushroom</Link> ৰ বাবে সৰ্বোত্তম সময়</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-1.5" /> <span className="dark:text-slate-300 text-slate-700"><strong>গৰম গ্ৰীষ্মকাল</strong> — thermotolerant strain বা proper ventilation ৰ প্ৰয়োজন হয়</span></li>
                         </ul>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm p-4 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5">
@@ -238,10 +238,10 @@ const ArticleGuwahatiTraining = () => {
                             গুণগত spawn নথাকিলে ভাল harvest পোৱা কঠিন। আমি আগবঢ়াওঁ <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">Mushroom Spawn Sale</Link>:
                         </p>
                         <ul className="grid grid-cols-2 gap-3 pl-0 list-none">
-                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm">Oyster Mushroom Spawn</span></li>
-                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm">Button Mushroom Spawn</span></li>
-                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm">Milky Mushroom Spawn</span></li>
-                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm">Shiitake Mushroom Spawn</span></li>
+                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm"><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster Mushroom</Link> Spawn</span></li>
+                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm"><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Button Mushroom</Link> Spawn</span></li>
+                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm"><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Milky Mushroom</Link> Spawn</span></li>
+                            <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm"><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Shiitake Mushroom</Link> Spawn</span></li>
                         </ul>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm">
                             সমগ্ৰ Assam ত — Guwahati, North Guwahati, Rangia, Hajo, Sonapur, Boko, Palasbari, Nalbari, Barpeta লৈকে — আমি pan-India delivery ৰ সৈತೆ spawn পঠাই দিওঁ, ভাল packaging আৰু viability guarantee ৰ সৈতে.
@@ -251,17 +251,17 @@ const ArticleGuwahatiTraining = () => {
                     {/* Section 7 */}
                     <div className="space-y-4">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            Fresh Mushroom Sale
+                            <Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Sale</Link>
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            গুৱাহাটীৰ hotel, restaurant আৰু ঘৰুৱা গ্ৰাহকৰ বাবে আমি taza (fresh) oyster আৰু button mushroom সাপ্লাই কৰোঁ। Fatasil, Pan Bazar, Ganeshguri বজাৰত বহু chef এতিয়া consistent supply বিচাৰে — আৰু আমি সেয়া নিশ্চিত কৰিবলৈ পাৰোঁ।
+                            গুৱাহাটীৰ hotel, restaurant আৰু ঘৰুৱা গ্ৰাহকৰ বাবে আমি taza (fresh) <Link to="/mushroom-types" className="text-emerald-500 hover:underline">oyster</Link> আৰু <Link to="/mushroom-types" className="text-emerald-500 hover:underline">button</Link> mushroom সাপ্লাই কৰোঁ। Fatasil, Pan Bazar, Ganeshguri বজাৰত বহু chef এতিয়া consistent supply বিচাৰে — আৰু আমি সেয়া নিশ্চিত কৰিবলৈ পাৰোঁ।
                         </p>
                     </div>
 
                     {/* Section 8 */}
                     <div className="space-y-4">
                         <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 border-l-4 border-emerald-500 pl-4">
-                            Dry Mushroom Sale
+                            <Link to="/contact" className="hover:text-emerald-500 transition-colors">Dry Mushroom Sale</Link>
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Fresh mushroom ৰ লগতে আমি dry mushroom আৰু mushroom powder ও বিক্ৰী কৰোঁ — যিবোৰৰ shelf life বেছি আৰু online/offline দুয়ো মাধ্যমতে বাঢ়ি সহজে বিক্ৰী কৰিব পাৰি। ইয়াৰ চাহিদা বিশেষকৈ health-conscious consumer আৰু organic store সমূহত বাঢ়ি আছে।
@@ -274,7 +274,7 @@ const ArticleGuwahatiTraining = () => {
                             Medicinal Mushroom ৰ সুযোগ
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            Wellness ৰ প্ৰতি সজাগতা বাঢ়াৰ লগে লগে, Lion's Mane, Reishi, Ganoderma আৰু Cordyceps ৰ দৰে medicinal mushroom ৰ চাহিদাও বাঢ়িছে। এইবোৰ premium price ত বিক্ৰী হয় আৰু Guwahati ৰ urban educated customer সকলৰ মাজত জনপ্ৰিয়তা লাভ কৰি আছে।
+                            Wellness ৰ প্ৰতি সজাগতা বাঢ়াৰ লগে লগে, <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Lion's Mane</Link>, <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Reishi</Link>, <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Ganoderma</Link> আৰু <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Cordyceps</Link> ৰ দৰে medicinal mushroom ৰ চাহিদাও বাঢ়িছে। এইবোৰ premium price ত বিক্ৰী হয় আৰু Guwahati ৰ urban educated customer সকলৰ মাজত জনপ্ৰিয়তা লাভ কৰি আছে।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm italic">
                             Hum in medicinal varieties ke liye bhi spawn aur training provide karte hain, jo commercial farmers ke liye high-margin opportunity ban sakti hai.
@@ -491,19 +491,19 @@ const ArticleGuwahatiTraining = () => {
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Sahi management aur consistent demand ke saath monthly acha margin possible hai, especially fresh aur dry mushroom dono bech kar.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">3. Mushroom spawn ক'ত পাম?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">3. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> ক'ত পাম?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">আমাৰ পৰা সমগ্ৰ Assam লৈ pan-India delivery ৰ সৈতে spawn ক্ৰয় কৰিব পাৰে।</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">4. Training kaise join karein?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">4. <Link to="/training" className="hover:text-emerald-500 transition-colors">Training</Link> kaise join karein?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">WhatsApp ৰ জৰিয়তে যোগাযোগ কৰি online বা offline training ৰ বাবে registration কৰিব পাৰে।</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">5. Online training uplabdh hai kya?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">5. <Link to="/training" className="hover:text-emerald-500 transition-colors">Online training</Link> uplabdh hai kya?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Ha, poori tarah online training available hai, Hindi aur Assamese dono mein support ke saath.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">6. Offline training Guwahati ত পাম নে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">6. <Link to="/training" className="hover:text-emerald-500 transition-colors">Offline training</Link> Guwahati ত পাম নে?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">হয়, Guwahati ত practical hands-on offline training ৰ ব্যৱস্থা আছে।</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
@@ -519,23 +519,23 @@ const ArticleGuwahatiTraining = () => {
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Bilkul, kam investment aur time mein students ke liye bhi yeh accha option hai.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">10. Government subsidy uplabdh hai kya?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">10. <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government subsidy</Link> uplabdh hai kya?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Eligibility criteria ke anusar kuch schemes ke through sahayata mil sakti hai, hum guidance dete hain.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
                                 <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">11. কোনটো mushroom variety সৰ্বোত্তম?</h4>
-                                <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Oyster mushroom beginners ৰ বাবে আৰম্ভ কৰিবলৈ আটাইতকৈ সহজ।</p>
+                                <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed"><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster mushroom</Link> beginners ৰ বাবে আৰম্ভ কৰিবলৈ আটাইতকৈ সহজ।</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
                                 <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">12. Mushroom kaise bechein?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Local hotels, restaurants, organic stores, aur WhatsApp/social media ke through direct customers tak.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">13. Aap consultancy dete hain kya?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">13. Aap <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">consultancy</Link> dete hain kya?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Ha, production se leke marketing tak poori consultancy available hai.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">14. Turnkey project bhi milta hai?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">14. <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey project</Link> bhi milta hai?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Ha, bade investors ke liye complete turnkey mushroom project setup diya jata hai.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">

@@ -125,7 +125,7 @@ const ArticleSiliguriTraining = () => {
                             Siliguri and the entire North Bengal region have the perfect weather for mushroom cultivation. শিলিগুড়ির লোকাল মার্কেট থেকে শুরু করে বড় বড় রেস্টুরেন্টে মাশরুমের ব্যাপক চাহিদা রয়েছে। If you want a high-ROI agribusiness, this is the right time to start.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Organic Mushroom Farm আপনাকে দিচ্ছে হাতে-কলমে (hands-on) মাশরুম চাষের ট্রেনিং। শুধু তাই নয়, আপনার বাজেট অনুযায়ী একটি পারফেক্ট commercial farm setup করতে আমরা সম্পূর্ণ সাহায্য করি, সাথে দিচ্ছি হাই-কোয়ালিটি মাশরুম স্পন (Spawn/বীজ)।
+                            Organic Mushroom Farm আপনাকে দিচ্ছে হাতে-কলমে (hands-on) <Link to="/training" className="text-emerald-500 hover:underline">মাশরুম চাষের ট্রেনিং</Link>। শুধু তাই নয়, আপনার বাজেট অনুযায়ী একটি পারফেক্ট <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline">commercial farm setup</Link> করতে আমরা সম্পূর্ণ সাহায্য করি, সাথে দিচ্ছি হাই-কোয়ালিটি <Link to="/spawn-seed" className="text-emerald-500 hover:underline">মাশরুম স্পন (Spawn/বীজ)</Link>।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
                             মাশরুম উৎপাদন করার পর সেটা কোথায় বিক্রি করবেন? Don't worry! শিলিগুড়ির বাজারে মাশরুম সেলস এবং মার্কেটিংয়ের (marketing support) সম্পূর্ণ গাইডেন্স আমরা প্রোভাইড করি। Start your commercial journey today!
@@ -183,20 +183,20 @@ const ArticleSiliguriTraining = () => {
                     {/* Commercial Varieties */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Commercial Mushroom Varieties (বোতাম মাশরুম, ঝিনুক মাশরুম এবং অন্যান্য)
+                            <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Commercial Mushroom Varieties</Link> (বোতাম মাশরুম, ঝিনুক মাশরুম এবং অন্যান্য)
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             আমাদের ট্রেনিং এবং বীজ সরবরাহে সমস্ত ধরনের প্রিমিয়াম এবং কমার্শিয়াল মাশরুম অন্তর্ভুক্ত রয়েছে:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
-                            <li><strong>Oyster Mushroom (ঝিনুক মাশরুম)</strong> — চাষ করা সহজ, beginners ও commercial farming-এর জন্য উপযুক্ত।</li>
-                            <li><strong>Button Mushroom (বোতাম মাশরুম)</strong> — ভারতের সবচেয়ে জনপ্রিয় এবং চাহিদাপূর্ণ ভোজ্য মাশরুম।</li>
-                            <li><strong>Milky Mushroom (দুধে মাশরুম)</strong> — গরমের দিনে বাণিজ্যিক উৎপাদনের জন্য অত্যন্ত সাশ্রয়ী।</li>
-                            <li><strong>Shiitake Mushroom</strong> — প্রিমিয়াম গুরমে ক্যাটাগরি, যার মার্কেট ভ্যালু অনেক বেশি।</li>
-                            <li><strong>Lion&apos;s Mane Mushroom</strong> — ওয়েলনেস এবং ব্রেইন হেলথ মার্কেটে ক্রমবর্ধমান চাহিদা।</li>
-                            <li><strong>Reishi Mushroom</strong> — ঔষধি মাশরুম ইন্ডাস্ট্রির একটি অত্যন্ত মূল্যবান অংশ।</li>
-                            <li><strong>Turkey Tail Mushroom</strong> — ক্যান্সার প্রতিরোধক ও ইমিউনিটি বুস্টার হিসেবে ব্যবহৃত।</li>
-                            <li><strong>Cordyceps Mushroom</strong> — অত্যন্ত প্রিমিয়াম এবং ভিআইপি ওষুধি মাশরুম ক্যাটাগরি।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster Mushroom</Link> (ঝিনুক মাশরুম)</strong> — চাষ করা সহজ, beginners ও commercial farming-এর জন্য উপযুক্ত।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Button Mushroom</Link> (বোতাম মাশরুম)</strong> — ভারতের সবচেয়ে জনপ্রিয় এবং চাহিদাপূর্ণ ভোজ্য মাশরুম।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Milky Mushroom</Link> (দুধে মাশরুম)</strong> — গরমের দিনে বাণিজ্যিক উৎপাদনের জন্য অত্যন্ত সাশ্রয়ী।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Shiitake Mushroom</Link></strong> — প্রিমিয়াম গুরমে ক্যাটাগরি, যার মার্কেট ভ্যালু অনেক বেশি।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Lion&apos;s Mane Mushroom</Link></strong> — ওয়েলনেস এবং ব্রেইন হেলথ মার্কেটে ক্রমবর্ধমান চাহিদা।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Reishi Mushroom</Link></strong> — ঔষধি মাশরুম ইন্ডাস্ট্রির একটি অত্যন্ত মূল্যবান অংশ।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Turkey Tail Mushroom</Link></strong> — ক্যান্সার প্রতিরোধক ও ইমিউনিটি বুস্টার হিসেবে ব্যবহৃত।</li>
+                            <li><strong><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Cordyceps Mushroom</Link></strong> — অত্যন্ত প্রিমিয়াম এবং ভিআইপি ওষুধি মাশরুম ক্যাটাগরি।</li>
                         </ul>
                     </div>
 
@@ -205,7 +205,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Farm Setup */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Farm Setup
+                            <Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             একটি সফল Mushroom Farm Setup-এ সাধারণত থাকে:
@@ -227,7 +227,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Online Training */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Online Mushroom Training
+                            <Link to="/training" className="hover:text-emerald-500 transition-colors">Online Mushroom Training</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Online Mushroom Training শিখতে সাহায্য করে:
@@ -250,7 +250,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Offline Training */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Offline Mushroom Training
+                            <Link to="/training" className="hover:text-emerald-500 transition-colors">Offline Mushroom Training</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Practical training-এ থাকে:
@@ -272,7 +272,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Spawn Supply */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Spawn Supply
+                            <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Reliable spawn সুস্থ উৎপাদনের জন্য অপরিহার্য। আমরা সরবরাহ করি:
@@ -292,7 +292,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Fresh Sale */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Fresh Mushroom Sale
+                            <Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Sale</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Fresh mushrooms সরবরাহ করা যেতে পারে:
@@ -313,7 +313,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Dry Mushroom */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Dry Mushroom Products
+                            <Link to="/contact" className="hover:text-emerald-500 transition-colors">Dry Mushroom Products</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             অনেক উদ্যোক্তা এগুলিও উৎপাদন করেন:
@@ -346,7 +346,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Consultancy */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Consultancy
+                            <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Professional consultancy-তে থাকে:
@@ -367,7 +367,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Turnkey */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Turnkey Mushroom Projects
+                            <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey Mushroom Projects</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             বড় আকারের বিনিয়োগকারীদের জন্য আমরা <strong>turnkey project</strong> সেটআপ সুবিধা দিই — যাতে থাকে farm design, infrastructure planning, equipment guidance এবং operational systems। Turnkey solution project implementation-ke onek shohoj kore dey।
@@ -379,7 +379,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Business Plan */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Business Plan & ROI Analysis
+                            <Link to="/business-plan" className="hover:text-emerald-500 transition-colors">Business Plan & ROI Analysis</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             বিনিয়োগের আগে উদ্যোক্তাদের মূল্যায়ন করা উচিত:
@@ -401,7 +401,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Government Subsidy */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Government Subsidy Opportunities
+                            <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government Subsidy Opportunities</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             যোগ্য কৃষক এবং উদ্যোক্তারা বর্তমান agriculture এবং food-processing support scheme-এর সুবিধা eligibility অনুযায়ী পেতে পারেন। সঠিক scheme চিহ্নিত করতে এবং documentation তৈরিতে আমরা সাহায্য করি।
@@ -582,19 +582,19 @@ const ArticleSiliguriTraining = () => {
                                 <p className="text-sm">Sahi management aur consistent wholesale/hotel demand ke saath monthly accha margin possible hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৩. Mushroom spawn কোথায় পাওয়া যাবে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৩. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> কোথায় পাওয়া যাবে?</h4>
                                 <p className="text-sm">আমাদের কাছ থেকে সমগ্র North Bengal এবং pan-India delivery-সহ spawn কেনা যায়।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৪. Training kaise join karein?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৪. <Link to="/training" className="hover:text-emerald-500 transition-colors">Training</Link> kaise join karein?</h4>
                                 <p className="text-sm">WhatsApp ke through contact karke online ya offline training ke liye registration kiya ja sakta hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৫. Online training উপলব্ধ আছে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৫. <Link to="/training" className="hover:text-emerald-500 transition-colors">Online training</Link> উপলব্ধ আছে?</h4>
                                 <p className="text-sm">হ্যাঁ, Bengali, Nepali এবং Hindi — তিন ভাষার support-সহ সম্পূর্ণ online training উপলব্ধ।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৬. শিলিগুড়িতে offline training পাওয়া যাবে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৬. শিলিগুড়িতে <Link to="/training" className="hover:text-emerald-500 transition-colors">offline training</Link> পাওয়া যাবে?</h4>
                                 <p className="text-sm">হ্যাঁ, শিলিগুড়িতে practical hands-on offline training-এর ব্যবস্থা রয়েছে।</p>
                             </div>
                             <div>
@@ -610,23 +610,23 @@ const ArticleSiliguriTraining = () => {
                                 <p className="text-sm">Bilkul, kam investment aur time mein students ke liye bhi yeh accha option hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">১০. Government subsidy উপলব্ধ আছে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">১০. <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government subsidy</Link> উপলব্ধ আছে?</h4>
                                 <p className="text-sm">Eligibility criteria অনুযায়ী কিছু scheme-এর মাধ্যমে সাহায্য পাওয়া যেতে পারে, আমরা guidance দিই।</p>
                             </div>
                             <div>
                                 <h4 className="font-bold dark:text-white text-slate-900">১১. কোন mushroom variety সবচেয়ে ভালো?</h4>
-                                <p className="text-sm">Oyster mushroom beginners-দের জন্য শুরু করার সবচেয়ে সহজ বিকল্প।</p>
+                                <p className="text-sm"><Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Oyster mushroom</Link> beginners-দের জন্য শুরু করার সবচেয়ে সহজ বিকল্প।</p>
                             </div>
                             <div>
                                 <h4 className="font-bold dark:text-white text-slate-900">১২. Mushroom ko Sikkim ya Assam tak kaise export karein?</h4>
                                 <p className="text-sm">Siliguri ke logistics network, reliable packaging aur wholesale buyer connections ke through — hum yeh setup karne mein madad karte hain।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">১৩. আপনারা কি consultancy প্রদান করেন?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">১৩. আপনারা কি <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">consultancy</Link> প্রদান করেন?</h4>
                                 <p className="text-sm">হ্যাঁ, production থেকে marketing পর্যন্ত সম্পূর্ণ consultancy উপলব্ধ।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">১৪. Turnkey project bhi milta hai?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">১৪. <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey project</Link> bhi milta hai?</h4>
                                 <p className="text-sm">Ha, bade investors ke liye complete turnkey mushroom project setup diya jata hai।</p>
                             </div>
                             <div>
@@ -646,15 +646,15 @@ const ArticleSiliguriTraining = () => {
                                 <p className="text-sm">সঠিক storage-সহ dry mushroom মাসের পর মাস ভালো quality-তে থাকে।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">১৯. Medicinal mushroom farming profitable কি?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">১৯. <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Medicinal mushroom</Link> farming profitable কি?</h4>
                                 <p className="text-sm">হ্যাঁ, Lion&apos;s Mane, Reishi-র মতো varieties premium price-এ বিক্রি হয়, margin বেশি।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">২০. Business plan কীভাবে পাওয়া যাবে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">২০. <Link to="/business-plan" className="hover:text-emerald-500 transition-colors">Business plan</Link> কীভাবে পাওয়া যাবে?</h4>
                                 <p className="text-sm">আপনার scale অনুযায়ী customized project report এবং ROI analysis দেওয়া হয়।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">২১. Contact কীভাবে করবেন?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">২১. <Link to="/contact" className="hover:text-emerald-500 transition-colors">Contact</Link> কীভাবে করবেন?</h4>
                                 <p className="text-sm">WhatsApp-এর মাধ্যমে সরাসরি যোগাযোগ করা যায়, যার response সবচেয়ে দ্রুত হয়।</p>
                             </div>
                         </div>

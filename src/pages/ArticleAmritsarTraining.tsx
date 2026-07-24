@@ -173,23 +173,23 @@ const ArticleAmritsarTraining = () => {
                                 <span className="block text-[10px] text-slate-500 font-normal">commercial farms ਲਈ</span>
                             </div>
                             <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                                Shiitake Mushroom
+                                <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Shiitake Mushroom</Link>
                                 <span className="block text-[10px] text-slate-500 font-normal">premium gourmet</span>
                             </div>
                             <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                                Lion's Mane Mushroom
+                                <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Lion's Mane Mushroom</Link>
                                 <span className="block text-[10px] text-slate-500 font-normal">wellness market</span>
                             </div>
                             <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                                Reishi Mushroom
+                                <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Reishi Mushroom</Link>
                                 <span className="block text-[10px] text-slate-500 font-normal">medicinal mushroom</span>
                             </div>
                             <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                                Turkey Tail Mushroom
+                                <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Turkey Tail Mushroom</Link>
                                 <span className="block text-[10px] text-slate-500 font-normal">health product</span>
                             </div>
                             <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                                Cordyceps Mushroom
+                                <Link to="/mushroom-types" className="hover:text-emerald-500 transition-colors">Cordyceps Mushroom</Link>
                                 <span className="block text-[10px] text-slate-500 font-normal">premium medicinal</span>
                             </div>
                         </div>
@@ -423,19 +423,19 @@ const ArticleAmritsarTraining = () => {
                                     a: "Sahi management aur consistent dhaba/hotel demand ke saath monthly accha margin possible hai."
                                 },
                                 {
-                                    q: "3. Mushroom spawn ਕਿੱਥੋਂ ਮਿਲੇਗਾ?",
+                                    q: <>3. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> ਕਿੱਥੋਂ ਮਿਲੇਗਾ?</>,
                                     a: "ਸਾਡੇ ਵੱਲੋਂ ਪੂਰੇ Punjab ਅਤੇ pan-India delivery ਨਾਲ spawn ਖਰੀਦਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
                                 },
                                 {
-                                    q: "4. Training kaise join karein?",
+                                    q: <>4. <Link to="/training" className="hover:text-emerald-500 transition-colors">Training</Link> kaise join karein?</>,
                                     a: "WhatsApp ke through contact karke online ya offline training ke liye registration kiya ja sakta hai."
                                 },
                                 {
-                                    q: "5. Online training ਉਪਲਬਧ ਹੈ?",
+                                    q: <>5. <Link to="/training" className="hover:text-emerald-500 transition-colors">Online training</Link> ਉਪਲਬਧ ਹੈ?</>,
                                     a: "ਹਾਂ, Punjabi ਅਤੇ Hindi ਦੋਵਾਂ ਭਾਸ਼ਾਵਾਂ ਵਿੱਚ support ਨਾਲ ਪੂਰੀ online training ਉਪਲਬਧ ਹੈ।"
                                 },
                                 {
-                                    q: "6. Amritsar ਵਿੱਚ offline training ਮਿਲੇਗੀ?",
+                                    q: <>6. Amritsar ਵਿੱਚ <Link to="/training" className="hover:text-emerald-500 transition-colors">offline training</Link> ਮਿਲੇਗੀ?</>,
                                     a: "ਹਾਂ, Amritsar ਵਿੱਚ practical hands-on offline training ਦਾ ਪ੍ਰਬੰਧ ਹੈ।"
                                 },
                                 {
@@ -451,23 +451,23 @@ const ArticleAmritsarTraining = () => {
                                     a: "Bilkul, kam investment aur time mein students ke liye bhi yeh accha option hai."
                                 },
                                 {
-                                    q: "10. Government subsidy ਉਪਲਬਧ ਹੈ?",
+                                    q: <>10. <Link to="/subsidy" className="hover:text-emerald-500 transition-colors">Government subsidy</Link> ਉਪਲਬਧ ਹੈ?</>,
                                     a: "Eligibility criteria ਅਨੁਸਾਰ ਕੁਝ ਯੋਜਨਾਵਾਂ ਰਾਹੀਂ ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ, ਅਸੀਂ guidance ਦਿੰਦੇ ਹਾਂ।"
                                 },
                                 {
                                     q: "11. ਕਿਹੜੀ mushroom variety ਸਭ ਤੋਂ ਵਧੀਆ ਹੈ?",
-                                    a: "Oyster mushroom beginners ਲਈ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਭ ਤੋਂ ਸੌਖਾ ਹੈ।"
+                                    a: <><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster mushroom</Link> beginners ਲਈ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਭ ਤੋਂ ਸੌਖਾ ਹੈ।</>
                                 },
                                 {
                                     q: "12. Mushroom ko dhabo aur restaurants tak kaise pahunchayein?",
                                     a: "Direct partnerships, consistent quality aur reliable delivery schedule ke through — hum yeh setup karne mein madad karte hain."
                                 },
                                 {
-                                    q: "13. ਕੀ ਤੁਸੀਂ consultancy ਦਿੰਦੇ ਹੋ?",
+                                    q: <>13. ਕੀ ਤੁਸੀਂ <Link to="/book-consultant" className="hover:text-emerald-500 transition-colors">consultancy</Link> ਦਿੰਦੇ ਹੋ?</>,
                                     a: "ਹਾਂ, production ਤੋਂ marketing ਤੱਕ ਪੂਰੀ consultancy ਉਪਲਬਧ ਹੈ।"
                                 },
                                 {
-                                    q: "14. Turnkey project bhi milta hai?",
+                                    q: <>14. <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey project</Link> bhi milta hai?</>,
                                     a: "Ha, bade investors ke liye complete turnkey mushroom project setup diya jata hai."
                                 },
                                 {
@@ -491,11 +491,11 @@ const ArticleAmritsarTraining = () => {
                                     a: "Bilkul, bahut saare farmers apni existing kheti ke saath ek shed mein mushroom cultivation shuru karke additional income kama rahe hain."
                                 },
                                 {
-                                    q: "20. Business plan ਕਿਵੇਂ ਮਿਲੇਗਾ?",
+                                    q: <>20. <Link to="/business-plan" className="hover:text-emerald-500 transition-colors">Business plan</Link> ਕਿਵੇਂ ਮਿਲੇਗਾ?</>,
                                     a: "ਤੁਹਾਡੇ scale ਅਨੁਸਾਰ customized project report ਅਤੇ ROI analysis ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ।"
                                 },
                                 {
-                                    q: "21. Contact ਕਿਵੇਂ ਕਰੀਏ?",
+                                    q: <>21. <Link to="/contact" className="hover:text-emerald-500 transition-colors">Contact</Link> ਕਿਵੇਂ ਕਰੀਏ?</>,
                                     a: "WhatsApp ਰਾਹੀਂ ਸਿੱਧਾ ਸੰਪਰਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ, ਜਿਸਦਾ response ਸਭ ਤੋਂ ਤੇਜ਼ ਹੁੰਦਾ ਹੈ।"
                                 }
                             ].map((faq, index) => (
