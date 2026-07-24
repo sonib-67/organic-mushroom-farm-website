@@ -5,7 +5,7 @@ const ArticleBusinessPlanIndia = ({ metaDesc }: { metaDesc?: string }) => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-        title="Mushroom Farming Business Plan: How to Start a Profitable Mushroom Business in India"
+        title="White Button Mushroom Business Plan | Cost, Profit & Setup"
                
         description={metaDesc || "Learn how to start a profitable mushroom farming business in India. A step-by-step business plan, setup costs, marketing strategy, and ROI analysis for 2026."}
       />
@@ -14,7 +14,7 @@ const ArticleBusinessPlanIndia = ({ metaDesc }: { metaDesc?: string }) => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Mushroom Farming Business Plan: How to Start a Profitable Mushroom Business in India
+                            White Button Mushroom Business Plan | Cost, Profit & Setup
                         </h1>
                     </div>
                     

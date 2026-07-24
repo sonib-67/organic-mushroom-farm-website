@@ -17,7 +17,7 @@ const ArticleBhopalTraining = () => {
             </div>
 
             <SEO 
-                title="Bhopal Mushroom Farming Training Center | भोपाल में मशरूम की खेती: Training & Setup" 
+                title="Build a Profitable Mushroom Farming Business in Bhopal | Expert Training" 
                 description="Bhopal Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Madhya Pradesh."
                 keywords="Bhopal Mushroom Farming, Mushroom farming in Bhopal, Mushroom spawn in Bhopal, mushroom training center in Bhopal, MP Nagar, Kolar Road, Bairagarh"
             />
@@ -26,7 +26,7 @@ const ArticleBhopalTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Bhopal Mushroom Business Guide 2026 | भोपाल में मशरूम की खेती कैसे शुरू करें: Training, Setup और Subsidy की पूरी जानकारी
+                            Build a Profitable Mushroom Farming Business in Bhopal | Expert Training
                         </h1>
                         <h2 className="text-xl md:text-2xl font-medium dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                             Commercial Mushroom Cultivation Guide in Madhya Pradesh

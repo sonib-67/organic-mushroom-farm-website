@@ -17,7 +17,7 @@ const ArticleBhubaneswarTraining = () => {
             </div>
 
             <SEO 
-                title="ମଶ୍ରୁମ ଫାର୍ମିଂ, ଟ୍ରେନିଂ, ସ୍ପନ ସପ୍ଲାଏ ଏବଂ କନ୍ସଲଟାନ୍ସି ଭୁବନେଶ୍ୱର – Mushroom Farming, Training, Spawn Supply & Consultancy in Bhubaneswar" 
+                title="Launch a Commercial Mushroom Farm in Bhubaneswar | Expert Training" 
                 description="ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶାର ରାଜଧାନୀ, ଏକ profitable mushroom business model ପାଇଁ mushroom farm setup, online/offline training, spawn supply."
                 keywords="Mushroom farming Bhubaneswar, mushroom training Odisha, mushroom spawn supply Bhubaneswar, commercial mushroom farming Odisha"
             />
@@ -26,7 +26,7 @@ const ArticleBhubaneswarTraining = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            ମଶ୍ରୁମ ଫାର୍ମିଂ, ଟ୍ରେନିଂ, ସ୍ପନ ସପ୍ଲାଏ ଏବଂ କନ୍ସଲଟାନ୍ସି ଭୁବନେଶ୍ୱର – Mushroom Farming, Training, Spawn Supply & Consultancy in Bhubaneswar
+                            Launch a Commercial Mushroom Farm in Bhubaneswar | Expert Training
                         </h1>
                     </div>
 
