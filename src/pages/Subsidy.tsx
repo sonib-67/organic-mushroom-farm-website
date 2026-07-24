@@ -8,7 +8,7 @@ const SubsidyPage = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Subsidy India 2026 | Government Schemes, Loans & Benefits" 
+        title="Mushroom Farming Subsidy in India | Government Schemes & Loan Guide" 
         description="Get complete details on mushroom farming subsidy in India . Check MIDH, NHB, NABARD, MUDRA loan, eligibility, subsidy amount, and how to apply." 
       />
 

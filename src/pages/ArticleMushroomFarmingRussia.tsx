@@ -16,7 +16,7 @@ const ArticleMushroomFarmingRussia = () => {
             </div>
 
             <SEO 
-                title="Обучение выращиванию грибов в России: Начните свой прибыльный агробизнес" 
+                title="Обучение выращиванию грибов в России | Полный гид" 
                 description="Узнайте как начать грибной бизнес в России. Пройдите наше обучение выращиванию грибов (вешенка, шампиньоны, молочный гриб) от А до Я."
                 keywords="обучение выращиванию грибов, грибной бизнес в России, курсы грибоводства, выращивание вешенки, выращивание шампиньонов"
             />
@@ -25,7 +25,7 @@ const ArticleMushroomFarmingRussia = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Обучение выращиванию грибов в России: Начните свой прибыльный агробизнес
+                            Обучение выращиванию грибов в России | Полный гид
                         </h1>
                     </div>
 

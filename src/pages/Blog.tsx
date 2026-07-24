@@ -11,7 +11,7 @@ const blogPosts = [
     color: "text-blue-500",
     bg: "bg-blue-500/5",
     posts: [
-      { id: "mushroom-farming-russia", customPath: "/blog/mushroom-farming-russia", title: "Обучение выращиванию грибов в России: Начните свой прибыльный агробизнес", excerpt: "Спрос на свежие и экологически чистые продукты в России постоянно растет. Начните свой грибной бизнес уже сегодня.", date: "July 23, 2026" },
+      { id: "mushroom-farming-russia", customPath: "/blog/mushroom-farming-russia", title: "Обучение выращиванию грибов в России | Полный гид", excerpt: "Спрос на свежие и экологически чистые продукты в России постоянно растет. Начните свой грибной бизнес уже сегодня.", date: "July 23, 2026" },
       { id: 1, title: "How to Start Mushroom Farming at Home", excerpt: "A beginner's guide to growing your first batch of mushrooms in small spaces.", date: "April 15, 2027" },
       { id: 2, title: "Top 5 Mistakes New Mushroom Farmers Make", excerpt: "Avoid these common pitfalls that often lead to crop failure in the first cycle.", date: "April 10, 2027" },
       { id: 3, title: "How to Prepare the Perfect Substrate", excerpt: "Master the art of pasteurization and moisture levels for high-yield harvests.", date: "April 02, 2027" }

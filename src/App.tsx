@@ -5077,7 +5077,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="About Organic Mushrooms Farm | Leading Commercial Infrastructure & Training Partner"
+        title="About Organic Mushrooms Farm | India's Mushroom Training Experts"
         description="Learn about Organic Mushrooms Farm, India's leading mushroom ecosystem architect. We provide quality spawn, expert training, and turnkey farming solutions India-wide and globally."
       />
       <PageHero
@@ -5306,7 +5306,7 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Commercial Mushroom Farming Services & Turnkey Solutions | Pan India Experts"
+        title="End-to-End Mushroom Farming Services | From Training to Turnkey Projects"
         description="Explore our end-to-end commercial mushroom farming services: organic hybrid spawn supply, industrial compost production, and technical turnkey consultancy in India & Worldwide."
         url="/services"
       />
@@ -6152,8 +6152,7 @@ const FAQPage = () => {
         url="/faq"
       />
       <PageHero
-        badge="Frequently Asked Questions About Commercial Mushroom Farming"
-        title="Find Answers to Your Commercial Mushroom Farming Questions"
+        title="Frequently Asked Questions | Mushroom Farming & Training"
         description="Providing expert guidance on commercial mushroom farming training, farm setup, and agribusiness development across India and worldwide."
       />
       <section className="section-padding pt-0 pb-20">

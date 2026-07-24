@@ -17,7 +17,7 @@ const ArticleTamilTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
             </div>
 
             <SEO 
-                title="காளான் சாகுபடி பயிற்சி மற்றும் காளான் பண்ணை அமைப்பு: முழுமையான வழிகாட்டி" 
+                title="காளான் விவசாயம் தமிழில் | கற்றுக்கொண்டு லாபம் பெறுங்கள்" 
                 description={metaDesc || "காளான் சாகுபடி எப்படி தொடங்குவது, என்ன பயிற்சி தேவை, மற்றும் காளான் பண்ணை அமைப்பு (Mushroom Setup) செய்வதற்கான படிப்படியான வழிகாட்டி."}
                 keywords="காளான் சாகுபடி, காளான் பயிற்சி மையம், காளான் பண்ணை அமைப்பு, Mushroom Farming, Mushroom Setup, Mushroom Training, காளான் சாகுபடி மானியம்"
             />
@@ -36,7 +36,7 @@ const ArticleTamilTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary-start/10 blur-[100px] rounded-full pointer-events-none" />
 
                     <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
-                        காளான் சாகுபடி பயிற்சி மற்றும் காளான் பண்ணை அமைப்பு: முழுமையான வழிகாட்டி
+                        காளான் விவசாயம் தமிழில் | கற்றுக்கொண்டு லாபம் பெறுங்கள்
                     </h1>
                     
                     <div className="flex items-center gap-4 mb-8 text-sm text-slate-600 dark:text-slate-400 font-medium border-b border-black/5 dark:border-white/5 pb-8">

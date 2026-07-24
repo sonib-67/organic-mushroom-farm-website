@@ -118,7 +118,7 @@ const MushroomTypesPage = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 bg-transparent text-[var(--text-body)]">
       <SEO 
-        title="Mushroom Types in India | Complete Commercial & Medicinal Fungi Setup Guide" 
+        title="Mushroom Types Guide | Edible, Medicinal & Commercial Varieties" 
         description="Discover all types of commercial mushroom setups in India – Button, Milky, Oyster, Shiitake, Reishi, Cordyceps. Read complete growing variables, spawn guidance, and project costs." 
       />
 
