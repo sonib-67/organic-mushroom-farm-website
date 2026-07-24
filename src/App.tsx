@@ -6152,24 +6152,27 @@ const FAQPage = () => {
         url="/faq"
       />
       <PageHero
-        badge="Direct Commercial Answers"
-        title="मशरूम फार्मिंग से जुड़े आम सवाल (Frequently Asked Questions)"
-        description="Providing expert commercial guidance on mushroom farming training and business setups across Pan India & Globally."
+        badge="Frequently Asked Questions About Commercial Mushroom Farming"
+        title="Find Answers to Your Commercial Mushroom Farming Questions"
+        description="Providing expert guidance on commercial mushroom farming training, farm setup, and agribusiness development across India and worldwide."
       />
       <section className="section-padding pt-0 pb-20">
         <div className="max-w-3xl mx-auto px-4">
           <div className="mb-12 space-y-6 text-center">
             <h2 className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">
-              कमर्शियल मशरूम बिज़नेस से जुड़े आपके सवालों का समाधान
+              Welcome to the official FAQ Hub of Organic Mushroom Farm.
             </h2>
             <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-              Welcome to the official FAQ hub of Organic Mushroom Farm! अगर आप भारत में कहीं भी अपना एग्री-बिज़नेस (agribusiness) शुरू करने की योजना बना रहे हैं, तो आपके मन में इन्वेस्टमेंट, जगह, और सेटअप को लेकर कई सवाल होंगे। यहाँ हमने उन सभी महत्वपूर्ण सवालों के सटीक और आसान जवाब दिए हैं।
+              If you're planning to start a commercial mushroom farming business, you may have questions about investment, infrastructure, farm setup, production, and profitability. This page provides clear, accurate, and practical answers to the most common questions asked by aspiring mushroom entrepreneurs.
             </p>
             <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-              हम मुख्य रूप से Oyster, Button, और Milky मशरूम की कमर्शियल खेती पर फोकस करते हैं। यहाँ आपको एक नया फार्म सेटअप करने की कुल लागत (setup costs), मार्किट में प्रॉफिट मार्जिन, और MP, UP, Bihar, व Maharashtra जैसे राज्यों में दी जाने वाली हमारी प्रैक्टिकल ट्रेनिंग से जुड़ी हर छोटी-बड़ी जानकारी (comprehensive details) मिलेगी।
+              Our expertise focuses on the commercial cultivation of Oyster, Button, and Milky mushrooms. Here, you'll find detailed information about setup costs, farm planning, profit potential, production systems, and our hands-on training programs conducted across states such as Madhya Pradesh, Uttar Pradesh, Bihar, Maharashtra, and etc. many other regions.
             </p>
             <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
-              Whether you are a beginner starting from scratch or a farmer looking to expand your existing setup, our expert team is here to guide you. अगर नीचे दिए गए सवालों में आपका डाउट क्लियर नहीं होता है, तो आप हमारी कंसल्टेंसी टीम से सीधे संपर्क कर सकते हैं। Let's clear your doubts and start growing today!
+              Whether you're a complete beginner starting from scratch or an experienced farmer looking to scale your operations, our expert team is here to support you at every stage. If you can't find the answer you're looking for below, feel free to contact our consultancy team for personalized guidance.
+            </p>
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg font-medium">
+              Let's answer your questions and help you build a successful mushroom farming business.
             </p>
           </div>
           <div className="space-y-4">
