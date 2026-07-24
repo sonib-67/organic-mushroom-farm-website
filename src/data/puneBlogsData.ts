@@ -14,7 +14,7 @@ export const puneBlogs = [
   {
     id: 2,
     slug: "government-mushroom-training-center",
-    title: "Government Mushroom Training Center Wakad Pune | Organic Mushrooms Farm",
+    title: "Pune Government Mushroom Cultivation Training & Business Support",
     metaDesc: "Wakad Pune मध्ये government-recognized mushroom training. सरकारी yojana आिणि subsidy माहितीसोबत complete training. आजच चौकशी करा.",
     h1: "Wakad, Pune येथे Government Mushroom Training Center",
     intro: "Wakad हा Pune चा rapidly growing IT आिण residential hub आहे. इथल्या अनेक रहिवाशांना सरकारी योजनांच्या मदतीने mushroom farming सुरु करायची इच्छा असते, पण योग्य मार्गदर्शन मिळत नाही. Organic Mushrooms Farm चं Wakad केंद्र government training guidelines नुसार structured training देतं — ज्यामध्ये KVK, NABARD आिण राज्य कृषी विभागाच्या योजनांची माहिती सुद्धा दिली जाते. हे training विशेषतः त्या लोकांसाठी उपयोगी आहे ज्यांना subsidy घेऊन commercial scale वर business सुरु करायचा आहे. Hinjewadi आिण Baner जवळ राहणाऱ्या IT professionals नी सुद्धा weekend batches साठी नोंदणी केली आहे.",

@@ -17,7 +17,7 @@ const ArticleNoidaTraining = () => {
             </div>
 
             <SEO 
-                title="Noida Mushroom Farming Training Center | नोएडा मशरूम खेती प्रशिक्षण केंद्र" 
+                title="Start a Mushroom Farming Business in Noida | Expert Training" 
                 description="Expert mushroom farming training & spawn supply in Noida."
                 keywords="Mushroom farming Noida, mushroom training Noida, mushroom spawn Noida, commercial mushroom farming Greater Noida"
             />
