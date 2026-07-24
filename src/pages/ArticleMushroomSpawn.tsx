@@ -8,7 +8,7 @@ const ArticleMushroomSpawn = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="What is Mushroom Spawn? Complete Beginner Guide (2026–27) | Organic Mushrooms Farm" 
+        title="Mushroom Spawn Explained | Beginner's Guide to Growing in India" 
         description="Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India. Complete beginner guide 2026-2027." 
       />
 
@@ -27,7 +27,7 @@ const ArticleMushroomSpawn = () => {
             <span className="text-[10px] font-black uppercase tracking-widest">Beginner Guide</span>
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
-            What is Mushroom Spawn? Complete Beginner Guide (2026–27)
+            Mushroom Spawn Explained | Beginner's Guide to Growing in India
           </h1>
           <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-slate-500 uppercase tracking-widest border-b dark:border-white/10 border-black/10 pb-8">
             <div className="flex items-center gap-2">

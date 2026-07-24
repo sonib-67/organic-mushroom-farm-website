@@ -17,7 +17,7 @@ const ArticleUltimateGuideIndia = () => {
             </div>
 
             <SEO 
-                title="The Ultimate Guide to Commercial Mushroom Farming in India: Setup, Training, and Scalability" 
+                title="Commercial Mushroom Farming in India | Business, Profit & Farm Setup" 
                 description="The agricultural landscape in India is experiencing a massive shift, driven by high-yield, space-optimized agribusinesses. Learn about setup, training, and scalability."
                 url="/blog/commercial-mushroom-farming-india"
             />
@@ -42,7 +42,7 @@ const ArticleUltimateGuideIndia = () => {
                             <span className="flex items-center gap-1"><User size={14} /> Expert Team</span>
                         </div>
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-8">
-                            The Ultimate Guide to Commercial Mushroom Farming in India: Setup, Training, and Scalability
+                            Commercial Mushroom Farming in India | Business, Profit & Farm Setup
                         </h1>
                     </div>
 

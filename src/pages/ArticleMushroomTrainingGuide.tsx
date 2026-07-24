@@ -5,7 +5,7 @@ const ArticleMushroomTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-        title="Mushroom Farming Training: The Complete Guide to Starting a Profitable Mushroom Cultivation Business"
+        title="Mushroom Farming Training Guide | Learn Online in English"
                
         description={metaDesc || "Where to get trained in mushroom farming, varieties to learn, training costs, government support, and how the profit works in 2026."}
       />
@@ -14,7 +14,7 @@ const ArticleMushroomTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            Mushroom Farming Training: The Complete Guide to Starting a Profitable Mushroom Cultivation Business
+                            Mushroom Farming Training Guide | Learn Online in English
                         </h1>
                     </div>
                     

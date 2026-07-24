@@ -8,7 +8,7 @@ const ArticleMushroomTrainingAffordable = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="Mushroom Farming Training - Online & Offline | Certificate ke Saath Seekho Mushroom Kheti" 
+        title="Online Vs Offline Mushroom Farming Training | Certificate Course Guide" 
         description="India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur MP Mein Available. Complete guide with Certificate." 
       />
 
@@ -27,7 +27,7 @@ const ArticleMushroomTrainingAffordable = () => {
             <span className="text-[10px] font-black uppercase tracking-widest text-[#22c55e]">Mushroom Training Program</span>
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
-            Mushroom Farming Training – Online & Offline | Certificate ke Saath Seekho Mushroom Kheti
+            Online Vs Offline Mushroom Farming Training | Certificate Course Guide
           </h1>
           <p className="text-lg md:text-xl font-medium text-slate-400 leading-relaxed mb-6">
             India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur Mein Available

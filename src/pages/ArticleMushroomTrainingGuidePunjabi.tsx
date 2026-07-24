@@ -5,7 +5,7 @@ const ArticleMushroomTrainingGuidePunjabi = () => {
     return (
         <div className="min-h-screen pt-32 pb-20">
             <SEO 
-                title="ਕਣਕ-ਝੋਨੇ ਦੇ ਚੱਕਰ ਤੋਂ ਬਾਹਰ: ਪੰਜਾਬ ਦੇ ਕਿਸਾਨਾਂ ਲਈ ਖੁੰਬਾਂ ਦੀ ਖੇਤੀ ਦੀ ਟਰੇਨਿੰਗ ਕਿਉਂ ਬਣ ਰਹੀ ਹੈ ਨਵਾਂ ਰਾਹ"
+                title="Mushroom Training in Punjabi | ਖੇਤੀ ਤੋਂ ਕਾਮਯਾਬ ਬਿਜ਼ਨਸ ਤੱਕ"
                 description="ਪੰਜਾਬ ਵਿੱਚ ਖੁੰਬਾਂ ਦੀ ਖੇਤੀ ਦੀ ਟਰੇਨਿੰਗ ਬਾਰੇ ਪੂਰੀ ਜਾਣਕਾਰੀ। PAU ਲੁਧਿਆਣਾ, KVK, ਅਤੇ ਸੋਲਨ ਤੋਂ ਟਰੇਨਿੰਗ, ਸਬਸਿਡੀ, ਅਤੇ ਮੁਨਾਫੇ ਬਾਰੇ ਜਾਣੋ।"
             />
             
@@ -13,7 +13,7 @@ const ArticleMushroomTrainingGuidePunjabi = () => {
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold dark:text-white text-slate-900 leading-tight mb-4">
-                            ਕਣਕ-ਝੋਨੇ ਦੇ ਚੱਕਰ ਤੋਂ ਬਾਹਰ: ਪੰਜਾਬ ਦੇ ਕਿਸਾਨਾਂ ਲਈ ਖੁੰਬਾਂ ਦੀ ਖੇਤੀ ਦੀ ਟਰੇਨਿੰਗ ਕਿਉਂ ਬਣ ਰਹੀ ਹੈ ਨਵਾਂ ਰਾਹ
+                            Mushroom Training in Punjabi | ਖੇਤੀ ਤੋਂ ਕਾਮਯਾਬ ਬਿਜ਼ਨਸ ਤੱਕ
                         </h1>
                     </div>
                     

@@ -80,7 +80,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Button mushroom has a stable <strong>premium pricing structure</strong> throughout India. Major hubs like Delhi NCR, Bangalore, Pune, Mumbai, Jabalpur, Lucknow, and Kolkata face continuous supply deficits. This setup is highly profitable when combined with government subsidy allocations (often 30% - 50% for commercial units).",
-    seoTitle: "Commercial Button Mushroom Farming Guide & Setup Cost India",
+    seoTitle: "White Button Mushroom (Agaricus bisporus) | Cultivation & Benefits",
     seoDescription: "Step-by-step Button Mushroom (Agaricus bisporus) farming guide in India. Learn composting parameters, casing requirements, spawn selection, and temperature control variables for high-yield units.",
     keywords: ["Button mushroom farming", "Agaricus bisporus cultivation", "Mushroom spawn suppliers", "climate controlled mushroom setup", "button mushroom compost preparation", "mushroom training India"]
   },
@@ -190,7 +190,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Dry oyster mushrooms command excellent <strong>export margins</strong> in Japan, USA, and Europe. Fresh oysters are heavily supplied to high-end Chinese restaurants, star hotels, and organic food chain outlets across modern Indian metros.",
-    seoTitle: "All Varieties Oyster Mushroom Farming Guide | Training & Farm Setup",
+    seoTitle: "Oyster Mushroom (Pleurotus ostreatus) | Smart Farming Guide",
     seoDescription: "Step-by-step Oyster Mushroom (Pleurotus) cultivation process. Learn agricultural waste pasteurization, spawn rates, drying techniques, and commercial yield parameters.",
     keywords: ["Oyster mushroom cultivation", "Dhingri mushroom training", "Pleurotus ostreatus guide", "buy oyster spawn seed", "dry mushroom business India"]
   },
@@ -245,7 +245,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Shiitake is heavily consumed in <strong>Delhi, Mumbai, Goa, Bangalore, and Pune</strong>. Cultivators with automated setups earn massive profits by distributing directly to retail chains, and hotels.",
-    seoTitle: "Shiitake Mushroom Farming Price and Wood Sawdust Log Setup Cost",
+    seoTitle: "Shiitake Mushroom (Lentinula edodes) | Training & Buyback Support",
     seoDescription: "Exotic Shiitake (Lentinula edodes) commercial setup guide. How to make formulation blocks, autoclave sterilization, laminar flow spawning, and colonization.",
     keywords: ["Shiitake mushroom farming", "sawdust log formulation", "autoclave mushroom unit", "HEPA laminar flow inoculation", "premium food setup India"]
   },
@@ -300,7 +300,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Lion's Mane represents a high-growth sector. It is dried and grounded into <strong>nootropic supplements</strong> and herbal coffee blends, pulling huge margins from health-conscious consumers in urban centers.",
-    seoTitle: "Lion's Mane Mushroom Farming India | Nootropic Culinary Cultivation",
+    seoTitle: "Lion's Mane Mushroom (Hericium erinaceus) | Brain Health & Cultivation",
     seoDescription: "Unlock the secrets of Lion's Mane (Hericium erinaceus) mushroom cultivation. Discover Masters Mix sawdust recipe, incubation room guidelines, and harvest cycles.",
     keywords: ["Lions mane mushroom", "Hericium erinaceus setup", "masters mix substrate recipe", "nootropic food farming", "medicinal mushroom price India"]
   },
@@ -410,7 +410,7 @@ export const mushroomDetails: Record<string, MushroomInfo> = {
       }
     ],
     marketDemandHtml: "Cordyceps represents an <strong>elite investment sector</strong>. Setup projects typically include fully integrated sterilization setups, clean HEPA filters, air shower chambers, and testing kits to maintain pharmaceutical-grade export standard products.",
-    seoTitle: "Cordyceps Militaris Lab Setup Cost and Cultivation Training India",
+    seoTitle: "Cordyceps Mushroom | Premium Cultivation & Wellness Guide",
     seoDescription: "Pristine Cordyceps Militaris laboratory cultivation method on brown rice. Learn liquid spawn formulation specs, LED light photoperiod layout, and dry market rates.",
     keywords: ["Cordyceps militaris lab setup", "liquid spawn preparation", "cordycepin extraction price", "premium lab mushroom cost", "mushroom clean room technology"]
   },

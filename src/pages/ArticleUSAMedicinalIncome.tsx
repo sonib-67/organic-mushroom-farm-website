@@ -8,7 +8,7 @@ const ArticleUSAMedicinalIncome = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <SEO 
-        title="How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)"
+        title="Medicinal Mushroom Business in USA | Income, Profit & Market Guide"
         description="The wellness industry is spending billions on these three mushrooms. Here's how everyday Americans are cashing in — from their garage, basement, or backyard."
         keywords="how to grow medicinal mushrooms, lion's mane mushroom benefits, reishi mushroom for sale, how to make money growing mushrooms, medicinal mushroom business"
       />
@@ -26,7 +26,7 @@ const ArticleUSAMedicinalIncome = () => {
           </div>
 
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight">
-            How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)
+            Medicinal Mushroom Business in USA | Income, Profit & Market Guide
           </h1>
           
           <p className="text-xl md:text-2xl dark:text-slate-400 text-slate-600 leading-relaxed italic border-l-4 border-primary-start pl-6">

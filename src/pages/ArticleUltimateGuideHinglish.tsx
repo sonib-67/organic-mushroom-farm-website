@@ -98,7 +98,7 @@ const ArticleUltimateGuideHinglish = () => {
   return (
     <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
       <SEO 
-        title="Mushroom Farming: Complete Guide for Spawn, Training, Setup, and Business in India" 
+        title="From Zero to Mushroom Farmer | Complete Hinglish Guide" 
         description="India's ultimate guide to starting a successful mushroom business: Covers spawn, offline/online training, setup cost margins, buyback guarantee, & city-wise guides."
         keywords="mushroom farming guide, mushroom training program, buy mushroom spawn online, mushroom buyback india, button mushroom setup, organic mushrooms farm"
       />
@@ -121,7 +121,7 @@ const ArticleUltimateGuideHinglish = () => {
             ✨ COMPLETE EXHAUSTIVE ULTIMATE HINGLISH GUIDE
           </div>
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-6">
-            Mushroom Farming: <span className="gradient-text bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">Complete Guide for Spawn, Training, Setup, & Business in India</span>
+            From Zero to Mushroom Farmer | Complete Hinglish Guide
           </h1>
           <p className="dark:text-slate-300 text-slate-700 text-lg md:text-xl font-medium max-w-4xl mx-auto leading-relaxed mb-6">
             Mushroom farming aaj ke time mein India ke sabse tezi se badhne wale agribusiness models mein se ek ban chuka hai. Is ek hi guide mein sab kuch bina faimily technical words ke simple Hinglish mein seekhein! 🍄
