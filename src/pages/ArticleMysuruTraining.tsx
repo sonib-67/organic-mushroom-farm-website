@@ -150,11 +150,11 @@ const ArticleMysuruTraining = () => {
                         <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Oyster Mushroom</Link></strong> — beginners ಮತ್ತು commercial farming ಗೆ ಸೂಕ್ತ</li>
                         <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Button Mushroom</Link></strong> — restaurants ಮತ್ತು ಮನೆಗಳಲ್ಲಿ ಜನಪ್ರಿಯ</li>
                         <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Milky Mushroom</Link></strong> — commercial cultivation ಅವಕಾಶ</li>
-                        <li><strong>Shiitake Mushroom</strong> — premium restaurant category</li>
-                        <li><strong>Lion's Mane Mushroom</strong> — ಬೆಳೆಯುತ್ತಿರುವ wellness market</li>
-                        <li><strong>Reishi Mushroom</strong> — medicinal mushroom segment</li>
-                        <li><strong>Turkey Tail Mushroom</strong> — ಹೊಸ functional food category</li>
-                        <li><strong>Cordyceps Mushroom</strong> — premium medicinal mushroom market</li>
+                        <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Shiitake Mushroom</Link></strong> — premium restaurant category</li>
+                        <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Lion's Mane Mushroom</Link></strong> — ಬೆಳೆಯುತ್ತಿರುವ wellness market</li>
+                        <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Reishi Mushroom</Link></strong> — medicinal mushroom segment</li>
+                        <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Turkey Tail Mushroom</Link></strong> — ಹೊಸ functional food category</li>
+                        <li><strong><Link to="/mushroom-types" className="text-primary-start hover:underline">Cordyceps Mushroom</Link></strong> — premium medicinal mushroom market</li>
                     </ul>
 
                     <h2 className="text-lg md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4 border-l-4 border-primary-start pl-4 uppercase">
@@ -225,7 +225,7 @@ const ArticleMysuruTraining = () => {
                     </p>
 
                     <h2 className="text-lg md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4 border-l-4 border-primary-start pl-4 uppercase">
-                        Fresh Mushroom Business
+                        <Link to="/contact" className="text-primary-start hover:underline">Fresh Mushroom Business</Link>
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
                         Fresh mushrooms ಇವರಿಗೆ ಸರಬರಾಜು ಮಾಡಬಹುದು:
@@ -242,10 +242,10 @@ const ArticleMysuruTraining = () => {
                     </p>
 
                     <h2 className="text-lg md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4 border-l-4 border-primary-start pl-4 uppercase">
-                        <Link to="/spawn-seed" className="text-primary-start hover:underline">Dry Mushroom Business</Link>
+                        <Link to="/contact" className="text-primary-start hover:underline">Dry Mushroom Business</Link>
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
-                        ಹಲವಾರು ಉದ್ಯಮಿಗಳು <Link to="/spawn-seed" className="text-primary-start hover:underline font-semibold">Dry Mushroom Business</Link> ಇದರಲ್ಲಿ ವೈವಿಧ್ಯೀಕರಣ ಮಾಡುತ್ತಾರೆ:
+                        ಹಲವಾರು ಉದ್ಯಮಿಗಳು <Link to="/contact" className="text-primary-start hover:underline font-semibold">Dry Mushroom Business</Link> ಇದರಲ್ಲಿ ವೈವಿಧ್ಯೀಕರಣ ಮಾಡುತ್ತಾರೆ:
                     </p>
                     <ul className="list-disc pl-5 space-y-1 dark:text-slate-300 text-slate-700 text-sm md:text-base">
                         <li>Dry Mushrooms</li>

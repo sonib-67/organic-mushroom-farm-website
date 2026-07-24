@@ -166,38 +166,38 @@ const ArticleVadodaraTraining = () => {
                             ગુજરાતના વડોદરા માર્કેટમાં વિવિધ પ્રકારના મશરૂમની માંગ રહે છે. વધુ વિગતો માટે અમારા <Link to="/mushroom-types" className="text-emerald-500 hover:underline font-semibold">Mushroom Types</Link> ગાઇડને વાંચો:
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Button Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">restaurants માં સૌથી વધુ</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Oyster Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">health-conscious લોકપ્રિયતા</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Milky Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">local food business</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Shiitake Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">premium gourmet segment</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Lion's Mane Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">નવી specialty category</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Reishi Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">medicinal market</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Turkey Tail Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">wellness-focused માંગ</span>
-                            </div>
-                            <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200">
+                            </Link>
+                            <Link to="/mushroom-types" className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border border-white/5 text-center text-xs md:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors block">
                                 Cordyceps Mushroom
                                 <span className="block text-[10px] text-slate-500 font-normal">premium medicinal segment</span>
-                            </div>
+                            </Link>
                         </div>
                     </div>
 
@@ -227,7 +227,7 @@ const ArticleVadodaraTraining = () => {
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">Online Mushroom Training</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2"><Link to="/training" className="hover:text-emerald-500 transition-colors">Online Mushroom Training</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600 mb-4">
                                     Online Mushroom Training શીખવામાં મદદ કરે છે: Mushroom Cultivation, Spawn Management, Harvesting, Packaging, Marketing, અને Business Development. Gujarati અને Hindi બંને ભાષામાં support ઉપલબ્ધ છે, જેથી Vadodara અને આસપાસના ગામડાના લોકો પણ ઘરે બેસીને શીખી શકે.
                                 </p>
@@ -236,7 +236,7 @@ const ArticleVadodaraTraining = () => {
                                 </Link>
                             </div>
                             <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">Offline Mushroom Training</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2"><Link to="/training" className="hover:text-emerald-500 transition-colors">Offline Mushroom Training</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600 mb-4">
                                     Practical training માં સામેલ છે: Live Demonstrations, Bed Preparation, Production Systems, Harvesting Methods, અને Farm Management. Alkapuri, Fatehgunj, Manjalpur, Akota જેવા વિસ્તારના લોકો hands-on experience માટે offline training પસંદ કરે છે.
                                 </p>
@@ -257,7 +257,7 @@ const ArticleVadodaraTraining = () => {
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-lg font-bold dark:text-white text-slate-900">Mushroom Spawn Sale</h3>
+                                <h3 className="text-lg font-bold dark:text-white text-slate-900"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Sale</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     Quality spawn cultivation ની સફળતા માટે ખૂબ જ મહત્વનું છે. અમે પૂરું પાડીએ છીએ: Oyster Mushroom Spawn, Button Mushroom Spawn, અને Milky Mushroom Spawn. Vadodara, Halol, Dabhoi, Padra, Karjan અને Sevasi, Bhayli, Vemali, Waghodia Rural સુધી <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">premium spawn</Link> delivery સાથે સ્પોન પહોંચાડવામાં આવે છે.
                                 </p>
@@ -273,28 +273,28 @@ const ArticleVadodaraTraining = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Fresh Mushroom Sale</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Sale</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Fresh mushrooms પુરા પાડી શકાય છે: Restaurants, Hotels, Cloud Kitchens, Retail Stores અને Organic Food Shops. Vadodara ના વધતા food sector ને કારણે consistent quality અને supply આપતા growers માટે strong demand ઉભી થઈ છે.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Dry Mushroom Sale Business</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Dry Mushroom Sale Business</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">ઘણા growers Dry Mushrooms, Mushroom Powder, Packaged Products અને Functional Food Ingredients માં પણ વિસ્તરે છે. Inka shelf life zyada hota hai aur additional revenue ka accha zariya banta hai.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Mushroom Consultancy</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Consultancy સેવા મદદ કરે છે: Farm Planning, Market Development, Infrastructure Design અને Expansion Strategies. Professional guidance se startup risk kaafi kam ho jata hai.</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 mt-6">
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Turnkey Mushroom Projects</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Turnkey Mushroom Projects</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     મોટા investors માટે અમે <Link to="/turnkey-projects" className="text-emerald-500 hover:underline font-semibold">turnkey project</Link> આપીએ છીએ — જેમાં farm design, infrastructure planning, equipment guidance અને operational systems બધું જ સામેલ છે.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Business Plan & ROI Analysis</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/blog/mushroom-farming-business-plan-india" className="hover:text-emerald-500 transition-colors">Business Plan & ROI Analysis</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     રોકાણ પહેલા ઉદ્યોગસાહસિકોએ ધ્યાનમાં લેવું જોઈએ: Production Capacity, Market Demand, Operating Costs, Revenue Potential, અને Customer Base. Aapke scale ke hisaab se hum <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">customized business plan & project report</Link> taiyaar karke dete hain, jo bank loan ya subsidy application ke liye bhi use ho sakta hai.
                                 </p>

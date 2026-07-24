@@ -121,17 +121,17 @@ const ArticleMaduraiTraining = () => {
                             மதுரையின் Climate காளான் சாகுபடிக்கு எப்படி பொருந்துகிறது?
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            மதுரை ஒரு hot and dry climate கொண்ட நகரம் — கோடையில் temperature 40°C-க்கும் மேல் செல்கிறது. இது milky mushroom-க்கு மிகவும் suitable, ஏனெனில் இது heat-tolerant variety. Oyster mushroom-ம் Tamil Nadu-வின் இந்த warm climate-ல் நன்றாக வளரும்.
+                            மதுரை ஒரு hot and dry climate கொண்ட நகரம் — கோடையில் temperature 40°C-க்கும் மேல் செல்கிறது. இது <Link to="/mushroom-types" className="text-emerald-500 hover:underline">milky mushroom</Link>-க்கு மிகவும் suitable, ஏனெனில் இது heat-tolerant variety. <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster mushroom</Link>-ம் Tamil Nadu-வின் இந்த warm climate-ல் நன்றாக வளரும்.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            Button mushroom-க்கு குளிர்ந்த temperature (16-22°C) தேவை, அதனால் மதுரையில் இதற்கு cooling setup அல்லது semi-controlled room தேவைப்படும். வடிபட்டி, கொட்டாம்பட்டி, செடப்பட்டி போன்ற peri-urban blocks-ல் poly-shed அமைத்து, ஆண்டு முழுவதும் production செய்யலாம்.
+                            <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Button mushroom</Link>-க்கு குளிர்ந்த temperature (16-22°C) தேவை, அதனால் மதுரையில் இதற்கு cooling setup அல்லது semi-controlled room தேவைப்படும். வடிபட்டி, கொட்டாம்பட்டி, செடப்பட்டி போன்ற peri-urban blocks-ல் poly-shed அமைத்து, ஆண்டு முழுவதும் production செய்யலாம்.
                         </p>
                     </div>
 
                     {/* Services Section */}
                     <div className="space-y-6 pt-6 border-t dark:border-white/10 border-black/10">
                         <div className="space-y-4">
-                            <h3 className="text-lg font-bold dark:text-white text-slate-900">Mushroom Farm Setup Services</h3>
+                            <h3 className="text-lg font-bold dark:text-white text-slate-900"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup Services</Link></h3>
                             <p className="text-sm dark:text-slate-300 text-slate-700">
                                 மதுரையில் பலருக்கு பெரிய நிலம் இல்லை — இது ஒரு பிரச்சனை இல்லை. Mushroom farming ஆரம்பிக்க தேவைப்படுவது:
                             </p>
@@ -157,7 +157,7 @@ const ArticleMaduraiTraining = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">Online Mushroom Training Program</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2"><Link to="/training" className="hover:text-emerald-500 transition-colors">Online Mushroom Training Program</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600 mb-4">
                                     மதுரையில் பலர் IT, government, private sector jobs-ல் வேலை செய்கிறார்கள் — அவர்களுக்கு weekend அல்லது மாலை நேரம்தான் கிடைக்கும். அவர்களுக்கு Online Mushroom Training ஒரு perfect option. Online training-ல் கற்றுக்கொள்ளக்கூடியவை: Oyster Mushroom Farming, Button Mushroom Farming, Milky Mushroom Farming, Spawn management மற்றும் production planning, Mushroom marketing, Business planning.
                                 </p>
@@ -166,7 +166,7 @@ const ArticleMaduraiTraining = () => {
                                 </Link>
                             </div>
                             <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2">Offline Practical Mushroom Training</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-2"><Link to="/training" className="hover:text-emerald-500 transition-colors">Offline Practical Mushroom Training</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600 mb-4">
                                     சிலர் சொல்வார்கள் — "வீடியோ பார்த்து புரிஞ்சுது, ஆனா கையால செஞ்சு காமிக்கணும்." Offline training இந்த gap-ஐ fill செய்கிறது. Hands-on training-ல் இருப்பவை: Bed preparation, Spawn handling, Harvesting techniques, Farm management, Production techniques. மட்டுத்தாவணி, அண்ணா நகர், KK நகர் பகுதிகளில் இருந்து எளிதாக வரக்கூடிய வகையில் offline training venue வைக்கப்படுகிறது.
                                 </p>
@@ -185,15 +185,15 @@ const ArticleMaduraiTraining = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Mushroom Spawn Supply</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Spawn quality நன்றாக இல்லையென்றால் yield ஒருபோதும் consistent ஆக வராது. கிடைக்கும் categories: Oyster, Button, Milky. Delivery மட்டுத்தாவணி, அண்ணா நகர், KK நகர், திருநகர், செல்லூர், தில்லாகுளம் முதல் திருப்பரங்குன்றம், வடிபட்டி, அலங்காநல்லூர் block வரை செய்யப்படுகிறது.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Fresh Mushroom Supply</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Fresh Mushroom Supply</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Fresh mushroom demand முக்கியமாக இங்கிருந்து வருகிறது: Hotels மற்றும் restaurants (பெரியார் bus stand, டவுன் ஹால் ரோடு பகுதி), Supermarkets, Organic food stores, Vegetable markets (ஜோதி மற்றும் மட்டுத்தாவணி மார்க்கெட்).</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Dry Mushroom Products</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Dry Mushroom Products</Link></h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Fresh mushroom-உடன், value-added products-க்கும் நல்ல market உள்ளது: Dry mushrooms, Mushroom powder (soup மற்றும் health supplements-ல் பயன்படுகிறது), Ready-to-cook mushroom mixes. இந்த products-ஐ மதுரைக்கு மட்டும் limit செய்யாமல், online மூலம் pan-India-வும் விற்கலாம்.</p>
                             </div>
                         </div>
@@ -202,23 +202,23 @@ const ArticleMaduraiTraining = () => {
                             <div>
                                 <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Medicinal மற்றும் Gourmet Mushroom Opportunities</h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    Wellness market-ல் interest அதிகரிக்கும் varieties: Lion's Mane (cognitive wellness), Reishi (immunity), Cordyceps (premium medicinal), Turkey Tail (functional food), Shiitake (gourmet restaurant segment). இந்த category இன்னும் India-வில் early-stage-ல் தான் இருக்கிறது, அதனால் இப்போது enter ஆகும் entrepreneurs-க்கு first-mover advantage கிடைக்கும்.
+                                    Wellness market-ல் interest அதிகரிக்கும் varieties: <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Lion's Mane</Link> (cognitive wellness), <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Reishi</Link> (immunity), <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Cordyceps</Link> (premium medicinal), <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Turkey Tail</Link> (functional food), <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Shiitake</Link> (gourmet restaurant segment). இந்த category இன்னும் India-வில் early-stage-ல் தான் இருக்கிறது, அதனால் இப்போது enter ஆகும் entrepreneurs-க்கு first-mover advantage கிடைக்கும்.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Mushroom Consultancy Services</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/contact" className="hover:text-emerald-500 transition-colors">Mushroom Consultancy Services</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     ஒவ்வொரு entrepreneur-இன் situation வேறு — யாருக்கோ budget குறைவு, யாருக்கோ space சிறியது, யாருக்கோ marketing தெரியாது. Consultancy services இந்த areas-ல் help செய்யும்: Farm planning, Technical support, Infrastructure design, Business expansion, Market development.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Turnkey Mushroom Projects</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Turnkey Mushroom Projects</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     பெரிய scale-ல் யோசிக்கும் investors-க்கு — அரப்பாளையம் industrial belt-ல் ஆனாலும், கொட்டாம்பட்டி-செடப்பட்டி land-ல் ஆனாலும் — turnkey projects available. Farm design, equipment planning, infrastructure மற்றும் operational setup எல்லாம் ஒரே மையத்தில் handle செய்யப்படும்.
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Mushroom Business Plan & ROI</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/blog/mushroom-farming-business-plan-india" className="hover:text-emerald-500 transition-colors">Mushroom Business Plan & ROI</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     Investment செய்வதற்கு முன் இவற்றை evaluate செய்யவும்: Investment budget, Production capacity, Market demand, Sales channels, Operating costs. ஒரு structured <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">Mushroom Business Plan</Link> business risks-ஐ குறைக்க உதவும்.
                                 </p>
