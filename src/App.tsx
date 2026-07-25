@@ -1457,7 +1457,7 @@ const Hero = () => {
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">
-                98%
+                98.91%
               </div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">
                 Success Rate Globally
