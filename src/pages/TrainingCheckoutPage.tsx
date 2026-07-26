@@ -34,6 +34,44 @@ export default function TrainingCheckoutPage() {
     loadRazorpayScript();
   }, [location.state]);
 
+  
+  const simulatePayment = async (orderId: string, amount: number, currency: string) => {
+    // Show a simple confirm dialog for simulation
+    const isSuccess = window.confirm(`SIMULATION: Do you want to approve this payment of ${currency} ${amount/100}?\n\nOK = Success\nCancel = Failed/Cancelled`);
+    
+    if (isSuccess) {
+      try {
+        await fetch('/api/payment-success', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId })
+        });
+        
+        // redirect to success
+        navigate(`/payment-success?id=sim_${orderId}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
+      } catch (err) {
+        alert('Simulation Success Error');
+        setLoading(false);
+      }
+    } else {
+      try {
+        await fetch('/api/payment-cancel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId })
+        });
+        
+        setLoading(false);
+        setPaymentStatus('cancelled');
+        // navigate('/payment-cancelled', ...);
+      } catch (err) {
+        alert('Simulation Cancel Error');
+        setLoading(false);
+      }
+    }
+  };
+
+
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     setLoading(true);
@@ -42,169 +80,26 @@ export default function TrainingCheckoutPage() {
     // Track Form Start/Submit using Pixel Helper BEFORE Razorpay
     pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: `Training - ${selectedTitle}` });
 
+    
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/payment-initiate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, productType: selectedProductType })
+        body: JSON.stringify({
+           name: formData.name,
+           email: formData.email,
+           phone: formData.mobile,
+           productType: selectedTitle + ' Training',
+           amount: selectedPrice.replace(/[^0-9]/g, '')
+        })
       });
       
-      let payload;
-      const text = await response.text();
-      try {
-        payload = JSON.parse(text);
-      } catch (err) {
-        console.error("Failed to parse JSON response:", text);
-        throw new Error('Invalid JSON response from server');
-      }
-      
-      if (!response.ok) throw new Error(payload?.error || 'Failed to fetch payload');
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload?.error || 'Failed to initiate');
 
-      // Send INITIATED notification to Formspree
-      sendPaymentNotificationToFormspree({
-        name: formData.name,
-        phone: formData.mobile,
-        email: formData.email,
-        productType: `${selectedTitle} Training`,
-        amount: selectedPrice,
-        status: 'INITIATED',
-        orderId: payload.order_id
-      });
+      // Call simulation
+      simulatePayment(payload.orderId, parseInt(selectedPrice.replace(/[^0-9]/g, '')) * 100, 'INR');
 
-      const options = {
-        key: payload.key_id,
-        amount: payload.amount,
-        currency: payload.currency,
-        order_id: payload.order_id,
-        name: payload.name,
-        description: payload.description,
-        prefill: payload.prefill,
-        notes: payload.notes,
-        theme: payload.theme,
-        handler: function (response: any) {
-          // Notify Formspree that payment is successful
-          sendPaymentNotificationToFormspree({
-            name: formData.name,
-            phone: formData.mobile,
-            email: formData.email,
-            productType: `${selectedTitle} Training`,
-            amount: selectedPrice,
-            status: 'DONE',
-            orderId: payload.order_id,
-            paymentId: response.razorpay_payment_id
-          });
-
-          trackPaymentStep('Purchase', {
-            value: payload.amount / 100,
-            currency: payload.currency,
-            order_id: payload.order_id,
-            payment_id: response.razorpay_payment_id,
-            content_name: `Training - ${selectedTitle}`,
-            user_email: formData.email,
-            user_phone: formData.mobile
-          });
-          trackPaymentStep('PaymentSuccess', {
-            value: payload.amount / 100,
-            currency: payload.currency,
-            order_id: payload.order_id,
-            payment_id: response.razorpay_payment_id,
-            content_name: `Training - ${selectedTitle}`,
-            user_email: formData.email,
-            user_phone: formData.mobile
-          });
-          // small delay to ensure pixel fires before route transition
-          setTimeout(() => {
-             navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
-          }, 400);
-        },
-        modal: {
-          ondismiss: function() {
-            setLoading(false);
-            // Notify Formspree that payment form cancelled/not complete
-            sendPaymentNotificationToFormspree({
-              name: formData.name,
-              phone: formData.mobile,
-              email: formData.email,
-              productType: `${selectedTitle} Training`,
-              amount: selectedPrice,
-              status: 'CANCELLED',
-              orderId: payload.order_id
-            });
-
-            trackPaymentStep('PaymentCancelled', {
-              value: payload.amount / 100,
-              currency: payload.currency,
-              content_name: `Training - ${selectedTitle}`,
-              user_email: formData.email
-            });
-            navigate('/payment-cancelled', { 
-              state: { 
-                amount: payload.amount, 
-                currency: payload.currency, 
-                productName: `Training - ${selectedTitle}`,
-                email: formData.email,
-                from: '/training-checkout',
-                formData: formData,
-                productType: selectedProductType,
-                price: selectedPrice
-              } 
-            });
-          }
-        }
-      };
-
-      // Ensure Razorpay script is loaded
-      await loadRazorpayScript();
-
-      if (typeof window !== "undefined" && (window as any).Razorpay) {
-        trackPaymentStep('InitiateCheckout', {
-          value: payload.amount / 100,
-          currency: payload.currency,
-          content_name: `Training - ${selectedTitle}`
-        });
-
-        const rzp = new (window as any).Razorpay(options);
-        rzp.on('payment.failed', function (response: any) {
-          console.error(response.error);
-          setLoading(false);
-          // Notify Formspree of failed payment
-          sendPaymentNotificationToFormspree({
-            name: formData.name,
-            phone: formData.mobile,
-            email: formData.email,
-            productType: `${selectedTitle} Training`,
-            amount: selectedPrice,
-            status: 'FAILED',
-            orderId: payload.order_id,
-            paymentId: response.error?.metadata?.payment_id
-          });
-
-          trackPaymentStep('PaymentFailed', {
-             value: payload.amount / 100,
-             currency: payload.currency,
-             content_name: `Training - ${selectedTitle}`,
-             user_email: formData.email
-          });
-          navigate('/payment-cancelled', { 
-            state: { 
-              amount: payload.amount, 
-              currency: payload.currency, 
-              productName: `Training - ${selectedTitle}`,
-              email: formData.email,
-              from: '/training-checkout',
-              formData: formData,
-              productType: selectedProductType,
-              price: selectedPrice
-            } 
-          });
-        });
-        rzp.open();
-      } else {
-        console.error("Razorpay script not loaded properly");
-        alert('Payment system error. Please refresh the page and try again.');
-        setLoading(false);
-      }
-      
     } catch (error) {
       console.error(error);
       alert('Error initiating checkout. Please try again.');

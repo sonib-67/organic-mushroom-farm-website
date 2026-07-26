@@ -393,7 +393,7 @@ const SpawnSeedPage = () => {
                               <p className="text-slate-400">Fill out the form below. Our lead engineers & experts will get back to you to discuss your specific farming model.</p>
                           </div>
 
-                          <form action="https://formspree.io/f/xykldqdy" method="POST" onSubmit={handleSubmit} className="relative z-10 space-y-6">
+                          <form   onSubmit={handleSubmit} className="relative z-10 space-y-6">
                           <div className="grid md:grid-cols-2 gap-6">
                               <div className="space-y-3">
                                   <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Full Name *</label>

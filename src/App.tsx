@@ -2287,7 +2287,7 @@ const CTASection = () => {
 
     try {
       const response = await fetch(
-        "https://formspree.io/f/xykldqdy",
+        '/api/enquiry',
         {
           method: "POST",
           headers: {
@@ -2654,11 +2654,12 @@ const ContactPage = () => {
 
     try {
       const response = await fetch(
-        "https://formspree.io/f/xykldqdy",
+        '/api/enquiry',
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(Object.fromEntries(formData.entries())),
           headers: {
+            "Content-Type": "application/json",
             Accept: "application/json",
           },
         },
@@ -2676,7 +2677,7 @@ const ContactPage = () => {
           errors: [{ message: errorText }],
         });
         // fallback
-        form.submit();
+        form.reset();
       }
     } catch (err: any) {
       console.error("[FormSubmit] Email submit failed:", err);
@@ -2686,7 +2687,7 @@ const ContactPage = () => {
         errors: [{ message: err.message || String(err) }],
       });
       // fallback
-      form.submit();
+      form.reset();
     }
   };
 
@@ -2842,7 +2843,7 @@ const ContactPage = () => {
               </div>
 
               <form
-                action="https://formspree.io/f/xykldqdy"
+                action='/api/enquiry'
                 method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-5"
@@ -5418,11 +5419,12 @@ const TurnkeyProjectsPage = () => {
 
     try {
       const response = await fetch(
-        "https://formspree.io/f/xykldqdy",
+        '/api/enquiry',
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(Object.fromEntries(formData.entries())),
           headers: {
+            "Content-Type": "application/json",
             Accept: "application/json",
           },
         },

@@ -10,7 +10,7 @@ import {
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { loadRazorpayScript } from '../utils/razorpay';
-import { sendPaymentNotificationToFormspree } from '../utils/formspree';
+
 import SEO from '../components/SEO';
 
 const WorkshopPage = () => {
@@ -41,6 +41,40 @@ const WorkshopPage = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+    
+  const simulatePayment = async (orderId: string, amount: number, currency: string, title: string) => {
+    const isSuccess = window.confirm(`SIMULATION: Do you want to approve this payment of ${currency} ${amount/100}?\n\nOK = Success\nCancel = Failed/Cancelled`);
+    
+    if (isSuccess) {
+      try {
+        await fetch('/api/payment-success', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId })
+        });
+        
+        window.location.href = `/payment-success?id=sim_${orderId}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=N%2FA&type=${encodeURIComponent(title)}`;
+      } catch (err) {
+        alert('Simulation Success Error');
+        setLoading(false);
+      }
+    } else {
+      try {
+        await fetch('/api/payment-cancel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId })
+        });
+        
+        setLoading(false);
+        // We do not have setPaymentStatus here, just reset loading
+      } catch (err) {
+        alert('Simulation Cancel Error');
+        setLoading(false);
+      }
+    }
+  };
+
   const handlePayment = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!formData.name || !formData.phone || formData.phone.length < 10) {
@@ -49,121 +83,33 @@ const WorkshopPage = () => {
     }
 
     setLoading(true);
+    
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/payment-initiate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          productType: 'workshop',
-          name: formData.name,
-          email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-          mobile: formData.phone
+        body: JSON.stringify({
+           name: formData.name,
+           email: 'N/A',
+           phone: formData.phone,
+           productType: 'Workshop',
+           amount: (199)
         })
       });
       
       const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
+      if (!response.ok) throw new Error(payload?.error || 'Failed to initiate');
 
-      // Send INITIATED notification to Formspree
-      sendPaymentNotificationToFormspree({
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-        productType: 'organic mushroom farming Workshop',
-        amount: '₹199',
-        status: 'INITIATED',
-        orderId: payload.order_id
-      });
+      simulatePayment(payload.orderId, 199 * 100, 'INR', 'Workshop');
 
-      const options = {
-        key: payload.key_id,
-        amount: payload.amount,
-        currency: payload.currency,
-        order_id: payload.order_id,
-        name: payload.name,
-        description: payload.description,
-        prefill: { ...payload.prefill, contact: formData.phone, name: formData.name },
-        notes: payload.notes,
-        theme: payload.theme,
-        handler: function (response: any) {
-          // Notify Formspree that payment is DONE
-          sendPaymentNotificationToFormspree({
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-            productType: 'organic mushroom farming Workshop',
-            amount: '₹199',
-            status: 'DONE',
-            orderId: payload.order_id,
-            paymentId: response.razorpay_payment_id
-          });
-
-          navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com')}&type=workshop`);
-          setLoading(false);
-        },
-        modal: {
-          ondismiss: function() {
-            setLoading(false);
-            // Notify Formspree that payment is CANCELLED
-            sendPaymentNotificationToFormspree({
-              name: formData.name,
-              phone: formData.phone,
-              email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-              productType: 'organic mushroom farming Workshop',
-              amount: '₹199',
-              status: 'CANCELLED',
-              orderId: payload.order_id
-            });
-
-            navigate('/payment-cancelled', {
-              state: {
-                amount: 19900,
-                currency: 'INR',
-                productName: 'Mushroom Farming Workshop',
-                from: window.location.pathname,
-                formData: formData
-              }
-            });
-          }
-        }
-      };
-
-      await loadRazorpayScript();
-      if (typeof window !== "undefined" && (window as any).Razorpay) {
-        const rzp = new (window as any).Razorpay(options);
-        rzp.on('payment.failed', function (response: any) {
-             // Notify Formspree that payment is FAILED
-             sendPaymentNotificationToFormspree({
-               name: formData.name,
-               phone: formData.phone,
-               email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-               productType: 'organic mushroom farming Workshop',
-               amount: '₹199',
-               status: 'FAILED',
-               orderId: payload.order_id,
-               paymentId: response.error?.metadata?.payment_id
-             });
-
-             navigate('/payment-cancelled', {
-               state: {
-                 amount: 19900,
-                 currency: 'INR',
-                 productName: 'Mushroom Farming Workshop',
-                 from: window.location.pathname,
-                 formData: formData
-               }
-             });
-        });
-        rzp.open();
-      } else {
-        throw new Error("Razorpay not loaded");
-      }
     } catch (error) {
       console.error(error);
-      alert("Failed to initiate payment. Please try again.");
+      alert('Error initiating checkout. Please try again.');
       setLoading(false);
     }
   };
+
+
 
   const navLinks = [
     { name: "Home", href: "#home" },
