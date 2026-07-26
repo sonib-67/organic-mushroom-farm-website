@@ -1,4 +1,4 @@
-import * as nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer';
 
 const user = process.env.EMAIL_USER || process.env.SMTP_USER || 'organicmushroomsfarms@gmail.com';
 const pass = process.env.EMAIL_PASS || process.env.SMTP_PASS || 'jzqqntulcifrfyul';
