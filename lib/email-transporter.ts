@@ -5,8 +5,8 @@ const pass = process.env.EMAIL_PASS || process.env.SMTP_PASS || 'jzqqntulcifrfyu
 
 export const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: Number(process.env.SMTP_PORT) === 465,
+  port: Number(process.env.SMTP_PORT) || 465,
+  secure: process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) === 465 : true,
   auth: {
     user,
     pass,
