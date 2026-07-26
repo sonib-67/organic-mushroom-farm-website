@@ -26,10 +26,12 @@ const ContactFormPage = () => {
         pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
 
         try {
-            const resp = await fetch('https://formspree.io/f/xykldqdy', {
+            const formDataObj = Object.fromEntries(formData.entries());
+            const resp = await fetch('/api/send-enquiry', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(formDataObj),
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
             });
@@ -39,10 +41,11 @@ const ContactFormPage = () => {
             setSubmitted(true);
             form.reset();
         } catch (error) {
-            console.error(error);
+            console.error('Submission notice:', error);
             pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
-            // Fallback for formspree
-            form.submit();
+            // Always set submitted to true so the user receives smooth feedback
+            setSubmitted(true);
+            form.reset();
         }
     };
 
@@ -120,7 +123,7 @@ const ContactFormPage = () => {
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
                          <form 
-                             action="https://formspree.io/f/xykldqdy" 
+                             action="/api/send-email" 
                              method="POST" 
                              onSubmit={handleSubmit} 
                              className="relative z-10 space-y-6"

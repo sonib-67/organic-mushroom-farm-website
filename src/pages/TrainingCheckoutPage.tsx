@@ -6,6 +6,22 @@ import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
+import jsPDF from 'jspdf';
+
+const generateInvoicePDF = (title: string, amount: string, orderId: string, status: string, name: string) => {
+  const doc = new jsPDF();
+  doc.setFontSize(22);
+  doc.text("Organic Mushroom Farm", 20, 20);
+  doc.setFontSize(16);
+  doc.text(`Invoice - ${status}`, 20, 35);
+  doc.setFontSize(12);
+  doc.text(`Order ID: ${orderId}`, 20, 50);
+  doc.text(`Customer Name: ${name}`, 20, 60);
+  doc.text(`Product: ${title}`, 20, 70);
+  doc.text(`Amount: ${amount}`, 20, 80);
+  doc.text(`Status: ${status}`, 20, 90);
+  return doc.output('datauristring');
+};
 
 export default function TrainingCheckoutPage() {
   const navigate = useNavigate();
@@ -70,6 +86,20 @@ export default function TrainingCheckoutPage() {
         status: 'INITIATED',
         orderId: payload.order_id
       });
+      
+      // Send INITIATE to simulate-payment
+      fetch('/api/simulate-payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'INITIATE',
+          orderId: payload.order_id,
+          name: formData.name,
+          email: formData.email,
+          amount: selectedPrice,
+          productType: `${selectedTitle} Training`
+        })
+      }).catch(console.error);
 
       const options = {
         key: payload.key_id,
@@ -93,6 +123,22 @@ export default function TrainingCheckoutPage() {
             orderId: payload.order_id,
             paymentId: response.razorpay_payment_id
           });
+          
+          // Generate PDF and notify simulate-payment
+          const base64Pdf = generateInvoicePDF(`${selectedTitle} Training`, selectedPrice, payload.order_id, 'SUCCESS', formData.name);
+          fetch('/api/simulate-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'SUCCESS',
+              orderId: payload.order_id,
+              name: formData.name,
+              email: formData.email,
+              amount: selectedPrice,
+              productType: `${selectedTitle} Training`,
+              base64Pdf
+            })
+          }).catch(console.error);
 
           trackPaymentStep('Purchase', {
             value: payload.amount / 100,
@@ -130,6 +176,22 @@ export default function TrainingCheckoutPage() {
               status: 'CANCELLED',
               orderId: payload.order_id
             });
+            
+            // Generate PDF and notify simulate-payment
+            const base64Pdf = generateInvoicePDF(`${selectedTitle} Training`, selectedPrice, payload.order_id, 'CANCELLED', formData.name);
+            fetch('/api/simulate-payment', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                action: 'CANCELLED',
+                orderId: payload.order_id,
+                name: formData.name,
+                email: formData.email,
+                amount: selectedPrice,
+                productType: `${selectedTitle} Training`,
+                base64Pdf
+              })
+            }).catch(console.error);
 
             trackPaymentStep('PaymentCancelled', {
               value: payload.amount / 100,
@@ -178,6 +240,22 @@ export default function TrainingCheckoutPage() {
             orderId: payload.order_id,
             paymentId: response.error?.metadata?.payment_id
           });
+
+          // Generate PDF and notify simulate-payment
+          const base64Pdf = generateInvoicePDF(`${selectedTitle} Training`, selectedPrice, payload.order_id, 'CANCELLED', formData.name);
+          fetch('/api/simulate-payment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'CANCELLED',
+              orderId: payload.order_id,
+              name: formData.name,
+              email: formData.email,
+              amount: selectedPrice,
+              productType: `${selectedTitle} Training`,
+              base64Pdf
+            })
+          }).catch(console.error);
 
           trackPaymentStep('PaymentFailed', {
              value: payload.amount / 100,

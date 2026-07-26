@@ -12,7 +12,7 @@ export interface FormspreePaymentPayload {
 
 export async function sendPaymentNotificationToFormspree(payload: FormspreePaymentPayload) {
   try {
-    const response = await fetch('https://formspree.io/f/xykldqdy', {
+    const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,6 +36,6 @@ export async function sendPaymentNotificationToFormspree(payload: FormspreePayme
       console.warn('[Formspree] Response not OK:', await response.text());
     }
   } catch (err) {
-    console.error('[Formspree] Error sending notification:', err);
+    console.warn('[Formspree] Notification notice:', err);
   }
 }

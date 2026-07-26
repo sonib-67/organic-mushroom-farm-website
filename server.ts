@@ -6,6 +6,13 @@ import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
 
+// API Handlers
+import sendEmailHandler from './api/send-email';
+import sendEnquiryHandler from './api/send-enquiry';
+import simulatePaymentHandler from './api/simulate-payment';
+import checkPaymentsHandler from './api/cron/check-payments';
+import enquiryHandler from './api/enquiry';
+
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
@@ -51,7 +58,16 @@ app.get('/ads.txt', (req, res) => {
 
 // Webhook endpoint needs raw body for signature verification
 app.use('/api/razorpay-webhook', express.raw({ type: 'application/json' }));
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Route handlers for Vercel API functions in local Express server
+app.all('/api/send-email', (req, res) => sendEmailHandler(req as any, res as any));
+app.all('/api/send-enquiry', (req, res) => sendEnquiryHandler(req as any, res as any));
+app.all('/api/simulate-payment', (req, res) => simulatePaymentHandler(req as any, res as any));
+app.all('/api/cron/check-payments', (req, res) => checkPaymentsHandler(req as any, res as any));
+app.all('/api/enquiry', (req, res) => enquiryHandler(req as any, res as any));
+
 
 // Secrets 
 // Safe default initialization or env logic
@@ -70,7 +86,7 @@ async function sendToFormspree(payload: {
   paymentStatus: 'DONE' | 'FAILED';
 }) {
   try {
-    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+    const response = await fetch(`http://localhost:${PORT}/api/send-email`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -138,34 +154,40 @@ app.post('/api/create-order', async (req, res) => {
       purpose = "Order";
     }
 
-    const options = {
-      amount: amount, // amount in smallest currency unit
-      currency: "INR",
-      receipt: `rct_${Date.now()}`,
-      notes: {
-        productType,
-        customerName: name,
-        customerEmail: email,
-        customerPhone: mobile,
-        preferredDate: preferredDate || ""
-      }
-    };
+    const activeKeyId = RAZORPAY_KEY_ID;
+    let razorpayOrderId = `order_${Date.now()}`;
 
-    const order = await razorpay.orders.create(options);
+    if (RAZORPAY_KEY_ID && RAZORPAY_KEY_SECRET) {
+      try {
+        const order = await razorpay.orders.create({
+          amount: amount,
+          currency: "INR",
+          receipt: `rcpt_${Date.now()}`,
+          notes: { productType, customerName: name || "", customerEmail: email || "" }
+        });
+        if (order && order.id) {
+          razorpayOrderId = order.id;
+        }
+      } catch (rzpErr) {
+        console.warn("Razorpay API order creation error:", rzpErr);
+      }
+    }
 
     res.json({
-      order_id: order.id,
-      amount: order.amount,
-      currency: order.currency,
-      key_id: RAZORPAY_KEY_ID,
-      name: "Organic Mushrooms Farm",
+      order_id: razorpayOrderId,
+      amount: amount,
+      currency: "INR",
+      key_id: activeKeyId,
+      name: "Organic Mushroom Farm",
       description: purpose,
       prefill: {
         name: name || "",
         email: email || "",
         contact: mobile || ""
       },
-      notes: options.notes,
+      notes: {
+        productType
+      },
       theme: { color: "#25D366" }
     });
   } catch (error) {

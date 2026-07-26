@@ -109,7 +109,7 @@ async function sendToFormspree(payload: {
   paymentStatus: 'DONE' | 'FAILED';
 }) {
   try {
-    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+    const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

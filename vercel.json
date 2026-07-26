@@ -3,8 +3,8 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "source": "/((?!api/.*).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -27,15 +27,6 @@
       ]
     },
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        }
-      ]
-    },
-    {
       "source": "/(.*)\\.xml",
       "headers": [
         {
@@ -52,6 +43,12 @@
           "value": "application/xml"
         }
       ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/check-payments",
+      "schedule": "*/5 * * * *"
     }
   ]
 }
