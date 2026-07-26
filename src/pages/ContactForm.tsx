@@ -26,15 +26,14 @@ const ContactFormPage = () => {
         pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
 
         try {
-            const resp = await fetch('/api/contact', {
+            const resp = await fetch('https://formspree.io/f/xykldqdy', {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                },
-                body: JSON.stringify(Object.fromEntries(formData.entries())),
+                }
             });
-            if (!resp.ok) throw new Error('API response not OK');
+            if (!resp.ok) throw new Error('Formspree response not OK');
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
@@ -42,6 +41,8 @@ const ContactFormPage = () => {
         } catch (error) {
             console.error(error);
             pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
+            // Fallback for formspree
+            form.submit();
         }
     };
 
@@ -119,6 +120,8 @@ const ContactFormPage = () => {
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
                          <form 
+                             action="https://formspree.io/f/xykldqdy" 
+                             method="POST" 
                              onSubmit={handleSubmit} 
                              className="relative z-10 space-y-6"
                              data-webmcp-tool="mushroom_farm_consultation_form"
@@ -231,6 +234,19 @@ const ContactFormPage = () => {
                                  <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
                                      Submit Form <Send size={18} />
                                  </button>
+                                 <div className="relative flex items-center py-2">
+                                    <div className="flex-grow border-t border-white/10"></div>
+                                    <span className="flex-shrink-0 mx-4 text-slate-500 text-xs font-medium uppercase tracking-widest">Or</span>
+                                    <div className="flex-grow border-t border-white/10"></div>
+                                 </div>
+                                 <a 
+                                     href="https://wa.me/919203544140?text=Hi,%20I'm%20interested%20in%20a%20custom%20mushroom%20farming%20project." 
+                                     target="_blank" 
+                                     rel="noopener noreferrer" 
+                                     className="w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-white bg-[#25D366] hover:bg-[#128C7E] transition-all"
+                                 >
+                                     Chat on WhatsApp
+                                 </a>
                              </div>
                          </form>
                      </motion.div>
