@@ -58,6 +58,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     // Send Email to Admin & Customer with graceful catch
     try {
+      console.log("[send-enquiry] Diagnostics:");
+      console.log(`EMAIL_USER present: ${!!process.env.EMAIL_USER}`);
+      console.log(`EMAIL_PASS present: ${!!process.env.EMAIL_PASS}`);
+      console.log(`SMTP_HOST: ${process.env.SMTP_HOST || 'smtp.gmail.com (default)'}`);
+      console.log(`SMTP_PORT: ${process.env.SMTP_PORT || '465 (default)'}`);
+      console.log(`secure: ${process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) === 465 : true}`);
+
+      console.log("[send-enquiry] Verifying transporter...");
+      await transporter.verify();
+      console.log("[send-enquiry] Transporter verified successfully.");
+
       const adminSubject = _subject || `New Enquiry from ${name || 'User'}`;
       const adminHtml = getLiquidTemplate(
         'New Enquiry Received',
@@ -67,6 +78,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       );
 
       if (adminEmail) {
+        console.log("[send-enquiry] Sending admin email...");
         await transporter.sendMail({
           from: MAIL_FROM,
           to: adminEmail,
@@ -74,6 +86,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           subject: adminSubject,
           html: adminHtml,
         });
+        console.log("[send-enquiry] Admin email sent.");
       }
 
       if (email && email.includes('@')) {
@@ -84,6 +97,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           ''
         );
 
+        console.log("[send-enquiry] Sending customer email...");
         await transporter.sendMail({
           from: MAIL_FROM,
           to: email,
@@ -91,15 +105,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           subject: `Your Enquiry is Received - ${ticketId}`,
           html: customerHtml,
         });
+        console.log("[send-enquiry] Customer email sent.");
       }
     } catch (emailErr) {
-      console.warn('Email dispatch notice (saved to DB successfully):', emailErr);
+      console.error('[send-enquiry] Error sending email:', emailErr);
+      return res.status(500).json({ success: false, error: String(emailErr) });
     }
 
     return res.status(200).json({ success: true, ticketId });
   } catch (error) {
     console.error('Error in send-enquiry:', error);
-    return res.status(200).json({ success: true, note: 'Processed with fallback' });
+    return res.status(500).json({ success: false, error: String(error) });
   }
 }
 

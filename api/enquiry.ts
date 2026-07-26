@@ -30,6 +30,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       extraHtml
     );
 
+    console.log("[enquiry] Diagnostics:");
+    console.log(`EMAIL_USER present: ${!!process.env.EMAIL_USER}`);
+    console.log(`EMAIL_PASS present: ${!!process.env.EMAIL_PASS}`);
+    
+    console.log("[enquiry] Verifying transporter...");
+    await transporter.verify();
+    console.log("[enquiry] Transporter verified successfully.");
+
+    console.log("[enquiry] Sending admin email...");
     await transporter.sendMail({
       from: MAIL_FROM,
       to: 'organicmushroomsfarms@gmail.com',
@@ -37,6 +46,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       subject: `New Enquiry [${ticketId}] - ${subject || 'Website'}`,
       html: adminHtml
     });
+    console.log("[enquiry] Admin email sent.");
 
     // 2. Email to Customer
     if (email) {
@@ -47,6 +57,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         extraHtml
       );
 
+      console.log("[enquiry] Sending customer email...");
       await transporter.sendMail({
         from: MAIL_FROM,
         to: email,
@@ -54,11 +65,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         subject: `Enquiry Received - Ticket ${ticketId}`,
         html: customerHtml
       });
+      console.log("[enquiry] Customer email sent.");
     }
 
     return res.status(200).json({ success: true, ticketId });
   } catch (error) {
     console.error('Enquiry Error:', error);
-    return res.status(500).json({ error: 'Failed to submit enquiry' });
+    return res.status(500).json({ error: String(error) });
   }
 }

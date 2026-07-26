@@ -125,6 +125,18 @@ async function sendToFormspree(payload: {
       <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
     `;
 
+    console.log("[razorpay-webhook] Diagnostics:");
+    console.log(`EMAIL_USER present: ${!!process.env.EMAIL_USER}`);
+    console.log(`EMAIL_PASS present: ${!!process.env.EMAIL_PASS}`);
+    console.log(`SMTP_HOST: ${process.env.SMTP_HOST || 'smtp.gmail.com (default)'}`);
+    console.log(`SMTP_PORT: ${process.env.SMTP_PORT || '465 (default)'}`);
+    console.log(`secure: ${process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) === 465 : true}`);
+
+    console.log("[razorpay-webhook] Verifying transporter...");
+    await transporter.verify();
+    console.log("[razorpay-webhook] Transporter verified successfully.");
+
+    console.log("[razorpay-webhook] Sending admin email...");
     await transporter.sendMail({
       from: MAIL_FROM,
       to: adminEmail,
@@ -132,9 +144,10 @@ async function sendToFormspree(payload: {
       subject: subject,
       html: htmlBody,
     });
-    console.log("[Payment Email] Notification sent successfully");
+    console.log("[razorpay-webhook] Notification sent successfully");
   } catch (err) {
-    console.error("[Payment Email] Failed to send:", err);
+    console.error("[razorpay-webhook] Failed to send email:", err);
+    throw err;
   }
 }
 

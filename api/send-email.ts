@@ -34,6 +34,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER || 'organicmushroomsfarms@gmail.com';
 
   try {
+    console.log("[send-email] Diagnostics:");
+    console.log(`EMAIL_USER present: ${!!process.env.EMAIL_USER}`);
+    console.log(`EMAIL_PASS present: ${!!process.env.EMAIL_PASS}`);
+    console.log(`SMTP_HOST: ${process.env.SMTP_HOST || 'smtp.gmail.com (default)'}`);
+    console.log(`SMTP_PORT: ${process.env.SMTP_PORT || '465 (default)'}`);
+    console.log(`secure: ${process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) === 465 : true}`);
+
+    console.log("[send-email] Verifying transporter...");
+    await transporter.verify();
+    console.log("[send-email] Transporter verified successfully.");
+
+    console.log("[send-email] Sending admin email...");
     // Send email to ADMIN
     await transporter.sendMail({
       from: MAIL_FROM,
@@ -43,9 +55,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       html: htmlBody,
       replyTo: email || REPLY_TO,
     });
+    console.log("[send-email] Admin email sent.");
 
     // Send email to USER
     if (email && email !== 'N/A' && email.includes('@')) {
+      console.log("[send-email] Sending user email...");
       await transporter.sendMail({
         from: MAIL_FROM,
         to: email,
@@ -54,12 +68,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         text: `Hello ${name},\n\nWe have received your request and our team is looking into it.\n\nThank you,\nOrganic Mushroom Farm Team`,
         html: `<p>Hello ${name},</p><p>We have successfully received your request and our team is reviewing it.</p><p>Thank you,<br/>Organic Mushroom Farm Team</p>`,
       });
+      console.log("[send-email] User email sent.");
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.warn("Notice: Email dispatch fallback executed:", error);
-    return res.status(200).json({ success: true, note: "Form recorded successfully" });
+    console.error("[send-email] Error sending email:", error);
+    return res.status(500).json({ success: false, error: String(error) });
   }
 }
 
