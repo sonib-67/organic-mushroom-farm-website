@@ -4,7 +4,7 @@ import { CheckCircle2, ShieldCheck, MapPin, X, Users, Zap, Briefcase, Layers, Ca
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { trackPaymentStep, pixelTrackCustom } from '../utils/pixel';
 import { loadRazorpayScript } from '../utils/razorpay';
-
+import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
 
 export default function BookConsultantPage() {
@@ -44,7 +44,16 @@ export default function BookConsultantPage() {
       if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
 
       // Send INITIATED notification to Formspree
-      
+      sendPaymentNotificationToFormspree({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        preferredDate: formData.preferredDate,
+        productType: 'Expert 1-on-1 Business Consultation Slot',
+        amount: '₹59',
+        status: 'INITIATED',
+        orderId: payload.order_id
+      });
 
       const options = {
         key: payload.key_id,
@@ -58,7 +67,17 @@ export default function BookConsultantPage() {
         theme: payload.theme,
         handler: function (response: any) {
           // Notify Formspree that payment is DONE
-          
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            preferredDate: formData.preferredDate,
+            productType: 'Expert 1-on-1 Business Consultation Slot',
+            amount: '₹59',
+            status: 'DONE',
+            orderId: payload.order_id,
+            paymentId: response.razorpay_payment_id
+          });
 
           trackPaymentStep('Purchase', {
             value: payload.amount / 100,
@@ -83,7 +102,16 @@ export default function BookConsultantPage() {
         modal: {
           ondismiss: function() {
             // Notify Formspree that payment is CANCELLED
-            
+            sendPaymentNotificationToFormspree({
+              name: formData.name,
+              phone: formData.phone,
+              email: formData.email,
+              preferredDate: formData.preferredDate,
+              productType: 'Expert 1-on-1 Business Consultation Slot',
+              amount: '₹59',
+              status: 'CANCELLED',
+              orderId: payload.order_id
+            });
 
             trackPaymentStep('PaymentCancelled', {
               value: payload.amount / 100,
@@ -118,7 +146,17 @@ export default function BookConsultantPage() {
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           // Notify Formspree that payment is FAILED
-          
+          sendPaymentNotificationToFormspree({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            preferredDate: formData.preferredDate,
+            productType: 'Expert 1-on-1 Business Consultation Slot',
+            amount: '₹59',
+            status: 'FAILED',
+            orderId: payload.order_id,
+            paymentId: response.error?.metadata?.payment_id
+          });
 
           trackPaymentStep('PaymentFailed', {
              value: payload.amount / 100,

@@ -26,26 +26,14 @@ const ContactFormPage = () => {
         pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
 
         try {
-            const formDataObj = Object.fromEntries(formData.entries());
-            
-            const resp = await fetch('/api/enquiry', {
+            const resp = await fetch('https://formspree.io/f/xykldqdy', {
                 method: 'POST',
-                body: JSON.stringify({
-                    name: formDataObj.name,
-                    email: formDataObj.email,
-                    phone: formDataObj.phone,
-                    location: formDataObj.location,
-                    farmSize: formDataObj.farmSize,
-                    budget: formDataObj.budget,
-                    message: formDataObj.message,
-                    subject: formDataObj._subject
-                }),
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 }
             });
-            if (!resp.ok) throw new Error('API response not OK');
+            if (!resp.ok) throw new Error('Formspree response not OK');
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
@@ -54,7 +42,7 @@ const ContactFormPage = () => {
             console.error(error);
             pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
             // Fallback for formspree
-            form.reset();
+            form.submit();
         }
     };
 
@@ -132,8 +120,8 @@ const ContactFormPage = () => {
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
                          <form 
-                              
-                              
+                             action="https://formspree.io/f/xykldqdy" 
+                             method="POST" 
                              onSubmit={handleSubmit} 
                              className="relative z-10 space-y-6"
                              data-webmcp-tool="mushroom_farm_consultation_form"
