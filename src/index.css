@@ -100,7 +100,7 @@
     scroll-behavior: smooth !important;
     background: var(--bg-gradient) !important;
     background-attachment: fixed !important;
-    color: var(--text-body) !important;
+    
     @apply font-sans antialiased overflow-x-hidden;
     min-height: 100vh;
     -webkit-overflow-scrolling: touch;
@@ -113,12 +113,12 @@
   .dark\:text-slate-900:not(button, button *, .btn-primary, .btn-primary *, .gradient-bg, .gradient-bg *, a.btn-primary, a.btn-primary *, .bg-linear-to-r, .bg-linear-to-r *, .btn, .btn *, .btn-outline, .btn-outline *, a.btn, a.btn *, a.btn-outline, a.btn-outline *),
   .text-slate-800, .dark\:text-slate-800,
   .text-slate-200, .text-slate-300, .dark\:text-slate-300 {
-    color: var(--text-heading) !important;
+    
   }
 
   .text-slate-600, .dark\:text-slate-400,
   .text-slate-500, .text-slate-700, .text-slate-400 {
-    color: var(--text-body) !important;
+    
   }
 
   /* Specific structure overrides */
@@ -138,19 +138,19 @@
   h1:not(.gradient-text), h2:not(.gradient-text), h1 *:not(.gradient-text), h2 *:not(.gradient-text) { 
     @apply text-[1.25rem] md:text-[2.5rem] font-bold tracking-tight; 
     font-family: var(--font-display); 
-    color: var(--text-heading) !important; 
+     
   }
   h3:not(.gradient-text), h3 *:not(.gradient-text) { 
     @apply text-[1rem] md:text-2xl font-bold; 
     font-family: var(--font-display); 
-    color: var(--text-heading) !important; 
+     
   }
   h4:not(.gradient-text), h5:not(.gradient-text), h6:not(.gradient-text),
   h4 *:not(.gradient-text), h5 *:not(.gradient-text), h6 *:not(.gradient-text) { 
     font-family: var(--font-display); 
-    color: var(--text-heading) !important; 
+     
   }
-  p { @apply text-[0.8125rem] md:text-base; color: var(--text-body) !important; }
+  p { @apply text-[0.8125rem] md:text-base;  }
 }
 
 @layer components {
@@ -197,7 +197,7 @@
   .btn-outline {
     background: var(--glass-bg) !important;
     border: 1px solid var(--glass-border) !important;
-    color: var(--text-heading) !important;
+    
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px -5px rgba(0,0,0,0.05);
     @apply font-bold flex items-center justify-center transition-all hover:bg-white/40 active:scale-95;
@@ -314,8 +314,8 @@
 }
 
 /* Mailchimp Form Overrides for Light Theme */
-.mc_embed_signup { color: var(--text-heading) !important; }
-.mc_embed_signup label { color: var(--text-heading) !important; }
+.mc_embed_signup {  }
+.mc_embed_signup label {  }
 .indicates-required { color: var(--text-muted) !important; }
 
 /* Arrow right in the process flow */

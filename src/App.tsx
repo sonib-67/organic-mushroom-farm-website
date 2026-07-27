@@ -61,6 +61,7 @@ import ModelDetailsPage from "./pages/ModelDetails";
 import CompostUnitSpecsPage from "./pages/CompostUnitSpecs";
 import TrainingCheckoutPage from "./pages/TrainingCheckoutPage";
 import ContactFormPage from "./pages/ContactForm";
+import EnquiryPage from "./pages/EnquiryPage";
 import SopsPage from "./pages/Sops";
 import ExpertiseDetailsPage from "./pages/ExpertiseDetails";
 import SpawnSeedPage from "./pages/SpawnSeed";
@@ -220,7 +221,7 @@ const ProductionSOP = () => {
               <div className="absolute top-0 right-0 p-4 font-black text-slate-800 text-4xl -z-10 group-hover:text-primary-start/10 transition-colors">
                 {i + 1}
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-primary-start/10 flex items-center justify-center mb-6 text-primary-start group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-primary-start/10 flex items-center justify-center mb-6 text-primary-start group-hover:bg-primary-start group-hover:text-white transition-all">
                 <s.icon size={20} />
               </div>
               <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-4">
@@ -416,7 +417,7 @@ const CriticalParameters = () => {
               whileHover={{ translateZ: 20 }}
               className="glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
             >
-              <div className="w-12 h-12 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
+              <div className="w-12 h-12 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
                 <p.icon size={22} className={p.color} />
               </div>
               <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2">
@@ -492,7 +493,7 @@ const EcosystemFlow = () => {
                   <div className="icon-box w-16 h-16 md:w-20 md:h-20 rounded-3xl flex items-center justify-center transition-all">
                     <s.icon size={32} />
                   </div>
-                  <span className="text-[11px] md:text-[14px] font-bold dark:text-slate-300 text-slate-700 text-center uppercase tracking-wider group-hover:dark:text-white text-slate-900 transition-colors">
+                  <span className="text-[11px] md:text-[14px] font-bold dark:text-slate-300 text-slate-700 text-center uppercase tracking-wider group-hover:text-slate-900 dark:group-hover:text-white transition-colors">
                     {s.label}
                   </span>
                 </motion.div>
@@ -1116,7 +1117,7 @@ const Navbar = () => {
                           <Link
                             key={sub.name}
                             to={sub.href}
-                            className="block px-4 py-2.5 text-[12px] font-bold dark:text-slate-400 text-slate-600 hover:dark:text-white text-slate-900 hover:dark:bg-white/10 bg-black/10 rounded-lg transition-all"
+                            className="block px-4 py-2.5 text-[12px] font-bold dark:text-slate-400 text-slate-600 hover:text-slate-900 dark:hover:text-white hover:dark:bg-white/10 bg-black/10 rounded-lg transition-all"
                           >
                             {sub.name}
                           </Link>
@@ -1234,7 +1235,7 @@ const Navbar = () => {
                               window.history.pushState(null, "", `/#${hash}`);
                             }
                           }}
-                          className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900"}`}
+                          className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white"}`}
                         >
                           <div
                             className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
@@ -1254,7 +1255,7 @@ const Navbar = () => {
                                   prev === item.name ? null : item.name,
                                 );
                               }}
-                              className={`flex items-center justify-between text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900"}`}
+                              className={`flex items-center justify-between text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white"}`}
                             >
                               <div className="flex items-center gap-5">
                                 <div
@@ -1277,7 +1278,7 @@ const Navbar = () => {
                             <Link
                               to={item.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900"}`}
+                              className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white"}`}
                             >
                               <div
                                 className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
@@ -1822,13 +1823,13 @@ const FarmingModels = () => {
           <div className="glass p-1 rounded-xl flex gap-1 w-fit">
             <button
               onClick={() => setActiveTab("fixed")}
-              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === "fixed" ? "dark:bg-white/10 bg-black/10 dark:text-white text-slate-900" : "text-slate-500 hover:dark:text-white text-slate-900"}`}
+              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === "fixed" ? "dark:bg-white/10 bg-black/10 dark:text-white text-slate-900" : "text-slate-500 hover:text-slate-900 dark:hover:text-white"}`}
             >
               Fixed Models
             </button>
             <button
               onClick={() => setActiveTab("custom")}
-              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === "custom" ? "dark:bg-white/10 bg-black/10 dark:text-white text-slate-900" : "text-slate-500 hover:dark:text-white text-slate-900"}`}
+              className={`px-4 py-2 rounded-lg text-[12px] font-bold transition-all ${activeTab === "custom" ? "dark:bg-white/10 bg-black/10 dark:text-white text-slate-900" : "text-slate-500 hover:text-slate-900 dark:hover:text-white"}`}
             >
               Custom Build
             </button>
@@ -2433,149 +2434,21 @@ const CTASection = () => {
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5 text-left">
-                    <div className="space-y-1">
-                      <h3 className="text-xl font-bold dark:text-white text-slate-900">
-                        Send Instant Inquiry
-                      </h3>
-                      <p className="text-slate-500 text-xs font-semibold">
-                        Fill the details below to receive expert call-back and
-                        custom catalog.
-                      </p>
-                    </div>
-
-                    {formState.error && (
-                      <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-500 rounded-xl text-xs font-semibold">
-                        {formState.error}
-                      </div>
-                    )}
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="Your Name"
-                          className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
-                          Phone Number *
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          required
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="Ex. 9876543210"
-                          className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
-                          Mushroom Focus *
-                        </label>
-                        <select
-                          name="mushroomType"
-                          value={formData.mushroomType}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl dark:bg-[#1a2035] bg-white border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white cursor-pointer"
-                        >
-                          <option value="Button Mushroom">
-                            Button Mushroom (High Commercial)
-                          </option>
-                          <option value="Oyster Mushroom">
-                            Oyster Mushroom (Easy/Medicinal)
-                          </option>
-                          <option value="Milky Mushroom">
-                            Milky Mushroom (Fits Hot Climate)
-                          </option>
-                          <option value="Shiitake / Exotic">
-                            Shiitake & Exotic Varieties
-                          </option>
-                          <option value="Others / Multiple">
-                            Multiple Species Setup
-                          </option>
-                        </select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
-                          Planned Scale *
-                        </label>
-                        <select
-                          name="projectSize"
-                          value={formData.projectSize}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl dark:bg-[#1a2035] bg-white border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white cursor-pointer"
-                        >
-                          <option value="Small / Hobby">
-                            Hobby / Small Scale (10-50 Bags)
-                          </option>
-                          <option value="Medium Scale">
-                            Medium Scale / Farm Unit
-                          </option>
-                          <option value="Commercial Farm">
-                            Commercial Scale (Air conditioned)
-                          </option>
-                          <option value="Industrial Turnkey">
-                            Industrial Turnkey / Plant Project
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
-                        Email Address (Optional)
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Ex. name@example.com"
-                        className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest pl-1">
-                        Message / Requirements *
-                      </label>
-                      <textarea
-                        name="message"
-                        required
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={3}
-                        placeholder="Please brief us about your land area, location, or dynamic questions..."
-                        className="w-full px-4 py-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 focus:border-primary-start focus:outline-none focus:ring-1 focus:ring-primary-start text-sm transition-all text-slate-900 dark:text-white resize-none"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={formState.submitting}
-                      className="btn-primary w-full py-4 rounded-xl shadow-2xl shadow-brand-blue/30 text-[11px] uppercase tracking-widest font-black flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  <div className="space-y-6 text-center">
+                    <h3 className="text-2xl font-bold dark:text-white text-slate-900">
+                      Send Instant Inquiry
+                    </h3>
+                    <p className="text-slate-500 text-sm font-semibold mb-6">
+                      Have questions about Mushroom Farming, Spawn, or Turnkey Projects? 
+                      Submit your detailed requirements via our dedicated enquiry form and our experts will get back to you!
+                    </p>
+                    <Link
+                      to="/enquiry"
+                      className="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-lg"
                     >
-                      {formState.submitting
-                        ? "Sending Inquiry..."
-                        : "Submit Inquiry Now"}
-                    </button>
-                  </form>
+                      Enquiry Now
+                    </Link>
+                  </div>
                 )}
               </div>
             </div>
@@ -2602,7 +2475,7 @@ const TrainingPage = ({ metaDesc }: { metaDesc?: string }) => {
       <MushroomTraining />
 
       {/* Additional Page Specific Content */}
-      <section className="section-padding bg-black/40">
+      <section className="section-padding dark:bg-black/40 bg-slate-100/40">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-8">
             Ready to Start Your Commercial Mushroom Farming Journey?
@@ -2719,7 +2592,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden pt-24 md:pt-32 pb-12">
+    <div className="min-h-screen dark:bg-[#0A0A0A] bg-slate-50 overflow-x-hidden pt-24 md:pt-32 pb-12">
       <SEO
         title="Contact Us for Mushroom Setup & Consultancy | Pan India"
         description="Get a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India."
@@ -2842,119 +2715,18 @@ const ContactPage = () => {
                 </p>
               </div>
 
-              <form
-                action="/api/contact"
-                method="POST"
-                onSubmit={handleSubmit}
-                className="space-y-5"
-                data-webmcp-tool="mushroom_farming_enquiry_form"
-                data-webmcp-description="Submit a commercial mushroom farming business or factory setup enquiry. Available for states like Madhya Pradesh, Maharashtra, UP, Bihar, etc."
-                data-mcp-tool="mushroom_farming_enquiry_form"
-                data-mcp-description="Submit a commercial mushroom farming business or factory setup enquiry. Available for states like Madhya Pradesh, Maharashtra, UP, Bihar, etc."
-              >
-                {/* Hidden date field */}
-                <input
-                  type="hidden"
-                  name="_date"
-                  value={todayDate}
-                />
-
-                <div className="space-y-1.5">
-                  <label
-                    htmlFor="name"
-                    className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                  >
-                    Full Name *
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
-                    data-webmcp-property="name"
-                    data-webmcp-description="Full name of the inquirer"
-                    data-mcp-property="name"
-                    data-mcp-description="Full name of the inquirer"
-                  />
-                  <ValidationError
-                    prefix="Name"
-                    field="name"
-                    errors={state.errors}
-                    className="text-red-500 text-[10px] mt-1 ml-1"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label
-                    htmlFor="email"
-                    className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    required
-                    type="email"
-                    placeholder="yourname@example.com"
-                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12 md:h-14"
-                    data-webmcp-property="email"
-                    data-webmcp-description="Email address for communications"
-                    data-mcp-property="email"
-                    data-mcp-description="Email address for communications"
-                  />
-                  <ValidationError
-                    prefix="Email"
-                    field="email"
-                    errors={state.errors}
-                    className="text-red-500 text-[10px] mt-1 ml-1"
-                  />
-                </div>
-
-                <div className="space-y-1.5">
-                  <label
-                    htmlFor="message"
-                    className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                  >
-                    Your Requirements / Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={4}
-                    placeholder="Briefly describe your mushroom farm requirements..."
-                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all resize-none text-sm font-medium placeholder:text-slate-700 min-h-[100px]"
-                    data-webmcp-property="message"
-                    data-webmcp-description="Detailed requirements, farm capacity, or location questions for custom setup"
-                    data-mcp-property="message"
-                    data-mcp-description="Detailed requirements, farm capacity, or location questions for custom setup"
-                  ></textarea>
-                  <ValidationError
-                    prefix="Message"
-                    field="message"
-                    errors={state.errors}
-                    className="text-red-500 text-[10px] mt-1 ml-1"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={state.submitting}
-                  className={`w-full py-5 rounded-xl bg-primary-start dark:text-white text-slate-900 text-[12px] uppercase tracking-widest font-black transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 ${state.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
+              <div className="space-y-6 text-center py-4">
+                <h3 className="text-xl font-bold dark:text-white text-slate-900">Get Expert Setup Advice</h3>
+                <p className="text-slate-500 text-sm">
+                  Click below to submit your location and requirements in our main enquiry form.
+                </p>
+                <Link
+                  to="/enquiry"
+                  className="inline-block w-full px-6 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-lg transition-all"
                 >
-                  {state.submitting ? (
-    <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      Sending...
-                    </>
-                  ) : (
-    <>Send Enquiry</>
-                  )}
-                </button>
-              </form>
+                  Enquiry Now
+                </Link>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -3054,7 +2826,7 @@ const StatesSection = () => {
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(state + " India")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 glass border dark:border-white/5 border-black/5 rounded-full text-[10px] font-bold text-slate-500 hover:dark:text-white text-slate-900 hover:border-primary-start hover:bg-primary-start/20 transition-all"
+              className="px-4 py-2 glass border dark:border-white/5 border-black/5 rounded-full text-[10px] font-bold text-slate-500 hover:text-slate-900 dark:hover:text-white hover:border-primary-start hover:bg-primary-start/20 transition-all"
             >
               {state}
             </a>
@@ -3223,7 +2995,7 @@ const Footer = () => {
                 href="https://www.youtube.com/@organicmushroomfarm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-red-500/10 border dark:border-white/5 border-black/5 hover:border-red-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group"
+                className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-red-500/10 border dark:border-white/5 border-black/5 hover:border-red-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white transition-all group"
               >
                 <Youtube
                   size={16}
@@ -3235,7 +3007,7 @@ const Footer = () => {
                 href="https://maps.app.goo.gl/z7oQHSoLbCL9H4ov8?g_st=ic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-blue-500/10 border dark:border-white/5 border-black/5 hover:border-blue-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group"
+                className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-blue-500/10 border dark:border-white/5 border-black/5 hover:border-blue-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white transition-all group"
               >
                 <MapPin
                   size={16}
@@ -3247,7 +3019,7 @@ const Footer = () => {
                 href="https://www.pinterest.com/organicmushroomfarm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-pink-500/10 border dark:border-white/5 border-black/5 hover:border-pink-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all group"
+                className="flex items-center gap-2 px-4 py-2 dark:bg-white/5 bg-black/5 hover:bg-pink-500/10 border dark:border-white/5 border-black/5 hover:border-pink-500/30 rounded-lg text-sm dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white transition-all group"
               >
                 <ShieldCheck
                   size={16}
@@ -3274,7 +3046,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-slate-500 hover:dark:text-white text-slate-900 transition-colors text-sm font-medium"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-medium"
                   >
                     {item.name}
                   </Link>
@@ -3299,7 +3071,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-slate-500 hover:dark:text-white text-slate-900 transition-colors text-sm font-medium"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-medium"
                   >
                     {item.name}
                   </Link>
@@ -3323,7 +3095,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-slate-500 hover:dark:text-white text-slate-900 transition-colors text-sm font-medium"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-medium"
                   >
                     {item.name}
                   </Link>
@@ -4830,7 +4602,7 @@ const HomePage = () => {
                     <span className="dark:text-white text-slate-900 font-bold text-sm dark:bg-white/5 bg-black/5 px-3 py-2 rounded-xl">
                       {ad.price}
                     </span>
-                    <span className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
+                    <span className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:text-white transition-all">
                       <ArrowRight size={16} />
                     </span>
                   </div>
@@ -5273,7 +5045,7 @@ const AboutPage = () => {
       </section>
 
       {/* SEO Natural Text Section */}
-      <section className="section-padding bg-black/40">
+      <section className="section-padding dark:bg-black/40 bg-slate-100/40">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert text-center">
           <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 uppercase tracking-tight leading-loose">
             Pioneering Commercial{" "}
@@ -5580,7 +5352,7 @@ const TurnkeyProjectsPage = () => {
                 whileHover={{ scale: 1.05 }}
                 className="glass p-8 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
               >
-                <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:dark:text-white text-slate-900 transition-all">
+                <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
                   <model.icon size={28} />
                 </div>
                 <h3 className="dark:text-white text-slate-900 font-bold text-xl mb-2">
@@ -5692,7 +5464,7 @@ const TurnkeyProjectsPage = () => {
       </section>
 
       {/* NEW: DYNAMIC INQUIRY FORM AT THE BOTTOM */}
-      <section className="section-padding bg-black relative overflow-hidden">
+      <section className="section-padding dark:bg-[#0A0A0A] bg-slate-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(16,185,129,0.05),transparent_40%)]"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
@@ -5743,189 +5515,18 @@ const TurnkeyProjectsPage = () => {
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                {/* Hidden date tracking */}
-                <input
-                  type="hidden"
-                  name="_date"
-                  value={todayDate}
-                />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="name"
-                      className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                    >
-                      Full Name *
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      required
-                      type="text"
-                      placeholder="Your Name"
-                      className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="phone"
-                      className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                    >
-                      Phone Number (with WhatsApp) *
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      required
-                      type="tel"
-                      placeholder="e.g. +91 9203544140"
-                      className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="email"
-                      className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                    >
-                      Email Address *
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      required
-                      type="email"
-                      placeholder="yourname@domain.com"
-                      className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="setup_type"
-                      className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                    >
-                      Mushroom Setup Model *
-                    </label>
-                    <select
-                      id="setup_type"
-                      name="setup_type"
-                      required
-                      className="w-full dark:bg-zinc-900 bg-zinc-100 border dark:border-white/10 border-black/10 rounded-xl px-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium h-12"
-                    >
-                      <option value="Button Mushroom Setup">
-                        Button Mushroom Setup (Standard or Industrial)
-                      </option>
-                      <option value="Oyster Mushroom Setup">
-                        Oyster Mushroom Setup
-                      </option>
-                      <option value="Milky Mushroom Setup">
-                        Milky Mushroom Setup
-                      </option>
-                      <option value="Shiitake Mushroom Setup">
-                        Shiitake Mushroom Setup
-                      </option>
-                      <option value="Enoki or Exotic Setup">
-                        Enoki & Exotic Specialty Setup
-                      </option>
-                      <option value="Multiple Setup Models">
-                        Interested in Multiple Models
-                      </option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="location"
-                      className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                    >
-                      Proposed Location (City / State) *
-                    </label>
-                    <input
-                      id="location"
-                      name="location"
-                      required
-                      type="text"
-                      placeholder="e.g. Pune, Maharashtra"
-                      className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium placeholder:text-slate-700 h-12"
-                    />
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label
-                      htmlFor="estimated_budget"
-                      className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                    >
-                      Investment Budget Range *
-                    </label>
-                    <select
-                      id="estimated_budget"
-                      name="estimated_budget"
-                      required
-                      className="w-full dark:bg-zinc-900 bg-zinc-100 border dark:border-white/10 border-black/10 rounded-xl px-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all text-sm font-medium h-12"
-                    >
-                      <option value="₹2L - ₹10 Lakhs">
-                        ₹2 Lakhs - ₹10 Lakhs
-                      </option>
-                      <option value="₹10L - ₹25 Lakhs">
-                        ₹10 Lakhs - ₹25 Lakhs
-                      </option>
-                      <option value="₹25L - ₹50 Lakhs">
-                        ₹25 Lakhs - ₹50 Lakhs
-                      </option>
-                      <option value="₹50L - ₹1 Crore">
-                        ₹50 Lakhs - ₹1 Crore
-                      </option>
-                      <option value="₹1 Crore+">₹1 Crore +</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label
-                    htmlFor="message"
-                    className="text-[10px] font-black dark:text-slate-400 text-slate-600 uppercase tracking-widest ml-1"
-                  >
-                    Specific requirements / Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={4}
-                    placeholder="e.g. Requirement of PUF panel insulation dimensions, custom HVAC system, water parameters, etc."
-                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-4 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start transition-all resize-none text-sm font-medium placeholder:text-slate-700 min-h-[100px]"
-                  ></textarea>
-                </div>
-
-                {formState.error && (
-                  <p className="text-red-500 text-xs font-semibold">
-                    {formState.error}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={formState.submitting}
-                  className={`w-full py-5 rounded-xl bg-primary-start dark:text-white text-slate-900 text-[12px] uppercase tracking-widest font-black transition-all hover:brightness-110 active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 ${formState.submitting ? "opacity-70 cursor-not-allowed" : ""}`}
+              <div className="space-y-6 text-center py-6">
+                <h3 className="text-2xl font-bold dark:text-white text-slate-900">Request Turnkey Details</h3>
+                <p className="text-slate-500 text-sm mb-4">
+                  For large scale and commercial setups, please provide your exact needs in our enquiry form.
+                </p>
+                <Link
+                  to="/enquiry"
+                  className="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-lg"
                 >
-                  {formState.submitting ? (
-    <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      Submitting Project Setup enquiry...
-                    </>
-                  ) : (
-    <>Submit Proposal & Get Consultation</>
-                  )}
-                </button>
-              </form>
+                  Enquiry Now
+                </Link>
+              </div>
             )}
           </div>
         </div>
@@ -6694,7 +6295,8 @@ const AnimatedRoutes = () => {
             path="/compost-unit-specs"
             element={<CompostUnitSpecsPage />}
           />
-          <Route path="/contact-form" element={<ContactFormPage />} />
+          <Route path="/contact-form" element={<EnquiryPage />} />
+          <Route path="/enquiry" element={<EnquiryPage />} />
           <Route path="/sops" element={<SopsPage />} />
           <Route path="/expertise-details" element={<ExpertiseDetailsPage />} />
           <Route path="/spawn-seed" element={<SpawnSeedPage />} />
@@ -6767,7 +6369,7 @@ const AnimatedRoutes = () => {
           <Route path="/refund-policy" element={<RefundPolicyPage />} />
           <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
           <Route path="/support" element={<CustomerSupportPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/contact" element={<EnquiryPage />} />
 
           <Route path="/careers" element={<CareersPage />} />
           <Route
@@ -6952,7 +6554,7 @@ export default function App() {
     <>
       <MetaPixelTracker />
       <ScrollToTop />
-      <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 bg-black">
+      <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 dark:text-white bg-slate-50 dark:bg-[#0A0A0A] min-h-screen">
         <Background3D />
         <Navbar />
 

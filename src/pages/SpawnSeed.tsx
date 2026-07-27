@@ -394,53 +394,18 @@ const SpawnSeedPage = () => {
                               <p className="text-slate-400">Fill out the form below. Our lead engineers & experts will get back to you to discuss your specific farming model.</p>
                           </div>
 
-                          <form action="/api/contact" method="POST" onSubmit={handleSubmit} className="relative z-10 space-y-6">
-                          <div className="grid md:grid-cols-2 gap-6">
-                              <div className="space-y-3">
-                                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Full Name *</label>
-                                  <div className="relative">
-                                      <User size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
-                                      <input 
-                                          type="text" 
-                                          name="name"
-                                          required
-                                          placeholder="Your Name"
-                                          className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                                      />
-                                  </div>
-                              </div>
-                              <div className="space-y-3">
-                                  <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Email Address *</label>
-                                  <div className="relative">
-                                      <Mail size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" />
-                                      <input 
-                                          type="email" 
-                                          name="email"
-                                          required
-                                          placeholder="john@example.com"
-                                          className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                                      />
-                                  </div>
-                              </div>
+                          <div className="space-y-6 text-center py-6 relative z-10">
+                              <h3 className="text-2xl font-bold text-white">Need Spawn/Seed?</h3>
+                              <p className="text-slate-300 mb-6">
+                                Click the button below to specify your spawn variety and order quantity via our master enquiry form.
+                              </p>
+                              <Link
+                                to="/enquiry"
+                                className="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all text-lg"
+                              >
+                                Enquiry Now
+                              </Link>
                           </div>
-
-                          <div className="space-y-3">
-                              <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Your Message *</label>
-                              <textarea 
-                                  name="message"
-                                  required
-                                  rows={6}
-                                  placeholder="Tell us about how we can help you..."
-                                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all resize-none"
-                              ></textarea>
-                          </div>
-
-                          <div className="pt-4">
-                              <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                  Submit Form <Send size={18} />
-                              </button>
-                          </div>
-                      </form>
                   </motion.div>
                   )}
              </section>

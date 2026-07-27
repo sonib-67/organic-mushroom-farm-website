@@ -438,63 +438,18 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc, metaTitle }: { defaultSlug
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleLeadSubmit} className="space-y-4">
-                  {/* Hidden tracking */}
-                  <input type="hidden" name="targeted_mushroom_variety" value={info.name} />
-                  <input type="hidden" name="_date" value={todayDate} />
-
-                  <div className="space-y-1">
-                    <label htmlFor="name" className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">Your Name *</label>
-                    <input 
-                      id="name" name="name" required type="text" placeholder="John Doe" 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-xs placeholder:text-slate-700 h-11 focus:outline-none focus:border-primary-start"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label htmlFor="phone" className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">Mobile No *</label>
-                    <input 
-                      id="phone" name="phone" required type="tel" placeholder="e.g. +91 92035 44140" 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-xs placeholder:text-slate-700 h-11 focus:outline-none focus:border-primary-start"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label htmlFor="email" className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">Email Address *</label>
-                    <input 
-                      id="email" name="email" required type="email" placeholder="john@domain.com" 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-xs placeholder:text-slate-700 h-11 focus:outline-none focus:border-primary-start"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label htmlFor="loctype" className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">Location Details *</label>
-                    <input 
-                      id="loctype" name="proposed_location" required type="text" placeholder="City, State" 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-xs placeholder:text-slate-700 h-11 focus:outline-none focus:border-primary-start"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label htmlFor="message" className="text-[9px] font-black text-slate-500 uppercase tracking-widest ml-1">Specific Requirements *</label>
-                    <textarea 
-                      id="message" name="message" required rows={3} placeholder="Describe project scale or queries..." 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-xs placeholder:text-slate-700 focus:outline-none focus:border-primary-start resize-none min-h-[75px]"
-                    />
-                  </div>
-
-                  {formState.error && (
-                    <p className="text-red-500 text-[10px] font-bold">{formState.error}</p>
-                  )}
-
-                  <button 
-                    type="submit" 
-                    disabled={formState.submitting}
-                    className={`btn bg-primary-start text-white w-full py-3 rounded-xl text-xs font-black uppercase tracking-widest relative overflow-hidden transition-all hover:brightness-110 active:scale-[0.98] ${formState.submitting ? 'opacity-70' : ''}`}
+                <div className="space-y-6 text-center py-6">
+                  <h3 className="text-xl font-bold text-slate-900">Interested in {info.name}?</h3>
+                  <p className="text-slate-500 text-sm">
+                    Click the button below to fill out our detailed enquiry form for Turnkey Setups, Spawn, and Training.
+                  </p>
+                  <Link
+                    to="/enquiry"
+                    className="inline-block px-8 py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-bold transition-all"
                   >
-                    {formState.submitting ? "Booking..." : "Submit Project Specs"}
-                  </button>
-                </form>
+                    Enquiry Now
+                  </Link>
+                </div>
               )}
             </div>
 
