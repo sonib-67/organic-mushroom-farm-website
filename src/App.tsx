@@ -1450,7 +1450,7 @@ const Hero = () => {
           <div className="flex justify-center md:justify-start gap-12 pt-4">
             <div>
               <div className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">
-                1.2k+
+                1.5k+
               </div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">
                 Active Commercial Units
