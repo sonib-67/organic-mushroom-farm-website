@@ -1432,17 +1432,23 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-8">
+            <Link
+              to="/enquiry"
+              className="btn-primary w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center font-bold bg-[#7b51f8] hover:bg-[#6841d8] text-white"
+            >
+              Enquiry Now
+            </Link>
             <a
               href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center"
+              className="btn-outline w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
             >
-              Get Free Quote
+              WhatsApp Us
             </a>
             <a
               href="tel:9203544140"
-              className="btn-outline w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm"
+              className="btn-outline w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
             >
               Call Now: 9203544140
             </a>

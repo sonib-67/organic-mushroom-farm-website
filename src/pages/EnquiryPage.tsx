@@ -36,6 +36,9 @@ const EnquiryPage = () => {
       message: messageBody,
       trainingMode: formData.get("training_mode") || null,
       mushroomVariety: formData.get("mushroom_variety") || null,
+      setupType: formData.get("setup_type") || null,
+      productForm: formData.get("product_form") || null,
+      otherSubject: formData.get("other_subject") || null,
     };
 
     try {
@@ -197,6 +200,7 @@ const EnquiryPage = () => {
                           <select required name="mushroom_variety" className="w-full bg-white dark:bg-[#1a1a1a] border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start">
                             <option value="">Select Variety</option>
                             {varieties.map(v => <option key={v} value={v}>{v}</option>)}
+                            <option value="All Varieties Combined">All Varieties Combined / Multiple</option>
                           </select>
                         </div>
                         
