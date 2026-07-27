@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 
 function getUserMessageHtml(name: string, subject: string, service: string, trainingMode?: string, mushroomVariety?: string, setupType?: string, productForm?: string, otherSubject?: string) {
