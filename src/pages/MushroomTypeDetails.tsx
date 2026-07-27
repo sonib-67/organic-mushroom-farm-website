@@ -57,11 +57,12 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc, metaTitle }: { defaultSlug
     }
 
     try {
-      const response = await fetch('https://formspree.io/f/xykldqdy', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
+        body: JSON.stringify(Object.fromEntries(formData)),
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }
       });
       

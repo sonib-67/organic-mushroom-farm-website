@@ -26,14 +26,15 @@ const ContactFormPage = () => {
         pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
 
         try {
-            const resp = await fetch('https://formspree.io/f/xykldqdy', {
+            const resp = await fetch('/api/contact', {
                 method: 'POST',
-                body: formData,
+                body: JSON.stringify(Object.fromEntries(formData)),
                 headers: {
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
                 }
             });
-            if (!resp.ok) throw new Error('Formspree response not OK');
+            if (!resp.ok) throw new Error('Response not OK');
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
@@ -120,7 +121,7 @@ const ContactFormPage = () => {
                          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
                          
                          <form 
-                             action="https://formspree.io/f/xykldqdy" 
+                             action="/api/contact" 
                              method="POST" 
                              onSubmit={handleSubmit} 
                              className="relative z-10 space-y-6"

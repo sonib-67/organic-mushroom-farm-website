@@ -2287,7 +2287,7 @@ const CTASection = () => {
 
     try {
       const response = await fetch(
-        "https://formspree.io/f/xykldqdy",
+        "/api/contact",
         {
           method: "POST",
           headers: {
@@ -2654,12 +2654,13 @@ const ContactPage = () => {
 
     try {
       const response = await fetch(
-        "https://formspree.io/f/xykldqdy",
+        "/api/contact",
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(Object.fromEntries(formData)),
           headers: {
-            Accept: "application/json",
+            "Accept": "application/json",
+            "Content-Type": "application/json",
           },
         },
       );
@@ -2842,7 +2843,7 @@ const ContactPage = () => {
               </div>
 
               <form
-                action="https://formspree.io/f/xykldqdy"
+                action="/api/contact"
                 method="POST"
                 onSubmit={handleSubmit}
                 className="space-y-5"
@@ -5418,12 +5419,13 @@ const TurnkeyProjectsPage = () => {
 
     try {
       const response = await fetch(
-        "https://formspree.io/f/xykldqdy",
+        "/api/contact",
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(Object.fromEntries(formData)),
           headers: {
-            Accept: "application/json",
+            "Accept": "application/json",
+            "Content-Type": "application/json"
           },
         },
       );

@@ -12,24 +12,26 @@ export interface FormspreePaymentPayload {
 
 export async function sendPaymentNotificationToFormspree(payload: FormspreePaymentPayload) {
   try {
-    const response = await fetch('https://formspree.io/f/xykldqdy', {
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        _subject: `Payment ${payload.status}: ${payload.productType} (${payload.amount})`,
-        customerName: payload.name,
-        customerPhone: payload.phone,
-        customerEmail: payload.email || 'N/A',
-        preferredDate: payload.preferredDate || 'N/A',
-        productType: payload.productType,
-        amount: payload.amount,
-        status: payload.status,
-        paymentId: payload.paymentId || 'N/A',
-        orderId: payload.orderId || 'N/A',
-        timestamp: new Date().toLocaleString()
+        subject: `Payment ${payload.status}: ${payload.productType} (${payload.amount})`,
+        name: payload.name || "Customer",
+        phone: payload.phone,
+        email: payload.email || 'no-reply@organicmushroomsfarm.com',
+        service: payload.productType,
+        message: `
+Payment Status: ${payload.status}
+Amount: ${payload.amount}
+Payment ID: ${payload.paymentId || 'N/A'}
+Order ID: ${payload.orderId || 'N/A'}
+Preferred Date: ${payload.preferredDate || 'N/A'}
+Timestamp: ${new Date().toLocaleString()}
+        `
       })
     });
     if (!response.ok) {
