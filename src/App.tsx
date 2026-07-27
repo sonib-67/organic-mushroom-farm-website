@@ -1377,11 +1377,11 @@ const Hero = () => {
               >
                 <CheckCircle2 size={16} className="text-primary-start" />
                 {f.link ? (
-                  <Link to={f.link} className="text-[13px] md:text-sm font-bold text-slate-200 tracking-tight hover:text-primary-start transition-colors">
+                  <Link to={f.link} className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight hover:text-primary-start transition-colors">
                     {f.text}
                   </Link>
                 ) : (
-                  <span className="text-[13px] md:text-sm font-bold text-slate-200 tracking-tight">
+                  <span className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight">
                     {f.text}
                   </span>
                 )}
