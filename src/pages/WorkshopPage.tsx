@@ -12,22 +12,6 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { loadRazorpayScript } from '../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
-import jsPDF from 'jspdf';
-
-const generateInvoicePDF = (title: string, amount: string, orderId: string, status: string, name: string) => {
-  const doc = new jsPDF();
-  doc.setFontSize(22);
-  doc.text("Organic Mushroom Farm", 20, 20);
-  doc.setFontSize(16);
-  doc.text(`Invoice - ${status}`, 20, 35);
-  doc.setFontSize(12);
-  doc.text(`Order ID: ${orderId}`, 20, 50);
-  doc.text(`Customer Name: ${name}`, 20, 60);
-  doc.text(`Product: ${title}`, 20, 70);
-  doc.text(`Amount: ${amount}`, 20, 80);
-  doc.text(`Status: ${status}`, 20, 90);
-  return doc.output('datauristring');
-};
 
 const WorkshopPage = () => {
   const navigate = useNavigate();
@@ -80,7 +64,7 @@ const WorkshopPage = () => {
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
 
-      // Send INITIATED notification to Formspree & simulate-payment
+      // Send INITIATED notification to Formspree
       sendPaymentNotificationToFormspree({
         name: formData.name,
         phone: formData.phone,
@@ -90,19 +74,6 @@ const WorkshopPage = () => {
         status: 'INITIATED',
         orderId: payload.order_id
       });
-
-      fetch('/api/simulate-payment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'INITIATE',
-          orderId: payload.order_id,
-          name: formData.name,
-          email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
-          amount: '₹199',
-          productType: 'organic mushroom farming Workshop'
-        })
-      }).catch(console.error);
 
       const options = {
         key: payload.key_id,
@@ -127,56 +98,22 @@ const WorkshopPage = () => {
             paymentId: response.razorpay_payment_id
           });
 
-          // Generate PDF and notify simulate-payment
-          const userEmail = formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com';
-          const base64Pdf = generateInvoicePDF('organic mushroom farming Workshop', '₹199', payload.order_id, 'SUCCESS', formData.name);
-          fetch('/api/simulate-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              action: 'SUCCESS',
-              orderId: payload.order_id,
-              name: formData.name,
-              email: userEmail,
-              amount: '₹199',
-              productType: 'organic mushroom farming Workshop',
-              base64Pdf
-            })
-          }).catch(console.error);
-
-          navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(userEmail)}&type=workshop`);
+          navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com')}&type=workshop`);
           setLoading(false);
         },
         modal: {
           ondismiss: function() {
             setLoading(false);
-            const userEmail = formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com';
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
               name: formData.name,
               phone: formData.phone,
-              email: userEmail,
+              email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
               productType: 'organic mushroom farming Workshop',
               amount: '₹199',
               status: 'CANCELLED',
               orderId: payload.order_id
             });
-
-            // Generate PDF and notify simulate-payment
-            const base64Pdf = generateInvoicePDF('organic mushroom farming Workshop', '₹199', payload.order_id, 'CANCELLED', formData.name);
-            fetch('/api/simulate-payment', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                action: 'CANCELLED',
-                orderId: payload.order_id,
-                name: formData.name,
-                email: userEmail,
-                amount: '₹199',
-                productType: 'organic mushroom farming Workshop',
-                base64Pdf
-              })
-            }).catch(console.error);
 
             navigate('/payment-cancelled', {
               state: {
@@ -195,34 +132,17 @@ const WorkshopPage = () => {
       if (typeof window !== "undefined" && (window as any).Razorpay) {
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
-             const userEmail = formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com';
              // Notify Formspree that payment is FAILED
              sendPaymentNotificationToFormspree({
                name: formData.name,
                phone: formData.phone,
-               email: userEmail,
+               email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
                productType: 'organic mushroom farming Workshop',
                amount: '₹199',
                status: 'FAILED',
                orderId: payload.order_id,
                paymentId: response.error?.metadata?.payment_id
              });
-
-             // Generate PDF and notify simulate-payment
-             const base64Pdf = generateInvoicePDF('organic mushroom farming Workshop', '₹199', payload.order_id, 'CANCELLED', formData.name);
-             fetch('/api/simulate-payment', {
-               method: 'POST',
-               headers: { 'Content-Type': 'application/json' },
-               body: JSON.stringify({
-                 action: 'CANCELLED',
-                 orderId: payload.order_id,
-                 name: formData.name,
-                 email: userEmail,
-                 amount: '₹199',
-                 productType: 'organic mushroom farming Workshop',
-                 base64Pdf
-               })
-             }).catch(console.error);
 
              navigate('/payment-cancelled', {
                state: {

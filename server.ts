@@ -6,13 +6,6 @@ import crypto from 'crypto';
 import Razorpay from 'razorpay';
 import geoip from 'geoip-lite';
 
-// API Handlers
-import sendEmailHandler from './api/send-email';
-import sendEnquiryHandler from './api/send-enquiry';
-import simulatePaymentHandler from './api/simulate-payment';
-import checkPaymentsHandler from './api/cron/check-payments';
-import enquiryHandler from './api/enquiry';
-
 // Firebase imports for backend writes
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
@@ -58,24 +51,13 @@ app.get('/ads.txt', (req, res) => {
 
 // Webhook endpoint needs raw body for signature verification
 app.use('/api/razorpay-webhook', express.raw({ type: 'application/json' }));
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// Route handlers for Vercel API functions in local Express server
-app.all('/api/send-email', (req, res) => sendEmailHandler(req as any, res as any));
-app.all('/api/send-enquiry', (req, res) => sendEnquiryHandler(req as any, res as any));
-app.all('/api/simulate-payment', (req, res) => simulatePaymentHandler(req as any, res as any));
-app.all('/api/cron/check-payments', (req, res) => checkPaymentsHandler(req as any, res as any));
-app.all('/api/enquiry', (req, res) => enquiryHandler(req as any, res as any));
-
+app.use(express.json());
 
 // Secrets 
 // Safe default initialization or env logic
 const RAZORPAY_KEY_ID = process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
 const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
 const WEBHOOK_SECRET = process.env.RAZORPAY_WEBHOOK_SECRET || "Sonib491@";
-
-import { transporter, MAIL_FROM, REPLY_TO } from './lib/email-transporter';
 
 async function sendToFormspree(payload: {
   customerName: string;
@@ -88,31 +70,32 @@ async function sendToFormspree(payload: {
   paymentStatus: 'DONE' | 'FAILED';
 }) {
   try {
-    const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER || 'organicmushroomsfarms@gmail.com';
-    const subject = `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`;
-    const htmlBody = `
-      <h3>${subject}</h3>
-      <p><strong>Name:</strong> ${payload.customerName}</p>
-      <p><strong>Email:</strong> ${payload.customerEmail}</p>
-      <p><strong>Phone:</strong> ${payload.customerPhone}</p>
-      <p><strong>Order ID:</strong> ${payload.orderId}</p>
-      <p><strong>Payment ID:</strong> ${payload.paymentId}</p>
-      <p><strong>Amount:</strong> ${payload.amount}</p>
-      <p><strong>Product Type:</strong> ${payload.productType}</p>
-      <p><strong>Status:</strong> ${payload.paymentStatus}</p>
-      <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-    `;
-
-    await transporter.sendMail({
-      from: MAIL_FROM,
-      to: adminEmail,
-      replyTo: payload.customerEmail || REPLY_TO,
-      subject: subject,
-      html: htmlBody,
+    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        subject: `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`,
+        name: payload.customerName,
+        email: payload.customerEmail,
+        phone: payload.customerPhone,
+        orderId: payload.orderId,
+        paymentId: payload.paymentId,
+        amount: payload.amount,
+        productType: payload.productType,
+        paymentStatus: payload.paymentStatus,
+        dateTime: new Date().toLocaleString()
+      })
     });
-    console.log("[Payment Email] Notification sent successfully");
+    if (!response.ok) {
+      console.error("[Formspree] Error:", await response.text());
+    } else {
+      console.log("[Formspree] Notification sent successfully");
+    }
   } catch (err) {
-    console.error("[Payment Email] Failed to send:", err);
+    console.error("[Formspree] Failed to send:", err);
   }
 }
 
@@ -155,40 +138,34 @@ app.post('/api/create-order', async (req, res) => {
       purpose = "Order";
     }
 
-    const activeKeyId = RAZORPAY_KEY_ID;
-    let razorpayOrderId = `order_${Date.now()}`;
-
-    if (RAZORPAY_KEY_ID && RAZORPAY_KEY_SECRET) {
-      try {
-        const order = await razorpay.orders.create({
-          amount: amount,
-          currency: "INR",
-          receipt: `rcpt_${Date.now()}`,
-          notes: { productType, customerName: name || "", customerEmail: email || "" }
-        });
-        if (order && order.id) {
-          razorpayOrderId = order.id;
-        }
-      } catch (rzpErr) {
-        console.warn("Razorpay API order creation error:", rzpErr);
+    const options = {
+      amount: amount, // amount in smallest currency unit
+      currency: "INR",
+      receipt: `rct_${Date.now()}`,
+      notes: {
+        productType,
+        customerName: name,
+        customerEmail: email,
+        customerPhone: mobile,
+        preferredDate: preferredDate || ""
       }
-    }
+    };
+
+    const order = await razorpay.orders.create(options);
 
     res.json({
-      order_id: razorpayOrderId,
-      amount: amount,
-      currency: "INR",
-      key_id: activeKeyId,
-      name: "Organic Mushroom Farm",
+      order_id: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      key_id: RAZORPAY_KEY_ID,
+      name: "Organic Mushrooms Farm",
       description: purpose,
       prefill: {
         name: name || "",
         email: email || "",
         contact: mobile || ""
       },
-      notes: {
-        productType
-      },
+      notes: options.notes,
       theme: { color: "#25D366" }
     });
   } catch (error) {
@@ -412,9 +389,4 @@ async function startServer() {
   });
 }
 
-// Only start the server if not running in a Vercel serverless environment
-if (!process.env.VERCEL) {
-  startServer();
-}
-
-export default app;
+startServer();

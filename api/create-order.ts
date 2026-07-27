@@ -9,8 +9,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const RAZORPAY_KEY_ID = process.env.VITE_RAZORPAY_KEY_ID || process.env.RAZORPAY_KEY_ID || "rzp_live_Ssg7Eepps3J0ch";
-    const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET || "97qz8ls18Y1M4Vzuj1TCX9Ss";
+    const RAZORPAY_KEY_ID = process.env.VITE_RAZORPAY_KEY_ID || process.env.RAZORPAY_KEY_ID;
+    const RAZORPAY_KEY_SECRET = process.env.RAZORPAY_KEY_SECRET;
+
+    if (!RAZORPAY_KEY_ID || !RAZORPAY_KEY_SECRET) {
+      console.error("Razorpay API keys are missing in environment variables.");
+      return res.status(500).json({ error: "Server configuration error. Payment gateway unavailable." });
+    }
+
+    const razorpay = new Razorpay({
+      key_id: RAZORPAY_KEY_ID,
+      key_secret: RAZORPAY_KEY_SECRET,
+    });
 
     const { name, mobile, email, productType, preferredDate } = req.body;
 
@@ -40,44 +50,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       purpose = "Fresh / Dry Mushroom Purchase";
     }
 
-    const activeKeyId = RAZORPAY_KEY_ID;
-    let razorpayOrderId = `order_${Date.now()}`;
+    const clientIp = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '') as string;
+    const userAgent = req.headers['user-agent'] || '';
 
-    if (RAZORPAY_KEY_ID && RAZORPAY_KEY_SECRET) {
-      const razorpay = new Razorpay({
-        key_id: RAZORPAY_KEY_ID,
-        key_secret: RAZORPAY_KEY_SECRET,
-      });
-      try {
-        const order = await razorpay.orders.create({
-          amount: amount,
-          currency: "INR",
-          receipt: `rcpt_${Date.now()}`,
-          notes: { productType: productType || "unknown", customerName: name || "", customerEmail: email || "" }
-        });
-        if (order && order.id) {
-          razorpayOrderId = order.id;
-        }
-      } catch (rzpErr) {
-        console.warn("Razorpay API order creation error:", rzpErr);
+    const options = {
+      amount: amount, 
+      currency: "INR",
+      receipt: `rct_${Date.now()}`,
+      notes: {
+        productType: productType || "unknown",
+        customerName: name || "",
+        customerEmail: email || "",
+        customerPhone: mobile || "",
+        preferredDate: preferredDate || "",
+        clientIp: clientIp.split(',')[0],
+        userAgent: userAgent.substring(0, 200)
       }
-    }
+    };
+
+    const order = await razorpay.orders.create(options);
 
     return res.status(200).json({
-      order_id: razorpayOrderId,
-      amount: amount,
-      currency: "INR",
-      key_id: activeKeyId,
-      name: "Organic Mushroom Farm",
+      order_id: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      key_id: RAZORPAY_KEY_ID,
+      name: "Organic Mushrooms Farm",
       description: purpose,
       prefill: {
         name: name || "",
         email: email || "",
         contact: mobile || ""
       },
-      notes: {
-        productType: productType || "unknown"
-      },
+      notes: options.notes,
       theme: { color: "#25D366" }
     });
   } catch (error) {

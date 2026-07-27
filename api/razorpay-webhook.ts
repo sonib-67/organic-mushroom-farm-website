@@ -1,6 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import crypto from 'crypto';
-import { transporter, MAIL_FROM, REPLY_TO } from '../lib/email-transporter';
 
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, setDoc, doc, getDocs, query, where } from "firebase/firestore";
@@ -110,44 +109,32 @@ async function sendToFormspree(payload: {
   paymentStatus: 'DONE' | 'FAILED';
 }) {
   try {
-    const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER || 'organicmushroomsfarms@gmail.com';
-    const subject = `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`;
-    const htmlBody = `
-      <h3>${subject}</h3>
-      <p><strong>Name:</strong> ${payload.customerName}</p>
-      <p><strong>Email:</strong> ${payload.customerEmail}</p>
-      <p><strong>Phone:</strong> ${payload.customerPhone}</p>
-      <p><strong>Order ID:</strong> ${payload.orderId}</p>
-      <p><strong>Payment ID:</strong> ${payload.paymentId}</p>
-      <p><strong>Amount:</strong> ${payload.amount}</p>
-      <p><strong>Product Type:</strong> ${payload.productType}</p>
-      <p><strong>Status:</strong> ${payload.paymentStatus}</p>
-      <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-    `;
-
-    console.log("[razorpay-webhook] Diagnostics:");
-    console.log(`EMAIL_USER present: ${!!process.env.EMAIL_USER}`);
-    console.log(`EMAIL_PASS present: ${!!process.env.EMAIL_PASS}`);
-    console.log(`SMTP_HOST: ${process.env.SMTP_HOST || 'smtp.gmail.com (default)'}`);
-    console.log(`SMTP_PORT: ${process.env.SMTP_PORT || '465 (default)'}`);
-    console.log(`secure: ${process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) === 465 : true}`);
-
-    console.log("[razorpay-webhook] Verifying transporter...");
-    await transporter.verify();
-    console.log("[razorpay-webhook] Transporter verified successfully.");
-
-    console.log("[razorpay-webhook] Sending admin email...");
-    await transporter.sendMail({
-      from: MAIL_FROM,
-      to: adminEmail,
-      replyTo: payload.customerEmail || REPLY_TO,
-      subject: subject,
-      html: htmlBody,
+    const response = await fetch('https://formspree.io/f/mwvazwnl', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        subject: `Payment ${payload.paymentStatus}: ${payload.productType} (${payload.amount})`,
+        name: payload.customerName,
+        email: payload.customerEmail,
+        phone: payload.customerPhone,
+        orderId: payload.orderId,
+        paymentId: payload.paymentId,
+        amount: payload.amount,
+        productType: payload.productType,
+        paymentStatus: payload.paymentStatus,
+        dateTime: new Date().toLocaleString()
+      })
     });
-    console.log("[razorpay-webhook] Notification sent successfully");
+    if (!response.ok) {
+      console.error("[Formspree] Error:", await response.text());
+    } else {
+      console.log("[Formspree] Notification sent successfully");
+    }
   } catch (err) {
-    console.error("[razorpay-webhook] Failed to send email:", err);
-    throw err;
+    console.error("[Formspree] Failed to send:", err);
   }
 }
 

@@ -5,10 +5,6 @@
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -56,12 +52,6 @@
           "value": "application/xml"
         }
       ]
-    }
-  ],
-  "crons": [
-    {
-      "path": "/api/cron/check-payments",
-      "schedule": "*/10 * * * *"
     }
   ]
 }

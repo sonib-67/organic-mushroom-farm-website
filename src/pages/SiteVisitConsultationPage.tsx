@@ -5,22 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { loadRazorpayScript } from '../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../utils/formspree';
 import SEO from '../components/SEO';
-import jsPDF from 'jspdf';
-
-const generateInvoicePDF = (title: string, amount: string, orderId: string, status: string, name: string) => {
-  const doc = new jsPDF();
-  doc.setFontSize(22);
-  doc.text("Organic Mushroom Farm", 20, 20);
-  doc.setFontSize(16);
-  doc.text(`Invoice - ${status}`, 20, 35);
-  doc.setFontSize(12);
-  doc.text(`Order ID: ${orderId}`, 20, 50);
-  doc.text(`Customer Name: ${name}`, 20, 60);
-  doc.text(`Product: ${title}`, 20, 70);
-  doc.text(`Amount: ${amount}`, 20, 80);
-  doc.text(`Status: ${status}`, 20, 90);
-  return doc.output('datauristring');
-};
 
 const SiteVisitConsultationPage = () => {
   const navigate = useNavigate();
@@ -55,31 +39,17 @@ const SiteVisitConsultationPage = () => {
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || 'Failed to fetch payload');
 
-      // Send INITIATED notification to Formspree & simulate-payment
-      const userEmail = formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com';
+      // Send INITIATED notification to Formspree
       sendPaymentNotificationToFormspree({
         name: formData.name,
         phone: formData.phone,
-        email: userEmail,
+        email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
         preferredDate: formData.preferredDate,
         productType: 'On Site Visit Consultation Slot',
         amount: '₹500',
         status: 'INITIATED',
         orderId: payload.order_id
       });
-
-      fetch('/api/simulate-payment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'INITIATE',
-          orderId: payload.order_id,
-          name: formData.name,
-          email: userEmail,
-          amount: '₹500',
-          productType: 'On Site Visit Consultation Slot'
-        })
-      }).catch(console.error);
 
       const options = {
         key: payload.key_id,
@@ -96,7 +66,7 @@ const SiteVisitConsultationPage = () => {
           sendPaymentNotificationToFormspree({
             name: formData.name,
             phone: formData.phone,
-            email: userEmail,
+            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
             preferredDate: formData.preferredDate,
             productType: 'On Site Visit Consultation Slot',
             amount: '₹500',
@@ -105,23 +75,7 @@ const SiteVisitConsultationPage = () => {
             paymentId: response.razorpay_payment_id
           });
 
-          // Generate PDF and notify simulate-payment
-          const base64Pdf = generateInvoicePDF('On Site Visit Consultation Slot', '₹500', payload.order_id, 'SUCCESS', formData.name);
-          fetch('/api/simulate-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              action: 'SUCCESS',
-              orderId: payload.order_id,
-              name: formData.name,
-              email: userEmail,
-              amount: '₹500',
-              productType: 'On Site Visit Consultation Slot',
-              base64Pdf
-            })
-          }).catch(console.error);
-
-          navigate(`/payment-success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.phone)}&email=${encodeURIComponent(userEmail)}&type=site_visit`);
+          setPaymentSuccess(true);
           setLoading(false);
         },
         modal: {
@@ -131,38 +85,12 @@ const SiteVisitConsultationPage = () => {
             sendPaymentNotificationToFormspree({
               name: formData.name,
               phone: formData.phone,
-              email: userEmail,
+              email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
               preferredDate: formData.preferredDate,
               productType: 'On Site Visit Consultation Slot',
               amount: '₹500',
               status: 'CANCELLED',
               orderId: payload.order_id
-            });
-
-            // Generate PDF and notify simulate-payment
-            const base64Pdf = generateInvoicePDF('On Site Visit Consultation Slot', '₹500', payload.order_id, 'CANCELLED', formData.name);
-            fetch('/api/simulate-payment', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                action: 'CANCELLED',
-                orderId: payload.order_id,
-                name: formData.name,
-                email: userEmail,
-                amount: '₹500',
-                productType: 'On Site Visit Consultation Slot',
-                base64Pdf
-              })
-            }).catch(console.error);
-
-            navigate('/payment-cancelled', {
-              state: {
-                amount: 50000,
-                currency: 'INR',
-                productName: 'On Site Visit Consultation Slot',
-                from: window.location.pathname,
-                formData: formData
-              }
             });
           }
         }
@@ -179,7 +107,7 @@ const SiteVisitConsultationPage = () => {
           sendPaymentNotificationToFormspree({
             name: formData.name,
             phone: formData.phone,
-            email: userEmail,
+            email: formData.name.replace(/\s+/g, '').toLowerCase() + '@example.com',
             preferredDate: formData.preferredDate,
             productType: 'On Site Visit Consultation Slot',
             amount: '₹500',
@@ -188,31 +116,8 @@ const SiteVisitConsultationPage = () => {
             paymentId: response.error?.metadata?.payment_id
           });
 
-          // Generate PDF and notify simulate-payment
-          const base64Pdf = generateInvoicePDF('On Site Visit Consultation Slot', '₹500', payload.order_id, 'CANCELLED', formData.name);
-          fetch('/api/simulate-payment', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              action: 'CANCELLED',
-              orderId: payload.order_id,
-              name: formData.name,
-              email: userEmail,
-              amount: '₹500',
-              productType: 'On Site Visit Consultation Slot',
-              base64Pdf
-            })
-          }).catch(console.error);
-
-          navigate('/payment-cancelled', {
-            state: {
-              amount: 50000,
-              currency: 'INR',
-              productName: 'On Site Visit Consultation Slot',
-              from: window.location.pathname,
-              formData: formData
-            }
-          });
+          alert('Payment Failed. Please try again.');
+          setLoading(false);
         });
         rzp.open();
       } else {
