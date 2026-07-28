@@ -465,18 +465,22 @@ app.post('/api/contact', express.json(), async (req, res) => {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
+        *, *::before, *::after {
+          box-sizing: border-box;
+        }
         body {
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           background-color: #f4f7f6;
           margin: 0;
-          padding: 20px;
+          padding: 10px;
         }
         .glass-container {
+          width: 100%;
           max-width: 600px;
           margin: 0 auto;
           background: linear-gradient(135deg, rgba(255, 167, 38, 0.15) 0%, rgba(156, 39, 176, 0.15) 50%, rgba(76, 175, 80, 0.15) 100%);
           border-radius: 20px;
-          padding: 30px;
+          padding: 20px;
           box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
@@ -488,27 +492,29 @@ app.post('/api/contact', express.json(), async (req, res) => {
           -webkit-text-fill-color: transparent;
           text-align: center;
           margin-top: 0;
-          font-size: 26px;
+          font-size: 24px;
         }
         .content {
+          width: 100%;
           color: #333;
           line-height: 1.6;
-          font-size: 16px;
+          font-size: 15px;
           background: rgba(255, 255, 255, 0.5);
           border-radius: 15px;
-          padding: 20px;
+          padding: 15px;
           box-shadow: inset 0 0 10px rgba(255,255,255,0.7), 0 4px 15px rgba(0,0,0,0.05);
           border: 1px solid rgba(255, 255, 255, 0.8);
         }
         .footer {
           text-align: center;
-          font-size: 13px;
+          font-size: 12px;
           color: #666;
-          margin-top: 25px;
+          margin-top: 20px;
         }
         @media only screen and (max-width: 600px) {
-          body { padding: 10px; }
-          .glass-container { padding: 20px; }
+          body { padding: 5px; }
+          .glass-container { padding: 15px; }
+          .content { padding: 15px; }
         }
       </style>
       </head>
