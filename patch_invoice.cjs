@@ -1,7 +1,35 @@
 const fs = require('fs');
 let code = fs.readFileSync('api/payment-notification.ts', 'utf8');
 
-const newFunc = `async function generateInvoicePDF(payload: any): Promise<Buffer> {
+code = code.replace(
+  `          await transporter.sendMail({
+            from: '"Organic Mushroom Farm" <' + adminEmail + '>',
+            to: customerEmail,`,
+  `          await transporter.sendMail({
+            from: '"Organic Mushroom Farm" <' + adminEmail + '>',
+            replyTo: 'no-reply@organicmushroomsfarm.com',
+            to: customerEmail,`
+);
+
+code = code.replace(
+  `    await transporter.sendMail({
+      from: '"Organic Mushroom Farm" <' + adminEmail + '>',
+      to: customerEmail,`,
+  `    await transporter.sendMail({
+      from: '"Organic Mushroom Farm" <' + adminEmail + '>',
+      replyTo: 'no-reply@organicmushroomsfarm.com',
+      to: customerEmail,`
+);
+
+const newInvoiceGen = `async function generateInvoicePDF(payload: any): Promise<Buffer> {
+  let signatureBuffer: Buffer | null = null;
+  try {
+    const res = await fetch('https://res.cloudinary.com/dnw4fpk2y/image/upload/v1785228588/Screenshot_2026-07-28-14-18-02-618-edit_com.android.chrome-removebg-preview_qk40by.png');
+    signatureBuffer = Buffer.from(await res.arrayBuffer());
+  } catch (e) {
+    console.error('Failed to fetch signature image', e);
+  }
+
   return new Promise((resolve, reject) => {
     try {
       const doc = new PDFDocument({ margin: 0, size: 'A4' });
@@ -10,86 +38,106 @@ const newFunc = `async function generateInvoicePDF(payload: any): Promise<Buffer
       doc.on('end', () => resolve(Buffer.concat(buffers)));
       doc.on('error', reject);
 
-      const accent = '#7e22ce'; // Purple 700
-      const accentLight = '#f3e8ff'; // Purple 100
-      const textDark = '#1f2937';
+      const primary = '#1f2937'; // Luxury dark charcoal
+      const accent = '#bca87f';  // Luxury muted gold
+      const textDark = '#111827';
       const textMuted = '#6b7280';
+      const textLight = '#9ca3af';
       
-      // 1. Light organic purple liquid glass background
-      const grad = doc.linearGradient(0, 0, 595, 842);
-      grad.stop(0, '#faf5ff');
-      grad.stop(0.5, '#ffffff');
-      grad.stop(1, '#f3e8ff');
-      doc.rect(0, 0, 595, 842).fill(grad);
+      // Luxury background - soft warm white
+      doc.rect(0, 0, 595, 842).fill('#fdfbf7');
 
-      // Decorative glass-like overlay at the top
-      doc.rect(0, 0, 595, 180).fill('#ffffff', 'even-odd');
-      doc.fillOpacity(0.4);
-      const topGrad = doc.linearGradient(0, 0, 0, 180);
-      topGrad.stop(0, '#e9d5ff');
-      topGrad.stop(1, '#faf5ff');
-      doc.rect(0, 0, 595, 180).fill(topGrad);
-      doc.fillOpacity(1);
+      // Top Header Line
+      doc.rect(0, 0, 595, 6).fill(accent);
 
-      // Company Header (Left)
-      doc.fillColor(accent).fontSize(24).font('Helvetica-Bold').text('Organic Mushroom Farm', 50, 50);
+      // INVOICE Title (Top)
+      doc.fillColor(accent).fontSize(36).font('Helvetica-Bold').text('INVOICE', 50, 40);
+
+      // Company Header (Below INVOICE)
+      doc.fillColor(primary).fontSize(20).font('Helvetica-Bold').text('Organic Mushroom Farm', 50, 85);
       doc.fillColor(textMuted).fontSize(10).font('Helvetica')
-         .text('Katangi, Jabalpur, Madhya Pradesh 483105', 50, 80);
+         .text('Jabalpur, Madhya Pradesh', 50, 110);
 
-      // Invoice Title (Right)
-      doc.fillColor(accent).fontSize(32).font('Helvetica-Bold').text('INVOICE', 0, 45, { align: 'right', width: 545 });
-      
+      // Invoice Details (Right)
       const invoiceNo = 'INV-' + Math.floor(100000 + Math.random() * 900000);
-      doc.fillColor(textMuted).fontSize(10).font('Helvetica-Bold')
-         .text(invoiceNo, 0, 80, { align: 'right', width: 545 })
-         .text(new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }), 0, 95, { align: 'right', width: 545 });
+      const invoiceDate = new Date();
+      
+      let statusText = 'Pending';
+      let statusColor = textMuted;
+      if (payload.status === 'DONE' || payload.status === 'SUCCESS') {
+         statusText = 'Paid / Done';
+         statusColor = '#15803d'; // Green
+      } else if (payload.status === 'CANCELLED' || payload.status === 'FAILED') {
+         statusText = 'Cancelled / Failed';
+         statusColor = '#b91c1c'; // Red
+      }
 
-      // Glassmorphism card for INVOICE TO
-      doc.roundedRect(50, 140, 495, 90, 8).fill('#ffffff');
-      doc.roundedRect(50, 140, 495, 90, 8).lineWidth(1).strokeColor('#e9d5ff').stroke();
+      doc.fillColor(textDark).fontSize(10).font('Helvetica-Bold')
+         .text('Invoice No:', 350, 50)
+         .text('Invoice Date:', 350, 65)
+         .text('Payment Mode:', 350, 80)
+         .text('Status:', 350, 95);
+         
+      doc.fillColor(textMuted).font('Helvetica')
+         .text(invoiceNo, 450, 50, { align: 'right', width: 95 })
+         .text(invoiceDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }), 450, 65, { align: 'right', width: 95 })
+         .text(payload.paymentMode || 'Online Payment', 450, 80, { align: 'right', width: 95 });
+         
+      doc.fillColor(statusColor).font('Helvetica-Bold')
+         .text(statusText, 450, 95, { align: 'right', width: 95 });
 
-      doc.fillColor(accent).fontSize(10).font('Helvetica-Bold').text('BILLED TO', 70, 155);
-      doc.fillColor(textDark).fontSize(12).font('Helvetica-Bold').text(payload.name || 'Customer', 70, 175);
+      // Clean divider
+      doc.moveTo(50, 125).lineTo(545, 125).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
+
+      // Billed To Section
+      doc.fillColor(textLight).fontSize(9).font('Helvetica-Bold').text('BILLED TO', 50, 145, { characterSpacing: 1.5 });
+      doc.fillColor(textDark).fontSize(14).font('Helvetica-Bold').text(payload.name || 'Customer', 50, 160);
       
       doc.fillColor(textMuted).fontSize(10).font('Helvetica')
-         .text(payload.email || '', 70, 195)
-         .text('Phone: ' + (payload.phone || 'N/A'), 70, 210); // Customer phone correctly placed here
+         .text(payload.email || '', 50, 180)
+         .text('Phone: ' + (payload.phone || 'N/A'), 50, 195);
 
-      // Table styling
-      const tableTop = 260;
-      doc.roundedRect(50, tableTop, 495, 35, 6).fill(accent);
+      // Table styling (Minimalist Luxury)
+      const tableTop = 240;
+      doc.moveTo(50, tableTop).lineTo(545, tableTop).lineWidth(1).strokeColor(primary).stroke();
       
-      doc.fillColor('#ffffff').font('Helvetica-Bold').fontSize(10)
-         .text('DESCRIPTION', 70, tableTop + 12)
-         .text('AMOUNT', 0, tableTop + 12, { align: 'right', width: 525 });
+      doc.fillColor(primary).font('Helvetica-Bold').fontSize(9)
+         .text('DESCRIPTION', 50, tableTop + 15, { characterSpacing: 1 })
+         .text('AMOUNT', 0, tableTop + 15, { align: 'right', width: 545, characterSpacing: 1 });
+         
+      doc.moveTo(50, tableTop + 35).lineTo(545, tableTop + 35).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
+
+      // Cleanup amount to avoid strange characters or currency symbols rendering incorrectly
+      let amountDisplay = String(payload.amount || '0');
+      amountDisplay = amountDisplay.replace(/[^0-9.,]/g, '').trim();
 
       // Table Row
-      const rowTop = tableTop + 50;
+      const rowTop = tableTop + 55;
       doc.fillColor(textDark).font('Helvetica').fontSize(11)
-         .text(payload.productType || 'N/A', 70, rowTop)
-         .text('₹' + (payload.amount || '0'), 0, rowTop, { align: 'right', width: 525 });
+         .text(payload.productType || 'N/A', 50, rowTop)
+         .text('Rs. ' + amountDisplay, 0, rowTop, { align: 'right', width: 545 });
          
       // Divider
-      doc.moveTo(50, rowTop + 30).lineTo(545, rowTop + 30).lineWidth(1).strokeColor('#e5e7eb').stroke();
+      doc.moveTo(50, rowTop + 30).lineTo(545, rowTop + 30).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
 
       // Total Section
-      const totalTop = rowTop + 50;
-      doc.roundedRect(350, totalTop, 195, 45, 6).fill('#ffffff');
-      doc.roundedRect(350, totalTop, 195, 45, 6).lineWidth(1).strokeColor('#e9d5ff').stroke();
+      const totalTop = rowTop + 60;
 
       doc.fillColor(textDark).font('Helvetica-Bold').fontSize(12)
-         .text('Total', 370, totalTop + 16)
-      doc.fillColor(accent).fontSize(14)
-         .text('₹' + (payload.amount || '0'), 0, totalTop + 15, { align: 'right', width: 525 });
+         .text('TOTAL', 370, totalTop, { characterSpacing: 1 })
+      doc.fillColor(accent).fontSize(18)
+         .text('Rs. ' + amountDisplay, 0, totalTop - 2, { align: 'right', width: 545 });
 
-      // Authorized Signatory
-      doc.fillColor(textMuted).font('Helvetica').fontSize(9).text('Authorized Signatory', 50, totalTop + 20);
-      doc.fillColor(accent).font('Times-Italic').fontSize(22).text('Rakesh Soni', 50, totalTop - 5);
-
-      // Footer - Visit us made smaller and right side
-      doc.fillColor(textMuted).font('Helvetica').fontSize(9)
-         .text('Visit us: ', 0, 800, { align: 'right', width: 420, continued: true })
-         .fillColor(accent).text('organicmushroomsfarm.com', { link: 'https://organicmushroomsfarm.com', underline: true });
+      // Signatory Section (Right Side)
+      if (signatureBuffer) {
+        try {
+          doc.image(signatureBuffer, 380, totalTop + 60, { height: 60 });
+        } catch(imgErr) {
+          console.error('Failed to embed signature', imgErr);
+        }
+      }
+      doc.moveTo(370, totalTop + 125).lineTo(545, totalTop + 125).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
+      doc.fillColor(textLight).font('Helvetica').fontSize(9).text('Authorized Signatory', 370, totalTop + 135, { align: 'right', width: 175 });
 
       doc.end();
     } catch (e) {
@@ -101,6 +149,9 @@ const newFunc = `async function generateInvoicePDF(payload: any): Promise<Buffer
 
 const startIndex = code.indexOf('async function generateInvoicePDF');
 if (startIndex !== -1) {
-  code = code.substring(0, startIndex) + newFunc;
+  code = code.substring(0, startIndex) + newInvoiceGen;
   fs.writeFileSync('api/payment-notification.ts', code);
+  console.log('Successfully patched code');
+} else {
+  console.log('Could not find generateInvoicePDF');
 }

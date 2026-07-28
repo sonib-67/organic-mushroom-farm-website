@@ -64,6 +64,7 @@ export async function handlePaymentNotification(payload: any) {
           );
           await transporter.sendMail({
             from: '"Organic Mushroom Farm" <' + adminEmail + '>',
+            replyTo: 'no-reply@organicmushroomsfarm.com',
             to: customerEmail,
             subject: 'Complete Your Organic Mushroom Farm Payment',
             html: repaymentHtml
@@ -124,6 +125,7 @@ export async function handlePaymentNotification(payload: any) {
     
     await transporter.sendMail({
       from: '"Organic Mushroom Farm" <' + adminEmail + '>',
+      replyTo: 'no-reply@organicmushroomsfarm.com',
       to: customerEmail,
       subject: customerSubject,
       html: getCustomerEmailTemplate(customerSubject, customerMessage),
@@ -240,19 +242,17 @@ async function generateInvoicePDF(payload: any): Promise<Buffer> {
       // Top Header Line
       doc.rect(0, 0, 595, 6).fill(accent);
 
-      // INVOICE Title (Absolute Top)
+      // INVOICE Title (Top)
       doc.fillColor(accent).fontSize(36).font('Helvetica-Bold').text('INVOICE', 50, 40);
 
-      // Company Header (Right under INVOICE)
+      // Company Header (Below INVOICE)
       doc.fillColor(primary).fontSize(20).font('Helvetica-Bold').text('Organic Mushroom Farm', 50, 85);
       doc.fillColor(textMuted).fontSize(10).font('Helvetica')
          .text('Jabalpur, Madhya Pradesh', 50, 110);
 
-      // Invoice Details (Right Side)
+      // Invoice Details (Right)
       const invoiceNo = 'INV-' + Math.floor(100000 + Math.random() * 900000);
       const invoiceDate = new Date();
-      const dueDate = new Date();
-      dueDate.setDate(invoiceDate.getDate() + 7); // Default due date 7 days later
       
       let statusText = 'Pending';
       let statusColor = textMuted;
@@ -268,31 +268,29 @@ async function generateInvoicePDF(payload: any): Promise<Buffer> {
          .text('Invoice No:', 350, 50)
          .text('Invoice Date:', 350, 65)
          .text('Payment Mode:', 350, 80)
-         .text('Due Date:', 350, 95)
-         .text('Status:', 350, 110);
+         .text('Status:', 350, 95);
          
       doc.fillColor(textMuted).font('Helvetica')
          .text(invoiceNo, 450, 50, { align: 'right', width: 95 })
          .text(invoiceDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }), 450, 65, { align: 'right', width: 95 })
-         .text(payload.paymentMode || 'Online Payment', 450, 80, { align: 'right', width: 95 })
-         .text(dueDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }), 450, 95, { align: 'right', width: 95 });
+         .text(payload.paymentMode || 'Online Payment', 450, 80, { align: 'right', width: 95 });
          
       doc.fillColor(statusColor).font('Helvetica-Bold')
-         .text(statusText, 450, 110, { align: 'right', width: 95 });
+         .text(statusText, 450, 95, { align: 'right', width: 95 });
 
       // Clean divider
-      doc.moveTo(50, 145).lineTo(545, 145).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
+      doc.moveTo(50, 125).lineTo(545, 125).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
 
       // Billed To Section
-      doc.fillColor(textLight).fontSize(9).font('Helvetica-Bold').text('BILLED TO', 50, 165, { characterSpacing: 1.5 });
-      doc.fillColor(textDark).fontSize(14).font('Helvetica-Bold').text(payload.name || 'Customer', 50, 180);
+      doc.fillColor(textLight).fontSize(9).font('Helvetica-Bold').text('BILLED TO', 50, 145, { characterSpacing: 1.5 });
+      doc.fillColor(textDark).fontSize(14).font('Helvetica-Bold').text(payload.name || 'Customer', 50, 160);
       
       doc.fillColor(textMuted).fontSize(10).font('Helvetica')
-         .text(payload.email || '', 50, 200)
-         .text('Phone: ' + (payload.phone || 'N/A'), 50, 215);
+         .text(payload.email || '', 50, 180)
+         .text('Phone: ' + (payload.phone || 'N/A'), 50, 195);
 
       // Table styling (Minimalist Luxury)
-      const tableTop = 270;
+      const tableTop = 240;
       doc.moveTo(50, tableTop).lineTo(545, tableTop).lineWidth(1).strokeColor(primary).stroke();
       
       doc.fillColor(primary).font('Helvetica-Bold').fontSize(9)
@@ -301,15 +299,15 @@ async function generateInvoicePDF(payload: any): Promise<Buffer> {
          
       doc.moveTo(50, tableTop + 35).lineTo(545, tableTop + 35).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
 
-      // Cleanup amount
+      // Cleanup amount to avoid strange characters or currency symbols rendering incorrectly
       let amountDisplay = String(payload.amount || '0');
-      amountDisplay = amountDisplay.replace(/[^0-9.]/g, '').trim();
+      amountDisplay = amountDisplay.replace(/[^0-9.,]/g, '').trim();
 
       // Table Row
       const rowTop = tableTop + 55;
       doc.fillColor(textDark).font('Helvetica').fontSize(11)
          .text(payload.productType || 'N/A', 50, rowTop)
-         .text('INR ' + amountDisplay, 0, rowTop, { align: 'right', width: 545 });
+         .text('Rs. ' + amountDisplay, 0, rowTop, { align: 'right', width: 545 });
          
       // Divider
       doc.moveTo(50, rowTop + 30).lineTo(545, rowTop + 30).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
@@ -320,7 +318,7 @@ async function generateInvoicePDF(payload: any): Promise<Buffer> {
       doc.fillColor(textDark).font('Helvetica-Bold').fontSize(12)
          .text('TOTAL', 370, totalTop, { characterSpacing: 1 })
       doc.fillColor(accent).fontSize(18)
-         .text('INR ' + amountDisplay, 0, totalTop - 2, { align: 'right', width: 545 });
+         .text('Rs. ' + amountDisplay, 0, totalTop - 2, { align: 'right', width: 545 });
 
       // Signatory Section (Right Side)
       if (signatureBuffer) {
