@@ -1022,7 +1022,7 @@ const Navbar = () => {
               alt="Organic Mushrooms Farm"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
              width="120" height="120" />
-            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 whitespace-nowrap">
+            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 leading-tight">
               Organic <span className="gradient-text">Mushroom Farm</span>
             </span>
           </Link>
@@ -1071,14 +1071,14 @@ const Navbar = () => {
                     {location.pathname === "/" ? (
                       <a
                         {...linkProps}
-                        className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
+                        className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg leading-tight ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
                       </a>
                     ) : (
                       <Link
                         to={item.href}
-                        className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
+                        className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg leading-tight ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
                       </Link>
@@ -1100,7 +1100,7 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   <Link
                     to={item.href}
-                    className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg whitespace-nowrap ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
+                    className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg leading-tight ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                   >
                     {item.name}
                     {hasSubMenu && (
@@ -2715,7 +2715,7 @@ const ContactPage = () => {
                 <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">
                   Mushroom Farming Setup Enquiry Form
                 </h2>
-                <p className="dark:text-slate-400 text-slate-600 text-sm font-medium">
+                <p className="dark:text-slate-400 text-slate-600 text-[10px] sm:text-xs md:text-sm font-medium leading-tight">
                   Please fill in your details for a callback regarding
                   commercial mushroom setups.
                 </p>
@@ -2968,8 +2968,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-10 mb-16">
-          <div className="col-span-1 md:col-span-2">
+        <div className="flex flex-col gap-10 mb-16 md:grid md:grid-cols-5 md:gap-10">
+          <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img
                 src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
@@ -3035,8 +3035,9 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          <div className="md:col-span-3 grid grid-cols-3 gap-2 sm:gap-4 md:gap-10">
           <div>
-            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">
+            <h4 className="dark:text-white text-slate-900 font-bold mb-4 md:mb-6 uppercase tracking-widest text-[8px] md:text-[9px] border-l-2 border-primary-start pl-2 md:pl-3">
               Explore
             </h4>
             <ul className="space-y-3">
@@ -3052,7 +3053,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-medium"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-[10px] sm:text-xs md:text-sm font-medium leading-tight"
                   >
                     {item.name}
                   </Link>
@@ -3061,7 +3062,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">
+            <h4 className="dark:text-white text-slate-900 font-bold mb-4 md:mb-6 uppercase tracking-widest text-[8px] md:text-[9px] border-l-2 border-primary-start pl-2 md:pl-3">
               Resources
             </h4>
             <ul className="space-y-3">
@@ -3077,7 +3078,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-medium"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-[10px] sm:text-xs md:text-sm font-medium leading-tight"
                   >
                     {item.name}
                   </Link>
@@ -3086,7 +3087,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h4 className="dark:text-white text-slate-900 font-bold mb-6 uppercase tracking-widest text-[9px] border-l-2 border-primary-start pl-3">
+            <h4 className="dark:text-white text-slate-900 font-bold mb-4 md:mb-6 uppercase tracking-widest text-[8px] md:text-[9px] border-l-2 border-primary-start pl-2 md:pl-3">
               Support & Legal
             </h4>
             <ul className="space-y-3">
@@ -3101,13 +3102,14 @@ const Footer = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-sm font-medium"
+                    className="text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors text-[10px] sm:text-xs md:text-sm font-medium leading-tight"
                   >
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
+          </div>
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between border-t dark:border-white/5 border-black/5 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-600">
@@ -3170,7 +3172,7 @@ const StickyRazorpayButton = ({
         className={`relative overflow-hidden flex items-center justify-center rounded-full group transition-all backdrop-blur-md shadow-[0_8px_32px_rgba(167,139,250,0.15)] hover:shadow-[0_8px_32px_rgba(167,139,250,0.3)] border border-purple-400/40 dark:border-purple-300/30 bg-linear-to-r from-purple-500/10 via-fuchsia-400/10 to-indigo-500/10 dark:from-purple-900/30 dark:via-fuchsia-900/20 dark:to-indigo-900/30 hover:from-purple-500/20 hover:via-fuchsia-400/20 hover:to-indigo-500/20 dark:hover:from-purple-900/40 dark:hover:via-fuchsia-900/30 dark:hover:to-indigo-900/40 text-purple-950 dark:text-purple-100 ${size === "small" ? "h-full w-full p-1.5" : "h-9 w-full md:w-auto md:min-w-[140px] md:px-4"}`}
       >
         <div
-          className={`font-bold z-10 flex items-center justify-center gap-1 whitespace-nowrap ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
+          className={`font-bold z-10 flex items-center justify-center gap-1 leading-tight ${size === "small" ? "text-[11px] absolute inset-0 w-full" : "text-[11px] md:text-[12px]"}`}
         >
           <BookOpen size={size === "small" ? 12 : 14} className="shrink-0 text-purple-700 dark:text-purple-300" />
           <span>Join Training</span>
@@ -3211,7 +3213,7 @@ const StickyRazorpayButton = ({
                 <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
                     Select <span className="gradient-text font-black">Your Training Plan</span>
                   </h3>
-                <p className="dark:text-slate-400 text-slate-500 text-xs md:text-sm font-medium mt-1">
+                <p className="dark:text-slate-400 text-slate-500 text-[10px] sm:text-xs md:text-sm font-medium leading-tight mt-1">
                   Choose the plan that suits you best. Secure checkout with Razorpay.
                 </p>
               </div>
@@ -3462,7 +3464,7 @@ const FloatingButtons = () => {
             <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 group-hover:opacity-40"></div>
             <MessageCircle size={24} className="md:w-[32px] md:h-[32px] relative z-10" />
           </motion.a>
-          <span className="text-[9px] md:text-[11px] font-bold text-slate-800 dark:text-slate-200 shadow-sm whitespace-nowrap bg-white/70 dark:bg-black/70 px-2.5 py-1 rounded-full backdrop-blur-md border border-black/10 dark:border-white/20">Chat on WhatsApp</span>
+          <span className="text-[9px] md:text-[11px] font-bold text-slate-800 dark:text-slate-200 shadow-sm leading-tight bg-white/70 dark:bg-black/70 px-2.5 py-1 rounded-full backdrop-blur-md border border-black/10 dark:border-white/20">Chat on WhatsApp</span>
         </div>
 
         {/* Scroll To Top (Desktop) */}
@@ -3519,7 +3521,7 @@ const FloatingButtons = () => {
             {/* Book Consultant Button (Calendly) - Compact sizing on mobile */}
             <Link
               to="/book-consultant"
-              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full glass backdrop-blur-md dark:text-white text-slate-900 items-center justify-center shadow-xl hover:bg-black/5 dark:hover:bg-white/5 active:bg-primary-start/20 active:text-primary-start active:border-primary-start/30 transition-all border dark:border-white/20 border-black/10 font-bold tracking-wide whitespace-nowrap gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
+              className="flex px-3 md:px-5 h-8 md:h-10 rounded-full glass backdrop-blur-md dark:text-white text-slate-900 items-center justify-center shadow-xl hover:bg-black/5 dark:hover:bg-white/5 active:bg-primary-start/20 active:text-primary-start active:border-primary-start/30 transition-all border dark:border-white/20 border-black/10 font-bold tracking-wide leading-tight gap-1.5 text-[10px] md:text-[13px] order-1 md:order-none"
             >
               <Calendar size={12} className="md:w-4 md:h-4" />
               <span className="hidden md:inline">Book Consultant</span>
@@ -3566,7 +3568,7 @@ const FloatingButtons = () => {
                   className={isActive ? "text-primary-start" : "text-primary-start"}
                 />
                 <span
-                  className={`whitespace-nowrap tracking-tight font-semibold ${isTrainingPage ? "text-[9px]" : "text-[10px]"}`}
+                  className={`leading-tight tracking-tight font-semibold ${isTrainingPage ? "text-[9px]" : "text-[10px]"}`}
                 >
                   {item.label}
                 </span>
