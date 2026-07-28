@@ -475,7 +475,6 @@ app.post('/api/contact', express.json(), async (req, res) => {
           padding: 10px;
         }
         .glass-container {
-          width: 100%;
           max-width: 600px;
           margin: 0 auto;
           background: linear-gradient(135deg, rgba(255, 167, 38, 0.15) 0%, rgba(156, 39, 176, 0.15) 50%, rgba(76, 175, 80, 0.15) 100%);
@@ -485,6 +484,7 @@ app.post('/api/contact', express.json(), async (req, res) => {
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
           border: 1px solid rgba(255, 255, 255, 0.6);
+          word-break: break-word;
         }
         .header h1 {
           background: -webkit-linear-gradient(45deg, #FF9800, #9C27B0, #4CAF50);
@@ -495,7 +495,6 @@ app.post('/api/contact', express.json(), async (req, res) => {
           font-size: 24px;
         }
         .content {
-          width: 100%;
           color: #333;
           line-height: 1.6;
           font-size: 15px;
@@ -504,6 +503,7 @@ app.post('/api/contact', express.json(), async (req, res) => {
           padding: 15px;
           box-shadow: inset 0 0 10px rgba(255,255,255,0.7), 0 4px 15px rgba(0,0,0,0.05);
           border: 1px solid rgba(255, 255, 255, 0.8);
+          word-break: break-word;
         }
         .footer {
           text-align: center;
