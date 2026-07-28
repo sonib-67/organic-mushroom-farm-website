@@ -11,6 +11,21 @@ export interface FormspreePaymentPayload {
 }
 
 export async function sendPaymentNotificationToFormspree(payload: FormspreePaymentPayload) {
-  // Payment email notifications via nodemailer have been removed as per request.
-  console.log('[Payment] Notification skipped for:', payload.status);
+  try {
+    const response = await fetch('/api/payment-notification', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) {
+      console.warn('[Payment Notification] Response not OK:', await response.text());
+    } else {
+      console.log('[Payment Notification] Successfully sent:', payload.status);
+    }
+  } catch (err) {
+    console.error('[Payment Notification] Error sending notification:', err);
+  }
 }

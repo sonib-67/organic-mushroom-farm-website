@@ -421,6 +421,19 @@ function getUserMessageHtml(name, subject, service, trainingMode, mushroomVariet
 }
 
 // Contact API route
+
+import { handlePaymentNotification } from './api/payment-notification';
+
+app.post('/api/payment-notification', express.json(), async (req, res) => {
+  try {
+    await handlePaymentNotification(req.body);
+    return res.status(200).json({ success: true });
+  } catch (error: any) {
+    console.error("Payment notification error:", error);
+    return res.status(500).json({ error: error.message });
+  }
+});
+
 app.post('/api/contact', express.json(), async (req, res) => {
   try {
     const { name, email, phone, subject, message, service, trainingMode, mushroomVariety } = req.body;
