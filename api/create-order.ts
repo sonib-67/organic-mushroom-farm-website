@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Razorpay from 'razorpay';
 import * as crypto from 'crypto';
+import * as nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -69,6 +70,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     };
     const order = await razorpay.orders.create(options);
+
+    
+
 
     return res.status(200).json({
       order_id: order.id,

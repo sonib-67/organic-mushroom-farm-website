@@ -101,18 +101,6 @@ export default function BookConsultantPage() {
         },
         modal: {
           ondismiss: function() {
-            // Send Cancellation Email to User
-            fetch('/api/send-cancellation-email', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                name: formData.name,
-                email: formData.email,
-                productType: 'Expert 1-on-1 Business Consultation Slot',
-                amount: '₹59',
-                orderId: payload.order_id
-              })
-            }).catch(console.error);
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
               name: formData.name,

@@ -100,85 +100,6 @@ async function sendMetaCAPIEvent(eventName: string, paymentData: any, notes: any
 }
 
 
-
-function createInvoicePDF(invoiceData: any): Promise<Buffer> {
-  return new Promise((resolve, reject) => {
-    try {
-      const PDFDocument = require('pdfkit');
-      const doc = new PDFDocument({ margin: 50 });
-      let buffers: Buffer[] = [];
-      doc.on('data', buffers.push.bind(buffers));
-      doc.on('end', () => {
-        let pdfData = Buffer.concat(buffers);
-        resolve(pdfData);
-      });
-
-      doc.fillColor('#444444')
-         .fontSize(20)
-         .text('Organic Mushroom Farm', 50, 57)
-         .fontSize(10)
-         .text('123 Farming Street', 200, 50, { align: 'right' })
-         .text('Jabalpur, MP, India', 200, 65, { align: 'right' })
-         .text('Phone: +91 9999999999', 200, 80, { align: 'right' })
-         .moveDown();
-
-      const generateHr = (y: number) => {
-          doc.strokeColor('#aaaaaa').lineWidth(1).moveTo(50, y).lineTo(550, y).stroke();
-      };
-      
-      generateHr(110);
-      
-      const invoiceStatus = invoiceData.paymentStatus === 'DONE' ? 'RECEIPT' : 'CANCELLED / FAILED';
-      doc.fontSize(20).text(invoiceStatus, 50, 130);
-      
-      generateHr(165);
-      
-      const customerInformationTop = 180;
-      doc.fontSize(10)
-         .text('Invoice Number:', 50, customerInformationTop)
-         .font('Helvetica-Bold')
-         .text(invoiceData.orderId, 150, customerInformationTop)
-         .font('Helvetica')
-         .text('Invoice Date:', 50, customerInformationTop + 15)
-         .text(new Date().toLocaleDateString(), 150, customerInformationTop + 15)
-         .text('Amount Due:', 50, customerInformationTop + 30)
-         .text(invoiceData.paymentStatus === 'DONE' ? '0.00' : invoiceData.amount, 150, customerInformationTop + 30)
-
-         .font('Helvetica-Bold')
-         .text(invoiceData.customerName, 300, customerInformationTop)
-         .font('Helvetica')
-         .text(invoiceData.customerEmail, 300, customerInformationTop + 15)
-         .moveDown();
-         
-      generateHr(237);
-      
-      const invoiceTableTop = 280;
-      doc.font('Helvetica-Bold');
-      doc.text('Item', 50, invoiceTableTop);
-      doc.text('Status', 300, invoiceTableTop);
-      doc.text('Total', 450, invoiceTableTop, { align: 'right' });
-      generateHr(300);
-      
-      doc.font('Helvetica');
-      doc.text(invoiceData.productType, 50, 310);
-      doc.text(invoiceData.paymentStatus, 300, 310);
-      doc.text(invoiceData.amount, 450, 310, { align: 'right' });
-      generateHr(330);
-      
-      doc.fontSize(10).text(
-          'Thank you for your business!',
-          50,
-          700,
-          { align: 'center', width: 500 }
-      );
-      
-      doc.end();
-    } catch (err) {
-      reject(err);
-    }
-  });
-}
-
 async function sendUserEmail(customerEmail: string, customerName: string, productType: string, amount: string, orderId: string, paymentStatus: 'DONE' | 'FAILED') {
   if (!customerEmail) return;
   try {
@@ -218,7 +139,7 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
         htmlBody = `Hi ${customerName},<br/><br/>Payment Successful! Thank you for your payment of ₹299.<br/><br/>Your enrollment for the Basic Mushroom Cultivation Training is successfully confirmed. We are excited to help you start your mushroom farming journey. Our team will share the training link and schedule with you shortly.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       } else {
         subject = "Payment Failed/Cancelled - Organic Mushroom Farm";
-        htmlBody = `Hi ${customerName},<br/><br/>We noticed that your payment of ₹299 for the Basic Mushroom Cultivation Training was cancelled or could not be completed.<br/><br/>Don't let this pause your learning journey! If you faced any technical issues during checkout, please try again or contact our support team for assistance. We would love to have you in our training.<br/><br/><br/><a href="https://organicmushroomsfarm.com/training" style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Retry Payment / Secure Your Seat</a><br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
+        htmlBody = `Hi ${customerName},<br/><br/>We noticed that your payment of ₹299 for the Basic Mushroom Cultivation Training was cancelled or could not be completed.<br/><br/>Don't let this pause your learning journey! If you faced any technical issues during checkout, please try again or contact our support team for assistance. We would love to have you in our training.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       }
     } else if (isAdvanced) {
       if (paymentStatus === 'DONE') {
@@ -226,7 +147,7 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
         htmlBody = `Hi ${customerName},<br/><br/>Payment Confirmed! Thank you for your payment of ₹699.<br/><br/>Your seat for the Advanced Commercial Cultivation Training is reserved. You have taken a great step towards mastering commercial farming. Our team will send you the access details and next steps very soon.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       } else {
         subject = "Payment Failed/Cancelled - Organic Mushroom Farm";
-        htmlBody = `Hi ${customerName},<br/><br/>It looks like your payment of ₹699 for the Advanced Commercial Cultivation Training was not processed successfully.<br/><br/>Commercial farming requires the right guidance, and we don't want you to miss out! Please attempt the payment again to secure your spot. Let us know if you need any help.<br/><br/><br/><a href="https://organicmushroomsfarm.com/training" style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Retry Payment / Secure Your Seat</a><br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
+        htmlBody = `Hi ${customerName},<br/><br/>It looks like your payment of ₹699 for the Advanced Commercial Cultivation Training was not processed successfully.<br/><br/>Commercial farming requires the right guidance, and we don't want you to miss out! Please attempt the payment again to secure your spot. Let us know if you need any help.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       }
     } else if (isWorkshop) {
       if (paymentStatus === 'DONE') {
@@ -234,7 +155,7 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
         htmlBody = `Hi ${customerName},<br/><br/>Payment Received! Thank you for your payment of ₹199.<br/><br/>You are officially registered for our Organic Mushroom Farming Workshop. We are thrilled to share our premium organic farming secrets with you. Stay tuned for the workshop details!<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       } else {
         subject = "Payment Failed/Cancelled - Organic Mushroom Farm";
-        htmlBody = `Hi ${customerName},<br/><br/>We noticed that your payment attempt of ₹199 for the Organic Mushroom Farming Workshop was cancelled.<br/><br/>Your seat is still waiting for you! If you encountered an error, please try completing the transaction again. Feel free to reach out if you need any support.<br/><br/><br/><a href="https://organicmushroomsfarm.com/training" style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Retry Payment / Secure Your Seat</a><br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
+        htmlBody = `Hi ${customerName},<br/><br/>We noticed that your payment attempt of ₹199 for the Organic Mushroom Farming Workshop was cancelled.<br/><br/>Your seat is still waiting for you! If you encountered an error, please try completing the transaction again. Feel free to reach out if you need any support.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       }
     } else if (isConsultation) {
       if (paymentStatus === 'DONE') {
@@ -242,7 +163,7 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
         htmlBody = `Hi ${customerName},<br/><br/>Payment Successful! Thank you for your payment of ₹59.<br/><br/>Your Expert 1-on-1 Business Consultation is confirmed. Our team will contact you shortly to schedule a convenient date and time for your personalized guidance session.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       } else {
         subject = "Payment Failed/Cancelled - Organic Mushroom Farm";
-        htmlBody = `Hi ${customerName},<br/><br/>Your payment of ₹59 for the Expert 1-on-1 Business Consultation could not be completed.<br/><br/>To get personalized, expert guidance for your mushroom business, please try completing your payment again. We are here to help if you face any issues!<br/><br/><br/><a href="https://organicmushroomsfarm.com/training" style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Retry Payment / Secure Your Seat</a><br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
+        htmlBody = `Hi ${customerName},<br/><br/>Your payment of ₹59 for the Expert 1-on-1 Business Consultation could not be completed.<br/><br/>To get personalized, expert guidance for your mushroom business, please try completing your payment again. We are here to help if you face any issues!<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       }
     } else if (isSiteVisit) {
       if (paymentStatus === 'DONE') {
@@ -250,7 +171,7 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
         htmlBody = `Hi ${customerName},<br/><br/>Payment Confirmed! Thank you for your payment of ₹500 for the On-Site Visit Consultation.<br/><br/>We are looking forward to visiting your farm location to provide a highly optimized setup strategy. Our team will get in touch with you to fix the date and time for the visit.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       } else {
         subject = "Payment Failed/Cancelled - Organic Mushroom Farm";
-        htmlBody = `Hi ${customerName},<br/><br/>We noticed your payment of ₹500 for the On-Site Visit Consultation was cancelled.<br/><br/>An on-ground evaluation is the best way to plan a successful farm. Please retry your payment to book the visit, or contact us directly if you are facing any technical difficulties.<br/><br/><br/><a href="https://organicmushroomsfarm.com/training" style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Retry Payment / Secure Your Seat</a><br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
+        htmlBody = `Hi ${customerName},<br/><br/>We noticed your payment of ₹500 for the On-Site Visit Consultation was cancelled.<br/><br/>An on-ground evaluation is the best way to plan a successful farm. Please retry your payment to book the visit, or contact us directly if you are facing any technical difficulties.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       }
     } else if (isSpawn) {
       if (paymentStatus === 'DONE') {
@@ -258,7 +179,7 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
         htmlBody = `Hi ${customerName},<br/><br/>Payment Received! Your payment for the Mushroom Spawn Purchase has been successfully processed.<br/><br/>We are preparing your high-quality, high-yielding spawn for dispatch. Our dispatch team will share the shipping and tracking details with you shortly.<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       } else {
         subject = "Payment Failed/Cancelled - Organic Mushroom Farm";
-        htmlBody = `Hi ${customerName},<br/><br/>Your payment for the Mushroom Spawn Purchase was cancelled or declined.<br/><br/>To ensure your farm gets the highest quality seeds on time without any delay, please try checking out again. Let us know if you need any assistance with the transaction!<br/><br/><br/><a href="https://organicmushroomsfarm.com/training" style="background-color: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Retry Payment / Secure Your Seat</a><br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
+        htmlBody = `Hi ${customerName},<br/><br/>Your payment for the Mushroom Spawn Purchase was cancelled or declined.<br/><br/>To ensure your farm gets the highest quality seeds on time without any delay, please try checking out again. Let us know if you need any assistance with the transaction!<br/><br/>Warm regards,<br/>The Organic Mushroom Farm Team`;
       }
     } else {
       // Completely new fallback message so user knows it's the NEW code
@@ -288,27 +209,12 @@ async function sendUserEmail(customerEmail: string, customerName: string, produc
       }
     }
 
-    const mailOptions: any = {
+    const mailOptions = {
       from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
       to: customerEmail,
       subject: subject,
       html: htmlBody,
     };
-
-    try {
-      const invoiceBuffer = await createInvoicePDF({
-         customerName, customerEmail, orderId, paymentStatus, productType, amount
-      });
-      mailOptions.attachments = [
-        {
-          filename: `Invoice_${orderId}.pdf`,
-          content: invoiceBuffer,
-          contentType: 'application/pdf'
-        }
-      ];
-    } catch (pdfErr) {
-      console.error("Error generating PDF:", pdfErr);
-    }
 
     await transporter.sendMail(mailOptions);
     console.log(`[Nodemailer] User email sent for ${paymentStatus}`);

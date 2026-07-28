@@ -81,8 +81,6 @@ const SiteVisitConsultationPage = () => {
         modal: {
           ondismiss: function() {
             setLoading(false);
-            // Send Cancellation Email to User
-            
             // Notify Formspree that payment is CANCELLED
             sendPaymentNotificationToFormspree({
               name: formData.name,
