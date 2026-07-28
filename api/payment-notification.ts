@@ -331,6 +331,10 @@ async function generateInvoicePDF(payload: any): Promise<Buffer> {
       doc.moveTo(370, totalTop + 125).lineTo(545, totalTop + 125).lineWidth(0.5).strokeColor('#e5e7eb').stroke();
       doc.fillColor(textLight).font('Helvetica').fontSize(9).text('Authorized Signatory', 370, totalTop + 135, { align: 'right', width: 175 });
 
+      // Footer Note
+      doc.fillColor(textMuted).font('Helvetica').fontSize(10)
+         .text('Thank you for choosing Organic Mushrooms Farm. Your trust is valuable to us. We appreciate your business and look forward to serving you again.', 50, totalTop + 170, { align: 'center', width: 495 });
+
       doc.end();
     } catch (e) {
       reject(e);
