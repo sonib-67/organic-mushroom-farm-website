@@ -120,6 +120,18 @@ export default function TrainingCheckoutPage() {
         modal: {
           ondismiss: function() {
             setLoading(false);
+            // Send Cancellation Email to User
+            fetch('/api/send-cancellation-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                productType: `${selectedTitle} Training`,
+                amount: selectedPrice,
+                orderId: payload.order_id
+              })
+            }).catch(console.error);
             // Notify Formspree that payment form cancelled/not complete
             sendPaymentNotificationToFormspree({
               name: formData.name,

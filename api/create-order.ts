@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import Razorpay = require('razorpay');
+import Razorpay from 'razorpay';
 import * as crypto from 'crypto';
-import * as nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
@@ -70,39 +69,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     };
     const order = await razorpay.orders.create(options);
-
-    // Send initiated email to admin only
-    try {
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-          pass: process.env.EMAIL_PASS || "jzqqntulcifrfyul",
-        },
-      });
-      await transporter.sendMail({
-        from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
-        to: "organicmushroomsfarms@gmail.com",
-        subject: `Payment INITIATED: ${purpose}`,
-        html: `
-          <h2>Checkout Initiated</h2>
-          <p><strong>Customer:</strong> ${name || 'N/A'}</p>
-          <p><strong>Email:</strong> ${email || 'N/A'}</p>
-          <p><strong>Phone:</strong> ${mobile || 'N/A'}</p>
-          <p><strong>Product:</strong> ${purpose}</p>
-          <p><strong>Amount:</strong> ₹${amount / 100}</p>
-          <p><strong>Order ID:</strong> ${order.id}</p>
-          <p>The user has reached the Razorpay popup. Waiting for capture.</p>
-        `
-      });
-      console.log("Admin initiation email sent.");
-    } catch (emailError) {
-      console.error("Failed to send initiation email to admin:", emailError);
-    }
-
-
-    
-
 
     return res.status(200).json({
       order_id: order.id,
