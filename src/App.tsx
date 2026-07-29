@@ -94,6 +94,8 @@ import SEO from "./components/SEO";
 import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
 import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
 import ArticleMushroomFarmingRussia from "./pages/ArticleMushroomFarmingRussia";
+import ArticleOrganicMushroomFarmGuide from "./pages/ArticleOrganicMushroomFarmGuide";
+import ArticleCommercialSetupTraining from "./pages/ArticleCommercialSetupTraining";
 
 import OperationsPage from "./pages/OperationsPage";
 
@@ -6273,6 +6275,8 @@ const AnimatedRoutes = () => {
           <Route path="/services/button-mushroom" element={<MushroomTypeDetails defaultSlug='white-button'  metaDesc="Professional Button mushroom cultivation services and consultancy. We provide high-yield spawn, standardized compost, and climate control setup guidance. " />} />
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
+          <Route path="/articles/organic-mushroom-farm-everything-you-need-to-know" element={<ArticleOrganicMushroomFarmGuide />} />
+          <Route path="/articles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
 
           <Route path="/cities" element={<StatesPage  metaDesc="Find top mushroom farming training centers, spawn suppliers, and local agribusiness resources in your city. Select your region to start growing today! " />} />
           <Route path="/project-specs" element={<ServiceDetailPage defaultId='consultancy'  metaDesc="Download detailed project specifications for commercial mushroom farms. Access complete infrastructure setup plans, financial ROI models, and expert SOPs. " />} />

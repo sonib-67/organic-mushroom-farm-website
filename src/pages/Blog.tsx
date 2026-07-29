@@ -11,6 +11,8 @@ const blogPosts = [
     color: "text-blue-500",
     bg: "bg-blue-500/5",
     posts: [
+      { id: "commercial-mushroom-farm-setup-training", customPath: "/articles/commercial-mushroom-farm-setup-training", title: "Commercial Mushroom Farm Setup & Training: A Complete Guide to All Varieties", excerpt: "Starting a commercial mushroom venture requires more than just passion; it demands technical know-how, precise climate control, and practical training.", date: "July 29, 2026" },
+      { id: "organic-mushroom-farm-everything-you-need-to-know", customPath: "/articles/organic-mushroom-farm-everything-you-need-to-know", title: "Organic Mushroom Farm: Everything You Need to Know", excerpt: "Are you looking to dive into the world of sustainable agriculture, or simply trying to find the freshest produce from an organic mushroom farm?", date: "July 28, 2026" },
       { id: "mushroom-farming-russia", customPath: "/blog/mushroom-farming-russia", title: "Mushroom Farming in Russia: Start Your Profitable Agribusiness", excerpt: "Mushroom farming is becoming one of the fastest-growing agricultural businesses in Russia. Start a successful commercial business today.", date: "July 24, 2026" },
       { id: 1, title: "How to Start Mushroom Farming at Home", excerpt: "A beginner's guide to growing your first batch of mushrooms in small spaces.", date: "April 15, 2027" },
       { id: 2, title: "Top 5 Mistakes New Mushroom Farmers Make", excerpt: "Avoid these common pitfalls that often lead to crop failure in the first cycle.", date: "April 10, 2027" },
