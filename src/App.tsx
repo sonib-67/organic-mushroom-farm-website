@@ -98,6 +98,7 @@ import ArticleOrganicMushroomFarmGuide from "./pages/ArticleOrganicMushroomFarmG
 import ArticleCommercialSetupTraining from "./pages/ArticleCommercialSetupTraining";
 
 import OperationsPage from "./pages/OperationsPage";
+import GoogleTranslate from "./components/GoogleTranslate";
 
 import {
   generateReviewSchema,
@@ -1029,8 +1030,11 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-2 xl:gap-4 ml-auto">
+            <GoogleTranslate />
+
+            {/* Desktop Nav */}
+            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 overflow-x-auto no-scrollbar">
             {NAV_ITEMS.map((item) => {
               const isHashLink = item.href.includes("#");
               const hash = isHashLink ? item.href.split("#")[1] : null;
@@ -1146,6 +1150,7 @@ const Navbar = () => {
           >
             <Menu size={24} />
           </button>
+          </div>
         </div>
       </nav>
 
