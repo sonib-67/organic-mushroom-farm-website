@@ -352,7 +352,7 @@ export default function BookConsultantPage() {
                   type="submit"
                   className="w-full mt-2 bg-blue-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
                 >
-                  Proceed to Pay ₹59
+                  <span>Proceed to Pay ₹59</span>
                 </button>
               </form>
             </motion.div>
@@ -390,14 +390,12 @@ export default function BookConsultantPage() {
                   onClick={() => setModalState('form')}
                   className="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] flex items-center justify-center gap-2 hover:scale-[1.02]"
                 >
-                  <Zap size={18} /> Try Again
+                  <Zap size={18} /> <span>Try Again</span>
                 </button>
                 <Link
                   to="/"
                   className="w-full inline-flex items-center justify-center px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold text-slate-300 hover:text-white transition-all text-sm"
-                >
-                  Back to Home
-                </Link>
+                ><span>Back to Home</span></Link>
               </div>
             </motion.div>
           </motion.div>
@@ -432,7 +430,7 @@ export default function BookConsultantPage() {
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:shadow-[0_0_30px_rgba(37,211,102,0.5)] transition-all hover:scale-[1.02]"
                 >
-                  <MessageCircle size={20} /> Chat on WhatsApp
+                  <MessageCircle size={20} /> <span>Chat on WhatsApp</span>
                 </a>
               </div>
             </motion.div>

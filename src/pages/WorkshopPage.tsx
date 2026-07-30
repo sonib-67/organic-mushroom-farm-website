@@ -498,7 +498,7 @@ const WorkshopPage = () => {
                     </div>
                     
                     <button onClick={handlePayment} className="w-full py-3 md:py-4 bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 rounded-xl font-bold text-base md:text-lg shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all hover:-translate-y-1 mb-3 md:mb-4 flex justify-center items-center gap-2">
-                       Pay & Join Now <ArrowRight className="w-5 h-5" />
+                       <span>Pay & Join Now</span> <ArrowRight className="w-5 h-5" />
                     </button>
                     <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mt-3">
                       <ShieldCheck className="w-4 h-4" /> 100% Secure SSL Payment
@@ -558,9 +558,7 @@ const WorkshopPage = () => {
                <div className="text-center md:text-right dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-2xl p-8 backdrop-blur-md max-w-sm">
                  <h3 className="text-lg md:text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Ready to Start?</h3>
                  <p className="dark:text-slate-400 text-slate-600 mb-6 text-sm">Join 5000+ others who have already transformed their lives.</p>
-                 <button onClick={handlePayment} className="w-full py-3 bg-white text-black font-bold rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform">
-                   Join Workshop Now
-                 </button>
+                 <button onClick={handlePayment} className="w-full py-3 bg-white text-black font-bold rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform"><span>Join Workshop Now</span></button>
                </div>
             </div>
           </div>
@@ -579,7 +577,7 @@ const WorkshopPage = () => {
       {/* Mobile Sticky CTA Container */}
       <div className="fixed bottom-0 left-0 right-0 p-4 dark:bg-black/80 bg-white/80 backdrop-blur-lg border-t dark:border-white/10 border-black/10 md:hidden z-40">
          <button onClick={() => handlePayment()} className="w-full py-3.5 bg-gradient-to-r from-purple-500 to-blue-600 text-white rounded-xl font-bold shadow-[0_0_20px_rgba(168,85,247,0.3)] flex items-center justify-center gap-2">
-           Pay & Join Now - ₹199 <ArrowRight className="w-5 h-5" />
+           <span>Pay & Join Now - ₹199</span> <ArrowRight className="w-5 h-5" />
          </button>
       </div>
 
@@ -661,7 +659,7 @@ const WorkshopPage = () => {
                   disabled={loading}
                   className="w-full py-4 mt-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold shadow-lg hover:shadow-green-500/25 transition-all disabled:opacity-50"
                 >
-                  {loading ? 'Processing...' : 'Proceed to Pay ₹199'}
+                  {loading ? <span>Processing...</span> : <span>Proceed to Pay ₹199</span>}
                 </button>
               </form>
             </motion.div>

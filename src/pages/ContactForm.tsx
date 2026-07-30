@@ -109,7 +109,7 @@ const ContactFormPage = () => {
                             onClick={() => setSubmitted(false)}
                             className="mt-8 btn-outline px-8 py-3 rounded-xl mx-auto block"
                          >
-                            Submit Another Request
+                            <span>Submit Another Request</span>
                          </button>
                      </motion.div>
                  ) : (
@@ -233,7 +233,7 @@ const ContactFormPage = () => {
 
                              <div className="pt-4 space-y-4">
                                  <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                     Submit Form <Send size={18} />
+                                     <span>Submit Form</span> <Send size={18} />
                                  </button>
                                  <div className="relative flex items-center py-2">
                                     <div className="flex-grow border-t border-white/10"></div>
@@ -246,7 +246,7 @@ const ContactFormPage = () => {
                                      rel="noopener noreferrer" 
                                      className="w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 text-white bg-[#25D366] hover:bg-[#128C7E] transition-all"
                                  >
-                                     Chat on WhatsApp
+                                     <span>Chat on WhatsApp</span>
                                  </a>
                              </div>
                          </form>

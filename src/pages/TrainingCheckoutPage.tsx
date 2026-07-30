@@ -286,9 +286,7 @@ export default function TrainingCheckoutPage() {
                     handleSubmit();
                   }}
                   className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] text-[14px] sm:text-[15px] text-white font-bold py-3.5 sm:py-4 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
-                >
-                   Try Again - {selectedPrice}
-                </button>
+                ><span>Try Again - {selectedPrice}</span></button>
               </motion.div>
             ) : (
               <>
@@ -356,10 +354,14 @@ export default function TrainingCheckoutPage() {
                     disabled={loading}
                     className="w-full mt-4 sm:mt-6 shrink-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)] text-[14px] sm:text-[15px] text-white font-black tracking-wide py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
                   >
-                    {loading ? <Loader2 size={18} className="animate-spin sm:w-5 sm:h-5" /> : (
-                      <>
-                        Complete Payment <ArrowLeft size={14} className="rotate-180 sm:w-4 sm:h-4" />
-                      </>
+                    {loading ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <Loader2 size={18} className="animate-spin sm:w-5 sm:h-5" /> <span>Processing...</span>
+                      </span>
+                    ) : (
+                      <span className="flex items-center justify-center gap-2">
+                        <span>Complete Payment</span> <ArrowLeft size={14} className="rotate-180 sm:w-4 sm:h-4" />
+                      </span>
                     )}
                   </button>
                 </form>

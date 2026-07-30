@@ -1,22 +1,15 @@
 const fs = require('fs');
-
 let content = fs.readFileSync('src/pages/ContactForm.tsx', 'utf8');
 content = content.replace(
-  "const resp = await fetch('https://formspree.io/f/xykldqdy', {",
-  "const resp = await fetch('/api/contact', {"
+/Submit Form <Send size=\{18\} \/>/g,
+`<span>Submit Form</span> <Send size={18} />`
 );
 content = content.replace(
-  "body: formData,",
-  "body: JSON.stringify(Object.fromEntries(formData)),"
+/Submit Another Request/g,
+`<span>Submit Another Request</span>`
 );
 content = content.replace(
-  "'Accept': 'application/json'",
-  "'Accept': 'application/json',\n                    'Content-Type': 'application/json'"
+/Chat on WhatsApp/g,
+`<span>Chat on WhatsApp</span>`
 );
-content = content.replace(
-  "if (!resp.ok) throw new Error('Formspree response not OK');",
-  "if (!resp.ok) throw new Error('Response not OK');"
-);
-
 fs.writeFileSync('src/pages/ContactForm.tsx', content);
-console.log('Patched ContactForm.tsx');
