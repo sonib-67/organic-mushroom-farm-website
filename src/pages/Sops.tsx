@@ -18,22 +18,22 @@ const SopsPage = () => {
                      className="max-w-4xl mx-auto"
                  >
                      <div className="badge mx-auto mb-6">Technical Manual</div>
-                     <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+                     <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
                          Production <span className="gradient-text">SOPs</span>
                      </h1>
-                     <p className="text-slate-400 text-lg leading-relaxed mb-10">
+                     <p className="dark:text-slate-400 text-slate-600 text-lg leading-relaxed mb-10">
                          Standardized protocols for high-yield button mushroom output.
                      </p>
                  </motion.div>
              </section>
 
              <section className="section-padding max-w-4xl mx-auto pt-0 space-y-12">
-                  <div id="tunnel-ops" className="glass p-10 rounded-[3rem] border border-white/5">
+                  <div id="tunnel-ops" className="glass p-10 rounded-[3rem] border dark:border-white/5 border-black/5">
                       <div className="flex items-center gap-4 mb-6">
                            <Thermometer size={32} className="text-primary-start" />
-                           <h2 className="text-3xl font-bold text-white tracking-tight">Tunnel Ops</h2>
+                           <h2 className="text-3xl font-bold dark:text-white text-slate-900 tracking-tight">Tunnel Ops</h2>
                       </div>
-                      <div className="prose prose-invert max-w-none text-slate-300">
+                      <div className="prose prose-invert max-w-none dark:text-slate-300 text-slate-700">
                           <p>Phase-II Pasteurization Tunnel operations require strict temperature and oxygen management to eliminate ammonia and pathogens.</p>
                           <ul className="list-disc pl-5 mt-4 space-y-2">
                               <li><strong>Ramp-Up:</strong> Gradually increase temperature to 57°C over 12 hours.</li>
@@ -44,12 +44,12 @@ const SopsPage = () => {
                       </div>
                   </div>
 
-                  <div id="spawning" className="glass p-10 rounded-[3rem] border border-white/5">
+                  <div id="spawning" className="glass p-10 rounded-[3rem] border dark:border-white/5 border-black/5">
                       <div className="flex items-center gap-4 mb-6">
                            <Wind size={32} className="text-primary-start" />
-                           <h2 className="text-3xl font-bold text-white tracking-tight">Spawning</h2>
+                           <h2 className="text-3xl font-bold dark:text-white text-slate-900 tracking-tight">Spawning</h2>
                       </div>
-                      <div className="prose prose-invert max-w-none text-slate-300">
+                      <div className="prose prose-invert max-w-none dark:text-slate-300 text-slate-700">
                           <p>Proper inoculation requires absolute sterile conditions to prevent green mold (Trichoderma).</p>
                           <ul className="list-disc pl-5 mt-4 space-y-2">
                               <li><strong>Sterile Handling:</strong> Workers must use IPA (Isopropyl Alcohol 70%) on hands and tools. Masks and fresh aprons are strictly mandatory.</li>
@@ -60,12 +60,12 @@ const SopsPage = () => {
                       </div>
                   </div>
 
-                  <div id="casing" className="glass p-10 rounded-[3rem] border border-white/5">
+                  <div id="casing" className="glass p-10 rounded-[3rem] border dark:border-white/5 border-black/5">
                       <div className="flex items-center gap-4 mb-6">
                            <Droplets size={32} className="text-primary-start" />
-                           <h2 className="text-3xl font-bold text-white tracking-tight">Casing</h2>
+                           <h2 className="text-3xl font-bold dark:text-white text-slate-900 tracking-tight">Casing</h2>
                       </div>
-                      <div className="prose prose-invert max-w-none text-slate-300">
+                      <div className="prose prose-invert max-w-none dark:text-slate-300 text-slate-700">
                           <p>The casing layer provides water storage and induces pinning. Poor casing leads to stroma formation.</p>
                           <ul className="list-disc pl-5 mt-4 space-y-2">
                               <li><strong>Material:</strong> Coir pith + Farm Yard Manure (2-year old) + Chalk powder.</li>
@@ -76,12 +76,12 @@ const SopsPage = () => {
                       </div>
                   </div>
 
-                  <div id="hygiene" className="glass p-10 rounded-[3rem] border border-white/5">
+                  <div id="hygiene" className="glass p-10 rounded-[3rem] border dark:border-white/5 border-black/5">
                       <div className="flex items-center gap-4 mb-6">
                            <ShieldCheck size={32} className="text-primary-start" />
-                           <h2 className="text-3xl font-bold text-white tracking-tight">Hygiene</h2>
+                           <h2 className="text-3xl font-bold dark:text-white text-slate-900 tracking-tight">Hygiene</h2>
                       </div>
-                      <div className="prose prose-invert max-w-none text-slate-300">
+                      <div className="prose prose-invert max-w-none dark:text-slate-300 text-slate-700">
                           <p>Biological contamination is the primary cause of crop failure. Zero-tolerance hygiene must be enforced.</p>
                           <ul className="list-disc pl-5 mt-4 space-y-2">
                               <li><strong>Footbath Protocols:</strong> Install 2% Formalin or Bleach footbaths at every entrance. Replenish daily.</li>

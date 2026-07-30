@@ -657,8 +657,8 @@ const CompanyProfile = () => {
   return (
     <section id="profile" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
+        <div className="max-w-4xl mx-auto">
+            <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -4877,7 +4877,7 @@ const AboutPage = () => {
       {/* Who We Are Section */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl mx-auto items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -4938,13 +4938,6 @@ const AboutPage = () => {
                 </div>
               </div>
             </motion.div>
-            <div className="relative">
-              <div className="absolute inset-0 gradient-bg opacity-10 blur-[100px] rounded-full"></div>
-              <img src="training images/trainingmushroom.jpg"
-                alt="Organic Mushrooms Farm Training & Commercial Setup Experts"
-                className="relative z-10 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl opacity-80"
-               width="800" height="600" />
-            </div>
           </div>
         </div>
       </section>
@@ -5003,15 +4996,8 @@ const AboutPage = () => {
       {/* Why Choose Us Section */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-              <img src="training images/mushroomgrowth.jpg"
-                alt="Why Choose Us - High Yield Button Mushroom Growth and Organic Cultivation Training in Jabalpur India"
-                className="rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-2xl"
-               width="800" height="600" />
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="badge mb-4">The Commercial Advantage</div>
+          <div className="max-w-4xl mx-auto">
+            <div className="badge mb-4">The Commercial Advantage</div>
               <h2 className="mb-8 uppercase tracking-tight">
                 Why Choose{" "}
                 <span className="gradient-text">
@@ -5053,8 +5039,7 @@ const AboutPage = () => {
                     </p>
                   </div>
                 ))}
-              </div>
-            </div>
+          </div>
           </div>
         </div>
       </section>

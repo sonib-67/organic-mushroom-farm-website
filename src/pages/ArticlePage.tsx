@@ -532,7 +532,7 @@ const ArticlePage = () => {
 
       <section className="section-padding pt-0 max-w-4xl mx-auto px-4">
         <div className="mb-8">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest">
+          <Link to="/blog" className="inline-flex items-center gap-2 dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900 transition-colors text-sm font-bold uppercase tracking-widest">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
         </div>
@@ -540,18 +540,18 @@ const ArticlePage = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="glass p-8 md:p-14 rounded-[3rem] border border-white/5"
+          className="glass p-8 md:p-14 rounded-[3rem] border dark:border-white/5 border-black/5"
         >
           <div className="badge mb-6">{article.category}</div>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight">
             {article.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-6 mb-12 border-b border-white/10 pb-8">
-            <span className="flex items-center gap-2 text-slate-400 text-sm font-medium">
+          <div className="flex flex-wrap items-center gap-6 mb-12 border-b dark:border-white/10 border-black/10 pb-8">
+            <span className="flex items-center gap-2 dark:text-slate-400 text-slate-600 text-sm font-medium">
               <Calendar size={16} /> {article.date}
             </span>
-            <span className="flex items-center gap-2 text-slate-400 text-sm font-medium">
+            <span className="flex items-center gap-2 dark:text-slate-400 text-slate-600 text-sm font-medium">
               <User size={16} /> Organic Mushrooms Farm Team
             </span>
           </div>

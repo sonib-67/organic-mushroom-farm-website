@@ -49,10 +49,10 @@ const EquipmentPage = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="badge mx-auto mb-6">Inventory & Equipment</div>
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
             The <span className="gradient-text">Grow Tech</span> Stack
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="dark:text-slate-400 text-slate-600 text-lg leading-relaxed">
             Essential tools and materials needed for commercial mushroom farming.
           </p>
         </motion.div>
@@ -65,16 +65,16 @@ const EquipmentPage = () => {
               <div className="w-12 h-12 rounded-2xl bg-primary-start/10 flex items-center justify-center text-primary-start border border-primary-start/20">
                 <section.icon size={24} />
               </div>
-              <h2 className="text-3xl font-bold text-white">{section.title}</h2>
+              <h2 className="text-3xl font-bold dark:text-white text-slate-900">{section.title}</h2>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {section.items.map((item, i) => (
-                <div key={i} className="glass p-8 rounded-[2.5rem] border border-white/5 hover:border-primary-start/30 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 group-hover:text-primary-start transition-colors mb-6">
+                <div key={i} className="glass p-8 rounded-[2.5rem] border dark:border-white/5 border-black/5 hover:border-primary-start/30 transition-all group">
+                  <div className="w-10 h-10 rounded-xl dark:bg-white/5 bg-black/5 flex items-center justify-center dark:text-slate-400 text-slate-600 group-hover:text-primary-start transition-colors mb-6">
                     <Box size={20} />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-3">{item.name}</h3>
+                  <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-3">{item.name}</h3>
                   <p className="text-slate-500 text-sm leading-relaxed mb-6">{item.desc}</p>
                 </div>
               ))}
@@ -84,13 +84,13 @@ const EquipmentPage = () => {
       </div>
 
       <section className="section-padding">
-        <div className="max-w-5xl mx-auto glass p-12 md:p-16 rounded-[4rem] border border-white/5 flex flex-col md:flex-row items-center gap-12">
+        <div className="max-w-5xl mx-auto glass p-12 md:p-16 rounded-[4rem] border dark:border-white/5 border-black/5 flex flex-col md:flex-row items-center gap-12">
             <div className="w-24 h-24 rounded-full bg-primary-start/20 flex items-center justify-center text-primary-start shrink-0">
                 <ShieldCheck size={48} />
             </div>
             <div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Industrial Setup Assistance</h3>
-                <p className="text-slate-400 text-lg leading-relaxed mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900 mb-4">Industrial Setup Assistance</h3>
+                <p className="dark:text-slate-400 text-slate-600 text-lg leading-relaxed mb-8">
                     Not sure what to buy? We help you choose and get high-quality equipment at wholesale prices.
                 </p>
                 <div className="flex gap-4">

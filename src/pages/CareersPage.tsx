@@ -48,17 +48,17 @@ export default function CareersPage() {
           
           <div className="text-center py-16 md:py-24 max-w-4xl mx-auto">
             <div className="badge mx-auto mb-6">Join Our Ecosystem</div>
-            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold dark:text-white text-slate-900 leading-tight mb-6 tracking-tighter">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold dark:text-white text-slate-900 text-slate-900 leading-tight mb-6 tracking-tighter">
               Grow Your Career in <span className="gradient-text">Sustainable Tech-Agriculture</span>
             </h1>
-            <p className="text-lg md:text-xl dark:text-slate-400 text-slate-600 mb-10 leading-relaxed">
+            <p className="text-lg md:text-xl dark:text-slate-400 text-slate-600 text-slate-600 mb-10 leading-relaxed">
               We are revolutionizing the commercial mushroom ecosystem across India and the globe. Join the network powering thousands of agro-entrepreneurs.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a href="#open-positions" className="btn-primary px-8 py-3 rounded-full font-bold flex items-center gap-2">
                 <Search size={18} /> View Open Positions
               </a>
-              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 font-bold flex items-center gap-2">
+              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="px-8 py-3 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 text-slate-900 font-bold flex items-center gap-2">
                 <MessageCircle size={18} /> Chat with HR
               </a>
             </div>
@@ -72,29 +72,29 @@ export default function CareersPage() {
               { icon: Heart, title: "Health First", desc: "Working in organic, clean environments focused on sustainability." },
               { icon: Users, title: "Excellent Culture", desc: "A tightly knit team driven by passion for agritech innovation." }
             ].map((b, i) => (
-               <div key={i} className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 hover:-translate-y-2 transition-transform">
+               <div key={i} className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 border-black/5 hover:-translate-y-2 transition-transform">
                  <b.icon className="text-primary-start mb-4" size={32} />
-                 <h2 className="text-xl font-bold dark:text-white text-slate-900 mb-2">{b.title}</h2>
-                 <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">{b.desc}</p>
+                 <h2 className="text-xl font-bold dark:text-white text-slate-900 text-slate-900 mb-2">{b.title}</h2>
+                 <p className="dark:text-slate-400 text-slate-600 text-slate-600 text-sm leading-relaxed">{b.desc}</p>
                </div>
             ))}
           </div>
 
           <div id="open-positions" className="mb-24 scroll-mt-32">
-            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-12 flex items-center gap-4">
+            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 text-slate-900 mb-12 flex items-center gap-4">
               <Briefcase className="text-primary-start" size={40} /> Open Positions
             </h2>
             <div className="grid gap-6">
               {jobs.map((job, i) => (
-                <div key={i} className="glass p-8 rounded-[2rem] border dark:border-white/5 border-black/5 hover:border-primary-start/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-6 group">
+                <div key={i} className="glass p-8 rounded-[2rem] border dark:border-white/5 border-black/5 border-black/5 hover:border-primary-start/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-6 group">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-3">{job.title}</h3>
+                    <h3 className="text-2xl font-bold dark:text-white text-slate-900 text-slate-900 mb-3">{job.title}</h3>
                     <div className="flex flex-wrap gap-3 mb-4">
-                      <span className="px-3 py-1 rounded-lg dark:bg-white/5 bg-black/5 text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1"><MapPin size={12}/> {job.location}</span>
-                      <span className="px-3 py-1 rounded-lg dark:bg-white/5 bg-black/5 text-xs font-bold text-slate-500 uppercase tracking-wider">{job.type}</span>
-                      <span className="px-3 py-1 rounded-lg dark:bg-white/5 bg-black/5 text-xs font-bold text-slate-500 uppercase tracking-wider">{job.experience}</span>
+                      <span className="px-3 py-1 rounded-lg dark:bg-white/5 bg-black/5 bg-black/5 text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1"><MapPin size={12}/> {job.location}</span>
+                      <span className="px-3 py-1 rounded-lg dark:bg-white/5 bg-black/5 bg-black/5 text-xs font-bold text-slate-500 uppercase tracking-wider">{job.type}</span>
+                      <span className="px-3 py-1 rounded-lg dark:bg-white/5 bg-black/5 bg-black/5 text-xs font-bold text-slate-500 uppercase tracking-wider">{job.experience}</span>
                     </div>
-                    <p className="dark:text-slate-400 text-slate-600 max-w-2xl text-sm leading-relaxed">{job.desc}</p>
+                    <p className="dark:text-slate-400 text-slate-600 text-slate-600 max-w-2xl text-sm leading-relaxed">{job.desc}</p>
                   </div>
                   <div className="shrink-0 flex gap-4">
                     <a href={`https://wa.me/919203544140?text=I%20am%20interested%20in%20applying%20for%20the%20position%20of%20${encodeURIComponent(job.title)}`} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2 group-hover:scale-105 transition-transform text-sm">
@@ -107,17 +107,17 @@ export default function CareersPage() {
           </div>
 
           {/* Quick Apply Section */}
-          <div className="glass grid md:grid-cols-2 rounded-[3.5rem] border dark:border-white/5 border-black/5 overflow-hidden mb-24">
-             <div className="p-12 md:p-16 dark:bg-white/5 bg-black/5 flex flex-col justify-center">
-               <h2 className="text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">Don't see a fit? Send your resume!</h2>
-               <p className="dark:text-slate-400 text-slate-600 mb-8 leading-relaxed">
+          <div className="glass grid md:grid-cols-2 rounded-[3.5rem] border dark:border-white/5 border-black/5 border-black/5 overflow-hidden mb-24">
+             <div className="p-12 md:p-16 dark:bg-white/5 bg-black/5 bg-black/5 flex flex-col justify-center">
+               <h2 className="text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 text-slate-900 mb-6 tracking-tight">Don't see a fit? Send your resume!</h2>
+               <p className="dark:text-slate-400 text-slate-600 text-slate-600 mb-8 leading-relaxed">
                  We are always on the lookout for talented individuals in agriculture, logistics, marketing, and sales. Submit your profile, and we'll reach out when an opportunity arises.
                </p>
                <ul className="space-y-4 mb-8">
-                 <li className="flex items-center gap-3 font-medium text-sm dark:text-slate-300 text-slate-700">
+                 <li className="flex items-center gap-3 font-medium text-sm dark:text-slate-300 text-slate-700 text-slate-700">
                    <CheckCircle2 className="text-green-500" size={20} /> Field Executives & Labour
                  </li>
-                 <li className="flex items-center gap-3 font-medium text-sm dark:text-slate-300 text-slate-700">
+                 <li className="flex items-center gap-3 font-medium text-sm dark:text-slate-300 text-slate-700 text-slate-700">
                    <CheckCircle2 className="text-green-500" size={20} /> Agronomy Specialists
                  </li>
                </ul>
@@ -126,7 +126,7 @@ export default function CareersPage() {
                <div className="absolute inset-0 bg-primary-start/10 blur-[100px] rounded-full"></div>
                <div className="w-full max-w-sm relative z-10 text-center">
                  <FileText size={64} className="text-primary-start mx-auto mb-6" />
-                 <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-6">Drop your details on WhatsApp</h3>
+                 <h3 className="text-xl font-bold dark:text-white text-slate-900 text-slate-900 mb-6">Drop your details on WhatsApp</h3>
                  <a href="https://wa.me/919203544140?text=Hi! I am looking for career opportunities and would like to share my resume." target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center px-8 py-4 rounded-full font-bold flex items-center gap-2">
                    <MessageCircle size={20} /> Share Resume on WhatsApp
                  </a>

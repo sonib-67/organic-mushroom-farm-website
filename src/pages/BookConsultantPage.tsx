@@ -224,7 +224,7 @@ export default function BookConsultantPage() {
             <h1 className="text-xl md:text-5xl lg:text-6xl font-extrabold dark:text-white text-slate-900 mb-1.5 md:mb-6 tracking-tighter leading-tight uppercase">
               1-on-1 <span className="text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">Call Consultancy</span>
             </h1>
-            <p className="dark:text-slate-400 text-slate-600 text-[10px] md:text-xl max-w-2xl mx-auto font-medium mb-3 md:mb-10 leading-snug px-2">
+            <p className="dark:dark:text-slate-400 text-slate-600 text-slate-600 text-[10px] md:text-xl max-w-2xl mx-auto font-medium mb-3 md:mb-10 leading-snug px-2">
               Get direct, actionable solutions from industry experts to avoid costly mistakes and scale profitably.
             </p>
             
@@ -244,7 +244,7 @@ export default function BookConsultantPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-4 md:mb-12">
             <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-0.5 md:mb-2">What's <span className="text-blue-500">Included</span></h3>
-            <p className="dark:text-slate-400 text-slate-600 text-[9px] md:text-base">Everything you need to launch and scale efficiently.</p>
+            <p className="dark:dark:text-slate-400 text-slate-600 text-slate-600 text-[9px] md:text-base">Everything you need to launch and scale efficiently.</p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-1.5 md:gap-6">
             {includedItems.map((item, i) => (
@@ -260,7 +260,7 @@ export default function BookConsultantPage() {
                   <item.icon className="w-3 h-3 md:w-8 md:h-8" />
                 </div>
                 <h4 className="text-[10px] md:text-xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-3 leading-tight">{item.title}</h4>
-                <p className="dark:text-slate-400 text-slate-600 text-[8px] md:text-sm leading-tight md:leading-relaxed">{item.desc}</p>
+                <p className="dark:dark:text-slate-400 text-slate-600 text-slate-600 text-[8px] md:text-sm leading-tight md:leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -298,13 +298,13 @@ export default function BookConsultantPage() {
             >
               <button 
                 onClick={() => setModalState('idle')}
-                className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
+                className="absolute top-3 right-3 text-slate-600 dark:dark:text-slate-400 text-slate-600 hover:text-slate-900 hover:dark:text-white bg-black/5 dark:bg-black/20 hover:bg-black/10 hover:dark:bg-black/40 rounded-full p-1.5 transition-colors z-20"
               >
                 <X size={16} />
               </button>
               
               <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Book Consultant</h3>
-              <p className="text-xs md:text-sm text-slate-400 mb-6">Enter your details to proceed to payment.</p>
+              <p className="text-xs md:text-sm dark:text-slate-400 text-slate-600 mb-6">Enter your details to proceed to payment.</p>
               
               <form onSubmit={handleFormSubmit} className="space-y-4 relative z-10 w-full">
                 <div>
@@ -374,7 +374,7 @@ export default function BookConsultantPage() {
             >
               <button 
                 onClick={() => setModalState('idle')}
-                className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
+                className="absolute top-3 right-3 text-slate-600 dark:dark:text-slate-400 text-slate-600 hover:text-slate-900 hover:dark:text-white bg-black/5 dark:bg-black/20 hover:bg-black/10 hover:dark:bg-black/40 rounded-full p-1.5 transition-colors z-20"
               >
                 <X size={16} />
               </button>
@@ -383,7 +383,7 @@ export default function BookConsultantPage() {
                 <X size={32} />
               </div>
               <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">Payment Cancelled ❌</h3>
-              <p className="text-sm text-slate-400 mb-6">Your consultation booking was not completed.<br/>Please try again to continue.</p>
+              <p className="text-sm dark:text-slate-400 text-slate-600 mb-6">Your consultation booking was not completed.<br/>Please try again to continue.</p>
               
               <div className="space-y-3 relative z-10 w-full">
                 <button
@@ -394,7 +394,7 @@ export default function BookConsultantPage() {
                 </button>
                 <Link
                   to="/"
-                  className="w-full inline-flex items-center justify-center px-4 py-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl font-bold text-slate-300 hover:text-white transition-all text-sm"
+                  className="w-full inline-flex items-center justify-center px-4 py-3 bg-black/5 dark:bg-white/5 hover:bg-black/10 hover:dark:bg-white/10 border border-black/10 dark:border-white/10 rounded-xl font-bold text-slate-700 dark:text-slate-300 hover:text-slate-900 hover:dark:text-white transition-all text-sm"
                 ><span>Back to Home</span></Link>
               </div>
             </motion.div>
@@ -412,7 +412,7 @@ export default function BookConsultantPage() {
             >
               <button 
                 onClick={() => setModalState('idle')}
-                className="absolute top-3 right-3 text-slate-400 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors z-20"
+                className="absolute top-3 right-3 text-slate-600 dark:dark:text-slate-400 text-slate-600 hover:text-slate-900 hover:dark:text-white bg-black/5 dark:bg-black/20 hover:bg-black/10 hover:dark:bg-black/40 rounded-full p-1.5 transition-colors z-20"
               >
                 <X size={16} />
               </button>
@@ -421,8 +421,8 @@ export default function BookConsultantPage() {
                 <div className="w-20 h-20 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(34,197,94,0.2)]">
                   <CheckCircle2 size={40} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-black text-white mb-3">Consultation Booked Successfully 🎉</h3>
-                <p className="text-sm text-slate-400 mb-8">Our team will contact you shortly.</p>
+                <h3 className="text-xl md:text-2xl font-black dark:text-white text-slate-900 mb-3">Consultation Booked Successfully 🎉</h3>
+                <p className="text-sm dark:text-slate-400 text-slate-600 mb-8">Our team will contact you shortly.</p>
                 
                 <a 
                   href={generateWhatsappLink()}

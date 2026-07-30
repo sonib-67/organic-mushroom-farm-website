@@ -259,8 +259,8 @@ const WorkshopPage = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center gap-2 md:gap-4 mb-6 md:mb-10 w-full px-4 sm:px-0 sm:w-auto"
           >
-            <button onClick={handlePayment} className="group relative w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-4 bg-white text-black font-bold rounded-full overflow-hidden text-sm md:text-lg transition-transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-              <span className="absolute inset-0 bg-gradient-to-r from-purple-100 to-white opacity-0 group-hover:opacity-100 transition-opacity"></span>
+            <button onClick={handlePayment} className="group relative w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-4 dark:bg-white dark:text-black bg-slate-900 text-white font-bold rounded-full overflow-hidden text-sm md:text-lg transition-transform hover:scale-105 active:scale-95 dark:shadow-[0_0_30px_rgba(255,255,255,0.2)] shadow-[0_0_30px_rgba(0,0,0,0.2)]">
+              <span className="absolute inset-0 bg-gradient-to-r dark:from-purple-100 dark:to-white from-purple-800 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity"></span>
               <span className="relative flex items-center justify-center gap-2">
                 Reserve Your Seat <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -441,7 +441,7 @@ const WorkshopPage = () => {
                 <div className="flex gap-1 mb-4 md:mb-6 relative z-10">
                    {[1,2,3,4,5].map(star => <Star key={star} className="w-3 h-3 md:w-4 md:h-4 text-[#FFD700] fill-[#FFD700]" />)}
                 </div>
-                <p className="text-sm md:text-lg text-slate-200 mb-6 md:mb-8 relative z-10 leading-relaxed">"{review.text}"</p>
+                <p className="text-sm md:text-lg dark:text-slate-200 text-slate-700 mb-6 md:mb-8 relative z-10 leading-relaxed">"{review.text}"</p>
                 <div className="flex items-center gap-3 md:gap-4 relative z-10">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-900 border-2 border-purple-500 flex items-center justify-center dark:text-white text-slate-900 font-bold text-lg md:text-xl uppercase">
                     {review.author.charAt(0)}
@@ -483,7 +483,7 @@ const WorkshopPage = () => {
                       ].map((item, i) => (
                         <li key={i} className="flex items-center gap-3">
                           <CheckCircle className="w-5 h-5 text-purple-400 shrink-0" />
-                          <span className="text-sm md:text-base font-medium text-slate-200">{item}</span>
+                          <span className="text-sm md:text-base font-medium dark:text-slate-200 text-slate-700">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -494,13 +494,13 @@ const WorkshopPage = () => {
                     <div className="flex items-start justify-center gap-1 mb-4 md:mb-6">
                       <span className="text-xl md:text-2xl font-bold dark:text-slate-300 text-slate-700 mt-2">₹</span>
                       <span className="text-4xl md:text-6xl font-black dark:text-white text-slate-900">199</span>
-                      <span className="text-lg md:text-xl text-slate-500 line-through mt-1 md:mt-2 ml-2">₹1999</span>
+                      <span className="text-lg md:text-xl dark:text-slate-400 text-slate-500 line-through mt-1 md:mt-2 ml-2">₹1999</span>
                     </div>
                     
                     <button onClick={handlePayment} className="w-full py-3 md:py-4 bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-400 hover:to-blue-500 rounded-xl font-bold text-base md:text-lg shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all hover:-translate-y-1 mb-3 md:mb-4 flex justify-center items-center gap-2">
                        <span>Pay & Join Now</span> <ArrowRight className="w-5 h-5" />
                     </button>
-                    <p className="text-xs text-slate-500 flex items-center justify-center gap-1 mt-3">
+                    <p className="text-xs dark:text-slate-400 text-slate-500 flex items-center justify-center gap-1 mt-3">
                       <ShieldCheck className="w-4 h-4" /> 100% Secure SSL Payment
                     </p>
                  </div>
@@ -558,14 +558,14 @@ const WorkshopPage = () => {
                <div className="text-center md:text-right dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-2xl p-8 backdrop-blur-md max-w-sm">
                  <h3 className="text-lg md:text-xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400">Ready to Start?</h3>
                  <p className="dark:text-slate-400 text-slate-600 mb-6 text-sm">Join 5000+ others who have already transformed their lives.</p>
-                 <button onClick={handlePayment} className="w-full py-3 bg-white text-black font-bold rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform"><span>Join Workshop Now</span></button>
+                 <button onClick={handlePayment} className="w-full py-3 dark:bg-white dark:text-black bg-slate-900 text-white font-bold rounded-xl dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform"><span>Join Workshop Now</span></button>
                </div>
             </div>
           </div>
           
           <div className="border-t dark:border-white/10 border-black/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-             <p className="text-slate-500 text-sm">© 2026 Organic Mushrooms Farm. All rights reserved.</p>
-             <div className="flex gap-6 text-sm text-slate-500">
+             <p className="dark:text-slate-400 text-slate-500 text-sm">© 2026 Organic Mushrooms Farm. All rights reserved.</p>
+             <div className="flex gap-6 text-sm dark:text-slate-400 text-slate-500">
                <Link to="/terms" className="hover:dark:text-white text-slate-900 transition-colors">Terms</Link>
                <Link to="/privacy" className="hover:dark:text-white text-slate-900 transition-colors">Privacy</Link>
                <Link to="/refund-policy" className="hover:dark:text-white text-slate-900 transition-colors">Refund Policy</Link>
@@ -630,7 +630,7 @@ const WorkshopPage = () => {
                     required
                     value={formData.name}
                     onChange={e => setFormData({...formData, name: e.target.value})}
-                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
                     placeholder="Enter your name"
                     data-webmcp-property="name"
                     data-webmcp-description="Full name of the student"
@@ -646,7 +646,7 @@ const WorkshopPage = () => {
                     pattern="[0-9]{10}"
                     value={formData.phone}
                     onChange={e => setFormData({...formData, phone: e.target.value.replace(/\D/g, '').slice(0, 10)})}
-                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
+                    className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-3 dark:text-white dark:text-white text-slate-900 focus:outline-none focus:border-green-500"
                     placeholder="10-digit mobile number"
                     data-webmcp-property="phone"
                     data-webmcp-description="10-digit WhatsApp/mobile number to receive training links"

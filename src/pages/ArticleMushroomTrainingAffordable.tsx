@@ -26,13 +26,13 @@ const ArticleMushroomTrainingAffordable = () => {
             <Award size={14} />
             <span className="text-[10px] font-black uppercase tracking-widest text-[#22c55e]">Mushroom Training Program</span>
           </div>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 mb-6 leading-tight tracking-tight">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold dark:text-white text-slate-900 text-slate-900 mb-6 leading-tight tracking-tight">
             Online Vs Offline Mushroom Farming Training | Certificate Course Guide
           </h1>
-          <p className="text-lg md:text-xl font-medium text-slate-400 leading-relaxed mb-6">
+          <p className="text-lg md:text-xl font-medium dark:text-slate-400 text-slate-600 leading-relaxed mb-6">
             India ka Sabse Affordable Mushroom Training Program | Sirf ₹299 Mein Online Course | Offline Training Jabalpur Mein Available
           </p>
-          <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-slate-500 uppercase tracking-widest border-b dark:border-white/10 border-black/10 pb-8">
+          <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-slate-500 uppercase tracking-widest border-b dark:border-white/10 border-black/10 border-black/10 pb-8">
             <div className="flex items-center gap-2">
               <Calendar size={14} /> June 01, 2026
             </div>
@@ -50,7 +50,7 @@ const ArticleMushroomTrainingAffordable = () => {
         {/* Article Content */}
         <article className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-primary-start">
           
-          <div className="lead text-xl dark:text-slate-300 text-slate-700 font-medium mb-8 p-6 rounded-3xl bg-white/[0.02] border dark:border-white/5 border-black/5">
+          <div className="lead text-xl dark:text-slate-300 text-slate-700 text-slate-700 font-medium mb-8 p-6 rounded-3xl dark:bg-white/[0.02] bg-black/[0.03] border dark:border-white/5 border-black/5 border-black/5">
             <strong>Mushroom Training Kya Hoti Hai? | What is Mushroom Farming Training?</strong>
             <p className="mt-4 text-base leading-relaxed">
               Agar aap mushroom ki kheti shuru karna chahte hain aur nahi pata kahan se start karen — toh mushroom training bilkul aapke liye hai. Mushroom farming training ek aisa program hota hai jisme aapko step-by-step sikhaya jata hai ki mushroom kaise ugayi jaati hai, spawn kaise use hota hai, fruiting kaise hoti hai, harvesting aur packing kaise karni hai — aur sabse important — mushroom se paise kaise kamaye jaate hain.
@@ -65,30 +65,30 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           {/* Section: Why Training Matters */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Mushroom Farming Training Kyun Zaroori Hai? | Why Training Matters
           </h2>
           <p>
             Bohot log sochte hain ki mushroom farming easy hai — bas spawn dalo, pani daalo, mushroom nikal aayegi. Lekin bina proper training ke:
           </p>
           <ul className="space-y-3 my-6">
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <span className="w-2 h-2 rounded-full bg-red-500 mt-2 shrink-0"></span>
               <span><strong>Contamination ki problem aati hai:</strong> Mold aur bacteria pura crop barbad kar dete hain.</span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <span className="w-2 h-2 rounded-full bg-red-500 mt-2 shrink-0"></span>
               <span><strong>Spawn wastage:</strong> Sahi temperature aur humidity nahi hone par spawn waste ho jata hai.</span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <span className="w-2 h-2 rounded-full bg-red-500 mt-2 shrink-0"></span>
               <span><strong>Fruiting issues:</strong> Proper pinheads nahi bante ya dry ho jate hain.</span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <span className="w-2 h-2 rounded-full bg-red-500 mt-2 shrink-0"></span>
               <span><strong>Quality degradation:</strong> Mushrooms ka color aur shape kharab banta hai, jiski vajah se market rates nahi milte.</span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <span className="w-2 h-2 rounded-full bg-red-500 mt-2 shrink-0"></span>
               <span><strong>Paise ka nuksan:</strong> Yield kharab hone par mehnat aur lagat dono doob jati hain.</span>
             </li>
@@ -98,14 +98,14 @@ const ArticleMushroomTrainingAffordable = () => {
           </p>
 
           {/* Section: Online Mushroom Training */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Online Mushroom Farming Training | Ghar Baithe Seekho — Sirf ₹299
           </h2>
           <p>
             Hamari online mushroom farming training course India ki sabse affordable aur comprehensive training hai. Ek video-based training program hai jisme aap apni speed se seekh sakte hain.
           </p>
           
-          <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 my-8">
+          <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 border-black/5 my-8">
             <h3 className="text-xl font-bold mb-4 text-primary-start flex items-center gap-2">
               <BookOpen size={18} /> Online Mushroom Course Mein Kya Sikhoge?
             </h3>
@@ -140,19 +140,19 @@ const ArticleMushroomTrainingAffordable = () => {
 
           <div className="glass p-8 rounded-3xl border border-primary-start/20 bg-primary-start/5 text-center my-8 max-w-xl mx-auto">
             <span className="text-2xl font-black block mb-2 text-[#22c55e]">📱 ONLINE MUSHROOM TRAINING — SIRF ₹299</span>
-            <p className="font-bold text-sm text-slate-300">Certificate ke Saath | Hindi Mein | Lifetime Access</p>
+            <p className="font-bold text-sm dark:text-slate-300 text-slate-700">Certificate ke Saath | Hindi Mein | Lifetime Access</p>
             <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
               <a href="https://organicmushroomsfarm.com/training" className="inline-block bg-[#22c55e] text-black font-extrabold text-sm px-6 py-3 rounded-xl hover:scale-105 transition-transform">
                 Register Now
               </a>
-              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-900 border border-white/10 text-white font-extrabold text-sm px-6 py-3 rounded-xl hover:bg-white/5 transition-all">
+              <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-block bg-slate-900 border dark:border-white/10 border-black/10 dark:text-white text-slate-900 font-extrabold text-sm px-6 py-3 rounded-xl hover:dark:bg-white/5 bg-black/5 transition-all">
                 WhatsApp: 9203544140
               </a>
             </div>
           </div>
 
           {/* Section: Offline Mushroom Training */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Offline Mushroom Training — Jabalpur Farm Pe Aake Seekho
           </h2>
           <p>
@@ -162,7 +162,7 @@ const ArticleMushroomTrainingAffordable = () => {
             <strong>Organic Mushrooms Farm Jabalpur</strong> mein ek live working farm hai jahan aap asli mushroom cultivation process dekhoge aur khud karoge. Yahan oyster, milky, aur button mushroom ki commercial cultivation hoti hai.
           </p>
 
-          <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 my-8">
+          <div className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 border-black/5 my-8">
             <h3 className="text-xl font-bold mb-4 text-primary-start flex items-center gap-2">
               <Users size={18} /> Offline Mushroom Training Mein Kya Hoga?
             </h3>
@@ -179,45 +179,45 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           <h3 className="text-xl font-bold mt-8 mb-4">Offline Training Details Table</h3>
-          <div className="overflow-x-auto border dark:border-white/10 border-black/10 rounded-2xl glass mb-8">
+          <div className="overflow-x-auto border dark:border-white/10 border-black/10 border-black/10 rounded-2xl glass mb-8">
             <table className="w-full text-left font-sans text-sm">
               <thead>
-                <tr className="bg-white/5 border-b dark:border-white/10 border-black/10 text-primary-start font-bold">
+                <tr className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10 border-black/10 text-primary-start font-bold">
                   <th className="p-4 uppercase tracking-wider">Detail</th>
                   <th className="p-4 uppercase tracking-wider">Information</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-slate-300">
+              <tbody className="divide-y divide-white/5 dark:text-slate-300 text-slate-700">
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Location</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Location</td>
                   <td className="p-4">Organic Mushrooms Farm, Jabalpur, Madhya Pradesh</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Duration</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Duration</td>
                   <td className="p-4">1 to 3 Days (as per requirements & scale index)</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Language</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Language</td>
                   <td className="p-4">Hindi / Hinglish (Simple everyday terms)</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Training Type</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Training Type</td>
                   <td className="p-4">100% Practical Field-work + Theoretical Concept Clarity</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Certificate</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Certificate</td>
                   <td className="p-4 text-[#22c55e] font-bold">Yes — Stamped & Issued on Course Completion</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Contact Support</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Contact Support</td>
                   <td className="p-4">WhatsApp: 9203544140</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Official Site</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Official Site</td>
                   <td className="p-4">organicmushroomsfarm.com</td>
                 </tr>
                 <tr>
-                  <td className="p-4 font-bold text-white border-r border-white/5">Scheduling Code</td>
+                  <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">Scheduling Code</td>
                   <td className="p-4 font-bold text-orange-400">Call SMS / WhatsApp to schedule slot beforehand</td>
                 </tr>
               </tbody>
@@ -225,19 +225,19 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           {/* Comparison Section */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Online vs Offline Mushroom Training — Comparison
           </h2>
-          <div className="overflow-x-auto border dark:border-white/10 border-black/10 rounded-2xl glass mb-8">
+          <div className="overflow-x-auto border dark:border-white/10 border-black/10 border-black/10 rounded-2xl glass mb-8">
             <table className="w-full text-left font-sans text-xs sm:text-sm">
               <thead>
-                <tr className="bg-white/5 border-b dark:border-white/10 border-black/10 text-primary-start font-bold">
+                <tr className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10 border-black/10 text-primary-start font-bold">
                   <th className="p-3 uppercase">Feature</th>
                   <th className="p-3 uppercase">Online Training ₹299</th>
                   <th className="p-3 uppercase">Offline Training Jabalpur</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-slate-300">
+              <tbody className="divide-y divide-white/5 dark:text-slate-300 text-slate-700">
                 {[
                   ["Location", "Kahi se bhi (India/World)", "Jabalpur, Madhya Pradesh"],
                   ["Duration", "Self-paced (Lifetime access)", "1 - 3 Days Modules"],
@@ -250,10 +250,10 @@ const ArticleMushroomTrainingAffordable = () => {
                   ["Support", "Active WhatsApp query group support", "Direct 1-on-1 expert support"],
                   ["Spawn Supply", "Available separately (Pan India dispatch)", "Directly available from the farm"]
                 ].map((row, i) => (
-                  <tr key={i} className="hover:bg-white/[0.01]">
-                    <td className="p-3 font-bold text-white border-r border-white/5">{row[0]}</td>
-                    <td className="p-3 border-r border-white/5">{row[1]}</td>
-                    <td className="p-3 font-medium text-slate-300">{row[2]}</td>
+                  <tr key={i} className="hover:dark:bg-white/[0.01] bg-black/[0.02]">
+                    <td className="p-3 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">{row[0]}</td>
+                    <td className="p-3 border-r dark:border-white/5 border-black/5">{row[1]}</td>
+                    <td className="p-3 font-medium dark:text-slate-300 text-slate-700">{row[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -261,20 +261,20 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           {/* Section: Varieties Covered */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Kaunsi Mushroom Ki Training Available Hai? | Varieties Covered
           </h2>
           <p>Hamari training modules mein in high-revenue varieties ke single production segments hain:</p>
           
           <div className="space-y-6 my-8">
-            <div className="p-6 rounded-3xl bg-white/[0.01] border dark:border-white/5 border-black/5">
+            <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 border-black/5">
               <h3 className="text-[#22c55e] font-extrabold text-lg flex items-center gap-2 mb-2">
                 1. Oyster Mushroom (Pleurotus ostreatus) Training
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm dark:text-slate-300 text-slate-700 leading-relaxed">
                 Oyster mushroom sabse popular aur beginner-friendly mushroom hai. Kam investment, fast growth (14-21 days), aur high demand. Training mein substrate preparation se lekar harvesting tak sab sikhayenge.
               </p>
-              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold text-slate-400">
+              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold dark:text-slate-400 text-slate-600">
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Paddy straw cultivation</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Wheat straw cultivation</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Cotton waste cultivation</li>
@@ -282,14 +282,14 @@ const ArticleMushroomTrainingAffordable = () => {
               </ul>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white/[0.01] border dark:border-white/5 border-black/5">
+            <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 border-black/5">
               <h3 className="text-[#22c55e] font-extrabold text-lg flex items-center gap-2 mb-2">
                 2. Button Mushroom (Agaricus bisporus) Training
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm dark:text-slate-300 text-slate-700 leading-relaxed">
                 Button mushroom India ki sabse zyada biki jaane wali mushroom hai. Thoda technical hai — composting process complex hota hai. Training mein compost preparation, casing preparation, casing soil, temperature structure adjustments sikhaya jata hai.
               </p>
-              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold text-slate-400">
+              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold dark:text-slate-400 text-slate-600">
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Long and Short Composting methods</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Casing soil preparation methods</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Temperature-controlled room setup</li>
@@ -297,28 +297,28 @@ const ArticleMushroomTrainingAffordable = () => {
               </ul>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white/[0.01] border dark:border-white/5 border-black/5">
+            <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 border-black/5">
               <h3 className="text-[#22c55e] font-extrabold text-lg flex items-center gap-2 mb-2">
                 3. Milky Mushroom (Calocybe indica) Training
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm dark:text-slate-300 text-slate-700 leading-relaxed">
                 Milky mushroom India ka garam mausam mushroom hai — June se September tak ideal climate. Training mein high-temperature resistant crop protocols sikhate hain.
               </p>
-              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold text-slate-400">
+              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold dark:text-slate-400 text-slate-600">
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Summer cultivation setup</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> High humidity management</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Commercial production scaling</li>
               </ul>
             </div>
 
-            <div className="p-6 rounded-3xl bg-white/[0.01] border dark:border-white/5 border-black/5">
+            <div className="p-6 rounded-3xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 border-black/5">
               <h3 className="text-[#22c55e] font-extrabold text-lg flex items-center gap-2 mb-2">
                 4. Shiitake, Reishi & Other Exotic Mushroom Training
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm dark:text-slate-300 text-slate-700 leading-relaxed">
                 Advanced learners ke liye exotic aur medicinal mushroom training bhi available hai. Inki market value bohot high hoti hai — especially export markets mein.
               </p>
-              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold text-slate-400">
+              <ul className="grid grid-cols-2 gap-2 mt-4 text-xs font-bold dark:text-slate-400 text-slate-600">
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Shiitake log cultivation</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Reishi (Ganoderma) medical production</li>
                 <li className="flex items-center gap-1.5"><CheckCircle2 size={12} className="text-[#22c55e]" /> Export parameters alignment</li>
@@ -327,26 +327,26 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           {/* Section: Certificate Benefits */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Mushroom Training Certificate | Certification Ka Kya Fayda?
           </h2>
           <p>
             Hamare mushroom training program ke completion ke baad aapko ek certificate milega jo:
           </p>
           <ul className="space-y-3 my-6">
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" />
               <span><strong>Government schemes apply karne mein helpful hota hai:</strong> NABARD, PMEGP, Mudra Loan apply karne ke liye educational competency proof demand hota hai.</span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" />
               <span><strong>Bank loan processing:</strong> Agri-loans verification ke time training certificates competency prove karte hain.</span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" />
               <span><span><strong>Professional credibility:</strong> Business profile ya resume boost hota hai, jisse consultants ya setups create karne mein help milti hai.</span></span>
             </li>
-            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700">
+            <li className="flex items-start gap-2.5 text-sm dark:text-slate-300 text-slate-700 text-slate-700">
               <CheckCircle2 size={18} className="text-primary-start shrink-0 mt-0.5" />
               <span><strong>Farmer community trust:</strong> Agar aap spawn distribution ya local setups set up kar rahe hain, log proof mangte hain.</span>
             </li>
@@ -356,18 +356,18 @@ const ArticleMushroomTrainingAffordable = () => {
           </p>
 
           {/* Section: Who Should Join */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Ye Training Kis Ke Liye Hai? | Who Should Join?
           </h2>
-          <div className="overflow-x-auto border dark:border-white/10 border-black/10 rounded-2xl glass mb-8">
+          <div className="overflow-x-auto border dark:border-white/10 border-black/10 border-black/10 rounded-2xl glass mb-8">
             <table className="w-full text-left font-sans text-sm">
               <thead>
-                <tr className="bg-white/5 border-b dark:border-white/10 border-black/10 text-primary-start font-bold">
+                <tr className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10 border-black/10 text-primary-start font-bold">
                   <th className="p-4 uppercase shrink-0">Target Group</th>
                   <th className="p-4 uppercase">Why Join?</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-slate-300">
+              <tbody className="divide-y divide-white/5 dark:text-slate-300 text-slate-700">
                 {[
                   ["Farmers / Kisaan", "Extra side income, utilizing organic crop wastes, off-season farming opportunities."],
                   ["Women / SHG Members", "Low physical work, indoor space friendly, small initial budget requirements."],
@@ -379,9 +379,9 @@ const ArticleMushroomTrainingAffordable = () => {
                   ["Consultants / Trainers", "Agricultural professional up-skilling, certifications portfolios creation."],
                   ["NRI / Overseas Indians", "Set up stable family income sources in native states, export linkages buildups."]
                 ].map((row, i) => (
-                  <tr key={i} className="hover:bg-white/[0.01]">
-                    <td className="p-4 font-bold text-white border-r border-white/5 whitespace-nowrap">{row[0]}</td>
-                    <td className="p-4 text-slate-300 leading-relaxed">{row[1]}</td>
+                  <tr key={i} className="hover:dark:bg-white/[0.01] bg-black/[0.02]">
+                    <td className="p-4 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5 whitespace-nowrap">{row[0]}</td>
+                    <td className="p-4 dark:text-slate-300 text-slate-700 leading-relaxed">{row[1]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -389,7 +389,7 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           {/* Section: Government Support */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Government Schemes for Mushroom Farming Training
           </h2>
           <p>
@@ -409,30 +409,30 @@ const ArticleMushroomTrainingAffordable = () => {
           </p>
 
           {/* ROI Table */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Mushroom Farming Mein Kitna Profit Hoga? | ROI After Training
           </h2>
-          <div className="overflow-x-auto border dark:border-white/10 border-black/10 rounded-2xl glass mb-8">
+          <div className="overflow-x-auto border dark:border-white/10 border-black/10 border-black/10 rounded-2xl glass mb-8">
             <table className="w-full text-left font-sans text-xs sm:text-sm">
               <thead>
-                <tr className="bg-white/5 border-b dark:border-white/10 border-black/10 text-primary-start font-bold">
+                <tr className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10 border-black/10 text-primary-start font-bold">
                   <th className="p-3 uppercase">Scale</th>
                   <th className="p-3 uppercase">Investment</th>
                   <th className="p-3 uppercase">Monthly Revenue</th>
                   <th className="p-3 uppercase text-[#22c55e]">Monthly Profit</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-slate-300">
+              <tbody className="divide-y divide-white/5 dark:text-slate-300 text-slate-700">
                 {[
                   ["Small (100 sq ft)", "₹15,000 – ₹25,000", "₹8,000 – ₹15,000", "₹5,000 – ₹10,000"],
                   ["Medium (500 sq ft)", "₹60,000 – ₹1,00,000", "₹40,000 – ₹70,000", "₹25,000 – ₹45,000"],
                   ["Commercial (1000+ sq ft)", "₹2,00,000 – ₹5,00,000", "₹1,20,000 – ₹2,50,000", "₹80,000 – ₹1,50,000"],
                   ["Online Selling (dry mushroom)", "₹5,00,000 – ₹10,00,000", "₹2,00,000 – ₹5,00,000", "₹1,20,000 – ₹3,50,000"]
                 ].map((row, i) => (
-                  <tr key={i} className="hover:bg-white/[0.01]">
-                    <td className="p-3 font-bold text-white border-r border-white/5">{row[0]}</td>
-                    <td className="p-3 border-r border-white/5">{row[1]}</td>
-                    <td className="p-3 border-r border-white/5">{row[2]}</td>
+                  <tr key={i} className="hover:dark:bg-white/[0.01] bg-black/[0.02]">
+                    <td className="p-3 font-bold dark:text-white text-slate-900 border-r dark:border-white/5 border-black/5">{row[0]}</td>
+                    <td className="p-3 border-r dark:border-white/5 border-black/5">{row[1]}</td>
+                    <td className="p-3 border-r dark:border-white/5 border-black/5">{row[2]}</td>
                     <td className="p-3 font-bold text-[#22c55e]">{row[3]}</td>
                   </tr>
                 ))}
@@ -444,41 +444,41 @@ const ArticleMushroomTrainingAffordable = () => {
           </p>
 
           {/* Section: Reviews */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Training Participants Ki Baat | Student Reviews
           </h2>
           <div className="grid md:grid-cols-3 gap-6 my-8">
-            <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 text-left relative">
+            <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 border-black/5 text-left relative">
               <div className="flex gap-1 text-orange-400 mb-3"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="dark:text-slate-300 text-slate-700 text-xs leading-relaxed mb-4">
                 "Online training lene ke baad maine 200 bags se start kiya. 3 mahine mein cost recover ho gayi. Certificate se bank loan bhi easily mila. Bahut accha program hai."
               </p>
-              <span className="font-bold text-xs uppercase text-white block">— Ramesh Kumar, Chhindwara MP</span>
+              <span className="font-bold text-xs uppercase dark:text-white text-slate-900 block">— Ramesh Kumar, Chhindwara MP</span>
             </div>
             
-            <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 text-left relative">
+            <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 border-black/5 text-left relative">
               <div className="flex gap-1 text-orange-400 mb-3"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="dark:text-slate-300 text-slate-700 text-xs leading-relaxed mb-4">
                 "Main ek housewife hun. ₹299 mein itni detailed training milegi ye sochti nahi thi. Ab main ghar pe oyster mushroom grow karti hun aur local market mein sell karti hun. Monthly ₹8,000-10,000 ho jaata hai."
               </p>
-              <span className="font-bold text-xs uppercase text-white block">— Priya Sharma, Bhopal</span>
+              <span className="font-bold text-xs uppercase dark:text-white text-slate-900 block">— Priya Sharma, Bhopal</span>
             </div>
 
-            <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 text-left relative">
+            <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 border-black/5 text-left relative">
               <div className="flex gap-1 text-orange-400 mb-3"><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /><Star size={14} fill="currentColor" /></div>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
+              <p className="dark:text-slate-300 text-slate-700 text-xs leading-relaxed mb-4">
                 "Offline training ke liye farm aaya tha. Live demonstration dekhke bahut clear ho gaya. Tanish Sir ne sab detail mein bataya — spawn quality, contamination control, marketing sab kuch. Highly recommended."
               </p>
-              <span className="font-bold text-xs uppercase text-white block">— Ajay Yadav, Jabalpur</span>
+              <span className="font-bold text-xs uppercase dark:text-white text-slate-900 block">— Ajay Yadav, Jabalpur</span>
             </div>
           </div>
 
           {/* Registration Procedure */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Training Join Kaise Karen? | Registration Process
           </h2>
-          <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 my-6 text-sm leading-relaxed">
-            <ol className="list-decimal pl-6 space-y-3 font-semibold text-slate-300">
+          <div className="glass p-6 rounded-2xl border dark:border-white/5 border-black/5 border-black/5 my-6 text-sm leading-relaxed">
+            <ol className="list-decimal pl-6 space-y-3 font-semibold dark:text-slate-300 text-slate-700">
               <li>Website visit karo: <a href="https://organicmushroomsfarm.com/training" target="_blank" rel="noopener noreferrer" className="text-primary-start font-bold">organicmushroomsfarm.com</a></li>
               <li>Online Training — ₹299 pay karo (UPI / Card / Net Banking)</li>
               <li>WhatsApp karo <span className="text-[#22c55e]">9203544140</span> pe — confirmation layout update instructions milenge</li>
@@ -491,7 +491,7 @@ const ArticleMushroomTrainingAffordable = () => {
           </div>
 
           {/* FAQs section */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Frequently Asked Questions (FAQ)
           </h2>
           <div className="space-y-6">
@@ -529,54 +529,54 @@ const ArticleMushroomTrainingAffordable = () => {
                 a: "Haan! Online training poori duniya mein koi bhi join kar sakta hai — UAE, UK, USA, Canada, Nepal, Bangladesh — sab se participants aate hain. Offline training ke liye Jabalpur aana hoga."
               }
             ].map((faq, i) => (
-              <div key={i} className="pb-4 border-b border-white/5">
-                <h4 className="font-bold text-base text-white flex items-center gap-2">
+              <div key={i} className="pb-4 border-b dark:border-white/5 border-black/5">
+                <h4 className="font-bold text-base dark:text-white text-slate-900 flex items-center gap-2">
                   <HelpCircle size={16} className="text-primary-start shrink-0" /> {faq.q}
                 </h4>
-                <p className="text-slate-400 text-sm pl-6 mt-2 leading-relaxed">{faq.a}</p>
+                <p className="dark:text-slate-400 text-slate-600 text-sm pl-6 mt-2 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
 
           {/* Cities listing */}
-          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 pb-2">
+          <h2 className="text-2xl font-bold mt-12 mb-4 text-primary-start border-b dark:border-white/5 border-black/5 border-black/5 pb-2">
             Mushroom Training Available Hai In Cities Mein
           </h2>
-          <p className="text-slate-300 text-sm leading-relaxed mb-8">
+          <p className="dark:text-slate-300 text-slate-700 text-sm leading-relaxed mb-8">
             Online training ke through — India ke kisi bhi shehar se join karo:
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-bold text-slate-400">
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Jabalpur (MP farm visit)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Bhopal (Online + offline)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Indore (Online available)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Delhi & NCR (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Mumbai (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Pune (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Hyderabad (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Bangalore (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Chennai (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Kolkata (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Lucknow (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Nagpur (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Raipur (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Gwalior (Online + offline)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Chhindwara (Online/visit)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Sagar (Online/visit)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Satna (Online)</span>
-            <span className="p-2.5 rounded-xl bg-white/[0.01] border border-white/5 hover:text-white transition-colors">✨ Rewa (Online)</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-bold dark:text-slate-400 text-slate-600">
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Jabalpur (MP farm visit)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Bhopal (Online + offline)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Indore (Online available)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Delhi & NCR (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Mumbai (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Pune (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Hyderabad (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Bangalore (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Chennai (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Kolkata (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Lucknow (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Nagpur (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Raipur (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Gwalior (Online + offline)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Chhindwara (Online/visit)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Sagar (Online/visit)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Satna (Online)</span>
+            <span className="p-2.5 rounded-xl dark:bg-white/[0.01] bg-black/[0.02] border dark:border-white/5 border-black/5 hover:dark:text-white text-slate-900 transition-colors">✨ Rewa (Online)</span>
           </div>
 
           {/* CTA Box */}
           <div className="mt-16 p-8 rounded-3xl gradient-bg text-center">
-            <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Start Your Mushroom Journey Today!</h3>
-            <p className="dark:text-white/80 text-slate-800 mb-6 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold dark:text-white text-slate-900 text-slate-900 mb-4">Start Your Mushroom Journey Today!</h3>
+            <p className="dark:text-white text-slate-900/80 text-slate-800 mb-6 max-w-2xl mx-auto">
               Enroll in India's most affordable training program and begin your path towards highly profitable commercial agriculture setup structures.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-center">
               <Link to="/training" className="inline-flex items-center justify-center bg-white text-primary-start font-bold py-3 px-8 rounded-xl shadow-xl hover:scale-105 transition-transform w-[280px]">
                 Enroll in Training
               </Link>
-              <a href="tel:9203544140" className="inline-flex items-center justify-center dark:bg-black/20 bg-white/20 dark:text-white text-slate-900 font-bold py-3 px-8 rounded-xl backdrop-blur border dark:border-white/20 border-black/20 hover:bg-white/30 transition-colors w-[280px]">
+              <a href="tel:9203544140" className="inline-flex items-center justify-center dark:bg-black/20 bg-white/20 dark:text-white text-slate-900 text-slate-900 font-bold py-3 px-8 rounded-xl backdrop-blur border dark:border-white/20 border-black/20 hover:bg-white/30 transition-colors w-[280px]">
                 Call / WhatsApp: 9203544140
               </a>
             </div>

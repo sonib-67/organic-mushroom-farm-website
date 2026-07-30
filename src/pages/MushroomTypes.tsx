@@ -116,7 +116,7 @@ const mushroomCategories = [
 
 const MushroomTypesPage = () => {
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-transparent text-[var(--text-body)]">
+    <div className="min-h-screen pt-32 pb-20 bg-transparent dark:text-white text-slate-900">
       <SEO 
         title="Mushroom Types Guide | Edible, Medicinal & Commercial Varieties" 
         description="Discover all types of commercial mushroom setups in India – Button, Milky, Oyster, Shiitake, Reishi, Cordyceps. Read complete growing variables, spawn guidance, and project costs." 
@@ -131,11 +131,11 @@ const MushroomTypesPage = () => {
           className="max-w-4xl mx-auto space-y-6 relative z-10"
         >
           <div className="badge mx-auto mb-4">Complete Fungi Catalog</div>
-          <h1 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tight leading-none">
+          <h1 className="text-4xl md:text-7xl font-black dark:text-white text-slate-900 uppercase tracking-tight leading-none">
             Commercial <br />
             <span className="text-primary-start">Mushroom Varieties</span>
           </h1>
-          <p className="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="dark:text-slate-400 text-slate-600 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
             Exploring the diverse, profitable world of edible, exotic, and medicinal mushrooms customized for Indian regional climates and global markets. Select a model to read exhaustive setup guides.
           </p>
         </motion.div>
@@ -163,11 +163,11 @@ const MushroomTypesPage = () => {
                   <motion.div 
                     key={i}
                     whileHover={{ y: -6 }}
-                    className="glass group rounded-[2.5rem] border border-white/5 p-6 flex flex-col justify-between hover:border-emerald-500/20 transition-all text-left relative overflow-hidden"
+                    className="glass group rounded-[2.5rem] border dark:border-white/5 border-black/5 p-6 flex flex-col justify-between hover:border-emerald-500/20 transition-all text-left relative overflow-hidden"
                   >
                     <div className="space-y-4">
                       {/* Geometric Metadata Block replacing image/logo completely */}
-                      <div className="relative h-24 w-full rounded-[1.8rem] overflow-hidden bg-radial-to-br from-primary-start/15 via-transparent to-black/30 border border-white/5 flex flex-col items-center justify-center p-4 space-y-2">
+                      <div className="relative h-24 w-full rounded-[1.8rem] overflow-hidden bg-radial-to-br from-primary-start/15 via-transparent dark:to-black/30 to-black/5 border dark:border-white/5 border-black/5 flex flex-col items-center justify-center p-4 space-y-2">
                         <div className="badge scale-90 bg-primary-start/10 text-primary-start border-primary-start/20 px-3 py-1 rounded-full font-bold uppercase tracking-wider text-[10px]">
                           {m.cost}
                         </div>
@@ -178,21 +178,21 @@ const MushroomTypesPage = () => {
 
                       {/* Meta info */}
                       <div>
-                        <h3 className="text-white font-black text-xl uppercase tracking-tighter group-hover:text-primary-start transition-colors leading-tight">
+                        <h3 className="dark:text-white text-slate-900 font-black text-xl uppercase tracking-tighter group-hover:text-primary-start transition-colors leading-tight">
                           {m.name}
                         </h3>
                         <p className="text-primary-start text-xs font-semibold italic opacity-85 mt-1">{m.scientific}</p>
                       </div>
 
-                      <p className="text-slate-400 text-xs md:text-sm leading-relaxed font-semibold">
+                      <p className="dark:text-slate-400 text-slate-600 text-xs md:text-sm leading-relaxed font-semibold">
                         {m.desc}
                       </p>
                     </div>
 
-                    <div className="pt-6 border-t border-white/5 mt-6 flex items-center justify-between">
+                    <div className="pt-6 border-t dark:border-white/5 border-black/5 mt-6 flex items-center justify-between">
                       <Link 
                         to={`/mushroom-types/${m.slug}`}
-                        className="inline-flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest hover:text-primary-start transition-colors group/link"
+                        className="inline-flex items-center gap-2 dark:text-white text-slate-900 font-bold text-xs uppercase tracking-widest hover:text-primary-start transition-colors group/link"
                       >
                         Exhaustive Guide <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
                       </Link>
@@ -216,11 +216,11 @@ const MushroomTypesPage = () => {
 
       {/* Spawn call to action */}
       <section className="section-padding">
-        <div className="max-w-4xl mx-auto glass p-8 md:p-12 rounded-[3.5rem] border border-white/5 text-center space-y-6 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 text-center space-y-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,229,255,0.03),transparent_50%)]"></div>
           
-          <h3 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tight relative z-10">Ready to choose your variety?</h3>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm md:text-base relative z-10 leading-relaxed font-semibold">
+          <h3 className="text-2xl md:text-4xl font-black dark:text-white text-slate-900 uppercase tracking-tight relative z-10">Ready to choose your variety?</h3>
+          <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-sm md:text-base relative z-10 leading-relaxed font-semibold">
             We provide laboratory-tested pure premium mushroom spawn (spawn/seeds) to guarantee zero contamination and higher yields for all the commercial types listed above.
           </p>
           
@@ -233,7 +233,7 @@ const MushroomTypesPage = () => {
             </Link>
             <Link 
               to="/turnkey-projects" 
-              className="btn bg-white/5 border border-white/10 hover:bg-white/10 px-10 py-4 rounded-xl text-white font-black text-xs uppercase tracking-widest block text-center transition-all"
+              className="btn dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 hover:dark:bg-white/10 hover:bg-black/10 px-10 py-4 rounded-xl dark:text-white text-slate-900 font-black text-xs uppercase tracking-widest block text-center transition-all"
             >
               Get Turnkey Setup Quotes
             </Link>

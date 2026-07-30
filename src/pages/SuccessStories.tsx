@@ -49,10 +49,10 @@ const SuccessStoriesPage = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="badge mx-auto mb-6">Client Testimonials</div>
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
             Our <span className="gradient-text">Success Stories</span>
           </h1>
-          <p className="text-slate-400 text-lg leading-relaxed">
+          <p className="dark:text-slate-400 text-slate-600 text-lg leading-relaxed">
             Real people, real results. See how we help agripreneurs build sustainable wealth through fungi.
           </p>
         </motion.div>
@@ -65,38 +65,38 @@ const SuccessStoriesPage = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`flex flex-col gap-12 glass p-8 lg:p-16 rounded-[4rem] border border-white/5`}
+            className={`flex flex-col gap-12 glass p-8 lg:p-16 rounded-[4rem] border dark:border-white/5 border-black/5`}
           >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-2">
               <div>
-                  <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-primary-start text-xs font-black uppercase tracking-widest mb-4`}>
+                  <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-primary-start text-xs font-black uppercase tracking-widest mb-4`}>
                       <s.icon size={14} /> {s.tagline}
                   </div>
-                  <h2 className="text-3xl lg:text-5xl font-bold text-white mb-2">{s.name}</h2>
+                  <h2 className="text-3xl lg:text-5xl font-bold dark:text-white text-slate-900 mb-2">{s.name}</h2>
                   <p className="text-slate-500 font-bold flex items-center gap-2 uppercase text-xs tracking-widest"><Star size={12} className="text-primary-end" /> {s.location}</p>
               </div>
-              <div className="glass px-6 py-4 rounded-3xl border border-white/10">
+              <div className="glass px-6 py-4 rounded-3xl border dark:border-white/10 border-black/10">
                   <div className="flex gap-1 text-primary-start mb-1">
                       {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                   </div>
-                  <p className="text-white font-black text-xs uppercase tracking-widest italic whitespace-nowrap">Verified Success</p>
+                  <p className="dark:text-white text-slate-900 font-black text-xs uppercase tracking-widest italic whitespace-nowrap">Verified Success</p>
               </div>
             </div>
 
             <div className="relative pt-4">
-                <Quote className="absolute -top-4 -left-4 text-white/5" size={60} />
-                <p className="text-slate-400 text-lg md:text-xl leading-relaxed relative z-10 font-medium italic">
+                <Quote className="absolute -top-4 -left-4 dark:text-white/5 text-black/5" size={60} />
+                <p className="dark:text-slate-400 text-slate-600 text-lg md:text-xl leading-relaxed relative z-10 font-medium italic">
                     "{s.story}"
                 </p>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5 pt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t dark:border-white/5 border-black/5 pt-8">
               <div className="p-6 md:p-8 rounded-3xl bg-primary-start/5 border border-primary-start/10">
                   <p className="text-slate-500 text-[10px] uppercase font-black tracking-widest mb-2 italic">Key Achievement</p>
-                  <p className="text-white text-xl md:text-2xl font-black tracking-tight">{s.achievement}</p>
+                  <p className="dark:text-white text-slate-900 text-xl md:text-2xl font-black tracking-tight">{s.achievement}</p>
               </div>
 
-              <Link to={`/success-story/${s.name.toLowerCase().replace(' ', '-')}`} className="flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest group bg-white/5 px-6 py-4 rounded-xl hover:bg-white/10 transition-colors">
+              <Link to={`/success-story/${s.name.toLowerCase().replace(' ', '-')}`} className="flex items-center gap-2 dark:text-white text-slate-900 font-bold text-sm uppercase tracking-widest group dark:bg-white/5 bg-black/5 px-6 py-4 rounded-xl hover:bg-white/10 transition-colors">
                   Full Project Specs <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -106,7 +106,7 @@ const SuccessStoriesPage = () => {
 
       <section className="section-padding">
         <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-8">Want to be our next success story?</h2>
+            <h2 className="text-3xl font-bold dark:text-white text-slate-900 mb-8">Want to be our next success story?</h2>
             <a href="https://calendly.com/tanmaysomi/30min" target="_blank" rel="noopener noreferrer" className="gradient-bg px-12 py-5 rounded-2xl text-white font-black inline-flex items-center gap-3 hover:scale-105 transition-all">
                 Book Consultant <ArrowRight size={20} />
             </a>
