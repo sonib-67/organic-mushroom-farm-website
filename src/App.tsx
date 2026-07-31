@@ -3154,6 +3154,10 @@ const Footer = () => {
                 label: "Twitter",
                 href: "https://x.com/mushroomfarmjbp",
               },
+              {
+                label: "Telegram",
+                href: "https://t.me/organicmushroomfarms",
+              },
             ].map((social) => (
               <a
                 key={social.label}
