@@ -223,6 +223,7 @@ export default function SitemapPage() {
   ];
 
   const educationalArticles = [
+    { name: "Next-Gen Commercial Mushroom Farming in India: Turnkey Setups, Global Exports", path: "/articles/next-gen-commercial-mushroom-farming-india", desc: "Welcome to the future of Indian agriculture. From visualizing your farm with 360-degree interactive models to exporting 20-ton containers." },
     { name: "Ahmedabad Mushroom Farming Training Center", path: "/cities/gujarat/ahmedabad", desc: "Start Your Profitable Agribusiness Today! Premium mushroom farming training, spawn supply and commercial setup in Ahmedabad, Gujarat." },
     { name: "Surat Mushroom Farming Training Center", path: "/cities/gujarat/surat", desc: "Surat Mushroom Farming complete guide. Learn mushroom farm setup, high-yield spawn supply, commercial plans, subsidies & marketing support in Gujarat." },
     { name: "Rajkot Mushroom Farming Business for Supermarkets", path: "/cities/gujarat/rajkot", desc: "રાજકોટમાં સુપરમાર્કેટ અને રિટેલ ચેઇન માટે Mushroom Farming Business કેવી રીતે શરૂ કરવો? (2026 Guide)" },
