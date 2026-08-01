@@ -1,4 +1,3 @@
-import ArticleNextGenCommercialFarming from './pages/ArticleNextGenCommercialFarming';
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -3142,22 +3141,6 @@ const Footer = () => {
                 label: "Pinterest",
                 href: "https://www.pinterest.com/organicmushroomfarm",
               },
-              {
-                label: "LinkedIn",
-                href: "https://www.linkedin.com/in/organic-mushroom-farm-29b970282?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-              },
-              {
-                label: "Quora",
-                href: "https://www.quora.com/profile/Organic-Mushroom-Farm-1?ch=10&oid=3146591367&share=4e39c3cd&srid=5xCPIb&target_type=user",
-              },
-              {
-                label: "Twitter",
-                href: "https://x.com/mushroomfarmjbp",
-              },
-              {
-                label: "Telegram",
-                href: "https://t.me/organicmushroomfarms",
-              },
             ].map((social) => (
               <a
                 key={social.label}
@@ -6283,7 +6266,6 @@ const AnimatedRoutes = () => {
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
           <Route path="/articles/organic-mushroom-farm-everything-you-need-to-know" element={<ArticleOrganicMushroomFarmGuide />} />
-          <Route path="/articles/next-gen-commercial-mushroom-farming-india" element={<ArticleNextGenCommercialFarming />} />
           <Route path="/articles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
 
           <Route path="/cities" element={<StatesPage  metaDesc="Find top mushroom farming training centers, spawn suppliers, and local agribusiness resources in your city. Select your region to start growing today! " />} />
