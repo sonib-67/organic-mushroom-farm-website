@@ -3141,6 +3141,22 @@ const Footer = () => {
                 label: "Pinterest",
                 href: "https://www.pinterest.com/organicmushroomfarm",
               },
+              {
+                label: "Telegram",
+                href: "https://t.me/organicmushroomfarms",
+              },
+              {
+                label: "LinkedIn",
+                href: "https://www.linkedin.com/in/organic-mushroom-farm-29b970282?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+              },
+              {
+                label: "Quora",
+                href: "https://www.quora.com/profile/Organic-Mushroom-Farm-1?ch=10&oid=3146591367&share=4e39c3cd&srid=5xCPIb&target_type=user",
+              },
+              {
+                label: "Twitter",
+                href: "https://x.com/mushroomfarmjbp",
+              },
             ].map((social) => (
               <a
                 key={social.label}
