@@ -109,19 +109,19 @@ const ArticleNextGenCommercialFarming = ({ metaDesc }: { metaDesc?: string }) =>
                     <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mt-6">Comprehensive Articles & Guides:</h3>
                     <ul className="list-disc pl-5 dark:text-slate-300 text-slate-700 space-y-1">
                         <li><Link to="/articles/organic-mushroom-farm-everything-you-need-to-know" className="text-primary-start hover:underline">Organic Mushroom Farm - Everything You Need to Know</Link></li>
-                        <li><Link to="/blog/mushroom-farming-beginner-guide-india-2026-2027" className="text-primary-start hover:underline">Mushroom Farming Complete Guide (Hinglish/India)</Link></li>
+                        <li><Link to="/articles/mushroom-farming-beginner-guide-india-2026-2027" className="text-primary-start hover:underline">Mushroom Farming Complete Guide (Hinglish/India)</Link></li>
                         <li><Link to="/articles/commercial-mushroom-farm-setup-training" className="text-primary-start hover:underline">Commercial Mushroom Farm Setup & Training</Link></li>
                         <li><Link to="/blog/turnkey-commercial-setup" className="text-primary-start hover:underline">Turnkey Mushroom Farm Setup in India</Link></li>
                         <li><Link to="/articles/white-button-mushroom-business-plan" className="text-primary-start hover:underline">White Button Mushroom Business Plan</Link></li>
                         <li><Link to="/articles/oyster-mushroom-cultivation-process" className="text-primary-start hover:underline">Oyster Mushroom Cultivation Process</Link> & <Link to="/blog/oyster-mushroom-cultivation-india" className="text-primary-start hover:underline">Oyster Cultivation India (Guide)</Link></li>
-                        <li><Link to="/blog/what-is-mushroom-spawn" className="text-primary-start hover:underline">What is Mushroom Spawn? Beginner Guide India</Link></li>
-                        <li><Link to="/blog/mushroom-farming-beginner-guide-india-2026-2027" className="text-primary-start hover:underline">Mushroom Farming Beginner Guide India 2026-2027</Link></li>
+                        <li><Link to="/articles/what-is-mushroom-spawn-beginner-guide-india" className="text-primary-start hover:underline">What is Mushroom Spawn? Beginner Guide India</Link></li>
+                        <li><Link to="/articles/mushroom-farming-beginner-guide-india-2026-2027" className="text-primary-start hover:underline">Mushroom Farming Beginner Guide India 2026-2027</Link></li>
                         <li><Link to="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" className="text-primary-start hover:underline">Mushroom Farming Ghar Par Kaise Ugayein (2026 Guide)</Link></li>
-                        <li><Link to="/blog/mushroom-farming-business-plan-hindi-2026" className="text-primary-start hover:underline">Mushroom Farming Business Plan Hindi 2026</Link></li>
-                        <li><Link to="/blog/mushroom-farming-training-hindi-india" className="text-primary-start hover:underline">Mushroom Farming Training Hindi India</Link></li>
+                        <li><Link to="/articles/mushroom-farming-business-plan-hindi-2026" className="text-primary-start hover:underline">Mushroom Farming Business Plan Hindi 2026</Link></li>
+                        <li><Link to="/articles/mushroom-farming-training-hindi-india" className="text-primary-start hover:underline">Mushroom Farming Training Hindi India</Link></li>
                         <li><Link to="/blog/mushroom-farming-training-online-offline-certificate" className="text-primary-start hover:underline">Mushroom Farming Training Online/Offline Certificate</Link></li>
-                        <li><Link to="/blog/mushroom-training-profit-guide-usa" className="text-primary-start hover:underline">Mushroom Training Profit Guide USA</Link></li>
-                        <li><Link to="/blog/medicinal-mushrooms-income-guide-usa" className="text-primary-start hover:underline">Medicinal Mushrooms Income Guide USA</Link></li>
+                        <li><Link to="/articles/mushroom-training-profit-guide-usa" className="text-primary-start hover:underline">Mushroom Training Profit Guide USA</Link></li>
+                        <li><Link to="/articles/medicinal-mushrooms-income-guide-usa" className="text-primary-start hover:underline">Medicinal Mushrooms Income Guide USA</Link></li>
                     </ul>
 
                     <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mt-6">Latest from the Blog (May 2026 onwards):</h3>
@@ -131,9 +131,9 @@ const ArticleNextGenCommercialFarming = ({ metaDesc }: { metaDesc?: string }) =>
                         <li><Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Mushroom Farming Business Plan India</Link></li>
                         <li><Link to="/blog/7-mushroom-farming-mistakes-india" className="text-primary-start hover:underline">7 Mushroom Farming Mistakes India</Link></li>
                         <li><Link to="/blog/organic-mushrooms-health-benefits-nutrition-cultivation-uses" className="text-primary-start hover:underline">Organic Mushrooms: Health Benefits, Nutrition & Cultivation</Link></li>
-                        <li><Link to="/blog/turnkey-commercial-setup-details" className="text-primary-start hover:underline">Turnkey Commercial Setup Details</Link></li>
+                        <li><Link to="/articles/turnkey-commercial-setup" className="text-primary-start hover:underline">Turnkey Commercial Setup Details</Link></li>
                         <li><Link to="/blog/mushroom-farming-training-online-offline-certificate" className="text-primary-start hover:underline">Mushroom Farming Training Online Offline Certificate Details</Link></li>
-                        <li>Language Guides: <Link to="/blog/mushroom-farming-training-hindi-india" className="text-primary-start hover:underline">Hindi</Link> | English | Punjabi | <Link to="/blog/mushroom-farming-training-tamil-guide" className="text-primary-start hover:underline">Tamil</Link></li>
+                        <li>Language Guides: <Link to="/articles/mushroom-farming-training-hindi-india" className="text-primary-start hover:underline">Hindi</Link> | English | Punjabi | <Link to="/blog/mushroom-farming-training-tamil-guide" className="text-primary-start hover:underline">Tamil</Link></li>
                         <li>Specific Guides: <Link to="/blog/oyster-mushroom-cultivation-india" className="text-primary-start hover:underline">Oyster Cultivation India</Link> | <Link to="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" className="text-primary-start hover:underline">Ghar Par Kaise Ugayein</Link></li>
                         <li>International Markets: <Link to="/blog/mushroom-farming-russia" className="text-primary-start hover:underline">Mushroom Farming Russia</Link></li>
                     </ul>
