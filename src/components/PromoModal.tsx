@@ -50,35 +50,35 @@ export const PromoModal = () => {
 
   const menuItems = [
     { 
-      icon: <GraduationCap className="w-5 h-5" />, 
+      icon: <GraduationCap className="w-4 h-4" />, 
       label: 'Mushroom Training', 
       sub: 'Learn from industry experts',
       path: '/training',
       color: 'green'
     },
     { 
-      icon: <User className="w-5 h-5" />, 
+      icon: <User className="w-4 h-4" />, 
       label: 'Mushroom Consultant', 
       sub: 'Get expert guidance',
       path: '/book-consultant',
       color: 'blue'
     },
     { 
-      icon: <Settings className="w-5 h-5" />, 
+      icon: <Settings className="w-4 h-4" />, 
       label: 'Turnkey Project (Setup)', 
       sub: 'End-to-end project setup',
       path: '/services/turnkey-setup',
       color: 'purple'
     },
     { 
-      icon: <Leaf className="w-5 h-5" />, 
+      icon: <Leaf className="w-4 h-4" />, 
       label: 'Fresh & Dry Mushroom', 
       sub: 'Premium quality products',
       path: '/contact-form',
       color: 'teal'
     },
     { 
-      icon: <Package className="w-5 h-5" />, 
+      icon: <Package className="w-4 h-4" />, 
       label: 'Mushroom Spawn', 
       sub: 'High quality spawn & seeds',
       path: '/spawn-seed',
@@ -109,7 +109,7 @@ export const PromoModal = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-[340px] sm:max-w-[380px] overflow-hidden bg-black/40 backdrop-blur-3xl rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/20"
+            className="relative w-full max-w-[300px] sm:max-w-[340px] overflow-hidden bg-black/40 backdrop-blur-3xl rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/20"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Animated Liquid Glass Background Orbs */}
@@ -149,24 +149,24 @@ export const PromoModal = () => {
             {/* Close Button */}
             <button 
               onClick={handleClose}
-              className="absolute top-4 right-4 z-20 text-white/60 hover:text-white bg-white/5 hover:bg-white/20 border border-white/10 rounded-full p-2 transition-colors"
+              className="absolute top-3 right-3 z-20 text-white/60 hover:text-white bg-white/5 hover:bg-white/20 border border-white/10 rounded-full p-1.5 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
 
             {/* Header Area */}
-            <div className="relative p-6 pb-4 flex flex-col items-center justify-center text-center z-10 mt-2">
-              <h2 className="text-3xl font-extrabold text-white leading-tight tracking-tight">
+            <div className="relative p-5 pb-3 flex flex-col items-center justify-center text-center z-10 mt-1">
+              <h2 className="text-2xl font-extrabold text-white leading-tight tracking-tight">
                 Explore Our <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 drop-shadow-sm">Services</span>
               </h2>
-              <p className="text-slate-300 text-[13px] mt-3 max-w-[200px] leading-relaxed font-medium">
+              <p className="text-slate-300 text-[12px] mt-2 max-w-[180px] leading-relaxed font-medium">
                 Everything you need for mushroom farming
               </p>
             </div>
 
             {/* Content List */}
-            <div className="p-5 pt-2 relative z-10 space-y-2.5">
+            <div className="p-4 pt-1 relative z-10 space-y-2">
               {menuItems.map((item, index) => (
                 <motion.button 
                   key={index}
@@ -174,20 +174,20 @@ export const PromoModal = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * index + 0.1 }}
-                  className="w-full flex items-center gap-3 p-3 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] rounded-2xl transition-all group text-left"
+                  className="w-full flex items-center gap-3 p-2.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] rounded-2xl transition-all group text-left"
                 >
-                  <div className={`flex-shrink-0 p-2.5 rounded-xl border ${getColorClasses(item.color)} transition-colors`}>
+                  <div className={`flex-shrink-0 p-2 rounded-xl border ${getColorClasses(item.color)} transition-colors`}>
                     {item.icon}
                   </div>
                   <div className="flex-grow">
-                    <div className="font-semibold text-white text-[13px] group-hover:text-green-300 transition-colors">
+                    <div className="font-semibold text-white text-[12px] group-hover:text-green-300 transition-colors">
                       {item.label}
                     </div>
                     <div className="text-[10px] text-slate-400 mt-0.5">
                       {item.sub}
                     </div>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" />
+                  <ChevronRight className="w-3.5 h-3.5 text-slate-500 group-hover:text-white transition-colors" />
                 </motion.button>
               ))}
             </div>
