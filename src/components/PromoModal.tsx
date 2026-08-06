@@ -24,13 +24,13 @@ export const PromoModal = () => {
     const isExcluded = excludedPaths.some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
     
     // Using a new key so it triggers again for the user
-    const hasSeenModal = sessionStorage.getItem('hasSeenPromoModalV2');
+    const hasSeenModal = sessionStorage.getItem('hasSeenPromoModalV3');
 
     if (!isExcluded && !hasSeenModal) {
       // Small delay before showing
       const showTimer = setTimeout(() => {
         setIsVisible(true);
-        sessionStorage.setItem('hasSeenPromoModalV2', 'true');
+        sessionStorage.setItem('hasSeenPromoModalV3', 'true');
       }, 500);
 
       return () => {
@@ -60,14 +60,25 @@ export const PromoModal = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-md overflow-hidden bg-white rounded-3xl shadow-2xl"
-            onClick={handleClose}
+            className="relative w-full max-w-md overflow-hidden bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-black/5 dark:border-white/10"
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Header / Graphic */}
-            <div className="relative bg-gradient-to-br from-green-600 to-green-800 p-6 text-center">
+            <div className="relative bg-gradient-to-br from-green-600 to-green-800 p-8 text-center overflow-hidden">
+              <motion.div 
+                className="absolute -top-24 -right-24 w-48 h-48 bg-white/10 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div 
+                className="absolute -bottom-24 -left-24 w-48 h-48 bg-black/10 rounded-full blur-3xl"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.5, 0.2] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
               <button 
                 onClick={handleClose}
-                className="absolute top-4 right-4 text-white/80 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-1.5 transition-colors"
+                className="absolute top-4 right-4 text-white/80 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2 transition-colors backdrop-blur-md z-10"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -75,27 +86,28 @@ export const PromoModal = () => {
               <motion.div
                 animate={{ 
                   y: [0, -8, 0],
+                  boxShadow: ["0px 10px 20px rgba(0,0,0,0.1)", "0px 20px 25px rgba(0,0,0,0.15)", "0px 10px 20px rgba(0,0,0,0.1)"]
                 }}
                 transition={{ 
-                  duration: 2, 
+                  duration: 2.5, 
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-lg mb-3"
+                className="relative z-10 inline-flex items-center justify-center w-20 h-20 bg-white dark:bg-slate-800 rounded-full shadow-xl mb-4 border-4 border-green-500/30"
               >
-                <Sprout className="w-8 h-8 text-green-600" />
+                <Sprout className="w-10 h-10 text-green-600 dark:text-green-400" />
               </motion.div>
               
-              <h2 className="text-2xl font-bold text-white mb-1">
+              <h2 className="relative z-10 text-3xl font-black text-white mb-2 tracking-tight">
                 Explore Our Services
               </h2>
-              <p className="text-green-100 text-sm">
+              <p className="relative z-10 text-green-100 text-sm font-medium">
                 Everything you need for mushroom farming
               </p>
             </div>
 
             {/* Content List */}
-            <div className="p-4 bg-gray-50/50">
+            <div className="p-5 bg-slate-50 dark:bg-slate-900/50">
               <ul className="space-y-3">
                 {[
                   { icon: <Briefcase className="w-5 h-5" />, label: 'Mushroom Training', path: '/training' },
@@ -108,17 +120,18 @@ export const PromoModal = () => {
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 * index }}
+                    transition={{ delay: 0.1 * index + 0.2 }}
                   >
                     <button
                       onClick={(e) => { e.stopPropagation(); handleLinkClick(item.path); }}
-                      className="w-full flex items-center gap-4 p-3 bg-white border border-green-100 rounded-xl hover:border-green-500 hover:shadow-md transition-all group"
+                      className="w-full flex items-center gap-4 p-3.5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-white/5 rounded-2xl hover:border-green-500 dark:hover:border-green-500 hover:shadow-lg hover:shadow-green-500/10 transition-all group"
                     >
                       <motion.div 
-                        className="flex-shrink-0 p-2 bg-green-50 text-green-600 rounded-lg"
+                        className="flex-shrink-0 p-2.5 bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-xl group-hover:bg-green-100 dark:group-hover:bg-green-900/50 transition-colors"
+                        whileHover={{ rotate: 10, scale: 1.1 }}
                         animate={{ 
-                          rotate: [0, -10, 10, -10, 10, 0],
-                          scale: [1, 1.1, 1]
+                          rotate: [0, -5, 5, -5, 5, 0],
+                          scale: [1, 1.05, 1]
                         }}
                         transition={{ 
                           duration: 2.5, 
@@ -128,7 +141,7 @@ export const PromoModal = () => {
                       >
                         {item.icon}
                       </motion.div>
-                      <span className="font-semibold text-gray-700 group-hover:text-green-700 text-left flex-grow">
+                      <span className="font-bold text-slate-700 dark:text-slate-200 group-hover:text-green-700 dark:group-hover:text-green-400 text-left flex-grow transition-colors">
                         {item.label}
                       </span>
                     </button>
