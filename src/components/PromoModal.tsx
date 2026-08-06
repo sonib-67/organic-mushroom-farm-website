@@ -24,13 +24,13 @@ export const PromoModal = () => {
     const isExcluded = excludedPaths.some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
     
     // Using a new key so it triggers again for the updated design
-    const hasSeenModal = sessionStorage.getItem('hasSeenPromoModalV5');
+    const hasSeenModal = sessionStorage.getItem('hasSeenPromoModalV6');
 
     if (!isExcluded && !hasSeenModal) {
       // 2 seconds delay before showing so the website loads fast
       const showTimer = setTimeout(() => {
         setIsVisible(true);
-        sessionStorage.setItem('hasSeenPromoModalV5', 'true');
+        sessionStorage.setItem('hasSeenPromoModalV6', 'true');
       }, 2000);
 
       return () => {
@@ -38,16 +38,6 @@ export const PromoModal = () => {
       };
     }
   }, [location.pathname]);
-
-  // Auto-hide after 6 seconds
-  useEffect(() => {
-    if (isVisible) {
-      const hideTimer = setTimeout(() => {
-        setIsVisible(false);
-      }, 6000);
-      return () => clearTimeout(hideTimer);
-    }
-  }, [isVisible]);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -119,57 +109,60 @@ export const PromoModal = () => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-[340px] sm:max-w-[380px] overflow-hidden bg-[#0a1122]/80 backdrop-blur-2xl rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
+            className="relative w-full max-w-[340px] sm:max-w-[380px] overflow-hidden bg-black/40 backdrop-blur-3xl rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/20"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Background Glow Orbs */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-green-500/20 rounded-full blur-[60px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none" />
+            {/* Animated Liquid Glass Background Orbs */}
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 90, 0],
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              className="absolute -top-10 -right-10 w-48 h-48 bg-purple-500/30 rounded-full blur-[50px] pointer-events-none"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.3, 1],
+                rotate: [0, -90, 0],
+              }}
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-500/30 rounded-full blur-[50px] pointer-events-none"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 0],
+              }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+              className="absolute top-1/2 left-1/4 w-32 h-32 bg-green-500/20 rounded-full blur-[40px] pointer-events-none"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.4, 1],
+                rotate: [0, -180, 0],
+              }}
+              transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+              className="absolute top-1/4 right-1/4 w-36 h-36 bg-yellow-500/20 rounded-full blur-[40px] pointer-events-none"
+            />
 
             {/* Close Button */}
             <button 
               onClick={handleClose}
-              className="absolute top-4 right-4 z-20 text-white/60 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-full p-1.5 transition-colors"
+              className="absolute top-4 right-4 z-20 text-white/60 hover:text-white bg-white/5 hover:bg-white/20 border border-white/10 rounded-full p-2 transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
 
             {/* Header Area */}
-            <div className="relative p-6 pb-4 flex justify-between items-start z-10">
-              <div className="pt-2">
-                <h2 className="text-2xl font-bold text-white leading-tight">
-                  Explore Our <br/>
-                  <span className="text-green-400">Services</span>
-                </h2>
-                <p className="text-slate-400 text-[11px] mt-2 max-w-[140px] leading-relaxed">
-                  Everything you need for mushroom farming
-                </p>
-              </div>
-              
-              {/* Glowing Graphic Container */}
-              <div className="relative mt-1 mr-4">
-                <motion.div
-                  animate={{ 
-                    boxShadow: ["0px 0px 20px rgba(74,222,128,0.2)", "0px 0px 40px rgba(74,222,128,0.4)", "0px 0px 20px rgba(74,222,128,0.2)"]
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center backdrop-blur-md"
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <Sprout className="w-8 h-8 sm:w-10 sm:h-10 text-green-400" strokeWidth={1.5} />
-                  </motion.div>
-                </motion.div>
-                {/* Decorative glowing dots */}
-                <div className="absolute -top-1 -right-2 w-2 h-2 rounded-full bg-green-400/50 blur-[1px]" />
-                <div className="absolute bottom-2 -left-3 w-3 h-3 rounded-full bg-green-500/30 blur-[2px]" />
-              </div>
+            <div className="relative p-6 pb-4 flex flex-col items-center justify-center text-center z-10 mt-2">
+              <h2 className="text-3xl font-extrabold text-white leading-tight tracking-tight">
+                Explore Our <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 drop-shadow-sm">Services</span>
+              </h2>
+              <p className="text-slate-300 text-[13px] mt-3 max-w-[200px] leading-relaxed font-medium">
+                Everything you need for mushroom farming
+              </p>
             </div>
 
             {/* Content List */}
