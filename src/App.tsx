@@ -91,6 +91,7 @@ import ArticleUSAMedicinalIncome from "./pages/ArticleUSAMedicinalIncome";
 import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
 import ArticleTamilTrainingGuide from "./pages/ArticleTamilTrainingGuide";
 import SEO from "./components/SEO";
+import { PromoModal } from "./components/PromoModal";
 import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
 import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
 import ArticleMushroomFarmingRussia from "./pages/ArticleMushroomFarmingRussia";
@@ -6570,6 +6571,7 @@ import { HelmetProvider } from 'react-helmet-async';
 export default function App() {
   return (
     <>
+      <PromoModal />
       <MetaPixelTracker />
       <ScrollToTop />
       <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 dark:text-white bg-slate-50 dark:bg-[#0A0A0A] min-h-screen">
