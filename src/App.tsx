@@ -92,6 +92,7 @@ import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
 import ArticleTamilTrainingGuide from "./pages/ArticleTamilTrainingGuide";
 import SEO from "./components/SEO";
 import { PromoModal } from "./components/PromoModal";
+import ArticlePracticalGuideHinglish from "./pages/ArticlePracticalGuideHinglish";
 import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
 import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
 import ArticleMushroomFarmingRussia from "./pages/ArticleMushroomFarmingRussia";
@@ -6495,6 +6496,7 @@ const AnimatedRoutes = () => {
               <Route path="/blog/organic-mushrooms-health-benefits-nutrition-cultivation-uses" element={<ArticleOrganicMushroomHealthBenefits />} />
 
           <Route path="/blog/mushroom-training-guide-hindi" element={<ArticleMushroomTrainingGuideHindi />} />
+          <Route path="/blog/mushroom-farming-business-practical-guide" element={<ArticlePracticalGuideHinglish />} />
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleBusinessPlanIndia  metaDesc="Master the 2026 mushroom farming business plan in India. Understand commercial setup costs, profit margins, ROI analysis, and local marketing strategies. " />} />
           <Route path="/blog/7-mushroom-farming-mistakes-india" element={<ArticleMushroomFarmingMistakes />} />
           <Route path="/blog/commercial-mushroom-farming-india" element={<ArticleUltimateGuideIndia />} />
