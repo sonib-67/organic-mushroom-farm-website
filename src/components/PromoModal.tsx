@@ -8,29 +8,17 @@ export const PromoModal = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const excludedPaths = [
-    '/training',
-    '/training/online',
-    '/training/offline',
-    '/workshop',
-    '/spawn-seed',
-    '/spawn-seeds',
-    '/book-consultant',
-    '/site-visit-consultation',
-    '/training-checkout',
-  ];
-
   useEffect(() => {
-    const isExcluded = excludedPaths.some(path => location.pathname === path || location.pathname.startsWith(path + '/'));
+    const isHomePage = location.pathname === '/';
     
     // Using a new key so it triggers again for the updated design
-    const hasSeenModal = sessionStorage.getItem('hasSeenPromoModalV6');
+    const hasSeenModal = sessionStorage.getItem('hasSeenPromoModalV7');
 
-    if (!isExcluded && !hasSeenModal) {
+    if (isHomePage && !hasSeenModal) {
       // 2 seconds delay before showing so the website loads fast
       const showTimer = setTimeout(() => {
         setIsVisible(true);
-        sessionStorage.setItem('hasSeenPromoModalV6', 'true');
+        sessionStorage.setItem('hasSeenPromoModalV7', 'true');
       }, 2000);
 
       return () => {
