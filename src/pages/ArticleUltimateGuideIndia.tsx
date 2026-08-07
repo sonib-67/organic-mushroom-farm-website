@@ -37,7 +37,7 @@ const ArticleUltimateGuideIndia = () => {
             <article className="max-w-4xl mx-auto px-4 prose prose-invert">
                 <div className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8">
                     <div className="text-center">
-                        <div className="flex items-center justify-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500 mb-6">
+                        <div className="flex items-center justify-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300 mb-6">
                             <span className="flex items-center gap-1"><Calendar size={14} /> July 14, 2026</span>
                             <span className="flex items-center gap-1"><User size={14} /> Expert Team</span>
                         </div>

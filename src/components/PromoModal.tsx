@@ -149,6 +149,7 @@ export const PromoModal = () => {
             {/* Close Button */}
             <button 
               onClick={handleClose}
+              aria-label="Close promotion modal"
               className="absolute top-3 right-3 z-20 text-white/60 hover:text-white bg-white/5 hover:bg-white/20 border border-white/10 rounded-full p-1.5 transition-colors"
             >
               <X className="w-4 h-4" />

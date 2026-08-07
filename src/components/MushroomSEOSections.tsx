@@ -157,7 +157,7 @@ export default function MushroomSEOSections() {
           <div className="space-y-6">
             <div className="flex items-center gap-2 text-primary-start">
               <BookOpen size={20} />
-              <span className="text-xs font-bold uppercase tracking-widest">Certified Agri-Education</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300">Certified Agri-Education</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-black tracking-tight dark:text-white text-slate-900 uppercase">
               <Link to="/training" className="hover:text-current transition-colors">
@@ -298,7 +298,7 @@ export default function MushroomSEOSections() {
           <div className="order-1 lg:order-2 space-y-6">
             <div className="flex items-center gap-2 text-[#25D366]">
               <Target size={20} />
-              <span className="text-xs font-bold uppercase tracking-widest">Flexible Modern Formats</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300">Flexible Modern Formats</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight dark:text-white text-slate-900 uppercase leading-tight">
               Online and Offline <span className="gradient-text font-serif">Mushroom Training</span> Systems

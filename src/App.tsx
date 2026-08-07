@@ -1363,7 +1363,7 @@ const Hero = () => {
           viewport={{ once: true }}
           className="text-center md:text-left"
         >
-          <div className="text-[10px] md:text-sm font-bold text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
+          <div className="text-[10px] md:text-sm font-bold text-green-700 dark:text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
             Button, Oyster, Milky, Shiitake & More | Setup, Training & Business
             Support
           </div>
