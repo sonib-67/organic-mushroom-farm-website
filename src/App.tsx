@@ -6449,6 +6449,9 @@ const AnimatedRoutes = () => {
           <Route path="/mushroom-farming-madurai" element={<ArticleMaduraiTraining />} />
           <Route path="/cities/maharashtra/mumbai" element={<ArticleMumbaiTraining />} />
           <Route path="/cities/maharashtra/nashik" element={<ArticleNashikTraining />} />
+          <Route path="/mushroom-farming-nashik-maharashtra" element={<ArticleNashikTraining />} />
+          <Route path="/mushroom-farming-nashik" element={<ArticleNashikTraining />} />
+          <Route path="/product/milky-spawn" element={<SpawnSeedPage />} />
           <Route path="/cities/delhi/new-delhi" element={<ArticleDelhiTraining />} />
           <Route path="/cities/haryana/gurugram" element={<ArticleGurugramTraining />} />
           <Route path="/cities/haryana/faridabad" element={<ArticleFaridabadTraining />} />

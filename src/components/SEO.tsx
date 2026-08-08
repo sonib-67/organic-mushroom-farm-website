@@ -63,8 +63,39 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
   const finalDescription = metaMap[path] || description;
 
   console.log("SEO path:", path);
-  const fullUrl = `${siteUrl}${path === "/" ? "" : path}`;
-
+  const canonicalMap: Record<string, string> = {
+    "/services/compost-production": "/compost-unit",
+    "/mushroom-farming-thiruvananthapuram-kerala": "/mushroom-farming-thiruvananthapuram",
+    "/cities": "/states",
+    "/articles/mushroom-farming-beginner-guide-india-2026-2027": "/blog/mushroom-farming-beginner-guide-india-2026-2027",
+    "/articles/turnkey-commercial-setup": "/blog/turnkey-commercial-setup",
+    "/mushroom-farming-madurai-tamil-nadu": "/mushroom-farming-madurai",
+    "/equipment": "/services",
+    "/mushroom-types": "/services",
+    "/articles/oyster-mushroom-cultivation-process": "/blog/oyster-mushroom-cultivation-india",
+    "/articles/oyster-mushroom-cultivation-india": "/blog/oyster-mushroom-cultivation-india",
+    "/operations": "/pan-india-global-operations",
+    "/mushroom-farming-vadodara-gujarat": "/mushroom-farming-vadodara",
+    "/services/turnkey-setup": "/project-specs",
+    "/articles/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026": "/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026",
+    "/blog/mushroom-training-guide-english": "/blog/mushroom-farming-training-online-offline-certificate",
+    "/mushroom-farming-nashik-maharashtra": "/cities/maharashtra/nashik",
+    "/mushroom-farming-nashik": "/cities/maharashtra/nashik",
+    "/product/milky-spawn": "/spawn-seeds",
+    "/articles/white-button-mushroom-business-plan": "/blog/mushroom-farming-business-plan-india",
+    "/mushroom-farming-guwahati-assam": "/mushroom-farming-guwahati",
+    "/mushroom-farming-mangalore-karnataka": "/mushroom-farming-mangalore",
+    "/mushroom-farming-mysuru-karnataka": "/mushroom-farming-mysuru",
+    "/mushroom-farming-amritsar-punjab": "/mushroom-farming-amritsar",
+    "/mushroom-farming-bikaner-rajasthan": "/mushroom-farming-bikaner",
+    "/mushroom-farming-dehradun-uttarakhand": "/mushroom-farming-dehradun",
+    "/mushroom-farming-siliguri-west-bengal": "/mushroom-farming-siliguri",
+    "/mushroom-farming-udaipur-rajasthan": "/mushroom-farming-udaipur",
+    "/contact-form": "/enquiry",
+  };
+  
+  const canonicalPath = canonicalMap[path] || (path === "/" ? "" : path);
+  const fullUrl = `${siteUrl}${canonicalPath}`;
   const defaultSchemas = [
     generateOrganizationSchema(),
     generateWebsiteSchema(),
