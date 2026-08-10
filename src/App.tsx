@@ -6351,10 +6351,6 @@ const AnimatedRoutes = () => {
             element={<ArticleBeginnerGuide />}
           />
           <Route
-            path="/articles/oyster-mushroom-cultivation-india"
-            element={<ArticleOysterMushroomCultivation />}
-          />
-          <Route
             path="/articles/what-is-mushroom-spawn-beginner-guide-india"
             element={<ArticleMushroomSpawn />}
           />
