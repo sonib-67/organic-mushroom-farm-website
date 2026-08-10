@@ -5011,6 +5011,34 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* 360 View Video Section */}
+      <section className="section-padding bg-slate-50 dark:bg-white/5 border-y dark:border-white/5 border-black/5">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-10">
+            <div className="badge mb-4">Virtual Tour</div>
+            <h2 className="mb-4 uppercase tracking-tight">
+              Commercial Mushroom Farm <span className="gradient-text">360° View</span>
+            </h2>
+            <p className="text-slate-500 text-sm md:text-base leading-relaxed">
+              Explore our state-of-the-art commercial mushroom farm setup. Watch this 360-degree view video to understand the infrastructure and scientific approach we implement for high-yield turnkey projects.
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl border dark:border-white/10 bg-black aspect-video relative">
+            <video
+              className="w-full h-full object-cover"
+              controls
+              preload="none"
+              poster="/images/mushroom360viewimage.jpeg"
+              title="Commercial Mushroom Farm 360 View Setup"
+              aria-label="Commercial Mushroom Farm 360 View Setup"
+            >
+              <source src="/video/mushroom360viewfarmsetup.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
