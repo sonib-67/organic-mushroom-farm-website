@@ -28,7 +28,7 @@ export default function BookConsultantPage() {
     e.preventDefault();
     pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: 'Consultation' });
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/start-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -183,7 +183,7 @@ export default function BookConsultantPage() {
       }
     } catch (error) {
       console.error(error);
-      alert('Error initiating checkout. Please try again.');
+      alert('Error: ' + (error.message || 'Unknown error') + '. Please try again.');
       setModalState('idle');
     }
   };

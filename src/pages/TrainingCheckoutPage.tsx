@@ -43,7 +43,7 @@ export default function TrainingCheckoutPage() {
     pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: `Training - ${selectedTitle}` });
 
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/start-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, productType: selectedProductType })
@@ -207,7 +207,7 @@ export default function TrainingCheckoutPage() {
       
     } catch (error) {
       console.error(error);
-      alert('Error initiating checkout. Please try again.');
+      alert('Error: ' + (error.message || 'Unknown error') + '. Please try again.');
       setLoading(false);
     }
   };

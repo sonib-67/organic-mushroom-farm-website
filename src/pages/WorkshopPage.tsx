@@ -50,7 +50,7 @@ const WorkshopPage = () => {
 
     setLoading(true);
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/start-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -160,7 +160,7 @@ const WorkshopPage = () => {
       }
     } catch (error) {
       console.error(error);
-      alert("Failed to initiate payment. Please try again.");
+      alert("Error: " + (error.message || "Unknown error") + ". Please try again.");
       setLoading(false);
     }
   };
