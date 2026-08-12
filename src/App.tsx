@@ -61,6 +61,7 @@ import ModelDetailsPage from "./pages/ModelDetails";
 import CompostUnitSpecsPage from "./pages/CompostUnitSpecs";
 import TrainingCheckoutPage from "./pages/TrainingCheckoutPage";
 import ContactPage from "./pages/ContactPage";
+
 import EnquiryPage from "./pages/EnquiryPage";
 import SopsPage from "./pages/Sops";
 import ExpertiseDetailsPage from "./pages/ExpertiseDetails";
@@ -82,6 +83,15 @@ import ArticleBeginnerGuide from "./pages/ArticleBeginnerGuide";
 import ArticleOysterMushroomCultivation from "./pages/ArticleOysterMushroomCultivation";
 import ArticleMushroomSpawn from "./pages/ArticleMushroomSpawn";
 import ArticleMushroomSpawnSeed from "./pages/ArticleMushroomSpawnSeed";
+import ArticleOysterMushroom from "./pages/ArticleOysterMushroom";
+import ArticleMushroomBusinessPlanIndia from "./pages/ArticleMushroomBusinessPlanIndia";
+import ArticleMilkyMushroom from "./pages/ArticleMilkyMushroom";
+import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
+import ArticleButtonMushroom from "./pages/ArticleButtonMushroom";
+import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
+import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
+import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
+import ArticleOysterMushroomCultivationIndia from "./pages/ArticleOysterMushroomCultivationIndia";
 import ArticleBusinessPlanHindi from "./pages/ArticleBusinessPlanHindi";
 import ArticleTrainingGuideHindi from "./pages/ArticleTrainingGuideHindi";
 import ArticleMushroomTrainingAffordable from "./pages/ArticleMushroomTrainingAffordable";
@@ -2535,7 +2545,7 @@ const TrainingPage = ({ metaDesc }: { metaDesc?: string }) => {
   );
 };
 
-const ContactPage = () => {
+const LegacyContactPage = () => {
   const [todayDate, setTodayDate] = useState('');
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -6307,6 +6317,15 @@ const AnimatedRoutes = () => {
         <Routes location={location}>
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/spawn-seed" element={<ArticleMushroomSpawnSeed />} />
+          <Route path="/services/oyster-mushroom" element={<ArticleOysterMushroom />} />
+          <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleMushroomBusinessPlanIndia />} />
+          <Route path="/services/milky-mushroom" element={<ArticleMilkyMushroom />} />
+          <Route path="/services/turnkey-setup" element={<ArticleTurnkeySetup />} />
+          <Route path="/services/button-mushroom" element={<ArticleButtonMushroom />} />
+          <Route path="/spawn-seeds" element={<ArticleSpawnSeeds />} />
+          <Route path="/project-specs" element={<ArticleProjectSpecs />} />
+          <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreKarnataka />} />
+          <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
