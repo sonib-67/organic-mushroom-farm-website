@@ -60,7 +60,7 @@ import ProcessDetailPage from "./pages/ProcessDetailPage";
 import ModelDetailsPage from "./pages/ModelDetails";
 import CompostUnitSpecsPage from "./pages/CompostUnitSpecs";
 import TrainingCheckoutPage from "./pages/TrainingCheckoutPage";
-import ContactFormPage from "./pages/ContactForm";
+import ContactPage from "./pages/ContactPage";
 import EnquiryPage from "./pages/EnquiryPage";
 import SopsPage from "./pages/Sops";
 import ExpertiseDetailsPage from "./pages/ExpertiseDetails";
@@ -3110,6 +3110,7 @@ const Footer = () => {
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
                 { name: "Cities Pages", href: "/states" },
+                { name: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -6303,6 +6304,7 @@ const AnimatedRoutes = () => {
         className="w-full h-full"
       >
         <Routes location={location}>
+          <Route path="/contact" element={<ContactPage />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
