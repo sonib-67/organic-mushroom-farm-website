@@ -205,7 +205,7 @@ const ArticleRanchiTraining = () => {
                     <div className="space-y-6 mb-8">
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">1. Mushroom Farm Setup</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">चाहे आप झोपड़ी या बांस के शेड (bamboo shed) से शुरुआत करना चाहें या पूरी तरह से ऑटोमेटेड कंक्रीट का फार्म बनाना चाहें, हमारी टीम रांची में बेस्ट mushroom farm setup सर्विसेज देती है। <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey setup details.</Link></p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">चाहे आप झोपड़ी या बांस के शेड (bamboo shed) से शुरुआत करना चाहें या पूरी तरह से ऑटोमेटेड कंक्रीट का फार्म बनाना चाहें, हमारी टीम रांची में बेस्ट mushroom farm setup सर्विसेज देती है। Turnkey setup details.</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">2. Online & Offline Training</h3>
@@ -214,7 +214,7 @@ const ArticleRanchiTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">3. Spawn & Fresh/Dry Mushroom Sale</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-2">हम रांची और पूरे झारखंड के सबसे विश्वसनीय <Link to="/spawn-seed" className="text-primary-start hover:underline">mushroom spawn supplier</Link> हैं। Oyster, Button, और Milky spawn हमेशा स्टॉक में रहता है।</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-2">हम रांची और पूरे झारखंड के सबसे विश्वसनीय mushroom spawn supplier हैं। Oyster, Button, और Milky spawn हमेशा स्टॉक में रहता है।</p>
                             <p className="dark:text-slate-400 text-slate-600 text-sm">हम रांची की प्रमुख मंडियों और रिटेल काउंटर्स पर सीधे fresh/dry mushroom supplier के रूप में जुड़े हैं।</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">

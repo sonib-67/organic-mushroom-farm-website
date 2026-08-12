@@ -53,7 +53,7 @@ const ArticlePracticalGuideHinglish = () => {
             Sach kahu toh, pichle kuch saalon mein organic food ki demand itni tezi se badhi hai ki mushrooms ab sirf bade restaurants tak limited nahi hain, balki har ghar ke kitchen tak pahunch chuke hain. Chahe aap ek student ho, job search kar rahe ho, ya ek full-time entrepreneur banna chahte ho, yeh business aapke liye game-changer ho sakta hai.
           </p>
           <p>
-            Toh chaliye, bina kisi theory ke, seedhe practical steps par aate hain ki aap apna profitable mushroom farming <Link to="/blog/mushroom-farming-business-plan-india" className="font-bold underline decoration-primary-start/50 underline-offset-4 hover:decoration-primary-start">business plan</Link> kaise set up kar sakte hain.
+            Toh chaliye, bina kisi theory ke, seedhe practical steps par aate hain ki aap apna profitable mushroom farming business plan kaise set up kar sakte hain.
           </p>
 
           <h2 className="text-2xl mt-12 mb-4 text-primary-start">Mushroom Farming Hi Kyun? (Why Choose This Agri-Business?)</h2>
@@ -96,7 +96,7 @@ const ArticlePracticalGuideHinglish = () => {
 
             <h3 className="text-xl font-bold mb-2">Step 3: High-Quality Mushroom Spawn (Beej) Kharidna</h3>
             <p className="mb-6">
-              Yeh step sabse crucial hai. Aapki poori fasal aapke beej par nirbhar karti hai. Hamesha kisi certified lab ya trusted organic mushroom farm se hi <Link to="/spawn-seed" className="font-bold underline decoration-primary-start/50 underline-offset-4 hover:decoration-primary-start">mushroom spawn</Link> kharidein. Kharab spawn aapki poori mehnat barbaad kar sakta hai.
+              Yeh step sabse crucial hai. Aapki poori fasal aapke beej par nirbhar karti hai. Hamesha kisi certified lab ya trusted organic mushroom farm se hi mushroom spawn kharidein. Kharab spawn aapki poori mehnat barbaad kar sakta hai.
             </p>
 
             <h3 className="text-xl font-bold mb-2">Step 4: Substrate Preparation (Khaad banana)</h3>

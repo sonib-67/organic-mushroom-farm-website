@@ -106,7 +106,7 @@ const ArticleRaipurTraining = () => {
                                 4. Lab-Tested Mushroom Spawn Sale (हाई-क्वालिटी मशरूम का बीज)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                छत्तीसगढ़ में कई किसानों की फसल खराब बीज के कारण बर्बाद हो जाती है। हम 100% प्योर, फंगस-फ्री और लैब-टेस्टेड <Link to="/spawn-seed" className="text-primary-start hover:underline font-medium">Mushroom Spawn Sale</Link> करते हैं। हमारे पास ऑयस्टर, मिल्की और बटन मशरूम के फ्रेश बीज (Spawn) हमेशा थोक व चिल्हर रेट पर उपलब्ध रहते हैं।
+                                छत्तीसगढ़ में कई किसानों की फसल खराब बीज के कारण बर्बाद हो जाती है। हम 100% प्योर, फंगस-फ्री और लैब-टेस्टेड Mushroom Spawn Sale करते हैं। हमारे पास ऑयस्टर, मिल्की और बटन मशरूम के फ्रेश बीज (Spawn) हमेशा थोक व चिल्हर रेट पर उपलब्ध रहते हैं।
                             </p>
                         </div>
 

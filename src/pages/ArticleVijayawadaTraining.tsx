@@ -204,7 +204,7 @@ const ArticleVijayawadaTraining = () => {
                     <div className="space-y-6 mb-8">
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">1. Mushroom Farm Setup Services</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">మీరు Poranki లో ఒక చిన్న వెదురు షెడ్ (bamboo shed) వేయాలన్నా, లేదా Mangalagiri లో ఒక భారీ కమర్షియల్ AC ఫార్మ్ కట్టాలన్నా, మా టీమ్ మీకు పూర్తి స్థాయిలో mushroom farm setup కు సహాయపడుతుంది. <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey setup details.</Link></p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">మీరు Poranki లో ఒక చిన్న వెదురు షెడ్ (bamboo shed) వేయాలన్నా, లేదా Mangalagiri లో ఒక భారీ కమర్షియల్ AC ఫార్మ్ కట్టాలన్నా, మా టీమ్ మీకు పూర్తి స్థాయిలో mushroom farm setup కు సహాయపడుతుంది. Turnkey setup details.</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">2. Online & Offline Training</h3>
@@ -213,7 +213,7 @@ const ArticleVijayawadaTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">3. Spawn & Fresh/Dry Mushroom Sale</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-2">మంచి దిగుబడి రావాలంటే నాణ్యమైన విత్తనం (Quality Spawn) చాలా ముఖ్యం. మేము విజయవాడలో నమ్మకమైన <Link to="/spawn-seed" className="text-primary-start hover:underline">mushroom spawn supplier</Link>. మీకు Oyster, Button, Milky Mushroom Spawn సప్లై చేస్తాము.</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-2">మంచి దిగుబడి రావాలంటే నాణ్యమైన విత్తనం (Quality Spawn) చాలా ముఖ్యం. మేము విజయవాడలో నమ్మకమైన mushroom spawn supplier. మీకు Oyster, Button, Milky Mushroom Spawn సప్లై చేస్తాము.</p>
                             <p className="dark:text-slate-400 text-slate-600 text-sm">మేము fresh mushroom supplier నెట్వర్క్ ద్వారా రెస్టారెంట్లు, Rythu Bazaars, మరియు సూపర్ మార్కెట్లకు సప్లై చేయడానికి సహాయపడతాము. సోలార్ డ్రయ్యర్ల ద్వారా ఆరబెట్టి, dry mushroom supplier గా కూడా మీరు మారవచ్చు.</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">

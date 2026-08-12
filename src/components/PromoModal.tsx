@@ -52,25 +52,11 @@ export const PromoModal = () => {
       color: 'blue'
     },
     { 
-      icon: <Settings className="w-4 h-4" />, 
-      label: 'Turnkey Project (Setup)', 
-      sub: 'End-to-end project setup',
-      path: '/services/turnkey-setup',
-      color: 'purple'
-    },
-    { 
       icon: <Leaf className="w-4 h-4" />, 
       label: 'Fresh & Dry Mushroom', 
       sub: 'Premium quality products',
       path: '/contact-form',
       color: 'teal'
-    },
-    { 
-      icon: <Package className="w-4 h-4" />, 
-      label: 'Mushroom Spawn', 
-      sub: 'High quality spawn & seeds',
-      path: '/spawn-seed',
-      color: 'yellow'
     },
   ];
 

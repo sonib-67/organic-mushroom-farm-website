@@ -24,7 +24,7 @@ const SiteVisitConsultationPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/start-session', {
+      const response = await fetch('/api/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

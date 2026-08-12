@@ -87,7 +87,7 @@ const ArticleOrganicMushroomFarmGuide = () => {
                         Setting Up Your Farm: From Seeds to Harvest
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        If you are ready to transition from searching for "mushroom farms near me" to actually building one, the first step is sourcing quality spawn. Finding reliable <Link to="/spawn-seed" className="text-primary-start hover:underline font-semibold">button mushroom seeds near me</Link> (or spawn) is crucial for a healthy crop.
+                        If you are ready to transition from searching for "mushroom farms near me" to actually building one, the first step is sourcing quality spawn. Finding reliable button mushroom seeds near me (or spawn) is crucial for a healthy crop.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4">
                         Whether you are looking into large-scale organic mushroom farming or a small backyard setup, temperature control, proper ventilation, and maintaining strict hygiene to prevent contamination are your golden rules.

@@ -165,7 +165,7 @@ const ArticleKochiTraining = () => {
                         Spawn Sales, Market Opportunities & Value Addition
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
-                        ഗുണനിലവാരമുള്ള <Link to="/spawn-seed" className="text-primary-start hover:underline">Spawn (വിത്ത്)</Link> ആണ് വിജയത്തിന്റെ അടിസ്ഥാനം. Oyster (Grey, Pink, Phoenix, King), Milky, Button, Shiitake, Reishi, Lion's Mane തുടങ്ങിയവയുടെ spawn നിലവിൽ ലഭ്യമാണ്.
+                        ഗുണനിലവാരമുള്ള Spawn (വിത്ത്) ആണ് വിജയത്തിന്റെ അടിസ്ഥാനം. Oyster (Grey, Pink, Phoenix, King), Milky, Button, Shiitake, Reishi, Lion's Mane തുടങ്ങിയവയുടെ spawn നിലവിൽ ലഭ്യമാണ്.
                     </p>
                     <ul className="list-disc pl-6 space-y-4 dark:text-slate-300 text-slate-700">
                         <li>

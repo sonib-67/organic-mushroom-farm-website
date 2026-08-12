@@ -232,9 +232,9 @@ const ArticleAmritsarTraining = () => {
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-lg font-bold dark:text-white text-slate-900"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link></h3>
+                                <h3 className="text-lg font-bold dark:text-white text-slate-900">Mushroom Spawn Supply</h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    Reliable spawn cultivation ਦੀ ਸਫਲਤਾ ਲਈ ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ factor ਹੈ। ਅਸੀਂ ਮੁਹੱਈਆ ਕਰਵਾਉਂਦੇ ਹਾਂ: <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Oyster Mushroom Spawn, Button Mushroom Spawn, Milky Mushroom Spawn</Link>. Amritsar, Ajnala, Tarn Taran, Attari, Jandiala Guru, Chogawan, Lopoke ਅਤੇ Verka Rural Belt ਤੱਕ pan-India delivery ਨਾਲ <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">spawn</Link> ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ।
+                                    Reliable spawn cultivation ਦੀ ਸਫਲਤਾ ਲਈ ਸਭ ਤੋਂ ਜ਼ਰੂਰੀ factor ਹੈ। ਅਸੀਂ ਮੁਹੱਈਆ ਕਰਵਾਉਂਦੇ ਹਾਂ: Oyster Mushroom Spawn, Button Mushroom Spawn, Milky Mushroom Spawn. Amritsar, Ajnala, Tarn Taran, Attari, Jandiala Guru, Chogawan, Lopoke ਅਤੇ Verka Rural Belt ਤੱਕ pan-India delivery ਨਾਲ spawn ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ।
                                 </p>
                             </div>
                         </div>
@@ -423,7 +423,7 @@ const ArticleAmritsarTraining = () => {
                                     a: "Sahi management aur consistent dhaba/hotel demand ke saath monthly accha margin possible hai."
                                 },
                                 {
-                                    q: <>3. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> ਕਿੱਥੋਂ ਮਿਲੇਗਾ?</>,
+                                    q: <>3. Mushroom spawn ਕਿੱਥੋਂ ਮਿਲੇਗਾ?</>,
                                     a: "ਸਾਡੇ ਵੱਲੋਂ ਪੂਰੇ Punjab ਅਤੇ pan-India delivery ਨਾਲ spawn ਖਰੀਦਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
                                 },
                                 {

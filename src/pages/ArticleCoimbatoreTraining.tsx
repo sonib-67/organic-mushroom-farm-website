@@ -91,7 +91,7 @@ const ArticleCoimbatoreTraining = () => {
                         Step-by-Step Modern Mushroom Farm Setup
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        ஒரு கமர்ஷியல் காளான் பண்ணை வைக்கணும்னா சும்மா ஏனோ தானோனு பண்ணக் கூடாதுங்க. பக்காவான <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link> முக்கியம்:
+                        ஒரு கமர்ஷியல் காளான் பண்ணை வைக்கணும்னா சும்மா ஏனோ தானோனு பண்ணக் கூடாதுங்க. பக்காவான Mushroom Farm Setup முக்கியம்:
                     </p>
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700 mb-8">
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Hygiene Management & Production Efficiency:</strong> காளான் வளர்ப்புல சுத்தம் தான் சோறு போடும். கிருமித்தொற்று இல்லாம பார்த்துக்கணும்.</span></li>
@@ -138,9 +138,9 @@ const ArticleCoimbatoreTraining = () => {
                         Project Consultation & Subsidies
                     </h2>
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700 mb-8">
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Business Plan & ROI:</strong> பிசினஸ்ல இறங்குறதுக்கு முன்னாடி Startup Capital எவ்ளோ, Operating Costs என்ன, Revenue Potential எவ்ளோ வரும்னு ஒரு தெளிவான ப்ளூபிரின்ட் ரெடி பண்ணிக்கோங்க. <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Business Plan</Link> விவரங்களுக்கு பார்க்கவும்.</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Business Plan & ROI:</strong> பிசினஸ்ல இறங்குறதுக்கு முன்னாடி Startup Capital எவ்ளோ, Operating Costs என்ன, Revenue Potential எவ்ளோ வரும்னு ஒரு தெளிவான ப்ளூபிரின்ட் ரெடி பண்ணிக்கோங்க. Business Plan விவரங்களுக்கு பார்க்கவும்.</span></li>
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Government Subsidy Opportunities:</strong> NHB (National Horticulture Board) மற்றும் அக்ரி டிபார்ட்மென்ட் மூலமா காளான் பண்ணை வைக்க சூப்பரான மானியங்கள் (Subsidies) கிடைக்குது. அதை கரெக்டா பயன்படுத்திக்கணும்.</span></li>
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Mushroom Consultancy Services & Turnkey Projects:</strong> பெரிய லெவல்ல இன்வெஸ்ட் பண்ண நினைக்குறவங்களுக்கு, Farm Design-ல இருந்து எக்யூப்மென்ட் பிளானிங் வரைக்கும் எல்லாத்தையும் ஏ-டு-இஸட் பார்த்துக்க <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey Projects</Link> மற்றும் <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link> சப்போர்ட் இப்போ கோவையிலயே தாராளமா கிடைக்குது.</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Mushroom Consultancy Services & Turnkey Projects:</strong> பெரிய லெவல்ல இன்வெஸ்ட் பண்ண நினைக்குறவங்களுக்கு, Farm Design-ல இருந்து எக்யூப்மென்ட் பிளானிங் வரைக்கும் எல்லாத்தையும் ஏ-டு-இஸட் பார்த்துக்க Turnkey Projects மற்றும் <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link> சப்போர்ட் இப்போ கோவையிலயே தாராளமா கிடைக்குது.</span></li>
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">

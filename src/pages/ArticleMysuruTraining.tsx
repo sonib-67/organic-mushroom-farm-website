@@ -210,10 +210,10 @@ const ArticleMysuruTraining = () => {
                     </p>
 
                     <h2 className="text-lg md:text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4 border-l-4 border-primary-start pl-4 uppercase">
-                        <Link to="/spawn-seed" className="text-primary-start hover:underline">Mushroom Spawn Supply</Link>
+                        Mushroom Spawn Supply
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
-                        Reliable <Link to="/spawn-seed" className="text-primary-start hover:underline font-semibold">Mushroom Spawn Supply</Link> ದ ಪ್ರಮುಖ input ಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ನಾವು ಒದಗಿಸುತ್ತೇವೆ:
+                        Reliable Mushroom Spawn Supply ದ ಪ್ರಮುಖ input ಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ನಾವು ಒದಗಿಸುತ್ತೇವೆ:
                     </p>
                     <ul className="list-disc pl-5 space-y-1 dark:text-slate-300 text-slate-700 text-sm md:text-base">
                         <li>Oyster Mushroom Spawn</li>

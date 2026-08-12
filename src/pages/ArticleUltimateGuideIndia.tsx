@@ -59,7 +59,7 @@ const ArticleUltimateGuideIndia = () => {
                         1. Demystifying Mushroom Cultivation: A Lucrative Agribusiness
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        For anyone trying to figure out how to start <Link to="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" className="text-primary-start hover:underline">mushroom farming with low investment</Link>, the journey begins with understanding the core lifecycle of different fungi strains. Unlike traditional crops, mushrooms do not depend on sunlight or extensive arable land. This makes it a perfect fit for multi-tier indoor farming.
+                        For anyone trying to figure out how to start mushroom farming with low investment, the journey begins with understanding the core lifecycle of different fungi strains. Unlike traditional crops, mushrooms do not depend on sunlight or extensive arable land. This makes it a perfect fit for multi-tier indoor farming.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
                         To help aspiring cultivators launch their setups smoothly, we break down the most popular types grown across the country, each varying in climate demands, growth cycles, and market value:
@@ -69,7 +69,7 @@ const ArticleUltimateGuideIndia = () => {
                             <strong>Button Mushroom:</strong> The most widely consumed variety, requiring specific climate controls and rich compost. Investing in advanced <Link to="/blog/mushroom-farming-training-online-offline-certificate" className="text-primary-start hover:underline">button mushroom training</Link> ensures you manage the compost preparation and pinning stages optimally.
                         </li>
                         <li>
-                            <strong>Oyster Mushroom:</strong> Known for being incredibly beginner-friendly, this variety has a rapid growth cycle. Accessing a step-by-step <Link to="/blog/oyster-mushroom-cultivation-india" className="text-primary-start hover:underline">oyster mushroom farming course</Link> helps track ideal humidity parameters to maximize yield.
+                            <strong>Oyster Mushroom:</strong> Known for being incredibly beginner-friendly, this variety has a rapid growth cycle. Accessing a step-by-step oyster mushroom farming course helps track ideal humidity parameters to maximize yield.
                         </li>
                         <li>
                             <strong>Milky Mushroom:</strong> Highly suited for the warmer plains of India, this variety boasts an extended shelf-life. A specialized milky mushroom growing course covers the precise casing soil requirements essential for high production.
@@ -115,7 +115,7 @@ const ArticleUltimateGuideIndia = () => {
                         Succeeding in this sector demands a sharp focus on the operational environment. A properly designed mushroom grow room or a dedicated mushroom shed setup safeguards your cultivation against external pathogens and temperature fluctuations.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        When analyzing your initial mushroom farm setup cost, you must evaluate structural scalability. Entrepreneurs looking for end-to-end industrial execution often opt for a complete <Link to="/blog/turnkey-commercial-setup" className="text-primary-start hover:underline">turnkey mushroom project</Link>, which covers everything from automated climate control units to specialized rack configurations. Whether you are establishing a localized mushroom training center in Jabalpur, expanding operations across Bhopal, Indore, or Gwalior, or building commercial distribution units near Jaipur and Lucknow, structuring your infrastructure correctly keeps long-term operating costs remarkably low.
+                        When analyzing your initial mushroom farm setup cost, you must evaluate structural scalability. Entrepreneurs looking for end-to-end industrial execution often opt for a complete turnkey mushroom project, which covers everything from automated climate control units to specialized rack configurations. Whether you are establishing a localized mushroom training center in Jabalpur, expanding operations across Bhopal, Indore, or Gwalior, or building commercial distribution units near Jaipur and Lucknow, structuring your infrastructure correctly keeps long-term operating costs remarkably low.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -180,7 +180,7 @@ const ArticleUltimateGuideIndia = () => {
                         6. Substrate Engineering: Advanced Compost & Casing Soil Preparation
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        The specific substrate composition you select acts as the absolute nutritional foundation for your crops, heavily impacting both crop cycles and final yield quality. For example, while simple agricultural waste like wheat straw works wonderfully for a basic <Link to="/blog/oyster-mushroom-cultivation-india" className="text-primary-start hover:underline">oyster mushroom cultivation guide</Link>, cultivating high-value commercial varieties demands a much more rigorous approach.
+                        The specific substrate composition you select acts as the absolute nutritional foundation for your crops, heavily impacting both crop cycles and final yield quality. For example, while simple agricultural waste like wheat straw works wonderfully for a basic oyster mushroom cultivation guide, cultivating high-value commercial varieties demands a much more rigorous approach.
                     </p>
 
                     <div className="overflow-x-auto mt-6 mb-8">
@@ -287,7 +287,7 @@ const ArticleUltimateGuideIndia = () => {
                     <ul className="list-disc pl-5 space-y-4 dark:text-slate-300 text-slate-700">
                         <li><strong>Web Architecture:</strong> Deploying high-speed, multi-page websites on modern frameworks like Next.js and hosting them via platforms like Vercel ensures your site ranks at the top for high-intent queries like "best online mushroom training course in India".</li>
                         <li><strong>Simulated Live Webinars:</strong> Automating your educational funnel with video modules that play at scheduled times simulates a live experience, driving higher engagement without requiring you to be on camera 24/7.</li>
-                        <li><strong>AI Integration:</strong> Embedding customized, AI-powered chatbots directly into your landing pages provides instant support for queries regarding your <Link to="/blog/turnkey-commercial-setup" className="text-primary-start hover:underline">mushroom turnkey project</Link> services or course modules.</li>
+                        <li><strong>AI Integration:</strong> Embedding customized, AI-powered chatbots directly into your landing pages provides instant support for queries regarding your mushroom turnkey project services or course modules.</li>
                     </ul>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">

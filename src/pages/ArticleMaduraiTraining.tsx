@@ -185,7 +185,7 @@ const ArticleMaduraiTraining = () => {
                         
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="glass p-5 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link></h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">Mushroom Spawn Supply</h3>
                                 <p className="text-xs dark:text-slate-400 text-slate-600">Spawn quality நன்றாக இல்லையென்றால் yield ஒருபோதும் consistent ஆக வராது. கிடைக்கும் categories: Oyster, Button, Milky. Delivery மட்டுத்தாவணி, அண்ணா நகர், KK நகர், திருநகர், செல்லூர், தில்லாகுளம் முதல் திருப்பரங்குன்றம், வடிபட்டி, அலங்காநல்லூர் block வரை செய்யப்படுகிறது.</p>
                             </div>
                             <div className="glass p-5 rounded-2xl border border-white/5">
@@ -218,7 +218,7 @@ const ArticleMaduraiTraining = () => {
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/blog/mushroom-farming-business-plan-india" className="hover:text-emerald-500 transition-colors">Mushroom Business Plan & ROI</Link></h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Mushroom Business Plan & ROI</h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
                                     Investment செய்வதற்கு முன் இவற்றை evaluate செய்யவும்: Investment budget, Production capacity, Market demand, Sales channels, Operating costs. ஒரு structured <Link to="/business-plan" className="text-emerald-500 hover:underline font-semibold">Mushroom Business Plan</Link> business risks-ஐ குறைக்க உதவும்.
                                 </p>
@@ -344,7 +344,7 @@ const ArticleMaduraiTraining = () => {
                                     a: "Profit variety, scale, production quality மற்றும் local buyer network-ஐ பொறுத்தது."
                                 },
                                 {
-                                    q: <>3. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> எங்கே வாங்குவது?</>,
+                                    q: <>3. Mushroom spawn எங்கே வாங்குவது?</>,
                                     a: "Quality-assured oyster, button மற்றும் milky mushroom spawn direct-ஆக supply கிடைக்கும், மதுரைக்குள் delivery-ம் possible."
                                 },
                                 {

@@ -109,7 +109,7 @@ const ArticleChandigarhTraining = () => {
                                 4. Lab-Tested Mushroom Spawn Sale (प्रीमियम मशरूम बीज)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                खेती में 90% सफलता अच्छे बीज पर निर्भर करती है। हम फर्स्ट-जनरेशन, लैब-टेस्टेड और 100% प्योर <Link to="/spawn-seed" className="text-primary-start hover:underline font-medium">Mushroom Spawn Sale</Link> करते हैं। हमारे पास ऑयस्टर, मिल्की, बटन और सभी औषधीय (Medicinal) मशरूम के फ्रेश स्पॉन ट्राईसिटी रीजन के लिए हमेशा स्टॉक में उपलब्ध रहते हैं।
+                                खेती में 90% सफलता अच्छे बीज पर निर्भर करती है। हम फर्स्ट-जनरेशन, लैब-टेस्टेड और 100% प्योर Mushroom Spawn Sale करते हैं। हमारे पास ऑयस्टर, मिल्की, बटन और सभी औषधीय (Medicinal) मशरूम के फ्रेश स्पॉन ट्राईसिटी रीजन के लिए हमेशा स्टॉक में उपलब्ध रहते हैं।
                             </p>
                         </div>
 

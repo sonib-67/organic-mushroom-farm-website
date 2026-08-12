@@ -108,7 +108,7 @@ const ArticleLucknowTraining = () => {
                                 4. High-Yielding Mushroom Spawn Sale (टॉप क्वालिटी मशरूम बीज)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                Farming में सबसे ज़रूरी होता है सही और बीमारी-मुक्त seed (बीज)। हम lab-tested और high-yield capacity वाला <Link to="/spawn-seed" className="text-primary-start hover:underline font-medium">Mushroom Spawn Sale</Link> करते हैं। हमारे पास Button, Oyster और Milky mushroom के fresh spawn हमेशा heavy discount पर bulk और retail दोनों में available रहते हैं।
+                                Farming में सबसे ज़रूरी होता है सही और बीमारी-मुक्त seed (बीज)। हम lab-tested और high-yield capacity वाला Mushroom Spawn Sale करते हैं। हमारे पास Button, Oyster और Milky mushroom के fresh spawn हमेशा heavy discount पर bulk और retail दोनों में available रहते हैं।
                             </p>
                         </div>
 

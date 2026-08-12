@@ -47,7 +47,7 @@ const SpawnSeedPage = () => {
         try {
             await fetch('/api/contact', {
                 method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
+                body: JSON.stringify(Object.fromEntries(formData)), credentials: "same-origin",
                 headers: {
                     'Accept': 'application/json',
           'Content-Type': 'application/json'

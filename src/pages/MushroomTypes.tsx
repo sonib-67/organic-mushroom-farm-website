@@ -225,12 +225,9 @@ const MushroomTypesPage = () => {
           </p>
           
           <div className="pt-4 flex flex-col md:flex-row justify-center gap-4 relative z-10">
-            <Link 
-              to="/spawn-seed" 
-              className="gradient-bg px-10 py-4 rounded-xl text-white font-black text-xs uppercase tracking-widest hover:scale-105 transition-transform shadow-xl block text-center"
-            >
+            
               Explore Spawn Supply
-            </Link>
+            
             <Link 
               to="/turnkey-projects" 
               className="btn dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 hover:dark:bg-white/10 hover:bg-black/10 px-10 py-4 rounded-xl dark:text-white text-slate-900 font-black text-xs uppercase tracking-widest block text-center transition-all"

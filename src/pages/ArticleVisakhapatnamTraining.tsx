@@ -39,7 +39,7 @@ const ArticleVisakhapatnamTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        ఈ పేజీ ప్రత్యేకంగా Visakhapatnam మరియు దాని చుట్టుపక్కల ఉన్న వారి కోసం తయారు చేయబడింది — వారికి <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">mushroom farm setup</Link>, <Link to="/training" className="text-primary-start hover:underline">online లేదా offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">spawn supply</Link>, fresh మరియు dry mushroom sale, లేదా ఒక సరైన <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> మరియు <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> కావాలి అనుకుంటే. Organic Mushrooms Farm ఈ మొత్తం journey లో మీకు తోడుగా ఉంటుంది.
+                        ఈ పేజీ ప్రత్యేకంగా Visakhapatnam మరియు దాని చుట్టుపక్కల ఉన్న వారి కోసం తయారు చేయబడింది — వారికి mushroom farm setup, <Link to="/training" className="text-primary-start hover:underline">online లేదా offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">spawn supply</Link>, fresh మరియు dry mushroom sale, లేదా ఒక సరైన business plan మరియు <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> కావాలి అనుకుంటే. Organic Mushrooms Farm ఈ మొత్తం journey లో మీకు తోడుగా ఉంటుంది.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -95,7 +95,7 @@ const ArticleVisakhapatnamTraining = () => {
                         <li>Storage area</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4">
-                        <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Setup services</Link> లో site assessment, layout design, low-cost DIY options నుండి semi-automated climate-controlled units వరకు అన్నీ cover చేయబడతాయి — మీది గాజువాక లో ఒక shed అయినా, మధురవాడ లో terrace అయినా, లేదా పెందుర్తి దగ్గర కొంత land అయినా.
+                        Setup services లో site assessment, layout design, low-cost DIY options నుండి semi-automated climate-controlled units వరకు అన్నీ cover చేయబడతాయి — మీది గాజువాక లో ఒక shed అయినా, మధురవాడ లో terrace అయినా, లేదా పెందుర్తి దగ్గర కొంత land అయినా.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -111,7 +111,7 @@ const ArticleVisakhapatnamTraining = () => {
                         <li>Substrate preparation మరియు sterilization</li>
                         <li>Common problems (contamination, తక్కువ yield) మరియు వాటి solutions</li>
                         <li>Packaging మరియు local market pricing</li>
-                        <li><Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Business planning</Link> మరియు cost calculation</li>
+                        <li>Business planning మరియు cost calculation</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4 font-medium italic">
                         ఇది ముఖ్యంగా వారికి బాగుంటుంది ఎవరైతే ఇన్వెస్ట్ చేయడానికి ముందు knowledge తెలుసుకోవాలని అనుకుంటారో.
@@ -209,7 +209,7 @@ const ArticleVisakhapatnamTraining = () => {
                         Turnkey Mushroom Projects
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        పెద్ద scale లో ఆలోచించే investors కోసం — గాజువాక industrial belt లో అయినా, పెందుర్తి-సబ్బవరం land లో అయినా — <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">turnkey projects</Link> available. Farm design, equipment planning, infrastructure మరియు operational systems అన్నీ ఒకేసారి handle చేయబడతాయి.
+                        పెద్ద scale లో ఆలోచించే investors కోసం — గాజువాక industrial belt లో అయినా, పెందుర్తి-సబ్బవరం land లో అయినా — turnkey projects available. Farm design, equipment planning, infrastructure మరియు operational systems అన్నీ ఒకేసారి handle చేయబడతాయి.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -226,7 +226,7 @@ const ArticleVisakhapatnamTraining = () => {
                         <li>Expected revenue మరియు break-even timeline</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4">
-                        ఒక structured <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> వల్ల మీరు ఏ variety తో start చేయాలో, మీ budget కి ఎంత scale realistic గా ఉంటుందో decide చేయవచ్చు.
+                        ఒక structured business plan వల్ల మీరు ఏ variety తో start చేయాలో, మీ budget కి ఎంత scale realistic గా ఉంటుందో decide చేయవచ్చు.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -320,10 +320,10 @@ const ArticleVisakhapatnamTraining = () => {
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700 mb-8 max-w-2xl mx-auto">
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Practical, hands-on మరియు online — రెండు <Link to="/training" className="text-primary-start hover:underline">training</Link> options</span></li>
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Consistent yield ఇచ్చే quality <Link to="/services/spawn-supply" className="text-primary-start hover:underline">spawn</Link></span></li>
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Setup</Link> నుండి marketing వరకు end-to-end support</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Setup నుండి marketing వరకు end-to-end support</span></li>
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Vizag మరియు coastal Andhra యొక్క local market అవగాహన</span></li>
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Business planning</Link> మరియు ROI-focused approach, కేవలం training మాత్రమే కాదు</span></li>
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey</Link> మరియు <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> — రెండు options, చిన్న unit అయినా, పెద్ద commercial project అయినా</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Business planning మరియు ROI-focused approach, కేవలం training మాత్రమే కాదు</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Turnkey మరియు <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> — రెండు options, చిన్న unit అయినా, పెద్ద commercial project అయినా</span></li>
                     </ul>
 
                     <hr className="my-12 border-t-2 dark:border-white/10 border-black/10" />
@@ -387,7 +387,7 @@ const ArticleVisakhapatnamTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">14. Turnkey project setup ఇస్తారా?</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">అవును, పెద్ద scale investors కోసం complete farm design నుండి operational systems వరకు <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">turnkey solutions</Link> available.</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">అవును, పెద్ద scale investors కోసం complete farm design నుండి operational systems వరకు turnkey solutions available.</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">15. Marketing support ఇస్తారా?</h3>

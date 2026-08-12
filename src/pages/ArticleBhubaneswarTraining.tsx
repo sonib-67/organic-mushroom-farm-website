@@ -35,7 +35,7 @@ const ArticleBhubaneswarTraining = () => {
                     </h2>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                        ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶାର ରାଜଧାନୀ, ଆଜିକାଲି କେବଳ ଏକ IT ଓ Education Hub ଭାବେ ନୁହେଁ, ବରଂ ଏକ ନୂଆ agribusiness destination ଭାବେ ଉଭା ହେଉଛି। <Link to="/" className="text-primary-start hover:underline">Mushroom Farming in Bhubaneswar</Link> ଏବେ ଏକ ଚର୍ଚ୍ଚିତ ବିଷୟ, ଯେଉଁଠି ଯୁବକ, ଛାତ୍ର, ମହିଳା, ଚାକିରି ଛାଡିଥିବା ପ୍ରୋଫେସନାଲ୍ ଏବଂ କୃଷକ ମାନେ ଏକ profitable business model ଭାବେ ଏହାକୁ ଗ୍ରହଣ କରୁଛନ୍ତି। Organic Mushrooms Farm ଟିମ୍ <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link>, <Link to="/training" className="text-primary-start hover:underline">Online Mushroom Training</Link>, <Link to="/workshop" className="text-primary-start hover:underline">Offline Mushroom Training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn Sale</Link>, Fresh ଓ Dry Mushroom Sale, <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link>, Turnkey Project ଏବଂ Government Subsidy Support ପାଇଁ ଭୁବନେଶ୍ୱର ଓ ଆଖପାଖ ସମସ୍ତ ଅଞ୍ଚଳରେ ସେବା ଦେଉଛି।
+                        ଭୁବନେଶ୍ୱର, ଓଡ଼ିଶାର ରାଜଧାନୀ, ଆଜିକାଲି କେବଳ ଏକ IT ଓ Education Hub ଭାବେ ନୁହେଁ, ବରଂ ଏକ ନୂଆ agribusiness destination ଭାବେ ଉଭା ହେଉଛି। <Link to="/" className="text-primary-start hover:underline">Mushroom Farming in Bhubaneswar</Link> ଏବେ ଏକ ଚର୍ଚ୍ଚିତ ବିଷୟ, ଯେଉଁଠି ଯୁବକ, ଛାତ୍ର, ମହିଳା, ଚାକିରି ଛାଡିଥିବା ପ୍ରୋଫେସନାଲ୍ ଏବଂ କୃଷକ ମାନେ ଏକ profitable business model ଭାବେ ଏହାକୁ ଗ୍ରହଣ କରୁଛନ୍ତି। Organic Mushrooms Farm ଟିମ୍ Mushroom Farm Setup, <Link to="/training" className="text-primary-start hover:underline">Online Mushroom Training</Link>, <Link to="/workshop" className="text-primary-start hover:underline">Offline Mushroom Training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn Sale</Link>, Fresh ଓ Dry Mushroom Sale, <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link>, Turnkey Project ଏବଂ Government Subsidy Support ପାଇଁ ଭୁବନେଶ୍ୱର ଓ ଆଖପାଖ ସମସ୍ତ ଅଞ୍ଚଳରେ ସେବା ଦେଉଛି।
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
@@ -67,7 +67,7 @@ const ArticleBhubaneswarTraining = () => {
                         Mushroom Farm Setup Services – ଭୁବନେଶ୍ୱରରେ
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        ଆମ ଟିମ୍ ଭୁବନେଶ୍ୱର ଓ ଆଖପାଖ ଅଞ୍ଚଳରେ ସମ୍ପୂର୍ଣ୍ଣ <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link> ସେବା ଦେଉଛି — ଛୋଟ ଘରୋଇ ୟୁନିଟ୍ ଠାରୁ ଆରମ୍ଭ କରି commercial scale farm ପର୍ଯ୍ୟନ୍ତ। ଏଥିରେ ସାମିଲ ରହେ:
+                        ଆମ ଟିମ୍ ଭୁବନେଶ୍ୱର ଓ ଆଖପାଖ ଅଞ୍ଚଳରେ ସମ୍ପୂର୍ଣ୍ଣ Mushroom Farm Setup ସେବା ଦେଉଛି — ଛୋଟ ଘରୋଇ ୟୁନିଟ୍ ଠାରୁ ଆରମ୍ଭ କରି commercial scale farm ପର୍ଯ୍ୟନ୍ତ। ଏଥିରେ ସାମିଲ ରହେ:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 dark:text-slate-300 text-slate-700 mb-4">
                         <li>Shed Design ଏବଂ Layout Planning</li>
@@ -171,7 +171,7 @@ const ArticleBhubaneswarTraining = () => {
                         Turnkey Mushroom Projects
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        Commercial investor ଏବଂ large-scale farmer ମାନଙ୍କ ପାଇଁ ଆମେ <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey Mushroom Project</Link> ପ୍ରଦାନ କରୁ, ଯେଉଁଥିରେ ସାମିଲ:
+                        Commercial investor ଏବଂ large-scale farmer ମାନଙ୍କ ପାଇଁ ଆମେ Turnkey Mushroom Project ପ୍ରଦାନ କରୁ, ଯେଉଁଥିରେ ସାମିଲ:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 dark:text-slate-300 text-slate-700 mb-4">
                         <li>Infrastructure Planning</li>
@@ -197,7 +197,7 @@ const ArticleBhubaneswarTraining = () => {
                         <li>Growth Potential</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4">
-                        ଏକ ସୁ-ପରିକଳ୍ପିତ <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Mushroom Project Report</Link> ଓ business plan long-term sustainability ପାଇଁ ବହୁତ ଜରୁରୀ। ଆମେ Bhubaneswar ର local market condition ଅନୁସାରେ customized project report ପ୍ରସ୍ତୁତ କରିବାରେ ସହାୟତା କରୁ, ଯାହା bank loan ବା subsidy application ପାଇଁ ମଧ୍ୟ ଉପଯୋଗୀ।
+                        ଏକ ସୁ-ପରିକଳ୍ପିତ Mushroom Project Report ଓ business plan long-term sustainability ପାଇଁ ବହୁତ ଜରୁରୀ। ଆମେ Bhubaneswar ର local market condition ଅନୁସାରେ customized project report ପ୍ରସ୍ତୁତ କରିବାରେ ସହାୟତା କରୁ, ଯାହା bank loan ବା subsidy application ପାଇଁ ମଧ୍ୟ ଉପଯୋଗୀ।
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -291,7 +291,7 @@ const ArticleBhubaneswarTraining = () => {
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Online ଓ Offline, ଉଭୟ <Link to="/training" className="text-primary-start hover:underline">Training</Link> available</span></li>
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Quality <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Spawn</Link> ର timely delivery</span></li>
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>End-to-end <Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link> ଏବଂ Turnkey Project Support</span></li>
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Business Plan</Link>, ROI Analysis ଏବଂ Subsidy Guidance</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Business Plan, ROI Analysis ଏବଂ Subsidy Guidance</span></li>
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span>Marketing ଓ Branding Support</span></li>
                     </ul>
 
@@ -356,7 +356,7 @@ const ArticleBhubaneswarTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">14. Turnkey project provide କରନ୍ତି କି?</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">ହଁ, commercial investor ମାନଙ୍କ ପାଇଁ complete <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey Mushroom Project</Link> setup ଉପଲବ୍ଧ।</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">ହଁ, commercial investor ମାନଙ୍କ ପାଇଁ complete Turnkey Mushroom Project setup ଉପଲବ୍ଧ।</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">15. Marketing support ଦିଅନ୍ତି କି?</h3>

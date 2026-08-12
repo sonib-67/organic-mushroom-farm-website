@@ -39,7 +39,7 @@ const ArticleNoidaTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        Noida is one of India's fastest-growing urban regions and provides excellent opportunities for <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link>, <Link to="/training" className="text-primary-start hover:underline">Mushroom Training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn Sale</Link> and Fresh Mushroom Business.
+                        Noida is one of India's fastest-growing urban regions and provides excellent opportunities for Mushroom Farm Setup, <Link to="/training" className="text-primary-start hover:underline">Mushroom Training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn Sale</Link> and Fresh Mushroom Business.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -112,7 +112,7 @@ const ArticleNoidaTraining = () => {
                     </h2>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                        A successful <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link> requires:
+                        A successful Mushroom Farm Setup requires:
                     </p>
                     <ul className="list-disc pl-6 space-y-2 dark:text-slate-300 text-slate-700">
                         <li>Clean Production Room</li>
@@ -269,7 +269,7 @@ const ArticleNoidaTraining = () => {
                         <li>Production Layout Planning</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4">
-                        <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey projects</Link> help simplify implementation.
+                        Turnkey projects help simplify implementation.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -289,7 +289,7 @@ const ArticleNoidaTraining = () => {
                         <li>Expected Revenue</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mt-4">
-                        A proper <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> supports long-term sustainability.
+                        A proper business plan supports long-term sustainability.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -385,7 +385,7 @@ const ArticleNoidaTraining = () => {
                     <div className="bg-linear-to-r from-primary-start/20 to-primary-end/20 p-8 rounded-3xl mt-12 border border-primary-start/20">
                         <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Conclusion</h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-4">
-                            नोएडा और आसपास के क्षेत्रों में Mushroom Farming तेजी से बढ़ता हुआ एग्री-बिजनेस अवसर है। सही प्रशिक्षण, गुणवत्तापूर्ण <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn</Link>, उचित Farm Setup, Marketing Support और <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Business Planning</Link> के माध्यम से किसान, छात्र और उद्यमी सफल Mushroom Business स्थापित कर सकते हैं।
+                            नोएडा और आसपास के क्षेत्रों में Mushroom Farming तेजी से बढ़ता हुआ एग्री-बिजनेस अवसर है। सही प्रशिक्षण, गुणवत्तापूर्ण <Link to="/services/spawn-supply" className="text-primary-start hover:underline">Mushroom Spawn</Link>, उचित Farm Setup, Marketing Support और Business Planning के माध्यम से किसान, छात्र और उद्यमी सफल Mushroom Business स्थापित कर सकते हैं।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-6">
                             Whether your goal is Mushroom Farm Setup, Online Mushroom Training, Offline Mushroom Training, Mushroom Spawn Sale, Fresh Mushroom Sale, Dry Mushroom Sale, Mushroom Consultancy, Turnkey Projects, Business Plan & ROI, Government Subsidy or Mushroom Marketing Support, Noida offers excellent opportunities for long-term business growth.

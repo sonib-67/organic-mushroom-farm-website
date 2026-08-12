@@ -890,11 +890,9 @@ const NAV_ITEMS = [
   },
   {
     name: "Services",
-    href: "/services",
     isExternal: false,
-    icon: Layers,
+    icon: BookOpen, // fallback icon
     subMenu: [
-      { name: "Spawn Supply", href: "/spawn-seed" },
       { name: "Compost Production", href: "/services/compost-production" },
       { name: "Consultancy", href: "/services/consultancy" },
       { name: "Marketing Support", href: "/services/marketing-support" },
@@ -3106,7 +3104,6 @@ const Footer = () => {
                 { name: "Gallery", href: "/gallery" },
                 { name: "Business Plan", href: "/business-plan" },
                 { name: "Government Subsidy", href: "/subsidy" },
-                { name: "Spawn Supply", href: "/spawn-seed" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
                 { name: "Cities Pages", href: "/states" },
@@ -3490,7 +3487,6 @@ const FloatingButtons = () => {
 
   const mobileNavItems = [
     { label: "Book Consultant", href: "/book-consultant", icon: Calendar },
-    { label: "Spawn (Seed)", href: "/spawn-seed", icon: Sprout },
     { label: "Training", href: "/training", icon: BookOpen },
     { label: "Setup (Turnkey)", href: "/#farming-models", icon: Home },
     { label: "Bags", href: "/#compost-units", icon: Layers },
@@ -4247,13 +4243,10 @@ const MushroomTraining = () => {
           <p className="dark:text-slate-400 text-slate-600 mb-3 md:mb-6 max-w-lg mx-auto text-[9px] md:text-sm leading-normal">
             High-quality lab-grown F1 hybrid spawn for Button, Oyster, and Milky mushrooms. Bulk delivery across India & global export.
           </p>
-          <Link
-            to="/spawn-seed"
-            className="btn-primary px-4 md:px-10 py-2 md:py-4 rounded-lg md:rounded-xl text-[10px] md:text-lg inline-flex items-center gap-1.5 md:gap-3"
-          >
+          
             Explore Organic Spawn & Seeds{" "}
             <Sprout size={12} className="md:w-5 md:h-5" />
-          </Link>
+          
         </div>
       </div>
 
@@ -4610,14 +4603,6 @@ const HomePage = () => {
             {[
               {
                 type: "Seller",
-                title: "Mushroom Spawn (Seed)",
-                desc: "Lab-grade organic F1 hybrid spawn.",
-                price: "Bulk Order",
-                linkType: "page",
-                to: "/spawn-seed",
-              },
-              {
-                type: "Seller",
                 title: "Fresh Organic Mushrooms",
                 desc: "A-grade commercial button mushrooms.",
                 price: "Live Market Rate",
@@ -4682,10 +4667,10 @@ const HomePage = () => {
                 Documentation & Resources
               </div>
               <h2 className="mb-6 uppercase text-center lg:text-left">
-                <Link to="/cities" className="hover:text-current transition-colors">
+                
                   Commercial Production{" "}
                   <span className="gradient-text">SOPs & Guides</span>
-                </Link>
+                
               </h2>
               <p className="mb-10 text-center lg:text-left">
                 Standard operating procedures used by commercial mushroom

@@ -39,7 +39,7 @@ const ArticleMushroomFarmingMistakes = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        Whether you are planning <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Mushroom Farm Setup</Link> in Bihar, Odisha, Maharashtra, Uttarakhand, Haryana, Chhattisgarh, Rajasthan, Himachal Pradesh, Punjab, Uttar Pradesh, Gujarat, Madhya Pradesh, or in metro markets like Delhi, Mumbai, Bengaluru, Hyderabad, Pune, Indore, Lucknow, Patna, Kolkata, Chennai or any village in India, understanding these mistakes can save time, money and effort.
+                        Whether you are planning Mushroom Farm Setup in Bihar, Odisha, Maharashtra, Uttarakhand, Haryana, Chhattisgarh, Rajasthan, Himachal Pradesh, Punjab, Uttar Pradesh, Gujarat, Madhya Pradesh, or in metro markets like Delhi, Mumbai, Bengaluru, Hyderabad, Pune, Indore, Lucknow, Patna, Kolkata, Chennai or any village in India, understanding these mistakes can save time, money and effort.
                     </p>
                     
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
@@ -207,7 +207,7 @@ const ArticleMushroomFarmingMistakes = () => {
 
                     <h3 className="text-xl font-bold dark:text-white text-slate-900 mt-6 mb-2">Solution</h3>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium italic">
-                        Prepare a proper <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">Mushroom Business Plan</Link> and ROI estimate before investing.
+                        Prepare a proper Mushroom Business Plan and ROI estimate before investing.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -353,7 +353,7 @@ const ArticleMushroomFarmingMistakes = () => {
                         <li>Operational Support</li>
                     </ul>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-8">
-                        <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey projects</Link> help simplify implementation.
+                        Turnkey projects help simplify implementation.
                     </p>
 
                     <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-10 mb-4 border-l-4 border-primary-start pl-4">
@@ -460,7 +460,7 @@ const ArticleMushroomFarmingMistakes = () => {
                             Growers who focus on proper training, quality spawn, farm hygiene, business planning and marketing support are often better positioned for long-term success.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed mb-8">
-                            Whether your goal is <Link to="/services/turnkey-setup" className="font-bold hover:underline text-primary-start">Mushroom Farm Setup</Link>, <Link to="/training" className="font-bold hover:underline text-primary-start">Online Mushroom Training</Link>, <Link to="/workshop" className="font-bold hover:underline text-primary-start">Offline Mushroom Training</Link>, <Link to="/services/spawn-supply" className="font-bold hover:underline text-primary-start">Mushroom Spawn Sale</Link>, Fresh Mushroom Sale, Dry Mushroom Sale, <Link to="/services/consultancy" className="font-bold hover:underline text-primary-start">Mushroom Consultancy</Link>, Turnkey Projects, <Link to="/blog/mushroom-farming-business-plan-india" className="font-bold hover:underline text-primary-start">Business Plan & ROI</Link>, Government Subsidy or Mushroom Marketing Support — across Bihar, Odisha, Maharashtra, Uttarakhand, Haryana, Chhattisgarh, Rajasthan, Himachal Pradesh, Punjab, Uttar Pradesh, Gujarat, Madhya Pradesh, or any city or village in India — avoiding these common mistakes can significantly improve your chances of building a successful mushroom farming business.
+                            Whether your goal is Mushroom Farm Setup, <Link to="/training" className="font-bold hover:underline text-primary-start">Online Mushroom Training</Link>, <Link to="/workshop" className="font-bold hover:underline text-primary-start">Offline Mushroom Training</Link>, <Link to="/services/spawn-supply" className="font-bold hover:underline text-primary-start">Mushroom Spawn Sale</Link>, Fresh Mushroom Sale, Dry Mushroom Sale, <Link to="/services/consultancy" className="font-bold hover:underline text-primary-start">Mushroom Consultancy</Link>, Turnkey Projects, Business Plan & ROI, Government Subsidy or Mushroom Marketing Support — across Bihar, Odisha, Maharashtra, Uttarakhand, Haryana, Chhattisgarh, Rajasthan, Himachal Pradesh, Punjab, Uttar Pradesh, Gujarat, Madhya Pradesh, or any city or village in India — avoiding these common mistakes can significantly improve your chances of building a successful mushroom farming business.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row items-center gap-4">

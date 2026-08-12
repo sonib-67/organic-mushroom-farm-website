@@ -44,7 +44,7 @@ const EnquiryPage = () => {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        body: JSON.stringify(submitData),
+        body: JSON.stringify(submitData), credentials: "same-origin",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

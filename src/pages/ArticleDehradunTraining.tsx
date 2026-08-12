@@ -219,8 +219,8 @@ const ArticleDehradunTraining = () => {
                             </div>
                             
                             <div className="glass p-6 rounded-2xl border border-white/5 space-y-3">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-lg"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link></h3>
-                                <p className="text-sm dark:text-slate-400 text-slate-600">Healthy spawn production के सबसे ज़रूरी factors में से एक है। हम उपलब्ध कराते हैं: <Link to="/spawn-seed" className="text-emerald-500 hover:underline">Oyster, Button, और Milky Mushroom Spawn</Link>. देहरादून, Doiwala, Rishikesh, Mussoorie, Vikasnagar, Raipur, Maldevta और Bhogpur Belt तक pan-India delivery के साथ spawn पहुंचाया जाता है।</p>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">Mushroom Spawn Supply</h3>
+                                <p className="text-sm dark:text-slate-400 text-slate-600">Healthy spawn production के सबसे ज़रूरी factors में से एक है। हम उपलब्ध कराते हैं: Oyster, Button, और Milky Mushroom Spawn. देहरादून, Doiwala, Rishikesh, Mussoorie, Vikasnagar, Raipur, Maldevta और Bhogpur Belt तक pan-India delivery के साथ spawn पहुंचाया जाता है।</p>
                             </div>
                         </div>
 

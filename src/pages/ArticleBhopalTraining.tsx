@@ -112,7 +112,7 @@ const ArticleBhopalTraining = () => {
                                 4. Certified High-Yielding Mushroom Spawn Sale (बीज वितरण केंद्र)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                खराब बीज यानी पूरी फसल का नुकसान। इसी समस्या को खत्म करने के लिए हम पूरी तरह से लैब-टेस्टेड, प्योर और हाई-यील्ड कैपेसिटी वाला <Link to="/spawn-seed" className="text-primary-start hover:underline font-medium">Mushroom Spawn Sale</Link> करते हैं। भोपाल और आसपास के जिलों के किसानों के लिए हमारे पास बटन, ऑयस्टर और मिल्की मशरूम के प्रीमियम स्पॉन (Mushroom Seed) थोक और रिटेल दरों पर हमेशा स्टॉक में उपलब्ध रहते हैं।
+                                खराब बीज यानी पूरी फसल का नुकसान। इसी समस्या को खत्म करने के लिए हम पूरी तरह से लैब-टेस्टेड, प्योर और हाई-यील्ड कैपेसिटी वाला Mushroom Spawn Sale करते हैं। भोपाल और आसपास के जिलों के किसानों के लिए हमारे पास बटन, ऑयस्टर और मिल्की मशरूम के प्रीमियम स्पॉन (Mushroom Seed) थोक और रिटेल दरों पर हमेशा स्टॉक में उपलब्ध रहते हैं।
                             </p>
                         </div>
 

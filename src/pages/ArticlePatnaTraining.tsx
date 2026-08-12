@@ -50,7 +50,7 @@ const ArticlePatnaTraining = () => {
                                 1. बीज ही बुनियाद है: Quality Mushroom Spawn Sale
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                मशरूम की खेती में आपकी 90% सफलता इस बात पर निर्भर करती है कि आपका बीज कैसा है। खराब स्पॉन मतलब पूरी फसल बर्बाद! हम पूरी तरह से लैब-टेस्टेड, फर्स्ट-जेनरेशन और फंगस-फ्री <Link to="/spawn-seed" className="text-primary-start hover:underline font-medium">Mushroom Spawn Sale</Link> करते हैं। हमारे पास बिहार के मौसम के अनुकूल निम्नलिखित सभी वेरायटीज के फ्रेश स्पॉन होलसेल और रिटेल रेट पर उपलब्ध हैं:
+                                मशरूम की खेती में आपकी 90% सफलता इस बात पर निर्भर करती है कि आपका बीज कैसा है। खराब स्पॉन मतलब पूरी फसल बर्बाद! हम पूरी तरह से लैब-टेस्टेड, फर्स्ट-जेनरेशन और फंगस-फ्री Mushroom Spawn Sale करते हैं। हमारे पास बिहार के मौसम के अनुकूल निम्नलिखित सभी वेरायटीज के फ्रेश स्पॉन होलसेल और रिटेल रेट पर उपलब्ध हैं:
                             </p>
                             <div className="pl-7 mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="p-6 rounded-2xl border dark:border-white/5 border-black/5 bg-black/5 dark:bg-white/5">
