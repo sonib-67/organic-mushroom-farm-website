@@ -87,11 +87,22 @@ import ArticleOysterMushroom from "./pages/ArticleOysterMushroom";
 import ArticleMushroomBusinessPlanIndia from "./pages/ArticleMushroomBusinessPlanIndia";
 import ArticleMilkyMushroom from "./pages/ArticleMilkyMushroom";
 import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
+import ArticleOperations from "./pages/ArticleOperations";
 import ArticleButtonMushroom from "./pages/ArticleButtonMushroom";
 import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
 import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
 import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
 import ArticleOysterMushroomCultivationIndia from "./pages/ArticleOysterMushroomCultivationIndia";
+import ArticleBikanerRajasthan from "./pages/ArticleBikanerRajasthan";
+import ArticleOnlineTraining from "./pages/ArticleOnlineTraining";
+import ArticleGuwahatiAssam from "./pages/ArticleGuwahatiAssam";
+import ArticleContactForm from "./pages/ArticleContactForm";
+import ArticleUdaipurRajasthan from "./pages/ArticleUdaipurRajasthan";
+import ArticleHomeMushroomFarming from "./pages/ArticleHomeMushroomFarming";
+import ArticleMysuruKarnataka from "./pages/ArticleMysuruKarnataka";
+import ArticleSiliguriWestBengal from "./pages/ArticleSiliguriWestBengal";
+import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
+import ArticleOperations from "./pages/ArticleOperations";
 import ArticleBusinessPlanHindi from "./pages/ArticleBusinessPlanHindi";
 import ArticleTrainingGuideHindi from "./pages/ArticleTrainingGuideHindi";
 import ArticleMushroomTrainingAffordable from "./pages/ArticleMushroomTrainingAffordable";
@@ -6326,6 +6337,16 @@ const AnimatedRoutes = () => {
           <Route path="/project-specs" element={<ArticleProjectSpecs />} />
           <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreKarnataka />} />
           <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
+          <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
+          <Route path="/training/online" element={<ArticleOnlineTraining />} />
+          <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
+          <Route path="/contact-form" element={<ArticleContactForm />} />
+          <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
+          <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
+          <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
+          <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
+          <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
+          <Route path="/operations" element={<ArticleOperations />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
