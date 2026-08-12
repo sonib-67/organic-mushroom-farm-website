@@ -44,7 +44,7 @@ const ArticleUdaipurTraining = () => {
             "@type": "LocalBusiness",
             "name": "Organic Mushrooms Farm",
             "image": "https://organicmushroomsfarm.com/logo.png",
-            "url": "https://organicmushroomsfarm.com",
+            "url": "https://organicmushroomsfarm.com/cities/rajasthan/udaipur",
             "areaServed": [
                 "Udaipur", "Hiran Magri", "Pratapnagar", "Nathdwara", "Rajsamand",
                 "Gogunda", "Eklingji", "Bedla", "Balicha Belt", "Fatehpura",
@@ -172,7 +172,7 @@ const ArticleUdaipurTraining = () => {
                             <li><strong>प्रोडक्शन और ग्रोइंग रूम</strong> की सही प्लानिंग।</li>
                             <li><strong>ह्यूमिडिटी (Humidity) और टेम्परेचर कंट्रोल सिस्टम।</strong></li>
                             <li>प्रॉपर वेंटिलेशन और एग्जॉस्ट सेटअप।</li>
-                            <li>अच्छी क्वालिटी के <strong>Mushroom Spawn (बीज)</strong> का स्टोरेज एरिया।</li>
+                            <li>अच्छी क्वालिटी के <strong><Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Mushroom Spawn</Link> (बीज)</strong> का स्टोरेज एरिया।</li>
                             <li>कमर्शियल इन्वेस्टर्स के लिए <strong><Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">Turnkey Mushroom Projects</Link></strong> (जिसमें फार्म डिजाइनिंग से लेकर इंफ्रास्ट्रक्चर तक सब कवर होता है)।</li>
                         </ul>
                     </div>
@@ -221,10 +221,10 @@ const ArticleUdaipurTraining = () => {
                     {/* Spawn Supply */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            🌱 Mushroom Spawn Supply & Value Added Products
+                            🌱 <Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Mushroom Spawn Supply</Link> & Value Added Products
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            अच्छी फसल के लिए सबसे जरूरी है उच्च क्वालिटी का बीज। उदयपुर में <strong>Mushroom Spawn Supply</strong> (विशेषकर Oyster, Button, और Milky Spawn) की सर्विस से आप अपने फार्म के लिए बेस्ट क्वालिटी बीज प्राप्त कर सकते हैं।
+                            अच्छी फसल के लिए सबसे जरूरी है उच्च क्वालिटी का बीज। उदयपुर में <strong><Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Mushroom Spawn Supply</Link></strong> (विशेषकर Oyster, Button, और Milky Spawn) की सर्विस से आप अपने फार्म के लिए बेस्ट क्वालिटी बीज प्राप्त कर सकते हैं।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             इसके अलावा, फ्रेश मशरूम बेचने के साथ-साथ आप इन <strong><Link to="/contact" className="hover:text-primary-start transition-colors">Dry Mushroom Products</Link></strong> में भी डील कर सकते हैं:
@@ -271,7 +271,7 @@ const ArticleUdaipurTraining = () => {
                             उदयपुर अब सिर्फ एक टूरिस्ट डेस्टिनेशन नहीं, बल्कि प्रीमियम एग्रीकल्चर और हॉस्पिटैलिटी सप्लायर्स के लिए एक बहुत बड़ा मार्केट बन गया है।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            चाहे आप <strong><Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">Mushroom Farm Setup</Link></strong> करना चाहते हों, <strong><Link to="/training" className="hover:text-primary-start transition-colors">Online/Offline Mushroom Training</Link></strong> लेना चाहते हों, या फिर <strong>Mushroom Spawn Supply</strong> और <strong><Link to="/book-consultant" className="hover:text-primary-start transition-colors">Mushroom Consultancy</Link></strong> की तलाश में हों, यह सही समय है इस चोखे बिजनेस में कदम रखने का। क्वालिटी, लगातार सप्लाई और होटल्स के साथ अच्छे पार्टनरशिप से आप उदयपुर में एक शानदार और प्रॉफिटेबल मशरूम बिजनेस खड़ा कर सकते हैं!
+                            चाहे आप <strong><Link to="/articles/turnkey-commercial-setup" className="hover:text-primary-start transition-colors">Mushroom Farm Setup</Link></strong> करना चाहते हों, <strong><Link to="/training" className="hover:text-primary-start transition-colors">Online/Offline Mushroom Training</Link></strong> लेना चाहते हों, या फिर <strong><Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Mushroom Spawn Supply</Link></strong> और <strong><Link to="/book-consultant" className="hover:text-primary-start transition-colors">Mushroom Consultancy</Link></strong> की तलाश में हों, यह सही समय है इस चोखे बिजनेस में कदम रखने का। क्वालिटी, लगातार सप्लाई और होटल्स के साथ अच्छे पार्टनरशिप से आप उदयपुर में एक शानदार और प्रॉफिटेबल मशरूम बिजनेस खड़ा कर सकते हैं!
                         </p>
                     </div>
 

@@ -42,7 +42,7 @@ const ArticleBusinessPlanIndia = ({ metaDesc }: { metaDesc?: string }) => {
                             <li><strong>Customer Demand:</strong> Local market analysis and buyer identification.</li>
                             <li><strong>Operating Costs:</strong> Substrate, spawn, electricity, water, and labor.</li>
                             <li><strong>Revenue Sources:</strong> Fresh sales, dry mushrooms, and value-added products.</li>
-                            <li><strong>Expansion Opportunities:</strong> Scaling up to turnkey projects and <Link to="/services/consultancy" className="text-brand-blue hover:underline">consultancy</Link>.</li>
+                            <li><strong>Expansion Opportunities:</strong> Scaling up to <Link to="/services/turnkey-setup" className="text-brand-blue hover:underline">turnkey projects</Link> and <Link to="/services/consultancy" className="text-brand-blue hover:underline">consultancy</Link>.</li>
                         </ul>
                         <p>Without this blueprint, growers often face inconsistent sales, crop contamination, and cash flow crises. Here is your step-by-step guide to building a profitable mushroom business.</p>
 
@@ -102,7 +102,7 @@ const ArticleBusinessPlanIndia = ({ metaDesc }: { metaDesc?: string }) => {
                         <p className="italic"><strong>Pro Tip:</strong> Most successful farmers in India start with Oyster Mushrooms to learn the ropes of humidity control and marketing before investing heavy capital into Button Mushroom climate control systems.</p>
 
                         <h2 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-4">Step 2: Plan Your Mushroom Farm Setup</h2>
-                        <p>You don't need acres of agricultural land to start. A successful mushroom farm setup can begin in a 300–500 sq. ft. room, shed, or basement. Your infrastructure planning must include:</p>
+                        <p>You don't need acres of agricultural land to start. A successful <Link to="/services/turnkey-setup" className="text-brand-blue hover:underline">mushroom farm setup</Link> can begin in a 300–500 sq. ft. room, shed, or basement. Your infrastructure planning must include:</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li><strong>Production Capacity:</strong> Calculate how many bags your space can hold using vertical racks (bamboo or iron).</li>
                             <li><strong>Ventilation:</strong> Proper exhaust systems to remove CO2, which is crucial for healthy cap formation.</li>
@@ -149,7 +149,7 @@ const ArticleBusinessPlanIndia = ({ metaDesc }: { metaDesc?: string }) => {
                         <p>Once you have mastered the trade, or if you are an investor looking for a hassle-free start, professional <Link to="/services/consultancy" className="text-brand-blue hover:underline">consultancy</Link> is the way to go.</p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li><strong>Mushroom Consultancy:</strong> Expert guidance on farm planning, resolving contamination issues, and market development.</li>
-                            <li><strong>Turnkey Mushroom Projects:</strong> Complete end-to-end solutions including farm design, equipment installation, infrastructure setup, and labor training.</li>
+                            <li><strong><Link to="/services/turnkey-setup" className="text-brand-blue hover:underline">Turnkey Mushroom Projects</Link>:</strong> Complete end-to-end solutions including farm design, equipment installation, infrastructure setup, and labor training.</li>
                         </ul>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/10 border-black/10 my-8">
                             <p className="font-bold dark:text-white text-slate-900 m-0">Looking for complete Turnkey Setup Support in India? Let us build your farm while you focus on the business. Call <a href="https://wa.me/919203544140" className="text-brand-blue hover:underline">9203544140</a> for a free consultation.</p>
@@ -184,10 +184,10 @@ const ArticleBusinessPlanIndia = ({ metaDesc }: { metaDesc?: string }) => {
                         <p>To build a sustainable empire, follow this phased approach:</p>
                         <ul className="list-none space-y-2">
                             <li><strong>Stage 1:</strong> Learn mushroom cultivation through <Link to="/training" className="text-brand-blue hover:underline">professional training</Link>.</li>
-                            <li><strong>Stage 2:</strong> Launch a small-scale, pilot Mushroom Farm Setup (100–300 bags).</li>
+                            <li><strong>Stage 2:</strong> Launch a small-scale, pilot <Link to="/services/turnkey-setup" className="text-brand-blue hover:underline">Mushroom Farm Setup</Link> (100–300 bags).</li>
                             <li><strong>Stage 3:</strong> Master the production cycle and establish steady Fresh Mushroom Sales.</li>
                             <li><strong>Stage 4:</strong> Minimize waste by adding Dry Mushroom and value-added product lines.</li>
-                            <li><strong>Stage 5:</strong> Scale up and expand into <Link to="/services/consultancy" className="text-brand-blue hover:underline">Mushroom Consultancy</Link>, <Link to="/services/spawn-supply" className="text-brand-blue hover:underline">Spawn Sales</Link>, and Commercial Turnkey Projects.</li>
+                            <li><strong>Stage 5:</strong> Scale up and expand into <Link to="/services/consultancy" className="text-brand-blue hover:underline">Mushroom Consultancy</Link>, <Link to="/services/spawn-supply" className="text-brand-blue hover:underline">Spawn Sales</Link>, and <Link to="/services/turnkey-setup" className="text-brand-blue hover:underline">Commercial Turnkey Projects</Link>.</li>
                         </ul>
 
                         <h2 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-4">Final Thoughts</h2>

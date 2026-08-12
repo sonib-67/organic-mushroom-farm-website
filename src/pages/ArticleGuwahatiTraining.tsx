@@ -63,7 +63,7 @@ const ArticleGuwahatiTraining = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Organic Mushrooms Farm",
-            "url": "https://organicmushroomsfarm.com",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-guwahati-assam",
             "areaServed": [
                 "Guwahati", "Beltola", "Dispur", "Six Mile", "Zoo Road", "Maligaon",
                 "Jalukbari", "Chandmari", "Pan Bazar", "Ganeshguri", "Hatigaon",
@@ -235,7 +235,7 @@ const ArticleGuwahatiTraining = () => {
                             Mushroom Spawn Sale আৰু Delivery
                         </h2>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            গুণগত spawn নথাকিলে ভাল harvest পোৱা কঠিন। আমি আগবঢ়াওঁ Mushroom Spawn Sale:
+                            গুণগত spawn নথাকিলে ভাল harvest পোৱা কঠিন। আমি আগবঢ়াওঁ <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">Mushroom Spawn Sale</Link>:
                         </p>
                         <ul className="grid grid-cols-2 gap-3 pl-0 list-none">
                             <li className="flex gap-2 items-center"><CheckCircle2 size={16} className="text-emerald-500" /> <span className="dark:text-slate-300 text-slate-700 text-sm"><Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster Mushroom</Link> Spawn</span></li>
@@ -491,7 +491,7 @@ const ArticleGuwahatiTraining = () => {
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">Sahi management aur consistent demand ke saath monthly acha margin possible hai, especially fresh aur dry mushroom dono bech kar.</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">
-                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">3. Mushroom spawn ক'ত পাম?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-950 text-sm mb-1.5">3. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> ক'ত পাম?</h4>
                                 <p className="text-xs dark:text-slate-300 text-slate-700 leading-relaxed">আমাৰ পৰা সমগ্ৰ Assam লৈ pan-India delivery ৰ সৈতে spawn ক্ৰয় কৰিব পাৰে।</p>
                             </div>
                             <div className="dark:bg-white/5 bg-black/5 p-5 rounded-2xl border border-white/5">

@@ -43,10 +43,10 @@ export default function TrainingCheckoutPage() {
     pixelTrackCustom('CheckoutFormSubmitted', { ...formData, intent: `Training - ${selectedTitle}` });
 
     try {
-      const response = await fetch('/api/create-order', {
+      const response = await fetch('/api/start-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, productType: selectedProductType }), credentials: "same-origin"
+        body: JSON.stringify({ ...formData, productType: selectedProductType })
       });
       
       let payload;

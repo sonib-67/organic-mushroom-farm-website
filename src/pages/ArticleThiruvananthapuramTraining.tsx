@@ -87,7 +87,7 @@ const ArticleThiruvananthapuramTraining = () => {
                 title="തിരുവനന്തപുരം കൂൺ കൃഷി: Training & Farm Setup" 
                 description="Organic Mushroom Farm-നൊപ്പം തിരുവനന്തപുരത്ത് നിങ്ങളുടെ കൂൺ ബിസിനസ്സ് തുടങ്ങുക. മികച്ച Training, Farm Setup, ഒപ്പം നല്ല Spawn ഞങ്ങൾ നൽകുന്നു."
                 keywords="Mushroom cultivation in Kerala, Mushroom farming in Thiruvananthapuram, Mushroom spawn in Thiruvananthapuram, mushroom training center in Thiruvananthapuram, Technopark, Kazhakkoottam"
-                
+                url="/cities/kerala/thiruvananthapuram"
                 schemas={tvmSchemas}
             />
             
@@ -272,7 +272,7 @@ const ArticleThiruvananthapuramTraining = () => {
                     {/* Spawn */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Spawn Supply
+                            <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Reliable spawn ആണ് വിജയകരമായ production-ന്റെ അടിസ്ഥാനം. ഞങ്ങൾ നൽകുന്നു:
@@ -567,7 +567,7 @@ const ArticleThiruvananthapuramTraining = () => {
                                 <p className="text-sm">Sahi management aur consistent café/hospital demand ke saath monthly accha margin possible hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৩. Mushroom spawn എവിടെ ലഭിക്കും?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৩. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> എവിടെ ലഭിക്കും?</h4>
                                 <p className="text-sm">ഞങ്ങളിൽ നിന്ന് മുഴുവൻ Kerala-യിലേക്കും pan-India delivery-യോടെ spawn വാങ്ങാം.</p>
                             </div>
                             <div>

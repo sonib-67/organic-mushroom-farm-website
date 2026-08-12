@@ -78,7 +78,7 @@ const ArticleGwaliorTraining = () => {
                     <div className="space-y-6 mb-8">
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">1. Mushroom Farm Setup</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">चाहे आप अपने घर के एक कमरे से शुरुआत कर रहे हों या एक बड़ा commercial mushroom farming setup लगाना चाहते हों, हम आपको पूरी तकनीकी सहायता देते हैं। हम Production Room, Ventilation System, Humidity Control, और Storage Area की प्लानिंग में मदद करते हैं। Turnkey setup details.</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">चाहे आप अपने घर के एक कमरे से शुरुआत कर रहे हों या एक बड़ा commercial mushroom farming setup लगाना चाहते हों, हम आपको पूरी तकनीकी सहायता देते हैं। हम Production Room, Ventilation System, Humidity Control, और Storage Area की प्लानिंग में मदद करते हैं। <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey setup details.</Link></p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">2. Online & Offline Training</h3>
@@ -87,7 +87,7 @@ const ArticleGwaliorTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">3. Spawn & Fresh Mushroom Sale</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-2">हम ग्वालियर में सबसे भरोसेमंद mushroom spawn supplier हैं। Oyster, Button, और Milky spawn उपलब्ध हैं।</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm mb-2">हम ग्वालियर में सबसे भरोसेमंद <Link to="/spawn-seed" className="text-primary-start hover:underline">mushroom spawn supplier</Link> हैं। Oyster, Button, और Milky spawn उपलब्ध हैं।</p>
                             <p className="dark:text-slate-400 text-slate-600 text-sm">हम लोकल होटल्स, रेस्टोरेंट्स, और vegetable markets (जैसे Naya Bazar, Krishi Upaj Mandi) में fresh और dry mushrooms सप्लाई करते हैं।</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">

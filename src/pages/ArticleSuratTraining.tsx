@@ -104,7 +104,7 @@ const ArticleSuratTraining = () => {
                                 4. Lab-Tested High-Yielding Mushroom Spawn Sale (મશરૂમ બીજ વિતરણ)
                             </h3>
                             <p className="dark:text-slate-300 text-slate-700 leading-relaxed pl-7">
-                                Khraab seed etle aakha crop nu nuksan. Etle j ame advanced lab ma taiyar karel, disease-free ane high-production capacity valu Mushroom Spawn Sale kariye chhe. Amari pase Button, Oyster ane Milky mushroom na fresh spawn (seeds) bulk ane retail ma hamesha discounted rates par available rahe chhe.
+                                Khraab seed etle aakha crop nu nuksan. Etle j ame advanced lab ma taiyar karel, disease-free ane high-production capacity valu <Link to="/spawn-seed" className="text-primary-start hover:underline font-medium">Mushroom Spawn Sale</Link> kariye chhe. Amari pase Button, Oyster ane Milky mushroom na fresh spawn (seeds) bulk ane retail ma hamesha discounted rates par available rahe chhe.
                             </p>
                         </div>
 

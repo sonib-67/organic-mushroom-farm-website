@@ -329,9 +329,9 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
                   <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest flex items-center gap-1">
                     <ShoppingCart size={14} /> Oyster, Button, Milky, Lion's Mane and Reishi spawn are active on our store
                   </span>
-                  
+                  <Link to="/spawn-seed" className="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all flex items-center gap-1.5">
                     Go to Spawn/Seed Page <ChevronRight size={14} />
-                  
+                  </Link>
                 </div>
               </div>
 
@@ -872,9 +872,9 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               <Link to="/training" className="p-3 rounded-xl bg-white dark:bg-black/60 border border-emerald-500/10 hover:border-emerald-500 dark:text-white text-slate-900 font-bold transition-all transform hover:scale-[1.02]">
                 👨‍🌾 Master Training Programs
               </Link>
-              
+              <Link to="/spawn-seed" className="p-3 rounded-xl bg-white dark:bg-black/60 border border-emerald-500/10 hover:border-emerald-500 dark:text-white text-slate-900 font-bold transition-all transform hover:scale-[1.02]">
                 🧪 Lab-Certified spawn supply
-              
+              </Link>
               <Link to="/turnkey-projects" className="p-3 rounded-xl bg-white dark:bg-black/60 border border-emerald-500/10 hover:border-emerald-500 dark:text-white text-slate-900 font-bold transition-all transform hover:scale-[1.02]">
                 🏗 Turnkey Automated Setups
               </Link>

@@ -59,7 +59,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc, metaTitle }: { defaultSlug
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        body: JSON.stringify(Object.fromEntries(formData)), credentials: "same-origin",
+        body: JSON.stringify(Object.fromEntries(formData)),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'

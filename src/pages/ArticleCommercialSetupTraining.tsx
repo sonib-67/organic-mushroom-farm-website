@@ -34,7 +34,7 @@ const ArticleCommercialSetupTraining = () => {
                     </div>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-lg">
-                        Starting a commercial mushroom venture requires more than just passion; it demands technical know-how, precise climate control, and practical training. Whether you want to set up an <strong>AC room mushroom farming setup</strong> or a budget-friendly <strong>non AC mushroom farming unit</strong>, understanding the mechanics of cultivation and selecting the right variety can make or break your profit margins.
+                        Starting a commercial mushroom venture requires more than just passion; it demands technical know-how, precise climate control, and practical training. Whether you want to set up an <strong><Link to="/services/turnkey-setup" className="text-primary-start hover:underline">AC room mushroom farming setup</Link></strong> or a budget-friendly <strong>non AC mushroom farming unit</strong>, understanding the mechanics of cultivation and selecting the right variety can make or break your profit margins.
                     </p>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-lg">
                         This detailed handbook covers everything from <strong>how to start a commercial mushroom farm</strong> to choosing the <strong><Link to="/training" className="text-primary-start hover:underline">best mushroom training institute</Link></strong> and mastering the cultivation of premium species.
@@ -45,7 +45,7 @@ const ArticleCommercialSetupTraining = () => {
                         Step-by-Step Commercial Mushroom Farm Setup
                     </h2>
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        Building an efficient growing facility involves controlling temperature, relative humidity, light, and fresh air exchange (CO2 levels). Here is how a standard <strong>commercial mushroom farming</strong> unit is structured:
+                        Building an efficient growing facility involves controlling temperature, relative humidity, light, and fresh air exchange (CO2 levels). Here is how a standard <strong><Link to="/services/turnkey-setup" className="text-primary-start hover:underline">commercial mushroom farming</Link></strong> unit is structured:
                     </p>
 
                     <h3 className="text-xl font-semibold dark:text-white text-slate-900 mt-8 mb-4">1. Growing Chamber Construction</h3>

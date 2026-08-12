@@ -35,7 +35,7 @@ const ArticleMushroomTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
                         <h2 className="text-xl font-bold dark:text-white text-slate-900 mt-8 mb-4">What Does Mushroom Cultivation Training Actually Teach You?</h2>
                         <p>A common misconception is that growing mushrooms is as simple as planting seeds and watering them. In reality, mushroom farming has several technical details that make or break a crop — and that's exactly what a good training program covers:</p>
                         <ul className="list-disc pl-6 space-y-2">
-                            <li><strong>Spawn identification</strong> — recognizing genuine, high-quality mushroom spawn and choosing the right strain</li>
+                            <li><strong>Spawn identification</strong> — recognizing genuine, high-quality <Link to="/spawn-seed" className="text-brand-blue hover:underline">mushroom spawn</Link> and choosing the right strain</li>
                             <li><strong>Substrate and compost preparation</strong> — using straw, wheat bran, or sawdust in the correct ratio</li>
                             <li><strong>Spawning and casing techniques</strong></li>
                             <li><strong>Temperature, humidity, and ventilation management</strong> — mushroom crops are extremely sensitive to these three factors</li>

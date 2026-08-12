@@ -45,7 +45,10 @@ export default function RajasthanPage() {
             </div>
           </Link>
 
-          
+          <Link
+            to="/cities/rajasthan/bikaner"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
               Bikaner
             </h2>
@@ -55,9 +58,12 @@ export default function RajasthanPage() {
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
             </div>
-          
+          </Link>
 
-          
+          <Link
+            to="/cities/rajasthan/udaipur"
+            className="group glass p-8 rounded-2xl border border-black/5 dark:border-white/5 hover:border-brand-blue/30 transition-all hover:shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)] flex flex-col items-center text-center"
+          >
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-brand-blue transition-colors">
               Udaipur
             </h2>
@@ -67,7 +73,7 @@ export default function RajasthanPage() {
             <div className="text-brand-blue font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
               View Resources <ChevronRight size={16} />
             </div>
-          
+          </Link>
         </div>
       </div>
     </div>

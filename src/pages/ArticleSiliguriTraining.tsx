@@ -125,7 +125,7 @@ const ArticleSiliguriTraining = () => {
                             Siliguri and the entire North Bengal region have the perfect weather for mushroom cultivation. শিলিগুড়ির লোকাল মার্কেট থেকে শুরু করে বড় বড় রেস্টুরেন্টে মাশরুমের ব্যাপক চাহিদা রয়েছে। If you want a high-ROI agribusiness, this is the right time to start.
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Organic Mushroom Farm আপনাকে দিচ্ছে হাতে-কলমে (hands-on) <Link to="/training" className="text-emerald-500 hover:underline">মাশরুম চাষের ট্রেনিং</Link>। শুধু তাই নয়, আপনার বাজেট অনুযায়ী একটি পারফেক্ট <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline">commercial farm setup</Link> করতে আমরা সম্পূর্ণ সাহায্য করি, সাথে দিচ্ছি হাই-কোয়ালিটি মাশরুম স্পন (Spawn/বীজ)।
+                            Organic Mushroom Farm আপনাকে দিচ্ছে হাতে-কলমে (hands-on) <Link to="/training" className="text-emerald-500 hover:underline">মাশরুম চাষের ট্রেনিং</Link>। শুধু তাই নয়, আপনার বাজেট অনুযায়ী একটি পারফেক্ট <Link to="/articles/turnkey-commercial-setup" className="text-emerald-500 hover:underline">commercial farm setup</Link> করতে আমরা সম্পূর্ণ সাহায্য করি, সাথে দিচ্ছি হাই-কোয়ালিটি <Link to="/spawn-seed" className="text-emerald-500 hover:underline">মাশরুম স্পন (Spawn/বীজ)</Link>।
                         </p>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed font-semibold">
                             মাশরুম উৎপাদন করার পর সেটা কোথায় বিক্রি করবেন? Don't worry! শিলিগুড়ির বাজারে মাশরুম সেলস এবং মার্কেটিংয়ের (marketing support) সম্পূর্ণ গাইডেন্স আমরা প্রোভাইড করি। Start your commercial journey today!
@@ -272,7 +272,7 @@ const ArticleSiliguriTraining = () => {
                     {/* Spawn Supply */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Spawn Supply
+                            <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
                             Reliable spawn সুস্থ উৎপাদনের জন্য অপরিহার্য। আমরা সরবরাহ করি:
@@ -582,7 +582,7 @@ const ArticleSiliguriTraining = () => {
                                 <p className="text-sm">Sahi management aur consistent wholesale/hotel demand ke saath monthly accha margin possible hai।</p>
                             </div>
                             <div>
-                                <h4 className="font-bold dark:text-white text-slate-900">৩. Mushroom spawn কোথায় পাওয়া যাবে?</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900">৩. <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom spawn</Link> কোথায় পাওয়া যাবে?</h4>
                                 <p className="text-sm">আমাদের কাছ থেকে সমগ্র North Bengal এবং pan-India delivery-সহ spawn কেনা যায়।</p>
                             </div>
                             <div>

@@ -257,9 +257,9 @@ const ArticleVadodaraTraining = () => {
                                 </p>
                             </div>
                             <div className="space-y-4">
-                                <h3 className="text-lg font-bold dark:text-white text-slate-900">Mushroom Spawn Sale</h3>
+                                <h3 className="text-lg font-bold dark:text-white text-slate-900"><Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Sale</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    Quality spawn cultivation ની સફળતા માટે ખૂબ જ મહત્વનું છે. અમે પૂરું પાડીએ છીએ: Oyster Mushroom Spawn, Button Mushroom Spawn, અને Milky Mushroom Spawn. Vadodara, Halol, Dabhoi, Padra, Karjan અને Sevasi, Bhayli, Vemali, Waghodia Rural સુધી premium spawn delivery સાથે સ્પોન પહોંચાડવામાં આવે છે.
+                                    Quality spawn cultivation ની સફળતા માટે ખૂબ જ મહત્વનું છે. અમે પૂરું પાડીએ છીએ: Oyster Mushroom Spawn, Button Mushroom Spawn, અને Milky Mushroom Spawn. Vadodara, Halol, Dabhoi, Padra, Karjan અને Sevasi, Bhayli, Vemali, Waghodia Rural સુધી <Link to="/spawn-seed" className="text-emerald-500 hover:underline font-semibold">premium spawn</Link> delivery સાથે સ્પોન પહોંચાડવામાં આવે છે.
                                 </p>
                             </div>
                         </div>
@@ -294,9 +294,9 @@ const ArticleVadodaraTraining = () => {
                                 </p>
                             </div>
                             <div>
-                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1">Business Plan & ROI Analysis</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-base mb-1"><Link to="/blog/mushroom-farming-business-plan-india" className="hover:text-emerald-500 transition-colors">Business Plan & ROI Analysis</Link></h3>
                                 <p className="text-sm dark:text-slate-300 text-slate-700">
-                                    રોકાણ પહેલા ઉદ્યોગસાહસિકોએ ધ્યાનમાં લેવું જોઈએ: Production Capacity, Market Demand, Operating Costs, Revenue Potential, અને Customer Base. Aapke scale ke hisaab se hum customized business plan & project report taiyaar karke dete hain, jo bank loan ya subsidy application ke liye bhi use ho sakta hai.
+                                    રોકાણ પહેલા ઉદ્યોગસાહસિકોએ ધ્યાનમાં લેવું જોઈએ: Production Capacity, Market Demand, Operating Costs, Revenue Potential, અને Customer Base. Aapke scale ke hisaab se hum <Link to="/blog/mushroom-farming-business-plan-india" className="text-emerald-500 hover:underline font-semibold">customized business plan & project report</Link> taiyaar karke dete hain, jo bank loan ya subsidy application ke liye bhi use ho sakta hai.
                                 </p>
                             </div>
                             <div>

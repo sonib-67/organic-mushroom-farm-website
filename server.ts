@@ -106,7 +106,7 @@ const razorpay = new Razorpay({
 });
 
 // Create Order API
-app.post('/api/create-order', async (req, res) => {
+app.post('/api/start-session', async (req, res) => {
   try {
     const { name, mobile, email, productType, preferredDate } = req.body;
 

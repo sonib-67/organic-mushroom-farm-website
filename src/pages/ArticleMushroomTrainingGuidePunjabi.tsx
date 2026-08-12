@@ -42,7 +42,7 @@ const ArticleMushroomTrainingGuidePunjabi = () => {
                         </p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>ਖਾਦ (ਕੰਪੋਸਟ) ਬਣਾਉਣ ਦਾ ਸਹੀ ਤਰੀਕਾ ਅਤੇ ਕੇਸਿੰਗ ਮਟੀਰੀਅਲ ਦੀ ਤਿਆਰੀ</li>
-                            <li>ਸਪਾਨ (ਖੁੰਬ ਦਾ ਬੀਜ) ਦੀ ਪਛਾਣ ਅਤੇ ਸਹੀ ਲਗਾਉਣ ਦਾ ਢੰਗ</li>
+                            <li><Link to="/spawn-seed" className="text-brand-blue hover:underline">ਸਪਾਨ</Link> (ਖੁੰਬ ਦਾ ਬੀਜ) ਦੀ ਪਛਾਣ ਅਤੇ ਸਹੀ ਲਗਾਉਣ ਦਾ ਢੰਗ</li>
                             <li>ਤਾਪਮਾਨ ਅਤੇ ਨਮੀ ਦਾ ਕੰਟਰੋਲ, ਖਾਸ ਕਰਕੇ AC ਯੂਨਿਟ ਵਿੱਚ ਬਟਨ ਮਸ਼ਰੂਮ ਲਈ</li>
                             <li>ਕੀੜਿਆਂ ਅਤੇ ਬੀਮਾਰੀਆਂ ਤੋਂ ਬਚਾਅ ਦੇ ਕੁਦਰਤੀ ਤਰੀਕੇ</li>
                             <li>ਤੁੜਾਈ, ਪੈਕਿੰਗ, ਸੁਕਾਉਣਾ ਅਤੇ ਪ੍ਰੋਸੈਸਿੰਗ</li>
@@ -77,7 +77,7 @@ const ArticleMushroomTrainingGuidePunjabi = () => {
                         </p>
                         <ul className="list-disc pl-6 space-y-2">
                             <li>ਸੁੱਕੀਆਂ ਖੁੰਬਾਂ ਅਤੇ ਅਚਾਰ ਵਰਗੇ ਵੈਲਿਊ-ਐਡਿਡ ਪ੍ਰੋਡਕਟ ਬਣਾ ਕੇ</li>
-                            <li>ਖੁਦ ਦਾ ਸਪਾਨ ਤਿਆਰ ਕਰਕੇ ਦੂਜੇ ਕਿਸਾਨਾਂ ਨੂੰ ਵੇਚ ਕੇ</li>
+                            <li>ਖੁਦ ਦਾ <Link to="/spawn-seed" className="text-brand-blue hover:underline">ਸਪਾਨ</Link> ਤਿਆਰ ਕਰਕੇ ਦੂਜੇ ਕਿਸਾਨਾਂ ਨੂੰ ਵੇਚ ਕੇ</li>
                             <li>ਲੁਧਿਆਣਾ, ਅੰਮ੍ਰਿਤਸਰ, ਪਟਿਆਲਾ ਵਰਗੇ ਸ਼ਹਿਰਾਂ ਦੀਆਂ ਮੰਡੀਆਂ ਅਤੇ ਹੋਟਲਾਂ ਨਾਲ ਸਿੱਧਾ ਸੰਪਰਕ ਬਣਾ ਕੇ</li>
                             <li>ਸਪੈਂਟ ਸਬਸਟਰੇਟ ਨੂੰ ਪਸ਼ੂ ਚਾਰੇ ਵਜੋਂ ਵੇਚ ਕੇ, ਯਾਨੀ ਦੋਹਰੀ ਕਮਾਈ</li>
                         </ul>

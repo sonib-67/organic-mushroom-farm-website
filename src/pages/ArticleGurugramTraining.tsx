@@ -39,7 +39,7 @@ const ArticleGurugramTraining = () => {
                     </p>
 
                     <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                        Organic Mushrooms Farm's page is specially designed for the people of Gurugram and NCR jo mushroom farm setup, <Link to="/training" className="text-primary-start hover:underline">online/offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">quality spawn supply</Link>, fresh & dry mushroom delivery, or a proper business plan and <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> dhundh rahe hain. Let’s get straight to business.
+                        Organic Mushrooms Farm's page is specially designed for the people of Gurugram and NCR jo <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">mushroom farm setup</Link>, <Link to="/training" className="text-primary-start hover:underline">online/offline training</Link>, <Link to="/services/spawn-supply" className="text-primary-start hover:underline">quality spawn supply</Link>, fresh & dry mushroom delivery, or a proper <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> and <Link to="/services/consultancy" className="text-primary-start hover:underline">consultancy</Link> dhundh rahe hain. Let’s get straight to business.
                     </p>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -135,7 +135,7 @@ const ArticleGurugramTraining = () => {
                     </p>
                     <ul className="list-none space-y-4 dark:text-slate-300 text-slate-700">
                         <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong><Link to="/services/consultancy" className="text-primary-start hover:underline">Consultancy</Link>:</strong> We guide you on production planning, infrastructure design, and market development to minimize startup risks.</span></li>
-                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong>Turnkey Projects:</strong> For large-scale investors looking at the Manesar or Pataudi belts, we provide complete end-to-end solutions. Farm design, equipment, and operational systems sab ek saath handle kiye jaate hain for quick implementation.</span></li>
+                        <li className="flex gap-3 items-start"><CheckCircle2 className="text-primary-start shrink-0 mt-1" size={18} /> <span><strong><Link to="/services/turnkey-setup" className="text-primary-start hover:underline">Turnkey Projects</Link>:</strong> For large-scale investors looking at the Manesar or Pataudi belts, we provide complete end-to-end solutions. Farm design, equipment, and operational systems sab ek saath handle kiye jaate hain for quick implementation.</span></li>
                     </ul>
 
                     <hr className="my-8 border-t dark:border-white/10 border-black/10" />
@@ -160,7 +160,7 @@ const ArticleGurugramTraining = () => {
                     <div className="space-y-6 mb-8">
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">1. Gurugram mein mushroom farming ka cost kitna hota hai?</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">The cost depends entirely on your scale. Ek chhoti unit kam budget mein shuru ho sakti hai, whereas a commercial climate-controlled setup requires higher investment. A personalized business plan is the best way to get an exact estimate.</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">The cost depends entirely on your scale. Ek chhoti unit kam budget mein shuru ho sakti hai, whereas a commercial climate-controlled setup requires higher investment. A personalized <Link to="/blog/mushroom-farming-business-plan-india" className="text-primary-start hover:underline">business plan</Link> is the best way to get an exact estimate.</p>
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">2. Kitna profit ho sakta hai?</h3>
@@ -196,7 +196,7 @@ const ArticleGurugramTraining = () => {
                         </div>
                         <div className="glass-dark p-6 rounded-2xl border dark:border-white/5 border-black/5">
                             <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">10. Kya turnkey project setups aur business plans milte hain?</h3>
-                            <p className="dark:text-slate-400 text-slate-600 text-sm">Haan, for large-scale investors, we provide complete turnkey solutions—from farm design to operational setup—along with detailed ROI and business planning.</p>
+                            <p className="dark:text-slate-400 text-slate-600 text-sm">Haan, for large-scale investors, we provide complete <Link to="/services/turnkey-setup" className="text-primary-start hover:underline">turnkey solutions</Link>—from farm design to operational setup—along with detailed ROI and business planning.</p>
                         </div>
                     </div>
 

@@ -168,7 +168,7 @@ const ArticleBikanerTraining = () => {
                                 <p className="text-sm dark:text-slate-300 text-slate-600">बड़े पैमाने माथे मशरूम कल्टीवेशन सरू कर'र खुद रो उत्पादन रो व्यापार बणावणो।</p>
                             </div>
                             <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
-                                <h4 className="font-bold dark:text-white text-slate-900 mb-2">मशरूम स्पॉन सप्लाई (Mushroom Spawn Supply)</h4>
+                                <h4 className="font-bold dark:text-white text-slate-900 mb-2"><Link to="/spawn-seed" className="hover:text-primary-start transition-colors">मशरूम स्पॉन सप्लाई</Link> (Mushroom Spawn Supply)</h4>
                                 <p className="text-sm dark:text-slate-300 text-slate-600">चोखी क्वालिटी रो बीज बणाणो और बेेचणो — ओ एक बारो-मास चालण वालो पक्को धंधो है।</p>
                             </div>
                             <div className="p-5 rounded-2xl bg-slate-100/50 dark:bg-slate-900/50 border dark:border-white/5 border-black/5">
@@ -278,10 +278,10 @@ const ArticleBikanerTraining = () => {
                     {/* स्पॉन सप्लाई */}
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold dark:text-white text-slate-900 border-l-4 border-primary-start pl-4">
-                            Mushroom Spawn Supply
+                            <Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Mushroom Spawn Supply</Link>
                         </h3>
                         <p className="dark:text-slate-300 text-slate-700 leading-relaxed">
-                            नीरो और चोखो स्पॉन (Healthy Spawn) ही बढ़िया पैदवार री नींव है। म्हे थारे सारु ओ बीज देवा हां:
+                            नीरो और चोखो स्पॉन (Healthy <Link to="/spawn-seed" className="hover:text-primary-start transition-colors">Spawn</Link>) ही बढ़िया पैदवार री नींव है। म्हे थारे सारु ओ बीज देवा हां:
                         </p>
                         <ul className="list-disc pl-5 space-y-2 dark:text-slate-300 text-slate-700">
                             <li>ऑयस्टर मशरूम स्पॉन (Oyster Spawn)</li>

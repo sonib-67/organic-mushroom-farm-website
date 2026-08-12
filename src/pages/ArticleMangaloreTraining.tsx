@@ -44,7 +44,7 @@ const ArticleMangaloreTraining = () => {
             "@type": "LocalBusiness",
             "name": "Organic Mushrooms Farm - Mangalore",
             "image": "https://organicmushroomsfarm.com/logo.png",
-            "url": "https://organicmushroomsfarm.com",
+            "url": "https://organicmushroomsfarm.com/mushroom-farming-mangalore-karnataka",
             "areaServed": [
                 "Mangalore", "Kadri", "Hampankatta", "Lalbagh", "Kankanady", 
                 "Bejai", "Surathkal", "Derebail", "Bondel", "Udupi", 
@@ -72,7 +72,7 @@ const ArticleMangaloreTraining = () => {
             },
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://organicmushroomsfarm.com"
+                "@id": "https://organicmushroomsfarm.com/mushroom-farming-mangalore-karnataka"
             }
         }
     ];
@@ -298,9 +298,9 @@ const ArticleMangaloreTraining = () => {
                             </div>
 
                             <div className="glass p-6 rounded-2xl border border-white/5">
-                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">3. Reliable Mushroom Spawn Supply (ನಂಬೊಲಿಗೆದ ಮಶ್ರೂಮ್ ಸ್ಪಾನ್ ಸಪ್ಲೈ)</h3>
+                                <h3 className="font-bold text-slate-900 dark:text-white text-lg">3. Reliable <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Mushroom Spawn Supply</Link> (ನಂಬೊಲಿಗೆದ ಮಶ್ರೂಮ್ ಸ್ಪಾನ್ ಸಪ್ಲೈ)</h3>
                                 <p className="text-sm dark:text-slate-400 text-slate-600 mt-2">
-                                    High-quality spawn (seed) is the backbone of a healthy crop. Access to reliable mushroom spawn suppliers in Mangalore for <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster</Link>, Button, and Milky mushroom spawn ensures consistent and profitable yields.
+                                    High-quality spawn (seed) is the backbone of a healthy crop. Access to reliable <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">mushroom spawn</Link> suppliers in Mangalore for <Link to="/mushroom-types" className="text-emerald-500 hover:underline">Oyster</Link>, Button, and Milky mushroom spawn ensures consistent and profitable yields.
                                     <br/><span className="text-emerald-600 dark:text-emerald-400 mt-1 block">(ಹೈ-ಕ್ವಾಲಿಟಿ ಸ್ಪಾನ್ (ಬಿತ್ತ್) ಒಂಜಿ ಎಡ್ಡೆ ಬುಳೆಕ್ಕ್ ಬೆರಿಮುಳ್ಳು. ಕುಡ್ಲಡ್ ಆಯಿಸ್ಟರ್, ಬಟನ್, ಬೊಕ್ಕ ಮಿಲ್ಕಿ ಮಶ್ರೂಮ್ ಸ್ಪಾನ್‌ಗ್ ನಂಬೊಲಿಗೆದ ಸಪ್ಲೈಯರ್ಸ್‌ನ್ ಸಂಪರ್ಕ ಮಲ್ಪುನವು ನಿರಂತರ ಬೊಕ್ಕ ಲಾಭದಾಯಕ ಇಳುವರಿನ್ ಗ್ಯಾರಂಟಿ ಮಲ್ಪುಂಡು.)</span>
                                 </p>
                             </div>
@@ -391,7 +391,7 @@ const ArticleMangaloreTraining = () => {
                             <br/><span className="text-emerald-600 dark:text-emerald-400 mt-1 block">(ಭಾರತಡ್ ಆರ್ಗ್ಯಾನಿಕ್ ಫುಡ್ ಇಂಡಸ್ಟ್ರಿ ನಿರಂತರವಾದ್ ಮೇಲ್ಮುಖವಾದ್ ಬುಳೆವೊಂದುಂಡು. ಕುಡ್ಲದ ಬುಳೆವೊಂದುಪ್ಪುನ ಹೆಲ್ತ್-ಫುಡ್ ಮಾರ್ಕೆಟ್ ಮಶ್ರೂಮ್ ಕೃಷಿಕೆರೆಗ್, ಸಪ್ಲೈಯರ್ಸ್‌ಗ್ ಬೊಕ್ಕ ಅಗ್ರಿ-ಉದ್ಯಮಿಲೆಗ್ ಒಂಜಿ ಮಸ್ತ್ ಎಡ್ಡೆ ಫೌಂಡೇಶನ್ ಕೊರ್ಪುಂಡು.)</span>
                         </p>
                         <p className="text-sm dark:text-slate-300 text-slate-700 leading-relaxed font-medium">
-                            Whether your focus is <Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup</Link>, <Link to="/training" className="hover:text-emerald-500 transition-colors">Cultivation Training</Link>, Spawn Supply, Fresh/Dry Sales, or <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey Projects</Link>, combining quality production with strong organic branding is the ultimate recipe for building a highly profitable, sustainable mushroom business in Mangalore.
+                            Whether your focus is <Link to="/articles/turnkey-commercial-setup" className="hover:text-emerald-500 transition-colors">Mushroom Farm Setup</Link>, <Link to="/training" className="hover:text-emerald-500 transition-colors">Cultivation Training</Link>, <Link to="/spawn-seed" className="hover:text-emerald-500 transition-colors">Spawn Supply</Link>, Fresh/Dry Sales, or <Link to="/turnkey-projects" className="hover:text-emerald-500 transition-colors">Turnkey Projects</Link>, combining quality production with strong organic branding is the ultimate recipe for building a highly profitable, sustainable mushroom business in Mangalore.
                             <br/><span className="text-emerald-600 dark:text-emerald-400 mt-1 block">(ನಿಕ್ಲೆನ ಫೋಕಸ್ ಮಶ್ರೂಮ್ ಫಾರ್ಮ್ ಸೆಟಪ್, ಕಲ್ಟಿವೇಷನ್ ಟ್ರೈನಿಂಗ್, ಸ್ಪಾನ್ ಸಪ್ಲೈ, ಫ್ರೆಶ್/ಡ್ರೈ ಸೇಲ್ಸ್, ಅತ್ತಂಡ ಟರ್ನ್‌ಕೀ ಪ್ರಾಜೆಕ್ಟ್ ಆವಡ್, ಎಡ್ಡೆ ಕ್ವಾಲಿಟಿ ಪ್ರೊಡಕ್ಷನ್ ಬೊಕ್ಕ ಸ್ಟ್ರಾಂಗ್ ಆರ್ಗ್ಯಾನಿಕ್ ಬ್ರಾಂಡಿಂಗ್‌ನ್ ಒಟ್ಟು ಸೇರಾವುನವು ಕುಡ್ಲಡ್ ಒಂಜಿ ಮಸ್ತ್ ಲಾಭದಾಯಕ, ಸಸ್ಟೈನಬಲ್ ಮಶ್ರೂಮ್ ಬಿಸಿನೆಸ್ ಕಟ್ಟೆರೆ ಅಲ್ಟಿಮೇಟ್ ರೆಸಿಪಿ.)</span>
                         </p>
                     </div>
