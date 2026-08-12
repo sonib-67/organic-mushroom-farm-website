@@ -88,6 +88,8 @@ import ArticleMushroomBusinessPlanIndia from "./pages/ArticleMushroomBusinessPla
 import ArticleMilkyMushroom from "./pages/ArticleMilkyMushroom";
 import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
 import ArticleOperations from "./pages/ArticleOperations";
+import ArticleOysterCultivation from "./pages/ArticleOysterCultivation";
+import ArticleCompostUnit from "./pages/ArticleCompostUnit";
 import ArticleButtonMushroom from "./pages/ArticleButtonMushroom";
 import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
 import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
@@ -95,6 +97,10 @@ import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
 import ArticleOysterMushroomCultivationIndia from "./pages/ArticleOysterMushroomCultivationIndia";
 import ArticleBikanerRajasthan from "./pages/ArticleBikanerRajasthan";
 import ArticleOnlineTraining from "./pages/ArticleOnlineTraining";
+import ArticleOfflineTraining from "./pages/ArticleOfflineTraining";
+import ArticleCitiesIndia from "./pages/ArticleCitiesIndia";
+import ArticleMushroomTrainingGuideEnglish from "./pages/ArticleMushroomTrainingGuideEnglish";
+import ArticleThiruvananthapuramKerala from "./pages/ArticleThiruvananthapuramKerala";
 import ArticleGuwahatiAssam from "./pages/ArticleGuwahatiAssam";
 import ArticleContactForm from "./pages/ArticleContactForm";
 import ArticleUdaipurRajasthan from "./pages/ArticleUdaipurRajasthan";
@@ -103,6 +109,8 @@ import ArticleMysuruKarnataka from "./pages/ArticleMysuruKarnataka";
 import ArticleSiliguriWestBengal from "./pages/ArticleSiliguriWestBengal";
 import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
 import ArticleOperations from "./pages/ArticleOperations";
+import ArticleOysterCultivation from "./pages/ArticleOysterCultivation";
+import ArticleCompostUnit from "./pages/ArticleCompostUnit";
 import ArticleBusinessPlanHindi from "./pages/ArticleBusinessPlanHindi";
 import ArticleTrainingGuideHindi from "./pages/ArticleTrainingGuideHindi";
 import ArticleMushroomTrainingAffordable from "./pages/ArticleMushroomTrainingAffordable";
@@ -6339,6 +6347,10 @@ const AnimatedRoutes = () => {
           <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
           <Route path="/training/online" element={<ArticleOnlineTraining />} />
+          <Route path="/training/offline" element={<ArticleOfflineTraining />} />
+          <Route path="/cities" element={<ArticleCitiesIndia />} />
+          <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuideEnglish />} />
+          <Route path="/cities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramKerala />} />
           <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
           <Route path="/contact-form" element={<ArticleContactForm />} />
           <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
@@ -6347,6 +6359,8 @@ const AnimatedRoutes = () => {
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
           <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
           <Route path="/operations" element={<ArticleOperations />} />
+          <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterCultivation />} />
+          <Route path="/compost-unit" element={<ArticleCompostUnit />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
