@@ -11,6 +11,7 @@ const blogPosts = [
     color: "text-blue-500",
     bg: "bg-blue-500/5",
     posts: [
+      { customPath: "/spawn-seed", title: "The Secret to Bountiful Organic Mushrooms: It All Starts with the Right Spawn", excerpt: "Learn why quality mushroom spawn is the foundation of a successful harvest. Fast colonization, maximum yields, and where to buy the best organic spawn.", date: "August 11, 2026" },
       { id: "commercial-mushroom-farm-setup-training", customPath: "/articles/commercial-mushroom-farm-setup-training", title: "Commercial Mushroom Farm Setup & Training: A Complete Guide to All Varieties", excerpt: "Starting a commercial mushroom venture requires more than just passion; it demands technical know-how, precise climate control, and practical training.", date: "July 29, 2026" },
       { id: "organic-mushroom-farm-everything-you-need-to-know", customPath: "/articles/organic-mushroom-farm-everything-you-need-to-know", title: "Organic Mushroom Farm: Everything You Need to Know", excerpt: "Are you looking to dive into the world of sustainable agriculture, or simply trying to find the freshest produce from an organic mushroom farm?", date: "July 28, 2026" },
       { id: "mushroom-farming-russia", customPath: "/blog/mushroom-farming-russia", title: "Mushroom Farming in Russia: Start Your Profitable Agribusiness", excerpt: "Mushroom farming is becoming one of the fastest-growing agricultural businesses in Russia. Start a successful commercial business today.", date: "July 24, 2026" },

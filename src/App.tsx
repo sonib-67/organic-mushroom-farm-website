@@ -81,6 +81,7 @@ import ProjectSpecsPage from "./pages/ProjectSpecs";
 import ArticleBeginnerGuide from "./pages/ArticleBeginnerGuide";
 import ArticleOysterMushroomCultivation from "./pages/ArticleOysterMushroomCultivation";
 import ArticleMushroomSpawn from "./pages/ArticleMushroomSpawn";
+import ArticleMushroomSpawnSeed from "./pages/ArticleMushroomSpawnSeed";
 import ArticleBusinessPlanHindi from "./pages/ArticleBusinessPlanHindi";
 import ArticleTrainingGuideHindi from "./pages/ArticleTrainingGuideHindi";
 import ArticleMushroomTrainingAffordable from "./pages/ArticleMushroomTrainingAffordable";
@@ -6305,6 +6306,7 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/spawn-seed" element={<ArticleMushroomSpawnSeed />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
