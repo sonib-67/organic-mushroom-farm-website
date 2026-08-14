@@ -95,6 +95,7 @@ import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
 import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
 import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
 import ArticleOysterMushroomCultivationIndia from "./pages/ArticleOysterMushroomCultivationIndia";
+import ArticleButtonVsOysterMushroom from "./pages/ArticleButtonVsOysterMushroom";
 import ArticleBikanerRajasthan from "./pages/ArticleBikanerRajasthan";
 import ArticleOnlineTraining from "./pages/ArticleOnlineTraining";
 import ArticleOfflineTraining from "./pages/ArticleOfflineTraining";
@@ -107,10 +108,6 @@ import ArticleUdaipurRajasthan from "./pages/ArticleUdaipurRajasthan";
 import ArticleHomeMushroomFarming from "./pages/ArticleHomeMushroomFarming";
 import ArticleMysuruKarnataka from "./pages/ArticleMysuruKarnataka";
 import ArticleSiliguriWestBengal from "./pages/ArticleSiliguriWestBengal";
-import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
-import ArticleOperations from "./pages/ArticleOperations";
-import ArticleOysterCultivation from "./pages/ArticleOysterCultivation";
-import ArticleCompostUnit from "./pages/ArticleCompostUnit";
 import ArticleBusinessPlanHindi from "./pages/ArticleBusinessPlanHindi";
 import ArticleTrainingGuideHindi from "./pages/ArticleTrainingGuideHindi";
 import ArticleMushroomTrainingAffordable from "./pages/ArticleMushroomTrainingAffordable";
@@ -6345,6 +6342,7 @@ const AnimatedRoutes = () => {
           <Route path="/project-specs" element={<ArticleProjectSpecs />} />
           <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreKarnataka />} />
           <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
+          <Route path="/blog/button-mushroom-vs-oyster-mushroom" element={<ArticleButtonVsOysterMushroom />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
           <Route path="/training/online" element={<ArticleOnlineTraining />} />
           <Route path="/training/offline" element={<ArticleOfflineTraining />} />
