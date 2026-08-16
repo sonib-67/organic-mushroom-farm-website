@@ -5617,6 +5617,31 @@ const GalleryPage = () => {
   }, []);
   const images = [
     {
+      src: "/image/rakeshsoniexperttrainer.png",
+      category: "Expert Training",
+      alt: "Rakesh Soni Expert Mushroom Farming Trainer",
+    },
+    {
+      src: "/images/mushroom360viewimage.jpeg",
+      category: "Farm View",
+      alt: "Commercial Mushroom Farm 360 Degree View",
+    },
+    {
+      src: "/images/buttonmushroomspawn.webp",
+      category: "Premium Spawn",
+      alt: "High Quality Button Mushroom Spawn Seeds",
+    },
+    {
+      src: "/images/buttonmushroomroommaking.webp",
+      category: "Farm Construction",
+      alt: "Button Mushroom Growing Room Construction Process",
+    },
+    {
+      src: "/images/butoonmushroomvsoystermushroom.webp",
+      category: "Mushroom Guide",
+      alt: "Detailed Comparison Between Button Mushroom and Oyster Mushroom",
+    },
+    {
       src: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378182/Screenshot_2026-02-22_165327_bfm4pv.png",
       category: "Commercial Infrastructure",
       alt: "Commercial Infrastructure Setup Mushroom Farm",
