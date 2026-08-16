@@ -11,6 +11,7 @@ const blogPosts = [
     color: "text-blue-500",
     bg: "bg-blue-500/5",
     posts: [
+      { customPath: "/blog/best-mushroom-farming-training-guide-india", title: "Best Mushroom Farming Training Guide In India", excerpt: "Discover the best mushroom farming training guide in India. Learn button, oyster, and milky mushroom cultivation from structured curriculums and expert trainers.", date: "August 16, 2026" },
       { customPath: "/blog/mushroom-farming-business-plan-india", title: "Starting a Profitable Mushroom Farming Business in India: Where to Begin?", excerpt: "Discover why mushroom farming is a top business opportunity in India. Learn about space utilization, fast growth cycles, and how to build a scalable business plan.", date: "August 12, 2026" },
       { customPath: "/services/milky-mushroom", title: "Milky Mushrooms: The Ultimate Summer Crop for Profitable Farming", excerpt: "When the summer heat kicks in, the Milky Mushroom (Calocybe indica) takes the spotlight. Discover why this tropical variety is perfect for profitable farming.", date: "August 12, 2026" },
       { customPath: "/services/turnkey-setup", title: "Launch Your Commercial Mushroom Farm Stress-Free with a Complete Turnkey Setup", excerpt: "Bypass the trial-and-error phase with a Turnkey Mushroom Farm Setup. Get end-to-end infrastructure for maximum yield and efficiency.", date: "August 12, 2026" },
