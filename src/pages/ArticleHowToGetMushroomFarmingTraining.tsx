@@ -29,7 +29,7 @@ const ArticleHowToGetMushroomFarmingTraining = () => {
                     className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8"
                 >
                     <header className="mb-10 text-center">
-                        <h1 className="text-3xl md:text-5xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 leading-tight mb-4">
+                        <h1 className="text-2xl md:text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 leading-tight mb-4">
                             How to Get Mushroom Farming Training? Complete Guide to Mushroom Cultivation Training in India
                         </h1>
                         <p className="text-lg md:text-xl dark:text-slate-300 text-slate-700 font-medium">
