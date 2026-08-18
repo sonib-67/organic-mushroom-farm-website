@@ -47,7 +47,7 @@ const ArticleBestMushroomFarmingTrainingGuide = () => {
 
                         <div className="my-8 rounded-2xl overflow-hidden shadow-xl border dark:border-white/10 border-black/10">
                             <img 
-                                src="/image/rakeshsoniexperttrainer.png" 
+                                src="/images/rakeshsoniorganicmushroomfarmexperttraininer.webp" 
                                 alt="Rakesh Soni Expert Mushroom Farming Trainer"
                                 className="w-full h-auto object-cover"
                             />

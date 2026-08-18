@@ -5617,7 +5617,7 @@ const GalleryPage = () => {
   }, []);
   const images = [
     {
-      src: "/image/rakeshsoniexperttrainer.png",
+      src: "/images/rakeshsoniorganicmushroomfarmexperttraininer.webp",
       category: "Expert Training",
       alt: "Rakesh Soni Expert Mushroom Farming Trainer",
     },

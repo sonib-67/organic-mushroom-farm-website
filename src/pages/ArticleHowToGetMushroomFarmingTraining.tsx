@@ -37,6 +37,14 @@ const ArticleHowToGetMushroomFarmingTraining = () => {
                         </p>
                     </header>
 
+                    <div className="my-8 rounded-2xl overflow-hidden shadow-xl border dark:border-white/10 border-black/10">
+                        <img 
+                            src="/images/mushroom-farming-training-farm.webp" 
+                            alt="Mushroom farming training and cultivation setup"
+                            className="w-full h-auto object-cover"
+                        />
+                    </div>
+
                     <div className="dark:text-slate-300 text-slate-700 space-y-6 leading-relaxed">
                         <p>
                             If you have been looking into sustainable agriculture or a profitable side business, you have probably noticed that mushroom cultivation is having a massive moment. It requires minimal space, yields quickly, and the market demand is consistently high. But here is the hurdle most beginners face: Where do you actually learn how to do it right?
@@ -49,6 +57,14 @@ const ArticleHowToGetMushroomFarmingTraining = () => {
                         <p>
                             If you are based in or looking for expertise out of Katangi, you are in luck. Let’s break down exactly how you can get top-tier mushroom farming training, specifically through the <Link to="/training" className="text-blue-500 hover:text-blue-600 underline">dedicated training sessions</Link> at Organic Mushroom Farm.
                         </p>
+
+                        <div className="my-8 rounded-2xl overflow-hidden shadow-xl border dark:border-white/10 border-black/10">
+                            <img 
+                                src="/images/mushroom-farming-training.webp" 
+                                alt="Mushroom farming training classroom"
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
 
                         <h2 className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900 mt-10 mb-4">
                             Why Standard Mushroom Training Often Fails
@@ -102,6 +118,14 @@ const ArticleHowToGetMushroomFarmingTraining = () => {
                         <p>
                             We know that modern farmers are always on the move. That is why the curriculum at <Link to="/" className="text-blue-500 hover:text-blue-600 underline">Organic Mushroom Farm</Link> isn't just taught in a dusty classroom. The entire training program is hosted on a custom, mobile-friendly online platform. You can check your lesson schedules, review step-by-step presentations, and track your progress right from your phone, whether you are at home or actively working in your grow room.
                         </p>
+
+                        <div className="my-8 rounded-2xl overflow-hidden shadow-xl border dark:border-white/10 border-black/10">
+                            <img 
+                                src="/images/oyster-mushroom-farming-training.webp" 
+                                alt="Oyster mushroom farming training"
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
 
                         <h2 className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900 mt-10 mb-6 border-b pb-4 dark:border-white/10 border-black/10">
                             Frequently Asked Questions (FAQs) About Mushroom Farming Training
@@ -159,6 +183,14 @@ const ArticleHowToGetMushroomFarmingTraining = () => {
                         <p>
                             Whether you want to grow a small batch for your family or scale up to supply local restaurants, the right training makes all the difference. <Link to="/contact" className="font-bold text-blue-500 hover:text-blue-600 underline">Get in touch with us today</Link> to start your journey.
                         </p>
+
+                        <div className="my-8 rounded-2xl overflow-hidden shadow-xl border dark:border-white/10 border-black/10">
+                            <img 
+                                src="/images/practical-mushroom-farming.webp" 
+                                alt="Practical mushroom farming training"
+                                className="w-full h-auto object-cover"
+                            />
+                        </div>
 
                     </div>
                 </motion.div>
