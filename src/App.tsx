@@ -6569,6 +6569,7 @@ const AnimatedRoutes = () => {
           <Route path="/blog/mushroom-farming-training-tamil-guide" element={<ArticleTamilTrainingGuide />} />
           <Route path="/blog/mushroom-farming-russia" element={<ArticleMushroomFarmingRussia />} />
           <Route path="/blog/best-mushroom-farming-training-guide-india" element={<ArticleBestMushroomFarmingTrainingGuide />} />
+          <Route path="/blog/how-to-get-mushroom-farming-training" element={<ArticleHowToGetMushroomFarmingTraining />} />
           <Route path="/locations/jabalpur" element={<JabalpurPage />} />
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
@@ -6635,6 +6636,7 @@ import ArticleMushroomTrainingGuide from "./pages/ArticleMushroomTrainingGuide";
 import ArticleMushroomTrainingGuidePunjabi from "./pages/ArticleMushroomTrainingGuidePunjabi";
 import ArticleOrganicMushroomHealthBenefits from "./pages/ArticleOrganicMushroomHealthBenefits";
 import ArticleBestMushroomFarmingTrainingGuide from "./pages/ArticleBestMushroomFarmingTrainingGuide";
+import ArticleHowToGetMushroomFarmingTraining from "./pages/ArticleHowToGetMushroomFarmingTraining";
 
 import { HelmetProvider } from 'react-helmet-async';
 
