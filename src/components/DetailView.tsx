@@ -16,7 +16,7 @@ const DetailView: React.FC<{ data: DetailPageContent }> = ({ data }) => {
       <section className="section-padding py-12 md:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >

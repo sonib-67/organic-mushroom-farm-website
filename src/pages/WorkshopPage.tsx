@@ -224,7 +224,7 @@ const WorkshopPage = () => {
         
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 text-sm font-medium text-purple-600 dark:text-purple-400 mb-6"
           >
@@ -233,7 +233,7 @@ const WorkshopPage = () => {
           </motion.div>
           
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-xl sm:text-2xl md:text-4xl font-extrabold tracking-tight mb-2 md:mb-4 leading-snug md:leading-[1.2]"
@@ -245,7 +245,7 @@ const WorkshopPage = () => {
           </motion.h1>
           
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-xs md:text-lg dark:text-slate-300 text-slate-700 mb-4 md:mb-8 max-w-2xl font-light px-2"
@@ -254,7 +254,7 @@ const WorkshopPage = () => {
           </motion.p>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center gap-2 md:gap-4 mb-6 md:mb-10 w-full px-4 sm:px-0 sm:w-auto"
@@ -272,7 +272,7 @@ const WorkshopPage = () => {
           </motion.div>
           
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto w-full px-2 lg:px-0"
@@ -597,7 +597,7 @@ const WorkshopPage = () => {
       <AnimatePresence>
         {showCheckout && (
           <motion.div 
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"

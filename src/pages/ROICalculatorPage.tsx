@@ -155,7 +155,7 @@ export default function ROICalculatorPage() {
           {/* Controls Panel */}
           <div className="lg:col-span-5 space-y-6">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 1, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="dark:bg-[#0A0A0A]/80 bg-white/80 backdrop-blur-xl border dark:border-white/10 border-black/10 rounded-[2rem] p-6 lg:p-8 shadow-xl"
             >
@@ -257,7 +257,7 @@ export default function ROICalculatorPage() {
 
             {/* Assumptions Box */}
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 1, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
               className="dark:bg-[#0A0A0A]/80 bg-white/80 backdrop-blur-xl border dark:border-white/10 border-black/10 rounded-[2rem] p-6 shadow-xl"
@@ -288,7 +288,7 @@ export default function ROICalculatorPage() {
           {/* Results Panel */}
           <div className="lg:col-span-7">
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 1, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               key={selectedVariety + area}
               className="relative p-[1px] rounded-[2.5rem] overflow-hidden shadow-2xl h-full flex flex-col group"

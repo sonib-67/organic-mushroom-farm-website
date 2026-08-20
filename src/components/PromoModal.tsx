@@ -93,7 +93,7 @@ export const PromoModal = () => {
           onClick={handleClose}
         >
           <motion.div 
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.9, opacity: 1, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
@@ -160,7 +160,7 @@ export const PromoModal = () => {
                 <motion.button 
                   key={index}
                   onClick={(e) => { e.stopPropagation(); handleLinkClick(item.path); }}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 1, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * index + 0.1 }}
                   className="w-full flex items-center gap-3 p-2.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] rounded-2xl transition-all group text-left"

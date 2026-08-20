@@ -381,7 +381,7 @@ const Counter = ({
   return (
     <motion.span
       ref={nodeRef}
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 1, y: 10 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 tracking-tighter"
     >
@@ -463,7 +463,7 @@ const CriticalParameters = () => {
               <div className="mt-4 h-1 w-12 dark:bg-white/10 bg-black/10 rounded-full mx-auto overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: "100%" }}
+                  animate={{ width: "100%" }}
                   transition={{ duration: 1.5, delay: i * 0.2 }}
                   className={`h-full bg-linear-to-r ${i % 2 === 0 ? "from-primary-start to-primary-mid" : "from-accent to-brand-purple"}`}
                 />
@@ -687,9 +687,9 @@ const CompanyProfile = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="max-w-4xl mx-auto">
             <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 1, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            
             className="glass border dark:border-white/10 border-black/10 rounded-[3rem] p-8 md:p-12 relative shadow-2xl group overflow-hidden"
           >
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-start/20 blur-[100px] rounded-full group-hover:bg-primary-start/30 transition-all"></div>
@@ -977,7 +977,7 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 1 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             className="p-4 pt-0 text-[13px] dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
@@ -1215,7 +1215,7 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[9998] lg:hidden">
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
@@ -1258,7 +1258,7 @@ const Navbar = () => {
               </div>
 
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 1, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.16, duration: 0.25, ease: "easeOut" }}
                 style={{ willChange: "transform, opacity" }}
@@ -1357,7 +1357,7 @@ const Navbar = () => {
                             {(item as any).subMenu &&
                               expandedMobileMenu === item.name && (
                                 <motion.div
-                                  initial={{ height: 0, opacity: 0 }}
+                                  initial={{ height: 0, opacity: 1 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
                                   className="overflow-hidden"
@@ -1412,10 +1412,10 @@ const Hero = () => {
     >
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.2fr,0.8fr] gap-8 md:gap-16 items-center">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 1, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          
           className="text-center md:text-left"
         >
           <div className="text-[10px] md:text-sm font-bold text-green-700 dark:text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
@@ -1538,10 +1538,10 @@ const Hero = () => {
 
         {/* 3D Visual Mock (Glass Card) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 1, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          
           className="relative lg:block hidden"
         >
           <div className="absolute inset-0 gradient-bg opacity-20 blur-[100px] rounded-full animate-pulse"></div>
@@ -1615,7 +1615,7 @@ const Hero = () => {
               <div className="h-2 w-full dark:bg-white/5 bg-black/5 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
-                  whileInView={{ width: "65%" }}
+                  animate={{ width: "65%" }}
                   transition={{ duration: 2, delay: 1 }}
                   className="h-full gradient-bg"
                 ></motion.div>
@@ -1768,17 +1768,17 @@ const WhyChooseUs = () => {
 
         <div className="text-center mb-12 md:mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 1, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            
             className="badge mx-auto mb-4"
           >
             Mushroom Infrastructure Leaders
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 1, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            
             className="mb-4"
           >
             Why Choose{" "}
@@ -1789,9 +1789,9 @@ const WhyChooseUs = () => {
             </span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 1, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            
             className="max-w-2xl mx-auto"
           >
             India’s most trusted commercial mushroom farming infrastructure
@@ -1804,9 +1804,9 @@ const WhyChooseUs = () => {
           {chooseItems.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 1, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              
               transition={{ delay: i * 0.1 }}
               className="group relative"
             >
@@ -1937,9 +1937,9 @@ const FarmingModels = () => {
             {models.map((m, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 1, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                
                 className={`relative glass card-padding flex flex-col ${m.recommended ? "border-primary-mid/40 shadow-2xl lg:scale-105 z-10" : "dark:border-white/5 border-black/5"}`}
               >
                 {m.recommended && (
@@ -2001,7 +2001,7 @@ const FarmingModels = () => {
           </div>
         ) : (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10"
           >
@@ -2323,9 +2323,9 @@ const Timeline = () => {
             {steps.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 1, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                
                 transition={{ delay: i * 0.2 }}
                 className="text-center group"
               >
@@ -2499,7 +2499,7 @@ const CTASection = () => {
               <div className="glass p-6 md:p-8 rounded-[2rem] border dark:border-white/5 border-black/5 dark:bg-slate-900/40 bg-white/40 backdrop-blur-xl">
                 {formState.succeeded ? (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 1, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12 px-4 space-y-6"
                   >
@@ -2698,7 +2698,7 @@ const LegacyContactPage = () => {
         {/* Header Section */}
         <div className="text-center mb-10 md:mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-primary-start/10 border border-primary-start/20 text-[10px] font-black text-primary-start uppercase tracking-widest mb-4">
@@ -2797,7 +2797,7 @@ const LegacyContactPage = () => {
           {/* Clean Enquiry Form */}
           <div className="order-1 lg:order-2">
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 1, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               className="bg-white/[0.02] border dark:border-white/10 border-black/10 p-6 md:p-10 rounded-3xl"
             >
@@ -2835,7 +2835,7 @@ const LegacyContactPage = () => {
         {state.succeeded && (
           <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-black/95 backdrop-blur-sm"
@@ -2843,7 +2843,7 @@ const LegacyContactPage = () => {
             ></motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 10 }}
+              initial={{ opacity: 1, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
               className="relative glass p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 max-w-md w-full text-center shadow-2xl"
@@ -3292,7 +3292,7 @@ const StickyRazorpayButton = ({
           <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4">
             {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setShowModal(false)}
@@ -3301,7 +3301,7 @@ const StickyRazorpayButton = ({
 
             {/* Modal Card */}
             <motion.div
-              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              initial={{ scale: 0.95, opacity: 1, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 15 }}
               className="relative w-full max-w-4xl dark:bg-slate-950 bg-white border border-purple-500/20 rounded-[2rem] p-6 md:p-8 shadow-2xl max-h-[90vh] overflow-y-auto z-10"
@@ -3563,7 +3563,7 @@ const FloatingButtons = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contact Organic Mushrooms Farm on WhatsApp"
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: 0, opacity: 1 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}
             className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all z-10 shrink-0 group relative"
@@ -3577,7 +3577,7 @@ const FloatingButtons = () => {
         {/* Scroll To Top (Desktop) */}
         {showScrollTop && (
           <motion.button
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="w-10 h-10 md:w-12 md:h-12 glass rounded-full dark:text-slate-400 text-slate-600 flex items-center justify-center hover:dark:bg-white/10 bg-black/10 transition-all hidden md:flex pointer-events-auto"
@@ -3616,7 +3616,7 @@ const FloatingButtons = () => {
               </Link>
             </div>
             <motion.div
-              initial={{ scale: 0, opacity: 0 }}
+              initial={{ scale: 0, opacity: 1 }}
               animate={{ scale: 1, opacity: 1 }}
               className="h-7.5 w-auto min-w-[100px] max-w-[130px] md:hidden relative z-[99998]"
             >
@@ -3908,10 +3908,10 @@ const MushroomTraining = () => {
       <div className="py-2 md:py-8 text-center px-2 md:px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 1, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
+            
           >
             <div className="badge mx-auto mb-2 md:mb-3 text-[10px] md:text-xs">
               Expert-Led Courses
@@ -4235,10 +4235,10 @@ const MushroomTraining = () => {
             {whatYouGet.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
+                
                 className={`glass p-2 md:p-6 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-colors flex flex-col justify-start ${i === 4 ? "col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-full" : ""}`}
               >
                 <div className="w-5 h-5 md:w-14 md:h-14 rounded-md md:rounded-2xl dark:bg-white/10 bg-black/10 flex items-center justify-center mb-1 bg-primary-start/10 text-primary-start group-hover:scale-110 transition-transform">
@@ -4375,8 +4375,8 @@ const MushroomTraining = () => {
             {galleryImages.map((img, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 1, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
                 className="aspect-square rounded-md md:rounded-2xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
@@ -4530,9 +4530,9 @@ const HomePage = () => {
             ].map((comp, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 1, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                
                 className={`glass card-padding rounded-3xl border dark:border-white/5 border-black/5 relative ${comp.recommended ? "shadow-2xl shadow-brand-blue/10 border-primary-mid/30" : ""}`}
               >
                 {comp.recommended && (
@@ -4618,9 +4618,9 @@ const HomePage = () => {
             ].map((t, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 1, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                
                 className="glass p-6 rounded-3xl border dark:border-white/5 border-black/5 flex flex-col h-full"
               >
                 <Quote
@@ -4908,7 +4908,7 @@ const PageHero = ({
   <section className="pt-32 pb-16 md:pt-48 md:pb-24 relative overflow-hidden">
     <div className="max-w-7xl mx-auto px-4 text-center">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
@@ -4979,9 +4979,9 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-4xl mx-auto items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 1, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              
             >
               <div className="badge mb-4">Who We Are</div>
               <h2 className="mb-6 uppercase tracking-tight">
@@ -5506,9 +5506,9 @@ const TurnkeyProjectsPage = () => {
             {mushroomSetups.map((setup, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 1, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 flex flex-col lg:flex-row gap-8 items-center hover:border-emerald-500/20 transition-all group"
               >
@@ -5585,7 +5585,7 @@ const TurnkeyProjectsPage = () => {
           <div className="glass border dark:border-white/10 border-black/10 p-6 md:p-10 rounded-[2.5rem] shadow-2xl relative">
             {formState.succeeded ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 1, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-12 space-y-6"
               >
@@ -5733,8 +5733,8 @@ const GalleryPage = () => {
             {images.map((img, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 1, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
                 className="group relative aspect-[4/3] rounded-3xl overflow-hidden glass border dark:border-white/10 border-black/10"
               >
@@ -6376,7 +6376,7 @@ const AnimatedRoutes = () => {
     <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
       <motion.div
         key={location.pathname}
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 1, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -12 }}
         transition={{ duration: 0.28, ease: "easeOut" }}

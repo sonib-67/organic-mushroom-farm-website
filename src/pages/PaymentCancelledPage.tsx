@@ -79,7 +79,7 @@ export default function PaymentCancelledPage() {
         </button>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="relative p-[1px] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden group shadow-2xl"
         >

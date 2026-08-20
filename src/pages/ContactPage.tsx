@@ -17,7 +17,7 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ t
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ height: 0, opacity: 0 }}
+                        initial={{ height: 0, opacity: 1 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         className="p-5 pt-0 text-[14px] leading-relaxed dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
@@ -174,7 +174,7 @@ const ContactPage = () => {
              {/* Hero Section */}
              <section className="section-padding text-center">
                  <motion.div 
-                     initial={{ opacity: 0, y: 20 }}
+                     initial={{ opacity: 1, y: 20 }}
                      animate={{ opacity: 1, y: 0 }}
                      className="max-w-4xl mx-auto"
                  >
@@ -257,7 +257,7 @@ const ContactPage = () => {
 
                     {submitted ? (
                         <motion.div 
-                            initial={{ opacity: 0, scale: 0.95 }}
+                            initial={{ opacity: 1, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             className="glass p-12 text-center rounded-3xl border dark:border-white/10 border-black/10 shadow-xl bg-white dark:bg-transparent"
                         >
@@ -275,9 +275,9 @@ const ContactPage = () => {
                         </motion.div>
                     ) : (
                         <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 1, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            
                             className="glass p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 bg-white dark:bg-transparent shadow-xl relative overflow-hidden"
                         >
                             <form 

@@ -258,7 +258,7 @@ export default function TrainingCheckoutPage() {
         </button>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="relative p-[1px] rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden group shadow-2xl"
         >
@@ -271,7 +271,7 @@ export default function TrainingCheckoutPage() {
 
             {paymentStatus === 'cancelled' ? (
               <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 1, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-6"
               >

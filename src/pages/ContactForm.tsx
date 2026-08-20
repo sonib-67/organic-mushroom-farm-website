@@ -79,7 +79,7 @@ const ContactFormPage = () => {
 
              <section className="section-padding text-center">
                  <motion.div 
-                     initial={{ opacity: 0, y: 20 }}
+                     initial={{ opacity: 1, y: 20 }}
                      animate={{ opacity: 1, y: 0 }}
                      className="max-w-4xl mx-auto"
                  >
@@ -96,7 +96,7 @@ const ContactFormPage = () => {
              <section className="section-padding max-w-3xl mx-auto pt-0">
                  {submitted ? (
                      <motion.div 
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={{ opacity: 1, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         className="glass p-12 text-center rounded-[3rem] border border-white/10"
                      >
@@ -114,7 +114,7 @@ const ContactFormPage = () => {
                      </motion.div>
                  ) : (
                      <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 1, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="glass p-8 md:p-12 rounded-[3rem] border border-white/5 relative overflow-hidden"
                      >

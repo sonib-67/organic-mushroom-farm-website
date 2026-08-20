@@ -182,7 +182,7 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc, metaTitle }: { defaultSlug
             {/* Glowing Tech Vector Spec Card replacing the physical image */}
             <div className="lg:col-span-4 shrink-0 mt-8 lg:mt-0">
               <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 1, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="glass rounded-[2.5rem] overflow-hidden border border-white/10 p-8 shadow-2xl relative group bg-radial-to-br from-primary-start/15 via-transparent to-black/30 flex flex-col justify-between min-h-[260px]"
               >
@@ -345,9 +345,9 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc, metaTitle }: { defaultSlug
                 {info.farmingSteps.map((step, sIdx) => (
                   <motion.div
                     key={sIdx}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 1, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    
                     className="relative group"
                   >
                     <div className="absolute -left-[35px] top-0 w-6 h-6 rounded-full bg-black border-2 border-primary-start flex items-center justify-center text-primary-start text-[10px] font-black group-hover:bg-primary-start group-hover:text-black transition-all">

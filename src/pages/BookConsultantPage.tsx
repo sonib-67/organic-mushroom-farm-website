@@ -216,7 +216,7 @@ export default function BookConsultantPage() {
       <div className="py-4 md:py-16 text-center px-2 md:px-4">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -250,10 +250,10 @@ export default function BookConsultantPage() {
             {includedItems.map((item, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 1, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
+                
                 className="glass p-2 md:p-6 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-colors flex flex-col items-center text-center"
               >
                 <div className="w-6 h-6 md:w-16 md:h-16 rounded-md md:rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-1.5 md:mb-5 group-hover:scale-110 transition-transform">
@@ -289,7 +289,7 @@ export default function BookConsultantPage() {
       <AnimatePresence>
         {modalState === 'form' && (
           <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           >
             <motion.div 
@@ -361,7 +361,7 @@ export default function BookConsultantPage() {
 
         {modalState === 'cancelled' && (
           <motion.div 
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
@@ -403,7 +403,7 @@ export default function BookConsultantPage() {
 
         {modalState === 'success' && (
           <motion.div 
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           >
             <motion.div 

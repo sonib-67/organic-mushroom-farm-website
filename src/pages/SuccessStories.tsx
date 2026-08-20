@@ -44,7 +44,7 @@ const SuccessStoriesPage = () => {
 
       <section className="section-padding text-center">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl mx-auto"
         >
@@ -62,9 +62,9 @@ const SuccessStoriesPage = () => {
         {stories.map((s, i) => (
           <motion.div 
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 1, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            
             className={`flex flex-col gap-12 glass p-8 lg:p-16 rounded-[4rem] border dark:border-white/5 border-black/5`}
           >
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-2">

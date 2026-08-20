@@ -22,7 +22,7 @@ const ArticleBestMushroomFarmingTrainingGuide = () => {
             
             <article className="max-w-4xl mx-auto px-4 prose prose-slate dark:prose-invert prose-lg">
                 <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 1, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="glass p-8 md:p-12 rounded-[3.5rem] border dark:border-white/5 border-black/5 space-y-8"

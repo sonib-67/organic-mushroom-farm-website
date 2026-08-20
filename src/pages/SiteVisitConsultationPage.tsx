@@ -144,7 +144,7 @@ const SiteVisitConsultationPage = () => {
         
         {!paymentSuccess ? (
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-3xl p-8 overflow-hidden relative"
           >
@@ -249,7 +249,7 @@ const SiteVisitConsultationPage = () => {
           </motion.div>
         ) : (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 1, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-2xl rounded-3xl p-10 text-center relative overflow-hidden"
           >

@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: React.ReactNo
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 1 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             className="p-6 pt-0 dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
@@ -71,7 +71,7 @@ const SpawnSeedPage = () => {
              {/* 1. Hero Section */}
              <section className="section-padding text-center">
                  <motion.div 
-                     initial={{ opacity: 0, y: 20 }}
+                     initial={{ opacity: 1, y: 20 }}
                      animate={{ opacity: 1, y: 0 }}
                      className="max-w-4xl mx-auto"
                  >
@@ -364,7 +364,7 @@ const SpawnSeedPage = () => {
              <section id="start-project" className="section-padding max-w-3xl mx-auto pt-0">
                   {submitted ? (
                       <motion.div 
-                         initial={{ opacity: 0, scale: 0.95 }}
+                         initial={{ opacity: 1, scale: 0.95 }}
                          animate={{ opacity: 1, scale: 1 }}
                          className="glass p-12 text-center rounded-[3rem] border dark:border-white/10 border-black/10"
                       >
@@ -382,9 +382,9 @@ const SpawnSeedPage = () => {
                       </motion.div>
                   ) : (
                       <motion.div 
-                         initial={{ opacity: 0, y: 20 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
+                         initial={{ opacity: 1, y: 20 }}
+                         animate={{ opacity: 1, y: 0 }}
+                         
                          className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/5 border-black/5 relative overflow-hidden"
                       >
                           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>

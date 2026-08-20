@@ -90,7 +90,7 @@ const EnquiryPage = () => {
 
         {submitted ? (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }} 
+            initial={{ opacity: 1, scale: 0.95 }} 
             animate={{ opacity: 1, scale: 1 }} 
             className="bg-white dark:bg-[#111] rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100 dark:border-white/10 text-center"
           >
@@ -165,7 +165,7 @@ const EnquiryPage = () => {
                 <AnimatePresence mode="wait">
                   
                   {formType === 'training' && (
-                    <motion.div key="training" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
+                    <motion.div key="training" initial={{ opacity: 1, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
                       <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 pb-2">Training Preferences</h3>
                       
                       <div className="grid md:grid-cols-2 gap-6">
@@ -191,7 +191,7 @@ const EnquiryPage = () => {
                   )}
 
                   {formType === 'spawn' && (
-                    <motion.div key="spawn" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
+                    <motion.div key="spawn" initial={{ opacity: 1, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 pb-2">Spawn (Seed) Requirements</h3>
                       
                       <div className="grid md:grid-cols-2 gap-6">
@@ -218,7 +218,7 @@ const EnquiryPage = () => {
                   )}
 
                   {formType === 'setup' && (
-                    <motion.div key="setup" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
+                    <motion.div key="setup" initial={{ opacity: 1, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 pb-2">Turnkey Project Details</h3>
                       
                       <div className="grid md:grid-cols-2 gap-6">
@@ -247,7 +247,7 @@ const EnquiryPage = () => {
                   )}
 
                   {formType === 'buy_mushroom' && (
-                    <motion.div key="buy_mushroom" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
+                    <motion.div key="buy_mushroom" initial={{ opacity: 1, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 pb-2">Purchase Mushrooms</h3>
                       
                       <div className="grid md:grid-cols-2 gap-6">
@@ -283,7 +283,7 @@ const EnquiryPage = () => {
                   )}
 
                   {formType === 'other' && (
-                    <motion.div key="other" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
+                    <motion.div key="other" initial={{ opacity: 1, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="space-y-6">
                       <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-200 dark:border-white/10 pb-2">Other Services / General Enquiry</h3>
                       <div className="space-y-2">
                         <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Subject of Enquiry *</label>

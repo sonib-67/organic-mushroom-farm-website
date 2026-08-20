@@ -126,7 +126,7 @@ const MushroomTypesPage = () => {
       <section className="section-padding text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,197,94,0.04),transparent_60%)]"></div>
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl mx-auto space-y-6 relative z-10"
         >
