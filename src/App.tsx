@@ -118,7 +118,6 @@ import ArticleUSAMedicinalIncome from "./pages/ArticleUSAMedicinalIncome";
 import ArticleUltimateGuideIndia from "./pages/ArticleUltimateGuideIndia";
 import ArticleTamilTrainingGuide from "./pages/ArticleTamilTrainingGuide";
 import SEO from "./components/SEO";
-import { PromoModal } from "./components/PromoModal";
 import ArticlePracticalGuideHinglish from "./pages/ArticlePracticalGuideHinglish";
 import ArticleBusinessPlanIndia from "./pages/ArticleBusinessPlanIndia";
 import ArticleTurnkeyCommercialSetup from "./pages/ArticleTurnkeyCommercialSetup";
@@ -999,6 +998,31 @@ const Background3D = () => (
   </div>
 );
 
+const DynamicGreeting = () => {
+  const [greeting, setGreeting] = useState({ text: 'Welcome', icon: '🍄', animationClass: '' });
+
+  useEffect(() => {
+    // Determine the user's local time hour
+    const hour = new Date().getHours();
+    
+    if (hour >= 5 && hour < 12) {
+      setGreeting({ text: 'Good Morning', icon: '🌅', animationClass: 'animate-pulse' });
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting({ text: 'Good Afternoon', icon: '☀️', animationClass: 'animate-[spin_8s_linear_infinite]' });
+    } else if (hour >= 17 && hour < 21) {
+      setGreeting({ text: 'Good Evening', icon: '🌇', animationClass: 'animate-pulse' });
+    } else {
+      setGreeting({ text: 'Good Night', icon: '🌙', animationClass: 'animate-pulse' });
+    }
+  }, []);
+
+  return (
+    <span className="text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 flex items-center gap-1 mt-0.5 tracking-wide">
+      {greeting.text} <span className={`inline-block ${greeting.animationClass}`}>{greeting.icon}</span>
+    </span>
+  );
+};
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1054,9 +1078,12 @@ const Navbar = () => {
               alt="Organic Mushrooms Farm"
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
              width="120" height="120" />
-            <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 leading-tight">
-              Organic <span className="gradient-text">Mushroom Farm</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 leading-tight">
+                Organic <span className="gradient-text">Mushroom Farm</span>
+              </span>
+              <DynamicGreeting />
+            </div>
           </Link>
 
           <div className="flex items-center gap-2 xl:gap-4 ml-auto">
@@ -6643,7 +6670,6 @@ import { HelmetProvider } from 'react-helmet-async';
 export default function App() {
   return (
     <>
-      <PromoModal />
       <MetaPixelTracker />
       <ScrollToTop />
       <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 dark:text-white bg-slate-50 dark:bg-[#0A0A0A] min-h-screen">
