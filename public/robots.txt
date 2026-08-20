@@ -3,9 +3,11 @@ Allow: /
 
 # Block unwanted backend folders
 Disallow: /admin/
-Disallow: /api/
 Disallow: /private/
 Disallow: /*.json$
+
+# Allow API for bots to render page content properly
+Allow: /api/
 
 # Sitemap location
 Sitemap: https://organicmushroomsfarm.com/sitemap-main.xml
