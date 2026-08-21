@@ -1004,30 +1004,7 @@ const Background3D = () => (
   </div>
 );
 
-const DynamicGreeting = () => {
-  const [greeting, setGreeting] = useState({ text: 'Welcome', icon: '🍄', animationClass: '' });
-
-  useEffect(() => {
-    // Determine the user's local time hour
-    const hour = new Date().getHours();
-    
-    if (hour >= 5 && hour < 12) {
-      setGreeting({ text: 'Good Morning', icon: '🌅', animationClass: 'animate-pulse' });
-    } else if (hour >= 12 && hour < 17) {
-      setGreeting({ text: 'Good Afternoon', icon: '☀️', animationClass: 'animate-[spin_8s_linear_infinite]' });
-    } else if (hour >= 17 && hour < 21) {
-      setGreeting({ text: 'Good Evening', icon: '🌇', animationClass: 'animate-pulse' });
-    } else {
-      setGreeting({ text: 'Good Night', icon: '🌙', animationClass: 'animate-pulse' });
-    }
-  }, []);
-
-  return (
-    <span className="text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 flex items-center gap-1 mt-0.5 tracking-wide">
-      {greeting.text} <span className={`inline-block ${greeting.animationClass}`}>{greeting.icon}</span>
-    </span>
-  );
-};
+import DynamicGreeting from "./components/DynamicGreeting";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
