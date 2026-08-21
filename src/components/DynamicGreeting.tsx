@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+type Phase = 'welcome' | 'greeting' | 'weather_initial' | 'suggestion' | 'weather_final';
+
 const DynamicGreeting = () => {
-  const [phase, setPhase] = useState<'welcome' | 'carousel'>('welcome');
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [phase, setPhase] = useState<Phase>('welcome');
   
   const [weather, setWeather] = useState<{ temp: number, humidity: number, locationStr: string } | null>(null);
   const [greeting, setGreeting] = useState({ text: 'Good Day', icon: '☀️' });
 
-  // Initial Welcome Timer (8 seconds)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPhase('carousel');
-    }, 8000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Determine Time Greeting
+  // 1. Determine Time Greeting
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour >= 5 && hour < 12) setGreeting({ text: 'Good Morning', icon: '🌅' });
@@ -25,68 +18,79 @@ const DynamicGreeting = () => {
     else setGreeting({ text: 'Good Night', icon: '🌙' });
   }, []);
 
-  // Fetch Weather & Location
+  // 2. Fetch Location via IP (No Permissions Required) & Weather
   useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const { latitude, longitude } = position.coords;
-            
-            // Fetch Weather from Open-Meteo (100% Free, No API Key)
-            const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m`;
-            const wRes = await fetch(weatherUrl);
-            const wData = await wRes.json();
-            const temperature = wData.current.temperature_2m;
-            const humidity = wData.current.relative_humidity_2m;
-            
-            // Free reverse geocoding via BigDataCloud (No API key needed for client-side IP-based or lat/lon)
-            const geoRes = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`);
-            const geoData = await geoRes.json();
-            
-            const city = geoData.city || geoData.locality || "";
-            let stateCode = "";
-            if (geoData.principalSubdivisionCode) {
-              const parts = geoData.principalSubdivisionCode.split('-');
-              stateCode = parts.length > 1 ? parts[1] : parts[0];
-            } else if (geoData.principalSubdivision) {
-              stateCode = geoData.principalSubdivision.substring(0, 2).toUpperCase(); // Fallback for state short name
-            }
-            const country = geoData.countryCode || "";
-            
-            // Format: "Indore, MP, IN"
-            const locationParts = [city, stateCode, country].filter(Boolean);
-            const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
+    const fetchLocationAndWeather = async () => {
+      try {
+        let lat, lon, city, stateCode, countryCode;
 
-            setWeather({ temp: temperature, humidity, locationStr });
-          } catch (error) {
-            console.error("Error fetching weather:", error);
+        // Try primary IP API (ipwho.is)
+        try {
+          const ipRes = await fetch('https://ipwho.is/');
+          const ipData = await ipRes.json();
+          if (ipData.success) {
+            lat = ipData.latitude;
+            lon = ipData.longitude;
+            city = ipData.city;
+            stateCode = ipData.region_code;
+            countryCode = ipData.country_code;
+          } else {
+            throw new Error("Primary IP API Failed");
           }
-        },
-        (error) => {
-          console.error("Location access denied or error:", error);
+        } catch (primaryError) {
+          // Fallback to secondary IP API (ipapi.co) if primary fails
+          const fbRes = await fetch('https://ipapi.co/json/');
+          const fbData = await fbRes.json();
+          lat = fbData.latitude;
+          lon = fbData.longitude;
+          city = fbData.city;
+          stateCode = fbData.region_code;
+          countryCode = fbData.country_code || fbData.country;
         }
-      );
-    }
+
+        if (lat && lon) {
+          const locationParts = [stateCode, countryCode].filter(Boolean);
+          const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
+
+          // Fetch Weather using coordinates
+          const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m`;
+          const wRes = await fetch(weatherUrl);
+          const wData = await wRes.json();
+          
+          setWeather({
+            temp: wData.current.temperature_2m,
+            humidity: wData.current.relative_humidity_2m,
+            locationStr
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching IP location or weather:", error);
+      }
+    };
+
+    fetchLocationAndWeather();
   }, []);
 
-  // Carousel Loop (6 seconds per slide)
+  // 3. Sequence Manager (Timers)
   useEffect(() => {
-    if (phase === 'welcome') return;
-    
-    const interval = setInterval(() => {
-      setSlideIndex((prev) => {
-        if (!weather) return 0; // If location is blocked/failed, stick to Greeting
-        if (prev === 0) return 1; // Switch from Greeting -> Location & Weather
-        if (prev === 1) return 2; // Switch from Location & Weather -> Suggestion
-        return 1; // Switch from Suggestion -> BACK to Location & Weather (Looping as requested)
-      });
-    }, 6000); 
-    
-    return () => clearInterval(interval);
+    let timeout: NodeJS.Timeout;
+
+    if (phase === 'welcome') {
+      timeout = setTimeout(() => setPhase('greeting'), 4000);
+    } else if (phase === 'greeting') {
+      timeout = setTimeout(() => {
+        setPhase(weather ? 'weather_initial' : 'weather_final');
+      }, 6000);
+    } else if (phase === 'weather_initial') {
+      timeout = setTimeout(() => setPhase('suggestion'), 6000);
+    } else if (phase === 'suggestion') {
+      timeout = setTimeout(() => setPhase('weather_final'), 6000);
+    }
+    // 'weather_final' phase stays permanently (does not trigger another timeout)
+
+    return () => clearTimeout(timeout);
   }, [phase, weather]);
 
-  // Suggestion Logic based on temperature
   const getSuggestion = (temp: number) => {
     if (temp < 15) return "Too cold, needs heating ❄️";
     if (temp >= 15 && temp < 20) return "Best for Button Mushroom 🍄";
@@ -104,7 +108,7 @@ const DynamicGreeting = () => {
       );
     }
 
-    if (slideIndex === 0 || !weather) {
+    if (phase === 'greeting' || (!weather && phase !== 'welcome')) {
       return (
         <span className="flex items-center gap-1.5 whitespace-nowrap">
           {greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span>
@@ -112,28 +116,32 @@ const DynamicGreeting = () => {
       );
     }
     
-    if (slideIndex === 1 && weather) {
-      return (
-        <span className="flex items-center gap-1.5 whitespace-nowrap">
-          {weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span>
-        </span>
-      );
+    if (phase === 'weather_initial' || phase === 'weather_final') {
+      if (weather) {
+        return (
+          <span className="flex items-center gap-1.5 whitespace-nowrap">
+            {weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span>
+          </span>
+        );
+      }
     }
     
-    if (slideIndex === 2 && weather) {
+    if (phase === 'suggestion' && weather) {
       return (
         <span className="flex items-center gap-1.5 whitespace-nowrap">
           {getSuggestion(weather.temp)}
         </span>
       );
     }
+    
+    return null;
   };
 
   return (
     <div className="relative text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 mt-0.5 tracking-wide flex items-center h-6 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
-          key={`${phase}-${slideIndex}`}
+          key={phase}
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -20, opacity: 0 }}
