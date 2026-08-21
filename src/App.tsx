@@ -950,7 +950,7 @@ const NAV_ITEMS = [
     icon: Calendar,
   },
   { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
-  { name: "Live Climate", href: "/mushroom-farm-climate-tracker", isExternal: false, icon: MapPin },
+  { name: "Live Weather", href: "/mushroom-farm-climate-tracker", isExternal: false, icon: MapPin },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
   {
@@ -3146,7 +3146,7 @@ const Footer = () => {
                 { name: "Business Plan", href: "/business-plan" },
                 { name: "Government Subsidy", href: "/subsidy" },
                 { name: "Spawn Supply", href: "/spawn-seed" },
-                { name: "Live Climate", href: "/mushroom-farm-climate-tracker" },
+                { name: "Live Weather", href: "/mushroom-farm-climate-tracker" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
                 { name: "Cities Pages", href: "/states" },

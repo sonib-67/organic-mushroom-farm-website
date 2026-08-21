@@ -227,46 +227,46 @@ const ClimateTrackerPage = () => {
           </main>
         </>
       ) : (
-        <main className="flex-grow max-w-4xl mx-auto px-6 pt-32 pb-16 w-full animate-fade-in flex flex-col items-center">
-          <div className="w-full bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-emerald-100">
-            <div className="text-center mb-10">
-              <span className="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-800 rounded-full text-sm font-bold tracking-wide uppercase mb-4 shadow-sm">
+        <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 pt-16 md:pt-24 pb-8 w-full animate-fade-in flex flex-col items-center">
+          <div className="w-full bg-white rounded-3xl shadow-2xl p-6 md:p-8 border border-emerald-100">
+            <div className="text-center mb-6">
+              <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold tracking-wide uppercase mb-3 shadow-sm">
                 🟢 Live Data Connected
               </span>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-800 flex flex-col items-center justify-center gap-4 mt-4">
-                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center">
-                  <MapPin size={32} className="text-emerald-500" />
+              <h2 className="text-2xl md:text-3xl font-black text-gray-800 flex flex-col items-center justify-center gap-2 mt-2">
+                <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center">
+                  <MapPin size={24} className="text-emerald-500" />
                 </div>
                 {climateData.city}, {climateData.state}, {climateData.country}
               </h2>
-              <p className="text-gray-500 mt-4 text-lg">Real-time climate analysis for your location.</p>
+              <p className="text-gray-500 mt-2 text-sm md:text-base">Real-time climate analysis for your location.</p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 flex flex-col items-center justify-center border border-orange-100 shadow-inner relative">
-                <Thermometer size={56} className="text-orange-500 mb-4 drop-shadow-sm" />
-                <p className="text-gray-600 font-medium mb-2 text-lg">Temperature</p>
-                <p className="text-6xl font-black text-gray-800 tracking-tight mb-4">{climateData.temp}°C</p>
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-6">
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-5 md:p-6 flex flex-col items-center justify-center border border-orange-100 shadow-inner relative">
+                <Thermometer size={40} className="text-orange-500 mb-3 drop-shadow-sm" />
+                <p className="text-gray-600 font-medium mb-1 text-sm md:text-base">Temperature</p>
+                <p className="text-4xl md:text-5xl font-black text-gray-800 tracking-tight mb-3">{climateData.temp}°C</p>
                 
                 {(() => {
                   const status = getTempStatus(climateData.temp);
                   return (
-                    <div className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold shadow-sm ${status.bg} ${status.color}`}>
+                    <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-sm ${status.bg} ${status.color}`}>
                       <span>{status.icon}</span> {status.label}
                     </div>
                   );
                 })()}
               </div>
               
-              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 flex flex-col items-center justify-center border border-blue-100 shadow-inner relative">
-                <Droplets size={56} className="text-blue-500 mb-4 drop-shadow-sm" />
-                <p className="text-gray-600 font-medium mb-2 text-lg">Relative Humidity</p>
-                <p className="text-6xl font-black text-gray-800 tracking-tight mb-4">{climateData.humidity}%</p>
+              <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-5 md:p-6 flex flex-col items-center justify-center border border-blue-100 shadow-inner relative">
+                <Droplets size={40} className="text-blue-500 mb-3 drop-shadow-sm" />
+                <p className="text-gray-600 font-medium mb-1 text-sm md:text-base">Relative Humidity</p>
+                <p className="text-4xl md:text-5xl font-black text-gray-800 tracking-tight mb-3">{climateData.humidity}%</p>
                 
                 {(() => {
                   const status = getHumidityStatus(climateData.humidity);
                   return (
-                    <div className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold shadow-sm ${status.bg} ${status.color}`}>
+                    <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-sm ${status.bg} ${status.color}`}>
                       <span>{status.icon}</span> {status.label}
                     </div>
                   );
@@ -274,15 +274,15 @@ const ClimateTrackerPage = () => {
               </div>
             </div>
 
-            <div className="border-t border-gray-100 my-8"></div>
+            <div className="border-t border-gray-100 my-6"></div>
 
-            <div className="flex flex-wrap justify-center gap-6 mb-12 text-gray-600 font-medium">
-              <div className="flex items-center gap-2 bg-gray-50 px-5 py-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                <Droplets className="text-blue-400" size={20} />
+            <div className="flex flex-wrap justify-center gap-4 mb-8 text-gray-600 font-medium text-sm md:text-base">
+              <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <Droplets className="text-blue-400" size={18} />
                 <span>Dew Point: <strong className="text-gray-800">{climateData.dewPoint}°C</strong></span>
               </div>
-              <div className="flex items-center gap-2 bg-gray-50 px-5 py-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                <Wind className="text-teal-400" size={20} />
+              <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <Wind className="text-teal-400" size={18} />
                 <span>Wind Speed: <strong className="text-gray-800">{climateData.windSpeed} km/h</strong></span>
               </div>
             </div>
@@ -290,7 +290,7 @@ const ClimateTrackerPage = () => {
             <div className="flex justify-center">
               <button
                 onClick={() => setClimateData(null)}
-                className="text-emerald-600 font-bold hover:text-emerald-500 transition-colors flex items-center gap-2"
+                className="text-emerald-600 font-bold hover:text-emerald-500 transition-colors flex items-center gap-2 text-sm md:text-base"
               >
                 ← Back to Guide
               </button>
