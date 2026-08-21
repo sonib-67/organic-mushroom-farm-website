@@ -104,6 +104,7 @@ import ArticleMushroomTrainingGuideEnglish from "./pages/ArticleMushroomTraining
 import ArticleThiruvananthapuramKerala from "./pages/ArticleThiruvananthapuramKerala";
 import ArticleGuwahatiAssam from "./pages/ArticleGuwahatiAssam";
 import ArticleContactForm from "./pages/ArticleContactForm";
+import DisclaimerPage from "./pages/DisclaimerPage";
 import ArticleUdaipurRajasthan from "./pages/ArticleUdaipurRajasthan";
 import ArticleHomeMushroomFarming from "./pages/ArticleHomeMushroomFarming";
 import ArticleMysuruKarnataka from "./pages/ArticleMysuruKarnataka";
@@ -3187,6 +3188,7 @@ const Footer = () => {
                 { name: "Customer Support", href: "/support" },
                 { name: "Terms of Service", href: "/terms" },
                 { name: "Privacy Policy", href: "/privacy" },
+                { name: "Disclaimer Policy", href: "/disclaimer" },
                 { name: "Refund Policy", href: "/refund-policy" },
                 { name: "Shipping Policy", href: "/shipping-policy" },
               ].map((item) => (
@@ -6403,6 +6405,7 @@ const AnimatedRoutes = () => {
           <Route path="/cities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramKerala />} />
           <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
           <Route path="/contact-form" element={<ArticleContactForm />} />
+          <Route path="/disclaimer" element={<DisclaimerPage />} />
           <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
           <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
