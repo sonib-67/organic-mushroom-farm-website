@@ -69,7 +69,7 @@ import SpawnSeedPage from "./pages/SpawnSeed";
 import BusinessPlan from "./pages/BusinessPlan";
 import MushroomTypes from "./pages/MushroomTypes";
 import MushroomTypeDetails from "./pages/MushroomTypeDetails";
-import Equipment from "./pages/Equipment";
+import EquipmentPageNew from "./pages/EquipmentPageNew";
 import BookConsultantPage from "./pages/BookConsultantPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import PaymentCancelledPage from "./pages/PaymentCancelledPage";
@@ -903,6 +903,12 @@ const NAV_ITEMS = [
     icon: Award,
   },
   {
+    name: "Equipment",
+    href: "/equipment",
+    isExternal: false,
+    icon: Zap,
+  },
+  {
     name: "Learning",
     href: "/mushroom-types",
     isExternal: false,
@@ -927,7 +933,6 @@ const NAV_ITEMS = [
       { name: "Marketing Support", href: "/services/marketing-support" },
       { name: "Cold Chain", href: "/services/cold-chain" },
       { name: "Government Subsidy", href: "/subsidy" },
-      { name: "Grow Tech Equipment", href: "/equipment" },
       { name: "Franchise", href: "/mushroom-franchise" },
     ],
   },
@@ -6449,7 +6454,7 @@ const AnimatedRoutes = () => {
             path="/mushroom-types/:slug"
             element={<MushroomTypeDetails />}
           />
-          <Route path="/equipment" element={<Equipment />} />
+          <Route path="/equipment" element={<EquipmentPageNew />} />
           <Route path="/subsidy" element={<Subsidy />} />
           <Route
             path="/pan-india-global-operations"
