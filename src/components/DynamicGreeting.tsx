@@ -18,11 +18,23 @@ const DynamicGreeting = () => {
     else setGreeting({ text: 'Good Night', icon: '🌙' });
   }, []);
 
-  // 2. Fetch Location via IP (No Permissions Required) & Weather
+  // 2. Fetch Location (Precise GPS if available, otherwise IP fallback)
   useEffect(() => {
     const fetchLocationAndWeather = async () => {
       try {
-        let lat, lon, city, stateCode, countryCode;
+        // First check if precise GPS location was already saved by the user
+        const savedPrecise = localStorage.getItem('preciseWeather');
+        if (savedPrecise) {
+          const preciseData = JSON.parse(savedPrecise);
+          setWeather({
+            temp: preciseData.temp,
+            humidity: preciseData.humidity,
+            locationStr: preciseData.locationStr
+          });
+          return; // Skip IP tracking if precise data exists
+        }
+
+        let lat, lon, countryCode;
 
         // Try primary IP API (ipwho.is)
         try {
@@ -31,8 +43,6 @@ const DynamicGreeting = () => {
           if (ipData.success) {
             lat = ipData.latitude;
             lon = ipData.longitude;
-            city = ipData.city;
-            stateCode = ipData.region_code;
             countryCode = ipData.country_code;
           } else {
             throw new Error("Primary IP API Failed");
@@ -43,13 +53,11 @@ const DynamicGreeting = () => {
           const fbData = await fbRes.json();
           lat = fbData.latitude;
           lon = fbData.longitude;
-          city = fbData.city;
-          stateCode = fbData.region_code;
           countryCode = fbData.country_code || fbData.country;
         }
 
         if (lat && lon) {
-          const locationParts = [stateCode, countryCode].filter(Boolean);
+          const locationParts = [countryCode].filter(Boolean); // ONLY Country in fallback
           const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
 
           // Fetch Weather using coordinates
@@ -69,6 +77,22 @@ const DynamicGreeting = () => {
     };
 
     fetchLocationAndWeather();
+
+    // Listen for custom event when user allows GPS on the Tracker page
+    const handlePreciseUpdate = () => {
+      const savedPrecise = localStorage.getItem('preciseWeather');
+      if (savedPrecise) {
+        const preciseData = JSON.parse(savedPrecise);
+        setWeather({
+          temp: preciseData.temp,
+          humidity: preciseData.humidity,
+          locationStr: preciseData.locationStr
+        });
+      }
+    };
+
+    window.addEventListener('preciseWeatherUpdated', handlePreciseUpdate);
+    return () => window.removeEventListener('preciseWeatherUpdated', handlePreciseUpdate);
   }, []);
 
   // 3. Sequence Manager (Timers)

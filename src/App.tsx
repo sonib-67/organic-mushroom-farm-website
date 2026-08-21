@@ -172,6 +172,7 @@ import JharkhandPage from "./pages/JharkhandPage";
 import PunePage from "./pages/PunePage";
 import PuneBlogPage from "./pages/PuneBlogPage";
 import AssamPage from "./pages/AssamPage";
+import ClimateTrackerPage from "./pages/ClimateTrackerPage";
 
 // --- Constants & Types ---
 
@@ -949,6 +950,7 @@ const NAV_ITEMS = [
     icon: Calendar,
   },
   { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
+  { name: "Live Climate", href: "/mushroom-farm-climate-tracker", isExternal: false, icon: MapPin },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
   {
@@ -3144,6 +3146,7 @@ const Footer = () => {
                 { name: "Business Plan", href: "/business-plan" },
                 { name: "Government Subsidy", href: "/subsidy" },
                 { name: "Spawn Supply", href: "/spawn-seed" },
+                { name: "Live Climate", href: "/mushroom-farm-climate-tracker" },
                 { name: "Blog", href: "/blog" },
                 { name: "FAQ", href: "/faq" },
                 { name: "Cities Pages", href: "/states" },
@@ -6437,6 +6440,7 @@ const AnimatedRoutes = () => {
             path="/pan-india-global-operations"
             element={<OperationsPage />}
           />
+          <Route path="/mushroom-farm-climate-tracker" element={<ClimateTrackerPage />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<ArticlePage />} />
           <Route
