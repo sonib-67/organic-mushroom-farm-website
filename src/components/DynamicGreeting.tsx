@@ -111,16 +111,16 @@ const DynamicGreeting = () => {
     return "Too hot, needs cooling 🌡️";
   };
 
-  // 3. Loop Manager
-  const slides = weather ? [
+  // 3. Loop Manager with Filter for Missing Data
+  const rawSlides = weather ? [
     { id: 'welcome', content: <>Welcome To Organic Mushroom Farm <span className="animate-pulse inline-block">🍄</span></> },
     { id: 'greeting', content: <>{greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span></> },
-    { id: 'dew', content: <>Dew Point: {weather.dewPoint}°C <span className="animate-pulse inline-block">🌫️</span></> },
-    { id: 'wind', content: <>Wind Speed: {weather.windSpeed} km/h <span className="animate-pulse inline-block">💨</span></> },
-    { id: 'uv', content: <>UV Index: {weather.uvIndex} <span className="animate-pulse inline-block">☀️</span></> },
-    { id: 'rain', content: <>Rain: {weather.rain} mm <span className="animate-pulse inline-block">🌧️</span></> },
-    { id: 'cloud', content: <>Cloud Cover: {weather.cloudCover}% <span className="animate-pulse inline-block">☁️</span></> },
-    { id: 'pressure', content: <>Air Pressure: {weather.airPressure} hPa <span className="animate-pulse inline-block">📉</span></> },
+    weather.dewPoint !== undefined ? { id: 'dew', content: <>Dew Point: {weather.dewPoint}°C <span className="animate-pulse inline-block">🌫️</span></> } : null,
+    weather.windSpeed !== undefined ? { id: 'wind', content: <>Wind Speed: {weather.windSpeed} km/h <span className="animate-pulse inline-block">💨</span></> } : null,
+    weather.uvIndex !== undefined ? { id: 'uv', content: <>UV Index: {weather.uvIndex} <span className="animate-pulse inline-block">☀️</span></> } : null,
+    weather.rain !== undefined ? { id: 'rain', content: <>Rain: {weather.rain} mm <span className="animate-pulse inline-block">🌧️</span></> } : null,
+    weather.cloudCover !== undefined ? { id: 'cloud', content: <>Cloud Cover: {weather.cloudCover}% <span className="animate-pulse inline-block">☁️</span></> } : null,
+    weather.airPressure !== undefined ? { id: 'pressure', content: <>Air Pressure: {weather.airPressure} hPa <span className="animate-pulse inline-block">📉</span></> } : null,
     { id: 'suggestion', content: <>{weather.temp !== undefined ? getSuggestion(weather.temp) : ''}</> },
     { id: 'weather', content: <>{weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span></> }
   ] : [
@@ -128,25 +128,28 @@ const DynamicGreeting = () => {
     { id: 'greeting', content: <>{greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span></> }
   ];
 
+  // Filter out any null slides (missing data)
+  const slides = rawSlides.filter((slide): slide is { id: string, content: JSX.Element } => slide !== null);
+
   useEffect(() => {
     if (slideIndex >= slides.length - 1) return; // Stop at the final slide!
 
     const timeout = setTimeout(() => {
       setSlideIndex((prev) => prev + 1);
-    }, 4000);
+    }, 3500);
     
     return () => clearTimeout(timeout);
   }, [slideIndex, slides.length]);
 
   return (
     <div className="relative text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 mt-0.5 tracking-wide flex items-center h-6 overflow-hidden">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="popLayout">
         <motion.div
           key={slides[slideIndex]?.id || 'fallback'}
-          initial={{ y: 25, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -25, opacity: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          exit={{ y: -20, opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="flex items-center gap-1.5 whitespace-nowrap"
         >
           {slides[slideIndex]?.content}
