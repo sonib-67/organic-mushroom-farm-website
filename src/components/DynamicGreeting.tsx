@@ -65,8 +65,8 @@ const DynamicGreeting = () => {
         }
 
         if (lat && lon) {
-          const locationParts = [city, country].filter(Boolean);
-          const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
+          // As per user request: If GPS is off, show ONLY Country name
+          const locationStr = country || "Your Location";
 
           const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,dew_point_2m,wind_speed_10m,uv_index,precipitation,cloud_cover,surface_pressure`;
           const wRes = await fetch(weatherUrl);
@@ -122,7 +122,7 @@ const DynamicGreeting = () => {
     weather.cloudCover !== undefined ? { id: 'cloud', content: <>Cloud Cover: {weather.cloudCover}% <span className="animate-pulse inline-block">☁️</span></> } : null,
     weather.airPressure !== undefined ? { id: 'pressure', content: <>Air Pressure: {weather.airPressure} hPa <span className="animate-pulse inline-block">📉</span></> } : null,
     { id: 'suggestion', content: <>{weather.temp !== undefined ? getSuggestion(weather.temp) : ''}</> },
-    { id: 'weather', content: <>{weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span></> }
+    { id: 'weather', content: <>{weather.locationStr}: {weather.temp}°C, Hum {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span></> }
   ] : [
     { id: 'welcome', content: <>Welcome To Organic Mushroom Farm <span className="animate-pulse inline-block">🍄</span></> },
     { id: 'greeting', content: <>{greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span></> }

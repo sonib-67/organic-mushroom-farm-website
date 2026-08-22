@@ -79,8 +79,9 @@ const ClimateTrackerPage = () => {
           const newData = { city, state: stateCode, country, temp, humidity, dewPoint, windSpeed, uvIndex, rain, cloudCover, airPressure };
           setClimateData(newData);
           
-          // Format location string for the header greeting
-          const locationParts = [city, country].filter(Boolean);
+          // Format location string for the header greeting (GPS is ON here)
+          // Format: Country short name, City Name, State Short name
+          const locationParts = [country, city, stateCode].filter(Boolean);
           const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
           
           // Save to localStorage

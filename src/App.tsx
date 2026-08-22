@@ -70,6 +70,9 @@ import BusinessPlan from "./pages/BusinessPlan";
 import MushroomTypes from "./pages/MushroomTypes";
 import MushroomTypeDetails from "./pages/MushroomTypeDetails";
 import EquipmentPageNew from "./pages/EquipmentPageNew";
+import EquipmentInfrastructurePage from "./pages/EquipmentInfrastructurePage";
+import EquipmentGrowingRacksPage from "./pages/EquipmentGrowingRacksPage";
+import EquipmentCompleteListPage from "./pages/EquipmentCompleteListPage";
 import BookConsultantPage from "./pages/BookConsultantPage";
 import PaymentSuccessPage from "./pages/PaymentSuccessPage";
 import PaymentCancelledPage from "./pages/PaymentCancelledPage";
@@ -6435,6 +6438,9 @@ const AnimatedRoutes = () => {
             element={<MushroomTypeDetails />}
           />
           <Route path="/equipment" element={<EquipmentPageNew />} />
+          <Route path="/equipment/infrastructure-and-insulation" element={<EquipmentInfrastructurePage />} />
+          <Route path="/equipment/growing-racks-and-shelving" element={<EquipmentGrowingRacksPage />} />
+          <Route path="/equipment/complete-list" element={<EquipmentCompleteListPage />} />
           <Route path="/subsidy" element={<Subsidy />} />
           <Route
             path="/pan-india-global-operations"
