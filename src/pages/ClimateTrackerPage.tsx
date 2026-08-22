@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Droplets, Thermometer, AlertCircle, RefreshCw, Navigation, Wind } from 'lucide-react';
+import { MapPin, Droplets, Thermometer, AlertCircle, RefreshCw, Navigation, Wind, Sun, CloudRain, Cloud, Gauge } from 'lucide-react';
 
 const ClimateTrackerPage = () => {
   const [loading, setLoading] = useState(false);
@@ -13,6 +13,10 @@ const ClimateTrackerPage = () => {
     humidity: number;
     dewPoint: number;
     windSpeed: number;
+    uvIndex: number;
+    rain: number;
+    cloudCover: number;
+    airPressure: number;
   } | null>(null);
 
   const getTempStatus = (temp: number) => {
@@ -60,25 +64,35 @@ const ClimateTrackerPage = () => {
           const country = geoData.countryCode || "Unknown Country";
 
           // Fetch Weather
-          const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,dew_point_2m,wind_speed_10m`;
+          const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,dew_point_2m,wind_speed_10m,uv_index,precipitation,cloud_cover,surface_pressure`;
           const wRes = await fetch(weatherUrl);
           const wData = await wRes.json();
           const temp = wData.current.temperature_2m;
           const humidity = wData.current.relative_humidity_2m;
           const dewPoint = wData.current.dew_point_2m;
           const windSpeed = wData.current.wind_speed_10m;
+          const uvIndex = wData.current.uv_index;
+          const rain = wData.current.precipitation;
+          const cloudCover = wData.current.cloud_cover;
+          const airPressure = wData.current.surface_pressure;
 
-          const newData = { city, state: stateCode, country, temp, humidity, dewPoint, windSpeed };
+          const newData = { city, state: stateCode, country, temp, humidity, dewPoint, windSpeed, uvIndex, rain, cloudCover, airPressure };
           setClimateData(newData);
           
           // Format location string for the header greeting
-          const locationParts = [city, stateCode].filter(Boolean);
+          const locationParts = [city, country].filter(Boolean);
           const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
           
           // Save to localStorage
           localStorage.setItem('preciseWeather', JSON.stringify({
             temp,
             humidity,
+            dewPoint,
+            windSpeed,
+            uvIndex,
+            rain,
+            cloudCover,
+            airPressure,
             locationStr
           }));
           
@@ -284,6 +298,22 @@ const ClimateTrackerPage = () => {
               <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
                 <Wind className="text-teal-400" size={18} />
                 <span>Wind Speed: <strong className="text-gray-800">{climateData.windSpeed} km/h</strong></span>
+              </div>
+              <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <Sun className="text-yellow-500" size={18} />
+                <span>UV Index: <strong className="text-gray-800">{climateData.uvIndex}</strong></span>
+              </div>
+              <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <CloudRain className="text-blue-500" size={18} />
+                <span>Rain: <strong className="text-gray-800">{climateData.rain} mm</strong></span>
+              </div>
+              <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <Cloud className="text-gray-400" size={18} />
+                <span>Cloud Cover: <strong className="text-gray-800">{climateData.cloudCover}%</strong></span>
+              </div>
+              <div className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <Gauge className="text-indigo-400" size={18} />
+                <span>Pressure: <strong className="text-gray-800">{climateData.airPressure} hPa</strong></span>
               </div>
             </div>
 

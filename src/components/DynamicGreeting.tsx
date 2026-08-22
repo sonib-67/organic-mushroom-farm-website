@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type Phase = 'welcome' | 'greeting' | 'weather_initial' | 'suggestion' | 'weather_final';
-
 const DynamicGreeting = () => {
-  const [phase, setPhase] = useState<Phase>('welcome');
+  const [slideIndex, setSlideIndex] = useState(0);
   
-  const [weather, setWeather] = useState<{ temp: number, humidity: number, locationStr: string } | null>(null);
+  const [weather, setWeather] = useState<{
+    temp?: number;
+    humidity?: number;
+    dewPoint?: number;
+    windSpeed?: number;
+    uvIndex?: number;
+    rain?: number;
+    cloudCover?: number;
+    airPressure?: number;
+    locationStr: string;
+  } | null>(null);
+
   const [greeting, setGreeting] = useState({ text: 'Good Day', icon: '☀️' });
 
   // 1. Determine Time Greeting
@@ -18,56 +27,60 @@ const DynamicGreeting = () => {
     else setGreeting({ text: 'Good Night', icon: '🌙' });
   }, []);
 
-  // 2. Fetch Location (Precise GPS if available, otherwise IP fallback)
+  // 2. Fetch Location
   useEffect(() => {
     const fetchLocationAndWeather = async () => {
       try {
-        // First check if precise GPS location was already saved by the user
         const savedPrecise = localStorage.getItem('preciseWeather');
         if (savedPrecise) {
           const preciseData = JSON.parse(savedPrecise);
-          setWeather({
-            temp: preciseData.temp,
-            humidity: preciseData.humidity,
-            locationStr: preciseData.locationStr
-          });
-          return; // Skip IP tracking if precise data exists
+          setWeather(preciseData);
+          return;
         }
 
-        let lat, lon, countryCode;
-
-        // Try primary IP API (ipwho.is)
+        let lat, lon, city, country;
         try {
-          const ipRes = await fetch('https://ipwho.is/');
+          // GeoJS is very reliable and rarely blocked by adblockers
+          const ipRes = await fetch('https://get.geojs.io/v1/ip/geo.json');
           const ipData = await ipRes.json();
-          if (ipData.success) {
-            lat = ipData.latitude;
-            lon = ipData.longitude;
-            countryCode = ipData.country_code;
-          } else {
-            throw new Error("Primary IP API Failed");
-          }
+          lat = ipData.latitude;
+          lon = ipData.longitude;
+          city = ipData.city;
+          country = ipData.country;
         } catch (primaryError) {
-          // Fallback to secondary IP API (ipapi.co) if primary fails
-          const fbRes = await fetch('https://ipapi.co/json/');
-          const fbData = await fbRes.json();
-          lat = fbData.latitude;
-          lon = fbData.longitude;
-          countryCode = fbData.country_code || fbData.country;
+          try {
+            const fbRes = await fetch('https://ipapi.co/json/');
+            const fbData = await fbRes.json();
+            lat = fbData.latitude;
+            lon = fbData.longitude;
+            city = fbData.city;
+            country = fbData.country_name;
+          } catch (secondaryError) {
+            // Ultimate fallback if APIs fail (e.g. strict tracking protection)
+            lat = 28.6139;
+            lon = 77.2090;
+            city = "New Delhi";
+            country = "India";
+          }
         }
 
         if (lat && lon) {
-          const locationParts = [countryCode].filter(Boolean); // ONLY Country in fallback
+          const locationParts = [city, country].filter(Boolean);
           const locationStr = locationParts.length > 0 ? locationParts.join(", ") : "Your Location";
 
-          // Fetch Weather using coordinates
-          const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m`;
+          const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,dew_point_2m,wind_speed_10m,uv_index,precipitation,cloud_cover,surface_pressure`;
           const wRes = await fetch(weatherUrl);
           const wData = await wRes.json();
           
           setWeather({
-            temp: wData.current.temperature_2m,
-            humidity: wData.current.relative_humidity_2m,
+            temp: wData.current?.temperature_2m ?? 0,
+            humidity: wData.current?.relative_humidity_2m ?? 0,
+            dewPoint: wData.current?.dew_point_2m ?? 0,
+            windSpeed: wData.current?.wind_speed_10m ?? 0,
+            uvIndex: wData.current?.uv_index ?? 0,
+            rain: wData.current?.precipitation ?? 0,
+            cloudCover: wData.current?.cloud_cover ?? 0,
+            airPressure: wData.current?.surface_pressure ?? 0,
             locationStr
           });
         }
@@ -78,42 +91,17 @@ const DynamicGreeting = () => {
 
     fetchLocationAndWeather();
 
-    // Listen for custom event when user allows GPS on the Tracker page
     const handlePreciseUpdate = () => {
       const savedPrecise = localStorage.getItem('preciseWeather');
       if (savedPrecise) {
-        const preciseData = JSON.parse(savedPrecise);
-        setWeather({
-          temp: preciseData.temp,
-          humidity: preciseData.humidity,
-          locationStr: preciseData.locationStr
-        });
+        setWeather(JSON.parse(savedPrecise));
+        setSlideIndex(0); // Reset animation so it runs again with precise data
       }
     };
-
+    
     window.addEventListener('preciseWeatherUpdated', handlePreciseUpdate);
     return () => window.removeEventListener('preciseWeatherUpdated', handlePreciseUpdate);
   }, []);
-
-  // 3. Sequence Manager (Timers)
-  useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (phase === 'welcome') {
-      timeout = setTimeout(() => setPhase('greeting'), 4000);
-    } else if (phase === 'greeting') {
-      timeout = setTimeout(() => {
-        setPhase(weather ? 'weather_initial' : 'weather_final');
-      }, 6000);
-    } else if (phase === 'weather_initial') {
-      timeout = setTimeout(() => setPhase('suggestion'), 6000);
-    } else if (phase === 'suggestion') {
-      timeout = setTimeout(() => setPhase('weather_final'), 6000);
-    }
-    // 'weather_final' phase stays permanently (does not trigger another timeout)
-
-    return () => clearTimeout(timeout);
-  }, [phase, weather]);
 
   const getSuggestion = (temp: number) => {
     if (temp < 15) return "Too cold, needs heating ❄️";
@@ -123,56 +111,45 @@ const DynamicGreeting = () => {
     return "Too hot, needs cooling 🌡️";
   };
 
-  const renderSlideContent = () => {
-    if (phase === 'welcome') {
-      return (
-        <span className="flex items-center gap-1.5 whitespace-nowrap">
-          Welcome To Organic Mushroom Farm <span className="animate-pulse inline-block">🍄</span>
-        </span>
-      );
-    }
+  // 3. Loop Manager
+  const slides = weather ? [
+    { id: 'welcome', content: <>Welcome To Organic Mushroom Farm <span className="animate-pulse inline-block">🍄</span></> },
+    { id: 'greeting', content: <>{greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span></> },
+    { id: 'dew', content: <>Dew Point: {weather.dewPoint}°C <span className="animate-pulse inline-block">🌫️</span></> },
+    { id: 'wind', content: <>Wind Speed: {weather.windSpeed} km/h <span className="animate-pulse inline-block">💨</span></> },
+    { id: 'uv', content: <>UV Index: {weather.uvIndex} <span className="animate-pulse inline-block">☀️</span></> },
+    { id: 'rain', content: <>Rain: {weather.rain} mm <span className="animate-pulse inline-block">🌧️</span></> },
+    { id: 'cloud', content: <>Cloud Cover: {weather.cloudCover}% <span className="animate-pulse inline-block">☁️</span></> },
+    { id: 'pressure', content: <>Air Pressure: {weather.airPressure} hPa <span className="animate-pulse inline-block">📉</span></> },
+    { id: 'suggestion', content: <>{weather.temp !== undefined ? getSuggestion(weather.temp) : ''}</> },
+    { id: 'weather', content: <>{weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span></> }
+  ] : [
+    { id: 'welcome', content: <>Welcome To Organic Mushroom Farm <span className="animate-pulse inline-block">🍄</span></> },
+    { id: 'greeting', content: <>{greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span></> }
+  ];
 
-    if (phase === 'greeting' || (!weather && phase !== 'welcome')) {
-      return (
-        <span className="flex items-center gap-1.5 whitespace-nowrap">
-          {greeting.text} <span className="animate-pulse inline-block">{greeting.icon}</span>
-        </span>
-      );
-    }
+  useEffect(() => {
+    if (slideIndex >= slides.length - 1) return; // Stop at the final slide!
+
+    const timeout = setTimeout(() => {
+      setSlideIndex((prev) => prev + 1);
+    }, 4000);
     
-    if (phase === 'weather_initial' || phase === 'weather_final') {
-      if (weather) {
-        return (
-          <span className="flex items-center gap-1.5 whitespace-nowrap">
-            {weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="animate-pulse inline-block">🌡️</span>
-          </span>
-        );
-      }
-    }
-    
-    if (phase === 'suggestion' && weather) {
-      return (
-        <span className="flex items-center gap-1.5 whitespace-nowrap">
-          {getSuggestion(weather.temp)}
-        </span>
-      );
-    }
-    
-    return null;
-  };
+    return () => clearTimeout(timeout);
+  }, [slideIndex, slides.length]);
 
   return (
     <div className="relative text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 mt-0.5 tracking-wide flex items-center h-6 overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.div
-          key={phase}
-          initial={{ y: 20, opacity: 0 }}
+          key={slides[slideIndex]?.id || 'fallback'}
+          initial={{ y: 25, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center"
+          exit={{ y: -25, opacity: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-1.5 whitespace-nowrap"
         >
-          {renderSlideContent()}
+          {slides[slideIndex]?.content}
         </motion.div>
       </AnimatePresence>
     </div>

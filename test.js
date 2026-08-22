@@ -1,0 +1,21 @@
+const languages = [
+  { code: 'en', name: 'English' },
+  { code: 'hi', name: 'Hindi' },
+  { code: 'mr', name: 'Marathi' },
+  { code: 'gu', name: 'Gujarati' },
+  { code: 'bn', name: 'Bengali' },
+  { code: 'ta', name: 'Tamil' },
+  { code: 'te', name: 'Telugu' },
+  { code: 'kn', name: 'Kannada' },
+  { code: 'ml', name: 'Malayalam' },
+  { code: 'pa', name: 'Punjabi' },
+  { code: 'or', name: 'Odia' },
+  { code: 'ur', name: 'Urdu' },
+  { code: 'es', name: 'Spanish' },
+  { code: 'fr', name: 'French' },
+  { code: 'ar', name: 'Arabic' },
+  { code: 'de', name: 'German' },
+  { code: 'ja', name: 'Japanese' },
+  { code: 'zh-CN', name: 'Chinese' },
+];
+console.log(languages.map(l => `{ code: '${l.code}', name: '${l.name}' }`).join(',\n  '));
