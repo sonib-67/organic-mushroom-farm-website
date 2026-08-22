@@ -7,6 +7,7 @@ import {
 import { useNavigate, useLocation } from 'react-router-dom';
 import { pixelTrackCustom } from '../utils/pixel';
 import SEO from '../components/SEO';
+import { Helmet } from "react-helmet-async";
 
 export default function PaymentCancelledPage() {
   const navigate = useNavigate();
@@ -58,6 +59,9 @@ export default function PaymentCancelledPage() {
 
   return (
     <div className="min-h-screen dark:bg-[#070707] bg-slate-50 flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[999999] overflow-hidden">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <SEO 
         title={isWorkshop ? "Complete Your Workshop Registration" : "Payment Cancelled"} 
         description="Your training checkout process has been cancelled or aborted. You can easily retry or contact our support team." 

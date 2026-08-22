@@ -4,6 +4,7 @@ import { CheckCircle, ArrowRight, MessageCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { pixelTrackCustom } from '../utils/pixel';
 import SEO from '../components/SEO';
+import { Helmet } from "react-helmet-async";
 
 export default function PaymentSuccessPage() {
   const location = useLocation();
@@ -149,6 +150,9 @@ Thank you.`;
 
   return (
     <div className="relative pt-24 pb-32 md:pt-32 lg:pb-0 overflow-hidden min-h-screen selection:bg-green-500/30 flex items-center justify-center">
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <SEO 
         title="Payment Success | Professional Mushroom Farming Training" 
         description="Your registration has been completed successfully. We have sent the confirmation to your mobile and email." 
