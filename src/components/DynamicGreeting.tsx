@@ -142,14 +142,14 @@ const DynamicGreeting = () => {
   }, [slideIndex, slides.length]);
 
   return (
-    <div className="relative text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-emerald-300 mt-0.5 tracking-wide flex items-center h-6 overflow-hidden">
-      <AnimatePresence mode="popLayout">
+    <div className="relative text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-medium text-emerald-600 dark:text-emerald-400 mt-0.5 tracking-wide flex items-center h-6 overflow-hidden">
+      <AnimatePresence mode="wait">
         <motion.div
           key={slides[slideIndex]?.id || 'fallback'}
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 15, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          exit={{ y: -15, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="flex items-center gap-1.5 whitespace-nowrap"
         >
           {slides[slideIndex]?.content}
