@@ -99,7 +99,7 @@ export default function EquipmentGrowingRacksPage() {
 
         <div className="bg-emerald-50 dark:bg-emerald-900/20 border-l-4 border-emerald-500 p-6 rounded-r-2xl">
           <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
-            <span className="font-bold text-emerald-600 dark:text-emerald-400">Pro Tip:</span> Don't cut corners on your framing. Investing in premium aluminum shelving ensures a hygienic environment, better airflow, and a layout that practically guarantees a high-yield harvest flush after flush. <Link to="/consulting" className="text-primary-start hover:underline">Consult with our experts</Link> to design your farm layout perfectly.
+            <span className="font-bold text-emerald-600 dark:text-emerald-400">Pro Tip:</span> Don't cut corners on your framing. Investing in premium aluminum shelving ensures a hygienic environment, better airflow, and a layout that practically guarantees a high-yield harvest flush after flush. Consult with our experts to design your farm layout perfectly.
           </p>
         </div>
       </main>

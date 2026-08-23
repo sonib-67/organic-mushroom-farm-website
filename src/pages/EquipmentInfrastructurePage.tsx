@@ -64,7 +64,7 @@ export default function EquipmentInfrastructurePage() {
             </li>
             <li className="flex gap-3">
               <span className="text-primary-start font-bold mt-1">✓</span>
-              <div><strong className="text-slate-900 dark:text-white">Controlled Exhaust & Intake:</strong> Strategically placed fresh air vents for proper CO2 management, especially crucial for <Link to="/spawn" className="text-primary-start hover:underline font-medium">button mushrooms</Link>.</div>
+              <div><strong className="text-slate-900 dark:text-white">Controlled Exhaust & Intake:</strong> Strategically placed fresh air vents for proper CO2 management, especially crucial for button mushrooms.</div>
             </li>
           </ul>
         </section>
@@ -92,7 +92,7 @@ export default function EquipmentInfrastructurePage() {
 
         <div className="bg-emerald-50 dark:bg-emerald-900/20 border-l-4 border-emerald-500 p-6 rounded-r-2xl">
           <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
-            <span className="font-bold text-emerald-600 dark:text-emerald-400">Pro Tip:</span> Invest in farm infrastructure from day one. It pays off by creating the perfect, stable microclimate, ensuring consistent and high-quality flushes year-round. <Link to="/consulting" className="text-primary-start hover:underline">Consult with our experts</Link> to get started.
+            <span className="font-bold text-emerald-600 dark:text-emerald-400">Pro Tip:</span> Invest in farm infrastructure from day one. It pays off by creating the perfect, stable microclimate, ensuring consistent and high-quality flushes year-round. Consult with our experts to get started.
           </p>
         </div>
       </main>
