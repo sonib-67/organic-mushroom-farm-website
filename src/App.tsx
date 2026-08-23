@@ -988,12 +988,6 @@ const NAV_ITEMS = [
       { name: "On Site Visit", href: "/on-site-consultation" },
       { name: "Call Now", href: "tel:9203544140" }
     ]
-  },
-  {
-    name: "Test ₹1",
-    href: "/test-payment",
-    isExternal: false,
-    icon: Zap
   }
 ];
 
@@ -6401,7 +6395,6 @@ const AnimatedRoutes = () => {
         className="w-full h-full"
       >
         <Routes location={location}>
-          <Route path="/test-payment" element={<TestPaymentPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/spawn-seed" element={<ArticleMushroomSpawnSeed />} />
           <Route path="/services/oyster-mushroom" element={<ArticleOysterMushroom />} />
@@ -6712,7 +6705,6 @@ import ArticleBestMushroomFarmingTrainingGuide from "./pages/ArticleBestMushroom
 import ArticleHowToGetMushroomFarmingTraining from "./pages/ArticleHowToGetMushroomFarmingTraining";
 
 import { HelmetProvider } from 'react-helmet-async';
-import TestPaymentPage from "./pages/TestPaymentPage";
 
 export default function App() {
   return (
