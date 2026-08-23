@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
@@ -39,14 +39,10 @@ const equipmentCategories = [
 const EquipmentPageNew = () => {
   return (
     <>
-      <Helmet>
-        <title>Mushroom Farming Equipment & Setup Solutions | Organic Mushrooms Farm</title>
-        <meta
-          name="description"
-          content="Discover top-quality mushroom farming equipment, from climate control and humidification to sterilization and cold storage. We provide complete farm setup solutions, turnkey projects, and advanced tools to boost your mushroom farm's yield and profitability."
-        />
-        <link rel="canonical" href="https://organicmushroomsfarm.com/equipment" />
-      </Helmet>
+      <SEO 
+        title="Mushroom Farming Equipment & Setup Solutions | Organic Mushrooms Farm"
+        description="Discover top-quality mushroom farming equipment, from climate control and humidification to sterilization and cold storage. We provide complete farm setup solutions, turnkey projects, and advanced tools to boost your mushroom farm's yield and profitability."
+      />
 
       <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 dark:bg-slate-900 min-h-screen">
         <div className="max-w-6xl mx-auto px-4 md:px-6">

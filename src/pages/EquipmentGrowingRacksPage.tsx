@@ -1,14 +1,13 @@
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 
 export default function EquipmentGrowingRacksPage() {
   return (
     <div className="font-sans">
-      <Helmet>
-        <title>Mushroom Growing Racks & Shelving | Organic Mushroom Farm</title>
-        <meta name="description" content="Upgrade your commercial mushroom farm with high-quality aluminum racks and shelving to maximize crop yield and optimize space." />
-        <link rel="canonical" href="https://organicmushroomsfarm.com/equipment/growing-racks-and-shelving" />
-      </Helmet>
+      <SEO 
+        title="Mushroom Growing Racks & Shelving | Organic Mushroom Farm"
+        description="Upgrade your commercial mushroom farm with high-quality aluminum racks and shelving to maximize crop yield and optimize space."
+      />
 
       <main className="max-w-4xl mx-auto px-4 py-12 md:py-20 mt-16">
         <div className="mb-8">

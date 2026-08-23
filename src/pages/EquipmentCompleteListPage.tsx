@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
@@ -150,11 +150,10 @@ const equipmentData = [
 export default function EquipmentCompleteListPage() {
   return (
     <div className="font-sans bg-slate-50 dark:bg-slate-900 min-h-screen">
-      <Helmet>
-        <title>Mushroom Farming Equipment Complete List | Organic Mushroom Farm</title>
-        <meta name="description" content="A complete equipment guide covering everything used in mushroom cultivation — from a beginner's home setup to a fully automated commercial mushroom production plant." />
-        <link rel="canonical" href="https://organicmushroomsfarm.com/equipment/complete-list" />
-      </Helmet>
+      <SEO 
+        title="Mushroom Farming Equipment Complete List | Organic Mushroom Farm"
+        description="A complete equipment guide covering everything used in mushroom cultivation — from a beginner's home setup to a fully automated commercial mushroom production plant."
+      />
 
       <main className="max-w-5xl mx-auto px-4 py-8 md:py-20 mt-16 md:mt-16">
         <div className="mb-6 md:mb-8">

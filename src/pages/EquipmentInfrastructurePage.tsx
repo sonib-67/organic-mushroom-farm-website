@@ -1,14 +1,13 @@
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 
 export default function EquipmentInfrastructurePage() {
   return (
     <div className="font-sans">
-      <Helmet>
-        <title>Mushroom Farm Infrastructure & Insulation | Organic Mushroom Farm</title>
-        <meta name="description" content="Discover why proper infrastructure and PUF insulation panels are essential for a commercial organic mushroom farm. Maximize yield and reduce energy costs." />
-        <link rel="canonical" href="https://organicmushroomsfarm.com/equipment/infrastructure-and-insulation" />
-      </Helmet>
+      <SEO 
+        title="Mushroom Farm Infrastructure & Insulation | Organic Mushroom Farm"
+        description="Discover why proper infrastructure and PUF insulation panels are essential for a commercial organic mushroom farm. Maximize yield and reduce energy costs."
+      />
 
       <main className="max-w-4xl mx-auto px-4 py-12 md:py-20 mt-16">
         <div className="mb-8">

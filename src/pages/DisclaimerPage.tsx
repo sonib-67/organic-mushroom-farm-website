@@ -1,20 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { ShieldAlert, BookOpen, Calculator, FileText, CheckCircle2, Factory, Scale, ExternalLink } from 'lucide-react';
 
 const DisclaimerPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Disclaimer & Transparency Policy | Organic Mushrooms Farm</title>
-        <meta
-          name="description"
-          content="Read our Disclaimer & Transparency Policy. We believe in complete honesty and transparency with our community of farmers and agro-entrepreneurs."
-        />
-        <link rel="canonical" href="https://organicmushroomsfarm.com/disclaimer" />
-      </Helmet>
+      <SEO 
+        title="Disclaimer & Transparency Policy | Organic Mushrooms Farm"
+        description="Read our Disclaimer & Transparency Policy. We believe in complete honesty and transparency with our community of farmers and agro-entrepreneurs."
+      />
 
       <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900 min-h-screen">
         <div className="max-w-4xl mx-auto px-6">

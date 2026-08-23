@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/SEO';
 import { MapPin, Droplets, Thermometer, AlertCircle, RefreshCw, Navigation, Wind, Sun, CloudRain, Cloud, Gauge } from 'lucide-react';
 
 const ClimateTrackerPage = () => {
@@ -118,13 +118,10 @@ const ClimateTrackerPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-      <Helmet>
-        <title>Live Mushroom Farm Climate Tracker | GPS Temperature & Humidity</title>
-        <meta
-          name="description"
-          content="Track real-time temperature and humidity for your organic mushroom farm worldwide. Use our smart GPS location tracker to control climate, optimize button mushroom spawn preparation, and maximize your yield!"
-        />
-      </Helmet>
+      <SEO 
+        title="Live Mushroom Farm Climate Tracker | GPS Temperature & Humidity"
+        description="Track real-time temperature and humidity for your organic mushroom farm worldwide. Use our smart GPS location tracker to control climate, optimize button mushroom spawn preparation, and maximize your yield!"
+      />
 
       {!climateData ? (
         <>
