@@ -106,6 +106,21 @@ const razorpay = new Razorpay({
 });
 
 // Create Order API
+app.post('/api/test-order', async (req, res) => {
+  try {
+    const options = {
+      amount: 100, // 100 paise = ₹1
+      currency: "INR",
+      receipt: `receipt_test_${Date.now()}`
+    };
+    const order = await razorpay.orders.create(options);
+    res.json(order);
+  } catch (error: any) {
+    console.error("Razorpay Error:", error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.post('/api/start-session', async (req, res) => {
   try {
     const { name, mobile, email, productType, preferredDate } = req.body;
@@ -119,6 +134,9 @@ app.post('/api/start-session', async (req, res) => {
     } else if (productType === "training_advanced") {
       amount = 69900;
       purpose = "Advanced Commercial Cultivation Training";
+    } else if (productType === "test_1_rupee") {
+      amount = 100;
+      purpose = "Testing 1 Rupee Checkout";
     } else if (productType === "workshop") {
       amount = 19900; // 199 INR
       purpose = "organic mushroom farming Workshop";
