@@ -118,6 +118,7 @@ import ArticleCompostUnit from "./pages/ArticleCompostUnit";
 import ArticleButtonMushroom from "./pages/ArticleButtonMushroom";
 import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
 import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
+import MushroomFarmingUsaGuide from "./pages/MushroomFarmingUsaGuide";
 import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
 import ArticleOysterMushroomCultivationIndia from "./pages/ArticleOysterMushroomCultivationIndia";
 import ArticleButtonVsOysterMushroom from "./pages/ArticleButtonVsOysterMushroom";
@@ -3149,6 +3150,7 @@ const Footer = () => {
                 { name: "Mushroom Types", href: "/mushroom-types" },
                 { name: "Careers", href: "/careers" },
                 { name: "Mushroom Prices", href: "/mushroom-price-today" },
+                { name: "Mushroom Farming Usa Guide", href: "/mushroom-farming-usa-guide" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -6640,6 +6642,7 @@ const AnimatedRoutes = () => {
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
           <Route path="/locations/pune/:slug" element={<PuneBlogPage />} />
+          <Route path="/mushroom-farming-usa-guide" element={<MushroomFarmingUsaGuide />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
