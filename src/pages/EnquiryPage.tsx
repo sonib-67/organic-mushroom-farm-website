@@ -10,6 +10,7 @@ const EnquiryPage = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState(false);
   const recaptchaRef = React.useRef<ReCaptchaWrapperRef>(null);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const EnquiryPage = () => {
     e.preventDefault();
     setSubmitting(true);
     if (!captchaToken) {
-      alert('Please verify that you are human by checking the Captcha box.');
+      setCaptchaError(true);
       setSubmitting(false);
       return;
     }
@@ -83,7 +84,7 @@ const EnquiryPage = () => {
   const varieties = ['Button Mushroom', 'Oyster Mushroom', 'Milky Mushroom', 'Shiitake', "Lion's Mane", 'Cordyceps'];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0A0A0A] pt-14 pb-2">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0A0A0A] pt-24 md:pt-32 pb-4">
       <SEO 
         title="Enquiry Form | Organic Mushroom Farm" 
         description="Submit your enquiry for mushroom training, spawn, farm setup, or purchasing fresh and dry mushrooms."
@@ -319,7 +320,19 @@ const EnquiryPage = () => {
               </div>
 
               <div className="flex justify-center md:justify-start -mt-1 mb-2 scale-90 sm:scale-100 origin-left">
-                <ReCaptchaWrapper ref={recaptchaRef} onChange={setCaptchaToken} />
+                <div className="flex flex-col items-start w-full">
+                  <ReCaptchaWrapper ref={recaptchaRef} onChange={(token) => { setCaptchaToken(token); if (token) setCaptchaError(false); }} />
+                  {captchaError && (
+                    <motion.p 
+                      initial={{ opacity: 0, y: -5 }} 
+                      animate={{ opacity: 1, y: 0 }} 
+                      className="text-red-500 text-sm font-medium mt-1 flex items-center gap-1"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      Please solve the math security check above to submit.
+                    </motion.p>
+                  )}
+                </div>
               </div>
               <button
                 type="submit"
