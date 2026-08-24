@@ -36,10 +36,16 @@ const ContactPage = () => {
     }, []);
 
     const [submitted, setSubmitted] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCaptchaWrapperRef>(null);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const form = e.target as HTMLFormElement;
+        if (!captchaToken) {
+      alert('Please verify that you are human by checking the Captcha box.');
+      return;
+    }
+    const form = e.target as HTMLFormElement;
         
         const formData = new FormData(form);
         if (!formData.has('_subject')) {
@@ -49,7 +55,7 @@ const ContactPage = () => {
         try {
             const resp = await fetch('/api/contact', {
                 method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
+                body: JSON.stringify({ ...Object.fromEntries(formData), captchaToken }),
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -58,6 +64,8 @@ const ContactPage = () => {
             if (!resp.ok) throw new Error('Response not OK');
             
             setSubmitted(true);
+            recaptchaRef.current?.reset();
+            setCaptchaToken(null);
             form.reset();
         } catch (error) {
             console.error(error);
@@ -344,6 +352,9 @@ const ContactPage = () => {
                                 </div>
 
                                 <div className="pt-2">
+                                    <div className="flex justify-center md:justify-start -mt-1 mb-2 scale-90 sm:scale-100 origin-left">
+                                        <ReCaptchaWrapper ref={recaptchaRef} onChange={setCaptchaToken} />
+                                    </div>
                                     <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
                                         <span>Submit Enquiry</span> <Send size={18} />
                                     </button>

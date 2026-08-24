@@ -1,3 +1,4 @@
+import { verifyRecaptcha } from '../src/utils/verifyRecaptcha';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import * as nodemailer from 'nodemailer';
 
@@ -133,7 +134,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, setupType, productForm, otherSubject } = req.body;
+    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, setupType, productForm, otherSubject, captchaToken } = req.body;
+
+    const isHuman = await verifyRecaptcha(captchaToken);
+    if (!isHuman) {
+      console.log('Spam blocked! Captcha failed.');
+      return res.status(400).json({ error: 'Captcha verification failed. Spam detected!' });
+    }
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Name, email, and message are required." });
