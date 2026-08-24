@@ -38,8 +38,6 @@ const ContactFormPage = () => {
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
-        recaptchaRef.current?.reset();
-        setCaptchaToken(null);
             form.reset();
         } catch (error) {
             console.error(error);
