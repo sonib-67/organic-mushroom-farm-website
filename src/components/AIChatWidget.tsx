@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Send, Sparkles, Loader2 } from "lucide-react";
+import { X, Send, Sparkles, Loader2, Maximize2, Minimize2 } from "lucide-react";
 
 type Message = {
   id: string;
@@ -121,6 +121,7 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
 
 export const AIChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [isGreeting, setIsGreeting] = useState(false);
   const [greetingText, setGreetingText] = useState("Hello! 👋");
   
@@ -131,6 +132,23 @@ export const AIChatWidget = () => {
       text: "Hi there! I'm the Organic Mushroom Farm Assistant. How can I help you today?",
     }
   ]);
+
+  useEffect(() => {
+    // Load history only on the client-side
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("ai-chat-history");
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.length > 0) {
+            setMessages(parsed);
+          }
+        } catch (e) {
+          console.error("Failed to parse chat history", e);
+        }
+      }
+    }
+  }, []);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -138,6 +156,10 @@ export const AIChatWidget = () => {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    localStorage.setItem("ai-chat-history", JSON.stringify(messages));
+  }, [messages]);
 
   useEffect(() => {
     scrollToBottom();
@@ -174,12 +196,12 @@ export const AIChatWidget = () => {
       return;
     }
     
-    // Play greeting animation first
+    // Quick greeting popup
     setIsGreeting(true);
     setTimeout(() => {
       setIsGreeting(false);
       setIsOpen(true);
-    }, 2000);
+    }, 200);
   };
 
   const handleSendMessage = async (e?: React.FormEvent) => {
@@ -240,11 +262,16 @@ export const AIChatWidget = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95, originY: 1, originX: 0 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-[85px] md:bottom-[90px] left-3 md:left-[30px] z-[100000] w-[300px] sm:w-[350px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
-            style={{ maxHeight: "calc(100vh - 140px)", height: "450px" }}
+            exit={{ opacity: 0, y: 20, scale: 0.8 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className={`fixed z-[100000] bg-white dark:bg-slate-900 flex flex-col overflow-hidden shadow-2xl ${
+              isFullScreen
+                ? "inset-0 w-full h-full rounded-none"
+                : "bottom-[85px] md:bottom-[90px] left-3 md:left-[30px] w-[300px] sm:w-[350px] border border-slate-200 dark:border-white/10 rounded-2xl"
+            }`}
+            style={isFullScreen ? {} : { maxHeight: "calc(100vh - 140px)", height: "450px" }}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-emerald-500 to-blue-500 p-4 text-white flex items-center justify-between shadow-md z-10 shrink-0">
@@ -254,12 +281,24 @@ export const AIChatWidget = () => {
                 </div>
                 <span className="font-bold">Farm Assistant</span>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="p-1 hover:bg-white/20 rounded-full transition-colors"
-              >
-                <X size={18} />
-              </button>
+              <div className="flex items-center gap-1">
+                <button 
+                  onClick={() => setIsFullScreen(!isFullScreen)}
+                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                  aria-label={isFullScreen ? "Minimize" : "Maximize"}
+                >
+                  {isFullScreen ? <Minimize2 size={18} /> : <Maximize2 size={18} />}
+                </button>
+                <button 
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsFullScreen(false);
+                  }}
+                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                >
+                  <X size={18} />
+                </button>
+              </div>
             </div>
 
             {/* Chat Area */}
