@@ -201,7 +201,7 @@ export const AIChatWidget = () => {
     setTimeout(() => {
       setIsGreeting(false);
       setIsOpen(true);
-    }, 200);
+    }, 500);
   };
 
   const handleSendMessage = async (e?: React.FormEvent) => {
@@ -262,16 +262,19 @@ export const AIChatWidget = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95, originY: 1, originX: 0 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.8 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className={`fixed z-[100000] bg-white dark:bg-slate-900 flex flex-col overflow-hidden shadow-2xl ${
               isFullScreen
                 ? "inset-0 w-full h-full rounded-none"
                 : "bottom-[85px] md:bottom-[90px] left-3 md:left-[30px] w-[300px] sm:w-[350px] border border-slate-200 dark:border-white/10 rounded-2xl"
             }`}
-            style={isFullScreen ? {} : { maxHeight: "calc(100vh - 140px)", height: "450px" }}
+            style={{ 
+              transformOrigin: "bottom left",
+              ...(isFullScreen ? {} : { maxHeight: "calc(100vh - 140px)", height: "450px" })
+            }}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-emerald-500 to-blue-500 p-4 text-white flex items-center justify-between shadow-md z-10 shrink-0">
