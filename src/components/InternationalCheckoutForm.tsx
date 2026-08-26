@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Country } from 'react-phone-number-input';
-import { PayPalButtons } from "@paypal/react-paypal-js";
+
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { CheckCircle2, ArrowRight, Loader2, X } from 'lucide-react';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+
+
 
 interface CheckoutProps {
   planName: string;
@@ -21,18 +21,8 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [userCountry, setUserCountry] = useState<Country>('US');
 
-  useEffect(() => {
-    fetch('https://ipapi.co/json/')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.country_code) {
-          setUserCountry(data.country_code);
-        }
-      })
-      .catch(err => console.error('Failed to fetch IP', err));
-  }, []);
+
 
   const handleProceed = (e: React.FormEvent) => {
     e.preventDefault();
@@ -109,15 +99,14 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
 
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 uppercase tracking-wide">Phone Number</label>
-                <div className="phone-input-wrapper w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus-within:ring-2 focus-within:ring-blue-500 text-slate-900 dark:text-white">
-                  <PhoneInput
-                    international
-                    defaultCountry={userCountry}
-                    value={formData.phone}
-                    onChange={(val) => setFormData({...formData, phone: val || ''})}
-                    className="w-full outline-none bg-transparent"
-                  />
-                </div>
+                <input 
+                  type="tel"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  className="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
+                  placeholder="+1 234 567 8900"
+                />
               </div>
 
               {error && <p className="text-red-500 text-xs font-semibold">{error}</p>}
@@ -146,6 +135,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                   </div>
                 )}
                 
+                <PayPalScriptProvider options={{ "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID || 'BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg', currency: "USD" }}>
                 <PayPalButtons
                   style={{ layout: "vertical", shape: "pill", label: "pay", color: "gold" }}
                   createOrder={async () => {
@@ -207,6 +197,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                     handleFailure("Payment failed. Please try again or use another card.");
                   }}
                 />
+                </PayPalScriptProvider>
                </div>
                
                <button 
