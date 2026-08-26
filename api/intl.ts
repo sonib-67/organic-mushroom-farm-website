@@ -1,5 +1,4 @@
-
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 import nodemailer from "nodemailer";
 import PDFDocument from "pdfkit";
@@ -25,11 +24,15 @@ const generateInvoice = (data: any): Promise<Buffer> => {
 
       // Invoice Design
       doc.fontSize(24).text("Organic Mushroom Farm", { align: "center" });
-      doc.fontSize(10).text("Katangi Road, Jabalpur, MP, India", { align: "center" });
+      doc
+        .fontSize(10)
+        .text("Katangi Road, Jabalpur, MP, India", { align: "center" });
       doc.text("Email: organicmushroomsfarms@gmail.com", { align: "center" });
-      
+
       doc.moveDown(2);
-      doc.fontSize(20).text("OFFICIAL INVOICE", { align: "center", underline: true });
+      doc
+        .fontSize(20)
+        .text("OFFICIAL INVOICE", { align: "center", underline: true });
       doc.moveDown(1.5);
 
       doc.fontSize(12).text(`Date: ${new Date().toLocaleDateString()}`);
@@ -46,10 +49,16 @@ const generateInvoice = (data: any): Promise<Buffer> => {
       doc.fontSize(12).text(`Description: ${data.planName}`);
       doc.text(`Amount Paid: $${data.amount} USD`);
       doc.text(`Status: PAID`);
-      
+
       doc.moveDown(3);
-      doc.fontSize(10).text("Thank you for choosing Organic Mushroom Farm Training!", { align: "center" });
-      doc.text("This is an electronically generated invoice.", { align: "center" });
+      doc
+        .fontSize(10)
+        .text("Thank you for choosing Organic Mushroom Farm Training!", {
+          align: "center",
+        });
+      doc.text("This is an electronically generated invoice.", {
+        align: "center",
+      });
 
       doc.end();
     } catch (err) {
@@ -59,25 +68,52 @@ const generateInvoice = (data: any): Promise<Buffer> => {
 };
 
 const getPayPalAccessToken = async () => {
-  const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID || "BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg";
-  const PAYPAL_CLIENT_SECRET = process.env.PAYPAL_CLIENT_SECRET || "ED-9zp54Zlm8uSN7ylvtiM7V1Cr8us3eq4fsJHV_8cjuTo-uD4NT2md7CN3eS0nBXbivmep5IgIW5-mW";
-  const PAYPAL_API_BASE = process.env.PAYPAL_API_BASE || "https://api-m.paypal.com";
-  
-  const auth = Buffer.from(`${PAYPAL_CLIENT_ID}:${PAYPAL_CLIENT_SECRET}`).toString("base64");
+  const PAYPAL_CLIENT_ID =
+    process.env.PAYPAL_CLIENT_ID ||
+    "BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg";
+  const PAYPAL_CLIENT_SECRET =
+    process.env.PAYPAL_CLIENT_SECRET ||
+    "ED-9zp54Zlm8uSN7ylvtiM7V1Cr8us3eq4fsJHV_8cjuTo-uD4NT2md7CN3eS0nBXbivmep5IgIW5-mW";
+  let PAYPAL_API_BASE =
+    process.env.PAYPAL_API_BASE || "https://api-m.paypal.com";
+  if (PAYPAL_API_BASE.endsWith("/"))
+    PAYPAL_API_BASE = PAYPAL_API_BASE.slice(0, -1);
+
+  const auth = Buffer.from(
+    `${PAYPAL_CLIENT_ID}:${PAYPAL_CLIENT_SECRET}`,
+  ).toString("base64");
   const response = await fetch(`${PAYPAL_API_BASE}/v1/oauth2/token`, {
     method: "POST",
     body: "grant_type=client_credentials",
-    headers: { Authorization: `Basic ${auth}` },
+    headers: { Authorization: `Basic ${auth}`, Accept: "application/json" },
   });
-  const data = await response.json();
+  const text = await response.text();
+  let data;
+  try {
+    data = JSON.parse(text);
+  } catch (e) {
+    console.error(
+      "PayPal API returned non-JSON. Status:",
+      response.status,
+      "Response text:",
+      text,
+    );
+    throw new Error("Invalid response from PayPal API");
+  }
+  
+  if (!data.access_token) {
+    console.error("PayPal Auth Failed. No access_token. Data:", data);
+    throw new Error("Failed to get PayPal access token. Check your CLIENT_ID and CLIENT_SECRET.");
+  }
   return { accessToken: data.access_token, apiBase: PAYPAL_API_BASE };
+
 };
 
 // 1. Create Order & Send "Initiated" Mail
 const createIntlOrder = async (req: any, res: any) => {
   try {
     const { amount, name, email, phone, planName } = req.body;
-    
+
     if (!amount || !name || !email) {
       return res.status(400).json({ error: "Missing required fields" });
     }
@@ -88,22 +124,38 @@ const createIntlOrder = async (req: any, res: any) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({
         intent: "CAPTURE",
-        purchase_units: [{ amount: { currency_code: "USD", value: amount.toString() } }],
+        purchase_units: [
+          { amount: { currency_code: "USD", value: amount.toString() } },
+        ],
       }),
     });
 
-    const data = await response.json();
+    const text = await response.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      console.error(
+        "PayPal API returned non-JSON. Status:",
+        response.status,
+        "Response text:",
+        text,
+      );
+      throw new Error("Invalid response from PayPal API");
+    }
 
     // Send "Initiated" Email to Admin
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-      to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-      subject: `Payment INITIATED: ${name} (${planName})`,
-      html: `
+    await transporter
+      .sendMail({
+        from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
+        to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
+        subject: `Payment INITIATED: ${name} (${planName})`,
+        html: `
         <h3>New International Payment Initiated (PayPal)</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -111,8 +163,9 @@ const createIntlOrder = async (req: any, res: any) => {
         <p><strong>Plan:</strong> ${planName}</p>
         <p><strong>Amount:</strong> $${amount} USD</p>
         <p><em>Status: Waiting for user to complete PayPal checkout...</em></p>
-      `
-    }).catch(console.error);
+      `,
+      })
+      .catch(console.error);
 
     res.json(data);
   } catch (error) {
@@ -130,26 +183,50 @@ const captureIntlOrder = async (req: any, res: any) => {
 
     const { accessToken, apiBase } = await getPayPalAccessToken();
 
-    const response = await fetch(`${apiBase}/v2/checkout/orders/${orderID}/capture`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `${apiBase}/v2/checkout/orders/${orderID}/capture`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        "Accept": "application/json",
         Authorization: `Bearer ${accessToken}`,
+        },
       },
-    });
+    );
 
-    const data = await response.json();
+    const text = await response.text();
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch (e) {
+      console.error(
+        "PayPal API returned non-JSON. Status:",
+        response.status,
+        "Response text:",
+        text,
+      );
+      throw new Error("Invalid response from PayPal API");
+    }
 
     if (data.status === "COMPLETED") {
       // Generate PDF
-      const pdfBuffer = await generateInvoice({ orderID, amount, name, email, phone, planName });
+      const pdfBuffer = await generateInvoice({
+        orderID,
+        amount,
+        name,
+        email,
+        phone,
+        planName,
+      });
 
       // Send "Done" Email to Admin
-      await transporter.sendMail({
-        from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-        to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-        subject: `Payment SUCCESS: ${name} ($${amount})`,
-        html: `
+      await transporter
+        .sendMail({
+          from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
+          to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
+          subject: `Payment SUCCESS: ${name} ($${amount})`,
+          html: `
           <h3 style="color: green;">International Payment Successful!</h3>
           <p><strong>Transaction ID:</strong> ${orderID}</p>
           <p><strong>Name:</strong> ${name}</p>
@@ -158,15 +235,17 @@ const captureIntlOrder = async (req: any, res: any) => {
           <p><strong>Plan:</strong> ${planName}</p>
           <p><strong>Amount:</strong> $${amount} USD</p>
           <p>The PDF invoice has been generated and sent to the user.</p>
-        `
-      }).catch(console.error);
+        `,
+        })
+        .catch(console.error);
 
       // Send "Done" Email to User with PDF
-      await transporter.sendMail({
-        from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
-        to: email,
-        subject: `Payment Successful - Welcome to Organic Mushroom Farm Training!`,
-        html: `
+      await transporter
+        .sendMail({
+          from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
+          to: email,
+          subject: `Payment Successful - Welcome to Organic Mushroom Farm Training!`,
+          html: `
           <h3>Welcome, ${name}!</h3>
           <p>Your payment of $${amount} for <strong>${planName}</strong> was successful.</p>
           <p>Your transaction ID is: <strong>${orderID}</strong></p>
@@ -176,14 +255,15 @@ const captureIntlOrder = async (req: any, res: any) => {
           <p>Best Regards,</p>
           <p>Organic Mushroom Farm Team</p>
         `,
-        attachments: [
-          {
-            filename: `Invoice_${orderID}.pdf`,
-            content: pdfBuffer,
-            contentType: 'application/pdf'
-          }
-        ]
-      }).catch(console.error);
+          attachments: [
+            {
+              filename: `Invoice_${orderID}.pdf`,
+              content: pdfBuffer,
+              contentType: "application/pdf",
+            },
+          ],
+        })
+        .catch(console.error);
     }
 
     res.json(data);
@@ -197,35 +277,39 @@ const captureIntlOrder = async (req: any, res: any) => {
 const failIntlOrder = async (req: any, res: any) => {
   try {
     const { name, email, phone, planName, errorMsg } = req.body;
-    
+
     // Notify Admin
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-      to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
-      subject: `Payment FAILED/CANCELLED: ${name}`,
-      html: `
+    await transporter
+      .sendMail({
+        from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
+        to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
+        subject: `Payment FAILED/CANCELLED: ${name}`,
+        html: `
         <h3 style="color: red;">International Payment Failed</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Plan:</strong> ${planName}</p>
         <p><strong>Reason/Error:</strong> ${errorMsg || "User cancelled or card declined"}</p>
-      `
-    }).catch(console.error);
+      `,
+      })
+      .catch(console.error);
 
     // Notify User
     if (email) {
-      await transporter.sendMail({
-        from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
-        to: email,
-        subject: `Payment Attempt Failed - Organic Mushroom Farm`,
-        html: `
+      await transporter
+        .sendMail({
+          from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
+          to: email,
+          subject: `Payment Attempt Failed - Organic Mushroom Farm`,
+          html: `
           <p>Hi ${name},</p>
           <p>We noticed your recent payment attempt for <strong>${planName}</strong> was not completed or failed.</p>
           <p>If you faced any technical issues, please let us know or try again.</p>
           <p>Best Regards,<br/>Organic Mushroom Farm Team</p>
-        `
-      }).catch(console.error);
+        `,
+        })
+        .catch(console.error);
     }
 
     res.json({ success: true });
@@ -235,13 +319,14 @@ const failIntlOrder = async (req: any, res: any) => {
   }
 };
 
-
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const action = req.query.action;
-  if (req.method === 'POST') {
-    if (action === 'create') return createIntlOrder(req, res);
-    if (action === 'capture') return captureIntlOrder(req, res);
-    if (action === 'fail') return failIntlOrder(req, res);
+  if (req.method === "POST") {
+    if (action === "create") return createIntlOrder(req, res);
+    if (action === "capture") return captureIntlOrder(req, res);
+    if (action === "fail") return failIntlOrder(req, res);
   }
-  return res.status(405).json({ error: 'Method Not Allowed or Invalid Action' });
+  return res
+    .status(405)
+    .json({ error: "Method Not Allowed or Invalid Action" });
 }
