@@ -96,7 +96,7 @@ export const createIntlOrder = async (req: any, res: any) => {
     const data = await response.json();
 
     // Send "Initiated" Email to Admin
-    transporter.sendMail({
+    await transporter.sendMail({
       from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
       to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
       subject: `Payment INITIATED: ${name} (${planName})`,
@@ -142,7 +142,7 @@ export const captureIntlOrder = async (req: any, res: any) => {
       const pdfBuffer = await generateInvoice({ orderID, amount, name, email, phone, planName });
 
       // Send "Done" Email to Admin
-      transporter.sendMail({
+      await transporter.sendMail({
         from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
         to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
         subject: `Payment SUCCESS: ${name} ($${amount})`,
@@ -159,7 +159,7 @@ export const captureIntlOrder = async (req: any, res: any) => {
       }).catch(console.error);
 
       // Send "Done" Email to User with PDF
-      transporter.sendMail({
+      await transporter.sendMail({
         from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
         to: email,
         subject: `Payment Successful - Welcome to Organic Mushroom Farm Training!`,
@@ -196,7 +196,7 @@ export const failIntlOrder = async (req: any, res: any) => {
     const { name, email, phone, planName, errorMsg } = req.body;
     
     // Notify Admin
-    transporter.sendMail({
+    await transporter.sendMail({
       from: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
       to: process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com",
       subject: `Payment FAILED/CANCELLED: ${name}`,
@@ -212,7 +212,7 @@ export const failIntlOrder = async (req: any, res: any) => {
 
     // Notify User
     if (email) {
-      transporter.sendMail({
+      await transporter.sendMail({
         from: `"Organic Mushroom Farm" <${process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"}>`,
         to: email,
         subject: `Payment Attempt Failed - Organic Mushroom Farm`,

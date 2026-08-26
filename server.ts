@@ -443,9 +443,9 @@ app.post("/api/paypal/create-order", express.json(), createPayPalOrder);
 app.post("/api/paypal/capture-order", express.json(), capturePayPalOrder);
 app.post("/api/paypal/webhook", express.json(), handlePayPalWebhook);
 
-app.post("/api/intl/create-order", express.json(), createIntlOrder);
-app.post("/api/intl/capture-order", express.json(), captureIntlOrder);
-app.post("/api/intl/fail-order", express.json(), failIntlOrder);
+app.post("/api/intl-create-order", express.json(), createIntlOrder);
+app.post("/api/intl-capture-order", express.json(), captureIntlOrder);
+app.post("/api/intl-fail-order", express.json(), failIntlOrder);
 
 
 

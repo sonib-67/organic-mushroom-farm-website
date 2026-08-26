@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Country } from 'react-phone-number-input';
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { CheckCircle2, ArrowRight, Loader2, X } from 'lucide-react';
 import PhoneInput from 'react-phone-number-input';
@@ -20,6 +21,18 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [userCountry, setUserCountry] = useState<Country>('US');
+
+  useEffect(() => {
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.country_code) {
+          setUserCountry(data.country_code);
+        }
+      })
+      .catch(err => console.error('Failed to fetch IP', err));
+  }, []);
 
   const handleProceed = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +46,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
 
   const handleFailure = async (errorMsg: string) => {
     try {
-      await fetch('/api/intl/fail-order', {
+      await fetch('/api/intl-fail-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -99,7 +112,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                 <div className="phone-input-wrapper w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus-within:ring-2 focus-within:ring-blue-500 text-slate-900 dark:text-white">
                   <PhoneInput
                     international
-                    defaultCountry="US"
+                    defaultCountry={userCountry}
                     value={formData.phone}
                     onChange={(val) => setFormData({...formData, phone: val || ''})}
                     className="w-full outline-none bg-transparent"
@@ -138,7 +151,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                   createOrder={async () => {
                     setIsLoading(true);
                     try {
-                      const response = await fetch("/api/intl/create-order", {
+                      const response = await fetch("/api/intl-create-order", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ 
@@ -161,7 +174,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                   onApprove={async (data, actions) => {
                     setIsLoading(true);
                     try {
-                      const response = await fetch("/api/intl/capture-order", {
+                      const response = await fetch("/api/intl-capture-order", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ 
