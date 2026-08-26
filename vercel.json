@@ -1,57 +1,13 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "framework": "vite",
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/payment-cancelled",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
-      "source": "/payment-success",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
     },
     {
       "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "index, follow"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.xsl",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
+      "destination": "/index.html"
     }
   ]
 }
