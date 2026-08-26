@@ -3581,9 +3581,6 @@ const StickyRazorpayButton = ({
                     <ArrowLeft size={14} /> Back
                   </button>
                   <div className="text-center mb-8 pr-6 pl-6 pt-6 md:pt-0">
-                    <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/10 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3">
-                      <Globe size={12} /> USA Specialized Program
-                    </div>
                     <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight">
                       Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Training Program</span>
                     </h3>
@@ -4191,11 +4188,8 @@ const MushroomTraining = () => {
                   Beginner Friendly
                 </div>
                 <h4 className="text-base md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
-                  Basic Online Training
+                  Basic Online Training (₹299)
                 </h4>
-                <p className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 mb-3 text-left font-medium min-h-[30px] md:min-h-[36px]">
-                  Perfect for beginners, students, and hobbyists looking to start growing mushrooms at a home scale.
-                </p>
                 
                 {/* Pricing Display */}
                 <div className="flex items-baseline gap-1.5 mb-3 border-b border-dashed border-slate-200 dark:border-white/10 pb-3 text-left">
@@ -4208,12 +4202,11 @@ const MushroomTraining = () => {
                   <h5 className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">What You Will Learn:</h5>
                   <ul className="space-y-1.5 text-[10px] md:text-xs">
                     {[
-                      "**Introduction to Fungi**: The basics of how mushrooms grow and thrive.",
-                      "**Variety Focus**: Step-by-step cultivation guide for **Oyster** and **Button** mushrooms.",
-                      "**Home Setup**: How to create the right environment in a small room or backyard.",
-                      "**Substrate Preparation**: Boiling, chemical sterilization, and preparing the perfect base for your seeds (spawn).",
-                      "**Spawning & Bagging**: The correct techniques to mix spawn and pack bags to avoid contamination.",
-                      "**Basic Climate Control**: Simple ways to maintain moisture and temperature for healthy fruiting."
+                      "**Basics**: Mushroom growth fundamentals.",
+                      "**Varieties**: Grow Oyster & Button.",
+                      "**Home Setup**: Small room/backyard setup.",
+                      "**Spawning**: Substrate prep & safe bagging.",
+                      "**Climate**: Basic temp & moisture control."
                     ].map((item, i) => {
                       const parts = item.split("**");
                       return (
@@ -4258,11 +4251,8 @@ const MushroomTraining = () => {
                 </div>
                 
                 <h4 className="text-base md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
-                  Advanced Commercial Training
+                  Commercial Training (₹699)
                 </h4>
-                <p className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 mb-3 text-left font-medium min-h-[30px] md:min-h-[36px]">
-                  Designed for future entrepreneurs, commercial farmers, and serious business owners wanting to scale.
-                </p>
                 
                 {/* Pricing Display */}
                 <div className="flex items-baseline gap-1.5 mb-3 border-b border-dashed border-purple-500/20 pb-3 text-left">
@@ -4275,14 +4265,13 @@ const MushroomTraining = () => {
                   <h5 className="text-[9px] md:text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-2">What You Will Learn:</h5>
                   <ul className="space-y-1.5 text-[10px] md:text-xs">
                     {[
-                      "**Everything in the Basic Plan**, fully covered.",
-                      "**Advanced Variety Focus**: Master **Oyster**, **Button**, AND the high-temperature **Milky Mushroom** (perfect for Indian summers).",
-                      "**Commercial Farm Setup**: Designing layout, constructing low-cost sheds, and setting up heavy-duty racks.",
-                      "**Advanced Climate Infrastructure**: Installing & managing foggers, humidifiers, exhaust, and AC units for year-round production.",
-                      "**Disease & Pest Management**: How to identify, prevent, and treat common green mold, flies, and bacterial blotch.",
-                      "**Harvesting & Packaging**: Best practices to extend shelf life and package your mushrooms professionally.",
-                      "**Marketing & Sales Strategies**: Sell in local wholesale markets, tie up with hotels/restaurants, run social media ads, and handle export inquiries.",
-                      "**Bonus Benefits**: Verified Certificate of Completion and ongoing private community support access."
+                      "**All Basic Features**: Plus Milky Mushroom.",
+                      "**Farm Setup**: Low-cost sheds & racks.",
+                      "**Advanced Climate**: ACs, foggers & humidifiers.",
+                      "**Protection**: Pest & disease management.",
+                      "**Packaging**: Pro harvesting & shelf-life.",
+                      "**Business**: B2B sales, ads & export.",
+                      "**Bonus**: Certificate & Community access."
                     ].map((item, i) => {
                       const parts = item.split("**");
                       return (

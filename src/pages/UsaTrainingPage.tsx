@@ -20,9 +20,6 @@ const UsaTrainingPage = () => {
         
         {/* Header Section */}
         <div className="text-center mb-10">
-          <div className="inline-block px-3 py-1 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-xs font-bold uppercase tracking-wider">
-            USA Specialized Program
-          </div>
           <h1 className="text-xl md:text-3xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">
             Mushroom Cultivation <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Training</span>
           </h1>
@@ -38,7 +35,7 @@ const UsaTrainingPage = () => {
           </div>
 
           <p className="max-w-2xl mx-auto text-xs md:text-sm dark:text-slate-400 text-slate-600">
-            Growing mushrooms is one of the most profitable agricultural businesses in the US today. Whether you live in a dry state like California or a colder region like New York, our training program teaches you how to master indoor climate control to grow fresh, high-demand mushrooms year-round.
+            Mushroom farming is a highly profitable business worldwide. From dry heat to freezing winters, our training teaches you to master indoor climate control and grow high-demand mushrooms year-round, anywhere.
           </p>
         </div>
 
@@ -119,12 +116,12 @@ const UsaTrainingPage = () => {
         {/* Content Section */}
         <div className="grid md:grid-cols-2 gap-8 mb-14">
           <div className="glass p-5 md:p-6 rounded-3xl border dark:border-white/5 border-black/5">
-            <h3 className="text-base md:text-lg font-bold dark:text-white text-slate-900 mb-2 leading-tight">Build a Highly Profitable Organic Mushroom Farm in the USA</h3>
+            <h3 className="text-base md:text-lg font-bold dark:text-white text-slate-900 mb-2 leading-tight">Build a Highly Profitable Organic Mushroom Farm: A Global Blueprint</h3>
             <p className="text-[11px] md:text-sm dark:text-slate-400 text-slate-600 mb-3 leading-relaxed">
-              The demand for fresh, locally grown organic mushrooms is skyrocketing across the United States. From local farmer's markets to high-end restaurants, buyers are constantly looking for premium quality Oyster, Button, and specialty mushrooms.
+              The demand for fresh, locally grown organic mushrooms is skyrocketing worldwide. From bustling local farmer's markets to high-end restaurants and organic grocery chains, buyers are constantly looking for premium-quality Oyster, Button, and specialty mushrooms.
             </p>
             <p className="text-[11px] md:text-sm dark:text-slate-400 text-slate-600 leading-relaxed">
-              Our comprehensive online training program is specifically designed to help you tap into this lucrative market. Whether you want to start a small homestead project in your basement or launch a full-scale commercial indoor farm, we provide the exact blueprints, climate control strategies, and business models you need to succeed in the North American market.
+              Our comprehensive online mushroom cultivation training program is specifically designed to help you tap into this lucrative agricultural market, no matter where you live. Whether you want to start a small homestead project in your basement or launch a full-scale commercial indoor mushroom farm, we provide the exact blueprints, climate control strategies, and scalable business models you need to succeed globally.
             </p>
           </div>
           
@@ -137,7 +134,7 @@ const UsaTrainingPage = () => {
               </div>
               <div>
                 <h4 className="text-xs md:text-sm font-bold dark:text-white text-slate-900 mb-0.5">Year-Round Harvest</h4>
-                <p className="text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed">With the right indoor setup, you are completely independent of outside weather, allowing for continuous, predictable income.</p>
+                <p className="text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed">With the right indoor setup, you become completely independent of outside weather conditions. This allows for continuous, predictable income, whether you face freezing winters or scorching summers.</p>
               </div>
             </div>
 
@@ -147,7 +144,7 @@ const UsaTrainingPage = () => {
               </div>
               <div>
                 <h4 className="text-xs md:text-sm font-bold dark:text-white text-slate-900 mb-0.5">High Yield, Small Space</h4>
-                <p className="text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed">You don't need acres of land. You can grow hundreds of pounds of mushrooms in a standard spare room, garage, or custom grow tent.</p>
+                <p className="text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed">You don't need acres of expensive agricultural land. Our training teaches you how to grow hundreds of pounds of mushrooms in a standard spare room, garage, or custom grow tent using vertical farming techniques.</p>
               </div>
             </div>
 
@@ -156,8 +153,8 @@ const UsaTrainingPage = () => {
                 <DollarSign size={16} />
               </div>
               <div>
-                <h4 className="text-xs md:text-sm font-bold dark:text-white text-slate-900 mb-0.5">Fast ROI</h4>
-                <p className="text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed">Unlike traditional farming, mushrooms have a rapid growth cycle, meaning you can start seeing returns on your investment in a matter of weeks.</p>
+                <h4 className="text-xs md:text-sm font-bold dark:text-white text-slate-900 mb-0.5">Fast Return on Investment (ROI)</h4>
+                <p className="text-[11px] md:text-xs dark:text-slate-400 text-slate-600 leading-relaxed">Unlike traditional farming, mushrooms have a rapid growth cycle. With our step-by-step mushroom farming business plan, you can start seeing returns on your investment in just a matter of weeks.</p>
               </div>
             </div>
           </div>
@@ -171,48 +168,48 @@ const UsaTrainingPage = () => {
           <div className="space-y-2 md:space-y-3">
             {[
               {
-                q: "Do I need a large farm to take this online mushroom course?",
-                a: "No! Our Basic Cultivation module teaches you how to start in small spaces like a spare room, garage, or basement using controlled indoor environments."
+                q: "Do I need a large farm to take this online mushroom cultivation course?",
+                a: "No! Our Basic Cultivation module teaches you how to start a profitable mushroom business in small spaces like a spare room, garage, or basement using strictly controlled indoor environments."
               },
               {
-                q: "Are the climate control methods suitable for US weather?",
-                a: "Absolutely. The Advanced Commercial Training covers automated HVAC, humidifiers, and fogger systems that help you maintain perfect fruiting temperatures, regardless of outside weather conditions."
+                q: "Are the climate control methods suitable for my local weather?",
+                a: "Absolutely. The Advanced Commercial Training covers automated HVAC, humidifiers, and fogger systems that help you maintain the perfect fruiting temperatures indoors, regardless of how hot, cold, dry, or humid your outside weather conditions are."
               },
               {
                 q: "How can I sell my mushrooms locally?",
-                a: "The advanced program includes a dedicated module on US marketing strategies. You will learn how to approach local farmer's markets, organic grocery stores, and local restaurants for wholesale tie-ups."
+                a: "The advanced program includes a dedicated module on B2B sales and marketing strategies. You will learn exactly how to approach local farmer's markets, organic grocery stores, and local restaurants for highly profitable wholesale tie-ups."
               },
               {
                 q: "What payment methods are accepted for international students?",
-                a: "We accept all major global credit/debit cards through our secure PayPal gateway. Pricing is clearly listed in USD ($) for your convenience."
+                a: "We accept all major global credit and debit cards through our secure payment gateways. For your convenience and global accessibility, our course pricing is clearly listed in USD ($)."
               },
               {
-                q: "Is mushroom farming a profitable business in the US?",
-                a: "Yes, specialty organic mushrooms like Oyster and Shiitake carry a premium price tag at US farmer's markets and organic grocery stores. Our Advanced Commercial Training covers specific marketing and sales strategies to help you connect with local buyers, restaurants, and wholesalers to maximize your profit margins."
+                q: "Is mushroom farming a profitable business model?",
+                a: "Yes, specialty organic mushrooms like Oyster and Button carry a premium price tag at farmer's markets and organic stores worldwide. Our Advanced Commercial Training covers specific marketing and sales strategies to help you connect with high-paying local buyers, restaurants, and wholesalers to maximize your profit margins."
               },
               {
                 q: "Do I need a large agricultural property to get started?",
-                a: "Not at all. Our step-by-step guides focus heavily on controlled indoor environments. The Basic Cultivation plan is perfect for utilizing small spaces like a spare bedroom or basement, while the Advanced Plan teaches you how to scale up using vertical racking systems in commercial warehouses or large sheds."
+                a: "Not at all. Our step-by-step guides focus heavily on controlled indoor environments. The Basic Cultivation plan is perfect for utilizing small spaces like a spare bedroom, while the Advanced Plan teaches you how to scale up using vertical racking systems in commercial warehouses, basements, or large sheds."
               },
               {
-                q: "Where will I get the equipment and mushroom spawn in the US?",
-                a: "Our training teaches you the fundamental principles of substrate preparation, sterilization, and climate control. The equipment required (like humidifiers, HEPA filters, and HVAC units) can be easily sourced from local hardware stores or online retailers across the US. We also guide you on how to select high-quality spawn from reliable regional suppliers."
+                q: "Where will I get the equipment and mushroom spawn in my country?",
+                a: "Our training teaches you the fundamental universal principles of substrate preparation, sterilization, and climate control. The equipment required (like humidifiers, HEPA filters, and HVAC units) can be easily sourced from local hardware stores or global online retailers like Amazon. We also guide you on how to identify and select high-quality spawn from reliable regional suppliers near you."
               },
               {
                 q: "How much time does it take to maintain a mushroom grow room daily?",
-                a: "Once your automated climate systems (covered in our Advanced Plan) are set up, the daily maintenance is minimal. For a basic home setup, it takes less than 30 minutes a day to monitor humidity, temperature, and fresh air exchange."
+                a: "Once your automated climate systems (covered in our Advanced Plan) are set up, daily maintenance is minimal. For a basic home setup, it takes less than 30 minutes a day to monitor humidity, temperature, and fresh air exchange."
               },
               {
-                q: "Which mushroom varieties are best to grow in my specific state?",
-                a: "We cover cultivation techniques for multiple varieties. For colder regions, traditional Button and Oyster mushrooms are excellent choices. If you live in a warmer climate like Texas or Florida, our Advanced program includes training on high-temperature varieties like Milky Mushrooms, ensuring you can grow successfully no matter where you live."
+                q: "Which mushroom varieties are best to grow in my specific climate?",
+                a: "We cover cultivation techniques for multiple varieties to ensure global success. For colder regions, traditional Button and Oyster mushrooms are excellent choices. If you live in a hotter, tropical, or arid climate, our Advanced program includes training on high-temperature varieties like Milky Mushrooms, ensuring you can grow successfully no matter where you are located on the map."
               },
               {
                 q: "Will I receive ongoing support after purchasing the course?",
-                a: "Absolutely. We understand that hands-on farming comes with unique challenges. Enrolling in our Advanced Commercial Training gives you access to our private community and ongoing technical support to help you troubleshoot any contamination issues or climate control problems."
+                a: "Absolutely. We understand that hands-on farming comes with unique challenges. Enrolling in our Advanced Commercial Training gives you exclusive access to our private community and ongoing technical support to help you troubleshoot any contamination issues or climate control problems as you scale your farm."
               },
               {
-                q: "Are the climate control metrics easy to understand for US growers?",
-                a: "Yes, the training is designed to be universally applicable. We explain the science behind perfect humidity, airflow, and temperature control, making it easy to adapt the settings on your local thermostats and hygrometers."
+                q: "Are the climate control metrics easy to understand for international growers?",
+                a: "Yes, the training is designed to be universally applicable. We explain the exact science behind perfect humidity, airflow, and temperature control, making it easy to adapt the settings on your local thermostats and hygrometers, whether you measure in Celsius or Fahrenheit."
               }
             ].map((faq, i) => (
               <div key={i} className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5">

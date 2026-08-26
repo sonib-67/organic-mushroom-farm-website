@@ -8,123 +8,240 @@ type Message = {
   text: string;
 };
 
-const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
-  <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl overflow-visible">
-    <defs>
-      <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#34d399" />
-        <stop offset="100%" stopColor="#3b82f6" />
-      </linearGradient>
-      <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#34d399" />
-      </linearGradient>
-      <radialGradient id="thrusterGrad">
-        <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
-        <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
-      </radialGradient>
-    </defs>
+const BotAvatar = ({ isAnimating, lookDir = { x: 0, y: 0 } }: { isAnimating: boolean; lookDir?: { x: number; y: number } }) => {
+  const isLooking = lookDir.x !== 0 || lookDir.y !== 0;
 
-    {/* Thruster / Hover Aura */}
-    <motion.ellipse cx="50" cy="92" rx="15" ry="4" fill="url(#thrusterGrad)"
-      animate={isAnimating ? { scale: [1, 1.6, 1], opacity: [0.5, 1, 0.5] } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-      transition={{ duration: isAnimating ? 1 : 2, repeat: Infinity, ease: "easeInOut" }}
-      style={{ filter: "blur(2px)" }}
-    />
+  const eyeOffsetX = lookDir.x * 6;
+  const eyeOffsetY = lookDir.y * 6;
+  const headRotate = lookDir.x * 12;
+  const headTranslateX = lookDir.x * 3;
+  const headTranslateY = lookDir.y * 3;
 
-    {/* Main Floating Group */}
-    <motion.g 
-      animate={isAnimating ? { y: [0, -5, 0] } : { y: [0, -3, 0], rotate: [0, -1, 1, 0] }}
-      transition={{ duration: isAnimating ? 1.5 : 4, repeat: Infinity, ease: "easeInOut" }}
-    >
-      {/* Antenna Stem */}
-      <motion.line x1="50" y1="20" x2="50" y2="4" stroke="#10b981" strokeWidth="3" 
-        animate={{ y: [0, 2, 0] }} transition={{ duration: 2, repeat: Infinity }}
-      />
-      {/* Antenna Bulb */}
-      <motion.circle cx="50" cy="4" r="4.5" fill="#10b981" 
-        animate={{ fill: ["#10b981", "#fbbf24", "#38bdf8", "#10b981"], scale: [1, 1.4, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+  return (
+    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl overflow-visible">
+      <defs>
+        <linearGradient id="headGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#34d399" />
+          <stop offset="100%" stopColor="#3b82f6" />
+        </linearGradient>
+        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#34d399" />
+        </linearGradient>
+        <radialGradient id="thrusterGrad">
+          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Floor / Ground Shadow */}
+      <motion.ellipse cx="50" cy="96" rx="18" ry="4" fill="#020617"
+        animate={isAnimating ? { scale: [1, 0.7, 1], opacity: [0.4, 0.15, 0.4] } : { scale: [1, 0.85, 1], opacity: [0.3, 0.15, 0.3] }}
+        transition={{ duration: isAnimating ? 1.5 : 4, repeat: Infinity, ease: "easeInOut" }}
+        style={{ filter: "blur(3px)" }}
       />
 
-      {/* Body */}
-      <motion.path 
-        d="M 30 50 Q 50 60 70 50 L 75 75 Q 50 95 25 75 Z" 
-        fill="url(#bodyGrad)"
-        animate={isAnimating ? { scaleX: [1, 1.05, 1] } : { scaleX: [1, 1.02, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      />
-      
-      {/* Chest Core Pulse */}
-      <motion.circle cx="50" cy="65" r="6" fill="#ffffff" opacity="0.8"
-        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.circle cx="50" cy="65" r="3" fill="#38bdf8" />
-
-      {/* Head Group */}
-      <motion.g
-        animate={isAnimating ? { rotate: [0, -8, 8, 0] } : { rotate: [0, 2, -2, 0] }}
-        transition={{ duration: isAnimating ? 1.5 : 5, repeat: Infinity, ease: "easeInOut" }}
-        style={{ transformOrigin: "50px 40px" }}
+      {/* Main Floating Group */}
+      <motion.g 
+        animate={isAnimating ? { y: [0, -8, 0] } : { y: [0, -5, 0], rotate: [0, -1, 1, 0] }}
+        transition={{ duration: isAnimating ? 1.5 : 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* Ears */}
-        <motion.rect x="15" y="32" width="6" height="16" rx="3" fill="#0f172a" 
-          animate={{ y: [0, -2, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+        {/* Thruster / Hover Aura attached to bot */}
+        <motion.ellipse cx="50" cy="86" rx="14" ry="4" fill="url(#thrusterGrad)"
+          animate={isAnimating ? { scale: [1, 1.6, 1], opacity: [0.6, 1, 0.6] } : { scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
+          transition={{ duration: isAnimating ? 1 : 2, repeat: Infinity, ease: "easeInOut" }}
+          style={{ filter: "blur(2px)" }}
         />
-        <motion.rect x="79" y="32" width="6" height="16" rx="3" fill="#0f172a" 
-          animate={{ y: [0, -2, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-        />
+        {/* Antenna Group */}
+        <motion.g
+          style={{ transformOrigin: "50px 20px" }}
+          animate={isAnimating ? { rotate: [0, -15, 15, -10, 10, 0] } : { rotate: [0, -5, 5, 0] }}
+          transition={{ duration: isAnimating ? 2 : 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {/* Antenna Stem */}
+          <line x1="50" y1="20" x2="50" y2="4" stroke="#10b981" strokeWidth="3" />
+          {/* Antenna Bulb */}
+          <motion.circle cx="50" cy="4" r="4.5" fill="#10b981" 
+            animate={{ fill: ["#10b981", "#fbbf24", "#38bdf8", "#10b981"], scale: [1, 1.4, 1] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.g>
 
-        {/* Main Head Base */}
-        <rect x="20" y="20" width="60" height="40" rx="20" fill="url(#headGrad)" />
-        
-        {/* Face Screen */}
-        <rect x="25" y="30" width="50" height="20" rx="10" fill="#0f172a" />
-        
-        {/* Scanner Line */}
-        <motion.line x1="28" y1="32" x2="72" y2="32" stroke="#38bdf8" strokeWidth="1" opacity="0.6"
-          animate={{ y: [0, 16, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+        {/* Body */}
+        <motion.path 
+          d="M 30 50 Q 50 60 70 50 L 75 75 Q 50 95 25 75 Z" 
+          fill="url(#bodyGrad)"
+          animate={isAnimating ? { scaleX: [1, 1.05, 1] } : { scaleX: [1, 1.02, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
+        
+        {/* Chest Core Pulse */}
+        <motion.circle cx="50" cy="65" r="6" fill="#ffffff" opacity="0.8"
+          animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.circle cx="50" cy="65" r="3" fill="#38bdf8" />
 
-        {/* Eyes */}
-        <motion.circle 
-          cx="38" cy="40" r="4" fill="#38bdf8" 
-          animate={isAnimating ? { scaleY: [1, 0.2, 1], scaleX: [1, 1.2, 1] } : { scaleY: [1, 0, 1, 1, 1], cx: [38, 38, 35, 41, 38] }}
-          transition={isAnimating ? { duration: 1, repeat: Infinity } : { duration: 6, repeat: Infinity, times: [0, 0.05, 0.1, 0.5, 1] }}
+        {/* Head Group */}
+        <motion.g
+          animate={
+            isLooking 
+              ? { rotate: headRotate, x: headTranslateX, y: headTranslateY } 
+              : isAnimating 
+                ? { rotate: [0, -8, 8, 0], x: 0, y: 0 } 
+                : { rotate: [0, 2, -2, 0], x: 0, y: 0 }
+          }
+          transition={{ duration: isLooking ? 0.3 : isAnimating ? 1.5 : 5, repeat: isLooking ? 0 : Infinity, ease: "easeOut" }}
+          style={{ transformOrigin: "50px 40px" }}
+        >
+          {/* Ears */}
+          <motion.rect x="15" y="32" width="6" height="16" rx="3" fill="#0f172a" 
+            animate={{ y: [0, -2, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          />
+          <motion.rect x="79" y="32" width="6" height="16" rx="3" fill="#0f172a" 
+            animate={{ y: [0, -2, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+          />
+
+          {/* Main Head Base */}
+          <rect x="20" y="20" width="60" height="40" rx="20" fill="url(#headGrad)" />
+          
+          {/* Face Screen */}
+          <rect x="25" y="30" width="50" height="20" rx="10" fill="#0f172a" />
+          
+          {/* Scanner Line */}
+          <motion.line x1="28" y1="32" x2="72" y2="32" stroke="#38bdf8" strokeWidth="1" opacity="0.6"
+            animate={{ y: [0, 16, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+          />
+
+          {/* Eyes */}
+          <motion.circle 
+            cx="38" cy="40" r="4" fill="#38bdf8" 
+            animate={
+              isLooking ? { cx: 38 + eyeOffsetX, cy: 40 + eyeOffsetY, scaleY: 1, scaleX: 1 } :
+              isAnimating ? { cx: 38, cy: 40, scaleY: [1, 0.2, 1], scaleX: [1, 1.2, 1] } : 
+              { cx: [38, 38, 35, 41, 38], cy: 40, scaleY: [1, 0, 1, 1, 1] }
+            }
+            transition={isLooking ? { duration: 0.3, ease: "easeOut" } : isAnimating ? { duration: 1, repeat: Infinity } : { duration: 6, repeat: Infinity, times: [0, 0.05, 0.1, 0.5, 1] }}
+          />
+          <motion.circle 
+            cx="62" cy="40" r="4" fill="#38bdf8" 
+            animate={
+              isLooking ? { cx: 62 + eyeOffsetX, cy: 40 + eyeOffsetY, scaleY: 1, scaleX: 1 } :
+              isAnimating ? { cx: 62, cy: 40, scaleY: [1, 0.2, 1], scaleX: [1, 1.2, 1] } : 
+              { cx: [62, 62, 59, 65, 62], cy: 40, scaleY: [1, 0, 1, 1, 1] }
+            }
+            transition={isLooking ? { duration: 0.3, ease: "easeOut" } : isAnimating ? { duration: 1, repeat: Infinity } : { duration: 6, repeat: Infinity, times: [0, 0.05, 0.1, 0.5, 1] }}
+          />
+          {/* Mouth / Lips */}
+          <motion.rect
+            x="44" y="45" width="12" height="3" rx="1.5" fill="#38bdf8"
+            style={{ transformOrigin: "50px 46.5px" }}
+            animate={
+              isLooking ? { x: eyeOffsetX * 0.4, y: eyeOffsetY * 0.4, scaleX: 0.8, scaleY: 2.5 } :
+              isAnimating ? { x: 0, y: 0, scaleX: [1, 0.8, 1, 0.9, 1], scaleY: [1, 2.5, 1, 1.8, 1] } : 
+              { x: 0, y: 0, scaleX: [1, 1.2, 1], scaleY: 1 }
+            }
+            transition={isLooking ? { duration: 0.3, ease: "easeOut" } : isAnimating ? { duration: 0.6, repeat: Infinity, ease: "easeInOut" } : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </motion.g>
+
+        {/* Right Arm */}
+        <motion.path d="M 72 55 Q 85 60 80 75" fill="none" stroke="url(#bodyGrad)" strokeWidth="8" strokeLinecap="round" 
+          style={{ transformOrigin: "72px 55px" }}
+          animate={!isAnimating ? { rotate: [0, 8, -3, 0] } : { rotate: [0, -15, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.circle 
-          cx="62" cy="40" r="4" fill="#38bdf8" 
-          animate={isAnimating ? { scaleY: [1, 0.2, 1], scaleX: [1, 1.2, 1] } : { scaleY: [1, 0, 1, 1, 1], cx: [62, 62, 59, 65, 62] }}
-          transition={isAnimating ? { duration: 1, repeat: Infinity } : { duration: 6, repeat: Infinity, times: [0, 0.05, 0.1, 0.5, 1] }}
+        {/* Left Arm */}
+        <motion.path 
+          d="M 28 55 Q 15 60 20 75" 
+          fill="none" stroke="url(#bodyGrad)" strokeWidth="8" strokeLinecap="round"
+          style={{ transformOrigin: "28px 55px" }}
+          animate={!isAnimating ? { rotate: [0, -8, 3, 0] } : { rotate: [0, 15, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.g>
-
-      {/* Right Arm */}
-      <motion.path d="M 72 55 Q 85 60 80 75" fill="none" stroke="url(#bodyGrad)" strokeWidth="8" strokeLinecap="round" 
-        style={{ transformOrigin: "72px 55px" }}
-        animate={!isAnimating ? { rotate: [0, 8, -3, 0] } : { rotate: [0, -15, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      {/* Left Arm Waving */}
-      <motion.path 
-        d="M 28 55 Q 10 50 15 35" 
-        fill="none" stroke="url(#bodyGrad)" strokeWidth="8" strokeLinecap="round"
-        style={{ transformOrigin: "28px 55px" }}
-        animate={isAnimating ? { rotate: [0, -40, 20, -40, 0] } : { rotate: [0, -10, 4, 0] }}
-        transition={{ duration: isAnimating ? 1 : 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </motion.g>
-  </svg>
-);
+    </svg>
+  );
+};
 
 export const AIChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isGreeting, setIsGreeting] = useState(false);
+  const [lookDir, setLookDir] = useState({ x: 0, y: 0 });
+  const lookTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [greetingText, setGreetingText] = useState("Hello! 👋");
-  
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const dy = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+      
+      if (Math.abs(dy) > 5) {
+        setLookDir(prev => {
+          const newY = dy > 0 ? 1 : -1;
+          if (prev.x === 0 && prev.y === newY) return prev;
+          return { x: 0, y: newY };
+        });
+        
+        if (lookTimeoutRef.current) clearTimeout(lookTimeoutRef.current);
+        lookTimeoutRef.current = setTimeout(() => {
+          setLookDir({ x: 0, y: 0 });
+        }, 1000);
+      }
+    };
+
+    const handleTap = (e: MouseEvent | TouchEvent) => {
+      let clientX, clientY;
+      if (e instanceof MouseEvent) {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      } else if (e.touches && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        return;
+      }
+      
+      // Calculate angle from the widget position (bottom right)
+      // Assuming widget is roughly at window.innerWidth - 60, window.innerHeight - 60
+      const botX = window.innerWidth - 60;
+      const botY = window.innerHeight - 60;
+      
+      const dx = clientX - botX;
+      const dy = clientY - botY;
+      
+      const length = Math.sqrt(dx * dx + dy * dy);
+      if (length > 0) {
+        const nx = parseFloat((dx / length).toFixed(2));
+        const ny = parseFloat((dy / length).toFixed(2));
+        setLookDir({ x: nx, y: ny });
+      }
+      
+      if (lookTimeoutRef.current) clearTimeout(lookTimeoutRef.current);
+      lookTimeoutRef.current = setTimeout(() => {
+        setLookDir({ x: 0, y: 0 });
+      }, 1500);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("mousedown", handleTap, { passive: true });
+    window.addEventListener("touchstart", handleTap, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousedown", handleTap);
+      window.removeEventListener("touchstart", handleTap);
+      if (lookTimeoutRef.current) clearTimeout(lookTimeoutRef.current);
+    };
+  }, []);
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -225,31 +342,63 @@ export const AIChatWidget = () => {
         body: JSON.stringify({
           message: userMsg.text,
           history: messages.map(m => ({ role: m.role, text: m.text })),
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to get response");
+      if (!response.ok || !response.body) {
+        let errMsg = "Failed to get response";
+        try {
+          const errData = await response.json();
+          if (errData.error) errMsg = errData.error;
+        } catch (e) {
+          // ignore
+        }
+        throw new Error(errMsg);
       }
 
-      const data = await response.json();
-      
+      if (response.headers.get("content-type")?.includes("text/html")) {
+        throw new Error("Received HTML error page instead of API response.");
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder("utf-8");
+      const botMsgId = (Date.now() + 1).toString();
+      let botResponseText = "";
+
       setMessages((prev) => [
         ...prev,
         {
-          id: (Date.now() + 1).toString(),
+          id: botMsgId,
           role: "model",
-          text: data.text,
+          text: "",
         }
       ]);
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        botResponseText += decoder.decode(value, { stream: true });
+        
+        setMessages((prev) => 
+          prev.map((msg) => 
+            msg.id === botMsgId ? { ...msg, text: botResponseText } : msg
+          )
+        );
+      }
     } catch (error) {
       console.error(error);
+      let errorMsg = "Sorry, I'm having trouble connecting right now. Please try again later.";
+      if (error instanceof Error && error.message) {
+        errorMsg = error.message;
+      }
+
       setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
           role: "model",
-          text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+          text: errorMsg,
         }
       ]);
     } finally {
@@ -280,7 +429,7 @@ export const AIChatWidget = () => {
             <div className="bg-gradient-to-r from-emerald-500 to-blue-500 p-4 text-white flex items-center justify-between shadow-md z-10 shrink-0">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-white/20 p-1">
-                  <BotAvatar isAnimating={false} />
+                  <BotAvatar isAnimating={false} lookDir={lookDir} />
                 </div>
                 <span className="font-bold">Farm Assistant</span>
               </div>
@@ -375,11 +524,14 @@ export const AIChatWidget = () => {
         <motion.button
           onClick={handleOpenClick}
           className="relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center hover:scale-110 active:scale-95 transition-all outline-none"
-          animate={{ filter: ["drop-shadow(0px 0px 8px rgba(16, 185, 129, 0.4))", "drop-shadow(0px 0px 16px rgba(59, 130, 246, 0.6))", "drop-shadow(0px 0px 8px rgba(16, 185, 129, 0.4))"] }}
+          animate={{ 
+            filter: ["drop-shadow(0px 0px 8px rgba(16, 185, 129, 0.4))", "drop-shadow(0px 0px 16px rgba(59, 130, 246, 0.6))", "drop-shadow(0px 0px 8px rgba(16, 185, 129, 0.4))"],
+            y: [0, -8, 0]
+          }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
           <div className="w-full h-full">
-            <BotAvatar isAnimating={isGreeting} />
+            <BotAvatar isAnimating={isGreeting} lookDir={lookDir} />
           </div>
         </motion.button>
       </div>
