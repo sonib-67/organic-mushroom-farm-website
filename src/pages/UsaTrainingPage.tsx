@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, TrendingUp, DollarSign, Home, Award, ArrowRight, BookOpen, Clock, ShieldCheck, ThermometerSnowflake, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import InternationalCheckoutForm from "../components/InternationalCheckoutForm";
 
 const UsaTrainingPage = () => {
   const [paymentSuccess, setPaymentSuccess] = useState<string | null>(null);
+  const [checkoutPlan, setCheckoutPlan] = useState<{name: string, price: string} | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,7 +47,7 @@ const UsaTrainingPage = () => {
         <div className="mb-14">
           <h2 className="text-lg md:text-xl font-bold text-center dark:text-white text-slate-900 mb-6">Choose Your Training Program</h2>
           
-          {paymentSuccess ? (
+          {paymentSuccess && (
             <div className="max-w-xl mx-auto glass border border-green-500/50 rounded-3xl p-8 text-center bg-green-500/5">
               <CheckCircle2 size={48} className="text-green-500 mx-auto mb-4" />
               <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">Payment Successful!</h3>
@@ -61,12 +62,23 @@ const UsaTrainingPage = () => {
                 Back to Plans
               </button>
             </div>
-          ) : (
-          <PayPalScriptProvider options={{ 
-            "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID || "BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg", 
-            currency: "USD" 
-          }}>
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          )}
+          
+          {!paymentSuccess && (
+            <>
+          {checkoutPlan && (
+            <InternationalCheckoutForm 
+              planName={checkoutPlan.name}
+              price={checkoutPlan.price}
+              onSuccess={(id) => {
+                setCheckoutPlan(null);
+                setPaymentSuccess(id);
+              }}
+              onClose={() => setCheckoutPlan(null)}
+            />
+          )}
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               
               {/* Plan 1 */}
               <div className="glass border dark:border-white/10 border-black/10 rounded-3xl p-6 flex flex-col relative transition-transform hover:-translate-y-1">
@@ -93,35 +105,12 @@ const UsaTrainingPage = () => {
                   </ul>
                 </div>
                 
-                <div className="mt-auto relative z-10 w-full min-h-[150px]">
-                  <PayPalButtons
-                    style={{ layout: "vertical", shape: "pill", label: "pay" }}
-                    createOrder={async () => {
-                      const response = await fetch("/api/paypal/create-order", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ amount: "39.00" }),
-                      });
-                      const orderData = await response.json();
-                      return orderData.id;
-                    }}
-                    onApprove={async (data, actions) => {
-                      const response = await fetch("/api/paypal/capture-order", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ orderID: data.orderID }),
-                      });
-                      const captureData = await response.json();
-                      if (captureData.status === "COMPLETED") {
-                        setPaymentSuccess(captureData.id);
-                      }
-                    }}
-                    onError={(err) => {
-                      console.error("PayPal Checkout Error:", err);
-                      alert("Payment failed or was cancelled. Please try again.");
-                    }}
-                  />
-                </div>
+                <button 
+                  onClick={() => setCheckoutPlan({ name: "Basic Cultivation Mushroom Training", price: "39.00" })}
+                  className="w-full mt-auto bg-white/10 hover:bg-white/20 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold py-3 rounded-xl text-sm transition-all"
+                >
+                  Enroll Now
+                </button>
               </div>
 
               {/* Plan 2 */}
@@ -157,39 +146,16 @@ const UsaTrainingPage = () => {
                   </ul>
                 </div>
 
-                <div className="mt-auto relative z-10 w-full min-h-[150px]">
-                  <PayPalButtons
-                    style={{ layout: "vertical", shape: "pill", label: "pay", color: "blue" }}
-                    createOrder={async () => {
-                      const response = await fetch("/api/paypal/create-order", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ amount: "97.00" }),
-                      });
-                      const orderData = await response.json();
-                      return orderData.id;
-                    }}
-                    onApprove={async (data, actions) => {
-                      const response = await fetch("/api/paypal/capture-order", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ orderID: data.orderID }),
-                      });
-                      const captureData = await response.json();
-                      if (captureData.status === "COMPLETED") {
-                        setPaymentSuccess(captureData.id);
-                      }
-                    }}
-                    onError={(err) => {
-                      console.error("PayPal Checkout Error:", err);
-                      alert("Payment failed or was cancelled. Please try again.");
-                    }}
-                  />
-                </div>
+                <button 
+                  onClick={() => setCheckoutPlan({ name: "Advanced Commercial Mushroom Training", price: "97.00" })}
+                  className="w-full mt-auto bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 rounded-xl text-sm transition-all shadow-lg shadow-blue-500/25"
+                >
+                  Enroll Now
+                </button>
               </div>
 
             </div>
-          </PayPalScriptProvider>
+            </>
           )}
         </div>
 
