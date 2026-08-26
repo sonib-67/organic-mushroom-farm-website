@@ -435,7 +435,12 @@ app.post('/api/payment-notification', express.json(), async (req, res) => {
   }
 });
 import { handleChat } from './src/api/chatHandler';
+import { createPayPalOrder, capturePayPalOrder, handlePayPalWebhook } from './src/api/paypalHandler';
+
 app.post("/api/chat", express.json(), handleChat);
+app.post("/api/paypal/create-order", express.json(), createPayPalOrder);
+app.post("/api/paypal/capture-order", express.json(), capturePayPalOrder);
+app.post("/api/paypal/webhook", express.json(), handlePayPalWebhook);
 
 
 

@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, TrendingUp, DollarSign, Home, Award, ArrowRight, BookOpen, Clock, ShieldCheck, ThermometerSnowflake, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const UsaTrainingPage = () => {
+  const [paymentSuccess, setPaymentSuccess] = useState<string | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -42,75 +45,152 @@ const UsaTrainingPage = () => {
         {/* Pricing/Plans Section */}
         <div className="mb-14">
           <h2 className="text-lg md:text-xl font-bold text-center dark:text-white text-slate-900 mb-6">Choose Your Training Program</h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            
-            {/* Plan 1 */}
-            <div className="glass border dark:border-white/10 border-black/10 rounded-3xl p-6 flex flex-col relative transition-transform hover:-translate-y-1">
-              <div className="mb-3">
-                <h3 className="text-base font-bold dark:text-white text-slate-900 leading-tight">Basic Cultivation Mushroom Training</h3>
-                <p className="text-[10px] md:text-xs dark:text-slate-400 text-slate-600 font-medium mt-0.5">(Home Scale)</p>
-              </div>
-              <div className="mb-3">
-                <span className="text-2xl md:text-3xl font-black dark:text-white text-slate-900">$39</span>
-                <span className="text-[10px] md:text-xs text-slate-500 ml-1">(One-Time)</span>
-              </div>
-              <p className="text-[10px] md:text-xs font-semibold text-blue-500 mb-3 flex items-center gap-1">
-                <Home size={12} /> Ideal For: Beginners & Hobbyists
+          
+          {paymentSuccess ? (
+            <div className="max-w-xl mx-auto glass border border-green-500/50 rounded-3xl p-8 text-center bg-green-500/5">
+              <CheckCircle2 size={48} className="text-green-500 mx-auto mb-4" />
+              <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-2">Payment Successful!</h3>
+              <p className="text-sm dark:text-slate-300 text-slate-700 mb-4">
+                Welcome to Organic Mushroom Farm Training. Your transaction ID is <strong>{paymentSuccess}</strong>.
               </p>
-              <div className="flex-grow">
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Key Learnings:</p>
-                <ul className="space-y-1.5 mb-5">
-                  {['Oyster & Button mushroom home setup.', 'Substrate boiling & basic sterilization.', 'Simple temperature/humidity control.'].map((item, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-xs dark:text-slate-300 text-slate-700">
-                      <CheckCircle2 size={14} className="text-green-500 shrink-0 mt-0.5" />
-                      <span className="leading-snug">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Link to="/enquiry" className="w-full block text-center bg-white/5 hover:bg-white/10 border border-white/10 dark:text-white text-slate-900 font-bold py-3 rounded-xl text-sm transition-colors mt-auto">
-                Enroll Now
-              </Link>
+              <p className="text-sm text-green-500 font-semibold mb-6">We have received your enrollment and will email you the next steps shortly.</p>
+              <button 
+                onClick={() => setPaymentSuccess(null)}
+                className="px-6 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-bold text-sm hover:scale-105 transition-transform"
+              >
+                Back to Plans
+              </button>
             </div>
+          ) : (
+          <PayPalScriptProvider options={{ 
+            "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID || "BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg", 
+            currency: "USD" 
+          }}>
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              
+              {/* Plan 1 */}
+              <div className="glass border dark:border-white/10 border-black/10 rounded-3xl p-6 flex flex-col relative transition-transform hover:-translate-y-1">
+                <div className="mb-3">
+                  <h3 className="text-base font-bold dark:text-white text-slate-900 leading-tight">Basic Cultivation Mushroom Training</h3>
+                  <p className="text-[10px] md:text-xs dark:text-slate-400 text-slate-600 font-medium mt-0.5">(Home Scale)</p>
+                </div>
+                <div className="mb-3">
+                  <span className="text-2xl md:text-3xl font-black dark:text-white text-slate-900">$39</span>
+                  <span className="text-[10px] md:text-xs text-slate-500 ml-1">(One-Time)</span>
+                </div>
+                <p className="text-[10px] md:text-xs font-semibold text-blue-500 mb-3 flex items-center gap-1">
+                  <Home size={12} /> Ideal For: Beginners & Hobbyists
+                </p>
+                <div className="flex-grow">
+                  <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Key Learnings:</p>
+                  <ul className="space-y-1.5 mb-5">
+                    {['Oyster & Button mushroom home setup.', 'Substrate boiling & basic sterilization.', 'Simple temperature/humidity control.'].map((item, i) => (
+                      <li key={i} className="flex items-start gap-1.5 text-xs dark:text-slate-300 text-slate-700">
+                        <CheckCircle2 size={14} className="text-green-500 shrink-0 mt-0.5" />
+                        <span className="leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="mt-auto relative z-10 w-full min-h-[150px]">
+                  <PayPalButtons
+                    style={{ layout: "vertical", shape: "pill", label: "pay" }}
+                    createOrder={async () => {
+                      const response = await fetch("/api/paypal/create-order", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ amount: "39.00" }),
+                      });
+                      const orderData = await response.json();
+                      return orderData.id;
+                    }}
+                    onApprove={async (data, actions) => {
+                      const response = await fetch("/api/paypal/capture-order", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ orderID: data.orderID }),
+                      });
+                      const captureData = await response.json();
+                      if (captureData.status === "COMPLETED") {
+                        setPaymentSuccess(captureData.id);
+                      }
+                    }}
+                    onError={(err) => {
+                      console.error("PayPal Checkout Error:", err);
+                      alert("Payment failed or was cancelled. Please try again.");
+                    }}
+                  />
+                </div>
+              </div>
 
-            {/* Plan 2 */}
-            <div className="glass border-2 border-blue-500/50 rounded-3xl p-6 flex flex-col relative transition-transform hover:-translate-y-1 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
-              <div className="absolute top-0 right-6 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
-                ⭐ Best Value
+              {/* Plan 2 */}
+              <div className="glass border-2 border-blue-500/50 rounded-3xl p-6 flex flex-col relative transition-transform hover:-translate-y-1 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                <div className="absolute top-0 right-6 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                  ⭐ Best Value
+                </div>
+                <div className="mb-3">
+                  <h3 className="text-base font-bold dark:text-white text-slate-900 leading-tight">Advanced Commercial Mushroom Training</h3>
+                  <p className="text-[10px] md:text-xs dark:text-slate-400 text-slate-600 font-medium mt-0.5">(Business Scale)</p>
+                </div>
+                <div className="mb-3">
+                  <span className="text-2xl md:text-3xl font-black dark:text-white text-slate-900">$97</span>
+                  <span className="text-[10px] md:text-xs text-slate-500 ml-1">(One-Time)</span>
+                </div>
+                <p className="text-[10px] md:text-xs font-semibold text-blue-500 mb-3 flex items-center gap-1">
+                  <TrendingUp size={12} /> Ideal For: Entrepreneurs & Commercial Growers
+                </p>
+                <div className="flex-grow">
+                  <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Key Learnings:</p>
+                  <ul className="space-y-1.5 mb-5">
+                    {[
+                      'Farm layout, vertical racks & HVAC setup.', 
+                      'High-yield varieties + Pest management.', 
+                      'Sales strategies for US Farmer\'s Markets & local stores.',
+                      'Certificate & Private Community Access.'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-1.5 text-xs dark:text-slate-300 text-slate-700">
+                        <CheckCircle2 size={14} className="text-blue-500 shrink-0 mt-0.5" />
+                        <span className="leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-auto relative z-10 w-full min-h-[150px]">
+                  <PayPalButtons
+                    style={{ layout: "vertical", shape: "pill", label: "pay", color: "blue" }}
+                    createOrder={async () => {
+                      const response = await fetch("/api/paypal/create-order", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ amount: "97.00" }),
+                      });
+                      const orderData = await response.json();
+                      return orderData.id;
+                    }}
+                    onApprove={async (data, actions) => {
+                      const response = await fetch("/api/paypal/capture-order", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ orderID: data.orderID }),
+                      });
+                      const captureData = await response.json();
+                      if (captureData.status === "COMPLETED") {
+                        setPaymentSuccess(captureData.id);
+                      }
+                    }}
+                    onError={(err) => {
+                      console.error("PayPal Checkout Error:", err);
+                      alert("Payment failed or was cancelled. Please try again.");
+                    }}
+                  />
+                </div>
               </div>
-              <div className="mb-3">
-                <h3 className="text-base font-bold dark:text-white text-slate-900 leading-tight">Advanced Commercial Mushroom Training</h3>
-                <p className="text-[10px] md:text-xs dark:text-slate-400 text-slate-600 font-medium mt-0.5">(Business Scale)</p>
-              </div>
-              <div className="mb-3">
-                <span className="text-2xl md:text-3xl font-black dark:text-white text-slate-900">$97</span>
-                <span className="text-[10px] md:text-xs text-slate-500 ml-1">(One-Time)</span>
-              </div>
-              <p className="text-[10px] md:text-xs font-semibold text-blue-500 mb-3 flex items-center gap-1">
-                <TrendingUp size={12} /> Ideal For: Entrepreneurs & Commercial Growers
-              </p>
-              <div className="flex-grow">
-                <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Key Learnings:</p>
-                <ul className="space-y-1.5 mb-5">
-                  {[
-                    'Farm layout, vertical racks & HVAC setup.', 
-                    'High-yield varieties + Pest management.', 
-                    'Sales strategies for US Farmer\'s Markets & local stores.',
-                    'Certificate & Private Community Access.'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-xs dark:text-slate-300 text-slate-700">
-                      <CheckCircle2 size={14} className="text-blue-500 shrink-0 mt-0.5" />
-                      <span className="leading-snug">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Link to="/enquiry" className="w-full block text-center bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold py-3 rounded-xl text-sm transition-all shadow-lg shadow-blue-500/25 mt-auto">
-                Enroll Now
-              </Link>
+
             </div>
-
-          </div>
+          </PayPalScriptProvider>
+          )}
         </div>
 
         {/* Content Section */}
