@@ -276,9 +276,20 @@ export const AIChatWidget = () => {
         if (done) break;
         botResponseText += decoder.decode(value, { stream: true });
         
+        let cleanedText = botResponseText;
+        if (botResponseText.trim().startsWith('{"text":')) {
+          try {
+            const parsed = JSON.parse(botResponseText.trim());
+            if (parsed.text) cleanedText = parsed.text;
+          } catch (e) {
+            // Wait for full JSON to stream in before parsing
+            cleanedText = botResponseText.replace(/^{"text":\s*"/, "").replace(/"}$/, "");
+          }
+        }
+
         setMessages((prev) => 
           prev.map((msg) => 
-            msg.id === botMsgId ? { ...msg, text: botResponseText } : msg
+            msg.id === botMsgId ? { ...msg, text: cleanedText } : msg
           )
         );
       }
