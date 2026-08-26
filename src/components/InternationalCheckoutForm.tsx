@@ -46,7 +46,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
 
   const handleFailure = async (errorMsg: string) => {
     try {
-      await fetch('/api/intl-fail-order', {
+      await fetch('/api/intl?action=fail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -151,7 +151,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                   createOrder={async () => {
                     setIsLoading(true);
                     try {
-                      const response = await fetch("/api/intl-create-order", {
+                      const response = await fetch("/api/intl?action=create", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ 
@@ -174,7 +174,7 @@ const InternationalCheckoutForm = ({ planName, price, onSuccess, onClose }: Chec
                   onApprove={async (data, actions) => {
                     setIsLoading(true);
                     try {
-                      const response = await fetch("/api/intl-capture-order", {
+                      const response = await fetch("/api/intl?action=capture", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ 
