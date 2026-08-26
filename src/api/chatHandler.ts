@@ -44,15 +44,30 @@ LEAD GENERATION / BOOKING CONSULTANT:
     contents.push({ role: "model", parts: [{ text: "Understood. I am ready." }] });
 
     for (const msg of history || []) {
+      let cleanText = msg.text;
+      // Aggressively clean up JSON wrappers from previous broken history
+      while (cleanText.trim().startsWith('{') && cleanText.trim().endsWith('}')) {
+        try {
+          const parsed = JSON.parse(cleanText);
+          if (parsed.text) {
+            cleanText = parsed.text;
+          } else {
+            break;
+          }
+        } catch(e) {
+          break;
+        }
+      }
+
       contents.push({
         role: msg.role === "user" ? "user" : "model",
-        parts: [{ text: msg.text }]
+        parts: [{ text: cleanText }]
       });
     }
     contents.push({ role: "user", parts: [{ text: message }] });
 
     const responseStream = await ai.models.generateContentStream({
-      model: "gemini-3.6-flash",
+      model: "gemini-1.5-flash",
       contents: contents as any,
       config: {
         temperature: 0.4,

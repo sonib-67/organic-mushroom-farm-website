@@ -302,6 +302,41 @@ export const AIChatWidget = () => {
     }
   };
 
+  const cleanDisplayMessage = (text: string) => {
+    let cleanText = text;
+    while (cleanText.trim().startsWith('{') && (cleanText.trim().endsWith('}') || cleanText.trim().includes('}'))) {
+      try {
+        // If it's a valid JSON with text property
+        const parsed = JSON.parse(cleanText);
+        if (parsed.text) {
+          cleanText = parsed.text;
+        } else {
+          break;
+        }
+      } catch(e) {
+        // Handle case where stream is incomplete but has {"text":" at start
+        if (cleanText.includes('{"text":"') || cleanText.includes('{\\"text\\":\\"')) {
+           cleanText = cleanText.replace(/^{"?text"?:\s*"/g, '').replace(/"}$/g, '').replace(/^\{\\"text\\":\\"/g, '').replace(/\\"\}$/g, '');
+        }
+        break;
+      }
+    }
+    // Final generic cleanup if it somehow double wrapped and broke
+    cleanText = cleanText.replace(/\\"/g, '"');
+    cleanText = cleanText.replace(/\\n/g, '\n');
+    
+    if (cleanText.startsWith('{"text":"') || cleanText.startsWith('{"text": "')) {
+       cleanText = cleanText.replace(/\{"text":\s*"/, '');
+       if (cleanText.endsWith('"}')) {
+         cleanText = cleanText.slice(0, -2);
+       }
+    }
+    
+    // Unescape again just in case
+    cleanText = cleanText.replace(/\\"/g, '"');
+    return cleanText;
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -363,7 +398,7 @@ export const AIChatWidget = () => {
                         : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/5 rounded-bl-sm shadow-sm'
                     }`}
                   >
-                    {msg.text}
+                    {cleanDisplayMessage(msg.text)}
                   </div>
                 </div>
               ))}
