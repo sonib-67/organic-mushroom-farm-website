@@ -16,9 +16,10 @@ interface SEOProps {
   keywords?: string;
   url?: string;
   schemas?: object[];
+  noindex?: boolean;
 }
 
-const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }) => { console.log("SEO rendered!");
+const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas, noindex }) => { console.log("SEO rendered!");
   const finalTitle = title.includes("Organic Mushrooms Farm") ? title : (title.length > 35 ? title : `${title} | Organic Mushrooms Farm`);
   const defaultKeywords =
     "mushroom spawn, mushroom farming training, mushroom cultivation, dry mushroom, fresh mushroom, mushroom setup, organic mushrooms farm, mushroom training India";
@@ -96,6 +97,7 @@ const SEO: React.FC<SEOProps> = ({  title, description, keywords, url, schemas }
       <meta name="description" content={finalDescription} />
       <meta name="keywords" content={keywords || defaultKeywords} />
 
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       {/* Canonical */}
       <link rel="canonical" href={fullUrl} />
 

@@ -175,12 +175,14 @@ const InternationalCheckoutForm = ({
                       (import.meta as any).env.VITE_PAYPAL_CLIENT_ID ||
                       "BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg",
                     currency: "USD",
+                    components: "buttons",
+                    "enable-funding": "venmo,paylater,card",
                   }}
                 >
                   <PayPalButtons
                     style={{
                       layout: "vertical",
-                      shape: "pill",
+                      shape: "rect",
                       label: "pay",
                       color: "gold",
                     }}

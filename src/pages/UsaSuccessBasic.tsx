@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const UsaSuccessBasic = () => {
   const [searchParams] = useSearchParams();
@@ -7,6 +8,7 @@ const UsaSuccessBasic = () => {
 
   return (
     <div className="min-h-screen pt-32 pb-20 text-center px-4">
+      <SEO title="Payment Successful - Basic Plan" description="Payment successful." noindex={true} />
       <div className="max-w-xl mx-auto glass border border-green-500/50 rounded-3xl p-8 text-center bg-green-500/5">
         <h1 className="text-xl md:text-3xl font-bold text-green-500 mb-4">Basic Plan - Payment Successful!</h1>
         <p className="text-sm dark:text-slate-300 text-slate-700 mb-4">Your Transaction ID: <strong>{transactionId}</strong></p>
