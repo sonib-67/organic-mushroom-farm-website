@@ -24,6 +24,7 @@ const InternationalCheckoutForm = ({
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [isCancelled, setIsCancelled] = useState(false);
 
   const handleProceed = (e: React.FormEvent) => {
     e.preventDefault();
@@ -157,6 +158,17 @@ const InternationalCheckoutForm = ({
                   </div>
                 )}
 
+                {isCancelled ? (
+                <div className="text-center p-4 border border-red-500/20 bg-red-500/5 rounded-xl">
+                  <p className="text-red-500 font-bold mb-4">Payment was cancelled.</p>
+                  <button
+                    onClick={() => setIsCancelled(false)}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-sm transition-all"
+                  >
+                    Retry Payment
+                  </button>
+                </div>
+              ) : (
                 <PayPalScriptProvider
                   options={{
                     clientId:
@@ -253,9 +265,7 @@ const InternationalCheckoutForm = ({
                         );
                       }
                     }}
-                    onCancel={() => {
-                      handleFailure("Payment was cancelled by the user.");
-                    }}
+                    onCancel={() => { setIsCancelled(true); }}
                     onError={(err) => {
                       console.error("PayPal Checkout Error:", err);
                       handleFailure(
@@ -264,6 +274,7 @@ const InternationalCheckoutForm = ({
                     }}
                   />
                 </PayPalScriptProvider>
+              )}
               </div>
 
               <button

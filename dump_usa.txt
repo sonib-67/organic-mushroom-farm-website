@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckCircle2, TrendingUp, DollarSign, Home, Award, ArrowRight, BookOpen, Clock, ShieldCheck, ThermometerSnowflake, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
 import InternationalCheckoutForm from "../components/InternationalCheckoutForm";
 
 const UsaTrainingPage = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.state?.autoOpenPlan) {
-      setCheckoutPlan(location.state.autoOpenPlan);
-      // Clear state so it doesn't reopen on refresh
-      window.history.replaceState({}, document.title)
-    }
-  }, [location.state]);
   const [paymentSuccess, setPaymentSuccess] = useState<string | null>(null);
   const [checkoutPlan, setCheckoutPlan] = useState<{name: string, price: string} | null>(null);
 
@@ -82,13 +72,7 @@ const UsaTrainingPage = () => {
               price={checkoutPlan.price}
               onSuccess={(id) => {
                 setCheckoutPlan(null);
-                if (checkoutPlan.price === "39.00") {
-                  navigate(`/usatraining/success/basic?id=${id}`);
-                } else if (checkoutPlan.price === "97.00") {
-                  navigate(`/usatraining/success/advanced?id=${id}`);
-                } else {
-                  setPaymentSuccess(id);
-                }
+                setPaymentSuccess(id);
               }}
               onClose={() => setCheckoutPlan(null)}
             />

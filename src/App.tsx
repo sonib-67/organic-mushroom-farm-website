@@ -174,6 +174,8 @@ import MushroomPriceTodayPage from "./pages/MushroomPriceTodayPage";
 import MushroomFranchisePage from "./pages/MushroomFranchisePage";
 import WorkshopPage from "./pages/WorkshopPage";
 import UsaTrainingPage from "./pages/UsaTrainingPage";
+import UsaSuccessBasic from "./pages/UsaSuccessBasic";
+import UsaSuccessAdvanced from "./pages/UsaSuccessAdvanced";
 
 import MadhyaPradeshPage from "./pages/MadhyaPradeshPage";
 import JabalpurPage from "./pages/JabalpurPage";
@@ -3591,7 +3593,7 @@ const StickyRazorpayButton = ({
                     <button
                       onClick={() => {
                         setShowModal(false);
-                        navigate("/enquiry");
+                        navigate("/usatraining", { state: { autoOpenPlan: { name: "Basic Cultivation Mushroom Training", price: "39.00" } } });
                       }}
                       className="flex items-center justify-between p-1.5 xs:p-2.5 md:p-3.5 rounded-lg xs:rounded-xl md:rounded-2xl border border-blue-500/25 bg-blue-500/5 hover:bg-blue-500/10 transition-all text-left group/btn cursor-pointer"
                     >
@@ -3613,7 +3615,7 @@ const StickyRazorpayButton = ({
                     <button
                       onClick={() => {
                         setShowModal(false);
-                        navigate("/enquiry");
+                        navigate("/usatraining", { state: { autoOpenPlan: { name: "Advanced Commercial Mushroom Training", price: "97.00" } } });
                       }}
                       className="flex items-center justify-between p-1.5 xs:p-2.5 md:p-3.5 rounded-lg xs:rounded-xl md:rounded-2xl border border-cyan-500/30 bg-cyan-500/5 hover:bg-cyan-500/10 transition-all text-left group/btn cursor-pointer ring-1 ring-cyan-500/20"
                     >
@@ -3669,7 +3671,7 @@ const StickyRazorpayButton = ({
                       <button
                         onClick={() => {
                           setShowModal(false);
-                          navigate("/enquiry");
+                          navigate("/usatraining", { state: { autoOpenPlan: { name: "Basic Cultivation Mushroom Training", price: "39.00" } } });
                         }}
                         className="w-full bg-slate-950 text-white hover:bg-slate-900 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
                       >
@@ -3716,7 +3718,7 @@ const StickyRazorpayButton = ({
                       <button
                         onClick={() => {
                           setShowModal(false);
-                          navigate("/enquiry");
+                          navigate("/usatraining", { state: { autoOpenPlan: { name: "Advanced Commercial Mushroom Training", price: "97.00" } } });
                         }}
                         className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
                       >
@@ -6665,6 +6667,8 @@ const AnimatedRoutes = () => {
           <Route path="/expertise-details" element={<ExpertiseDetailsPage />} />
           <Route path="/business-plan" element={<BusinessPlan />} />
           <Route path="/usatraining" element={<UsaTrainingPage />} />
+          <Route path="/usatraining/success/basic" element={<UsaSuccessBasic />} />
+          <Route path="/usatraining/success/advanced" element={<UsaSuccessAdvanced />} />
           <Route path="/mushroom-types" element={<MushroomTypes />} />
           <Route
             path="/mushroom-types/:slug"
