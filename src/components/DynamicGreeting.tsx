@@ -129,7 +129,7 @@ const DynamicGreeting = () => {
   ];
 
   // Filter out any null slides (missing data)
-  const slides = rawSlides.filter((slide): slide is { id: string, content: JSX.Element } => slide !== null);
+  const slides = rawSlides.filter((slide): slide is { id: string, content: any } => slide !== null);
 
   useEffect(() => {
     if (slideIndex >= slides.length - 1) return; // Stop at the final slide!
