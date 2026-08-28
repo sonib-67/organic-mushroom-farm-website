@@ -252,12 +252,7 @@ export default function ROICalculatorPage() {
                     })}
                   </div>
                 </div>
-              
-              {/* HONEYPOT FIELD - DO NOT REMOVE */}
-              <div style={{ display: 'none' }} aria-hidden="true">
-                  <input type="text" name="middleName" tabIndex={-1} autoComplete="off" />
-              </div>
-</form>
+              </form>
             </motion.div>
 
             {/* Assumptions Box */}
