@@ -29,6 +29,8 @@ const EnquiryPage = () => {
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    window.location.href = "/under-maintenance";
+    return;
     e.preventDefault();
     
     // Validate CAPTCHA

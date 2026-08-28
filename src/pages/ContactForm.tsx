@@ -12,6 +12,8 @@ const ContactFormPage = () => {
     const [submitted, setSubmitted] = React.useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    window.location.href = "/under-maintenance";
+    return;
         e.preventDefault();
         const form = e.target as HTMLFormElement;
         

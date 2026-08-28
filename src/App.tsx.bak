@@ -5506,8 +5506,6 @@ const TurnkeyProjectsPage = () => {
   });
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    window.location.href = "/under-maintenance";
-    return;
     e.preventDefault();
     setFormState({ submitting: true, succeeded: false, error: null });
     const form = e.currentTarget;
