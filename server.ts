@@ -451,7 +451,13 @@ app.post("/api/intl-fail-order", express.json(), failIntlOrder);
 
 app.post('/api/contact', express.json(), async (req, res) => {
   try {
-    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety } = req.body;
+    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, middleName } = req.body;
+
+    // HONEYPOT CHECK: If middleName is filled, it is a bot.
+    if (middleName) {
+      console.log("Bot detected via honeypot in server.ts. Silently rejecting.");
+      return res.status(200).json({ success: true, message: "Message sent successfully." });
+    }
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Name, email, and message are required." });

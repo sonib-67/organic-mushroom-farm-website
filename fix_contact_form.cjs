@@ -1,126 +1,12 @@
-import React, { useEffect } from 'react';
-import { motion } from 'motion/react';
-import { Mail, Phone, User, CheckCircle2, Send, ArrowRight } from 'lucide-react';
-import SEO from '../components/SEO';
-import { pixelTrackCustom } from '../utils/pixel';
+const fs = require('fs');
+let content = fs.readFileSync('src/pages/ContactForm.tsx', 'utf8');
 
-const ContactFormPage = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+// The sed command stripped exact "                            </div>" instances.
+// We can just find places where it should be and inject them.
+// Or we can just rebuild the form part from the inputs.
 
-    const [submitted, setSubmitted] = React.useState(false);
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const form = e.target as HTMLFormElement;
-        
-        // Add a customized subject before sending
-        const formData = new FormData(form);
-        if (!formData.has('_subject')) {
-            formData.append('_subject', 'New Expert Consultation Request from ' + formData.get('name'));
-        }
-        
-        // Track the submission action explicitly
-        pixelTrackCustom('ContactFormSubmitted', { page: '/contact-form' });
-        pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
-
-        try {
-            const resp = await fetch('/api/contact', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (!resp.ok) throw new Error('Response not OK');
-            
-            pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
-            setSubmitted(true);
-            form.reset();
-        } catch (error) {
-            console.error(error);
-            pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
-            // Fallback for formspree
-            form.submit();
-        }
-    };
-
-    const webmcpSchema = {
-        "@context": "https://webmcp.dev",
-        "@type": "WebMCP",
-        "tool": {
-            "name": "mushroom_farm_consultation_form",
-            "description": "Submit an expert consultation request for setting up custom mushroom farming setups, budgets, and farm capacities.",
-            "inputSchema": {
-                "type": "object",
-                "properties": {
-                    "name": { "type": "string", "description": "Full name of the inquirer" },
-                    "phone": { "type": "string", "description": "WhatsApp or mobile contact number" },
-                    "email": { "type": "string", "description": "Email address for communications" },
-                    "location": { "type": "string", "description": "City and State of setup" },
-                    "farmSize": { "type": "string", "description": "Farming size in square feet" },
-                    "budget": { "type": "string", "enum": ["Under 1 Lakh", "1 - 5 Lakhs", "5 - 10 Lakhs", "10 Lakhs +"], "description": "Farming investment budget range" },
-                    "message": { "type": "string", "description": "Detailed message or project query details" }
-                },
-                "required": ["name", "phone", "email", "location", "message"]
-            }
-        }
-    };
-
-    return (
-        <div className="min-h-screen pt-32 pb-20">
-             <SEO 
-                title="Custom Mushroom Farming Project Consultation | Organic Mushrooms Farm" 
-                description="Get a consultation for your custom mushroom farming setup. Pan India service for oyster, button and milky mushroom cultivation." 
-                schemas={[webmcpSchema]}
-             />
-
-             <section className="section-padding text-center">
-                 <motion.div 
-                     initial={{ opacity: 1, y: 20 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     className="max-w-4xl mx-auto"
-                 >
-                     <div className="badge mx-auto mb-6">Expert Consultation</div>
-                     <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-                         Start Your <span className="gradient-text">Project</span>
-                     </h1>
-                     <p className="text-slate-400 text-lg leading-relaxed mb-10">
-                         Fill out the form below. Our lead engineers & experts will get back to you to discuss your specific farming model.
-                     </p>
-                 </motion.div>
-             </section>
-
-             <section className="section-padding max-w-3xl mx-auto pt-0">
-                 {submitted ? (
-                     <motion.div 
-                        initial={{ opacity: 1, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="glass p-12 text-center rounded-[3rem] border border-white/10"
-                     >
-                         <div className="w-20 h-20 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <CheckCircle2 size={40} />
-                         </div>
-                         <h2 className="text-3xl font-bold text-white mb-4">Request Received</h2>
-                         <p className="text-slate-400">Thank you for your interest. One of our experts will contact you shortly using the provided details.</p>
-                         <button 
-                            onClick={() => setSubmitted(false)}
-                            className="mt-8 btn-outline px-8 py-3 rounded-xl mx-auto block"
-                         >
-                            <span>Submit Another Request</span>
-                         </button>
-                     </motion.div>
-                 ) : (
-                     <motion.div 
-                        initial={{ opacity: 1, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="glass p-8 md:p-12 rounded-[3rem] border border-white/5 relative overflow-hidden"
-                     >
-                         <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[300px] h-[300px] bg-primary-start/10 blur-[100px] rounded-full pointer-events-none"></div>
-                         
-                         
+const top = content.split('<form')[0];
+const bottom = `
                         <form 
                             action="/api/contact" 
                             method="POST" 
@@ -263,3 +149,6 @@ const ContactFormPage = () => {
     );
 };
 export default ContactFormPage;
+`;
+
+fs.writeFileSync('src/pages/ContactForm.tsx', top + bottom, 'utf8');

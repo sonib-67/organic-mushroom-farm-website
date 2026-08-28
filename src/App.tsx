@@ -2415,6 +2415,7 @@ const CTASection = () => {
             projectSize: formData.projectSize,
             message: formData.message,
             _subject: `New Home Page Inquiry from ${formData.name} (${formData.mushroomType})`,
+            middleName: (e.target as HTMLFormElement).middleName?.value || "",
           }),
         },
       );

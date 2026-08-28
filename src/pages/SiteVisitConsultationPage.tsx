@@ -234,7 +234,12 @@ const SiteVisitConsultationPage = () => {
                   </span>
                 )}
               </button>
-            </form>
+            
+              {/* HONEYPOT FIELD - DO NOT REMOVE */}
+              <div style={{ display: 'none' }} aria-hidden="true">
+                  <input type="text" name="middleName" tabIndex={-1} autoComplete="off" />
+              </div>
+</form>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700/50 flex flex-col gap-3 relative z-10">
               <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700/50">

@@ -661,7 +661,12 @@ const WorkshopPage = () => {
                 >
                   {loading ? <span>Processing...</span> : <span>Proceed to Pay ₹199</span>}
                 </button>
-              </form>
+              
+              {/* HONEYPOT FIELD - DO NOT REMOVE */}
+              <div style={{ display: 'none' }} aria-hidden="true">
+                  <input type="text" name="middleName" tabIndex={-1} autoComplete="off" />
+              </div>
+</form>
             </motion.div>
           </motion.div>
         )}

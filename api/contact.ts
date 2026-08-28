@@ -133,7 +133,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, setupType, productForm, otherSubject } = req.body;
+    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, setupType, productForm, otherSubject, middleName } = req.body;
+
+    // HONEYPOT CHECK: If 'middleName' (hidden field) is filled, it's a bot.
+    if (middleName) {
+      console.log("Bot detected via honeypot. Silently rejecting.");
+      return res.status(200).json({ success: true, message: "Message sent successfully." });
+    }
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Name, email, and message are required." });
