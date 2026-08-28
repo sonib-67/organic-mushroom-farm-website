@@ -35,9 +35,9 @@ const SpawnSeedPage = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     window.location.href = "/under-maintenance";
     return;
-        e.preventDefault();
         const form = e.target as HTMLFormElement;
         
         // Add a customized subject before sending

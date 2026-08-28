@@ -2396,9 +2396,9 @@ const CTASection = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     window.location.href = "/under-maintenance";
     return;
-    e.preventDefault();
     setFormState({ submitting: true, succeeded: false, error: "" });
 
     try {
@@ -2627,9 +2627,9 @@ const LegacyContactPage = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     window.location.href = "/under-maintenance";
     return;
-    e.preventDefault();
     setState((prev) => ({ ...prev, submitting: true }));
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -5506,9 +5506,9 @@ const TurnkeyProjectsPage = () => {
   });
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     window.location.href = "/under-maintenance";
     return;
-    e.preventDefault();
     setFormState({ submitting: true, succeeded: false, error: null });
     const form = e.currentTarget;
     const formData = new FormData(form);
