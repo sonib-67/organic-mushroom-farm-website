@@ -451,26 +451,10 @@ app.post("/api/intl-fail-order", express.json(), failIntlOrder);
 
 app.post('/api/contact', express.json(), async (req, res) => {
   try {
-    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, recaptchaToken } = req.body;
+    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety } = req.body;
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Name, email, and message are required." });
-    }
-
-    if (recaptchaToken) {
-      const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY || '6LecX54tAAAAAKzCBc7nPpscrIO6ANbmzQolTyWA';
-      const verifyResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: `secret=${recaptchaSecret}&response=${recaptchaToken}`
-      });
-      const verifyData = await verifyResponse.json();
-      if (!verifyData.success) {
-        console.error('reCAPTCHA verification failed:', verifyData);
-        return res.status(400).json({ error: `reCAPTCHA verification failed: ${verifyData['error-codes']?.join(', ') || 'Unknown error'}` });
-      }
     }
 
     const transporter = nodemailer.createTransport({
@@ -582,9 +566,9 @@ app.post('/api/contact', express.json(), async (req, res) => {
     await transporter.sendMail(mailOptions);
     await transporter.sendMail(userMailOptions);
     return res.status(200).json({ success: true, message: "Message sent successfully." });
-  } catch (error: any) {
+  } catch (error) {
     console.error("Nodemailer error:", error);
-    return res.status(500).json({ error: error.message || "Failed to send message." });
+    return res.status(500).json({ error: "Failed to send message." });
   }
 });
 

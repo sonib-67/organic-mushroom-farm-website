@@ -94,9 +94,27 @@ const HowToStartIndoorMushroomFarmCalifornia = () => {
               <p className="text-emerald-800 dark:text-emerald-200 mb-4">
                 If you are serious about entering the booming US organic market, our Expert Mushroom Farming Training & Setup program provides everything you need. We offer comprehensive online training tailored for global growers:
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <a href="https://organicmushroomsfarm.com/usatraining" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors">
-                  Enroll Now
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start">
+                  <span className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-200 dark:bg-emerald-800 flex items-center justify-center text-emerald-700 dark:text-emerald-300 font-bold mt-0.5 mr-3">✓</span>
+                  <span className="text-emerald-900 dark:text-emerald-100">
+                    <strong>Basic Cultivation Training ($39):</strong> Perfect for beginners and hobbyists looking to master home setups.
+                  </span>
+                </li>
+                <li className="flex items-start">
+                  <span className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-200 dark:bg-emerald-800 flex items-center justify-center text-emerald-700 dark:text-emerald-300 font-bold mt-0.5 mr-3">✓</span>
+                  <span className="text-emerald-900 dark:text-emerald-100">
+                    <strong>Advanced Commercial Training ($97):</strong> Designed for entrepreneurs. Learn advanced HVAC automation, disease management, turnkey commercial shed designs, and marketing strategies to sell to US wholesalers and restaurants.
+                  </span>
+                </li>
+              </ul>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="/course" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors">
+                  Join Basic Training ($39)
+                </a>
+                <a href="/course" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-emerald-700 bg-emerald-100 hover:bg-emerald-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors">
+                  Get Commercial Blueprint ($97)
                 </a>
               </div>
             </div>

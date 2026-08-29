@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Mail, MapPin, Send, CheckCircle2, ChevronDown, ChevronUp, ExternalLink, ArrowRight, BookOpen, Layers, ShieldCheck, Sprout, TrendingUp, Users, Info } from 'lucide-react';
 import SEO from '../components/SEO';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -37,32 +36,48 @@ const ContactPage = () => {
     }, []);
 
     const [submitted, setSubmitted] = useState(false);
-    const { executeRecaptcha } = useGoogleReCaptcha();
-    const [captchaError, setCaptchaError] = useState('');
     const [submitting, setSubmitting] = useState(false);
+    
+    // Security & Anti-Spam State
+    const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
+    const [captchaAnswer, setCaptchaAnswer] = useState('');
+    const [captchaError, setCaptchaError] = useState('');
+    const [loadTime, setLoadTime] = useState<string>('');
+
+    const generateCaptcha = () => {
+        setCaptcha({
+            num1: Math.floor(Math.random() * 10) + 1,
+            num2: Math.floor(Math.random() * 10) + 1
+        });
+        setCaptchaAnswer('');
+        setCaptchaError('');
+    };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        generateCaptcha();
+        setLoadTime(Date.now().toString());
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
-        if (!executeRecaptcha) {
-            setCaptchaError('reCAPTCHA not ready. Please try again.');
+        if (parseInt(captchaAnswer) !== captcha.num1 + captcha.num2) {
+            setCaptchaError('Please answer the security question correctly.');
             return;
         }
-
+        
         setCaptchaError('');
         setSubmitting(true);
         
+        const form = e.target as HTMLFormElement;
+        
+        const formData = new FormData(form);
+        if (!formData.has('_subject')) {
+            formData.append('_subject', 'New Contact Request: ' + formData.get('name'));
+        }
+
         try {
-            const token = await executeRecaptcha('contact_form');
-            const form = e.target as HTMLFormElement;
-            const formData = new FormData(form);
-            
-            if (!formData.has('_subject')) {
-                formData.append('_subject', 'New Contact Request: ' + formData.get('name'));
-            }
-
-            formData.append('recaptchaToken', token);
-
             const resp = await fetch('/api/contact', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
@@ -71,24 +86,14 @@ const ContactPage = () => {
                     'Content-Type': 'application/json'
                 }
             });
-
-            if (!resp.ok) {
-                let errorMessage = 'Response not OK';
-                try {
-                    const errorData = await resp.json();
-                    errorMessage = errorData.error || errorMessage;
-                } catch (e) {
-                    errorMessage = `Server Error: ${resp.status} ${resp.statusText}`;
-                }
-                setCaptchaError(errorMessage);
-                throw new Error(errorMessage);
-            }
+            if (!resp.ok) throw new Error('Response not OK');
             
             setSubmitted(true);
             form.reset();
-        } catch (error: any) {
+            generateCaptcha();
+        } catch (error) {
             console.error(error);
-            setCaptchaError(error.message || 'Failed to submit form.');
+            form.submit();
         } finally {
             setSubmitting(false);
         }
@@ -371,29 +376,40 @@ const ContactPage = () => {
                                         className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all resize-none"
                                     ></textarea>
                                 </div>
+                                
+                                <input type="text" name="hp_website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+                                <input type="hidden" name="load_time" value={loadTime} />
 
-                                {captchaError && (
-                                    <p className="text-red-500 text-xs font-medium">{captchaError}</p>
-                                )}
+                                <div className="space-y-2">
+                                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Security Question: What is {captcha.num1} + {captcha.num2}? *</label>
+                                    <input 
+                                        required 
+                                        type="number" 
+                                        value={captchaAnswer}
+                                        onChange={(e) => {
+                                            setCaptchaAnswer(e.target.value);
+                                            if (captchaError) setCaptchaError('');
+                                        }}
+                                        className={`w-full bg-slate-50 dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:ring-1 focus:ring-primary-start transition-all`} 
+                                        placeholder="Your answer" 
+                                    />
+                                    {captchaError && (
+                                        <p className="text-red-500 text-xs mt-1 font-medium">{captchaError}</p>
+                                    )}
+                                </div>
 
                                 <div className="pt-2">
-                                    <button 
-                                        type="submit" 
-                                        disabled={submitting}
-                                        className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70"
-                                    >
+                                    <button type="submit" disabled={submitting} className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70">
                                         {submitting ? (
                                             <span className="flex items-center">
                                                 <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                 </svg>
-                                                Submitting...
+                                                <span>Submitting...</span>
                                             </span>
                                         ) : (
-                                            <>
-                                                <span>Submit Enquiry</span> <Send size={18} />
-                                            </>
+                                            <><span>Submit Enquiry</span> <Send size={18} /></>
                                         )}
                                     </button>
                                 </div>
