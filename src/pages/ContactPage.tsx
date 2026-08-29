@@ -37,6 +37,7 @@ const ContactPage = () => {
 
     const [submitted, setSubmitted] = useState(false);
     const [submitting, setSubmitting] = useState(false);
+    const [apiError, setApiError] = useState('');
     
     // Security & Anti-Spam State
     const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
@@ -86,14 +87,19 @@ const ContactPage = () => {
                     'Content-Type': 'application/json'
                 }
             });
-            if (!resp.ok) throw new Error('Response not OK');
+            
+            if (!resp.ok) {
+                const errorData = await resp.json().catch(() => ({}));
+                throw new Error(errorData.error || 'Something went wrong. Please try again.');
+            }
             
             setSubmitted(true);
+            setApiError('');
             form.reset();
             generateCaptcha();
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            form.submit();
+            setApiError(error.message);
         } finally {
             setSubmitting(false);
         }
@@ -320,6 +326,13 @@ const ContactPage = () => {
                                 onSubmit={handleSubmit} 
                                 className="relative z-10 space-y-6"
                             >
+                                {apiError && (
+                                    <div className="bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 p-4 rounded-xl text-sm font-medium flex items-start gap-2 mb-4">
+                                        <Info className="w-5 h-5 shrink-0 mt-0.5" />
+                                        <p>{apiError}</p>
+                                    </div>
+                                )}
+                                
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Name</label>
@@ -399,7 +412,11 @@ const ContactPage = () => {
                                 </div>
 
                                 <div className="pt-2">
-                                    <button type="submit" disabled={submitting} className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70">
+                                    <button 
+                                        type="submit" 
+                                        disabled={submitting || (apiError && apiError.includes('2 hours'))} 
+                                        className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                                    >
                                         {submitting ? (
                                             <span className="flex items-center">
                                                 <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

@@ -8,6 +8,7 @@ const EnquiryPage = () => {
   const [formType, setFormType] = useState('training');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [apiError, setApiError] = useState('');
   
   // CAPTCHA State
   const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
@@ -76,11 +77,16 @@ const EnquiryPage = () => {
         },
       });
 
-      if (response.ok) {
-        setSubmitted(true);
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Something went wrong. Please try again.');
       }
-    } catch (err) {
+
+      setSubmitted(true);
+      setApiError('');
+    } catch (err: any) {
       console.error(err);
+      setApiError(err.message || 'An unexpected error occurred.');
     } finally {
       setSubmitting(false);
     }
@@ -158,6 +164,11 @@ const EnquiryPage = () => {
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="p-4 md:p-6 space-y-4">
+              {apiError && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-4 rounded-xl text-sm font-medium mb-4">
+                  {apiError}
+                </div>
+              )}
               <input type="hidden" name="formType" value={formType} />
               <input type="text" name="hp_website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
               <input type="hidden" name="load_time" value={loadTime} />
@@ -355,8 +366,8 @@ const EnquiryPage = () => {
 
               <button
                 type="submit"
-                disabled={submitting}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-primary-start to-primary-end text-white font-bold text-base hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-70 disabled:hover:translate-y-0"
+                disabled={submitting || (apiError && apiError.includes('2 hours'))}
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-primary-start to-primary-end text-white font-bold text-base hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-70 disabled:hover:translate-y-0 disabled:cursor-not-allowed"
               >
                 {submitting ? (
                   <span className="flex items-center">

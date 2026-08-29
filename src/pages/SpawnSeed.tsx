@@ -33,9 +33,13 @@ const FAQItem = ({ question, answer }: { question: string, answer: React.ReactNo
 
 const SpawnSeedPage = () => {
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [apiError, setApiError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setSubmitting(true);
+        setApiError('');
         const form = e.target as HTMLFormElement;
         
         // Add a customized subject before sending
@@ -45,7 +49,7 @@ const SpawnSeedPage = () => {
         }
         
         try {
-            await fetch('/api/contact', {
+            const resp = await fetch('/api/contact', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
                 headers: {
@@ -53,11 +57,18 @@ const SpawnSeedPage = () => {
           'Content-Type': 'application/json'
                 }
             });
+            if (!resp.ok) {
+                const errorData = await resp.json().catch(() => ({}));
+                throw new Error(errorData.error || 'Something went wrong. Please try again.');
+            }
             setSubmitted(true);
+            setApiError('');
             form.reset();
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            form.submit();
+            setApiError(error.message);
+        } finally {
+            setSubmitting(false);
         }
     };
 

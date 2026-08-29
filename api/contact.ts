@@ -3,7 +3,7 @@ import * as nodemailer from 'nodemailer';
 
 // Simple in-memory store for rate limiting (works per Vercel instance)
 const ipRequestCounts = new Map<string, { count: number; resetTime: number }>();
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_WINDOW_MS = 2 * 60 * 60 * 1000; // 2 hours
 const MAX_REQUESTS_PER_IP = 3;
 
 // Helper to check for URLs in text
@@ -165,7 +165,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       } else {
         requestData.count++;
         if (requestData.count > MAX_REQUESTS_PER_IP) {
-           return res.status(429).json({ error: "Too many requests. Please try again later." });
+           return res.status(429).json({ error: "Too many requests. You have reached the limit. Please try again after 2 hours." });
         }
       }
     } else {

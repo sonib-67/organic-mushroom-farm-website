@@ -2431,12 +2431,13 @@ const CTASection = () => {
           message: "",
         });
       } else {
-        const errorText = await response.text();
-        console.error("[FormSubmit] Server error:", errorText);
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || await response.text() || "Failed to send.";
+        console.error("[FormSubmit] Server error:", errorMessage);
         setFormState({
           submitting: false,
           succeeded: false,
-          error: "Failed to send. Please try again or contact support.",
+          error: errorMessage,
         });
       }
     } catch (err: any) {
@@ -2655,15 +2656,14 @@ const LegacyContactPage = () => {
         setState({ submitting: false, succeeded: true, errors: [] });
         form.reset();
       } else {
-        const errorText = await response.text();
-        console.error("[FormSubmit] Server error:", errorText);
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.error || await response.text() || 'Something went wrong';
+        console.error("[FormSubmit] Server error:", errorMessage);
         setState({
           submitting: false,
           succeeded: false,
-          errors: [{ message: errorText }],
+          errors: [{ message: errorMessage }],
         });
-        // fallback
-        form.submit();
       }
     } catch (err: any) {
       console.error("[FormSubmit] Email submit failed:", err);
@@ -2672,8 +2672,6 @@ const LegacyContactPage = () => {
         succeeded: false,
         errors: [{ message: err.message || String(err) }],
       });
-      // fallback
-      form.submit();
     }
   };
 

@@ -10,9 +10,13 @@ const ContactFormPage = () => {
     }, []);
 
     const [submitted, setSubmitted] = React.useState(false);
+    const [submitting, setSubmitting] = React.useState(false);
+    const [apiError, setApiError] = React.useState('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setSubmitting(true);
+        setApiError('');
         const form = e.target as HTMLFormElement;
         
         // Add a customized subject before sending
@@ -34,16 +38,22 @@ const ContactFormPage = () => {
                     'Content-Type': 'application/json'
                 }
             });
-            if (!resp.ok) throw new Error('Response not OK');
+            
+            if (!resp.ok) {
+                const errorData = await resp.json().catch(() => ({}));
+                throw new Error(errorData.error || 'Something went wrong. Please try again.');
+            }
             
             pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
             setSubmitted(true);
+            setApiError('');
             form.reset();
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
             pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
-            // Fallback for formspree
-            form.submit();
+            setApiError(error.message);
+        } finally {
+            setSubmitting(false);
         }
     };
 
@@ -128,6 +138,11 @@ const ContactFormPage = () => {
                              data-webmcp-tool="mushroom_farm_consultation_form"
                              data-webmcp-description="Expert consultation request for starting modular or commercial mushroom farms."
                          >
+                             {apiError && (
+                                 <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-4 rounded-xl text-sm font-medium mb-4">
+                                     {apiError}
+                                 </div>
+                             )}
                              <div className="grid md:grid-cols-2 gap-6">
                                  <div className="space-y-3">
                                      <label className="text-[11px] font-bold text-slate-400 uppercase tracking-widest pl-1">Full Name *</label>
@@ -232,8 +247,8 @@ const ContactFormPage = () => {
                              </div>
 
                              <div className="pt-4 space-y-4">
-                                 <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                     <span>Submit Form</span> <Send size={18} />
+                                 <button type="submit" disabled={submitting || (apiError && apiError.includes('2 hours'))} className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                                     {submitting ? 'Submitting...' : <><span>Submit Form</span> <Send size={18} /></>}
                                  </button>
                                  <div className="relative flex items-center py-2">
                                     <div className="flex-grow border-t border-white/10"></div>
