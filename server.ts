@@ -451,10 +451,24 @@ app.post("/api/intl-fail-order", express.json(), failIntlOrder);
 
 app.post('/api/contact', express.json(), async (req, res) => {
   try {
-    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety } = req.body;
+    const { name, email, phone, subject, message, service, trainingMode, mushroomVariety, recaptchaToken } = req.body;
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Name, email, and message are required." });
+    }
+
+    if (recaptchaToken) {
+      const verifyResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `secret=6LecX54tAAAAAKzCBc7nPpscrIO6ANbmzQolTyWA&response=${recaptchaToken}`
+      });
+      const verifyData = await verifyResponse.json();
+      if (!verifyData.success) {
+        return res.status(400).json({ error: "reCAPTCHA verification failed." });
+      }
     }
 
     const transporter = nodemailer.createTransport({

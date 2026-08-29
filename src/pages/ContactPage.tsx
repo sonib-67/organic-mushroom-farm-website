@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Mail, MapPin, Send, CheckCircle2, ChevronDown, ChevronUp, ExternalLink, ArrowRight, BookOpen, Layers, ShieldCheck, Sprout, TrendingUp, Users, Info } from 'lucide-react';
 import SEO from '../components/SEO';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,16 +32,62 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ t
 };
 
 const ContactPage = () => {
-    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     const [submitted, setSubmitted] = useState(false);
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    const [captchaError, setCaptchaError] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        navigate('/maintenance');
+        
+        if (!executeRecaptcha) {
+            setCaptchaError('reCAPTCHA not ready. Please try again.');
+            return;
+        }
+
+        setCaptchaError('');
+        setSubmitting(true);
+        
+        try {
+            const token = await executeRecaptcha('contact_form');
+            const form = e.target as HTMLFormElement;
+            const formData = new FormData(form);
+            
+            if (!formData.has('_subject')) {
+                formData.append('_subject', 'New Contact Request: ' + formData.get('name'));
+            }
+
+            formData.append('recaptchaToken', token);
+
+            const resp = await fetch('/api/contact', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!resp.ok) {
+                const errorData = await resp.json();
+                setCaptchaError(errorData.error || 'Response not OK');
+                throw new Error('Response not OK');
+            }
+            
+            setSubmitted(true);
+            form.reset();
+        } catch (error) {
+            console.error(error);
+            if (!captchaError) {
+                setCaptchaError('Failed to submit form.');
+            }
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     const faqs = [
@@ -322,9 +368,29 @@ const ContactPage = () => {
                                     ></textarea>
                                 </div>
 
+                                {captchaError && (
+                                    <p className="text-red-500 text-xs font-medium">{captchaError}</p>
+                                )}
+
                                 <div className="pt-2">
-                                    <button type="submit" className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
-                                        <span>Submit Enquiry</span> <Send size={18} />
+                                    <button 
+                                        type="submit" 
+                                        disabled={submitting}
+                                        className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70"
+                                    >
+                                        {submitting ? (
+                                            <span className="flex items-center">
+                                                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
+                                                Submitting...
+                                            </span>
+                                        ) : (
+                                            <>
+                                                <span>Submit Enquiry</span> <Send size={18} />
+                                            </>
+                                        )}
                                     </button>
                                 </div>
                             </form>

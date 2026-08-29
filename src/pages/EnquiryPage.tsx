@@ -2,36 +2,79 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, User, Phone, Mail, MapPin, Building2, Calendar, CheckCircle2, Factory, GraduationCap, Leaf, Sprout, Wind, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const EnquiryPage = () => {
-  const navigate = useNavigate();
   const [formType, setFormType] = useState('training');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  
-  // CAPTCHA State
-  const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
-  const [captchaAnswer, setCaptchaAnswer] = useState('');
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [captchaError, setCaptchaError] = useState('');
-
-  const generateCaptcha = () => {
-    setCaptcha({
-      num1: Math.floor(Math.random() * 10) + 1,
-      num2: Math.floor(Math.random() * 10) + 1
-    });
-    setCaptchaAnswer('');
-    setCaptchaError('');
-  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    generateCaptcha();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate('/maintenance');
+    
+    if (!executeRecaptcha) {
+      setCaptchaError('reCAPTCHA not ready. Please try again.');
+      return;
+    }
+    
+    setCaptchaError('');
+    setSubmitting(true);
+    
+    try {
+      const token = await executeRecaptcha('enquiry_form');
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      
+      let messageBody = "Service Requested: " + formType + "\n\n";
+      for (let [key, value] of formData.entries()) {
+        if (key !== "name" && key !== "email" && key !== "phone" && key !== "formType") {
+          messageBody += `${key}: ${value}\n`;
+        }
+      }
+      
+      const submitData = {
+        name: formData.get("name"),
+        email: formData.get("email") || "N/A",
+        phone: formData.get("phone"),
+        subject: `New Enquiry for ${formType.replace('_', ' ').toUpperCase()} from ${formData.get("name")}`,
+        service: formType.replace('_', ' ').toUpperCase(),
+        message: messageBody,
+        trainingMode: formData.get("training_mode") || null,
+        mushroomVariety: formData.get("mushroom_variety") || null,
+        setupType: formData.get("setup_type") || null,
+        productForm: formData.get("product_form") || null,
+        otherSubject: formData.get("other_subject") || null,
+        recaptchaToken: token,
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(submitData),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        setCaptchaError(errorData.error || 'Failed to submit the form.');
+      }
+    } catch (err) {
+      console.error(err);
+      setCaptchaError('An error occurred during submission.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const formTypes = [
@@ -53,10 +96,10 @@ const EnquiryPage = () => {
       
       <div className="max-w-2xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-6">
-          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">
+          <h1 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 tracking-tight">
             How Can We <span className="text-primary-start gradient-text">Help You?</span>
           </h1>
-          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+          <p className="text-xs text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
             Select the service you're interested in, fill in your details, and our experts will get back to you with the best solutions.
           </p>
         </div>
@@ -113,7 +156,7 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Full Name *</label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="text" name="name" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="John Doe" />
+                    <input required type="text" name="name" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-xs text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="John Doe" />
                   </div>
                 </div>
 
@@ -121,7 +164,7 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Phone Number *</label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="tel" name="phone" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="+91 XXXXX XXXXX" />
+                    <input required type="tel" name="phone" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-xs text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="+91 XXXXX XXXXX" />
                   </div>
                 </div>
 
@@ -129,7 +172,7 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Email Address *</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="email" name="email" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="john@example.com" />
+                    <input required type="email" name="email" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-xs text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="john@example.com" />
                   </div>
                 </div>
               </div>
@@ -277,27 +320,12 @@ const EnquiryPage = () => {
 
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Any additional details or questions?</label>
-                <textarea name="additional_message" rows={2} className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 px-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all resize-none" placeholder="Write your specific requirements here..."></textarea>
+                <textarea name="additional_message" rows={2} className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 px-3 text-xs text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all resize-none" placeholder="Write your specific requirements here..."></textarea>
               </div>
 
-              {/* CAPTCHA Field */}
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Security Question: What is {captcha.num1} + {captcha.num2}? *</label>
-                <input 
-                  required 
-                  type="number" 
-                  value={captchaAnswer}
-                  onChange={(e) => {
-                    setCaptchaAnswer(e.target.value);
-                    if (captchaError) setCaptchaError('');
-                  }}
-                  className={`w-full bg-slate-50 dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-lg py-2 px-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all`} 
-                  placeholder="Your answer" 
-                />
-                {captchaError && (
-                  <p className="text-red-500 text-xs mt-1 font-medium">{captchaError}</p>
-                )}
-              </div>
+              {captchaError && (
+                <p className="text-red-500 text-xs mt-1 font-medium">{captchaError}</p>
+              )}
 
               <button
                 type="submit"

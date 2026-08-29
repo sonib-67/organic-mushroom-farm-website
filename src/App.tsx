@@ -6594,7 +6594,6 @@ const ScrollToTop = () => {
 };
 
 import NotFoundPage from "./pages/NotFoundPage";
-import MaintenancePage from "./pages/MaintenancePage";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -6860,7 +6859,6 @@ const AnimatedRoutes = () => {
           <Route path="/how-to-start-indoor-mushroom-farm-california" element={<HowToStartIndoorMushroomFarmCalifornia />} />
           <Route path="/mushroom-farming-usa-guide" element={<MushroomFarmingUsaGuide />} />
 
-          <Route path="/maintenance" element={<MaintenancePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </motion.div>
