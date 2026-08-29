@@ -4164,9 +4164,9 @@ const MushroomTraining = () => {
       >
         <div className="max-w-7xl mx-auto" id="pricing-plans">
           <div className="text-center mb-4 md:mb-8">
-            <h3 className="text-lg md:text-2xl font-extrabold dark:text-white text-slate-900 mb-1 md:mb-2 tracking-tight uppercase">
+            <h2 className="text-lg md:text-2xl font-extrabold dark:text-white text-slate-900 mb-1 md:mb-2 tracking-tight uppercase">
                 Choose Your <span className="gradient-text font-black">Training Program</span>
-              </h3>
+              </h2>
             <p className="dark:text-slate-400 text-slate-600 text-[10px] md:text-xs max-w-xl mx-auto font-medium leading-relaxed">
               Start with self-paced online courses or gain hands-on commercial experience at our practical farm workshops.
             </p>
