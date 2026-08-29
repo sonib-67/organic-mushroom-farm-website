@@ -11,7 +11,7 @@ const container = document.getElementById('root')!;
 const app = (
   <StrictMode>
     <HelmetProvider>
-      <GoogleReCaptchaProvider reCaptchaKey="6LecX54tAAAAAHIaLEDMvKB1ldc6DhCdhlqUz7L5">
+      <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LecX54tAAAAAHIaLEDMvKB1ldc6DhCdhlqUz7L5"}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
