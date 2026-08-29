@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Send, User, Phone, Mail, MapPin, Building2, Calendar, CheckCircle2, Factory, GraduationCap, Leaf, Sprout, Wind, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 const EnquiryPage = () => {
+  const navigate = useNavigate();
   const [formType, setFormType] = useState('training');
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -30,60 +31,7 @@ const EnquiryPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
-    
-    // Validate CAPTCHA
-    if (parseInt(captchaAnswer) !== captcha.num1 + captcha.num2) {
-      setCaptchaError('Please answer the security question correctly.');
-      return;
-    }
-    
-    setCaptchaError('');
-    setSubmitting(true);
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    
-    // Build comprehensive message based on form type
-    let messageBody = "Service Requested: " + formType + "\n\n";
-    for (let [key, value] of formData.entries()) {
-      if (key !== "name" && key !== "email" && key !== "phone" && key !== "formType") {
-        messageBody += `${key}: ${value}\n`;
-      }
-    }
-    
-    const submitData = {
-      name: formData.get("name"),
-      email: formData.get("email") || "N/A",
-      phone: formData.get("phone"),
-      subject: `New Enquiry for ${formType.replace('_', ' ').toUpperCase()} from ${formData.get("name")}`,
-      service: formType.replace('_', ' ').toUpperCase(),
-      message: messageBody,
-      trainingMode: formData.get("training_mode") || null,
-      mushroomVariety: formData.get("mushroom_variety") || null,
-      setupType: formData.get("setup_type") || null,
-      productForm: formData.get("product_form") || null,
-      otherSubject: formData.get("other_subject") || null,
-    };
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(submitData),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setSubmitting(false);
-    }
+    navigate('/maintenance');
   };
 
   const formTypes = [

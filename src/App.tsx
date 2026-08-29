@@ -120,6 +120,7 @@ import ArticleCompostUnit from "./pages/ArticleCompostUnit";
 import ArticleButtonMushroom from "./pages/ArticleButtonMushroom";
 import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
 import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
+import HowToStartIndoorMushroomFarmCalifornia from "./pages/HowToStartIndoorMushroomFarmCalifornia";
 import MushroomFarmingUsaGuide from "./pages/MushroomFarmingUsaGuide";
 import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
 import ArticleOysterMushroomCultivationIndia from "./pages/ArticleOysterMushroomCultivationIndia";
@@ -176,7 +177,6 @@ import WorkshopPage from "./pages/WorkshopPage";
 import UsaTrainingPage from "./pages/UsaTrainingPage";
 import UsaSuccessBasic from "./pages/UsaSuccessBasic";
 import UsaSuccessAdvanced from "./pages/UsaSuccessAdvanced";
-import UnderMaintenancePage from "./pages/UnderMaintenancePage";
 
 import MadhyaPradeshPage from "./pages/MadhyaPradeshPage";
 import JabalpurPage from "./pages/JabalpurPage";
@@ -2397,8 +2397,6 @@ const CTASection = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
     setFormState({ submitting: true, succeeded: false, error: "" });
 
     try {
@@ -2628,8 +2626,6 @@ const LegacyContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
     setState((prev) => ({ ...prev, submitting: true }));
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -3160,7 +3156,7 @@ const Footer = () => {
                 { name: "Mushroom Types", href: "/mushroom-types" },
                 { name: "Careers", href: "/careers" },
                 { name: "Mushroom Prices", href: "/mushroom-price-today" },
-                { name: "Mushroom Farming Usa Guide", href: "/mushroom-farming-usa-guide" },
+                { name: "Mushroom Farming USA Guide", href: "/mushroom-farming-usa-guide" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link
@@ -5507,8 +5503,6 @@ const TurnkeyProjectsPage = () => {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
     setFormState({ submitting: true, succeeded: false, error: null });
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -6600,6 +6594,7 @@ const ScrollToTop = () => {
 };
 
 import NotFoundPage from "./pages/NotFoundPage";
+import MaintenancePage from "./pages/MaintenancePage";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -6615,7 +6610,6 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/under-maintenance" element={<UnderMaintenancePage />} />
           <Route path="/spawn-seed" element={<ArticleMushroomSpawnSeed />} />
           <Route path="/services/oyster-mushroom" element={<ArticleOysterMushroom />} />
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleMushroomBusinessPlanIndia />} />
@@ -6863,8 +6857,10 @@ const AnimatedRoutes = () => {
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
           <Route path="/locations/pune/:slug" element={<PuneBlogPage />} />
+          <Route path="/how-to-start-indoor-mushroom-farm-california" element={<HowToStartIndoorMushroomFarmCalifornia />} />
           <Route path="/mushroom-farming-usa-guide" element={<MushroomFarmingUsaGuide />} />
 
+          <Route path="/maintenance" element={<MaintenancePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </motion.div>

@@ -48,8 +48,6 @@ const MushroomTypeDetails = ({ defaultSlug, metaDesc, metaTitle }: { defaultSlug
   // Handle Dynamic Lead Form
   const handleLeadSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
     setFormState({ submitting: true, succeeded: false, error: null });
     const form = e.currentTarget;
     const formData = new FormData(form);

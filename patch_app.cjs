@@ -1,15 +1,21 @@
 const fs = require('fs');
-let content = fs.readFileSync('src/App.tsx', 'utf8');
+const file = 'src/App.tsx';
+let content = fs.readFileSync(file, 'utf8');
 
-const importStatement = `import UsaTrainingPage from "./pages/UsaTrainingPage";
-import UsaSuccessBasic from "./pages/UsaSuccessBasic";
-import UsaSuccessAdvanced from "./pages/UsaSuccessAdvanced";`;
-content = content.replace('import UsaTrainingPage from "./pages/UsaTrainingPage";', importStatement);
+content = content.replace(
+  'import HowToStartIndoorMushroomFarmCalifornia from "./pages/HowToStartIndoorMushroomFarmCalifornia";',
+  'import HowToStartIndoorMushroomFarmCalifornia from "./pages/HowToStartIndoorMushroomFarmCalifornia";\nimport MushroomFarmingUsaGuide from "./pages/MushroomFarmingUsaGuide";'
+);
 
-const routeStatement = `<Route path="/usatraining" element={<UsaTrainingPage />} />
-          <Route path="/usatraining/success/basic" element={<UsaSuccessBasic />} />
-          <Route path="/usatraining/success/advanced" element={<UsaSuccessAdvanced />} />`;
-content = content.replace('<Route path="/usatraining" element={<UsaTrainingPage />} />', routeStatement);
+content = content.replace(
+  '<Route path="/how-to-start-indoor-mushroom-farm-california" element={<HowToStartIndoorMushroomFarmCalifornia />} />',
+  '<Route path="/how-to-start-indoor-mushroom-farm-california" element={<HowToStartIndoorMushroomFarmCalifornia />} />\n          <Route path="/mushroom-farming-usa-guide" element={<MushroomFarmingUsaGuide />} />'
+);
 
-fs.writeFileSync('src/App.tsx', content);
-console.log("Patched App.tsx");
+content = content.replace(
+  '{ name: "Indoor Mushroom Farm California", href: "/how-to-start-indoor-mushroom-farm-california" },',
+  '{ name: "Mushroom Farming USA Guide", href: "/mushroom-farming-usa-guide" },'
+);
+
+fs.writeFileSync(file, content);
+console.log("App.tsx patched back");

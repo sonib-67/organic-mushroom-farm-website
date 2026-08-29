@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, Mail, MapPin, Send, CheckCircle2, ChevronDown, ChevronUp, ExternalLink, ArrowRight, BookOpen, Layers, ShieldCheck, Sprout, TrendingUp, Users, Info } from 'lucide-react';
@@ -31,6 +32,7 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({ t
 };
 
 const ContactPage = () => {
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -38,33 +40,8 @@ const ContactPage = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
-        const form = e.target as HTMLFormElement;
-        
-        const formData = new FormData(form);
-        if (!formData.has('_subject')) {
-            formData.append('_subject', 'New Contact Request: ' + formData.get('name'));
-        }
-
-        try {
-            const resp = await fetch('/api/contact', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (!resp.ok) throw new Error('Response not OK');
-            
-            setSubmitted(true);
-            form.reset();
-        } catch (error) {
-            console.error(error);
-            form.submit();
-        }
+        e.preventDefault();
+        navigate('/maintenance');
     };
 
     const faqs = [

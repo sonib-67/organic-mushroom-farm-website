@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Sprout, TestTube, ThermometerSnowflake, ShieldCheck, ShoppingCart, CheckCircle2, FlaskConical, Box, Factory as FactoryIcon, Wind, ArrowRight, ChevronDown, ChevronUp, User, Mail, Send, Home, BookOpen } from 'lucide-react';
 import SEO from '../components/SEO';
 
@@ -32,35 +32,12 @@ const FAQItem = ({ question, answer }: { question: string, answer: React.ReactNo
 };
 
 const SpawnSeedPage = () => {
+    const navigate = useNavigate();
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
-        const form = e.target as HTMLFormElement;
-        
-        // Add a customized subject before sending
-        const formData = new FormData(form);
-        if (!formData.has('_subject')) {
-            formData.append('_subject', 'New Spawn & Seed Inquiry from ' + formData.get('name'));
-        }
-        
-        try {
-            await fetch('/api/contact', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: {
-                    'Accept': 'application/json',
-          'Content-Type': 'application/json'
-                }
-            });
-            setSubmitted(true);
-            form.reset();
-        } catch (error) {
-            console.error(error);
-            form.submit();
-        }
+        e.preventDefault();
+        navigate('/maintenance');
     };
 
     return (

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, User, CheckCircle2, Send, ArrowRight } from 'lucide-react';
@@ -5,6 +6,7 @@ import SEO from '../components/SEO';
 import { pixelTrackCustom } from '../utils/pixel';
 
 const ContactFormPage = () => {
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -12,41 +14,8 @@ const ContactFormPage = () => {
     const [submitted, setSubmitted] = React.useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    window.location.href = "/under-maintenance";
-    return;
-        const form = e.target as HTMLFormElement;
-        
-        // Add a customized subject before sending
-        const formData = new FormData(form);
-        if (!formData.has('_subject')) {
-            formData.append('_subject', 'New Expert Consultation Request from ' + formData.get('name'));
-        }
-        
-        // Track the submission action explicitly
-        pixelTrackCustom('ContactFormSubmitted', { page: '/contact-form' });
-        pixelTrackCustom('HighIntentLead', { intent: 'Consultation' });
-
-        try {
-            const resp = await fetch('/api/contact', {
-                method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (!resp.ok) throw new Error('Response not OK');
-            
-            pixelTrackCustom('FormSuccess', { form_id: 'contact_form', page: '/contact-form' });
-            setSubmitted(true);
-            form.reset();
-        } catch (error) {
-            console.error(error);
-            pixelTrackCustom('FormError', { form_id: 'contact_form', error: String(error) });
-            // Fallback for formspree
-            form.submit();
-        }
+        e.preventDefault();
+        navigate('/maintenance');
     };
 
     const webmcpSchema = {
