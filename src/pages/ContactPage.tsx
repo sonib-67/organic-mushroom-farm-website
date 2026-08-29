@@ -73,18 +73,22 @@ const ContactPage = () => {
             });
 
             if (!resp.ok) {
-                const errorData = await resp.json();
-                setCaptchaError(errorData.error || 'Response not OK');
-                throw new Error('Response not OK');
+                let errorMessage = 'Response not OK';
+                try {
+                    const errorData = await resp.json();
+                    errorMessage = errorData.error || errorMessage;
+                } catch (e) {
+                    errorMessage = `Server Error: ${resp.status} ${resp.statusText}`;
+                }
+                setCaptchaError(errorMessage);
+                throw new Error(errorMessage);
             }
             
             setSubmitted(true);
             form.reset();
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            if (!captchaError) {
-                setCaptchaError('Failed to submit form.');
-            }
+            setCaptchaError(error.message || 'Failed to submit form.');
         } finally {
             setSubmitting(false);
         }

@@ -140,16 +140,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     if (recaptchaToken) {
+      const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY || '6LecX54tAAAAAKzCBc7nPpscrIO6ANbmzQolTyWA';
       const verifyResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `secret=6LecX54tAAAAAKzCBc7nPpscrIO6ANbmzQolTyWA&response=${recaptchaToken}`
+        body: `secret=${recaptchaSecret}&response=${recaptchaToken}`
       });
       const verifyData = await verifyResponse.json();
       if (!verifyData.success) {
-        return res.status(400).json({ error: "reCAPTCHA verification failed." });
+        console.error('reCAPTCHA verification failed:', verifyData);
+        return res.status(400).json({ error: `reCAPTCHA verification failed: ${verifyData['error-codes']?.join(', ') || 'Unknown error'}` });
       }
     }
 
@@ -256,8 +258,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await transporter.sendMail(mailOptions);
     await transporter.sendMail(userMailOptions);
     return res.status(200).json({ success: true, message: "Message sent successfully." });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Nodemailer error:", error);
-    return res.status(500).json({ error: "Failed to send message." });
+    return res.status(500).json({ error: error.message || "Failed to send message." });
   }
 }

@@ -66,12 +66,18 @@ const EnquiryPage = () => {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        const errorData = await response.json();
-        setCaptchaError(errorData.error || 'Failed to submit the form.');
+        let errorMessage = 'Failed to submit the form.';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch (e) {
+          errorMessage = `Server Error: ${response.status} ${response.statusText}`;
+        }
+        setCaptchaError(errorMessage);
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setCaptchaError('An error occurred during submission.');
+      setCaptchaError(err.message || 'An error occurred during submission.');
     } finally {
       setSubmitting(false);
     }
