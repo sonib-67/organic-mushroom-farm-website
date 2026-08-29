@@ -186,7 +186,7 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Phone Number *</label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="tel" name="phone" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="+91 XXXXX XXXXX" />
+                    <input required type="tel" name="phone" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="Enter phone number" />
                   </div>
                 </div>
 

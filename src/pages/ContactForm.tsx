@@ -167,7 +167,7 @@ const ContactFormPage = () => {
                                               data-webmcp-property="phone"
                                               data-webmcp-description="WhatsApp or mobile phone number to receive training resources and estimates"
                                              required
-                                             placeholder="Ex. 9876543210"
+                                             placeholder="Enter phone number"
                                              className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-white focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                          />
                                      </div>
