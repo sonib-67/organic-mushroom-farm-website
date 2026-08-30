@@ -106,12 +106,11 @@ const BlogPage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="badge mx-auto mb-6">Expert Insights</div>
-          <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
-            The <span className="gradient-text">Fungi Feed</span>
+          <h1 className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">
+            Mushroom Farming Blog – <span className="gradient-text">Guides, Tips & Expert Insights</span>
           </h1>
-          <p className="dark:text-slate-400 text-slate-600 text-lg leading-relaxed">
-            Your daily dose of educational, financial, and wellness content from the world of mushrooms.
+          <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
+            Explore practical mushroom farming guides, cultivation techniques, mushroom growing tips, farm setup ideas, harvesting methods, business insights, and expert advice for beginners and commercial growers. Learn how to start, manage, and grow a successful mushroom farming business.
           </p>
         </motion.div>
       </section>

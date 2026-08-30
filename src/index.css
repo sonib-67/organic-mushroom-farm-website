@@ -433,3 +433,13 @@ body {
   transform: scale(2); /* Make it bigger to ensure the tap target covers the whole button */
   transform-origin: center;
 }
+
+/* Hide floating buttons when mobile menu is open */
+.floating-button-wrapper {
+  transition: opacity 0.2s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+body.mobile-menu-open .floating-button-wrapper {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}

@@ -1,24 +1,21 @@
 const fs = require('fs');
-const file = 'src/App.tsx';
-let content = fs.readFileSync(file, 'utf8');
+let content = fs.readFileSync('src/pages/MushroomFarmingUsaGuide.tsx', 'utf8');
 
-// Replace import
-content = content.replace(
-  'import MushroomFarmingUsaGuide from "./pages/MushroomFarmingUsaGuide";',
-  'import HowToStartIndoorMushroomFarmCalifornia from "./pages/HowToStartIndoorMushroomFarmCalifornia";'
-);
+const newLink = `
+              <li className="border-b border-slate-100 dark:border-slate-700 pb-6 last:border-0 last:pb-0">
+                <Link 
+                  to="/mushroom-farming-san-diego" 
+                  className="group flex flex-col no-underline"
+                >
+                  <span className="text-sm md:text-lg font-bold text-emerald-600 dark:text-emerald-400 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors mb-2">
+                    Starting an Indoor Mushroom Farm in San Diego
+                  </span>
+                  <span className="text-slate-600 dark:text-slate-400 text-sm">
+                    Learn how to set up a low-cost, high-yield indoor mushroom grow room tailored to Southern California's unique climate.
+                  </span>
+                </Link>
+              </li>
+`;
 
-// Replace route
-content = content.replace(
-  '<Route path="/mushroom-farming-usa-guide" element={<MushroomFarmingUsaGuide />} />',
-  '<Route path="/how-to-start-indoor-mushroom-farm-california" element={<HowToStartIndoorMushroomFarmCalifornia />} />'
-);
-
-// Replace link in array
-content = content.replace(
-  '{ name: "Mushroom Farming Usa Guide", href: "/mushroom-farming-usa-guide" },',
-  '{ name: "Indoor Mushroom Farm California", href: "/how-to-start-indoor-mushroom-farm-california" },'
-);
-
-fs.writeFileSync(file, content);
-console.log("App.tsx patched");
+content = content.replace("</ul>", newLink + "            </ul>");
+fs.writeFileSync('src/pages/MushroomFarmingUsaGuide.tsx', content);

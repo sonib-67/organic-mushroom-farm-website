@@ -134,6 +134,31 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
 
 export const AIChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const chatRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node;
+      if (
+        chatRef.current && 
+        !chatRef.current.contains(target) &&
+        !(target as Element).closest('[aria-label="Toggle AI Assistant"]')
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside, { passive: true });
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isOpen]);
+
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [isGreeting, setIsGreeting] = useState(false);
   const [greetingText, setGreetingText] = useState("Hello! 👋");
@@ -342,6 +367,7 @@ export const AIChatWidget = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={chatRef}
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}

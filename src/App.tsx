@@ -55,6 +55,7 @@ import {
   Globe,
   Sparkles,
   ArrowLeft,
+  Images,
 } from "lucide-react";
 import { motion, AnimatePresence, useInView } from "motion/react";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
@@ -120,6 +121,7 @@ import ArticleCompostUnit from "./pages/ArticleCompostUnit";
 import ArticleButtonMushroom from "./pages/ArticleButtonMushroom";
 import ArticleSpawnSeeds from "./pages/ArticleSpawnSeeds";
 import ArticleProjectSpecs from "./pages/ArticleProjectSpecs";
+import ArticleSanDiegoMushroomFarming from './pages/ArticleSanDiegoMushroomFarming';
 import HowToStartIndoorMushroomFarmCalifornia from "./pages/HowToStartIndoorMushroomFarmCalifornia";
 import MushroomFarmingUsaGuide from "./pages/MushroomFarmingUsaGuide";
 import ArticleMangaloreKarnataka from "./pages/ArticleMangaloreKarnataka";
@@ -981,7 +983,7 @@ const NAV_ITEMS = [
     isExternal: false,
     icon: Calendar,
   },
-  { name: "Gallery", href: "/gallery", isExternal: false, icon: ShoppingCart },
+  { name: "Gallery", href: "/gallery", isExternal: false, icon: Images },
   { name: "Live Weather", href: "/mushroom-farm-climate-tracker", isExternal: false, icon: MapPin },
   { name: "Blog", href: "/blog", isExternal: false, icon: BookOpen },
   { name: "FAQ", href: "/faq", isExternal: false, icon: MessageCircle },
@@ -1069,11 +1071,14 @@ const Navbar = () => {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add("mobile-menu-open");
     } else {
       document.body.style.overflow = "unset";
+      document.body.classList.remove("mobile-menu-open");
     }
     return () => {
       document.body.style.overflow = "unset";
+      document.body.classList.remove("mobile-menu-open");
     };
   }, [mobileMenuOpen]);
 
@@ -1230,181 +1235,260 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-[9998] lg:hidden">
+          <div className="fixed inset-0 z-[9998] lg:hidden flex flex-col justify-end">
+            {/* Dark Overlay (Click to close) */}
             <motion.div
-              initial={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.2 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute inset-0 bg-black/70"
+              className="absolute inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm"
             />
 
+            {/* Fast Sliding Drawer with Drag to Close */}
             <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 0 }}
+              dragElastic={{ top: 0, bottom: 0.5 }}
+              onDragEnd={(e, info) => {
+                if (info.offset.y > 80 || info.velocity.y > 300) {
+                  setMobileMenuOpen(false);
+                }
+              }}
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
               transition={{
                 type: "tween",
-                duration: 0.22,
-                ease: [0.16, 1, 0.3, 1],
+                ease: "easeOut",
+                duration: 0.25,
               }}
-              style={{ willChange: "transform" }}
-              className="absolute right-0 top-0 h-full w-[85%] sm:w-[380px] bg-slate-50 dark:bg-[#09090b] shadow-[-15px_0_40px_rgba(0,0,0,0.45)] rounded-l-[30px] border-l dark:border-white/10 border-black/10 flex flex-col items-center overflow-hidden z-[9999]"
+              style={{ willChange: "transform, opacity" }}
+              className="relative w-full max-h-[85vh] flex flex-col bg-white/80 dark:bg-[#09090b]/90 backdrop-blur-xl rounded-t-[2.5rem] border-t border-white/40 dark:border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.2)] pb-safe z-[9999] overflow-hidden"
             >
-              <div className="flex items-center justify-between p-7 w-full border-b dark:border-white/5 border-black/5 dark:bg-white/5 bg-black/5 relative z-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-lg overflow-hidden p-1.5 shrink-0">
+              {/* --- OPTIMIZED ANIMATED BACKGROUND --- */}
+              <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+                {/* 1. Fast CSS Gradients (Replaces heavy blurred orbs) */}
+                <motion.div
+                  className="absolute w-[150%] h-[150%] -top-[25%] -left-[25%] opacity-40 dark:opacity-20"
+                  style={{
+                    background: 'radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.4) 0%, rgba(96, 165, 250, 0.2) 30%, transparent 60%)'
+                  }}
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* 2. Simplified Spores (No CSS blur, fewer elements) */}
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={`spore-${i}`}
+                    className="absolute rounded-full bg-emerald-500/60 dark:bg-emerald-400/50"
+                    style={{
+                      width: Math.random() * 3 + 1.5 + "px",
+                      height: Math.random() * 3 + 1.5 + "px",
+                      left: Math.random() * 100 + "%",
+                      top: "-5%",
+                    }}
+                    animate={{
+                      y: ['0vh', '85vh'],
+                      x: [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50],
+                      opacity: [0, 0.8, 0],
+                    }}
+                    transition={{
+                      duration: Math.random() * 6 + 5,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: Math.random() * 4,
+                    }}
+                  />
+                ))}
+
+                {/* 3. Pulsing Watermark (Simple scale/opacity) */}
+                <motion.div
+                  className="absolute -bottom-8 -right-8 text-emerald-600/10 dark:text-emerald-300/5"
+                  animate={{ scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <svg width="200" height="200" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C7 2 3 6.5 3 11.5C3 12.3 3.7 13 4.5 13H19.5C20.3 13 21 12.3 21 11.5C21 6.5 17 2 12 2ZM10.5 14.5V21C10.5 21.8 11.2 22.5 12 22.5C12.8 22.5 13.5 21.8 13.5 21V14.5H10.5Z" />
+                  </svg>
+                </motion.div>
+              </div>
+              {/* --- END OPTIMIZED BACKGROUND --- */}
+
+              {/* Drawer Handle (Drag Indicator) - Tap to close as well as drag */}
+              <div 
+                className="w-full flex justify-center pt-3 pb-2 cursor-grab active:cursor-grabbing relative z-20"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <div className="w-12 h-1.5 bg-slate-300/80 dark:bg-slate-600/80 rounded-full hover:bg-slate-400 dark:hover:bg-slate-500 transition-colors" />
+              </div>
+
+              {/* Header with Inline Live Ticker */}
+              <div className="flex items-center gap-3 px-4 pb-3 pt-1 w-full relative z-20">
+                {/* Logo & Title */}
+                <div className="flex items-center gap-2 shrink-0">
+                  <div className="w-6 h-6 rounded-md bg-white/70 dark:bg-white/10 border border-white/50 dark:border-white/5 flex items-center justify-center shadow-sm overflow-hidden p-0.5">
                     <img
                       src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
                       alt="Organic Mushrooms Farm"
                       className="w-full h-full object-contain"
-                     width="120" height="120" />
+                    />
                   </div>
-                  <span className="text-xl font-bold tracking-tight dark:text-white text-slate-900">
-                    Organic <span className="gradient-text">Mushroom Farm</span>
+                  <span className="text-[13px] font-bold tracking-tight dark:text-white text-slate-900 hidden sm:block">
+                    Menu
                   </span>
                 </div>
+                
+                {/* Inline Live Ticker (No Green Dot, Seamless) */}
+                <div className="flex-1 overflow-hidden h-7 bg-slate-100/40 dark:bg-black/20 rounded-full flex items-center shadow-inner border border-white/20 dark:border-white/5 backdrop-blur-md">
+                   <div className="w-full overflow-hidden flex items-center h-full">
+                     <motion.div 
+                       className="whitespace-nowrap text-[10px] sm:text-[11px] font-bold text-slate-700 dark:text-slate-300 tracking-wider uppercase flex items-center h-full pt-0.5"
+                       animate={{ x: [0, -600] }}
+                       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                       style={{ willChange: "transform" }}
+                     >
+                       <span className="mx-4">India 24.4°C, Hum 88% 🌡️</span>
+                       <span className="mx-4">•</span>
+                       <span className="mx-4">New Batch Opens Soon 🍄</span>
+                       <span className="mx-4">•</span>
+                       <span className="mx-4">Turnkey Setup Consultation 📞</span>
+                       <span className="mx-4">•</span>
+                       <span className="mx-4">India 24.4°C, Hum 88% 🌡️</span>
+                       <span className="mx-4">•</span>
+                       <span className="mx-4">New Batch Opens Soon 🍄</span>
+                     </motion.div>
+                   </div>
+                </div>
+
+                {/* Close Button */}
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="dark:text-white text-slate-900 p-2.5 dark:bg-white/10 bg-black/11 rounded-full hover:bg-black/15 dark:hover:bg-white/15 transition-all duration-200"
+                  className="shrink-0 dark:text-white text-slate-900 p-1.5 bg-slate-200/50 dark:bg-white/10 rounded-full hover:bg-slate-300/50 dark:hover:bg-white/20 transition-all backdrop-blur-md border border-white/20 dark:border-white/5"
                   aria-label="Close Menu"
                 >
-                  <X size={24} />
+                  <X size={14} />
                 </button>
               </div>
 
-              <motion.div
-                initial={{ opacity: 1, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.16, duration: 0.25, ease: "easeOut" }}
-                style={{ willChange: "transform, opacity" }}
-                className="flex-1 w-full flex flex-col items-center justify-start gap-2 px-8 py-10 overflow-y-auto relative z-10"
-              >
-                {NAV_ITEMS.map((item, i) => {
-                  const isHashLink = item.href.includes("#");
-                  const hash = isHashLink ? item.href.split("#")[1] : null;
-                  const isActive = isHashLink
-                    ? location.pathname === "/" && activeSection === hash
-                    : location.pathname === item.href &&
-                      !location.hash &&
-                      activeSection === null;
+              {/* Grid Menu Content */}
+              <div className="flex-1 overflow-y-auto px-4 pb-8 pt-1 hide-scrollbar relative z-20">
+                <div className="grid grid-cols-2 gap-2">
+                  {NAV_ITEMS.map((item, i) => {
+                    const isHashLink = item.href.includes("#");
+                    const hash = isHashLink ? item.href.split("#")[1] : null;
+                    const isActive = isHashLink
+                      ? location.pathname === "/" && activeSection === hash
+                      : location.pathname === item.href &&
+                        !location.hash &&
+                        activeSection === null;
 
-                  return (
-                    <div key={item.name} className="w-full">
-                      {isHashLink && location.pathname === "/" ? (
-                        <a
-                          href={`#${hash}`}
-                          onClick={(e) => {
-                            setMobileMenuOpen(false);
-                            e.preventDefault();
-                            const element = document.getElementById(hash!);
-                            if (element) {
-                              const offset = 80;
-                              const bodyRect =
-                                document.body.getBoundingClientRect().top;
-                              const elementRect =
-                                element.getBoundingClientRect().top;
-                              const elementPosition = elementRect - bodyRect;
-                              const offsetPosition = elementPosition - offset;
+                    const hasSubMenu = (item as any).subMenu && (item as any).subMenu.length > 0;
+                    const isExpanded = expandedMobileMenu === item.name;
 
-                              window.scrollTo({
-                                top: offsetPosition,
-                                behavior: "smooth",
-                              });
-                              window.history.pushState(null, "", `/#${hash}`);
-                            }
-                          }}
-                          className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white"}`}
-                        >
-                          <div
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
-                          >
-                            {item.icon && <item.icon size={20} />}
-                          </div>
-                          <span className={isActive ? "gradient-text" : ""}>
-                            {item.name}
-                          </span>
-                        </a>
-                      ) : (
-                        <div className="w-full">
-                          {(item as any).subMenu ? (
+                    const baseCardClass = `relative w-full overflow-hidden rounded-2xl border transition-all duration-200 ${isActive ? "border-primary-start/50 bg-primary-start/15 shadow-[0_0_15px_rgba(34,197,94,0.2)]" : "border-white/50 dark:border-white/10 bg-white/70 dark:bg-white/[0.05] shadow-sm hover:bg-white/90 dark:hover:bg-white/[0.1] backdrop-blur-md"}`;
+
+                    return (
+                      <motion.div
+                        key={item.name}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.02, duration: 0.2, ease: "easeOut" }}
+                        className={hasSubMenu ? "col-span-2 sm:col-span-1" : "col-span-1"}
+                      >
+                        {hasSubMenu ? (
+                          <div className={baseCardClass}>
                             <button
                               onClick={() => {
                                 setExpandedMobileMenu((prev) =>
                                   prev === item.name ? null : item.name,
                                 );
                               }}
-                              className={`flex items-center justify-between text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white"}`}
+                              className="w-full flex items-center justify-between p-2.5 group relative overflow-hidden"
                             >
-                              <div className="flex items-center gap-5">
-                                <div
-                                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
-                                >
-                                  {item.icon && <item.icon size={20} />}
+                              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="flex items-center gap-2 relative z-10">
+                                <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start" : "bg-slate-100/80 dark:bg-white/10 text-slate-700 dark:text-slate-300"}`}>
+                                  {item.icon && <item.icon size={12} />}
                                 </div>
-                                <span
-                                  className={isActive ? "gradient-text" : ""}
-                                >
+                                <span className={`text-[11px] font-bold ${isActive ? "text-primary-start" : "text-slate-800 dark:text-slate-200"}`}>
                                   {item.name}
                                 </span>
                               </div>
                               <ChevronDown
-                                size={20}
-                                className={`transition-transform duration-300 ${expandedMobileMenu === item.name ? "rotate-180" : ""}`}
+                                size={12}
+                                className={`transition-transform duration-200 relative z-10 ${isExpanded ? "rotate-180" : ""} ${isActive ? "text-primary-start" : "text-slate-500"}`}
                               />
                             </button>
-                          ) : (
-                            <Link
-                              to={item.href}
-                              onClick={() => setMobileMenuOpen(false)}
-                              className={`flex items-center gap-5 text-lg font-bold transition-all py-4 px-6 w-full rounded-2xl group hover:scale-[1.02] hover:dark:bg-white/5 bg-black/5 ${isActive ? "dark:bg-white/10 bg-black/10 text-primary-start shadow-[0_0_30px_rgba(56,189,248,0.25)]" : "dark:text-slate-300 text-slate-700 hover:text-slate-900 dark:hover:text-white"}`}
-                            >
-                              <div
-                                className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${isActive ? "bg-primary-start/20 text-primary-start border border-primary-start/30 backdrop-blur-md shadow-[0_0_15px_rgba(124,58,237,0.2)]" : "dark:bg-white/5 bg-black/5 text-slate-500 group-hover:text-primary-start group-hover:bg-primary-start/10 group-hover:border group-hover:border-primary-start/20"}`}
-                              >
-                                {item.icon && <item.icon size={20} />}
-                              </div>
-                              <span className={isActive ? "gradient-text" : ""}>
-                                {item.name}
-                              </span>
-                            </Link>
-                          )}
-                          <AnimatePresence>
-                            {(item as any).subMenu &&
-                              expandedMobileMenu === item.name && (
+                            <AnimatePresence>
+                              {isExpanded && (
                                 <motion.div
-                                  initial={{ height: 0, opacity: 1 }}
+                                  initial={{ height: 0, opacity: 0 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
-                                  className="overflow-hidden"
+                                  transition={{ duration: 0.2 }}
+                                  className="overflow-hidden bg-white/40 dark:bg-black/30 backdrop-blur-md"
                                 >
-                                  <div className="ml-20 mt-1 space-y-1 mb-4 flex flex-col">
-                                    {(item as any).subMenu.map((sub: any) => (
-                                      <Link
+                                  <div className="px-3 py-1 flex flex-col gap-0.5 border-t border-white/40 dark:border-white/10">
+                                    {(item as any).subMenu.map((sub: any, subI: number) => (
+                                      <motion.div
                                         key={sub.name}
-                                        to={sub.href}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="py-2 text-sm font-bold text-slate-500 hover:text-primary-start transition-colors"
+                                        initial={{ x: -10, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        transition={{ delay: subI * 0.03, duration: 0.15 }}
                                       >
-                                        {sub.name}
-                                      </Link>
+                                        <Link
+                                          to={sub.href}
+                                          onClick={() => setMobileMenuOpen(false)}
+                                          className="block py-1.5 text-[10px] font-semibold text-slate-700 dark:text-slate-300 hover:text-primary-start dark:hover:text-primary-start transition-colors pl-6 relative"
+                                        >
+                                          <div className="absolute left-2.5 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-slate-400 dark:bg-slate-500" />
+                                          {sub.name}
+                                        </Link>
+                                      </motion.div>
                                     ))}
                                   </div>
                                 </motion.div>
                               )}
-                          </AnimatePresence>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </motion.div>
-
-              <div className="w-full p-8 border-t dark:border-white/5 border-black/5 bg-white/[0.02] text-center">
-                <p className="text-[10px] uppercase font-black tracking-[0.3em] text-slate-500 animate-pulse">
-                  Organic Ecosystems India & Global
-                </p>
+                            </AnimatePresence>
+                          </div>
+                        ) : (
+                          <Link
+                            to={item.href}
+                            onClick={(e) => {
+                              if (isHashLink && location.pathname === "/") {
+                                e.preventDefault();
+                                setMobileMenuOpen(false);
+                                const element = document.getElementById(hash);
+                                if (element) {
+                                  const offset = 80;
+                                  const bodyRect = document.body.getBoundingClientRect().top;
+                                  const elementRect = element.getBoundingClientRect().top;
+                                  const offsetPosition = (elementRect - bodyRect) - offset;
+                                  window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                                  window.history.pushState(null, "", `/#${hash}`);
+                                }
+                              } else {
+                                setMobileMenuOpen(false);
+                              }
+                            }}
+                            className={`${baseCardClass} flex flex-col items-start justify-center p-2.5 min-h-[60px] group`}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center mb-1.5 transition-all relative z-10 ${isActive ? "bg-primary-start/20 text-primary-start" : "bg-slate-100/80 dark:bg-white/10 text-slate-700 dark:text-slate-300"}`}>
+                              {item.icon && <item.icon size={12} />}
+                            </div>
+                            <span className={`text-[11px] font-bold relative z-10 ${isActive ? "text-primary-start" : "text-slate-800 dark:text-slate-200"}`}>
+                              {item.name}
+                            </span>
+                          </Link>
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -3805,7 +3889,7 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className="fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[65px] md:bottom-[20px]">
+      <div className="floating-button-wrapper fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[65px] md:bottom-[20px]">
         <div className="flex flex-col items-center gap-1.5 pointer-events-auto">
           <motion.a
             href="https://wa.me/919203544140"
@@ -3838,7 +3922,7 @@ const FloatingButtons = () => {
 
       {/* Floating Buttons on Left Side */}
       <div
-        className={`fixed left-3 md:left-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-start pointer-events-none bottom-[65px] md:bottom-[20px]`}
+        className={`floating-button-wrapper fixed left-3 md:left-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-start pointer-events-none bottom-[65px] md:bottom-[20px]`}
       >
         <div className="pointer-events-auto">
           <AIChatWidget />
@@ -5136,7 +5220,7 @@ const PageHero = ({
         transition={{ duration: 0.6 }}
       >
         {badge && <div className="badge mx-auto mb-6">{badge}</div>}
-        <h1 className="text-4xl md:text-7xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">
+        <h1 className="text-3xl md:text-6xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">
           {title.split(" ").map((word, i) => (
             <React.Fragment key={i}>
               {i === 1 ? (
@@ -5147,7 +5231,7 @@ const PageHero = ({
             </React.Fragment>
           ))}
         </h1>
-        <p className="dark:text-slate-400 text-slate-600 text-lg md:text-xl max-w-2xl mx-auto font-medium">
+        <p className="dark:text-slate-400 text-slate-600 text-sm md:text-lg max-w-2xl mx-auto font-medium">
           {description}
         </p>
       </motion.div>
@@ -6109,20 +6193,20 @@ const FAQPage = () => {
       />
       <section className="section-padding pt-0 pb-20">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="mb-12 space-y-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">
+          <div className="mb-8 space-y-4 text-center">
+            <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900">
               Welcome to the official FAQ Hub of Organic Mushroom Farm.
             </h2>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
               If you're planning to start a commercial mushroom farming business, you may have questions about investment, infrastructure, farm setup, production, and profitability. This page provides clear, accurate, and practical answers to the most common questions asked by aspiring mushroom entrepreneurs.
             </p>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
               Our expertise focuses on the commercial cultivation of Oyster, Button, and Milky mushrooms. Here, you'll find detailed information about setup costs, farm planning, profit potential, production systems, and our hands-on training programs conducted across states such as Madhya Pradesh, Uttar Pradesh, Bihar, Maharashtra, and etc. many other regions.
             </p>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
               Whether you're a complete beginner starting from scratch or an experienced farmer looking to scale your operations, our expert team is here to support you at every stage. If you can't find the answer you're looking for below, feel free to contact our consultancy team for personalized guidance.
             </p>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-base md:text-lg font-medium">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base font-medium">
               Let's answer your questions and help you build a successful mushroom farming business.
             </p>
           </div>
@@ -6854,6 +6938,7 @@ const AnimatedRoutes = () => {
           <Route path="/locations/jabalpur/:slug" element={<JabalpurBlogPage />} />
           <Route path="/locations/pune" element={<PunePage />} />
           <Route path="/locations/pune/:slug" element={<PuneBlogPage />} />
+                    <Route path="/mushroom-farming-san-diego" element={<ArticleSanDiegoMushroomFarming />} />
           <Route path="/how-to-start-indoor-mushroom-farm-california" element={<HowToStartIndoorMushroomFarmCalifornia />} />
           <Route path="/mushroom-farming-usa-guide" element={<MushroomFarmingUsaGuide />} />
 
