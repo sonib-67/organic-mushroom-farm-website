@@ -102,7 +102,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
+    <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-transparent font-sans">
       <SEO 
         title="Grow Mushrooms at Home in India | Beginner's Step-by-Step Guide" 
         description={metaDesc || "Learn how to grow mushroom at home. Complete step-by-step guide on substrate pasteurization, spawn selection, bag filling, incubation, harvesting, and state-wise training centers."}
@@ -244,7 +244,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
                 </thead>
                 <tbody className="divide-y dark:divide-white/5 divide-black/5 font-medium">
                   {varietyTable.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-white/[0.01]">
+                    <tr key={idx} className="hover:bg-transparent dark:hover:bg-white/[0.01]">
                       <td className="p-4 font-bold text-slate-900 dark:text-white flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                         {row.name}
@@ -297,16 +297,16 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
                   Substrate matlab woh basic structure material hai jisme mushroom mycelium grow karta hai aur energy nutrients le leta hai.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4 text-xs dark:text-slate-400 text-slate-600 mb-4">
-                  <div className="bg-slate-50 dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
+                  <div className="bg-transparent dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
                     <strong>🍄 For Oyster Mushroom:</strong> Best substrates are Gehu Bhusa (wheat straw), Dhan Ka Pual (paddy straw), Cotton waste, sawdust or sugarcane bagasse.
                   </div>
-                  <div className="bg-slate-50 dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
+                  <div className="bg-transparent dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
                     <strong>🍄 For Button Mushroom:</strong> Composted wheat straw + pure organic horse dung or poultry chicken waste manure specially processed and fermented.
                   </div>
-                  <div className="bg-slate-50 dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
+                  <div className="bg-transparent dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
                     <strong>🍄 For Shiitake, Lion's Mane, Reishi:</strong> Hardwood organic fine sawdust logs (like sheesham, teak, or sal tree scrap).
                   </div>
-                  <div className="bg-slate-50 dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
+                  <div className="bg-transparent dark:bg-white/[0.01] p-3 rounded-xl border dark:border-white/5 border-black/5">
                     <strong>🍄 For Milky Mushroom:</strong> Simple paddy straw or sugarcane waste bagasse works exceptional.
                   </div>
                 </div>
@@ -439,7 +439,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               Aaiye, clear aur precise dynamic cost index calculations ko standard values of 2026 check matrix ke format mein read and understand karein:
             </p>
 
-            <div className="overflow-x-auto rounded-[2rem] border dark:border-white/5 border-black/5 bg-slate-50 dark:bg-black/60">
+            <div className="overflow-x-auto rounded-[2rem] border dark:border-white/5 border-black/5 bg-transparent dark:bg-black/60">
               <table className="w-full text-xs sm:text-sm text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-100 dark:bg-white/10 border-b dark:border-white/10 border-black/10">
@@ -513,7 +513,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
                 </thead>
                 <tbody className="divide-y dark:divide-white/5 divide-black/5 font-semibold">
                   {trainingTable.map((row, i) => (
-                    <tr key={i} className="hover:bg-slate-50 dark:hover:bg-white/[0.01]">
+                    <tr key={i} className="hover:bg-transparent dark:hover:bg-white/[0.01]">
                       <td className="p-4 font-bold dark:text-white text-slate-900">{row.type}</td>
                       <td className="p-4 dark:text-slate-300 text-slate-600 font-mono">{row.duration}</td>
                       <td className="p-4 dark:text-slate-300 text-slate-600">{row.mode}</td>
@@ -762,7 +762,7 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
                 </thead>
                 <tbody className="divide-y dark:divide-white/5 divide-black/5 font-medium">
                   {mistakesList.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-white/[0.01]">
+                    <tr key={idx} className="hover:bg-transparent dark:hover:bg-white/[0.01]">
                       <td className="p-4 text-slate-950 dark:text-white font-bold">{row.galti}</td>
                       <td className="p-4 dark:text-slate-300 text-slate-700">{row.asar}</td>
                       <td className="p-4 text-emerald-500 font-bold">{row.solution}</td>
@@ -782,39 +782,39 @@ const ArticleGharParMushroomFarming = ({ metaDesc }: { metaDesc?: string }) => {
               Aapko shuruat karne ke liye in simple instruments ki zaroorat padegi:
             </p>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 font-medium">
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Polypropylene bags (12x24 inch size)</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Certified high-yield fresh spawn</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Clean Wheat Straw or Hardwood Sawdust</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Pressure cooker or boiler drum sterilizer</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Hand pressure sprayer misting nozzle</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Thermometer and Hygrometer meter clock</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Clean rubber-bands and sterile plastic clips</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Clean drill, nails or sharp scalpel</span>
               </div>
-              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-slate-50 border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
+              <div className="flex items-center gap-2.5 p-3 dark:bg-white/[0.01] bg-transparent border dark:border-white/5 border-black/5 rounded-xl text-xs sm:text-sm">
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
                 <span>Closed dark growing space or grow tents</span>
               </div>

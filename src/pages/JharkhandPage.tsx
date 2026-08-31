@@ -5,7 +5,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 export default function JharkhandPage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Mushroom Farming in Jharkhand | Training & Spawn Supply"
         description="Find mushroom farming training, spawn suppliers, and cultivation resources in Jharkhand."

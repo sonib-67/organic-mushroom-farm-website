@@ -18,7 +18,7 @@ export default function PuneBlogPage() {
   }
 
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title={blog.title}
         description={blog.metaDesc}
@@ -62,7 +62,7 @@ export default function PuneBlogPage() {
             </h2>
             <div className="space-y-6">
               {blog.faq.map((item, index) => (
-                <div key={index} className="bg-white dark:bg-[#09090b] p-5 rounded-xl shadow-sm border border-black/5 dark:border-white/5">
+                <div key={index} className="bg-white dark:bg-transparent p-5 rounded-xl shadow-sm border border-black/5 dark:border-white/5">
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-3">
                     {item.q}
                   </h3>

@@ -5,7 +5,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 export default function MaharashtraPage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Maharashtra Mushroom Farming | Cities Pages"
         description="Find the best mushroom farming training, farm setups, and expert advice in Maharashtra."

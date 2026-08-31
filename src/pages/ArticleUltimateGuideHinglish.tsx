@@ -96,7 +96,7 @@ const ArticleUltimateGuideHinglish = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-slate-50 font-sans">
+    <div className="min-h-screen pt-32 pb-20 dark:bg-[#070707] bg-transparent font-sans">
       <SEO 
         title="From Zero to Mushroom Farmer | Complete Hinglish Guide" 
         description="India's ultimate guide to starting a successful mushroom business: Covers spawn, offline/online training, setup cost margins, buyback guarantee, & city-wise guides."
@@ -397,7 +397,7 @@ const ArticleUltimateGuideHinglish = () => {
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-white/5 text-sm dark:text-slate-300 text-slate-600">
                   {costMatrix.map((item, id) => (
-                    <tr key={id} className="hover:bg-slate-50 dark:hover:bg-white/[0.01]">
+                    <tr key={id} className="hover:bg-transparent dark:hover:bg-white/[0.01]">
                       <td className="p-4 font-semibold text-slate-900 dark:text-white">{item.type}</td>
                       <td className="p-4 text-emerald-500 font-bold">{item.investment}</td>
                       <td className="p-4">{item.bags}</td>
@@ -530,7 +530,7 @@ const ArticleUltimateGuideHinglish = () => {
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-white/5 text-sm dark:text-slate-300 text-slate-600">
                   {profitEstimates.map((item, id) => (
-                    <tr key={id} className="hover:bg-slate-50 dark:hover:bg-white/[0.01]">
+                    <tr key={id} className="hover:bg-transparent dark:hover:bg-white/[0.01]">
                       <td className="p-4 font-semibold text-slate-900 dark:text-white">{item.size}</td>
                       <td className="p-4">{item.investment}</td>
                       <td className="p-4">{item.cycle}</td>
@@ -609,7 +609,7 @@ const ArticleUltimateGuideHinglish = () => {
                 >
                   <button 
                     onClick={() => toggleFAQ(idx)}
-                    className="w-full text-left p-6 font-bold dark:text-white text-slate-900 flex justify-between items-center bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10"
+                    className="w-full text-left p-6 font-bold dark:text-white text-slate-900 flex justify-between items-center bg-transparent dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10"
                   >
                     <span>{faq.q}</span>
                     <ChevronRight size={18} className={`text-emerald-500 transform transition-transform ${activeFAQ === idx ? 'rotate-90' : ''}`} />

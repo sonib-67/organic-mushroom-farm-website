@@ -9,7 +9,7 @@ export default function MadhyaPradeshPage() {
   }, []);
 
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Madhya Pradesh Mushroom Farming | Cities Pages"
         description="Discover top-rated commercial mushroom farming training, turnkey setup services, and expert guidance in Madhya Pradesh to start your successful business."

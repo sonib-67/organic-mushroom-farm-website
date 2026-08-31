@@ -57,7 +57,7 @@ const ArticleButtonVsOysterMushroom = () => {
           <h2 className="text-2xl font-bold dark:text-white text-slate-900 mt-8 mb-4">
             2. Cultivation Requirements (Kheti ki Zaroorat)
           </h2>
-          <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl space-y-4">
+          <div className="bg-transparent dark:bg-slate-800/50 p-6 rounded-xl space-y-4">
             <h3 className="font-bold text-lg dark:text-white text-slate-900">Button Mushroom Cultivation:</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Substrate:</strong> Ek complex compost ki zarurat hoti hai (wheat straw, chicken manure, urea, gypsum etc. ko mila kar). Compost banane mein lagbhag 25-28 din lagte hain.</li>
@@ -67,7 +67,7 @@ const ArticleButtonVsOysterMushroom = () => {
             </ul>
           </div>
 
-          <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl space-y-4 mt-6">
+          <div className="bg-transparent dark:bg-slate-800/50 p-6 rounded-xl space-y-4 mt-6">
             <h3 className="font-bold text-lg dark:text-white text-slate-900">Oyster Mushroom Cultivation:</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Substrate:</strong> Simple aur asaan. Gehu ka bhusa (wheat straw) ya paddy straw ko boil/pasteurize karke seedha use kiya ja sakta hai.</li>

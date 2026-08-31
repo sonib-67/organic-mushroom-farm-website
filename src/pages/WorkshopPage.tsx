@@ -192,7 +192,7 @@ const WorkshopPage = () => {
   };
 
   return (
-    <div className="font-sans dark:bg-[#0a0f0d] bg-slate-50 dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
+    <div className="font-sans dark:bg-[#0a0f0d] bg-transparent dark:text-white text-slate-900 min-h-screen overflow-x-hidden selection:bg-green-500/30">
       <SEO 
         title="Agri-Business Mushroom Farming Workshop | Organic Mushrooms Farm"
         description="Book your seat for ₹199. Learn commercial oyster, milky, and button mushroom cultivation, farm setups, and B2B marketing from Indian experts."
@@ -532,7 +532,7 @@ const WorkshopPage = () => {
       </section>
 
       {/* Footer & Contact */}
-      <footer id="contact" className="dark:bg-black bg-slate-50 pt-12 pb-20 md:pb-10 border-t dark:border-white/10 border-black/10 relative">
+      <footer id="contact" className="dark:bg-black bg-transparent pt-12 pb-20 md:pb-10 border-t dark:border-white/10 border-black/10 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24 mb-16">
             <div>

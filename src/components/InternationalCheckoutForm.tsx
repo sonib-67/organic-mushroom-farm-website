@@ -55,7 +55,7 @@ const InternationalCheckoutForm = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden relative border border-slate-200 dark:border-white/10 animate-in fade-in zoom-in duration-300">
+      <div className="bg-white dark:bg-transparent w-full max-w-md rounded-3xl shadow-2xl overflow-hidden relative border border-slate-200 dark:border-white/10 animate-in fade-in zoom-in duration-300">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -87,7 +87,7 @@ const InternationalCheckoutForm = ({
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
+                  className="w-full bg-transparent dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
                   placeholder="John Doe"
                 />
               </div>
@@ -103,7 +103,7 @@ const InternationalCheckoutForm = ({
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
+                  className="w-full bg-transparent dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
                   placeholder="john@example.com"
                 />
               </div>
@@ -119,7 +119,7 @@ const InternationalCheckoutForm = ({
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="w-full bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
+                  className="w-full bg-transparent dark:bg-slate-800/50 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 outline-none text-slate-900 dark:text-white"
                   placeholder="+1 234 567 8900"
                 />
               </div>

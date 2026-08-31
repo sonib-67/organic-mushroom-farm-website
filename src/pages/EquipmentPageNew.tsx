@@ -44,7 +44,7 @@ const EquipmentPageNew = () => {
         description="Discover top-quality mushroom farming equipment, from climate control and humidification to sterilization and cold storage. We provide complete farm setup solutions, turnkey projects, and advanced tools to boost your mushroom farm's yield and profitability."
       />
 
-      <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-slate-50 dark:bg-slate-900 min-h-screen">
+      <section className="pt-24 md:pt-32 pb-16 md:pb-24 bg-transparent dark:bg-transparent min-h-screen">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           <div className="mb-8 md:mb-12 text-center md:text-left">
             <h1 className="text-2xl md:text-4xl font-black dark:text-white text-slate-900 tracking-tight mb-3">
@@ -74,7 +74,7 @@ const EquipmentPageNew = () => {
           </div>
 
           {/* Descriptions List as Interactive Cards */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl md:rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-8">
+          <div className="bg-white/20 dark:bg-slate-800/20 glass rounded-xl md:rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-4 md:p-8">
             <h2 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-4 md:mb-6">
               Equipment details
             </h2>
@@ -83,7 +83,7 @@ const EquipmentPageNew = () => {
                 <Link
                   key={idx}
                   to={(cat as any).link || "#"}
-                  className="flex flex-col p-4 rounded-xl border border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 hover:border-primary-start dark:hover:border-primary-start hover:shadow-md transition-all group"
+                  className="flex flex-col p-4 rounded-xl border border-slate-100 dark:border-slate-700 bg-transparent dark:bg-slate-900/50 hover:border-primary-start dark:hover:border-primary-start hover:shadow-md transition-all group"
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 group-hover:text-primary-start dark:group-hover:text-primary-start transition-colors">

@@ -341,7 +341,7 @@ const ContactPage = () => {
                                             name="name"
                                             required
                                             placeholder="Your Full Name"
-                                            className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -351,7 +351,7 @@ const ContactPage = () => {
                                             name="phone"
                                             required
                                             placeholder="Ex. 9876543210"
-                                            className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                         />
                                     </div>
                                 </div>
@@ -364,7 +364,7 @@ const ContactPage = () => {
                                             name="email"
                                             required
                                             placeholder="you@example.com"
-                                            className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -374,7 +374,7 @@ const ContactPage = () => {
                                             name="location"
                                             required
                                             placeholder="City, State"
-                                            className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
+                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
                                         />
                                     </div>
                                 </div>
@@ -386,7 +386,7 @@ const ContactPage = () => {
                                         required
                                         rows={4}
                                         placeholder="Please describe your requirements..."
-                                        className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all resize-none"
+                                        className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all resize-none"
                                     ></textarea>
                                 </div>
                                 
@@ -403,7 +403,7 @@ const ContactPage = () => {
                                             setCaptchaAnswer(e.target.value);
                                             if (captchaError) setCaptchaError('');
                                         }}
-                                        className={`w-full bg-slate-50 dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:ring-1 focus:ring-primary-start transition-all`} 
+                                        className={`w-full bg-transparent dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:ring-1 focus:ring-primary-start transition-all`} 
                                         placeholder="Your answer" 
                                     />
                                     {captchaError && (

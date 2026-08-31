@@ -5,7 +5,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 export default function AndhraPradeshPage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Mushroom Farming in Andhra Pradesh | Cities"
         description="Find mushroom farming training, farm setups, seeds, and resources in Andhra Pradesh cities."

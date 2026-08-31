@@ -25,7 +25,7 @@ export default function EquipmentGrowingRacksPage() {
           </p>
         </div>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why High-Quality Aluminum Racks are a Game Changer</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             When building out a commercial mushroom farm, standard steel or wood shelving simply won't survive. Mushroom growing rooms are high-humidity environments (often running at 80-90% humidity), which is a recipe for rust and rot. Aluminum is the industry standard for several critical reasons:
@@ -46,7 +46,7 @@ export default function EquipmentGrowingRacksPage() {
           </ul>
         </section>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Designing Growing Beds to Maximize Crop Yield</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             A well-designed growing bed directly impacts your bottom line. It's not just about stacking trays; it's about creating the perfect micro-environment for every single mushroom.
@@ -67,7 +67,7 @@ export default function EquipmentGrowingRacksPage() {
           </ul>
         </section>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Optimize Space in Your Commercial Farm</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             Space optimization isn't just about packing in as many racks as possible. It's about workflow and efficiency.
@@ -84,7 +84,7 @@ export default function EquipmentGrowingRacksPage() {
           </ul>
         </section>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Essential Accessories for Your Cultivation Setup</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             To get the most out of your aluminum racks, you will want to integrate these essential accessories into your workflow:

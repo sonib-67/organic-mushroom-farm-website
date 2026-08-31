@@ -8,7 +8,7 @@ const MushroomFarmingUsaGuide = () => {
   }, []);
 
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-slate-50 dark:bg-slate-900">
+    <div className="min-h-screen pt-24 pb-16 bg-transparent dark:bg-transparent">
       <SEO 
         title="Mushroom Farming USA Guide"
         description="Comprehensive guide to mushroom farming in the USA. Learn about indoor farming, climate control, and state-by-state strategies."
@@ -30,7 +30,7 @@ const MushroomFarmingUsaGuide = () => {
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-800 p-8 rounded-xl mt-10 shadow-sm border border-slate-200 dark:border-slate-700">
+          <div className="bg-white/20 dark:bg-slate-800/20 glass p-8 rounded-xl mt-10 shadow-sm border border-slate-200 dark:border-slate-700">
             <h2 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-6 mt-0">
               Regional Farming Guides
             </h2>

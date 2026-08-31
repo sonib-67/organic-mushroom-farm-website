@@ -5,7 +5,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 export default function HaryanaPage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Mushroom Farming in Haryana | Cities"
         description="Find premium mushroom farming training, commercial setups, spawn supply, and agribusiness resources across cities in Haryana."

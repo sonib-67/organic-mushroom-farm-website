@@ -35,7 +35,7 @@ const subCategories = [
 
 export default function EquipmentCompleteListPage() {
   return (
-    <div className="font-sans bg-slate-50 dark:bg-slate-900 min-h-screen">
+    <div className="font-sans bg-transparent dark:bg-transparent min-h-screen">
       <SEO 
         title="Mushroom Farming Equipment Directory | Organic Mushrooms Farm"
         description="Complete directory for mushroom farming equipment, machinery, safety material, lab tools, and climate control systems."
@@ -60,7 +60,7 @@ export default function EquipmentCompleteListPage() {
             <Link 
               key={idx} 
               to={cat.route}
-              className="group bg-white dark:bg-slate-800 rounded-lg md:rounded-xl p-3 md:p-6 shadow-sm hover:shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden flex flex-col items-center text-center md:items-start md:text-left"
+              className="group bg-white/20 dark:bg-slate-800/20 glass rounded-lg md:rounded-xl p-3 md:p-6 shadow-sm hover:shadow-lg border border-slate-200 dark:border-slate-700 transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden flex flex-col items-center text-center md:items-start md:text-left"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary-start/5 rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110 hidden md:block" />
               <div className="w-8 h-8 md:w-12 md:h-12 bg-slate-100 dark:bg-slate-700/50 text-primary-start rounded-md md:rounded-xl flex items-center justify-center mb-2 md:mb-4 shrink-0">
@@ -91,7 +91,7 @@ export default function EquipmentCompleteListPage() {
               <Link 
                 key={idx} 
                 to={sub.route}
-                className="group flex flex-row items-center bg-white dark:bg-slate-800 rounded-lg p-2.5 md:p-4 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700 transition-all hover:border-primary-start/50"
+                className="group flex flex-row items-center bg-white/20 dark:bg-slate-800/20 glass rounded-lg p-2.5 md:p-4 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700 transition-all hover:border-primary-start/50"
               >
                 <div className="text-slate-400 group-hover:text-primary-start transition-colors mr-2.5 md:mr-3 shrink-0 flex items-center justify-center">
                   <div className="scale-[0.8] md:scale-100 flex items-center justify-center">{sub.icon}</div>

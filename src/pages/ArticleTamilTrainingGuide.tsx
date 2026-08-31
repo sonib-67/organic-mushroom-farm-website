@@ -171,7 +171,7 @@ const ArticleTamilTrainingGuide = ({ metaDesc }: { metaDesc?: string }) => {
                         </Link>
                         <Link 
                             to="/contact" 
-                            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white dark:bg-transparent border border-black/10 dark:border-white/20 text-slate-900 dark:text-white font-bold tracking-wide transition-all hover:bg-slate-50 dark:hover:bg-white/5 flex items-center justify-center gap-2"
+                            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white dark:bg-transparent border border-black/10 dark:border-white/20 text-slate-900 dark:text-white font-bold tracking-wide transition-all hover:bg-transparent dark:hover:bg-white/5 flex items-center justify-center gap-2"
                         >
                             <Phone className="w-5 h-5" />
                             தொடர்பு கொள்ள

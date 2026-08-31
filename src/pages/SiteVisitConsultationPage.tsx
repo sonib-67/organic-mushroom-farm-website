@@ -133,7 +133,7 @@ const SiteVisitConsultationPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pt-24 pb-12 flex items-center justify-center px-4 selection:bg-green-500/30">
+    <div className="min-h-screen bg-transparent dark:bg-transparent pt-24 pb-12 flex items-center justify-center px-4 selection:bg-green-500/30">
       <SEO 
         title="On Site Visit Consultation | Organic Mushrooms Farm" 
         description="Book your site visit consultation for organic mushroom farming. Visit our farm in Jabalpur."
@@ -237,11 +237,11 @@ const SiteVisitConsultationPage = () => {
             </form>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700/50 flex flex-col gap-3 relative z-10">
-              <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700/50">
+              <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400 bg-white/5 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700/50">
                 <MapPin className="w-5 h-5 text-green-500 shrink-0" />
                 <span className="text-sm">Location: Katangi, Jabalpur, Madhya Pradesh</span>
               </div>
-              <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400 bg-slate-50/50 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700/50">
+              <div className="flex items-center gap-3 text-slate-600 dark:text-slate-400 bg-white/5 dark:bg-slate-800/50 p-3 rounded-lg border border-slate-100 dark:border-slate-700/50">
                 <Phone className="w-5 h-5 text-green-500 shrink-0" />
                 <span className="text-sm">Mobile: <a href="tel:9203544140" className="font-semibold text-slate-700 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">9203544140</a></span>
               </div>
@@ -268,7 +268,7 @@ const SiteVisitConsultationPage = () => {
             <h2 className="text-3xl font-bold text-slate-800 dark:text-white mb-3 relative z-10">Payment Successful ✅</h2>
             <p className="text-slate-600 dark:text-slate-400 mb-8 text-lg font-medium relative z-10">Your site visit consultation request has been submitted successfully.</p>
             
-            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-5 mb-8 text-left border border-slate-100 dark:border-slate-700/50 relative z-10">
+            <div className="bg-transparent dark:bg-slate-900/50 rounded-xl p-5 mb-8 text-left border border-slate-100 dark:border-slate-700/50 relative z-10">
               <h3 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-slate-700/80 pb-2">Booking Details</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">

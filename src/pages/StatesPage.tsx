@@ -5,7 +5,7 @@ import { ChevronRight, Map } from "lucide-react";
 
 export default function StatesPage({ metaDesc }: { metaDesc?: string }) {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Mushroom Farming Centers & Resources by City"
         description={metaDesc || "Select a state to explore mushroom farming resources, training centers, and local guides."}

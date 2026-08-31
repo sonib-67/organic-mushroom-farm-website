@@ -6,7 +6,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 export default function JabalpurPage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Jabalpur Mushroom Farming | Cities Pages"
         description="Discover top-rated commercial mushroom farming training, turnkey setup services, and expert guidance tailored for Jabalpur to start your successful business."

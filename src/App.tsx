@@ -158,7 +158,6 @@ import ArticleOrganicMushroomFarmGuide from "./pages/ArticleOrganicMushroomFarmG
 import ArticleCommercialSetupTraining from "./pages/ArticleCommercialSetupTraining";
 
 import OperationsPage from "./pages/OperationsPage";
-import GoogleTranslate from "./components/GoogleTranslate";
 
 import {
   generateReviewSchema,
@@ -266,9 +265,9 @@ const ProductionSOP = () => {
   return (
     <section id="sop" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-5 md:mb-20">
           <div className="badge mx-auto mb-4">60-Day Commercial Cycle</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
+          <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
             Commercial Mushroom Production Cycle{" "}
             <span className="gradient-text">SOPs</span>
           </h2>
@@ -283,18 +282,18 @@ const ProductionSOP = () => {
             <motion.div
               key={i}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="min-w-[300px] snap-center glass border dark:border-white/5 border-black/5 p-6 rounded-3xl relative group transition-all"
+              className="min-w-[300px] snap-center glass border dark:border-white/5 border-black/5 p-3 rounded-3xl relative group transition-all"
             >
-              <div className="absolute top-0 right-0 p-4 font-black text-slate-800 text-4xl -z-10 group-hover:text-primary-start/10 transition-colors">
+              <div className="absolute top-0 right-0 p-3 font-black text-slate-800 text-sm -z-10 group-hover:text-primary-start/10 transition-colors">
                 {i + 1}
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-primary-start/10 flex items-center justify-center mb-6 text-primary-start group-hover:bg-primary-start group-hover:text-white transition-all">
+              <div className="w-8 h-8 rounded-2xl bg-primary-start/10 flex items-center justify-center mb-6 text-primary-start group-hover:bg-primary-start group-hover:text-white transition-all">
                 <s.icon size={20} />
               </div>
-              <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-4">
+              <h3 className="dark:text-white text-slate-900 font-bold text-sm mb-4">
                 {s.title}
               </h3>
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3 mb-5">
                 <div className="flex justify-between text-[11px] font-bold">
                   <span className="text-slate-500 uppercase tracking-widest">
                     Duration
@@ -419,7 +418,7 @@ const Counter = ({
       ref={nodeRef}
       initial={{ opacity: 1, y: 10 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      className="text-2xl md:text-4xl font-bold dark:text-white text-slate-900 tracking-tighter"
+      className="text-sm md:text-sm font-bold dark:text-white text-slate-900 tracking-tighter"
     >
       {displayValue}
     </motion.span>
@@ -461,9 +460,9 @@ const CriticalParameters = () => {
   return (
     <section className="section-padding relative">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">Precision Metrics</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
+          <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
             <Link to="/mushroom-types" className="hover:text-current transition-colors">
               Critical{" "}
               <span className="gradient-text">
@@ -471,20 +470,20 @@ const CriticalParameters = () => {
               </span>
             </Link>
           </h2>
-          <p className="dark:text-slate-400 text-slate-600 text-[13px] md:text-base">
+          <p className="dark:text-slate-400 text-slate-600 text-[13px] md:text-sm">
             Scientific boundaries for consistent commercial yields in organic
             mushroom farming across India and USA.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {params.map((p, i) => (
             <motion.div
               key={i}
               whileHover={{ translateZ: 20 }}
-              className="glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
+              className="glass p-3 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
             >
-              <div className="w-12 h-12 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
+              <div className="w-8 h-8 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
                 <p.icon size={22} className={p.color} />
               </div>
               <div className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2">
@@ -541,15 +540,15 @@ const EcosystemFlow = () => {
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">Commercial Operation Model</div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
+          <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
             Complete Commercial Farming{" "}
             <span className="gradient-text">Ecosystem Flow & Setup</span>
           </h2>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-8 overflow-x-auto pb-8 scrollbar-hide snap-x">
+        <div className="flex items-center gap-4 md:gap-5 overflow-x-auto pb-8 scrollbar-hide snap-x">
           {steps.map((s, i) => (
             <React.Fragment key={i}>
               <Link to={s.href}>
@@ -616,11 +615,11 @@ const MushroomComparison = () => {
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">
             Top Searched Product Variants
           </div>
-          <h2 className="mb-4 text-[18px] md:text-3xl uppercase tracking-tight">
+          <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
             <Link to="/blog" className="hover:text-current transition-colors">
               High-Yield Commercial Mushroom{" "}
               <span className="gradient-text">Genetics</span>
@@ -633,16 +632,16 @@ const MushroomComparison = () => {
           <table className="w-full text-left">
             <thead className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10">
               <tr>
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <th className="px-5 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                   Mushroom Type
                 </th>
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <th className="px-5 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                   Difficulty
                 </th>
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <th className="px-5 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                   Complexity
                 </th>
-                <th className="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                <th className="px-5 py-5 text-[10px] font-black uppercase tracking-widest text-slate-500">
                   Market Segment
                 </th>
               </tr>
@@ -650,7 +649,7 @@ const MushroomComparison = () => {
             <tbody className="divide-y divide-white/5">
               {mushrooms.map((m, i) => (
                 <tr key={i} className="hover:bg-white/[0.02] transition-colors">
-                  <td className="px-8 py-5">
+                  <td className="px-5 py-5">
                     <div className="flex items-center gap-3">
                       <div className={`w-3 h-3 rounded-full ${m.color}`}></div>
                       <span className="font-bold dark:text-white text-slate-900 text-sm">
@@ -658,13 +657,13 @@ const MushroomComparison = () => {
                       </span>
                     </div>
                   </td>
-                  <td className="px-8 py-5 text-[12px] dark:text-slate-400 text-slate-600 font-medium">
+                  <td className="px-5 py-5 text-[12px] dark:text-slate-400 text-slate-600 font-medium">
                     {m.difficulty}
                   </td>
-                  <td className="px-8 py-5 text-[12px] dark:text-slate-400 text-slate-600 font-medium">
+                  <td className="px-5 py-5 text-[12px] dark:text-slate-400 text-slate-600 font-medium">
                     {m.speed}
                   </td>
-                  <td className="px-8 py-5 text-[12px] text-slate-500 leading-relaxed font-medium">
+                  <td className="px-5 py-5 text-[12px] text-slate-500 leading-relaxed font-medium">
                     {m.text}
                   </td>
                 </tr>
@@ -678,13 +677,13 @@ const MushroomComparison = () => {
           {mushrooms.map((m, i) => (
             <div
               key={i}
-              className="min-w-[280px] snap-center glass border dark:border-white/10 border-black/10 p-6 rounded-2xl"
+              className="min-w-[280px] snap-center glass border dark:border-white/10 border-black/10 p-3 rounded-2xl"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className={`w-4 h-4 rounded-full ${m.color} shadow-lg shadow-black/50`}
                 ></div>
-                <h3 className="dark:text-white text-slate-900 font-bold text-lg">
+                <h3 className="dark:text-white text-slate-900 font-bold text-sm">
                   {m.name}
                 </h3>
               </div>
@@ -726,11 +725,11 @@ const CompanyProfile = () => {
             initial={{ opacity: 1, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             
-            className="glass border dark:border-white/10 border-black/10 rounded-[3rem] p-8 md:p-12 relative shadow-2xl group overflow-hidden"
+            className="glass border dark:border-white/10 border-black/10 rounded-[3rem] p-3 md:p-12 relative shadow-2xl group overflow-hidden"
           >
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary-start/20 blur-[100px] rounded-full group-hover:bg-primary-start/30 transition-all"></div>
 
-            <div className="flex items-center gap-6 mb-10">
+            <div className="flex items-center gap-6 mb-6">
               <div className="w-20 h-20 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center shadow-2xl overflow-hidden p-3 group-hover:scale-105 transition-all">
                 <img
                   src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
@@ -740,7 +739,7 @@ const CompanyProfile = () => {
                  width="120" height="120" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-1">
+                <h2 className="text-sm font-bold dark:text-white text-slate-900 mb-1">
                   Organic Mushrooms Farm
                 </h2>
                 <p className="text-primary-start font-black text-[10px] uppercase tracking-[0.3em]">
@@ -749,7 +748,7 @@ const CompanyProfile = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 mb-10">
+            <div className="grid grid-cols-2 gap-6 mb-6">
               {[
                 {
                   label: "Founder",
@@ -789,7 +788,7 @@ const CompanyProfile = () => {
               ))}
             </div>
 
-            <div className="p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 mb-8">
+            <div className="p-3 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 mb-5">
               <p className="dark:text-slate-400 text-slate-600 text-[14px] leading-relaxed font-medium">
                 Established as India's leading mushroom ecosystem architect, we
                 bridge the gap between traditional farming and industrial
@@ -834,7 +833,7 @@ const CompanyProfile = () => {
           {/* Core Values / Benefits Highlights */}
           <div className="space-y-8">
             <div className="badge">Our Technical Expertise</div>
-            <h2 className="text-[18px] md:text-3xl tracking-tight leading-tight uppercase">
+            <h2 className="text-[18px] md:text-xl tracking-tight leading-tight uppercase">
               Bridging Technology &{" "}
               <span className="gradient-text">
                 Organic Cultivation Setup
@@ -861,9 +860,9 @@ const CompanyProfile = () => {
                 <Link
                   to="/expertise-details"
                   key={i}
-                  className="flex gap-5 p-5 glass border dark:border-white/5 border-black/5 rounded-2xl group hover:dark:bg-white/5 bg-black/5 transition-all text-left"
+                  className="flex gap-5 p-3 glass border dark:border-white/5 border-black/5 rounded-2xl group hover:dark:bg-white/5 bg-black/5 transition-all text-left"
                 >
-                  <div className="w-12 h-12 rounded-xl dark:bg-white/5 bg-black/5 flex items-center justify-center text-primary-start group-hover:scale-110 transition-all shrink-0">
+                  <div className="w-8 h-8 rounded-xl dark:bg-white/5 bg-black/5 flex items-center justify-center text-primary-start group-hover:scale-110 transition-all shrink-0">
                     <b.icon size={22} />
                   </div>
                   <div>
@@ -1011,7 +1010,7 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({
     <div className="glass border dark:border-white/5 border-black/5 mb-3 overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-4 text-left font-bold text-sm dark:text-white text-slate-900"
+        className="w-full flex items-center justify-between p-3 text-left font-bold text-sm dark:text-white text-slate-900"
       >
         <span>{title}</span>
         {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -1022,7 +1021,7 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({
             initial={{ height: 0, opacity: 1 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="p-4 pt-0 text-[13px] dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
+            className="p-3 pt-0 text-[13px] dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
           >
             {children}
           </motion.div>
@@ -1032,15 +1031,10 @@ const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({
   );
 };
 
-const Background3D = () => (
-  <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div className="blob blob-1 absolute w-[600px] h-[600px] bg-primary-start/10 top-[-100px] left-[-100px] blur-[120px] rounded-full"></div>
-    <div className="blob blob-2 absolute w-[500px] h-[500px] bg-accent/10 bottom-[-50px] right-[-100px] blur-[120px] rounded-full"></div>
-    <div className="blob blob-1 absolute w-[400px] h-[400px] bg-primary-start/5 top-[40%] left-[20%] blur-[100px] rounded-full"></div>
-  </div>
-);
+
 
 import DynamicGreeting from "./components/DynamicGreeting";
+import { MyceliumBackground } from "./components/MyceliumBackground";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -1076,6 +1070,7 @@ const Navbar = () => {
       document.body.style.overflow = "unset";
       document.body.classList.remove("mobile-menu-open");
     }
+    window.dispatchEvent(new CustomEvent('mobileMenuToggle', { detail: mobileMenuOpen }));
     return () => {
       document.body.style.overflow = "unset";
       document.body.classList.remove("mobile-menu-open");
@@ -1087,7 +1082,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] py-2.5 md:py-4 px-3 sm:px-5 md:px-6 lg:px-4 xl:px-8 transition-all duration-300 rounded-[2rem] ${isScrolled ? "translate-y-[-2px]" : ""}`}
+        className={`fixed top-3 md:top-6 left-1/2 -translate-x-1/2 w-[calc(100%-16px)] sm:w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl z-50 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.1)] py-2.5 md:py-2 px-3 sm:px-5 md:px-6 lg:px-4 xl:px-5 transition-all duration-300 rounded-[2rem] ${isScrolled ? "translate-y-[-2px]" : ""}`}
         style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.15) 33%, rgba(34, 197, 94, 0.15) 66%, rgba(234, 179, 8, 0.15) 100%)' }}
       >
         <div className="flex items-center justify-between">
@@ -1101,7 +1096,7 @@ const Navbar = () => {
               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 shrink-0 object-contain group-hover:scale-110 transition-transform"
              width="120" height="120" />
             <div className="flex flex-col">
-              <span className="text-[14px] xs:text-[16px] sm:text-lg md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-lg font-bold tracking-tight dark:text-white text-slate-900 leading-tight">
+              <span className="text-[14px] xs:text-[16px] sm:text-sm md:text-xl lg:text-[12px] xl:text-[15px] 2xl:text-sm font-bold tracking-tight dark:text-white text-slate-900 leading-tight">
                 Organic <span className="gradient-text">Mushroom Farm</span>
               </span>
               <DynamicGreeting />
@@ -1109,7 +1104,6 @@ const Navbar = () => {
           </Link>
 
           <div className="flex items-center gap-2 xl:gap-4 ml-auto">
-            <GoogleTranslate />
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5 overflow-x-auto no-scrollbar">
@@ -1243,7 +1237,7 @@ const Navbar = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.15 }}
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute inset-0 bg-slate-900/70 dark:bg-black/80"
+              className="absolute inset-0 bg-slate-900/30 dark:bg-black/40 backdrop-blur-[12px]"
             />
 
             {/* Fast Sliding Drawer with Drag - SOLID COLORS, NO BLUR */}
@@ -1265,7 +1259,7 @@ const Navbar = () => {
                 duration: 0.2,
               }}
               style={{ willChange: "transform" }}
-              className="relative w-full max-h-[85vh] flex flex-col bg-slate-50 dark:bg-slate-900 rounded-t-[2rem] shadow-2xl pb-safe z-[9999] overflow-hidden"
+              className="relative w-full max-h-[85vh] flex flex-col bg-white dark:bg-[#18181b] rounded-t-[2rem] shadow-2xl pb-safe z-[9999] overflow-hidden"
             >
               {/* STATIC Soft Top Gradient (Instead of animated glow) */}
               <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-emerald-500/10 dark:from-emerald-400/5 to-transparent pointer-events-none" />
@@ -1377,7 +1371,7 @@ const Navbar = () => {
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
                                   transition={{ duration: 0.15 }}
-                                  className="overflow-hidden bg-slate-50 dark:bg-slate-900/50"
+                                  className="overflow-hidden  dark:bg-slate-900/50"
                                 >
                                   <div className="px-3 py-1 flex flex-col gap-0.5 border-t border-slate-100 dark:border-slate-700">
                                     {(item as any).subMenu.map((sub: any, subI: number) => (
@@ -1452,7 +1446,7 @@ const Hero = () => {
       id="home"
       className="relative min-h-[90vh] md:min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-24 overflow-hidden section-padding"
     >
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.2fr,0.8fr] gap-8 md:gap-16 items-center">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.2fr,0.8fr] gap-5 md:gap-8 items-center">
         <motion.div
           initial={{ opacity: 1, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -1464,17 +1458,17 @@ const Hero = () => {
             Button, Oyster, Milky, Shiitake & More | Setup, Training & Business
             Support
           </div>
-          <h1 className="text-[1.5rem] md:text-4xl lg:text-5xl font-bold dark:text-white text-slate-900 leading-tight mb-4 md:mb-5 tracking-tighter">
+          <h1 className="text-[1.5rem] md:text-sm lg:text-xl font-bold dark:text-white text-slate-900 leading-tight mb-4 md:mb-5 tracking-tighter">
             <span className="gradient-text">
               Expert Mushroom Farming Training & Setup
             </span>{" "}
             <br />– Complete Solutions for All Mushroom Types
           </h1>
-          <p className="text-[0.8125rem] md:text-base dark:text-slate-400 text-slate-600 mb-5 md:mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed">
+          <p className="text-[0.8125rem] md:text-sm dark:text-slate-400 text-slate-600 mb-5 md:mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed">
             Complete commercial methodology, calculators, and turnkey solutions for profitable button, oyster, and milky mushroom farming across India and worldwide.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-3 gap-x-8 mb-6 dark:border-white/5 border-black/5 border-y py-4 md:py-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 md:gap-y-3 gap-x-8 mb-6 dark:border-white/5 border-black/5 border-y py-2 md:py-2">
             {features.map((f, i) => (
               <div
                 key={i}
@@ -1497,7 +1491,7 @@ const Hero = () => {
           <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto md:mx-0">
             <Link
               to="/training"
-              className="group flex items-center justify-between p-4 rounded-2xl border border-purple-500/30 bg-linear-to-r from-purple-500/5 via-fuchsia-400/5 to-indigo-500/5 dark:from-purple-900/10 dark:via-fuchsia-900/10 dark:to-indigo-900/10 hover:from-purple-500/15 hover:via-fuchsia-400/15 hover:to-indigo-500/15 transition-all duration-300 shadow-xs"
+              className="group flex items-center justify-between p-3 rounded-2xl border border-purple-500/30 bg-linear-to-r from-purple-500/5 via-fuchsia-400/5 to-indigo-500/5 dark:from-purple-900/10 dark:via-fuchsia-900/10 dark:to-indigo-900/10 hover:from-purple-500/15 hover:via-fuchsia-400/15 hover:to-indigo-500/15 transition-all duration-300 shadow-xs"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-300">
@@ -1517,7 +1511,7 @@ const Hero = () => {
 
             <Link
               to="/turnkey-projects"
-              className="group flex items-center justify-between p-4 rounded-2xl border border-emerald-500/30 bg-linear-to-r from-emerald-500/5 via-teal-400/5 to-cyan-500/5 dark:from-emerald-900/10 dark:via-teal-900/10 dark:to-cyan-900/10 hover:from-emerald-500/15 hover:via-teal-400/15 hover:to-cyan-500/15 transition-all duration-300 shadow-xs"
+              className="group flex items-center justify-between p-3 rounded-2xl border border-emerald-500/30 bg-linear-to-r from-emerald-500/5 via-teal-400/5 to-cyan-500/5 dark:from-emerald-900/10 dark:via-teal-900/10 dark:to-cyan-900/10 hover:from-emerald-500/15 hover:via-teal-400/15 hover:to-cyan-500/15 transition-all duration-300 shadow-xs"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
@@ -1536,10 +1530,10 @@ const Hero = () => {
             </Link>
           </div>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-8">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-5">
             <Link
               to="/enquiry"
-              className="btn-primary w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center font-bold bg-[#7b51f8] hover:bg-[#6841d8] text-white"
+              className="btn-primary w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center font-bold bg-[#7b51f8] hover:bg-[#6841d8] text-white"
             >
               Enquiry Now
             </Link>
@@ -1547,20 +1541,20 @@ const Hero = () => {
               href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
+              className="btn-outline w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
             >
               WhatsApp Us
             </a>
             <a
               href="tel:9203544140"
-              className="btn-outline w-full sm:w-auto px-10 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
+              className="btn-outline w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
             >
               Call Now: 9203544140
             </a>
           </div>
-          <div className="flex justify-center md:justify-start gap-12 pt-4">
+          <div className="flex justify-center md:justify-start gap-6 pt-4">
             <div>
-              <div className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">
+              <div className="text-sm md:text-xl font-bold dark:text-white text-slate-900">
                 1.5k+
               </div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">
@@ -1568,7 +1562,7 @@ const Hero = () => {
               </div>
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold dark:text-white text-slate-900">
+              <div className="text-sm md:text-xl font-bold dark:text-white text-slate-900">
                 98.91%
               </div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">
@@ -1587,10 +1581,10 @@ const Hero = () => {
           className="relative lg:block hidden"
         >
           <div className="absolute inset-0 gradient-bg opacity-20 blur-[100px] rounded-full animate-pulse"></div>
-          <div className="relative glass rounded-[2.5rem] p-8 border-white/20 shadow-2xl backdrop-blur-2xl">
-            <div className="flex items-center justify-between mb-10">
+          <div className="relative glass rounded-[2.5rem] p-3 border-white/20 shadow-2xl backdrop-blur-2xl">
+            <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-accent/20 flex items-center justify-center">
                   <ShieldCheck className="text-accent" />
                 </div>
                 <div>
@@ -1627,7 +1621,7 @@ const Hero = () => {
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between dark:bg-white/5 bg-black/5 p-4 rounded-2xl border dark:border-white/5 border-black/5"
+                  className="flex items-center justify-between dark:bg-white/5 bg-black/5 p-3 rounded-2xl border dark:border-white/5 border-black/5"
                 >
                   <div className="flex items-center gap-3">
                     <stat.icon
@@ -1645,7 +1639,7 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="mt-10 p-6 rounded-3xl bg-linear-to-br from-white/10 to-transparent border dark:border-white/10 border-black/10">
+            <div className="mt-10 p-3 rounded-3xl bg-linear-to-br from-white/10 to-transparent border dark:border-white/10 border-black/10">
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm font-semibold dark:text-slate-300 text-slate-700">
                   Phase 1 Commercial Cycle
@@ -1674,7 +1668,7 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-6 -right-6 glass p-4 rounded-2xl border-white/20 flex items-center gap-3 shadow-xl"
+            className="absolute -top-6 -right-6 glass p-3 rounded-2xl border-white/20 flex items-center gap-3 shadow-xl"
           >
             <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
               <CheckCircle2 className="text-green-500" size={16} />
@@ -1783,12 +1777,12 @@ const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* 360 View Video Section Added Before Title */}
-        <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-6 md:mb-6">
           <div className="badge mb-4">Virtual Tour</div>
           <h2 className="mb-4 uppercase tracking-tight">
             Commercial Mushroom Farm <span className="gradient-text">360° View</span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-base leading-relaxed mb-8">
+          <p className="text-slate-500 text-sm md:text-sm leading-relaxed mb-5">
             Explore our state-of-the-art commercial mushroom farm setup. Watch this 360-degree view video to understand the infrastructure and scientific approach we implement for high-yield turnkey projects.
           </p>
           <div className="rounded-3xl overflow-hidden shadow-2xl border dark:border-white/10 bg-black aspect-video relative">
@@ -1808,7 +1802,7 @@ const WhyChooseUs = () => {
         </div>
         {/* End of 360 View Section */}
 
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-5 md:mb-20">
           <motion.div
             initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -1842,7 +1836,7 @@ const WhyChooseUs = () => {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-5">
           {chooseItems.map((item, i) => (
             <motion.div
               key={i}
@@ -1857,11 +1851,11 @@ const WhyChooseUs = () => {
                   className={`absolute -top-20 -right-20 w-40 h-40 bg-linear-to-br ${item.color} blur-[50px] pointer-events-none opacity-20`}
                 ></div>
 
-                <div className="w-12 h-12 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 flex items-center justify-center mb-6">
+                <div className="w-8 h-8 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 flex items-center justify-center mb-6">
                   <item.icon className="text-primary-start" size={24} />
                 </div>
 
-                <h2 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-3">
+                <h2 className="text-sm md:text-xl font-bold dark:text-white text-slate-900 mb-3">
                     {item.title}
                   </h2>
 
@@ -1946,7 +1940,7 @@ const FarmingModels = () => {
   return (
     <section id="farming-models" className="section-padding relative">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 md:mb-16 gap-6 text-center lg:text-left items-center lg:items-end">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-6 md:mb-6 gap-6 text-center lg:text-left items-center lg:items-end">
           <div className="max-w-xl">
             <div className="badge mb-4 mx-auto lg:mx-0">Investment Paths</div>
             <h2 className="mb-4">
@@ -1975,7 +1969,7 @@ const FarmingModels = () => {
         </div>
 
         {activeTab === "fixed" ? (
-          <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-5">
             {models.map((m, i) => (
               <motion.div
                 key={i}
@@ -2001,7 +1995,7 @@ const FarmingModels = () => {
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-8 flex-1">
+                <div className="space-y-3 mb-5 flex-1">
                   <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
                     <div className="text-[9px] text-slate-500 font-bold uppercase mb-1">
                       Investment Setup Cost
@@ -2020,7 +2014,7 @@ const FarmingModels = () => {
                   </div>
                 </div>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-5">
                   {m.features.map((f) => (
                     <li
                       key={f}
@@ -2034,7 +2028,7 @@ const FarmingModels = () => {
 
                 <Link
                   to="/model-details"
-                  className={`w-full min-h-[44px] py-3 rounded-xl font-bold transition-all text-sm flex justify-center items-center ${m.recommended ? "btn-primary" : "btn-outline"}`}
+                  className={`w-full min-h-[44px] py-2 rounded-xl font-bold transition-all text-sm flex justify-center items-center ${m.recommended ? "btn-primary" : "btn-outline"}`}
                 >
                   Get Details
                 </Link>
@@ -2045,11 +2039,11 @@ const FarmingModels = () => {
           <motion.div
             initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="glass p-8 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10"
+            className="glass p-3 md:p-12 rounded-[3rem] border dark:border-white/10 border-black/10"
           >
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
-                <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-6">
+                <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-6">
                   Interactive Custom Mushroom Setup Builder
                 </h3>
                 <div className="space-y-8">
@@ -2089,20 +2083,20 @@ const FarmingModels = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-8 rounded-[2rem] dark:bg-white/5 bg-black/5 border border-primary-start/20 text-center flex flex-col items-center justify-center">
+              <div className="p-3 rounded-[2rem] dark:bg-white/5 bg-black/5 border border-primary-start/20 text-center flex flex-col items-center justify-center">
                 <ShieldCheck size={48} className="text-primary-start mb-6" />
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">
                   Recommended Commercial Setup
                 </div>
-                <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4 leading-tight">
+                <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-4 leading-tight">
                     {getRecommendedSetup().title}
                   </h3>
-                <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-8 max-w-sm">
+                <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-5 max-w-sm">
                   {getRecommendedSetup().desc}
                 </p>
                 <Link
                   to="/model-details"
-                  className="btn-primary px-8 py-3 rounded-xl text-sm font-bold"
+                  className="btn-primary px-5 py-2 rounded-xl text-sm font-bold"
                 >
                   View Detailed Specs
                 </Link>
@@ -2179,7 +2173,7 @@ const ROICalculator = () => {
         >
           <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[400px] h-[400px] bg-primary-start/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
             <div className="text-center lg:text-left">
               <div className="badge mb-4 mx-auto lg:mx-0">Profit Analytics</div>
               <h2 className="mb-4">
@@ -2188,7 +2182,7 @@ const ROICalculator = () => {
                   <span className="gradient-text">ROI Estimator</span>
                 </Link>
               </h2>
-              <p className="mb-8 max-w-lg mx-auto lg:mx-0">
+              <p className="mb-5 max-w-lg mx-auto lg:mx-0">
                 Estimate your mushroom farming profits based on real-time market
                 averages.
               </p>
@@ -2284,25 +2278,25 @@ const ROICalculator = () => {
             </div>
 
             <div className="flex flex-col gap-6">
-              <div className="glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
+              <div className="glass p-3 rounded-3xl border dark:border-white/10 border-black/10 text-center">
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">
                   Cycle Net Profit
                 </div>
                 <div
                   className={
                     monthlyProfit > 0
-                      ? "text-4xl font-black text-green-400"
-                      : "text-4xl font-black text-red-400"
+                      ? "text-sm font-black text-green-400"
+                      : "text-sm font-black text-red-400"
                   }
                 >
                   ₹{monthlyProfit.toLocaleString()}
                 </div>
               </div>
-              <div className="glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
+              <div className="glass p-3 rounded-3xl border dark:border-white/10 border-black/10 text-center">
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">
                   Estimated Payback Period
                 </div>
-                <div className="text-4xl font-black text-primary-start">
+                <div className="text-sm font-black text-primary-start">
                   {paybackPeriod > 0
                     ? `${paybackPeriod.toFixed(1)} Months`
                     : "N/A"}
@@ -2347,7 +2341,7 @@ const Timeline = () => {
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-5 md:mb-20">
           <div className="badge mx-auto mb-4">Commercial Process Flow</div>
           <h2 className="mb-4 uppercase">
             Your <span className="gradient-text">Journey</span> to First
@@ -2361,7 +2355,7 @@ const Timeline = () => {
 
         <div className="relative">
           <div className="hidden lg:block absolute top-[3.5rem] left-0 right-0 h-px dark:bg-white/5 bg-black/5 z-0"></div>
-          <div className="grid lg:grid-cols-4 gap-8 md:gap-12 relative z-10">
+          <div className="grid lg:grid-cols-4 gap-5 md:gap-6 relative z-10">
             {steps.map((s, i) => (
               <motion.div
                 key={i}
@@ -2482,19 +2476,19 @@ const CTASection = () => {
     >
       <div className="absolute inset-0 gradient-bg opacity-5 -z-10 blur-[120px]"></div>
       <div className="max-w-6xl mx-auto px-4">
-        <div className="glass p-6 md:p-12 lg:p-16 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden group">
+        <div className="glass p-3 md:p-12 lg:p-16 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden group">
           <div className="absolute -top-24 -left-24 w-60 h-60 bg-primary-start/10 blur-[80px] rounded-full group-hover:bg-primary-start/20 transition-all duration-700"></div>
           <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-brand-purple/10 blur-[80px] rounded-full group-hover:bg-brand-purple/20 transition-all duration-700"></div>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+          <div className="grid lg:grid-cols-12 gap-6 items-center relative z-10">
             {/* Left Column: Context & Info */}
             <div className="lg:col-span-5 space-y-6 text-left">
               <div className="badge">Direct Inquiry</div>
-              <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-xl md:text-xl font-bold dark:text-white text-slate-900 tracking-tight leading-tight">
                 Start Your Commercial{" "}
                 <span className="gradient-text">Mushroom Project</span> Today
               </h2>
-              <p className="dark:text-slate-400 text-slate-600 text-base leading-relaxed">
+              <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
                 Connect directly with India's most trusted commercial mushroom
                 agriculture consultants. Submit your details to get a customized
                 site feasibility evaluation & project setup design model layout
@@ -2524,13 +2518,13 @@ const CTASection = () => {
                   href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20starting%20mushroom%20farming.%20Please%20guide%20me."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary w-full sm:w-auto px-6 py-3 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-black"
+                  className="btn-primary w-full sm:w-auto px-6 py-2 rounded-xl flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-black"
                 >
                   Chat on WhatsApp
                 </a>
                 <a
                   href="tel:+919203544140"
-                  className="btn-outline w-full sm:w-auto px-6 py-3 rounded-xl text-center text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2"
+                  className="btn-outline w-full sm:w-auto px-6 py-2 rounded-xl text-center text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2"
                 >
                   Call +91 9203544140
                 </a>
@@ -2539,7 +2533,7 @@ const CTASection = () => {
 
             {/* Right Column: Inquiry Form / Success Screen */}
             <div className="lg:col-span-7">
-              <div className="glass p-6 md:p-8 rounded-[2rem] border dark:border-white/5 border-black/5 dark:bg-slate-900/40 bg-white/40 backdrop-blur-xl">
+              <div className="glass p-3 md:p-3 rounded-[2rem] border dark:border-white/5 border-black/5 dark:bg-slate-900/40 bg-white/40 backdrop-blur-xl">
                 {formState.succeeded ? (
                   <motion.div
                     initial={{ opacity: 1, scale: 0.95 }}
@@ -2550,7 +2544,7 @@ const CTASection = () => {
                       <CheckCircle2 size={36} />
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-2xl font-bold dark:text-white text-slate-900">
+                      <h3 className="text-sm font-bold dark:text-white text-slate-900">
                           Inquiry Received!
                         </h3>
                       <p className="dark:text-slate-400 text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
@@ -2574,7 +2568,7 @@ const CTASection = () => {
                   </motion.div>
                 ) : (
                   <div className="space-y-6 text-center">
-                    <h3 className="text-2xl font-bold dark:text-white text-slate-900">
+                    <h3 className="text-sm font-bold dark:text-white text-slate-900">
                       Send Instant Inquiry
                     </h3>
                     <p className="text-slate-500 text-sm font-semibold mb-6">
@@ -2583,7 +2577,7 @@ const CTASection = () => {
                     </p>
                     <Link
                       to="/enquiry"
-                      className="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-lg"
+                      className="inline-block px-6 py-2 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-sm"
                     >
                       Enquiry Now
                     </Link>
@@ -2616,12 +2610,12 @@ const TrainingPage = ({ metaDesc }: { metaDesc?: string }) => {
       {/* Additional Page Specific Content */}
       <section className="section-padding dark:bg-black/40 bg-slate-100/40">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-8">
+          <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-5">
             Ready to Start Your Commercial Mushroom Farming Journey?
           </h3>
           <Link
             to="/book-consultant"
-            className="btn-primary px-10 py-4 rounded-xl text-lg inline-flex items-center gap-3"
+            className="btn-primary px-6 py-2 rounded-xl text-sm inline-flex items-center gap-3"
           >
             Book Consultant <ArrowRight size={20} />
           </Link>
@@ -2728,7 +2722,7 @@ const LegacyContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen dark:bg-[#0A0A0A] bg-slate-50 overflow-x-hidden pt-24 md:pt-32 pb-12">
+    <div className="min-h-screen   overflow-x-hidden pt-24 md:pt-32 pb-12">
       <SEO
         title="Contact Us for Mushroom Setup & Consultancy | Pan India"
         description="Get a consultation for your custom mushroom farm setup. Expert advice on mushroom training, spawn supply, and turnkey projects across India."
@@ -2736,7 +2730,7 @@ const LegacyContactPage = () => {
       />
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header Section */}
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-6 md:mb-6">
           <motion.div
             initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -2744,12 +2738,12 @@ const LegacyContactPage = () => {
             <div className="inline-block px-4 py-1.5 rounded-full bg-primary-start/10 border border-primary-start/20 text-[10px] font-black text-primary-start uppercase tracking-widest mb-4">
               Contact Us
             </div>
-            <h1 className="text-3xl md:text-6xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight">
+            <h1 className="text-xl md:text-6xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight">
               Start Your Commercial{" "}
               <span className="text-primary-start">Mushroom Farming</span>{" "}
               Business Worldwide
             </h1>
-            <p className="dark:text-slate-400 text-slate-600 text-sm md:text-lg max-w-2xl mx-auto font-medium px-2">
+            <p className="dark:text-slate-400 text-slate-600 text-sm md:text-sm max-w-2xl mx-auto font-medium px-2">
               Ready to build a commercial factory or a small unit? Our
               specialists are here to guide you through every step of button and
               oyster mushroom production.
@@ -2757,7 +2751,7 @@ const LegacyContactPage = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 items-start">
           {/* Details Column */}
           <div className="space-y-6 order-2 lg:order-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
@@ -2787,10 +2781,10 @@ const LegacyContactPage = () => {
                   href={item.href}
                   target={item.isWhatsApp ? "_blank" : undefined}
                   rel={item.isWhatsApp ? "noopener noreferrer" : undefined}
-                  className={`flex items-center gap-4 p-5 bg-white/[0.03] border dark:border-white/10 border-black/10 rounded-2xl group transition-all hover:bg-white/[0.06] ${item.isWhatsApp ? "ring-1 ring-green-500/30" : ""}`}
+                  className={`flex items-center gap-4 p-3 bg-white/[0.03] border dark:border-white/10 border-black/10 rounded-2xl group transition-all hover:bg-white/[0.06] ${item.isWhatsApp ? "ring-1 ring-green-500/30" : ""}`}
                 >
                   <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.isWhatsApp ? "bg-green-500/20 text-green-400" : "bg-primary-start/20 text-primary-start"}`}
+                    className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${item.isWhatsApp ? "bg-green-500/20 text-green-400" : "bg-primary-start/20 text-primary-start"}`}
                   >
                     <item.icon
                       size={22}
@@ -2801,7 +2795,7 @@ const LegacyContactPage = () => {
                     <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none mb-1">
                       {item.label}
                     </div>
-                    <div className="text-sm md:text-base font-bold dark:text-white text-slate-900 tracking-tight">
+                    <div className="text-sm md:text-sm font-bold dark:text-white text-slate-900 tracking-tight">
                       {item.values[0]}
                     </div>
                   </div>
@@ -2821,7 +2815,7 @@ const LegacyContactPage = () => {
               ></iframe>
             </div>
 
-            <div className="p-5 bg-white/[0.03] border dark:border-white/10 border-black/10 rounded-2xl flex items-start gap-4">
+            <div className="p-3 bg-white/[0.03] border dark:border-white/10 border-black/10 rounded-2xl flex items-start gap-4">
               <MapPin className="text-primary-start shrink-0" size={20} />
               <div>
                 <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-0.5">
@@ -2839,10 +2833,10 @@ const LegacyContactPage = () => {
             <motion.div
               initial={{ opacity: 1, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white/[0.02] border dark:border-white/10 border-black/10 p-6 md:p-10 rounded-3xl"
+              className="bg-white/[0.02] border dark:border-white/10 border-black/10 p-3 md:p-10 rounded-3xl"
             >
-              <div className="mb-8 text-center md:text-left">
-                <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-2">
+              <div className="mb-5 text-center md:text-left">
+                <h2 className="text-xl md:text-sm font-bold dark:text-white text-slate-900 mb-2">
                   Mushroom Farming Setup Enquiry Form
                 </h2>
                 <p className="dark:text-slate-400 text-slate-600 text-[10px] sm:text-xs md:text-sm font-medium leading-tight">
@@ -2851,14 +2845,14 @@ const LegacyContactPage = () => {
                 </p>
               </div>
 
-              <div className="space-y-6 text-center py-4">
+              <div className="space-y-6 text-center py-2">
                 <h3 className="text-xl font-bold dark:text-white text-slate-900">Get Expert Setup Advice</h3>
                 <p className="text-slate-500 text-sm">
                   Click below to submit your location and requirements in our main enquiry form.
                 </p>
                 <Link
                   to="/enquiry"
-                  className="inline-block w-full px-6 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-lg transition-all"
+                  className="inline-block w-full px-6 py-2 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-lg transition-all"
                 >
                   Enquiry Now
                 </Link>
@@ -2873,7 +2867,7 @@ const LegacyContactPage = () => {
       {/* Success Modal */}
       <AnimatePresence>
         {state.succeeded && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-3">
             <motion.div
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
@@ -2886,15 +2880,15 @@ const LegacyContactPage = () => {
               initial={{ opacity: 1, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
-              className="relative glass p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 max-w-md w-full text-center shadow-2xl"
+              className="relative glass p-3 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 max-w-md w-full text-center shadow-2xl"
             >
               <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center mx-auto mb-6 border border-green-500/30">
                 <CheckCircle2 size={32} />
               </div>
-              <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">
+              <h2 className="text-sm font-bold dark:text-white text-slate-900 mb-4">
                 Enquiry Received
               </h2>
-              <p className="dark:text-slate-400 text-slate-600 text-sm mb-8 leading-relaxed font-medium">
+              <p className="dark:text-slate-400 text-slate-600 text-sm mb-5 leading-relaxed font-medium">
                 Thank you! Your commercial setup enquiry has been received. Our
                 expert will call you within{" "}
                 <span className="dark:text-white text-slate-900 font-bold underline decoration-primary-start underline-offset-4">
@@ -2904,7 +2898,7 @@ const LegacyContactPage = () => {
               </p>
               <button
                 onClick={handleClose}
-                className="w-full py-4 rounded-xl btn-primary font-bold text-xs uppercase tracking-widest transition-all shadow-xl"
+                className="w-full py-2 rounded-xl btn-primary font-bold text-xs uppercase tracking-widest transition-all shadow-xl"
               >
                 Close
               </button>
@@ -2949,13 +2943,13 @@ const StatesSection = () => {
             Hubs Globally
           </span>
         </h2>
-        <p className="max-w-3xl mx-auto mb-10 font-medium leading-relaxed dark:text-slate-400 text-slate-600">
+        <p className="max-w-3xl mx-auto mb-6 font-medium leading-relaxed dark:text-slate-400 text-slate-600">
           We provide commercial mushroom farming training and turnkey setup
           services across all states of India and key international markets,
           ensuring precision and high yield for every climate zone globally.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-5">
           {allStates.map((state) => (
             <a
               key={state}
@@ -2972,7 +2966,7 @@ const StatesSection = () => {
         <div className="mt-8 text-center">
           <Link
             to="/pan-india-global-operations"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full gradient-bg font-extrabold text-sm text-white shadow-lg shadow-primary-start/20 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full gradient-bg font-extrabold text-sm text-white shadow-lg shadow-primary-start/20 hover:scale-105 transition-all"
           >
             <Globe size={16} className="animate-spin-slow" />
             <span>Pan India & Global Operations</span>
@@ -3070,7 +3064,7 @@ const Footer = () => {
     <footer className="pt-20 pb-24 md:pb-12 bg-black/50 border-t dark:border-white/5 border-black/5">
       <div className="max-w-7xl mx-auto px-6">
         {/* Global E-E-A-T Profile for SEO Signals */}
-        <div className="mb-16 p-8 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+        <div className="mb-6 p-3 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
           <div className="flex flex-col md:flex-row gap-6 items-start md:items-center">
             <div className="flex-shrink-0 w-16 h-16 rounded-full bg-primary-start/20 flex items-center justify-center text-primary-start">
               <ShieldCheck size={32} />
@@ -3098,7 +3092,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-10 mb-16 md:grid md:grid-cols-5 md:gap-10">
+        <div className="flex flex-col gap-6 mb-6 md:grid md:grid-cols-5 md:gap-6">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
               <img
@@ -3106,7 +3100,7 @@ const Footer = () => {
                 alt="Organic Mushrooms Farm"
                 className="w-14 h-14 object-contain"
                width="120" height="120" />
-              <span className="text-lg font-bold tracking-tight dark:text-white text-slate-900">
+              <span className="text-sm font-bold tracking-tight dark:text-white text-slate-900">
                 Organic <span className="gradient-text">Mushroom Farm</span>
               </span>
             </div>
@@ -3165,7 +3159,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="md:col-span-3 grid grid-cols-3 gap-2 sm:gap-4 md:gap-10">
+          <div className="md:col-span-3 grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
           <div>
             <h4 className="dark:text-white text-slate-900 font-bold mb-4 md:mb-6 uppercase tracking-widest text-[8px] md:text-[9px] border-l-2 border-primary-start pl-2 md:pl-3">
               Explore
@@ -3337,7 +3331,7 @@ const StickyRazorpayButton = ({
 
       <AnimatePresence>
         {showModal && (
-          <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 1 }}
@@ -3352,7 +3346,7 @@ const StickyRazorpayButton = ({
               initial={{ scale: 0.95, opacity: 1, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 15 }}
-              className="relative w-full max-w-4xl dark:bg-slate-950 bg-white border border-purple-500/20 rounded-[2rem] p-6 md:p-8 shadow-2xl max-h-[90vh] overflow-y-auto z-10"
+              className="relative w-full max-w-4xl dark:bg-slate-950 bg-white border border-purple-500/20 rounded-[2rem] p-3 md:p-3 shadow-2xl max-h-[90vh] overflow-y-auto z-10"
             >
               <button
                 onClick={() => setShowModal(false)}
@@ -3363,8 +3357,8 @@ const StickyRazorpayButton = ({
 
               {modalView === "region_select" && (
                 <div className="flex flex-col items-center">
-                  <div className="text-center mb-8 pr-6 pl-6">
-                    <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
+                  <div className="text-center mb-5 pr-6 pl-6">
+                    <h3 className="text-xl md:text-xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
                       Select <span className="gradient-text font-black">Your Region</span>
                     </h3>
                     <p className="dark:text-slate-400 text-slate-500 text-[10px] sm:text-xs md:text-sm font-medium leading-tight mt-1">
@@ -3372,15 +3366,15 @@ const StickyRazorpayButton = ({
                     </p>
                   </div>
                   
-                  <div className="flex flex-col gap-4 w-full max-w-md mx-auto mb-8">
+                  <div className="flex flex-col gap-4 w-full max-w-md mx-auto mb-5">
                     <button
                       onClick={() => setModalView("india_plans")}
-                      className="flex items-center justify-between w-full p-4 md:p-5 rounded-2xl border-2 border-purple-500/20 bg-purple-500/5 hover:bg-purple-500/10 hover:border-purple-500/40 transition-all text-left group"
+                      className="flex items-center justify-between w-full p-3 md:p-3 rounded-2xl border-2 border-purple-500/20 bg-purple-500/5 hover:bg-purple-500/10 hover:border-purple-500/40 transition-all text-left group"
                     >
                       <div className="flex items-center gap-4">
-                        <span className="text-3xl">🇮🇳</span>
+                        <span className="text-xl">🇮🇳</span>
                         <div>
-                          <div className="text-sm md:text-base font-bold dark:text-white text-slate-900">Join Training from India</div>
+                          <div className="text-sm md:text-sm font-bold dark:text-white text-slate-900">Join Training from India</div>
                           <div className="text-[10px] md:text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-widest">(PAY IN ₹ INR)</div>
                         </div>
                       </div>
@@ -3389,12 +3383,12 @@ const StickyRazorpayButton = ({
                     
                     <button
                       onClick={() => setModalView("usa_plans")}
-                      className="flex items-center justify-between w-full p-4 md:p-5 rounded-2xl border-2 border-blue-500/20 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/40 transition-all text-left group"
+                      className="flex items-center justify-between w-full p-3 md:p-3 rounded-2xl border-2 border-blue-500/20 bg-blue-500/5 hover:bg-blue-500/10 hover:border-blue-500/40 transition-all text-left group"
                     >
                       <div className="flex items-center gap-4">
-                        <span className="text-3xl">🇺🇸</span>
+                        <span className="text-xl">🇺🇸</span>
                         <div>
-                          <div className="text-sm md:text-base font-bold dark:text-white text-slate-900">Join Training from USA / International</div>
+                          <div className="text-sm md:text-sm font-bold dark:text-white text-slate-900">Join Training from USA / International</div>
                           <div className="text-[10px] md:text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">(PAY IN $ USD)</div>
                         </div>
                       </div>
@@ -3402,7 +3396,7 @@ const StickyRazorpayButton = ({
                     </button>
                   </div>
 
-                  <div className="bg-slate-50 dark:bg-white/[0.02] rounded-2xl p-6 w-full max-w-lg border border-slate-200 dark:border-white/5 mx-auto">
+                  <div className=" dark:bg-white/[0.02] rounded-2xl p-3 w-full max-w-lg border border-slate-200 dark:border-white/5 mx-auto">
                     <h5 className="text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 text-center">What You Will Learn:</h5>
                     <ul className="space-y-3 text-sm">
                       {[
@@ -3429,11 +3423,11 @@ const StickyRazorpayButton = ({
                   >
                     <ArrowLeft size={14} /> Back
                   </button>
-                  <div className="text-center mb-8 pr-6 pl-6 pt-6 md:pt-0">
+                  <div className="text-center mb-5 pr-6 pl-6 pt-6 md:pt-0">
                     <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full dark:bg-purple-500/10 bg-purple-500/5 text-purple-600 dark:text-purple-400 border border-purple-500/10 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-3">
                       <Sparkles size={12} /> Live Your Farming Dream
                     </div>
-                    <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
+                    <h3 className="text-xl md:text-xl font-black dark:text-white text-slate-900 tracking-tight uppercase">
                         Select <span className="gradient-text font-black">Your Training Plan</span>
                       </h3>
                     <p className="dark:text-slate-400 text-slate-500 text-[10px] sm:text-xs md:text-sm font-medium leading-tight mt-1">
@@ -3490,15 +3484,15 @@ const StickyRazorpayButton = ({
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                     {/* Basic Card */}
-                    <div className="flex flex-col p-5 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-slate-50 border dark:border-white/5 border-slate-200">
+                    <div className="flex flex-col p-3 md:p-3 rounded-2xl dark:bg-white/[0.02]  border dark:border-white/5 border-slate-200">
                       <span className="badge bg-blue-500/10 text-blue-500 text-[9px] font-bold uppercase tracking-widest mb-2 self-start py-0.5 px-2 rounded-full">
                         Beginner
                       </span>
-                      <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                      <h3 className="text-sm md:text-xl font-bold dark:text-white text-slate-900 mb-1">
                         Basic Cultivation Training
                       </h3>
                       <div className="flex items-baseline gap-1.5 mb-4">
-                        <span className="text-2xl md:text-3xl font-black gradient-text">₹299</span>
+                        <span className="text-sm md:text-xl font-black gradient-text">₹299</span>
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
                       </div>
 
@@ -3533,25 +3527,25 @@ const StickyRazorpayButton = ({
                           setShowModal(false);
                           navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } });
                         }}
-                        className="w-full bg-slate-950 text-white hover:bg-slate-900 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
+                        className="w-full bg-slate-950 text-white hover:bg-slate-900 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 py-2 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
                       >
                         Join Mushroom Training <ArrowRight size={13} />
                       </button>
                     </div>
 
                     {/* Advanced Card */}
-                    <div className="relative flex flex-col p-5 md:p-6 rounded-2xl dark:bg-purple-950/5 bg-purple-50/5 border-2 border-purple-500/80 shadow-[0_4px_25px_rgba(168,85,247,0.15)]">
+                    <div className="relative flex flex-col p-3 md:p-3 rounded-2xl dark:bg-purple-950/5 bg-purple-50/5 border-2 border-purple-500/80 shadow-[0_4px_25px_rgba(168,85,247,0.15)]">
                       <div className="absolute top-3 right-3 text-[10px] text-purple-500 font-extrabold tracking-widest uppercase flex items-center gap-0.5">
                         <Sparkles size={10} className="animate-pulse" /> RECOMMENDED
                       </div>
                       <span className="badge bg-purple-500/10 text-purple-400 text-[9px] font-bold uppercase tracking-widest mb-2 self-start py-0.5 px-2 rounded-full">
                         Entrepreneur
                       </span>
-                      <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                      <h3 className="text-sm md:text-xl font-bold dark:text-white text-slate-900 mb-1">
                         Advanced Commercial Training
                       </h3>
                       <div className="flex items-baseline gap-1.5 mb-4">
-                        <span className="text-2xl md:text-3xl font-black text-purple-500">₹699</span>
+                        <span className="text-sm md:text-xl font-black text-purple-500">₹699</span>
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
                       </div>
 
@@ -3589,7 +3583,7 @@ const StickyRazorpayButton = ({
                           setShowModal(false);
                           navigate("/training-checkout", { state: { productType: "training_advanced", price: "₹699" } });
                         }}
-                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
+                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] py-2 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
                       >
                         Join Mushroom Training <ArrowRight size={13} />
                       </button>
@@ -3606,8 +3600,8 @@ const StickyRazorpayButton = ({
                   >
                     <ArrowLeft size={14} /> Back
                   </button>
-                  <div className="text-center mb-8 pr-6 pl-6 pt-6 md:pt-0">
-                    <h3 className="text-xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight">
+                  <div className="text-center mb-5 pr-6 pl-6 pt-6 md:pt-0">
+                    <h3 className="text-xl md:text-xl font-black dark:text-white text-slate-900 tracking-tight">
                       Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-500">Training Program</span>
                     </h3>
                   </div>
@@ -3661,14 +3655,14 @@ const StickyRazorpayButton = ({
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
                     {/* Basic Card */}
-                    <div className="flex flex-col p-5 md:p-6 rounded-2xl dark:bg-white/[0.02] bg-slate-50 border dark:border-white/5 border-slate-200">
-                      <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                    <div className="flex flex-col p-3 md:p-3 rounded-2xl dark:bg-white/[0.02]  border dark:border-white/5 border-slate-200">
+                      <h3 className="text-sm md:text-xl font-bold dark:text-white text-slate-900 mb-1">
                         Basic Cultivation Mushroom Training
                       </h3>
                       <p className="text-[10px] md:text-xs dark:text-slate-400 text-slate-600 font-medium mb-3">(Home Scale)</p>
                       
                       <div className="flex items-baseline gap-1.5 mb-4">
-                        <span className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">$39</span>
+                        <span className="text-sm md:text-xl font-black text-slate-900 dark:text-white">$39</span>
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">(One-Time)</span>
                       </div>
 
@@ -3697,24 +3691,24 @@ const StickyRazorpayButton = ({
                           setShowModal(false);
                           navigate("/usatraining", { state: { autoOpenPlan: { name: "Basic Cultivation Mushroom Training", price: "39.00" } } });
                         }}
-                        className="w-full bg-slate-950 text-white hover:bg-slate-900 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
+                        className="w-full bg-slate-950 text-white hover:bg-slate-900 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 py-2 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
                       >
                         Enroll Now <ArrowRight size={13} />
                       </button>
                     </div>
 
                     {/* Advanced Card */}
-                    <div className="relative flex flex-col p-5 md:p-6 rounded-2xl dark:bg-blue-950/5 bg-blue-50/5 border-2 border-blue-500/80 shadow-[0_4px_25px_rgba(59,130,246,0.15)]">
+                    <div className="relative flex flex-col p-3 md:p-3 rounded-2xl dark:bg-blue-950/5 bg-blue-50/5 border-2 border-blue-500/80 shadow-[0_4px_25px_rgba(59,130,246,0.15)]">
                       <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full shadow-md">
                         ⭐ Best Value
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-1">
+                      <h3 className="text-sm md:text-xl font-bold dark:text-white text-slate-900 mb-1">
                         Advanced Commercial Mushroom Training
                       </h3>
                       <p className="text-[10px] md:text-xs dark:text-slate-400 text-slate-600 font-medium mb-3">(Business Scale)</p>
                       
                       <div className="flex items-baseline gap-1.5 mb-4">
-                        <span className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">$97</span>
+                        <span className="text-sm md:text-xl font-black text-slate-900 dark:text-white">$97</span>
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">(One-Time)</span>
                       </div>
 
@@ -3744,7 +3738,7 @@ const StickyRazorpayButton = ({
                           setShowModal(false);
                           navigate("/usatraining", { state: { autoOpenPlan: { name: "Advanced Commercial Mushroom Training", price: "97.00" } } });
                         }}
-                        className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] py-3 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
+                        className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] py-2 rounded-xl text-xs font-extrabold tracking-wide transition-all active:scale-95 hover:scale-[1.01] flex items-center justify-center gap-1"
                       >
                         Enroll Now <ArrowRight size={13} />
                       </button>
@@ -3762,6 +3756,12 @@ const StickyRazorpayButton = ({
 
 
 const FloatingButtons = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  useEffect(() => {
+    const handle = (e: any) => setMobileMenuOpen(e.detail);
+    window.addEventListener('mobileMenuToggle', handle);
+    return () => window.removeEventListener('mobileMenuToggle', handle);
+  }, []);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -3830,7 +3830,7 @@ const FloatingButtons = () => {
   return (
     <>
       {/* Floating Buttons on Right Side */}
-      <div className="floating-button-wrapper fixed right-3 md:right-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[65px] md:bottom-[20px]">
+      <div className={`floating-button-wrapper fixed right-3 md:right-[30px] z-[99999] flex-col gap-2 md:gap-4 items-end pointer-events-none bottom-[65px] md:bottom-[20px] ${mobileMenuOpen ? "hidden lg:flex" : "flex"}`}>
         <div className="flex flex-col items-center gap-1.5 pointer-events-auto">
           <motion.a
             href="https://wa.me/919203544140"
@@ -3840,7 +3840,7 @@ const FloatingButtons = () => {
             initial={{ scale: 0, opacity: 1 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}
-            className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all z-10 shrink-0 group relative"
+            className="w-8 h-8 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all z-10 shrink-0 group relative"
           >
             <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 group-hover:opacity-40"></div>
             <MessageCircle size={24} className="md:w-[32px] md:h-[32px] relative z-10" />
@@ -3863,14 +3863,14 @@ const FloatingButtons = () => {
 
       {/* Floating Buttons on Left Side */}
       <div
-        className={`floating-button-wrapper fixed left-3 md:left-[30px] z-[99999] flex flex-col gap-2 md:gap-4 items-start pointer-events-none bottom-[65px] md:bottom-[20px]`}
+        className={`floating-button-wrapper fixed left-3 md:left-[30px] flex flex-col gap-2 md:gap-4 items-start pointer-events-none transition-all duration-300 ease-out ${mobileMenuOpen ? "bottom-[calc(100vh-160px)] z-[1000000] lg:bottom-[20px] lg:z-[99999]" : "bottom-[65px] md:bottom-[20px] z-[99999]"}`}
       >
         <div className="pointer-events-auto">
           <AIChatWidget />
         </div>
         
         {showTrainingCTA && (
-          <div className="flex flex-col gap-1.5 md:gap-3 items-start pointer-events-auto">
+          <div className={`flex-col gap-1.5 md:gap-3 items-start pointer-events-auto ${mobileMenuOpen ? "hidden lg:flex" : "flex"}`}>
             {/* Desktop Stack */}
             <div className="hidden md:flex flex-col gap-3 items-start">
               <div className="w-[140px] md:w-auto">
@@ -4035,8 +4035,8 @@ const RazorpayPaymentButton = () => {
       className="relative overflow-hidden rounded-2xl group w-full min-h-[64px] bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(79,70,229,0.3)] transition-transform hover:scale-[1.02] flex items-center justify-center cursor-pointer"
     >
       {/* Custom UI Button that looks good */}
-      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-lg md:text-xl z-10 gap-2">
-        Enroll Now - ₹<span className="text-2xl">299</span>{" "}
+      <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm md:text-xl z-10 gap-2">
+        Enroll Now - ₹<span className="text-sm">299</span>{" "}
         <ExternalLink size={20} />
       </div>
     </button>
@@ -4157,7 +4157,7 @@ const MushroomTraining = () => {
   return (
     <section id="training" className="relative pb-16 lg:pb-0 overflow-hidden">
       {/* Tiny bit of Hero style for internal section */}
-      <div className="py-2 md:py-6 text-center px-2 md:px-4">
+      <div className="py-2 md:py-2 text-center px-2 md:px-4">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 1, y: 15 }}
@@ -4165,7 +4165,7 @@ const MushroomTraining = () => {
             transition={{ duration: 0.5 }}
             
           >
-            <h1 className="text-lg md:text-2xl lg:text-3xl font-black dark:text-white text-slate-900 mb-4 tracking-tight uppercase max-w-4xl mx-auto" id="training-h1">
+            <h1 className="text-sm md:text-sm lg:text-xl font-black dark:text-white text-slate-900 mb-4 tracking-tight uppercase max-w-4xl mx-auto" id="training-h1">
               <span className="gradient-text">Mushroom Cultivation</span> Training
             </h1>
 
@@ -4185,11 +4185,11 @@ const MushroomTraining = () => {
       {/* Training Options Section */}
       <div
         id="options"
-        className="py-4 md:py-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent border-y border-purple-500/10 px-2 md:px-4"
+        className="py-2 md:py-8 bg-gradient-to-b from-transparent via-purple-500/5 to-transparent border-y border-purple-500/10 px-2 md:px-4"
       >
         <div className="max-w-7xl mx-auto" id="pricing-plans">
-          <div className="text-center mb-4 md:mb-8">
-            <h2 className="text-lg md:text-2xl font-extrabold dark:text-white text-slate-900 mb-1 md:mb-2 tracking-tight uppercase">
+          <div className="text-center mb-4 md:mb-5">
+            <h2 className="text-sm md:text-sm font-extrabold dark:text-white text-slate-900 mb-1 md:mb-2 tracking-tight uppercase">
                 Choose Your <span className="gradient-text font-black">Training Program</span>
               </h2>
             <p className="dark:text-slate-400 text-slate-600 text-[10px] md:text-xs max-w-xl mx-auto font-medium leading-relaxed">
@@ -4198,28 +4198,28 @@ const MushroomTraining = () => {
           </div>
 
           {/* Group 1: Online Programs */}
-          <div className="mb-8">
-            <h4 className="text-sm md:text-lg font-black text-slate-800 dark:text-slate-200 mb-3 uppercase tracking-wider flex items-center justify-center gap-2 border-b dark:border-white/10 border-slate-200 pb-2">
+          <div className="mb-5">
+            <h4 className="text-sm md:text-sm font-black text-slate-800 dark:text-slate-200 mb-3 uppercase tracking-wider flex items-center justify-center gap-2 border-b dark:border-white/10 border-slate-200 pb-2">
               <Globe className="text-purple-500 animate-spin-slow shrink-0" size={14} />
               <span>1. Online Cultivation Programs (Self-Paced)</span>
             </h4>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 lg:gap-8 w-full max-w-5xl mx-auto items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 lg:gap-5 w-full max-w-5xl mx-auto items-stretch">
               {/* Basic Online Plan */}
               <motion.div
                 whileHover={{ y: -4 }}
-                className="glass relative flex flex-col p-3 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border border-slate-200 dark:border-white/10 dark:bg-black/40 bg-white/50 backdrop-blur-md shadow-lg"
+                className="glass relative flex flex-col p-3 md:p-3 rounded-[1rem] md:rounded-[1.5rem] border border-slate-200 dark:border-white/10 dark:bg-black/40 bg-white/50 backdrop-blur-md shadow-lg"
               >
                 <div className="badge mb-2 self-start bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                   Beginner Friendly
                 </div>
-                <h4 className="text-base md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
+                <h4 className="text-sm md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
                   Basic Online Training (₹299)
                 </h4>
                 
                 {/* Pricing Display */}
                 <div className="flex items-baseline gap-1.5 mb-3 border-b border-dashed border-slate-200 dark:border-white/10 pb-3 text-left">
-                  <span className="text-2xl md:text-3xl font-black gradient-text">₹299</span>
+                  <span className="text-sm md:text-xl font-black gradient-text">₹299</span>
                   <span className="text-[9px] md:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
                 </div>
 
@@ -4250,7 +4250,7 @@ const MushroomTraining = () => {
                 {/* Call to Action */}
                 <button
                   onClick={() => navigate("/training-checkout", { state: { productType: "training_basic", price: "₹299" } })}
-                  className="relative overflow-hidden w-full flex items-center justify-center rounded-[0.85rem] md:rounded-xl group transition-all backdrop-blur-md shadow-[0_8px_32px_rgba(167,139,250,0.15)] hover:shadow-[0_8px_32px_rgba(167,139,250,0.3)] border border-purple-400/40 dark:border-purple-300/30 bg-linear-to-r from-purple-500/10 via-fuchsia-400/10 to-indigo-500/10 dark:from-purple-900/30 dark:via-fuchsia-900/20 dark:to-indigo-900/30 hover:from-purple-500/20 hover:via-fuchsia-400/20 hover:to-indigo-500/20 dark:hover:from-purple-900/40 dark:hover:via-fuchsia-900/30 dark:hover:to-indigo-900/40 text-purple-950 dark:text-purple-100 font-black tracking-wide py-2.5 md:py-3 hover:scale-[1.01] active:scale-95 text-[11px] md:text-sm"
+                  className="relative overflow-hidden w-full flex items-center justify-center rounded-[0.85rem] md:rounded-xl group transition-all backdrop-blur-md shadow-[0_8px_32px_rgba(167,139,250,0.15)] hover:shadow-[0_8px_32px_rgba(167,139,250,0.3)] border border-purple-400/40 dark:border-purple-300/30 bg-linear-to-r from-purple-500/10 via-fuchsia-400/10 to-indigo-500/10 dark:from-purple-900/30 dark:via-fuchsia-900/20 dark:to-indigo-900/30 hover:from-purple-500/20 hover:via-fuchsia-400/20 hover:to-indigo-500/20 dark:hover:from-purple-900/40 dark:hover:via-fuchsia-900/30 dark:hover:to-indigo-900/40 text-purple-950 dark:text-purple-100 font-black tracking-wide py-2.5 md:py-2 hover:scale-[1.01] active:scale-95 text-[11px] md:text-sm"
                 >
                   <span className="z-10 flex items-center justify-center gap-1.5">
                     Join Mushroom Training <ArrowRight size={12} className="text-purple-700 dark:text-purple-300 md:w-3.5 md:h-3.5" />
@@ -4262,7 +4262,7 @@ const MushroomTraining = () => {
               {/* Advanced Online Plan */}
               <motion.div
                 whileHover={{ y: -4 }}
-                className="relative flex flex-col p-3 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border-2 border-purple-500 dark:border-purple-400 dark:bg-purple-950/10 bg-purple-50/10 backdrop-blur-md shadow-2xl overflow-hidden"
+                className="relative flex flex-col p-3 md:p-3 rounded-[1rem] md:rounded-[1.5rem] border-2 border-purple-500 dark:border-purple-400 dark:bg-purple-950/10 bg-purple-50/10 backdrop-blur-md shadow-2xl overflow-hidden"
               >
                 {/* Premium Glow effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl pointer-events-none"></div>
@@ -4276,13 +4276,13 @@ const MushroomTraining = () => {
                   </span>
                 </div>
                 
-                <h4 className="text-base md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
+                <h4 className="text-sm md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
                   Commercial Training (₹699)
                 </h4>
                 
                 {/* Pricing Display */}
                 <div className="flex items-baseline gap-1.5 mb-3 border-b border-dashed border-purple-500/20 pb-3 text-left">
-                  <span className="text-2xl md:text-3xl font-black text-purple-600 dark:text-purple-400">₹699</span>
+                  <span className="text-sm md:text-xl font-black text-purple-600 dark:text-purple-400">₹699</span>
                   <span className="text-[9px] md:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">One-Time Fee</span>
                 </div>
 
@@ -4315,7 +4315,7 @@ const MushroomTraining = () => {
                 {/* Call to Action */}
                 <button
                   onClick={() => navigate("/training-checkout", { state: { productType: "training_advanced", price: "₹699" } })}
-                  className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] text-white font-black tracking-wide py-2.5 md:py-3 rounded-[0.85rem] md:rounded-xl transition-all flex items-center justify-center gap-1.5 hover:scale-[1.01] active:scale-95 text-[11px] md:text-sm"
+                  className="w-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] text-white font-black tracking-wide py-2.5 md:py-2 rounded-[0.85rem] md:rounded-xl transition-all flex items-center justify-center gap-1.5 hover:scale-[1.01] active:scale-95 text-[11px] md:text-sm"
                 >
                   Join Mushroom Training <ArrowRight size={12} className="md:w-3.5 md:h-3.5" />
                 </button>
@@ -4325,21 +4325,21 @@ const MushroomTraining = () => {
 
           {/* Group 2: Offline Practical Workshops */}
           <div>
-            <h4 className="text-sm md:text-lg font-black text-slate-800 dark:text-slate-200 mb-3 uppercase tracking-wider flex items-center justify-center gap-2 border-b dark:border-white/10 border-slate-200 pb-2">
+            <h4 className="text-sm md:text-sm font-black text-slate-800 dark:text-slate-200 mb-3 uppercase tracking-wider flex items-center justify-center gap-2 border-b dark:border-white/10 border-slate-200 pb-2">
               <Users className="text-emerald-500 shrink-0" size={14} />
               <span>2. Offline Practical Workshops (Hands-on Training at Farm)</span>
             </h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 lg:gap-8 w-full max-w-5xl mx-auto items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 lg:gap-5 w-full max-w-5xl mx-auto items-stretch">
               {/* Offline Basic Plan (₹3000) */}
               <motion.div
                 whileHover={{ y: -4 }}
-                className="glass relative flex flex-col p-3 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border border-slate-200 dark:border-white/10 dark:bg-black/40 bg-white/50 backdrop-blur-md shadow-lg"
+                className="glass relative flex flex-col p-3 md:p-3 rounded-[1rem] md:rounded-[1.5rem] border border-slate-200 dark:border-white/10 dark:bg-black/40 bg-white/50 backdrop-blur-md shadow-lg"
               >
                 <div className="badge mb-2 self-start bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                   Focus: Button Mushroom Only
                 </div>
-                <h4 className="text-base md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
+                <h4 className="text-sm md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
                   Standard Button Mushroom Workshop
                 </h4>
                 <p className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 mb-3 text-left font-medium min-h-[30px] md:min-h-[36px]">
@@ -4348,7 +4348,7 @@ const MushroomTraining = () => {
                 
                 {/* Pricing Display */}
                 <div className="flex items-baseline gap-1.5 mb-3 border-b border-dashed border-slate-200 dark:border-white/10 pb-3 text-left">
-                  <span className="text-2xl md:text-3xl font-black text-emerald-600 dark:text-emerald-400">₹3000</span>
+                  <span className="text-sm md:text-xl font-black text-emerald-600 dark:text-emerald-400">₹3000</span>
                   <span className="text-[9px] md:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Per Person</span>
                 </div>
 
@@ -4399,14 +4399,14 @@ const MushroomTraining = () => {
               {/* Offline Master Plan (₹6000) */}
               <motion.div
                 whileHover={{ y: -4 }}
-                className="relative flex flex-col p-3 md:p-6 rounded-[1rem] md:rounded-[1.5rem] border-2 border-emerald-500 dark:border-emerald-400 dark:bg-emerald-950/10 bg-emerald-50/10 backdrop-blur-md shadow-2xl overflow-hidden"
+                className="relative flex flex-col p-3 md:p-3 rounded-[1rem] md:rounded-[1.5rem] border-2 border-emerald-500 dark:border-emerald-400 dark:bg-emerald-950/10 bg-emerald-50/10 backdrop-blur-md shadow-2xl overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
                 
                 <div className="badge mb-2 self-start bg-emerald-500 text-white text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full">
                   Button, Oyster & Milky Mushrooms
                 </div>
-                <h4 className="text-base md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
+                <h4 className="text-sm md:text-xl font-black dark:text-white text-slate-900 mb-1 text-left tracking-tight">
                   Master Commercial Workshop
                 </h4>
                 <p className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 mb-3 text-left font-medium min-h-[30px] md:min-h-[36px]">
@@ -4415,7 +4415,7 @@ const MushroomTraining = () => {
                 
                 {/* Pricing Display */}
                 <div className="flex items-baseline gap-1.5 mb-3 border-b border-dashed border-emerald-500/20 pb-3 text-left">
-                  <span className="text-2xl md:text-3xl font-black text-emerald-600 dark:text-emerald-400">₹6000</span>
+                  <span className="text-sm md:text-xl font-black text-emerald-600 dark:text-emerald-400">₹6000</span>
                   <span className="text-[9px] md:text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Per Person</span>
                 </div>
 
@@ -4469,10 +4469,10 @@ const MushroomTraining = () => {
       </div>
 
       {/* What You Will Get Section */}
-      <div className="py-4 md:py-16 px-2 md:px-4">
+      <div className="py-2 md:py-16 px-2 md:px-4">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-4 md:mb-12">
-            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
+          <div className="text-center mb-4 md:mb-5">
+            <h3 className="text-md md:text-xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
                 What You Will <span className="gradient-text">Get</span>
               </h3>
             <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-[9px] md:text-sm">
@@ -4487,7 +4487,7 @@ const MushroomTraining = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 
-                className={`glass p-2 md:p-6 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-colors flex flex-col justify-start ${i === 4 ? "col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-full" : ""}`}
+                className={`glass p-2 md:p-3 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-colors flex flex-col justify-start ${i === 4 ? "col-span-2 lg:col-span-1 mx-auto w-1/2 lg:w-full" : ""}`}
               >
                 <div className="w-5 h-5 md:w-14 md:h-14 rounded-md md:rounded-2xl dark:bg-white/10 bg-black/10 flex items-center justify-center mb-1 bg-primary-start/10 text-primary-start group-hover:scale-110 transition-transform">
                   <item.icon className="w-3 h-3 md:w-6 md:h-6" />
@@ -4505,10 +4505,10 @@ const MushroomTraining = () => {
       </div>
 
       {/* Curriculum Section */}
-      <div className="py-4 md:py-16 dark:bg-white/5 bg-black/5 px-2 md:px-4">
+      <div className="py-2 md:py-16 dark:bg-white/5 bg-black/5 px-2 md:px-4">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-4 md:mb-12">
-            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
+          <div className="text-center mb-4 md:mb-5">
+            <h3 className="text-md md:text-xl font-bold dark:text-white text-slate-900 uppercase tracking-tight mb-1 md:mb-4">
                 Training <span className="gradient-text">Curriculum</span>
               </h3>
             <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-[9px] md:text-sm">
@@ -4519,9 +4519,9 @@ const MushroomTraining = () => {
             {curriculum.map((item, i) => (
               <div
                 key={i}
-                className="glass p-2 md:p-6 rounded-lg md:rounded-2xl border dark:border-white/5 border-black/5 flex flex-col md:flex-row gap-1.5 md:gap-4 items-start hover:dark:bg-white/5 hover:bg-black/5 transition-colors"
+                className="glass p-2 md:p-3 rounded-lg md:rounded-2xl border dark:border-white/5 border-black/5 flex flex-col md:flex-row gap-1.5 md:gap-4 items-start hover:dark:bg-white/5 hover:bg-black/5 transition-colors"
               >
-                <div className="w-4 h-4 md:w-10 md:h-10 shrink-0 rounded-full dark:bg-white/10 bg-black/10 flex items-center justify-center font-black dark:text-white text-slate-900 opacity-50 text-[8px] md:text-base mb-0 md:mb-0">
+                <div className="w-4 h-4 md:w-10 md:h-10 shrink-0 rounded-full dark:bg-white/10 bg-black/10 flex items-center justify-center font-black dark:text-white text-slate-900 opacity-50 text-[8px] md:text-sm mb-0 md:mb-0">
                   {i + 1}
                 </div>
                 <div>
@@ -4538,12 +4538,12 @@ const MushroomTraining = () => {
         </div>
       </div>
 
-      <div className="py-4 md:py-24">
+      <div className="py-2 md:py-24">
         <div className="max-w-7xl mx-auto px-2 md:px-4 text-center">
           <div className="badge mx-auto mb-1 md:mb-6 text-[8px] md:text-sm">
             Commercial Farming Essentials
           </div>
-          <h3 className="text-md md:text-4xl font-bold dark:text-white text-slate-900 mb-1 md:mb-6 uppercase tracking-tight">
+          <h3 className="text-md md:text-sm font-bold dark:text-white text-slate-900 mb-1 md:mb-6 uppercase tracking-tight">
             Need High-Yield Commercial{" "}
             <span className="gradient-text">Mushroom Seed?</span>
           </h3>
@@ -4552,7 +4552,7 @@ const MushroomTraining = () => {
           </p>
           <Link
             to="/spawn-seed"
-            className="btn-primary px-4 md:px-10 py-2 md:py-4 rounded-lg md:rounded-xl text-[10px] md:text-lg inline-flex items-center gap-1.5 md:gap-3"
+            className="btn-primary px-4 md:px-6 py-2 md:py-2 rounded-lg md:rounded-xl text-[10px] md:text-sm inline-flex items-center gap-1.5 md:gap-3"
           >
             Explore Organic Spawn & Seeds{" "}
             <Sprout size={12} className="md:w-5 md:h-5" />
@@ -4561,10 +4561,10 @@ const MushroomTraining = () => {
       </div>
 
       {/* Why Choose Us Section */}
-      <div className="py-4 md:py-24">
+      <div className="py-2 md:py-24">
         <div className="max-w-7xl mx-auto px-2 md:px-4">
-          <div className="text-center mb-4 md:mb-16">
-            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 uppercase tracking-tight">
+          <div className="text-center mb-4 md:mb-6">
+            <h3 className="text-md md:text-xl font-bold dark:text-white text-slate-900 uppercase tracking-tight">
               Why Choose <span className="gradient-text">Our Training?</span>
             </h3>
           </div>
@@ -4593,12 +4593,12 @@ const MushroomTraining = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className="glass p-2 md:p-8 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 text-center group hover:dark:bg-white/5 bg-black/5 transition-all"
+                className="glass p-2 md:p-3 rounded-lg md:rounded-3xl border dark:border-white/5 border-black/5 text-center group hover:dark:bg-white/5 bg-black/5 transition-all"
               >
                 <div className="w-6 h-6 md:w-16 md:h-16 rounded-md md:rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-1.5 md:mb-6 text-primary-start group-hover:scale-110 transition-transform">
                   <item.icon className="w-3 h-3 md:w-7 md:h-7" />
                 </div>
-                <h4 className="dark:text-white text-slate-900 font-bold text-[10px] md:text-lg mb-0.5 md:mb-3 leading-tight">
+                <h4 className="dark:text-white text-slate-900 font-bold text-[10px] md:text-sm mb-0.5 md:mb-3 leading-tight">
                   {item.title}
                 </h4>
                 <p className="text-slate-500 text-[8px] md:text-sm leading-tight md:leading-relaxed">
@@ -4611,10 +4611,10 @@ const MushroomTraining = () => {
       </div>
 
       {/* Gallery Section */}
-      <div className="py-4 md:py-24 pt-0 md:pt-0">
+      <div className="py-2 md:py-24 pt-0 md:pt-0">
         <div className="max-w-7xl mx-auto px-2 md:px-4">
-          <div className="text-center mb-3 md:mb-12">
-            <h3 className="text-md md:text-3xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-4 uppercase tracking-tight">
+          <div className="text-center mb-3 md:mb-5">
+            <h3 className="text-md md:text-xl font-bold dark:text-white text-slate-900 mb-0.5 md:mb-4 uppercase tracking-tight">
               Experience our Commercial{" "}
               <span className="gradient-text">Ecosystem</span>
             </h3>
@@ -4640,14 +4640,14 @@ const MushroomTraining = () => {
       </div>
 
       {/* SEO Content Section */}
-      <div className="py-4 md:py-24 dark:bg-white/5 bg-black/5 px-2 md:px-4">
+      <div className="py-2 md:py-24 dark:bg-white/5 bg-black/5 px-2 md:px-4">
         <div className="max-w-4xl mx-auto prose prose-invert">
-          <h3 className="text-sm md:text-2xl font-bold dark:text-white text-slate-900 mb-2 md:mb-8 border-l-2 md:border-l-4 border-primary-start pl-2 md:pl-6 uppercase tracking-tight">
+          <h3 className="text-sm md:text-sm font-bold dark:text-white text-slate-900 mb-2 md:mb-5 border-l-2 md:border-l-4 border-primary-start pl-2 md:pl-6 uppercase tracking-tight">
             Start Your Commercial{" "}
             <span className="gradient-text">Mushroom Farming Journey</span> in
             India & Globally
           </h3>
-          <div className="dark:text-slate-400 text-slate-600 space-y-2 md:space-y-6 leading-tight md:leading-relaxed text-[9px] md:text-base">
+          <div className="dark:text-slate-400 text-slate-600 space-y-2 md:space-y-6 leading-tight md:leading-relaxed text-[9px] md:text-sm">
             <p>
               Looking for the best{" "}
               <span className="dark:text-white text-slate-900 font-bold">
@@ -4688,10 +4688,10 @@ const MushroomTraining = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="py-4 md:py-24 px-2 md:px-4">
+      <div className="py-2 md:py-24 px-2 md:px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-4 md:mb-12">
-            <h3 className="text-md md:text-2xl font-bold dark:text-white text-slate-900 mb-1 md:mb-4 uppercase tracking-tight">
+          <div className="text-center mb-4 md:mb-5">
+            <h3 className="text-md md:text-sm font-bold dark:text-white text-slate-900 mb-1 md:mb-4 uppercase tracking-tight">
               Common Commercial Farming{" "}
               <span className="gradient-text">Queries</span>
             </h3>
@@ -4699,7 +4699,7 @@ const MushroomTraining = () => {
           <div className="space-y-1.5 md:space-y-4">
             {faqs.map((faq, i) => (
               <Collapsible key={i} title={faq.q}>
-                <p className="dark:text-slate-400 text-slate-600 leading-tight md:leading-relaxed text-[9px] md:text-base">
+                <p className="dark:text-slate-400 text-slate-600 leading-tight md:leading-relaxed text-[9px] md:text-sm">
                   {faq.a}
                 </p>
               </Collapsible>
@@ -4747,7 +4747,7 @@ const HomePage = () => {
         className="section-padding relative overflow-hidden"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-5">
             <div className="badge mx-auto mb-4">Commercial Infrastructure</div>
             <h2 className="mb-4 uppercase">
               <Link to="/equipment" className="hover:text-current transition-colors">
@@ -4760,7 +4760,7 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-10">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-6">
             {[
               {
                 name: "2000-Bag Commercial Unit (20T)",
@@ -4799,30 +4799,30 @@ const HomePage = () => {
                   {Object.entries(comp.stats).map(([k, v]) => (
                     <div
                       key={k}
-                      className="p-2 md:p-4 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-center"
+                      className="p-2 md:p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-center"
                     >
                       <div className="text-[8px] text-slate-500 font-bold uppercase mb-1">
                         {k}
                       </div>
-                      <div className="text-sm md:text-lg font-bold dark:text-white text-slate-900">
+                      <div className="text-sm md:text-sm font-bold dark:text-white text-slate-900">
                         {v}
                       </div>
                     </div>
                   ))}
                 </div>
 
-                <div className="flex items-center justify-between p-4 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 shadow shadow-brand-blue/10 ring-1 ring-white/10 ring-inset mb-6">
+                <div className="flex items-center justify-between p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 shadow shadow-brand-blue/10 ring-1 ring-white/10 ring-inset mb-6">
                   <span className="text-[11px] font-semibold dark:text-slate-400 text-slate-600">
                     Est. CapEx
                   </span>
-                  <span className="text-lg font-bold dark:text-white text-slate-900">
+                  <span className="text-sm font-bold dark:text-white text-slate-900">
                     {comp.investment}
                   </span>
                 </div>
 
                 <Link
                   to="/compost-unit-specs"
-                  className="btn-primary w-full py-3.5 rounded-xl text-[12px] font-bold min-h-[44px] flex items-center justify-center"
+                  className="btn-primary w-full py-2 rounded-xl text-[12px] font-bold min-h-[44px] flex items-center justify-center"
                 >
                   Get Details
                 </Link>
@@ -4835,7 +4835,7 @@ const HomePage = () => {
       {/* Testimonials Section */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-5">
             <div className="badge mx-auto mb-4">Farmer Testimonials</div>
             <h2 className="mb-4 uppercase">
               Real Commercial <span className="gradient-text">Voices</span>
@@ -4869,7 +4869,7 @@ const HomePage = () => {
                 initial={{ opacity: 1, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 
-                className="glass p-6 rounded-3xl border dark:border-white/5 border-black/5 flex flex-col h-full"
+                className="glass p-3 rounded-3xl border dark:border-white/5 border-black/5 flex flex-col h-full"
               >
                 <Quote
                   size={20}
@@ -4905,7 +4905,7 @@ const HomePage = () => {
             Global{" "}
             <span className="gradient-text">Mushroom B2B Marketplace</span>
           </h2>
-          <p className="max-w-xl mx-auto mb-12 font-medium">
+          <p className="max-w-xl mx-auto mb-5 font-medium">
             Connect directly with verified commercial buyers and sellers
             worldwide.
           </p>
@@ -4948,7 +4948,7 @@ const HomePage = () => {
                       ? "noopener noreferrer"
                       : undefined
                   }
-                  className="glass p-5 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
+                  className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
                 >
                   <div
                     className={`absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400`}
@@ -4979,7 +4979,7 @@ const HomePage = () => {
       {/* Resources & SOPs Section */}
       <section id="resources" className="section-padding bg-white/[0.01]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-start">
             <div>
               <div className="badge mb-6 mx-auto lg:mx-0">
                 Documentation & Resources
@@ -4990,7 +4990,7 @@ const HomePage = () => {
                   <span className="gradient-text">SOPs & Guides</span>
                 </Link>
               </h2>
-              <p className="mb-10 text-center lg:text-left">
+              <p className="mb-6 text-center lg:text-left">
                 Standard operating procedures used by commercial mushroom
                 specialists nationwide and internationally.
               </p>
@@ -5050,7 +5050,7 @@ const HomePage = () => {
                   <Link
                     to={`/sops#${sop.id}`}
                     key={sop.name}
-                    className="flex items-center gap-4 p-5 glass rounded-2xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all cursor-pointer"
+                    className="flex items-center gap-4 p-3 glass rounded-2xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all cursor-pointer"
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary-start/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <BookOpen size={18} className="text-primary-start" />
@@ -5069,8 +5069,8 @@ const HomePage = () => {
 
             <div className="relative">
               <div className="absolute inset-0 gradient-bg opacity-10 blur-[80px] rounded-full"></div>
-              <div className="relative glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/10 border-black/10">
-                <div className="flex items-center gap-4 mb-8 justify-center lg:justify-start">
+              <div className="relative glass p-3 md:p-10 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+                <div className="flex items-center gap-4 mb-5 justify-center lg:justify-start">
                   <BookOpen className="text-primary-start" size={24} />
                   <h3 className="dark:text-white text-slate-900 tracking-tight">
                     Commercial Knowledge Hub
@@ -5079,7 +5079,7 @@ const HomePage = () => {
                 <div className="space-y-6">
                   <Link
                     to="/articles/mushroom-farming-beginner-guide-india-2026-2027"
-                    className="p-4 md:p-6 rounded-3xl bg-primary-start/10 border border-primary-start/20 block group hover:scale-[1.02] transition-transform"
+                    className="p-3 md:p-3 rounded-3xl bg-primary-start/10 border border-primary-start/20 block group hover:scale-[1.02] transition-transform"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[9px] text-primary-start font-black uppercase tracking-widest">
@@ -5089,7 +5089,7 @@ const HomePage = () => {
                         Article
                       </div>
                     </div>
-                    <h4 className="dark:text-white text-slate-900 font-bold text-lg mb-2">
+                    <h4 className="dark:text-white text-slate-900 font-bold text-sm mb-2">
                         Mushroom Farming Beginner Guide India 2026-2027
                       </h4>
                     <p className="dark:text-slate-400 text-slate-600 text-xs leading-relaxed">
@@ -5098,7 +5098,7 @@ const HomePage = () => {
                     </p>
                   </Link>
 
-                  <div className="p-4 md:p-6 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+                  <div className="p-3 md:p-3 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">
                         Featured
@@ -5120,7 +5120,7 @@ const HomePage = () => {
                         className="w-full h-full object-cover opacity-60"
                        width="1080" height="1080" />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center pl-1 shadow-2xl">
+                        <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center pl-1 shadow-2xl">
                           <Play size={20} fill="currentColor" />
                         </div>
                       </div>
@@ -5161,7 +5161,7 @@ const PageHero = ({
         transition={{ duration: 0.6 }}
       >
         {badge && <div className="badge mx-auto mb-6">{badge}</div>}
-        <h1 className="text-3xl md:text-6xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">
+        <h1 className="text-xl md:text-6xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">
           {title.split(" ").map((word, i) => (
             <React.Fragment key={i}>
               {i === 1 ? (
@@ -5172,7 +5172,7 @@ const PageHero = ({
             </React.Fragment>
           ))}
         </h1>
-        <p className="dark:text-slate-400 text-slate-600 text-sm md:text-lg max-w-2xl mx-auto font-medium">
+        <p className="dark:text-slate-400 text-slate-600 text-sm md:text-sm max-w-2xl mx-auto font-medium">
           {description}
         </p>
       </motion.div>
@@ -5239,11 +5239,11 @@ const AboutPage = () => {
                 </span>
               </h2>
               <div className="space-y-6">
-                <div className="glass p-6 border dark:border-white/5 border-black/5 rounded-2xl relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform">
+                <div className="glass p-3 border dark:border-white/5 border-black/5 rounded-2xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-3 opacity-5 group-hover:scale-110 transition-transform">
                     <Briefcase size={60} />
                   </div>
-                  <h3 className="dark:text-white text-slate-900 text-lg font-bold mb-2">
+                  <h3 className="dark:text-white text-slate-900 text-sm font-bold mb-2">
                       Our Mission
                     </h3>
                   <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
@@ -5257,11 +5257,11 @@ const AboutPage = () => {
                     button and oyster mushroom production.
                   </p>
                 </div>
-                <div className="glass p-6 border dark:border-white/5 border-black/5 rounded-2xl relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform">
+                <div className="glass p-3 border dark:border-white/5 border-black/5 rounded-2xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-3 opacity-5 group-hover:scale-110 transition-transform">
                     <ShieldCheck size={60} />
                   </div>
-                  <h3 className="dark:text-white text-slate-900 text-lg font-bold mb-2">
+                  <h3 className="dark:text-white text-slate-900 text-sm font-bold mb-2">
                       Our Vision
                     </h3>
                   <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
@@ -5278,7 +5278,7 @@ const AboutPage = () => {
                       href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2"
+                      className="btn-primary px-5 py-2 rounded-xl font-bold flex items-center justify-center gap-2"
                     >
                       <MessageCircle size={20} /> Contact Us on WhatsApp
                     </a>
@@ -5293,7 +5293,7 @@ const AboutPage = () => {
       {/* What We Do Section */}
       <section className="section-padding bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <div className="badge mx-auto mb-4">What We Do</div>
             <h2 className="uppercase tracking-tight">
               Core{" "}
@@ -5311,12 +5311,12 @@ const AboutPage = () => {
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
-                className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 text-center flex flex-col"
+                className="glass p-3 rounded-3xl border dark:border-white/5 border-black/5 text-center flex flex-col"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary-start/10 text-primary-start flex items-center justify-center mx-auto mb-6">
                   <item.icon size={26} />
                 </div>
-                <h3 className="dark:text-white text-slate-900 font-bold text-lg mb-3">
+                <h3 className="dark:text-white text-slate-900 font-bold text-sm mb-3">
                   {item.title}
                 </h3>
                 <p className="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
@@ -5346,7 +5346,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="badge mb-4">The Commercial Advantage</div>
-              <h2 className="mb-8 uppercase tracking-tight">
+              <h2 className="mb-5 uppercase tracking-tight">
                 Why Choose{" "}
                 <span className="gradient-text">
                   Us for Turnkey Projects?
@@ -5395,12 +5395,12 @@ const AboutPage = () => {
       {/* SEO Natural Text Section */}
       <section className="section-padding dark:bg-black/40 bg-slate-100/40">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert text-center">
-          <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-8 uppercase tracking-tight leading-loose">
+          <h3 className="text-xl md:text-sm font-bold dark:text-white text-slate-900 mb-5 uppercase tracking-tight leading-loose">
             Pioneering Commercial{" "}
             <span className="gradient-text">Organic Mushrooms Farm Katangi</span>{" "}
             & <Link to="/cities/madhya-pradesh/jabalpur" className="text-primary-start hover:underline">Jabalpur</Link>
           </h3>
-          <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
+          <p className="dark:text-slate-400 text-slate-600 text-sm md:text-sm leading-relaxed">
             Our commercial <strong>organic mushrooms farm in Katangi</strong>{" "}
             road, Jabalpur, serves as a model for aspiring farmers across the
             region and globe. We are proud to provide the most reliable{" "}
@@ -5439,7 +5439,7 @@ const ServicesPage = () => {
       <EcosystemFlow />
       <section className="section-padding pt-0">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 id: "spawn-supply",
@@ -5481,7 +5481,7 @@ const ServicesPage = () => {
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
-                className="glass p-8 rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all"
+                className="glass p-3 rounded-3xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all"
               >
                 <div className="w-14 h-14 rounded-2xl bg-primary-start/10 text-primary-start flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <s.icon size={26} />
@@ -5662,7 +5662,7 @@ const TurnkeyProjectsPage = () => {
       {/* SEO-Optimized Commercial Farming Models Section */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-4">
               Infrastructure Models
             </div>
@@ -5675,7 +5675,7 @@ const TurnkeyProjectsPage = () => {
               our top-tier turnkey commercial structural designs.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-5">
             {[
               {
                 title: "Standard Commercial Unit",
@@ -5699,7 +5699,7 @@ const TurnkeyProjectsPage = () => {
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.05 }}
-                className="glass p-8 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
+                className="glass p-3 rounded-[2.5rem] border dark:border-white/5 border-black/5 text-center group"
               >
                 <div className="w-16 h-16 rounded-2xl dark:bg-white/5 bg-black/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-start group-hover:text-white transition-all">
                   <model.icon size={28} />
@@ -5710,11 +5710,11 @@ const TurnkeyProjectsPage = () => {
                 <div className="text-primary-start font-black text-xs uppercase tracking-widest mb-6">
                   Commercial Capacity: {model.cap}
                 </div>
-                <div className="p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 mb-8">
+                <div className="p-3 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 mb-5">
                   <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">
                     Est. Investment
                   </div>
-                  <div className="text-lg font-bold dark:text-white text-slate-900">
+                  <div className="text-sm font-bold dark:text-white text-slate-900">
                     {model.investment}
                   </div>
                 </div>
@@ -5722,7 +5722,7 @@ const TurnkeyProjectsPage = () => {
                   href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20commercial%20turnkey%20mushroom%20farming.%20Please%20provide%20details."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline w-full py-3 rounded-xl text-xs font-bold uppercase tracking-widest block text-center"
+                  className="btn-outline w-full py-2 rounded-xl text-xs font-bold uppercase tracking-widest block text-center"
                 >
                   Enquire Details
                 </a>
@@ -5735,11 +5735,11 @@ const TurnkeyProjectsPage = () => {
       {/* NEW: SECTION FOR ALL TYPES OF MUSHROOM SETUP */}
       <section className="section-padding bg-slate-950/40 border-t border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
             <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-500 uppercase tracking-widest mb-4">
               A to Z Project Portfolios
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight uppercase">
+            <h2 className="text-xl md:text-xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight uppercase">
               All Types of{" "}
               <span className="text-primary-start">Mushroom Farm Setup</span>
             </h2>
@@ -5758,7 +5758,7 @@ const TurnkeyProjectsPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass p-6 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 flex flex-col lg:flex-row gap-8 items-center hover:border-emerald-500/20 transition-all group"
+                className="glass p-3 md:p-10 rounded-[2.5rem] border dark:border-white/5 border-black/5 flex flex-col lg:flex-row gap-5 items-center hover:border-emerald-500/20 transition-all group"
               >
                 <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-[2rem] bg-white/5 border border-white/10 flex items-center justify-center text-primary-start group-hover:scale-110 transition-all">
                   <setup.icon size={36} />
@@ -5768,11 +5768,11 @@ const TurnkeyProjectsPage = () => {
                     <span className="badge text-[9px] uppercase tracking-widest">
                       {setup.badge}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 tracking-tight">
+                    <h3 className="text-xl md:text-sm font-bold dark:text-white text-slate-900 tracking-tight">
                       {setup.type}
                     </h3>
                   </div>
-                  <p className="dark:text-slate-400 text-slate-600 text-sm md:text-base leading-relaxed">
+                  <p className="dark:text-slate-400 text-slate-600 text-sm md:text-sm leading-relaxed">
                     {setup.description}
                   </p>
 
@@ -5790,7 +5790,7 @@ const TurnkeyProjectsPage = () => {
                     ))}
                   </div>
                 </div>
-                <div className="w-full lg:w-auto shrink-0 bg-white/5 border border-white/10 rounded-[2rem] p-6 text-center space-y-4 lg:min-w-[240px]">
+                <div className="w-full lg:w-auto shrink-0 bg-white/5 border border-white/10 rounded-[2rem] p-3 text-center space-y-4 lg:min-w-[240px]">
                   <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
                     Setup Investment Cost
                   </div>
@@ -5801,7 +5801,7 @@ const TurnkeyProjectsPage = () => {
                     href={`https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20setting%20up%20a%20${encodeURIComponent(setup.type)}.%20Please%20share%20quotation.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn bg-primary-start hover:brightness-110 dark:text-white text-slate-900 w-full py-3 rounded-xl text-xs font-black uppercase tracking-widest block text-center transition-all"
+                    className="btn bg-primary-start hover:brightness-110 dark:text-white text-slate-900 w-full py-2 rounded-xl text-xs font-black uppercase tracking-widest block text-center transition-all"
                   >
                     Get Quotation
                   </a>
@@ -5813,24 +5813,24 @@ const TurnkeyProjectsPage = () => {
       </section>
 
       {/* NEW: DYNAMIC INQUIRY FORM AT THE BOTTOM */}
-      <section className="section-padding dark:bg-[#0A0A0A] bg-slate-50 relative overflow-hidden">
+      <section className="section-padding   relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(16,185,129,0.05),transparent_40%)]"></div>
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-5">
             <div className="inline-block px-4 py-1.5 rounded-full bg-primary-start/10 border border-primary-start/20 text-[10px] font-black text-primary-start uppercase tracking-widest mb-4">
               Instant Quotation & Project Planning
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight uppercase">
+            <h2 className="text-xl md:text-xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight leading-tight uppercase">
               Turnkey Plant Setup Inquiry
             </h2>
-            <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-sm md:text-base">
+            <p className="dark:text-slate-400 text-slate-600 max-w-xl mx-auto text-sm md:text-sm">
               Submit your project specifications below. Our tech specialists
               will outline custom layouts, calculate full machinery costs, and
               provide a comprehensive project brief.
             </p>
           </div>
 
-          <div className="glass border dark:border-white/10 border-black/10 p-6 md:p-10 rounded-[2.5rem] shadow-2xl relative">
+          <div className="glass border dark:border-white/10 border-black/10 p-3 md:p-10 rounded-[2.5rem] shadow-2xl relative">
             {formState.succeeded ? (
               <motion.div
                 initial={{ opacity: 1, scale: 0.95 }}
@@ -5841,7 +5841,7 @@ const TurnkeyProjectsPage = () => {
                   <CheckCircle2 size={44} />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold dark:text-white text-slate-900">
+                  <h3 className="text-sm font-bold dark:text-white text-slate-900">
                       Enquiry Submitted Successfully!
                     </h3>
                   <p className="dark:text-slate-400 text-slate-600 text-sm max-w-sm mx-auto font-medium">
@@ -5864,14 +5864,14 @@ const TurnkeyProjectsPage = () => {
                 </button>
               </motion.div>
             ) : (
-              <div className="space-y-6 text-center py-6">
-                <h3 className="text-2xl font-bold dark:text-white text-slate-900">Request Turnkey Details</h3>
+              <div className="space-y-6 text-center py-2">
+                <h3 className="text-sm font-bold dark:text-white text-slate-900">Request Turnkey Details</h3>
                 <p className="text-slate-500 text-sm mb-4">
                   For large scale and commercial setups, please provide your exact needs in our enquiry form.
                 </p>
                 <Link
                   to="/enquiry"
-                  className="inline-block px-10 py-4 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-lg"
+                  className="inline-block px-6 py-2 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-sm"
                 >
                   Enquiry Now
                 </Link>
@@ -6134,20 +6134,20 @@ const FAQPage = () => {
       />
       <section className="section-padding pt-0 pb-20">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="mb-8 space-y-4 text-center">
-            <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900">
+          <div className="mb-5 space-y-4 text-center">
+            <h2 className="text-xl md:text-sm font-bold dark:text-white text-slate-900">
               Welcome to the official FAQ Hub of Organic Mushroom Farm.
             </h2>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-sm">
               If you're planning to start a commercial mushroom farming business, you may have questions about investment, infrastructure, farm setup, production, and profitability. This page provides clear, accurate, and practical answers to the most common questions asked by aspiring mushroom entrepreneurs.
             </p>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-sm">
               Our expertise focuses on the commercial cultivation of Oyster, Button, and Milky mushrooms. Here, you'll find detailed information about setup costs, farm planning, profit potential, production systems, and our hands-on training programs conducted across states such as Madhya Pradesh, Uttar Pradesh, Bihar, Maharashtra, and etc. many other regions.
             </p>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-sm">
               Whether you're a complete beginner starting from scratch or an experienced farmer looking to scale your operations, our expert team is here to support you at every stage. If you can't find the answer you're looking for below, feel free to contact our consultancy team for personalized guidance.
             </p>
-            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-base font-medium">
+            <p className="dark:text-slate-300 text-slate-700 leading-relaxed text-sm md:text-sm font-medium">
               Let's answer your questions and help you build a successful mushroom farming business.
             </p>
           </div>
@@ -6161,8 +6161,8 @@ const FAQPage = () => {
             ))}
           </div>
 
-          <div className="mt-16 glass p-8 rounded-3xl border dark:border-white/10 border-black/10 text-center">
-            <h1 className="text-3xl md:text-5xl dark:text-white text-slate-900 font-bold mb-4">
+          <div className="mt-16 glass p-3 rounded-3xl border dark:border-white/10 border-black/10 text-center">
+            <h1 className="text-xl md:text-xl dark:text-white text-slate-900 font-bold mb-4">
               Still have commercial setup questions?
             </h1>
             <p className="dark:text-slate-400 text-slate-600 text-sm mb-6">
@@ -6171,7 +6171,7 @@ const FAQPage = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 to="/contact"
-                className="btn-primary px-8 py-3 rounded-xl font-bold"
+                className="btn-primary px-5 py-2 rounded-xl font-bold"
               >
                 Contact Us
               </Link>
@@ -6179,7 +6179,7 @@ const FAQPage = () => {
                 href="https://wa.me/919203544140"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline px-8 py-3 rounded-xl font-bold"
+                className="btn-outline px-5 py-2 rounded-xl font-bold"
               >
                 WhatsApp Now
               </a>
@@ -6191,7 +6191,7 @@ const FAQPage = () => {
       {/* Pan India Service Mentions for SEO */}
       <section className="section-padding dark:bg-white/5 bg-black/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="dark:text-white text-slate-900 font-bold mb-8 uppercase tracking-widest text-sm">
+          <h2 className="dark:text-white text-slate-900 font-bold mb-5 uppercase tracking-widest text-sm">
             Serving Pan India & Global Markets
           </h2>
           <p className="text-slate-500 text-xs leading-relaxed max-w-4xl mx-auto">
@@ -6229,7 +6229,7 @@ const TermsOfServicePage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+          <div className="glass p-3 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
             <h2 className="dark:text-white text-slate-900">
               1. Commercial Service Agreement
             </h2>
@@ -6314,7 +6314,7 @@ const PrivacyPolicyPage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+          <div className="glass p-3 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
             <h2 className="dark:text-white text-slate-900">
               1. Data Collection
             </h2>
@@ -6393,7 +6393,7 @@ const RefundPolicyPage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+          <div className="glass p-3 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
             <h2 className="dark:text-white text-slate-900">
               1. Digital Training & Course Materials
             </h2>
@@ -6461,7 +6461,7 @@ const ShippingPolicyPage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+          <div className="glass p-3 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
             <h2 className="dark:text-white text-slate-900">
               1. Cold Chain & Insulated Packaging
             </h2>
@@ -6539,19 +6539,19 @@ const CustomerSupportPage = () => {
       />
       <section className="section-padding pt-0 pb-32">
         <div className="max-w-4xl mx-auto px-4 prose prose-invert">
-          <div className="glass p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
+          <div className="glass p-3 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10">
             <h2 className="dark:text-white text-slate-900 mb-6">
               Contact Channels & Operations
             </h2>
-            <p className="dark:text-slate-400 text-slate-600 mb-8">
+            <p className="dark:text-slate-400 text-slate-600 mb-5">
               Whether you are tracking a spawn shipment, solving commercial
               cooling ventilation errors, or applying for government NHB
               subsidies, our specialized desk is ready to assist you.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 my-10 not-prose">
-              <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
-                <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">
+              <div className="p-3 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+                <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-2">
                   📞 Direct Hotline
                 </h3>
                 <p className="text-slate-500 text-sm mb-4">
@@ -6560,13 +6560,13 @@ const CustomerSupportPage = () => {
                 </p>
                 <a
                   href="tel:+919203544140"
-                  className="text-primary-start font-bold text-lg hover:underline"
+                  className="text-primary-start font-bold text-sm hover:underline"
                 >
                   +91 9203544140
                 </a>
               </div>
-              <div className="p-6 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
-                <h3 className="text-lg font-bold dark:text-white text-slate-900 mb-2">
+              <div className="p-3 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
+                <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-2">
                   💬 WhatsApp Support
                 </h3>
                 <p className="text-slate-500 text-sm mb-4">
@@ -6953,8 +6953,9 @@ export default function App() {
     <>
       <MetaPixelTracker />
       <ScrollToTop />
-      <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 dark:text-white bg-slate-50 dark:bg-[#0A0A0A] min-h-screen">
-        <Background3D />
+      <div className="selection:bg-primary-start/30 selection:dark:text-white text-slate-900 dark:text-white   min-h-screen">
+        <MyceliumBackground />
+        <div className="relative z-10">
         <Navbar />
 
         <main>
@@ -6963,6 +6964,7 @@ export default function App() {
 
         <Footer />
         <FloatingButtons />
+        </div>
       </div>
     </>
   );
@@ -6989,7 +6991,7 @@ const ComparisonTable = () => {
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-6 md:mb-6">
           <div className="badge mx-auto mb-4">Commercial Setup Comparison</div>
           <h2 className="mb-4 uppercase tracking-tight">
             The Commercial <span className="gradient-text">Organic Edge</span>
@@ -7004,13 +7006,13 @@ const ComparisonTable = () => {
             <table className="w-full text-left">
               <thead>
                 <tr className="dark:bg-white/5 bg-black/5 border-b dark:border-white/10 border-black/10">
-                  <th className="px-4 md:px-8 py-6 text-[9px] font-black text-slate-500 uppercase tracking-widest">
+                  <th className="px-4 md:px-5 py-2 text-[9px] font-black text-slate-500 uppercase tracking-widest">
                     Features
                   </th>
-                  <th className="px-4 md:px-8 py-6 text-[9px] font-black dark:text-white text-slate-900 uppercase tracking-widest gradient-bg">
+                  <th className="px-4 md:px-5 py-2 text-[9px] font-black dark:text-white text-slate-900 uppercase tracking-widest gradient-bg">
                     Organic
                   </th>
-                  <th className="px-4 md:px-8 py-6 text-[9px] font-black text-slate-500 uppercase tracking-widest">
+                  <th className="px-4 md:px-5 py-2 text-[9px] font-black text-slate-500 uppercase tracking-widest">
                     Others
                   </th>
                 </tr>
@@ -7018,13 +7020,13 @@ const ComparisonTable = () => {
               <tbody className="divide-y divide-white/5">
                 {data.map((row, i) => (
                   <tr key={i} className="hover:bg-white/[0.02]">
-                    <td className="px-4 md:px-8 py-5 text-[11px] font-bold dark:text-slate-400 text-slate-600">
+                    <td className="px-4 md:px-5 py-5 text-[11px] font-bold dark:text-slate-400 text-slate-600">
                       {row.feature}
                     </td>
-                    <td className="px-4 md:px-8 py-5 text-[12px] font-bold dark:text-white text-slate-900 tracking-tight">
+                    <td className="px-4 md:px-5 py-5 text-[12px] font-bold dark:text-white text-slate-900 tracking-tight">
                       {row.us}
                     </td>
-                    <td className="px-4 md:px-8 py-5 text-[12px] font-medium text-slate-500">
+                    <td className="px-4 md:px-5 py-5 text-[12px] font-medium text-slate-500">
                       {row.others}
                     </td>
                   </tr>

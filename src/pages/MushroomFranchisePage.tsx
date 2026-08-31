@@ -91,7 +91,7 @@ export default function MushroomFranchisePage() {
                        <CheckCircle2 size={18} className="text-white shrink-0" /> Yield Capability: 20-30 Tons/Cycle
                      </li>
                    </ul>
-                   <a href="https://wa.me/919203544140" className="w-full block text-center py-4 rounded-xl bg-white text-primary-start font-bold hover:bg-slate-50 transition-all">Setup Industrial Setup</a>
+                   <a href="https://wa.me/919203544140" className="w-full block text-center py-4 rounded-xl bg-white text-primary-start font-bold hover:bg-transparent transition-all">Setup Industrial Setup</a>
                 </div>
               </div>
             </div>

@@ -215,7 +215,7 @@ const ArticleBusinessPlanHindi = () => {
             Sahi training se aap pehle hi batch mein profit kama sakte ho. <strong>organicmushroomsfarm.com</strong> par online aur offline dono training available hai — beginner se advanced level tak.
           </p>
 
-          <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border dark:border-white/10 border-black/10 my-6">
+          <div className="bg-transparent dark:bg-slate-900/50 p-6 rounded-2xl border dark:border-white/10 border-black/10 my-6">
             <h4 className="font-bold text-lg mb-4 text-primary-start">Mushroom Farming Training Available In — Ye Cities aur States Mein</h4>
             <div className="text-sm space-y-3 dark:text-slate-400 text-slate-600">
               <p><strong>Madhya Pradesh:</strong> Jabalpur, Bhopal, Indore, Gwalior, Rewa, Sagar, Satna, Ujjain, Chhindwara, Betul, Hoshangabad, Katni, Damoh</p>

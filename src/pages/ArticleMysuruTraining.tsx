@@ -75,7 +75,7 @@ const ArticleMysuruTraining = () => {
     ];
 
     return (
-        <div className="min-h-screen pt-32 pb-20 relative overflow-hidden bg-slate-50 dark:bg-[#09090b]">
+        <div className="min-h-screen pt-32 pb-20 relative overflow-hidden bg-transparent dark:bg-transparent">
             {/* Ambient Background Colors */}
             <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
                 <div className="absolute top-[2%] left-[5%] w-[40vw] h-[40vw] max-w-[600px] max-h-[600px] bg-purple-400/20 dark:bg-purple-600/15 rounded-full blur-[100px] md:blur-[140px] mix-blend-multiply dark:mix-blend-screen" />

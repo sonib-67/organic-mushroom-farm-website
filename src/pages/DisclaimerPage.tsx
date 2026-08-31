@@ -12,7 +12,7 @@ const DisclaimerPage = () => {
         description="Read our Disclaimer & Transparency Policy. We believe in complete honesty and transparency with our community of farmers and agro-entrepreneurs."
       />
 
-      <section className="pt-32 pb-24 bg-slate-50 dark:bg-slate-900 min-h-screen">
+      <section className="pt-32 pb-24 bg-transparent dark:bg-transparent min-h-screen">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 1, y: 20 }}

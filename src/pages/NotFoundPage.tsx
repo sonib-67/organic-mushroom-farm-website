@@ -60,7 +60,7 @@ const PlugAnimation = () => (
 
 const NotFoundPage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-[#0a0a0a]">
+    <div className="min-h-screen flex items-center justify-center pt-32 pb-24 px-4 sm:px-6 lg:px-8 bg-transparent dark:bg-[#0a0a0a]">
       <Helmet>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>

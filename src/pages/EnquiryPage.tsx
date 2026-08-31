@@ -103,7 +103,7 @@ const EnquiryPage = () => {
   const varieties = ['Button Mushroom', 'Oyster Mushroom', 'Milky Mushroom', 'Shiitake', "Lion's Mane", 'Cordyceps'];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0A0A0A] pt-20 pb-8">
+    <div className="min-h-screen bg-transparent dark:bg-transparent pt-20 pb-8">
       <SEO 
         title="Enquiry Form | Organic Mushroom Farm" 
         description="Submit your enquiry for mushroom training, spawn, farm setup, or purchasing fresh and dry mushrooms."
@@ -139,7 +139,7 @@ const EnquiryPage = () => {
         ) : (
           <div className="bg-white dark:bg-[#111] rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-white/10">
             {/* Service Selection */}
-            <div className="p-4 bg-slate-50/50 dark:bg-white/5 border-b border-slate-100 dark:border-white/10 overflow-x-auto hide-scrollbar">
+            <div className="p-4 bg-white/5 dark:bg-white/5 border-b border-slate-100 dark:border-white/10 overflow-x-auto hide-scrollbar">
               <div className="flex gap-2 md:justify-center min-w-max">
                 {formTypes.map((type) => {
                   const Icon = type.icon;
@@ -151,7 +151,7 @@ const EnquiryPage = () => {
                       className={`flex flex-col items-center justify-center p-3 rounded-xl border transition-all w-28 ${
                         formType === type.id 
                           ? 'border-primary-start bg-primary-start/5 text-primary-start shadow-sm' 
-                          : 'border-slate-100 dark:border-white/10 bg-white dark:bg-[#111] text-slate-500 dark:text-slate-400 hover:border-slate-200 dark:hover:border-white/20 hover:bg-slate-50 dark:hover:bg-white/5'
+                          : 'border-slate-100 dark:border-white/10 bg-white dark:bg-[#111] text-slate-500 dark:text-slate-400 hover:border-slate-200 dark:hover:border-white/20 hover:bg-transparent dark:hover:bg-white/5'
                       }`}
                     >
                       <Icon className="w-6 h-6 mb-1" />
@@ -178,7 +178,7 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Full Name *</label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="text" name="name" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="John Doe" />
+                    <input required type="text" name="name" className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="John Doe" />
                   </div>
                 </div>
 
@@ -186,7 +186,7 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Phone Number *</label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="tel" name="phone" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="Enter phone number" />
+                    <input required type="tel" name="phone" className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="Enter phone number" />
                   </div>
                 </div>
 
@@ -194,12 +194,12 @@ const EnquiryPage = () => {
                   <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Email Address *</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 w-4 h-4" />
-                    <input required type="email" name="email" className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="john@example.com" />
+                    <input required type="email" name="email" className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 pl-9 pr-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all" placeholder="john@example.com" />
                   </div>
                 </div>
               </div>
 
-              <div className="bg-slate-50 dark:bg-white/5 p-4 rounded-xl border border-slate-100 dark:border-white/10 space-y-4">
+              <div className="bg-transparent dark:bg-white/5 p-4 rounded-xl border border-slate-100 dark:border-white/10 space-y-4">
                 <AnimatePresence mode="wait">
                   
                   {formType === 'training' && (
@@ -342,7 +342,7 @@ const EnquiryPage = () => {
 
               <div className="space-y-1">
                 <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 ml-1">Any additional details or questions?</label>
-                <textarea name="additional_message" rows={2} className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 px-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all resize-none" placeholder="Write your specific requirements here..."></textarea>
+                <textarea name="additional_message" rows={2} className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg py-2 px-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all resize-none" placeholder="Write your specific requirements here..."></textarea>
               </div>
 
               {/* CAPTCHA Field */}
@@ -356,7 +356,7 @@ const EnquiryPage = () => {
                     setCaptchaAnswer(e.target.value);
                     if (captchaError) setCaptchaError('');
                   }}
-                  className={`w-full bg-slate-50 dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-lg py-2 px-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all`} 
+                  className={`w-full bg-transparent dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-lg py-2 px-3 text-sm text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-start/20 focus:border-primary-start transition-all`} 
                   placeholder="Your answer" 
                 />
                 {captchaError && (

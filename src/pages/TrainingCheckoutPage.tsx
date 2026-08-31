@@ -213,7 +213,7 @@ export default function TrainingCheckoutPage() {
   };
 
   return (
-    <div className="min-h-screen dark:bg-[#070707] bg-slate-50 flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[999999] overflow-hidden">
+    <div className="min-h-screen dark:bg-[#070707] bg-transparent flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[999999] overflow-hidden">
       <SEO 
         title="Checkout - Organic Mushrooms Farm" 
         description="Complete your registration for our professional commercial mushroom farming and cultivation training." 
@@ -312,7 +312,7 @@ export default function TrainingCheckoutPage() {
                         required
                         value={formData.name}
                         onChange={e => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full box-border dark:bg-black/40 bg-slate-50/50 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
+                        className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -328,7 +328,7 @@ export default function TrainingCheckoutPage() {
                         pattern="[0-9]{10}"
                         value={formData.mobile}
                         onChange={e => setFormData({ ...formData, mobile: e.target.value })}
-                        className="w-full box-border dark:bg-black/40 bg-slate-50/50 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
+                        className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                         placeholder="10-digit mobile number"
                       />
                     </div>
@@ -343,7 +343,7 @@ export default function TrainingCheckoutPage() {
                         required
                         value={formData.email}
                         onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full box-border dark:bg-black/40 bg-slate-50/50 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
+                        className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                         placeholder="Enter your email address"
                       />
                     </div>

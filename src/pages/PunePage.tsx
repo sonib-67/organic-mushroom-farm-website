@@ -6,7 +6,7 @@ import { ChevronRight, MapPin } from "lucide-react";
 
 export default function PunePage() {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-slate-50 dark:bg-[#09090b]">
+    <div className="pt-24 pb-16 min-h-screen bg-transparent dark:bg-transparent">
       <SEO
         title="Pune Mushroom Farming | Cities Pages"
         description="Discover top-rated mushroom farming training, commercial setup services, and expert guidance tailored for Pune. Learn to grow organic mushrooms successfully."

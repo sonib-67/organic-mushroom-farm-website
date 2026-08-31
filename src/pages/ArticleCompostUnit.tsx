@@ -49,14 +49,14 @@ const ArticleCompostUnit = () => {
           </p>
           
           <ul className="space-y-6 my-8">
-            <li className="flex gap-4 items-start bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+            <li className="flex gap-4 items-start bg-transparent dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
               <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={24} />
               <div>
                 <strong className="text-xl dark:text-white text-slate-900 block mb-2">Phase-I (Outdoor/Bunker Composting):</strong>
                 Raw ingredients are mixed, wetted, and aerated in large windrows or aerated bunkers. Microorganisms break down the raw materials, generating intense heat (up to 75°C to 80°C) which naturally cooks the compost and builds essential nutrients.
               </div>
             </li>
-            <li className="flex gap-4 items-start bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+            <li className="flex gap-4 items-start bg-transparent dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
               <CheckCircle2 className="text-primary-start shrink-0 mt-1" size={24} />
               <div>
                 <strong className="text-xl dark:text-white text-slate-900 block mb-2">Phase-II (Pasteurization & Conditioning):</strong>

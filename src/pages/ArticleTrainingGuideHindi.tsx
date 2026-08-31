@@ -214,31 +214,31 @@ const ArticleTrainingGuideHindi = () => {
           <p>Hamari training India ke in sabhi states aur cities ke students ke liye available hai:</p>
 
           <div className="space-y-6 my-8">
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+            <div className="bg-transparent dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
               <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">North India</h3>
               <p className="text-sm dark:text-slate-400 text-slate-600">
                 Delhi, Noida, Gurgaon, Faridabad, Ghaziabad, Meerut, Agra, Mathura, Aligarh, Bareilly, Kanpur, Lucknow, Varanasi, Prayagraj, Gorakhpur, Jhansi (UP) | Patna, Gaya, Muzaffarpur, Bhagalpur, Darbhanga, Purnia (Bihar) | Chandigarh, Amritsar, Ludhiana, Jalandhar, Patiala (Punjab) | Ambala, Rohtak, Hisar, Karnal, Panipat (Haryana) | Dehradun, Haridwar, Rishikesh, Nainital, Haldwani (Uttarakhand) | Shimla, Manali, Dharamsala, Solan, Mandi (HP) | Jammu, Srinagar, Leh (J&K & Ladakh)
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+            <div className="bg-transparent dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
               <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">Central India</h3>
               <p className="text-sm dark:text-slate-400 text-slate-600">
                 Jabalpur, Bhopal, Indore, Gwalior, Ujjain, Sagar, Rewa, Satna, Chhindwara, Betul, Hoshangabad, Balaghat, Mandla, Seoni, Vidisha, Damoh (MP) | Raipur, Bilaspur, Durg, Bhilai, Korba, Jagdalpur, Raigarh, Ambikapur (CG)
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+            <div className="bg-transparent dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
               <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">West India</h3>
               <p className="text-sm dark:text-slate-400 text-slate-600">
                 Mumbai, Pune, Nashik, Aurangabad, Nagpur, Solapur, Kolhapur, Ahmednagar, Satara, Sangli (Maharashtra) | Ahmedabad, Surat, Vadodara, Rajkot, Bhavnagar, Jamnagar, Gandhinagar, Anand (Gujarat) | Jaipur, Jodhpur, Udaipur, Kota, Bikaner, Ajmer, Sikar, Alwar, Bharatpur (Rajasthan) | Panaji, Margao, Vasco (Goa)
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+            <div className="bg-transparent dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
               <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">South India</h3>
               <p className="text-sm dark:text-slate-400 text-slate-600">
                 Bangalore, Mysore, Hubli, Dharwad, Mangalore, Belgaum, Shimoga (Karnataka) | Chennai, Coimbatore, Madurai, Salem, Trichy, Tirunelveli, Erode, Vellore, Tirupur (Tamil Nadu) | Hyderabad, Warangal, Nizamabad, Karimnagar, Khammam (Telangana) | Visakhapatnam, Vijayawada, Guntur, Tirupati, Kakinada, Nellore, Kurnool (Andhra Pradesh) | Kochi, Thiruvananthapuram, Kozhikode, Thrissur, Kannur (Kerala)
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
+            <div className="bg-transparent dark:bg-slate-900/50 p-5 rounded-xl border dark:border-white/5 border-black/5">
               <h3 className="text-base font-bold mb-2 text-primary-start uppercase tracking-wider">East & Northeast India</h3>
               <p className="text-sm dark:text-slate-400 text-slate-600">
                 Kolkata, Howrah, Durgapur, Asansol, Siliguri, Bardhaman (WB) | Bhubaneswar, Cuttack, Rourkela, Sambalpur, Berhampur (Odisha) | Ranchi, Jamshedpur, Dhanbad, Bokaro, Hazaribagh, Deoghar (Jharkhand) | Guwahati, Dibrugarh, Silchar, Jorhat, Tezpur (Assam) | Imphal, Shillong, Aizawl, Kohima, Agartala, Gangtok, Itanagar

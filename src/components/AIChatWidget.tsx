@@ -372,7 +372,7 @@ export const AIChatWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className={`fixed z-[100000] bg-white dark:bg-slate-900 flex flex-col overflow-hidden shadow-2xl ${
+            className={`fixed z-[100000] bg-white dark:bg-transparent flex flex-col overflow-hidden shadow-2xl ${
               isFullScreen
                 ? "inset-0 w-full h-full rounded-none"
                 : "bottom-[85px] md:bottom-[90px] left-3 md:left-[30px] w-[300px] sm:w-[350px] border border-slate-200 dark:border-white/10 rounded-2xl"
@@ -411,7 +411,7 @@ export const AIChatWidget = () => {
             </div>
 
             {/* Chat Area */}
-            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 bg-slate-50 dark:bg-slate-950/50">
+            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3 bg-transparent dark:bg-slate-950/50">
               {messages.map((msg) => (
                 <div 
                   key={msg.id} 
@@ -439,7 +439,7 @@ export const AIChatWidget = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-white/10 shrink-0">
+            <div className="p-3 bg-white dark:bg-transparent border-t border-slate-200 dark:border-white/10 shrink-0">
               <form 
                 onSubmit={handleSendMessage}
                 className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 rounded-full pr-1 pl-4 py-1 border border-slate-200 dark:border-white/5"

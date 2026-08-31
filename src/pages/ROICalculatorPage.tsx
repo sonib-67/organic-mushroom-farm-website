@@ -124,7 +124,7 @@ export default function ROICalculatorPage() {
   };
 
   return (
-    <div className="min-h-screen dark:bg-[#070707] bg-slate-50 pt-24 pb-12 px-4 relative z-10 selection:bg-primary-start/30 selection:text-slate-900 dark:selection:text-white">
+    <div className="min-h-screen dark:bg-[#070707] bg-transparent pt-24 pb-12 px-4 relative z-10 selection:bg-primary-start/30 selection:text-slate-900 dark:selection:text-white">
       <SEO 
         title="Mushroom Farm ROI Calculator | Commercial Agribusiness Planner"
         description="Calculate mushroom farm startup costs, monthly operating expenses, production yield, and profit recovery timeline in India."
@@ -234,7 +234,7 @@ export default function ROICalculatorPage() {
                           className={`flex items-center gap-4 p-4 rounded-2xl border transition-all text-left group ${
                             isSelected 
                               ? 'dark:bg-white/10 bg-black/5 dark:border-white/20 border-black/20 ring-1 ring-primary-start' 
-                              : 'dark:bg-black/40 bg-slate-50/50 dark:border-white/5 border-black/5 hover:dark:bg-white/5 hover:bg-black/5'
+                              : 'dark:bg-black/40 bg-white/5 dark:border-white/5 border-black/5 hover:dark:bg-white/5 hover:bg-black/5'
                           }`}
                         >
                           <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-gradient-to-br ${v.color} shadow-lg shadow-black/10`}>

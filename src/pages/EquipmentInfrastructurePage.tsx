@@ -22,7 +22,7 @@ export default function EquipmentInfrastructurePage() {
           </p>
         </div>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why Premium PUF Insulation Panels are Essential</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             Polyurethane Foam (PUF) panels are the gold standard for mushroom growing rooms. They offer superior thermal resistance, ensuring your HVAC and cooling systems don't have to overwork to maintain the perfect environment.
@@ -43,7 +43,7 @@ export default function EquipmentInfrastructurePage() {
           </ul>
         </section>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Key Components of a Complete Growing Room</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             Building durable, energy-efficient mushroom growing rooms requires more than just four walls. Integrating the right structural materials is vital for a seamless setup, especially if you plan to demonstrate professional techniques in <Link to="/training" className="text-primary-start hover:underline font-medium">online training courses</Link> or scale your operations.
@@ -68,7 +68,7 @@ export default function EquipmentInfrastructurePage() {
           </ul>
         </section>
 
-        <section className="mb-12 bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
+        <section className="mb-12 bg-white/20 dark:bg-slate-800/20 glass p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Setting Up for Optimal Climate Retention</h2>
           <p className="text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
             To get the absolute best results from your harvest, your farm infrastructure must perfectly support your climate control systems.

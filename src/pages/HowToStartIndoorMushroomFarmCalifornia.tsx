@@ -7,7 +7,7 @@ const HowToStartIndoorMushroomFarmCalifornia = () => {
   }, []);
 
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-slate-50 dark:bg-slate-900">
+    <div className="min-h-screen pt-24 pb-16 bg-transparent dark:bg-transparent">
       <SEO 
         title="How to Start a Profitable Indoor Mushroom Farm in California (Complete Guide)"
         description="Learn how to start a profitable indoor mushroom farm in California. Discover climate control, best varieties, and expert training to succeed in the USA."

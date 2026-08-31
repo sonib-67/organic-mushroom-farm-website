@@ -443,3 +443,22 @@ body.mobile-menu-open .floating-button-wrapper {
   pointer-events: none;
   transform: translateY(20px);
 }
+
+@keyframes mycblob {
+  0% { transform: translate(0px, 0px) scale(1); opacity: 0.8; }
+  33% { transform: translate(5%, -5%) scale(1.05); opacity: 0.5; }
+  66% { transform: translate(-2%, 4%) scale(0.95); opacity: 0.7; }
+  100% { transform: translate(0px, 0px) scale(1); opacity: 0.8; }
+}
+
+@keyframes mycspore {
+  0% { transform: translateY(110vh) scale(0); opacity: 0; }
+  10% { opacity: 0.8; transform: translateY(90vh) scale(1); }
+  90% { opacity: 0.5; transform: translateY(10vh) scale(1); }
+  100% { transform: translateY(-10vh) scale(0); opacity: 0; }
+}
+
+.animate-mycblob { animation: mycblob infinite alternate ease-in-out; }
+.animate-mycspore { animation: mycspore infinite linear; }
+.delay-4000 { animation-delay: 4s; }
+.delay-8000 { animation-delay: 8s; }
