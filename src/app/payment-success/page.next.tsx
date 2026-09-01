@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import { pixelTrackCustom } from '../../utils/pixel';
-import SEO from '../../components/SEO';
+import SEO from '@/src/components/SEO';
 import { Helmet } from "react-helmet-async";
 
 export default function PaymentSuccessPage() {

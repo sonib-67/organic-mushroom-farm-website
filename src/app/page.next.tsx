@@ -10,8 +10,8 @@ import {
   ChevronUp, MessageCircle, MapPin, Briefcase, Play, Download, Layers, Shield, 
   Zap, Info, Quote, Home, Waves, Calendar, Globe, Sparkles, ArrowLeft, Images
 } from 'lucide-react';
-import SEO from '../../src/components/SEO';
-import MushroomSEOSections from '../../src/components/MushroomSEOSections';
+import SEO from '@/src/components/SEO';
+import MushroomSEOSections from '@/src/components/MushroomSEOSections';
 
 
 const Hero = () => {
