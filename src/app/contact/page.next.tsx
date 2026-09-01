@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
-import SEO from '@/src/components/SEO';
+import SEO from '../../components/SEO';
 
 const LegacyContactPage = () => {
   const [todayDate, setTodayDate] = useState('');

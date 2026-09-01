@@ -8,7 +8,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { trackPaymentStep, pixelTrackCustom } from '../../utils/pixel';
 import { loadRazorpayScript } from '../../utils/razorpay';
 import { sendPaymentNotificationToFormspree } from '../../utils/formspree';
-import SEO from '@/src/components/SEO';
+import SEO from '../../components/SEO';
 
 export default function BookConsultantPage() {
   const navigate = useRouter();
