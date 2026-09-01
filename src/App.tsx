@@ -1,3 +1,4 @@
+import BlogButtonMushroomFarming from "./pages/BlogButtonMushroomFarming";
 import { AIChatWidget } from "./components/AIChatWidget";
 /**
  * @license
@@ -6653,6 +6654,7 @@ const AnimatedRoutes = () => {
           <Route path="/spawn-seed" element={<ArticleMushroomSpawnSeed />} />
           <Route path="/services/oyster-mushroom" element={<ArticleOysterMushroom />} />
           <Route path="/blog/mushroom-farming-business-plan-india" element={<ArticleMushroomBusinessPlanIndia />} />
+          <Route path="/blog/button-mushroom-farming-guide" element={<BlogButtonMushroomFarming />} />
           <Route path="/services/milky-mushroom" element={<ArticleMilkyMushroom />} />
           <Route path="/services/turnkey-setup" element={<ArticleTurnkeySetup />} />
           <Route path="/services/button-mushroom" element={<ArticleButtonMushroom />} />
