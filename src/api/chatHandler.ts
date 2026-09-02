@@ -6,7 +6,14 @@ export const handleChat = async (req: any, res: any) => {
     const { message, history, timezone } = req.body;
     if (!message) return res.status(400).json({ error: "Message required" });
 
-    const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+    const ai = new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY,
+      httpOptions: {
+        headers: {
+          'User-Agent': 'aistudio-build',
+        },
+      },
+    });
     
     const isIndia = timezone && timezone.toLowerCase().includes("asia/calcutta");
     const currency = isIndia ? "INR" : "USD";
@@ -67,7 +74,7 @@ LEAD GENERATION / BOOKING CONSULTANT:
     contents.push({ role: "user", parts: [{ text: message }] });
 
     const responseStream = await ai.models.generateContentStream({
-      model: "gemini-1.5-flash",
+      model: "gemini-3.7-flash",
       contents: contents as any,
       config: {
         temperature: 0.4,
