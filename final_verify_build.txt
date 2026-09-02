@@ -15,10 +15,10 @@ dist/assets/index-C0uQ0Q_t.js   6,844.37 kB │ gzip: 1,154.63 kB │ map: 11,01
 - Using dynamic import() to code-split the application
 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
-✓ built in 21.05s
+✓ built in 21.40s
 Total URLs found and added to sitemap: 348
 WebSocket server error: Port 24678 is already in use
-12:59:26 AM [vite] (client) Re-optimizing dependencies because vite config has changed
+1:05:34 AM [vite] (client) Re-optimizing dependencies because vite config has changed
 ALL PATHS LENGTH: 348
 Prerendering 348 pages...
 SEO rendered!
@@ -1097,4 +1097,4 @@ Prerendering completed.
   dist/server.cjs      54.5kb
   dist/server.cjs.map  84.8kb
 
-⚡ Done in 25ms
+⚡ Done in 11ms

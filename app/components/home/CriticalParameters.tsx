@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion, useInView } from 'motion/react';
 import { Zap, Waves, Info, TrendingUp } from 'lucide-react';
 
@@ -100,12 +100,12 @@ const CriticalParameters = () => {
         <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">Precision Metrics</div>
           <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
-            <NextLink href="/mushroom-types" className="hover:text-current transition-colors">
+            <Link to="/mushroom-types" className="hover:text-current transition-colors">
               Critical{" "}
               <span className="gradient-text">
                 Parameters for High-Yield Production
               </span>
-            </NextLink>
+            </Link>
           </h2>
           <p className="dark:text-slate-400 text-slate-600 text-[13px] md:text-sm">
             Scientific boundaries for consistent commercial yields in organic

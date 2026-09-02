@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useMemo } from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 
 const ROICalculator = () => {
   const [bags, setBags] = useState(2000);
@@ -70,10 +70,10 @@ const ROICalculator = () => {
             <div className="text-center lg:text-left">
               <div className="badge mb-4 mx-auto lg:mx-0">Profit Analytics</div>
               <h2 className="mb-4">
-                <NextLink href="/roi-calculator" className="hover:text-current transition-colors">
+                <Link to="/roi-calculator" className="hover:text-current transition-colors">
                   Personalized Mushroom Business{" "}
                   <span className="gradient-text">ROI Estimator</span>
-                </NextLink>
+                </Link>
               </h2>
               <p className="mb-5 max-w-lg mx-auto lg:mx-0">
                 Estimate your mushroom farming profits based on real-time market

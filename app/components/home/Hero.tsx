@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion } from 'motion/react';
 import { ArrowRight, Award, CheckCircle, ShieldCheck, Layers, TrendingUp, Zap } from 'lucide-react';
 
@@ -47,9 +47,9 @@ const Hero = () => {
               >
                 <CheckCircle size={16} className="text-primary-start" />
                 {f.link ? (
-                  <NextLink href={f.link} className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight hover:text-primary-start transition-colors">
+                  <Link to={f.link} className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight hover:text-primary-start transition-colors">
                     {f.text}
-                  </NextLink>
+                  </Link>
                 ) : (
                   <span className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight">
                     {f.text}
@@ -60,8 +60,8 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto md:mx-0">
-            <NextLink
-              href="/training"
+            <Link
+              to="/training"
               className="group flex items-center justify-between p-3 rounded-2xl border border-purple-500/30 bg-linear-to-r from-purple-500/5 via-fuchsia-400/5 to-indigo-500/5 dark:from-purple-900/10 dark:via-fuchsia-900/10 dark:to-indigo-900/10 hover:from-purple-500/15 hover:via-fuchsia-400/15 hover:to-indigo-500/15 transition-all duration-300 shadow-xs"
             >
               <div className="flex items-center gap-3">
@@ -78,10 +78,10 @@ const Hero = () => {
                 </div>
               </div>
               <ArrowRight size={16} className="text-slate-400 group-hover:translate-x-1 group-hover:text-purple-500 transition-all" />
-            </NextLink>
+            </Link>
 
-            <NextLink
-              href="/turnkey-projects"
+            <Link
+              to="/turnkey-projects"
               className="group flex items-center justify-between p-3 rounded-2xl border border-emerald-500/30 bg-linear-to-r from-emerald-500/5 via-teal-400/5 to-cyan-500/5 dark:from-emerald-900/10 dark:via-teal-900/10 dark:to-cyan-900/10 hover:from-emerald-500/15 hover:via-teal-400/15 hover:to-cyan-500/15 transition-all duration-300 shadow-xs"
             >
               <div className="flex items-center gap-3">
@@ -98,16 +98,16 @@ const Hero = () => {
                 </div>
               </div>
               <ArrowRight size={16} className="text-slate-400 group-hover:translate-x-1 group-hover:text-emerald-500 transition-all" />
-            </NextLink>
+            </Link>
           </div>
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-5">
-            <NextLink
-              href="/enquiry"
+            <Link
+              to="/enquiry"
               className="btn-primary w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center font-bold bg-[#7b51f8] hover:bg-[#6841d8] text-white"
             >
               Enquiry Now
-            </NextLink>
+            </Link>
             <a
               href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
               target="_blank"

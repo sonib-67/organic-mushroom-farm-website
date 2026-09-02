@@ -1,7 +1,7 @@
 
 "use client";
 import React from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion } from 'motion/react';
 import { ShoppingCart, Layers, Home, Sprout, Zap, TrendingUp, ArrowRight } from 'lucide-react';
 
@@ -45,7 +45,7 @@ const EcosystemFlow = () => {
         <div className="flex items-center gap-4 md:gap-5 overflow-x-auto pb-8 scrollbar-hide snap-x">
           {steps.map((s, i) => (
             <React.Fragment key={i}>
-              <NextLink href={s.href}>
+              <Link to={s.href}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className="flex flex-col items-center gap-4 min-w-[140px] md:min-w-[160px] snap-center shrink-0 cursor-pointer group"
@@ -57,7 +57,7 @@ const EcosystemFlow = () => {
                     {s.label}
                   </span>
                 </motion.div>
-              </NextLink>
+              </Link>
               {i < steps.length - 1 && (
                 <div className="shrink-0 flex items-center justify-center mx-2 md:mx-4">
                   <ArrowRight

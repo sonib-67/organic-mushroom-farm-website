@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion } from 'motion/react';
 
 const MushroomComparison = () => {
@@ -43,10 +43,10 @@ const MushroomComparison = () => {
             Top Searched Product Variants
           </div>
           <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
-            <NextLink href="/blog" className="hover:text-current transition-colors">
+            <Link to="/blog" className="hover:text-current transition-colors">
               High-Yield Commercial Mushroom{" "}
               <span className="gradient-text">Genetics</span>
-            </NextLink>
+            </Link>
           </h2>
         </div>
 

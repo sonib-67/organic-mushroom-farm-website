@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion } from 'motion/react';
 import { TrendingUp, Briefcase, MapPin, ShieldCheck, Award, Users } from 'lucide-react';
 
@@ -135,9 +135,9 @@ const WhyChooseUs = () => {
           >
             Why Choose{" "}
             <span className="gradient-text">
-              <NextLink href="/states">
+              <Link to="/states">
                 Organic Mushrooms Farm for Your Project?
-              </NextLink>
+              </Link>
             </span>
           </motion.h2>
           <motion.p

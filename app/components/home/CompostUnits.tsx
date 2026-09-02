@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion } from 'motion/react';
 
 const CompostUnits = () => {
@@ -13,10 +13,10 @@ const CompostUnits = () => {
         <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">Commercial Infrastructure</div>
           <h2 className="mb-4 uppercase">
-            <NextLink href="/equipment" className="hover:text-current transition-colors">
+            <Link to="/equipment" className="hover:text-current transition-colors">
               Standard Commercial{" "}
               <span className="gradient-text">Compost Units</span>
-            </NextLink>
+            </Link>
           </h2>
           <p className="max-w-xl mx-auto text-xs md:text-sm text-slate-500 dark:text-slate-400">
             Complete Phase-I + Phase-II commercial infrastructure with 15-day cycles.
@@ -83,12 +83,12 @@ const CompostUnits = () => {
                 </span>
               </div>
 
-              <NextLink
-                href="/compost-unit-specs"
+              <Link
+                to="/compost-unit-specs"
                 className="btn-primary w-full py-2 rounded-xl text-[12px] font-bold min-h-[44px] flex items-center justify-center"
               >
                 Get Details
-              </NextLink>
+              </Link>
             </motion.div>
           ))}
         </div>

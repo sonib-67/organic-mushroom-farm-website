@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from 'motion/react';
 import { Layers, Shield, Sprout, Clock, Zap, ShoppingCart, ChevronUp, ChevronDown } from 'lucide-react';
 

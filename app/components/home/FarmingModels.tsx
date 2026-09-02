@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import NextLink from 'next/link';
+import { Link } from "react-router-dom";
 import { motion } from 'motion/react';
 import { CheckCircle, ShieldCheck } from 'lucide-react';
 
@@ -147,12 +147,12 @@ const FarmingModels = () => {
                   ))}
                 </ul>
 
-                <NextLink
-                  href="/model-details"
+                <Link
+                  to="/model-details"
                   className={`w-full min-h-[44px] py-2 rounded-xl font-bold transition-all text-sm flex justify-center items-center ${m.recommended ? "btn-primary" : "btn-outline"}`}
                 >
                   Get Details
-                </NextLink>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -216,12 +216,12 @@ const FarmingModels = () => {
                 <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-5 max-w-sm">
                   {getRecommendedSetup().desc}
                 </p>
-                <NextLink
-                  href="/model-details"
+                <Link
+                  to="/model-details"
                   className="btn-primary px-5 py-2 rounded-xl text-sm font-bold"
                 >
                   View Detailed Specs
-                </NextLink>
+                </Link>
               </div>
             </div>
           </motion.div>

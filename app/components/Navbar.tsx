@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import NextLink from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, useLocation } from "react-router-dom";
+
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Menu, X, Phone, Instagram, Twitter, Linkedin, Facebook, Youtube, 
@@ -107,8 +107,7 @@ const NAV_ITEMS = [
 ];
 
 const Navbar = () => {
-  const pathname = usePathname();
-  const location = { pathname, hash: "" };
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -158,8 +157,8 @@ const Navbar = () => {
         style={{ background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(59, 130, 246, 0.15) 33%, rgba(34, 197, 94, 0.15) 66%, rgba(234, 179, 8, 0.15) 100%)' }}
       >
         <div className="flex items-center justify-between">
-          <NextLink
-            href="/"
+          <Link
+            to="/"
             className="flex items-center gap-1.5 sm:gap-3 group shrink-0"
           >
             <img
@@ -173,7 +172,7 @@ const Navbar = () => {
               </span>
               <DynamicGreeting />
             </div>
-          </NextLink>
+          </Link>
 
           <div className="flex items-center gap-2 xl:gap-4 ml-auto">
 
@@ -226,12 +225,12 @@ const Navbar = () => {
                         {item.name}
                       </a>
                     ) : (
-                      <NextLink
-                        href={item.href}
+                      <Link
+                        to={item.href}
                         className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg leading-tight ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                       >
                         {item.name}
-                      </NextLink>
+                      </Link>
                     )}
                     {isActive && (
                       <motion.div
@@ -248,8 +247,8 @@ const Navbar = () => {
 
               return (
                 <div key={item.name} className="relative group">
-                  <NextLink
-                    href={item.href}
+                  <Link
+                    to={item.href}
                     className={`text-[9px] lg:text-[10px] xl:text-[12px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-1.5 xl:px-2 py-1.5 rounded-lg leading-tight ${isActive ? "dark:text-white text-slate-900 dark:bg-white/5 bg-black/5" : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900"}`}
                   >
                     {item.name}
@@ -259,18 +258,18 @@ const Navbar = () => {
                         className="group-hover:rotate-180 transition-transform"
                       />
                     )}
-                  </NextLink>
+                  </Link>
                   {hasSubMenu && (
                     <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-[100]">
                       <div className="glass p-2 min-w-[200px] rounded-xl border dark:border-white/10 border-black/10 shadow-[0_10px_40px_-10px_rgba(124,58,237,0.15)]">
                         {(item as any).subMenu!.map((sub: any) => (
-                          <NextLink
+                          <Link
                             key={sub.name}
-                            href={sub.href}
+                            to={sub.href}
                             className="block px-4 py-2.5 text-[12px] font-bold dark:text-slate-400 text-slate-600 hover:text-slate-900 dark:hover:text-white hover:dark:bg-white/10 bg-black/10 rounded-lg transition-all"
                           >
                             {sub.name}
-                          </NextLink>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -447,15 +446,15 @@ const Navbar = () => {
                                 >
                                   <div className="px-3 py-1 flex flex-col gap-0.5 border-t border-slate-100 dark:border-slate-700">
                                     {(item as any).subMenu.map((sub: any, subI: number) => (
-                                      <NextLink
+                                      <Link
                                         key={sub.name}
-                                        href={sub.href}
+                                        to={sub.href}
                                         onClick={() => setMobileMenuOpen(false)}
                                         className="block py-1.5 text-[10px] font-semibold text-slate-600 dark:text-slate-400 pl-6 relative"
                                       >
                                         <div className="absolute left-2.5 top-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600" />
                                         {sub.name}
-                                      </NextLink>
+                                      </Link>
                                     ))}
                                   </div>
                                 </motion.div>
@@ -463,8 +462,8 @@ const Navbar = () => {
                             </AnimatePresence>
                           </div>
                         ) : (
-                          <NextLink
-                            href={item.href}
+                          <Link
+                            to={item.href}
                             onClick={(e) => {
                               if (isHashLink && location.pathname === "/") {
                                 e.preventDefault();
@@ -490,7 +489,7 @@ const Navbar = () => {
                             <span className={`text-[11px] font-bold ${isActive ? "text-emerald-600 dark:text-emerald-400" : "text-slate-800 dark:text-slate-200"}`}>
                               {item.name}
                             </span>
-                          </NextLink>
+                          </Link>
                         )}
                       </motion.div>
                     );
