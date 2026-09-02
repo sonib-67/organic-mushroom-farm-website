@@ -15,7 +15,6 @@ import {
   Wind,
   ArrowRight,
   ChevronDown,
-  BookOpen,
   Phone,
   MessageCircle,
   Sparkles,
@@ -23,10 +22,14 @@ import {
   Layers,
   Award,
   Truck,
-  Flame,
   Send,
   Info,
-  Clock,
+  Calculator,
+  Microscope,
+  Sun,
+  Flame,
+  AlertTriangle,
+  RefreshCw,
 } from 'lucide-react';
 import { Navbar } from '../layout/Navbar';
 import { Footer } from '../layout/Footer';
@@ -41,57 +44,121 @@ export const SpawnSeedPageContent: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [apiError, setApiError] = useState('');
 
+  // Interactive Calculator State
+  const [calcVariety, setCalcVariety] = useState<'button' | 'oyster' | 'milky' | 'shiitake'>('button');
+  const [calcSubstrateKg, setCalcSubstrateKg] = useState<number>(500);
+
   // Math check for anti-spam
-  const [captcha] = useState({ num1: 3, num2: 4 });
+  const [captcha] = useState({ num1: 4, num2: 5 });
   const [captchaAnswer, setCaptchaAnswer] = useState('');
   const [captchaError, setCaptchaError] = useState('');
 
+  // Calculator logic
+  const calculateSpawnNeeds = () => {
+    switch (calcVariety) {
+      case 'button': {
+        const spawnKg = Math.max(1, Math.round(calcSubstrateKg * 0.008 * 10) / 10); // ~0.8% of wet compost
+        const expectedYieldKg = Math.round(calcSubstrateKg * 0.20); // ~20% bio efficiency
+        const bagsCount = Math.round(calcSubstrateKg / 10); // 10kg bags
+        const daysToFirstFlush = '35 – 40 Days';
+        return { spawnKg, expectedYieldKg, bagsCount, daysToFirstFlush, rateStr: '0.7% – 1.0% (wet compost weight)' };
+      }
+      case 'oyster': {
+        const spawnKg = Math.max(1, Math.round(calcSubstrateKg * 0.025 * 10) / 10); // ~2.5% of dry straw
+        const expectedYieldKg = Math.round(calcSubstrateKg * 0.85); // ~85% on dry straw
+        const bagsCount = Math.round(calcSubstrateKg / 1.5); // 1.5kg dry straw per bag (approx 5kg wet)
+        const daysToFirstFlush = '20 – 25 Days';
+        return { spawnKg, expectedYieldKg, bagsCount, daysToFirstFlush, rateStr: '2.0% – 3.0% (dry straw weight)' };
+      }
+      case 'milky': {
+        const spawnKg = Math.max(1, Math.round(calcSubstrateKg * 0.035 * 10) / 10); // ~3.5% of dry straw
+        const expectedYieldKg = Math.round(calcSubstrateKg * 0.90); // ~90% bio efficiency
+        const bagsCount = Math.round(calcSubstrateKg / 1.5);
+        const daysToFirstFlush = '40 – 45 Days (with casing)';
+        return { spawnKg, expectedYieldKg, bagsCount, daysToFirstFlush, rateStr: '3.0% – 4.0% (dry straw weight)' };
+      }
+      case 'shiitake': {
+        const spawnKg = Math.max(1, Math.round(calcSubstrateKg * 0.03 * 10) / 10); // ~3% of sawdust weight
+        const expectedYieldKg = Math.round(calcSubstrateKg * 0.40); // ~40% bio efficiency
+        const bagsCount = Math.round(calcSubstrateKg / 2.5); // 2.5kg sawdust block
+        const daysToFirstFlush = '60 – 75 Days';
+        return { spawnKg, expectedYieldKg, bagsCount, daysToFirstFlush, rateStr: '2.5% – 3.5% (sawdust weight)' };
+      }
+    }
+  };
+
+  const calcResult = calculateSpawnNeeds();
+
   const spawnVarieties = [
     {
-      name: 'Button Mushroom Spawn',
+      name: 'White Button Mushroom Spawn',
       species: 'Agaricus bisporus',
       badge: 'Commercial Best Seller',
-      bestFor: 'Controlled AC chambers & seasonal winter sheds',
-      rate: '0.7% – 1% of compost weight',
-      bioEfficiency: 'Up to 25% biological efficiency',
-      desc: 'High-yielding F1 master hybrid culture grown on sterile whole wheat grains. Produces bright white, firm, heavyweight caps with dense shelf life.',
-      features: ['First harvest in 35–40 days', 'Resistant to Mycogone wet bubble', 'Uniform flush pinhead density'],
+      bestFor: 'AC Grow Rooms & Seasonal Winter Sheds',
+      rate: '0.7% – 1.0% of wet compost weight',
+      bioEfficiency: '18% – 22% biological efficiency',
+      tempOptimum: 'Vegetative: 22°C–25°C | Fruiting: 14°C–18°C',
+      desc: 'High-yielding F1 master hybrid culture grown on sterile whole wheat grains. Produces bright white, firm, heavyweight caps with thick stems and outstanding retail shelf life.',
+      features: [
+        'First flush harvest in 35–40 days after spawning',
+        'Strong natural resistance against Mycogone (Wet Bubble)',
+        'Dense, uniform pinhead flushes with tight velum veil',
+        'Certified zero free ammonia tolerance (<5 ppm)',
+      ],
       color: 'border-emerald-500/40 dark:border-emerald-500/30 bg-emerald-500/5',
       badgeColor: 'bg-emerald-500 text-white',
     },
     {
-      name: 'Oyster Mushroom Spawn',
-      species: 'Pleurotus ostreatus / florida / djamor',
+      name: 'Oyster Mushroom Spawn (Dhingri)',
+      species: 'Pleurotus ostreatus / florida / sajor-caju / djamor',
       badge: 'Fastest 21-Day Harvest',
       bestFor: 'Straw bags, home scale, commercial indoor rooms',
-      rate: '2% – 3% of dry straw weight',
+      rate: '2.0% – 3.0% of dry straw weight',
       bioEfficiency: '80% – 100% biological efficiency',
-      desc: 'Aggressive vegetative mycelium that rapidly outcompetes green mold. Available in Grey, White Florida, Pink Flamingo, and Golden Yellow strains.',
-      features: ['Fruiting in 20–25 days', 'Requires no casing soil', 'Summer & Winter acclimatized strains'],
+      tempOptimum: 'Grey/Florida: 20°C–28°C | Pink/Golden: 25°C–32°C',
+      desc: 'Aggressive vegetative mycelium that rapidly outcompetes wild mold. Available in White Florida, Grey Pearl, Pink Flamingo, and Golden Yellow strains acclimatized to Indian microclimates.',
+      features: [
+        'Rapid first flush in 20–25 days from spawning',
+        'Requires zero casing soil layer (low operational cost)',
+        'Ideal for direct drying, value-added powder, and fresh retail',
+        'High tolerance to humidity fluctuations (80%–90% RH)',
+      ],
       color: 'border-blue-500/40 dark:border-blue-500/30 bg-blue-500/5',
       badgeColor: 'bg-blue-600 text-white',
     },
     {
-      name: 'Milky Mushroom Spawn',
+      name: 'Milky Mushroom Spawn (Doodh Chhata)',
       species: 'Calocybe indica',
       badge: 'High Temperature & Long Shelf Life',
       bestFor: 'Tropical climates (30°C – 38°C), summer farming',
-      rate: '3% – 4% of dry substrate weight',
-      bioEfficiency: '80% – 100% biological efficiency',
-      desc: 'Robust tropical mushroom known for snow-white large fleshy stems and an exceptional 7–10 days room-temperature shelf life without chilling.',
-      features: ['Thrives above 32°C summer heat', 'Excellent firm texture & high yield', 'Ideal for North & Central Indian summers'],
+      rate: '3.0% – 4.0% of dry substrate weight',
+      bioEfficiency: '85% – 100% biological efficiency',
+      tempOptimum: 'Vegetative: 25°C–30°C | Fruiting: 30°C–38°C',
+      desc: 'Robust tropical mushroom famous for snow-white large fleshy stems and an exceptional 7–10 days room-temperature shelf life without mandatory refrigeration.',
+      features: [
+        'Thrives in severe 32°C–38°C Indian summer heatwaves',
+        'Firm, fibrous texture preferred by commercial caterers & hotels',
+        'High market price realization during non-button summer months',
+        'High resistance to bacterial soft rot when properly cased',
+      ],
       color: 'border-purple-500/40 dark:border-purple-500/30 bg-purple-500/5',
       badgeColor: 'bg-purple-600 text-white',
     },
     {
-      name: 'Gourmet & Medicinal Spawn',
-      species: "Shiitake / Lion's Mane / Cordyceps",
-      badge: 'Superfood Premium Yield',
-      bestFor: 'Specialized climate rooms & saw-dust blocks',
-      rate: 'Lab cultured pure mother grain',
-      bioEfficiency: 'High-potency bioactive compounds',
-      desc: 'Exotic high-value medicinal cultures for high-ticket gourmet supply. Maintained under strict cryogenic protocols with zero genetic attenuation.',
-      features: ['Pure F1 laboratory mother cultures', 'Medical grade purity guarantee', 'Pre-booking required for custom batches'],
+      name: 'Gourmet & Medicinal Spawn (Shiitake / Reishi / Lion’s Mane)',
+      species: 'Lentinula edodes / Ganoderma lucidum / Hericium erinaceus',
+      badge: 'Superfood Premium Value',
+      bestFor: 'Specialized climate rooms, hardwood sawdust blocks',
+      rate: '2.5% – 4.0% on enriched sawdust carrier',
+      bioEfficiency: 'High bioactive polysaccharide / cordycepin potency',
+      tempOptimum: 'Strain dependent: 18°C–24°C | 85%–95% RH',
+      desc: 'Exotic high-ticket medicinal and gourmet cultures maintained in cryogenic laboratory vaults. Specially formulated on supplemented hardwood sawdust and whole sorghum grains.',
+      features: [
+        'Pure F1 cryogenic laboratory mother lines',
+        'Medical-grade bioactive purity guarantee',
+        'Commands ₹800 – ₹2,500/kg dry gourmet wholesale prices',
+        'Pre-booking available for customized commercial batch lots',
+      ],
       color: 'border-amber-500/40 dark:border-amber-500/30 bg-amber-500/5',
       badgeColor: 'bg-amber-600 text-white',
     },
@@ -100,64 +167,85 @@ export const SpawnSeedPageContent: React.FC = () => {
   const spawnTypes = [
     {
       title: 'Grain Spawn (Anaj Beej)',
-      desc: 'Mycelium cultured on sterilized whole wheat or rye grains. Most widely used carrier in commercial Button, Oyster, and Milky farming for rapid inoculation and nutrient boost.',
+      desc: 'Living mycelium cultured on triple-sterilized whole wheat or sorghum grains. Provides immediate dense food reservoirs and rapid point-inoculation throughout pasteurized compost or straw substrates.',
       icon: Sprout,
+      badge: 'Most Popular',
     },
     {
       title: 'Sawdust Spawn',
-      desc: 'Mycelium grown on supplemented hardwood sawdust. Best suited for inoculating hardwood bags, outdoor raised beds, and Shiitake sawdust fruiting blocks.',
+      desc: 'Mycelium grown on enriched hardwood sawdust mixed with wheat bran and calcium sulfate. Engineered specifically for inoculating hardwood fruiting blocks and outdoor Shiitake beds.',
       icon: Layers,
+      badge: 'Hardwood Specialists',
     },
     {
       title: 'Plug / Dowel Spawn',
-      desc: 'Small wooden fluted dowels fully colonized by living mycelium. Designed specifically for hammering into felled hardwood logs for long-term outdoor cultivation.',
+      desc: 'Fluted hardwood dowels fully impregnated with active vegetative mycelium. Tailored for hammering into freshly felled hardwood logs (Oak, Mango, Poplar) for multi-year outdoor harvesting.',
       icon: Box,
+      badge: 'Outdoor Log Cultivation',
+    },
+    {
+      title: 'Liquid Master Culture',
+      desc: 'Nutrient-rich sterilized liquid broth suspended with vigorous living mycelium threads in sterile Luer-lock syringes. Used by commercial labs and advanced growers to inoculate master grain jars.',
+      icon: FlaskConical,
+      badge: 'Laboratory Inoculum',
     },
   ];
 
   const qualityFeatures = [
-    { icon: TestTube, title: 'Lab Tested F1 Hybrids', desc: '100% pure mother culture line' },
-    { icon: ShieldCheck, title: 'Contamination-Free', desc: 'Zero Trichoderma or bacterial blotch' },
-    { icon: Wind, title: 'Aggressive Colonization', desc: 'Spreads rapidly through substrate' },
-    { icon: ThermometerSnowflake, title: 'Cold-Chain Delivery', desc: 'Carefully packaged with temperature guard' },
-    { icon: Factory, title: 'Bulk Supply Capacity', desc: 'Tonnes supply for commercial units' },
+    { icon: TestTube, title: 'Lab Tested F1 Hybrids', desc: '100% pure first-generation mother culture' },
+    { icon: ShieldCheck, title: 'Zero Contamination', desc: 'No Trichoderma, green mold or wet bubble' },
+    { icon: Wind, title: 'Aggressive Colonization', desc: 'Outcompetes wild spores within 10–14 days' },
+    { icon: ThermometerSnowflake, title: 'Cold-Chain Delivery', desc: 'Shock-proof temperature insulated packing' },
+    { icon: Factory, title: 'Commercial Tonne Capacity', desc: 'Daily batch supply for large farm units' },
   ];
 
-  const compatibility = [
+  const laboratoryProtocols = [
     {
-      title: 'Seasonal & Indoor Rooms',
-      desc: 'Performs reliably in dark domestic rooms, bamboo sheds, basements, and seasonal poly-huts with basic misting.',
+      step: '01',
+      title: 'Cleanroom Inoculation',
+      desc: 'All transfers take place in Class-100 Laminar Air Flow workstations fitted with 0.3-micron HEPA filtration units.',
     },
     {
-      title: 'Evaporative Polyhouses',
-      desc: 'Thrives in naturally ventilated tunnels fitted with cellulose cooling pads and high-pressure foggers.',
+      step: '02',
+      title: 'Triple-Stage Autoclave',
+      desc: 'Grains are pressure-sterilized at 121°C (15 PSI) for 120 minutes to eliminate 100% of endospores, bacteria, and wild fungi.',
     },
     {
-      title: 'Commercial PUF Chambers',
-      desc: 'Unleashes maximum biological efficiency in automated HVAC units with strict CO2 (500–800 ppm) management.',
+      step: '03',
+      title: 'Micron-Filter PP Bags',
+      desc: 'Spawn is packed in heavy-gauge autoclavable polypropylene bags featuring a 0.2 µm gas-exchange hydrophobic filter patch.',
+    },
+    {
+      step: '04',
+      title: 'Incubation QC Testing',
+      desc: 'Every batch is monitored in darkened 24°C incubation vaults for 14 days and spot-tested for mycelial density before dispatch.',
     },
   ];
 
   const faqs = [
     {
       q: 'What exactly is Mushroom Spawn (Mushroom Seed)?',
-      a: 'Unlike flowering plants, mushrooms do not have seeds. Mushroom spawn is a carrier (sterilized wheat/rye grain or sawdust) that is completely colonized by pure, living mushroom mycelium. When mixed into pasteurized compost or straw substrate, it grows rapidly and yields fresh mushrooms.',
+      a: 'Unlike botanical plants that produce true seeds, mushrooms reproduce through microscopic spores. In commercial agriculture, mushroom spawn refers to sterilized agricultural grains (such as whole wheat, rye, or sorghum) that are completely colonized by pure, living mushroom mycelium. When mixed into pasteurized compost or straw substrate, this mycelium aggressively spreads and initiates fruiting bodies (mushrooms).',
     },
     {
-      q: 'How should I store mushroom spawn after receiving it?',
-      a: 'Spawn must be stored in a clean, sanitized refrigerator at 4°C to 8°C (do NOT freeze). Keep the bags in a dark, dry condition away from direct sunlight or pungent chemicals. Button & Oyster spawn remain highly viable for 30–45 days under cold storage, but for maximum vigor, use within 15–20 days.',
+      q: 'Why is F1 Master Hybrid Spawn superior to multi-transferred spawn?',
+      a: 'F1 (First Generation) spawn is inoculated directly from pure mother test-tube slants. When spawn is sub-cultured repeatedly (F2, F3, F4), it suffers from genetic degeneration (senescence), resulting in weak mycelium, vulnerability to green mold (Trichoderma), delayed pinhead formation, and lower flush weights. Our lab supplies exclusively certified F1 master spawn.',
     },
     {
-      q: 'What is the recommended spawning rate (Beej ki Matra)?',
-      a: 'For Button Mushrooms in compost: 0.7% to 1.0% of wet compost weight (approx. 700g to 1 kg per 100 kg compost). For Oyster Mushrooms in straw: 2% to 3% based on dry straw weight (approx. 100g to 150g per 5 kg wet straw bag). For Milky Mushrooms: 3% to 4% of dry substrate weight.',
+      q: 'How should I store mushroom spawn after delivery?',
+      a: 'Upon delivery, inspect the spawn bags immediately. Store unopened bags in a sanitized domestic refrigerator at 4°C to 8°C in darkness. Do NOT freeze the spawn, as freezing ruptures living fungal cell walls. Button, Oyster, and Milky spawn remain vigorous for 30–45 days at 4°C–8°C. For maximum vegetative momentum, inoculate within 15–20 days of delivery.',
     },
     {
-      q: 'How do you deliver spawn across Indian states?',
-      a: 'We ship fresh, newly inoculated batches via express surface/air courier (DTDC, Delhivery, Speed Post, Transport Cargo for bulk tonnes) with safe shock-absorbing packaging across Madhya Pradesh, UP, Maharashtra, Rajasthan, Bihar, Gujarat, Karnataka, and all Indian states.',
+      q: 'What are the recommended spawning rates (Beej ki Matra)?',
+      a: '• Button Mushroom: 0.7% to 1.0% of wet pasteurized compost weight (approx. 700g – 1 kg per 100 kg compost).\n• Oyster Mushroom: 2.0% to 3.0% of dry straw weight (approx. 100g – 150g per 5 kg wet straw bag).\n• Milky Mushroom: 3.0% to 4.0% of dry straw weight with casing soil.\n• Shiitake: 2.5% to 3.5% of sterilized sawdust block weight.',
     },
     {
-      q: 'Can I purchase directly online through credit card, UPI, or NetBanking?',
-      a: 'Yes! You can instantly order through our secure Razorpay store or message us on WhatsApp (+91 9203544140) for customized bulk commercial pricing, dispatch dates, and transport logistics.',
+      q: 'How do you ship mushroom spawn across Indian states?',
+      a: 'We dispatch fresh, newly inoculated batches every Monday through Thursday via express surface/air courier (DTDC, Delhivery, Speed Post, Safechem) and road cargo for bulk tonnes. Each consignment is packed in shock-proof, temperature-insulated cartons to prevent heat buildup during transit.',
+    },
+    {
+      q: 'How can I buy online directly or get bulk farm pricing?',
+      a: 'You can purchase directly online through our secure Razorpay store with instant UPI, Debit/Credit Card, and NetBanking, or contact our agronomists on WhatsApp (+91 9203544140) for commercial wholesale discounts (>50 kg orders), recurring supply contracts, and dispatch tracking.',
     },
   ];
 
@@ -191,7 +279,9 @@ export const SpawnSeedPageContent: React.FC = () => {
           location: formValues.location,
           service: 'SPAWN',
           mushroomVariety: formValues.variety || 'Multiple Varieties',
-          message: `Spawn Enquiry for ${formValues.variety || 'Spawn'}: ${formValues.message} | Quantity: ${formValues.quantity || 'N/A'} kg`,
+          message: `Spawn & Seed Enquiry for ${formValues.variety || 'Spawn'}: ${formValues.message} | Quantity Required: ${
+            formValues.quantity || 'N/A'
+          } kg`,
           subject: `New Spawn & Seed Enquiry from ${formValues.name} (${formValues.variety || 'All Varieties'})`,
         }),
       });
@@ -218,23 +308,31 @@ export const SpawnSeedPageContent: React.FC = () => {
       <Navbar />
 
       <main className="pt-24 md:pt-32 pb-16 overflow-hidden">
+        {/* Breadcrumb & Top Indicator */}
+        <div className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto mb-4">
+          <nav className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <Link href="/" className="hover:text-emerald-500 transition-colors">
+              Home
+            </Link>
+            <span>/</span>
+            <span className="text-slate-800 dark:text-slate-200 font-semibold">Mushroom Spawn (Seeds)</span>
+          </nav>
+        </div>
+
         {/* Hero Section */}
-        <section className="relative px-4 sm:px-6 md:px-8 max-w-7xl mx-auto text-center mb-10 md:mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-bold uppercase tracking-widest mb-4">
-              <Sprout size={14} /> Certified Laboratory-Clean Mushroom Spawn
+        <section className="relative px-4 sm:px-6 md:px-8 max-w-7xl mx-auto text-center mb-12 md:mb-16">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[11px] font-bold uppercase tracking-widest mb-4">
+              <Sprout size={14} /> Certified Laboratory-Clean Mushroom Inoculum
             </div>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black dark:text-white text-slate-900 mb-4 tracking-tight uppercase max-w-4xl mx-auto leading-tight">
-              Premium Mushroom <span className="gradient-text font-black">Spawn (Seed)</span> India
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-black dark:text-white text-slate-900 mb-4 tracking-tight uppercase max-w-5xl mx-auto leading-tight">
+              The Foundation of Every Great Harvest: <br />
+              <span className="gradient-text font-black">Premium Organic Mushroom Spawn</span>
             </h1>
 
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-400 max-w-3xl mx-auto font-medium mb-8 leading-relaxed">
-              The secret to bountiful organic mushrooms starts with the right genetics. High-yield, contamination-free, lab-tested F1 hybrid spawn for Button, Oyster, Milky, and medicinal mushrooms with Pan-India express delivery.
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto font-medium mb-8 leading-relaxed">
+              In commercial mushroom farming, genetic vigor defines your harvest ceiling. High-yield, contamination-free, lab-tested F1 hybrid spawn for White Button, Oyster, Milky, and Medicinal mushrooms with cold-chain Pan-India express delivery.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
@@ -242,7 +340,7 @@ export const SpawnSeedPageContent: React.FC = () => {
                 href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 hover:scale-105 transition-all shadow-lg"
+                className="px-6 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 hover:scale-105 transition-all shadow-lg shadow-emerald-600/25"
               >
                 <ShoppingCart size={16} /> Buy Spawn Online (Razorpay) <ArrowRight size={14} />
               </a>
@@ -250,15 +348,15 @@ export const SpawnSeedPageContent: React.FC = () => {
                 href="https://wa.me/919203544140?text=Hi,%20I%20want%20to%20order%20Mushroom%20Spawn%20(Seed)%20in%20bulk/retail."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-all shadow-md"
+                className="px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-all shadow-md"
               >
-                <MessageCircle size={16} /> WhatsApp for Bulk Pricing
+                <MessageCircle size={16} /> WhatsApp Bulk Pricing
               </a>
               <a
-                href="#enquiry-form"
-                className="px-6 py-3 rounded-full border border-slate-300 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/5 text-slate-900 dark:text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-all"
+                href="#spawn-calculator"
+                className="px-6 py-3.5 rounded-full border border-slate-300 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-white/5 text-slate-900 dark:text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-all"
               >
-                <Send size={16} /> Request Custom Quote
+                <Calculator size={16} /> Spawn Calculator
               </a>
             </div>
           </motion.div>
@@ -282,51 +380,217 @@ export const SpawnSeedPageContent: React.FC = () => {
           </div>
         </section>
 
-        {/* What is Mushroom Spawn Section */}
-        <section className="px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mb-14">
-          <div className="p-6 md:p-10 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-xl">
-            <div className="text-center max-w-3xl mx-auto mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 text-[10px] font-bold uppercase tracking-widest mb-2">
-                <FlaskConical size={12} /> Biology & Science
+        {/* Original Article Essence & Technical Depth */}
+        <section className="px-4 sm:px-6 md:px-8 max-w-5xl mx-auto mb-16">
+          <div className="p-6 md:p-10 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/70 backdrop-blur-md shadow-xl">
+            <div className="prose prose-slate dark:prose-invert max-w-none text-xs sm:text-sm md:text-base leading-relaxed space-y-6">
+              <div className="border-l-4 border-emerald-500 pl-4 py-1">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 tracking-tight m-0">
+                  Genetics Make All The Difference In Commercial Farming
+                </h2>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 mb-0">
+                  Why starting with laboratory-certified F1 grain spawn is the single most important investment.
+                </p>
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
-                What Exactly is <span className="gradient-text font-black">Mushroom Spawn?</span>
-              </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
-                Unlike botanical plants that reproduce through flowers and true seeds, mushrooms reproduce through microscopic spores. In commercial farming, these spores are cultured in laminar airflow cleanrooms into vigorous <strong>mycelium</strong> (the white vegetative thread-like root system). This mycelium is then multiplied onto sterile carrier grains.
-              </p>
-            </div>
 
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-              {spawnTypes.map((type, i) => (
-                <div
-                  key={i}
-                  className="p-5 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.02] flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
-                      <type.icon size={20} />
-                    </div>
-                    <h3 className="text-base font-bold dark:text-white text-slate-900 mb-1.5">{type.title}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{type.desc}</p>
+              <p className="text-slate-700 dark:text-slate-300 font-medium leading-relaxed">
+                Every successful mushroom farm, whether a home-scale project or an industrial multi-tier climate-controlled AC facility, starts with one critical decision: <strong>the quality of your biological seed (spawn)</strong>. In fungal biology, spawn is the living vegetative vehicle that dictates colonization speed, disease resistance, flush density, and crop profitability.
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-4 pt-2">
+                <div className="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20">
+                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-sm mb-2">
+                    <ShieldCheck size={18} /> Zero Contamination
                   </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed m-0">
+                    Cultivated in Class-100 cleanrooms to eliminate Trichoderma (Green Mold), Neurospora, and bacterial blotch before they reach your farm.
+                  </p>
                 </div>
-              ))}
+
+                <div className="p-4 rounded-2xl bg-blue-500/5 border border-blue-500/20">
+                  <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 font-bold text-sm mb-2">
+                    <Sparkles size={18} /> High Mycelial Vigor
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed m-0">
+                    Aggressive vegetative growth overtakes pasteurized wheat straw or compost quickly, initiating early pinheads and heavier flush weights.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-purple-500/5 border border-purple-500/20">
+                  <div className="flex items-center gap-2 text-purple-600 dark:text-purple-400 font-bold text-sm mb-2">
+                    <Award size={18} /> 100% Organic Origins
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed m-0">
+                    Propagated on non-GMO certified grains without chemical stimulants, allowing you to market final harvests at premium organic rates.
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-900 dark:text-amber-200 text-xs sm:text-sm flex items-start gap-3">
+                <AlertTriangle size={20} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                <div>
+                  <strong className="block mb-0.5">Avoid Degenerated Multi-Generation Spawn:</strong>
+                  Using weak or repeated-subculture (F3/F4) spawn is the fastest way to lose crop cycles. Weak spawn struggles to colonize substrates, inviting airborne competitor molds that destroy your entire batch.
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Spawn Varieties Cards */}
-        <section className="px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mb-14">
+        {/* Interactive Spawn Requirement & Yield Calculator */}
+        <section id="spawn-calculator" className="px-4 sm:px-6 md:px-8 max-w-5xl mx-auto mb-16">
+          <div className="p-6 md:p-10 rounded-3xl border border-emerald-500/30 bg-gradient-to-br from-emerald-500/5 via-teal-500/5 to-slate-900/5 dark:bg-slate-900/80 backdrop-blur-md shadow-2xl">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-widest mb-2">
+                <Calculator size={13} /> Interactive Farm Planning Tool
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
+                Mushroom Spawn & <span className="gradient-text font-black">Yield Calculator</span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                Select your variety and enter substrate/compost weight to calculate exact spawn requirements and expected harvest volume.
+              </p>
+            </div>
+
+            {/* Variety Selector Buttons */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+              {[
+                { id: 'button', label: 'Button (Agaricus)' },
+                { id: 'oyster', label: 'Oyster (Dhingri)' },
+                { id: 'milky', label: 'Milky (Calocybe)' },
+                { id: 'shiitake', label: 'Shiitake / Exotic' },
+              ].map((v) => (
+                <button
+                  key={v.id}
+                  onClick={() => setCalcVariety(v.id as any)}
+                  className={`py-3 px-2 rounded-xl text-xs font-bold transition-all text-center ${
+                    calcVariety === v.id
+                      ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 scale-[1.02]'
+                      : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-slate-700'
+                  }`}
+                >
+                  {v.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Substrate Input Slider & Field */}
+            <div className="bg-white dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-200 dark:border-white/10 mb-6">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <label className="text-xs sm:text-sm font-bold dark:text-white text-slate-800">
+                  {calcVariety === 'button'
+                    ? 'Total Wet Phase-II Compost (in Kilograms)'
+                    : 'Total Dry Straw / Substrate (in Kilograms)'}
+                </label>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min="10"
+                    max="10000"
+                    step="10"
+                    value={calcSubstrateKg}
+                    onChange={(e) => setCalcSubstrateKg(Math.max(10, Number(e.target.value) || 0))}
+                    className="w-24 px-3 py-1.5 text-right font-black text-sm bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-300 dark:border-white/20 text-emerald-600 dark:text-emerald-400 focus:outline-none"
+                  />
+                  <span className="text-xs font-bold text-slate-500">KG</span>
+                </div>
+              </div>
+
+              <input
+                type="range"
+                min="50"
+                max="5000"
+                step="50"
+                value={calcSubstrateKg}
+                onChange={(e) => setCalcSubstrateKg(Number(e.target.value))}
+                className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+              />
+
+              <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-bold">
+                <span>50 kg (Pilot trial)</span>
+                <span>1,000 kg (Small commercial)</span>
+                <span>5,000 kg (Full commercial unit)</span>
+              </div>
+            </div>
+
+            {/* Calculations Output Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
+              <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                  Required Spawn
+                </span>
+                <span className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">
+                  {calcResult.spawnKg} <span className="text-xs font-bold">kg</span>
+                </span>
+                <span className="text-[10px] text-slate-400 block mt-1">Rate: {calcResult.rateStr}</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                  Estimated Bags
+                </span>
+                <span className="text-xl sm:text-2xl font-black dark:text-white text-slate-800">
+                  ~{calcResult.bagsCount} <span className="text-xs font-bold">bags</span>
+                </span>
+                <span className="text-[10px] text-slate-400 block mt-1">Standard bag packing</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                  Expected Crop Yield
+                </span>
+                <span className="text-xl sm:text-2xl font-black text-teal-600 dark:text-teal-400">
+                  ~{calcResult.expectedYieldKg} <span className="text-xs font-bold">kg</span>
+                </span>
+                <span className="text-[10px] text-slate-400 block mt-1">Total across 3 flushes</span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-white/10 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
+                  First Flush Time
+                </span>
+                <span className="text-base sm:text-lg font-black dark:text-white text-slate-800">
+                  {calcResult.daysToFirstFlush}
+                </span>
+                <span className="text-[10px] text-slate-400 block mt-1">From spawning day</span>
+              </div>
+            </div>
+
+            {/* Quick Action Links with calculated query */}
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={`https://wa.me/919203544140?text=Hi,%20I%20used%20the%20calculator%20and%20want%20to%20order%20${calcResult.spawnKg}%20kg%20of%20${encodeURIComponent(
+                  calcVariety.toUpperCase()
+                )}%20Spawn%20for%20my%20farm.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-xs sm:text-sm inline-flex items-center gap-2 shadow-md transition-transform hover:scale-105"
+              >
+                <MessageCircle size={16} /> Order {calcResult.spawnKg} kg via WhatsApp
+              </a>
+              <a
+                href="https://pages.razorpay.com/stores/st_SA0SZB78s0M2Ku"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-xs sm:text-sm inline-flex items-center gap-2 transition-transform hover:scale-105"
+              >
+                <ShoppingCart size={16} /> Buy on Razorpay Store
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Spawn Strains & Commercial Varieties Cards */}
+        <section className="px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mb-16">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-widest mb-3">
-              <Award size={12} /> Pure First-Generation Inoculum
+              <Award size={12} /> Pure Inoculum Catalog
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
-              Available <span className="gradient-text font-black">Spawn Strains & Varieties</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
+              Commercial Spawn Strains & <span className="gradient-text font-black">Genetics Catalog</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl mx-auto font-medium">
-              Pure F1 hybrid grain spawn prepared on premium sterilized wheat grain under HEPA class-100 cleanroom environments.
+              Pure F1 hybrid master cultures cultured on sterile whole wheat grains inside class-100 cleanroom facilities.
             </p>
           </div>
 
@@ -349,21 +613,25 @@ export const SpawnSeedPageContent: React.FC = () => {
                   <h3 className="text-lg sm:text-xl font-bold dark:text-white text-slate-900 mb-1">{v.name}</h3>
                   <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed mb-4">{v.desc}</p>
 
-                  <div className="grid grid-cols-2 gap-2 p-3 rounded-xl bg-slate-100 dark:bg-white/5 mb-4 text-xs">
-                    <div>
-                      <span className="text-[10px] text-slate-500 uppercase font-bold block">Recommended Rate:</span>
+                  <div className="p-3 rounded-xl bg-slate-100 dark:bg-white/5 mb-4 text-xs space-y-1.5">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[11px] text-slate-500 uppercase font-bold">Recommended Rate:</span>
                       <span className="font-bold dark:text-white text-slate-800">{v.rate}</span>
                     </div>
-                    <div>
-                      <span className="text-[10px] text-slate-500 uppercase font-bold block">Efficiency:</span>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[11px] text-slate-500 uppercase font-bold">Bio Efficiency:</span>
                       <span className="font-bold text-emerald-600 dark:text-emerald-400">{v.bioEfficiency}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[11px] text-slate-500 uppercase font-bold">Temperature:</span>
+                      <span className="font-semibold text-slate-700 dark:text-slate-300">{v.tempOptimum}</span>
                     </div>
                   </div>
 
                   <ul className="space-y-1.5 mb-6">
                     {v.features.map((f, fi) => (
-                      <li key={fi} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
-                        <CheckCircle2 size={14} className="text-emerald-500 shrink-0" />
+                      <li key={fi} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                        <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -377,10 +645,10 @@ export const SpawnSeedPageContent: React.FC = () => {
                     rel="noopener noreferrer"
                     className="px-4 py-2 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-bold inline-flex items-center gap-1.5 hover:scale-105 transition-transform"
                   >
-                    <ShoppingCart size={13} /> Order Now
+                    <ShoppingCart size={13} /> Order on Razorpay
                   </a>
                   <a
-                    href={`https://wa.me/919203544140?text=Hi,%20I%20need%20details%20and%20pricing%20for%20${encodeURIComponent(
+                    href={`https://wa.me/919203544140?text=Hi,%20I%20need%20pricing%20and%20availability%20for%20${encodeURIComponent(
                       v.name
                     )}.`}
                     target="_blank"
@@ -395,29 +663,72 @@ export const SpawnSeedPageContent: React.FC = () => {
           </div>
         </section>
 
-        {/* Universal Compatibility */}
-        <section className="py-12 bg-slate-100/60 dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5 px-4 sm:px-6 md:px-8 mb-14">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
+        {/* Carrier Types Section */}
+        <section className="px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mb-16">
+          <div className="p-6 md:p-10 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-xl">
+            <div className="text-center max-w-3xl mx-auto mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 text-[10px] font-bold uppercase tracking-widest mb-2">
+                <FlaskConical size={12} /> Formulation Formats
+              </div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
-                Universal Infrastructure <span className="gradient-text font-black">Compatibility</span>
+                Mushroom Spawn <span className="gradient-text font-black">Carrier Mediums</span>
               </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl mx-auto font-medium">
-                Our mycelial strains are selectively acclimatized to give maximum flushes across all farming environments.
+              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+                Different cultivation substrates require specialized carrier mediums for optimum colonization speed.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-4 md:gap-6">
-              {compatibility.map((c, idx) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {spawnTypes.map((type, i) => (
+                <div
+                  key={i}
+                  className="p-5 rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/[0.02] flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                        <type.icon size={20} />
+                      </div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300">
+                        {type.badge}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-1.5">{type.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{type.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Laboratory Quality Control Protocols */}
+        <section className="py-12 bg-slate-100/60 dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5 px-4 sm:px-6 md:px-8 mb-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-widest mb-2">
+                <Microscope size={12} /> Sterile Cleanroom Standard
+              </div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
+                Our 4-Stage Laboratory <span className="gradient-text font-black">Quality Protocol</span>
+              </h2>
+              <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1 max-w-2xl mx-auto font-medium">
+                Engineered to deliver zero contamination and vigorous mycelial colonization to farms across India.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {laboratoryProtocols.map((proto, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-xs text-center"
+                  className="p-6 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/90 dark:bg-slate-900/60 backdrop-blur-md shadow-xs relative"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
-                    <Sprout size={24} />
+                  <span className="text-3xl font-black text-emerald-500/20 absolute top-4 right-5">{proto.step}</span>
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
+                    <FlaskConical size={20} />
                   </div>
-                  <h3 className="text-base font-bold dark:text-white text-slate-900 mb-2">{c.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{c.desc}</p>
+                  <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-1">{proto.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">{proto.desc}</p>
                 </div>
               ))}
             </div>
@@ -425,7 +736,7 @@ export const SpawnSeedPageContent: React.FC = () => {
         </section>
 
         {/* Storage, Transport & Best Practices */}
-        <section className="px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mb-14">
+        <section className="px-4 sm:px-6 md:px-8 max-w-6xl mx-auto mb-16">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="p-6 md:p-8 rounded-3xl border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md shadow-lg">
               <div className="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
@@ -435,15 +746,24 @@ export const SpawnSeedPageContent: React.FC = () => {
               <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-blue-500 shrink-0 mt-0.5" />
-                  <span><strong>Maintain 4°C – 8°C Cold Temp:</strong> Store in clean, sanitized domestic refrigerators. Never deep freeze.</span>
+                  <span>
+                    <strong>Maintain 4°C – 8°C Cold Temp:</strong> Store in clean, sanitized domestic refrigerators.
+                    Never deep freeze, as ice crystals rupture living mycelial hyphae.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-blue-500 shrink-0 mt-0.5" />
-                  <span><strong>Optimal Inoculation Window:</strong> Best used within 15 to 20 days of delivery for peak vegetative momentum.</span>
+                  <span>
+                    <strong>Optimal Inoculation Window:</strong> Best used within 15 to 20 days of delivery for peak
+                    vegetative momentum and fastest colonization.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-blue-500 shrink-0 mt-0.5" />
-                  <span><strong>Visual Inspection:</strong> Genuine healthy spawn appears dense chalk-white with a pleasant sweet mushroom aroma.</span>
+                  <span>
+                    <strong>Visual Inspection:</strong> Genuine healthy spawn appears dense chalk-white with a fresh,
+                    pleasant mushroom aroma. Avoid bags with green, black, or pink coloration.
+                  </span>
                 </li>
               </ul>
             </div>
@@ -456,30 +776,39 @@ export const SpawnSeedPageContent: React.FC = () => {
               <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong>Fast Dispatch:</strong> Fresh batches dispatched every Monday through Thursday to prevent weekend transit delays.</span>
+                  <span>
+                    <strong>Scheduled Dispatch:</strong> Fresh batches dispatched every Monday through Thursday to
+                    prevent weekend courier transit delays.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong>Heavy-Duty PP Packaging:</strong> Double-sealed breathable autoclavable PP bags with micron air filters.</span>
+                  <span>
+                    <strong>Heavy-Duty PP Packaging:</strong> Double-sealed breathable autoclavable PP bags with 0.2 µm
+                    hydrophobic air filter patches.
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
-                  <span><strong>Commercial Cargo:</strong> Full truckload and train cargo logistics available for large commercial farm deliveries.</span>
+                  <span>
+                    <strong>Commercial Cargo:</strong> Full truckload and train cargo logistics available for commercial
+                    farm orders (&gt;100 kg to multi-tonne consignments).
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Form Section: Start Your Project & Quote */}
-        <section id="enquiry-form" className="py-12 bg-slate-100/60 dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5 px-4 sm:px-6 md:px-8 mb-14">
+        {/* Lead Capture Form Section */}
+        <section id="enquiry-form" className="py-12 bg-slate-100/60 dark:bg-white/[0.02] border-y border-slate-200 dark:border-white/5 px-4 sm:px-6 md:px-8 mb-16">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
-                Request Spawn <span className="gradient-text font-black">Quote & Availability</span>
+                Request Spawn <span className="gradient-text font-black">Quote & Dispatch Dates</span>
               </h2>
               <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">
-                Fill in your quantity requirements and delivery destination to receive direct dispatch dates and wholesale quotation.
+                Enter your quantity requirements and delivery location to receive direct batch dispatch schedules and wholesale quotation.
               </p>
             </div>
 
@@ -496,7 +825,7 @@ export const SpawnSeedPageContent: React.FC = () => {
                   Spawn Enquiry Submitted Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 mb-6 leading-relaxed max-w-md mx-auto">
-                  Thank you for your interest. Our production lab is reviewing batch availability for your location and will contact you shortly with tracking and payment options.
+                  Thank you for your interest. Our production lab team is checking fresh batch availability for your location and will contact you via WhatsApp / Call with tracking and payment options.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -569,7 +898,7 @@ export const SpawnSeedPageContent: React.FC = () => {
                         type="text"
                         name="location"
                         required
-                        placeholder="e.g. Jaipur, Rajasthan"
+                        placeholder="e.g. Indore, Madhya Pradesh"
                         className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
                       />
                     </div>
@@ -585,21 +914,21 @@ export const SpawnSeedPageContent: React.FC = () => {
                         <option value="Button Mushroom Spawn">Button Mushroom Spawn (Agaricus)</option>
                         <option value="Oyster Mushroom Spawn">Oyster Mushroom Spawn (Grey/Florida)</option>
                         <option value="Milky Mushroom Spawn">Milky Mushroom Spawn (Calocybe)</option>
-                        <option value="Shiitake / Lion's Mane Spawn">Medicinal / Shiitake Spawn</option>
-                        <option value="Multiple Varieties Combined">Multiple Varieties (Bulk)</option>
+                        <option value="Shiitake / Lion's Mane Spawn">Shiitake / Medicinal Spawn</option>
+                        <option value="Multiple Varieties Combined">Multiple Varieties (Bulk Consignment)</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
-                      Required Quantity (kg) & Farm Specifics
+                      Quantity (in kg) & Specific Requirements
                     </label>
                     <textarea
                       name="message"
                       required
                       rows={3}
-                      placeholder="e.g. Need 50 kg Button spawn next week for 10 tonnes compost unit in Indore..."
+                      placeholder="e.g. Need 50 kg White Button spawn for 10 tonnes compost batch on next Monday..."
                       className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none"
                     ></textarea>
                   </div>
@@ -633,11 +962,11 @@ export const SpawnSeedPageContent: React.FC = () => {
                     {submitting ? (
                       <span className="flex items-center gap-2">
                         <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                        Sending Enquiry...
+                        Checking Batch Availability...
                       </span>
                     ) : (
                       <>
-                        <span>Request Spawn Quote</span> <Send size={15} />
+                        <span>Request Spawn Quote & Dispatch Schedule</span> <Send size={15} />
                       </>
                     )}
                   </button>
@@ -648,11 +977,14 @@ export const SpawnSeedPageContent: React.FC = () => {
         </section>
 
         {/* FAQs Section */}
-        <section className="px-4 sm:px-6 md:px-8 max-w-4xl mx-auto mb-14">
-          <div className="text-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
+        <section className="px-4 sm:px-6 md:px-8 max-w-4xl mx-auto mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black dark:text-white text-slate-900 uppercase tracking-tight">
               Mushroom Spawn <span className="gradient-text font-black">FAQs</span>
             </h2>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+              Common questions about mushroom seed genetics, storage, and commercial application.
+            </p>
           </div>
 
           <div className="space-y-3">
@@ -686,7 +1018,7 @@ export const SpawnSeedPageContent: React.FC = () => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-0 text-xs sm:text-sm dark:text-slate-400 text-slate-600 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 mt-1 pl-8">
+                        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-0 text-xs sm:text-sm dark:text-slate-400 text-slate-600 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 mt-1 pl-8 whitespace-pre-line">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -698,14 +1030,14 @@ export const SpawnSeedPageContent: React.FC = () => {
           </div>
         </section>
 
-        {/* Bottom Banner */}
+        {/* Bottom CTA Banner */}
         <section className="px-4 sm:px-6 md:px-8 max-w-5xl mx-auto text-center">
           <div className="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white shadow-2xl">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black mb-3 uppercase tracking-tight">
               Ready to Order Certified Mushroom Spawn?
             </h2>
             <p className="text-xs sm:text-sm text-emerald-100 max-w-xl mx-auto mb-8 font-medium leading-relaxed">
-              Order online directly or contact our technical agronomists for bulk farm quantities, inoculation ratios, and ongoing farm mentorship.
+              Order directly through our Razorpay online store, or contact our master agronomists for bulk commercial supply, scheduled deliveries, and farm mentorship.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a

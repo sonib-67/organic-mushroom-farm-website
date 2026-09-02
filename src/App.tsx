@@ -6662,18 +6662,31 @@ const AnimatedRoutes = () => {
           <Route path="/project-specs" element={<ArticleProjectSpecs />} />
           <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreKarnataka />} />
           <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
+          <Route path="/newblog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
           <Route path="/blog/button-mushroom-vs-oyster-mushroom" element={<ArticleButtonVsOysterMushroom />} />
+          <Route path="/newblog/button-mushroom-vs-oyster-mushroom" element={<ArticleButtonVsOysterMushroom />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
+          <Route path="/newcities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
           <Route path="/training/online" element={<ArticleOnlineTraining />} />
+          <Route path="/newtraining/online" element={<ArticleOnlineTraining />} />
           <Route path="/training/offline" element={<ArticleOfflineTraining />} />
+          <Route path="/newtraining/offline" element={<ArticleOfflineTraining />} />
           <Route path="/cities" element={<ArticleCitiesIndia />} />
+          <Route path="/newcities" element={<ArticleCitiesIndia />} />
           <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuideEnglish />} />
+          <Route path="/newblog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuideEnglish />} />
           <Route path="/cities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramKerala />} />
+          <Route path="/newcities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramKerala />} />
           <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
+          <Route path="/newmushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
           <Route path="/contact-form" element={<ArticleContactForm />} />
+          <Route path="/newcontact-form" element={<ArticleContactForm />} />
           <Route path="/disclaimer" element={<DisclaimerPage />} />
+          <Route path="/newdisclaimer" element={<DisclaimerPage />} />
           <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
+          <Route path="/newcities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
           <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
+          <Route path="/newblog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
           <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
