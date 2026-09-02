@@ -11,9 +11,14 @@ import {
   Layers,
   TrendingUp,
   Zap,
+  Calendar,
+  Calculator,
+  ShoppingCart,
 } from 'lucide-react';
+import { useAppModals } from '../modals/ModalContext';
 
 export const Hero: React.FC = () => {
+  const { openConsultationModal, openQuoteCalculatorModal, openQuickOrderModal } = useAppModals();
   const features = [
     { text: "Complete Mushroom Farm Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
     { text: "Mushroom Farming Training Program" },
@@ -108,26 +113,35 @@ export const Hero: React.FC = () => {
             </Link>
           </div>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-5">
-            <Link
-              href="/enquiry"
-              className="btn-primary w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center font-bold bg-[#7b51f8] hover:bg-[#6841d8] text-white"
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6 md:mb-5">
+            <button
+              type="button"
+              onClick={() => openConsultationModal({ category: 'Commercial Turnkey Farm Setup' })}
+              className="w-full sm:w-auto px-5 min-h-[48px] rounded-xl text-xs sm:text-sm shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-2 font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white transition-all transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              Enquiry Now
-            </Link>
+              <Calendar size={15} /> Book Free Consultation
+            </button>
+            <button
+              type="button"
+              onClick={() => openQuoteCalculatorModal({ variety: 'Button Mushroom' })}
+              className="w-full sm:w-auto px-5 min-h-[48px] rounded-xl text-xs sm:text-sm shadow-xl shadow-blue-500/20 flex items-center justify-center gap-2 font-bold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <Calculator size={15} /> Cost & Profit Calculator
+            </button>
+            <button
+              type="button"
+              onClick={() => openQuickOrderModal({ variety: 'Button Mushroom' })}
+              className="w-full sm:w-auto px-5 min-h-[48px] rounded-xl text-xs sm:text-sm border border-emerald-500/40 hover:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center gap-2 font-bold transition-all"
+            >
+              <ShoppingCart size={15} /> Quick Order Spawn
+            </button>
             <a
               href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20mushroom%20farming.%20Please%20provide%20details."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
+              className="btn-outline w-full sm:w-auto px-4 min-h-[48px] rounded-xl text-xs sm:text-sm flex items-center justify-center font-medium"
             >
               WhatsApp Us
-            </a>
-            <a
-              href="tel:9203544140"
-              className="btn-outline w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm flex items-center justify-center font-medium"
-            >
-              Call Now: 9203544140
             </a>
           </div>
           <div className="flex justify-center md:justify-start gap-6 pt-4">

@@ -2,33 +2,36 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ShoppingCart, MessageCircle, Sparkles } from 'lucide-react';
+import { useAppModals } from '../modals/ModalContext';
 
 export const Marketplace: React.FC = () => {
+  const { openQuickOrderModal, openConsultationModal } = useAppModals();
+
   const items = [
     {
-      type: "Seller",
+      type: "Fast Order",
       title: "Mushroom Spawn (Seed)",
-      desc: "Lab-grade organic F1 hybrid spawn.",
-      price: "Bulk Order",
-      linkType: "page",
+      desc: "Lab-grade certified F1 hybrid grain spawn.",
+      price: "From ₹120/kg",
+      actionType: "quick_order",
       to: "/spawn-seed",
     },
     {
-      type: "Seller",
+      type: "Commercial B2B",
       title: "Fresh Organic Mushrooms",
-      desc: "A-grade commercial button mushrooms.",
+      desc: "A-grade commercial button & oyster mushrooms.",
       price: "Live Market Rate",
-      linkType: "external",
-      to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms",
+      actionType: "consultation",
+      category: "Spawn & Bulk Purchase",
     },
     {
-      type: "Seller",
+      type: "Export Grade",
       title: "Dry Mushrooms Export",
-      desc: "Long shelf life, premium export quality.",
+      desc: "Solar-dehydrated, premium export quality.",
       price: "Wholesale Only",
-      linkType: "external",
-      to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms",
+      actionType: "consultation",
+      category: "Spawn & Bulk Purchase",
     },
   ];
 
@@ -46,60 +49,77 @@ export const Marketplace: React.FC = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left p-2">
           {items.map((ad, i) => {
-            if (ad.linkType === "page") {
+            if (ad.actionType === 'quick_order') {
               return (
-                <Link
+                <div
                   key={i}
-                  href={ad.to}
-                  className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
+                  className="glass p-4 rounded-2xl border dark:border-white/10 border-black/10 relative group cursor-pointer flex flex-col justify-between"
+                  onClick={() => openQuickOrderModal({ variety: 'Button Mushroom' })}
                 >
-                  <div className="absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400">
-                    {ad.type}
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <div className="px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-emerald-500/20 text-emerald-500">
+                        {ad.type}
+                      </div>
+                      <span className="text-[10px] text-emerald-500 font-bold flex items-center gap-1">
+                        <Sparkles size={10} /> Instant Checkout
+                      </span>
+                    </div>
+                    <h3 className="dark:text-white text-slate-900 mb-1 mt-3 tracking-tight font-bold text-lg">
+                      {ad.title}
+                    </h3>
+                    <div className="text-[12px] text-slate-500 mb-4">
+                      {ad.desc}
+                    </div>
                   </div>
-                  <h3 className="dark:text-white text-slate-900 mb-1 mt-4 tracking-tight">
-                    {ad.title}
-                  </h3>
-                  <div className="text-[12px] text-slate-500 mb-6">
-                    {ad.desc}
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="dark:text-white text-slate-900 font-bold text-sm dark:bg-white/5 bg-black/5 px-3 py-2 rounded-xl">
+
+                  <div className="flex items-center justify-between pt-2 border-t dark:border-white/5 border-black/5">
+                    <span className="dark:text-white text-slate-900 font-bold text-xs dark:bg-white/5 bg-black/5 px-3 py-1.5 rounded-xl">
                       {ad.price}
                     </span>
-                    <span className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:text-white transition-all">
-                      <ArrowRight size={16} />
-                    </span>
+                    <button
+                      type="button"
+                      className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5 shadow-md transition-all"
+                    >
+                      <ShoppingCart size={13} /> Quick Order
+                    </button>
                   </div>
-                </Link>
+                </div>
               );
             }
 
             return (
-              <a
+              <div
                 key={i}
-                href={ad.to}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
+                className="glass p-4 rounded-2xl border dark:border-white/10 border-black/10 relative group cursor-pointer flex flex-col justify-between"
+                onClick={() => openConsultationModal({ category: ad.category })}
               >
-                <div className="absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400">
-                  {ad.type}
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400">
+                      {ad.type}
+                    </div>
+                  </div>
+                  <h3 className="dark:text-white text-slate-900 mb-1 mt-3 tracking-tight font-bold text-lg">
+                    {ad.title}
+                  </h3>
+                  <div className="text-[12px] text-slate-500 mb-4">
+                    {ad.desc}
+                  </div>
                 </div>
-                <h3 className="dark:text-white text-slate-900 mb-1 mt-4 tracking-tight">
-                  {ad.title}
-                </h3>
-                <div className="text-[12px] text-slate-500 mb-6">
-                  {ad.desc}
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="dark:text-white text-slate-900 font-bold text-sm dark:bg-white/5 bg-black/5 px-3 py-2 rounded-xl">
+
+                <div className="flex items-center justify-between pt-2 border-t dark:border-white/5 border-black/5">
+                  <span className="dark:text-white text-slate-900 font-bold text-xs dark:bg-white/5 bg-black/5 px-3 py-1.5 rounded-xl">
                     {ad.price}
                   </span>
-                  <span className="w-9 h-9 rounded-lg dark:bg-white/5 bg-black/5 dark:text-slate-400 text-slate-600 flex items-center justify-center group-hover:bg-primary-start group-hover:text-white transition-all">
-                    <ArrowRight size={16} />
-                  </span>
+                  <button
+                    type="button"
+                    className="px-3 py-1.5 rounded-xl bg-slate-900 dark:bg-white dark:text-slate-900 text-white text-xs font-bold flex items-center gap-1.5 transition-all"
+                  >
+                    <span>Get Trade Rates</span> <ArrowRight size={13} />
+                  </button>
                 </div>
-              </a>
+              </div>
             );
           })}
         </div>
@@ -107,3 +127,4 @@ export const Marketplace: React.FC = () => {
     </section>
   );
 };
+
