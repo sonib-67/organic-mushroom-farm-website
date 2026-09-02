@@ -1461,7 +1461,7 @@ const Navbar = () => {
 
 const Hero = () => {
   const features = [
-    { text: "Complete Turnkey Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
+    { text: "Complete Mushroom Farm Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
     { text: "Mushroom Farming Training Program" },
     { text: "Government Subsidy Documentation" },
     { text: "Technical Support India & Worldwide" },
