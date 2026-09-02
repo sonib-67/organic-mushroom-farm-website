@@ -1,9 +1,26 @@
-"use client";
+'use client';
+
 import React from 'react';
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import { motion } from 'motion/react';
 
-const CompostUnits = () => {
+export const CompostUnits: React.FC = () => {
+  const compostUnits = [
+    {
+      name: "2000-Bag Commercial Unit (20T)",
+      desc: "14x30 System",
+      investment: "₹15-17 Lakh",
+      stats: { bags: "2,000", cap: "20t", cycle: "15d" },
+    },
+    {
+      name: "3000-Bag Industrial Unit (30T)",
+      desc: "14x40 System",
+      investment: "₹19-21 Lakh",
+      stats: { bags: "3,000", cap: "30t", cycle: "15d" },
+      recommended: true,
+    },
+  ];
+
   return (
     <section
       id="compost-units"
@@ -13,7 +30,7 @@ const CompostUnits = () => {
         <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">Commercial Infrastructure</div>
           <h2 className="mb-4 uppercase">
-            <Link to="/equipment" className="hover:text-current transition-colors">
+            <Link href="/equipment" className="hover:text-current transition-colors">
               Standard Commercial{" "}
               <span className="gradient-text">Compost Units</span>
             </Link>
@@ -24,26 +41,11 @@ const CompostUnits = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-6">
-          {[
-            {
-              name: "2000-Bag Commercial Unit (20T)",
-              desc: "14x30 System",
-              investment: "₹15-17 Lakh",
-              stats: { bags: "2,000", cap: "20t", cycle: "15d" },
-            },
-            {
-              name: "3000-Bag Industrial Unit (30T)",
-              desc: "14x40 System",
-              investment: "₹19-21 Lakh",
-              stats: { bags: "3,000", cap: "30t", cycle: "15d" },
-              recommended: true,
-            },
-          ].map((comp, i) => (
+          {compostUnits.map((comp, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 1, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              
               className={`glass card-padding rounded-3xl border dark:border-white/5 border-black/5 relative ${comp.recommended ? "shadow-2xl shadow-brand-blue/10 border-primary-mid/30" : ""}`}
             >
               {comp.recommended && (
@@ -84,7 +86,7 @@ const CompostUnits = () => {
               </div>
 
               <Link
-                to="/compost-unit-specs"
+                href="/compost-unit-specs"
                 className="btn-primary w-full py-2 rounded-xl text-[12px] font-bold min-h-[44px] flex items-center justify-center"
               >
                 Get Details
@@ -96,5 +98,3 @@ const CompostUnits = () => {
     </section>
   );
 };
-
-export default CompostUnits;

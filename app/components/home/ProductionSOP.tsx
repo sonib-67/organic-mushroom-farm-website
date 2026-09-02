@@ -1,40 +1,18 @@
-"use client";
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from 'motion/react';
-import { Layers, Shield, Sprout, Clock, Zap, ShoppingCart, ChevronUp, ChevronDown } from 'lucide-react';
+'use client';
 
-const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({
-  title,
-  children,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="glass border dark:border-white/5 border-black/5 mb-3 overflow-hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-3 text-left font-bold text-sm dark:text-white text-slate-900"
-      >
-        <span>{title}</span>
-        {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 1 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="p-3 pt-0 text-[13px] dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
+import React from 'react';
+import { motion } from 'motion/react';
+import {
+  Layers,
+  Shield,
+  Sprout,
+  Clock,
+  Zap,
+  ShoppingCart,
+} from 'lucide-react';
+import { Collapsible } from './Collapsible';
 
-const ProductionSOP = () => {
+export const ProductionSOP: React.FC = () => {
   const steps = [
     {
       title: "Phase-I Composting",
@@ -191,5 +169,3 @@ const ProductionSOP = () => {
     </section>
   );
 };
-
-export default ProductionSOP;

@@ -1,87 +1,16 @@
-"use client";
+'use client';
+
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Link } from "react-router-dom";
 import { CheckCircle2 } from 'lucide-react';
 
-const CTASection = () => {
+export const CTASection: React.FC = () => {
   const [formState, setFormState] = useState({
     submitting: false,
     succeeded: false,
     error: "",
   });
-
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    mushroomType: "Button Mushroom",
-    projectSize: "Medium Scale",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormState({ submitting: true, succeeded: false, error: "" });
-    try {
-      const response = await fetch(
-        "/api/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify({
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email || "N/A",
-            mushroomType: formData.mushroomType,
-            projectSize: formData.projectSize,
-            message: formData.message,
-            _subject: `New Home Page Inquiry from ${formData.name} (${formData.mushroomType})`,
-          }),
-        },
-      );
-
-      if (response.ok) {
-        setFormState({ submitting: false, succeeded: true, error: "" });
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          mushroomType: "Button Mushroom",
-          projectSize: "Medium Scale",
-          message: "",
-        });
-      } else {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.error || await response.text() || "Failed to send.";
-        console.error("[FormSubmit] Server error:", errorMessage);
-        setFormState({
-          submitting: false,
-          succeeded: false,
-          error: errorMessage,
-        });
-      }
-    } catch (err: any) {
-      console.error("[FormSubmit] Submit error:", err);
-      setFormState({
-        submitting: false,
-        succeeded: false,
-        error: err.message || "An unexpected error occurred.",
-      });
-    }
-  };
 
   return (
     <section
@@ -93,6 +22,7 @@ const CTASection = () => {
         <div className="glass p-3 md:p-12 lg:p-16 rounded-[3rem] border dark:border-white/10 border-black/10 relative overflow-hidden group">
           <div className="absolute -top-24 -left-24 w-60 h-60 bg-primary-start/10 blur-[80px] rounded-full group-hover:bg-primary-start/20 transition-all duration-700"></div>
           <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-brand-purple/10 blur-[80px] rounded-full group-hover:bg-brand-purple/20 transition-all duration-700"></div>
+
           <div className="grid lg:grid-cols-12 gap-6 items-center relative z-10">
             {/* Left Column: Context & Info */}
             <div className="lg:col-span-5 space-y-6 text-left">
@@ -107,6 +37,7 @@ const CTASection = () => {
                 site feasibility evaluation & project setup design model layout
                 matching your resource availability.
               </p>
+
               <div className="space-y-4 pt-2">
                 {[
                   "Free pre-feasibility site evaluation guidance",
@@ -124,6 +55,7 @@ const CTASection = () => {
                   </div>
                 ))}
               </div>
+
               <div className="border-t border-slate-700/20 pt-6 flex flex-col sm:flex-row gap-4 items-center">
                 <a
                   href="https://wa.me/919203544140?text=Hi,%20I%20am%20interested%20in%20starting%20mushroom%20farming.%20Please%20guide%20me."
@@ -156,8 +88,8 @@ const CTASection = () => {
                     </div>
                     <div className="space-y-2">
                       <h3 className="text-sm font-bold dark:text-white text-slate-900">
-                          Inquiry Received!
-                        </h3>
+                        Inquiry Received!
+                      </h3>
                       <p className="dark:text-slate-400 text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
                         Thank you for your response. Our commercial farming
                         expert specialists will review your project scale and
@@ -187,7 +119,7 @@ const CTASection = () => {
                       Submit your detailed requirements via our dedicated enquiry form and our experts will get back to you!
                     </p>
                     <Link
-                      to="/enquiry"
+                      href="/enquiry"
                       className="inline-block px-6 py-2 rounded-xl bg-gradient-to-r from-primary-start to-primary-end text-white font-bold tracking-wide hover:shadow-xl hover:scale-105 transition-all text-sm"
                     >
                       Enquiry Now
@@ -202,5 +134,3 @@ const CTASection = () => {
     </section>
   );
 };
-
-export default CTASection;

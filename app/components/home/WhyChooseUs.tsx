@@ -1,10 +1,18 @@
-"use client";
-import React from 'react';
-import { Link } from "react-router-dom";
-import { motion } from 'motion/react';
-import { TrendingUp, Briefcase, MapPin, ShieldCheck, Award, Users } from 'lucide-react';
+'use client';
 
-const WhyChooseUs = () => {
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
+import {
+  TrendingUp,
+  Briefcase,
+  MapPin,
+  ShieldCheck,
+  Award,
+  Users,
+} from 'lucide-react';
+
+export const WhyChooseUs: React.FC = () => {
   const chooseItems = [
     {
       title: "Cost Efficiency (15–25% Savings)",
@@ -91,8 +99,7 @@ const WhyChooseUs = () => {
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary-start/10 blur-[120px] rounded-full pointer-events-none animate-pulse"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
-        {/* 360 View Video Section Added Before Title */}
+        {/* 360 View Video Section */}
         <div className="max-w-4xl mx-auto text-center mb-6 md:mb-6">
           <div className="badge mb-4">Virtual Tour</div>
           <h2 className="mb-4 uppercase tracking-tight">
@@ -116,13 +123,11 @@ const WhyChooseUs = () => {
             </video>
           </div>
         </div>
-        {/* End of 360 View Section */}
 
         <div className="text-center mb-5 md:mb-20">
           <motion.div
             initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            
             className="badge mx-auto mb-4"
           >
             Mushroom Infrastructure Leaders
@@ -130,12 +135,11 @@ const WhyChooseUs = () => {
           <motion.h2
             initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            
             className="mb-4"
           >
             Why Choose{" "}
             <span className="gradient-text">
-              <Link to="/states">
+              <Link href="/states">
                 Organic Mushrooms Farm for Your Project?
               </Link>
             </span>
@@ -143,12 +147,9 @@ const WhyChooseUs = () => {
           <motion.p
             initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            
             className="max-w-2xl mx-auto"
           >
-            India’s most trusted commercial mushroom farming infrastructure
-            partner delivering unmatched value, transparency, and high-yield
-            performance globally.
+            India’s most trusted commercial mushroom farming infrastructure partner delivering unmatched value, transparency, and high-yield performance globally.
           </motion.p>
         </div>
 
@@ -158,7 +159,6 @@ const WhyChooseUs = () => {
               key={i}
               initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              
               transition={{ delay: i * 0.1 }}
               className="group relative"
             >
@@ -172,8 +172,8 @@ const WhyChooseUs = () => {
                 </div>
 
                 <h2 className="text-sm md:text-xl font-bold dark:text-white text-slate-900 mb-3">
-                    {item.title}
-                  </h2>
+                  {item.title}
+                </h2>
 
                 <p className="mb-6 flex-1 italic text-slate-500">
                   {item.subtitle}
@@ -198,5 +198,3 @@ const WhyChooseUs = () => {
     </section>
   );
 };
-
-export default WhyChooseUs;

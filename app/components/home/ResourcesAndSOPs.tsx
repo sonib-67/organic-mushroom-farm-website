@@ -1,51 +1,57 @@
-"use client";
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, BookOpen, ChevronUp, ChevronDown, Play } from 'lucide-react';
+'use client';
 
+import React from 'react';
+import Link from 'next/link';
+import { BookOpen, ArrowRight, Play } from 'lucide-react';
+import { Collapsible } from './Collapsible';
 
-const Collapsible: React.FC<{ title: string; children: React.ReactNode }> = ({
-  title,
-  children,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <div className="glass border dark:border-white/5 border-black/5 mb-3 overflow-hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-3 text-left font-bold text-sm dark:text-white text-slate-900"
-      >
-        <span>{title}</span>
-        {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 1 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="p-3 pt-0 text-[13px] dark:text-slate-400 text-slate-600 border-t dark:border-white/5 border-black/5"
-          >
-            {children}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
+export const ResourcesAndSOPs: React.FC = () => {
+  const sopsList = [
+    {
+      title: "Tunnel Ops",
+      content: "Details for Phase-II Pasteurization Tunnel operations and parameters.",
+      id: "tunnel-ops",
+    },
+    {
+      title: "Spawning",
+      content: "Comprehensive checklist for spawning and incubation stages.",
+      id: "spawning",
+    },
+    {
+      title: "Casing",
+      content: "Material preparation guide for optimal casing layer.",
+      id: "casing",
+    },
+    {
+      title: "Hygiene",
+      content: "Disease control protocols and farm hygiene standards.",
+      id: "hygiene",
+    },
+  ];
 
-const ResourcesSection = () => {
+  const fullSops = [
+    {
+      name: "Phase-II Commercial Pasteurization Tunnel Ops",
+      id: "tunnel-ops",
+    },
+    { name: "Spawning & Incubation Checklist", id: "spawning" },
+    { name: "Casing Material Preparation Guide", id: "casing" },
+    {
+      name: "Disease Control & Commercial Farm Hygiene Protocols",
+      id: "hygiene",
+    },
+  ];
+
   return (
     <section id="resources" className="section-padding bg-white/[0.01]">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-20 items-start">
           <div>
             <div className="badge mb-6 mx-auto lg:mx-0">
               Documentation & Resources
             </div>
             <h2 className="mb-6 uppercase text-center lg:text-left">
-              <Link to="/cities" className="hover:text-current transition-colors">
+              <Link href="/cities" className="hover:text-current transition-colors">
                 Commercial Production{" "}
                 <span className="gradient-text">SOPs & Guides</span>
               </Link>
@@ -54,37 +60,13 @@ const ResourcesSection = () => {
               Standard operating procedures used by commercial mushroom
               specialists nationwide and internationally.
             </p>
+
             <div className="md:hidden">
-              {[
-                {
-                  title: "Tunnel Ops",
-                  content:
-                    "Details for Phase-II Pasteurization Tunnel operations and parameters.",
-                  id: "tunnel-ops",
-                },
-                {
-                  title: "Spawning",
-                  content:
-                    "Comprehensive checklist for spawning and incubation stages.",
-                  id: "spawning",
-                },
-                {
-                  title: "Casing",
-                  content:
-                    "Material preparation guide for optimal casing layer.",
-                  id: "casing",
-                },
-                {
-                  title: "Hygiene",
-                  content:
-                    "Disease control protocols and farm hygiene standards.",
-                  id: "hygiene",
-                },
-              ].map((sop, i) => (
+              {sopsList.map((sop, i) => (
                 <Collapsible key={i} title={sop.title}>
                   {sop.content}
                   <Link
-                    to={`/sops#${sop.id}`}
+                    href={`/sops#${sop.id}`}
                     className="flex items-center gap-2 text-primary-start font-bold mt-3"
                   >
                     Get Details <ArrowRight size={14} />
@@ -92,21 +74,11 @@ const ResourcesSection = () => {
                 </Collapsible>
               ))}
             </div>
+
             <div className="hidden md:block space-y-4">
-              {[
-                {
-                  name: "Phase-II Commercial Pasteurization Tunnel Ops",
-                  id: "tunnel-ops",
-                },
-                { name: "Spawning & Incubation Checklist", id: "spawning" },
-                { name: "Casing Material Preparation Guide", id: "casing" },
-                {
-                  name: "Disease Control & Commercial Farm Hygiene Protocols",
-                  id: "hygiene",
-                },
-              ].map((sop) => (
+              {fullSops.map((sop) => (
                 <Link
-                  to={`/sops#${sop.id}`}
+                  href={`/sops#${sop.id}`}
                   key={sop.name}
                   className="flex items-center gap-4 p-3 glass rounded-2xl border dark:border-white/5 border-black/5 group hover:dark:bg-white/5 bg-black/5 transition-all cursor-pointer"
                 >
@@ -124,18 +96,19 @@ const ResourcesSection = () => {
               ))}
             </div>
           </div>
-          <div className="relative mt-8 lg:mt-0">
+
+          <div className="relative">
             <div className="absolute inset-0 gradient-bg opacity-10 blur-[80px] rounded-full"></div>
             <div className="relative glass p-3 md:p-10 rounded-[2.5rem] border dark:border-white/10 border-black/10">
               <div className="flex items-center gap-4 mb-5 justify-center lg:justify-start">
                 <BookOpen className="text-primary-start" size={24} />
-                <h3 className="dark:text-white text-slate-900 tracking-tight text-xl">
+                <h3 className="dark:text-white text-slate-900 tracking-tight">
                   Commercial Knowledge Hub
                 </h3>
               </div>
               <div className="space-y-6">
                 <Link
-                  to="/articles/mushroom-farming-beginner-guide-india-2026-2027"
+                  href="/articles/mushroom-farming-beginner-guide-india-2026-2027"
                   className="p-3 md:p-3 rounded-3xl bg-primary-start/10 border border-primary-start/20 block group hover:scale-[1.02] transition-transform"
                 >
                   <div className="flex items-center justify-between mb-4">
@@ -147,13 +120,14 @@ const ResourcesSection = () => {
                     </div>
                   </div>
                   <h4 className="dark:text-white text-slate-900 font-bold text-sm mb-2">
-                      Mushroom Farming Beginner Guide India 2026-2027
-                    </h4>
+                    Mushroom Farming Beginner Guide India 2026-2027
+                  </h4>
                   <p className="dark:text-slate-400 text-slate-600 text-xs leading-relaxed">
                     Complete guide on how to start mushroom farming (mushroom
                     ki kheti) from scratch for beginners.
                   </p>
                 </Link>
+
                 <div className="p-3 md:p-3 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-[9px] text-slate-500 font-black uppercase tracking-widest">
@@ -170,12 +144,12 @@ const ResourcesSection = () => {
                     className="relative aspect-video rounded-2xl overflow-hidden mb-4 group cursor-pointer inline-block w-full"
                   >
                     <img
+                      loading="lazy"
                       src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1777378071/IMG_6265_svucsm.jpg"
                       alt="Mushroom Farming Training Video - Commercial Cultivation SOPs India"
                       className="w-full h-full object-cover opacity-60"
-                      width={1080}
-                      height={1080}
-                      referrerPolicy="no-referrer"
+                      width="1080"
+                      height="1080"
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center pl-1 shadow-2xl">
@@ -195,5 +169,3 @@ const ResourcesSection = () => {
     </section>
   );
 };
-
-export default ResourcesSection;

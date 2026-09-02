@@ -1,9 +1,37 @@
-"use client";
+'use client';
+
 import React from 'react';
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-const Marketplace = () => {
+export const Marketplace: React.FC = () => {
+  const items = [
+    {
+      type: "Seller",
+      title: "Mushroom Spawn (Seed)",
+      desc: "Lab-grade organic F1 hybrid spawn.",
+      price: "Bulk Order",
+      linkType: "page",
+      to: "/spawn-seed",
+    },
+    {
+      type: "Seller",
+      title: "Fresh Organic Mushrooms",
+      desc: "A-grade commercial button mushrooms.",
+      price: "Live Market Rate",
+      linkType: "external",
+      to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms",
+    },
+    {
+      type: "Seller",
+      title: "Dry Mushrooms Export",
+      desc: "Long shelf life, premium export quality.",
+      price: "Wholesale Only",
+      linkType: "external",
+      to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms",
+    },
+  ];
+
   return (
     <section id="market" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto text-center">
@@ -17,42 +45,15 @@ const Marketplace = () => {
           worldwide.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left p-2">
-          {[
-            {
-              type: "Seller",
-              title: "Mushroom Spawn (Seed)",
-              desc: "Lab-grade organic F1 hybrid spawn.",
-              price: "Bulk Order",
-              linkType: "page",
-              to: "/spawn-seed",
-            },
-            {
-              type: "Seller",
-              title: "Fresh Organic Mushrooms",
-              desc: "A-grade commercial button mushrooms.",
-              price: "Live Market Rate",
-              linkType: "external",
-              to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Fresh%20Mushrooms",
-            },
-            {
-              type: "Seller",
-              title: "Dry Mushrooms Export",
-              desc: "Long shelf life, premium export quality.",
-              price: "Wholesale Only",
-              linkType: "external",
-              to: "https://wa.me/919203544140?text=I%20am%20interested%20in%20Dry%20Mushrooms",
-            },
-          ].map((ad, i) => {
+          {items.map((ad, i) => {
             if (ad.linkType === "page") {
               return (
                 <Link
                   key={i}
-                  to={ad.to}
+                  href={ad.to}
                   className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
                 >
-                  <div
-                    className={`absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400`}
-                  >
+                  <div className="absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400">
                     {ad.type}
                   </div>
                   <h3 className="dark:text-white text-slate-900 mb-1 mt-4 tracking-tight">
@@ -72,6 +73,7 @@ const Marketplace = () => {
                 </Link>
               );
             }
+
             return (
               <a
                 key={i}
@@ -80,9 +82,7 @@ const Marketplace = () => {
                 rel="noopener noreferrer"
                 className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5 relative group cursor-pointer block"
               >
-                <div
-                  className={`absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400`}
-                >
+                <div className="absolute top-4 right-4 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-widest bg-blue-500/20 text-blue-400">
                   {ad.type}
                 </div>
                 <h3 className="dark:text-white text-slate-900 mb-1 mt-4 tracking-tight">
@@ -107,5 +107,3 @@ const Marketplace = () => {
     </section>
   );
 };
-
-export default Marketplace;

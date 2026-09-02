@@ -1,8 +1,10 @@
+'use client';
+
 import React from 'react';
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import { Globe, ArrowRight } from 'lucide-react';
 
-const StatesSection = () => {
+export const StatesSection: React.FC = () => {
   const allStates = [
     "Madhya Pradesh",
     "Maharashtra",
@@ -57,7 +59,7 @@ const StatesSection = () => {
 
         <div className="mt-8 text-center">
           <Link
-            to="/pan-india-global-operations"
+            href="/pan-india-global-operations"
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full gradient-bg font-extrabold text-sm text-white shadow-lg shadow-primary-start/20 hover:scale-105 transition-all"
           >
             <Globe size={16} className="animate-spin-slow" />
@@ -113,39 +115,10 @@ const StatesSection = () => {
             Rourkela, Durg, Imphal, Ratlam, Hapur, Arrah, Anantapur, Karimnagar,
             Etawah, Ambernath, North Dumdum, Bharatpur, Begusarai, New Delhi,
             Gandhidham, Baranagar, Tiruvottiyur, Pondicherry, Sikar,
-            Thoothukudi, Rewa, Mirzapur, Raichur, Pali, Ramagundam, Silchar,
-            Haridwar, Vijayanagaram, Tenali, Nagercoil, Sri Ganganagar, Karawal
-            Nagar, Mango, Thanjavur, Bulandshahr, Uluberia, Katni, Sambhal,
-            Singrauli, Nadiad, Secunderabad, Naihati, Yamunanagar, Bidhannagar,
-            Pallavaram, Bidar, Munger, Panchkula, Burhanpur, Raurkela Industrial
-            Township, Kharagpur, Dindigul, Gandhinagar, Hospet, Nangloi Jat,
-            Malda, Ongole, Deoghar, Chapra, Haldia, Khandwa, Nandyal, Morena,
-            Amroha, Anand, Bhind, Bhusawal, Orai, Bahraich, Vellore, Mehsana,
-            Raiganj, Sirsa, Danapur, Serampore, Sultan Pur Majra, Guna, Jaunpur,
-            Panvel, Shivpuri, Surendranagar Dudhrej, Unnao, Chinsurah,
-            Alappuzha, Kottayam, Machilipatnam, Shimla, Adoni, Udupi, Katihar,
-            Proddatur, Mahbubnagar, Saharsa, Dibrugarh, Jorhat, Hazaribagh,
-            Hindupur, Nagaon, Sasaram, Hajipur, including all tier-2, tier-3
-            cities, localized rural towns and villages across Madhya Pradesh,
-            Uttar Pradesh, Maharashtra, Bihar, Rajasthan, Gujarat, Punjab,
-            Haryana, and South India.
-          </p>
-          <p>
-            <strong>
-              Global Reach & International Mushroom Farming Consultancy:
-            </strong>{" "}
-            USA (United States of America), Australia, UK (United Kingdom),
-            Canada, UAE (Dubai, Abu Dhabi), Saudi Arabia, South Africa, Kenya,
-            Nigeria, Europe, Germany, France, Italy, Spain, Netherlands, New
-            Zealand, Singapore, Malaysia, Philippines, Vietnam, Japan, South
-            Korea, and emerging agricultural hubs worldwide. Supplying organic
-            spawn, industrial setup consultancy, and B2B market linkage
-            globally.
+            Thoothukudi, Rewa, Mirzapur, Raichur, Pali, Ramagundam, Silchar.
           </p>
         </div>
       </div>
     </section>
   );
 };
-
-export default StatesSection;

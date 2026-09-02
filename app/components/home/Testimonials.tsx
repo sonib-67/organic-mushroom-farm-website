@@ -1,9 +1,31 @@
-"use client";
+'use client';
+
 import React from 'react';
 import { motion } from 'motion/react';
 import { Quote } from 'lucide-react';
 
-const Testimonials = () => {
+export const Testimonials: React.FC = () => {
+  const testimonials = [
+    {
+      name: "Rahul S.",
+      location: "Bhopal",
+      text: "Turnkey setup changed my perspective. Outstanding support even after 2 years.",
+      avatar: "RS",
+    },
+    {
+      name: "Deepak M.",
+      location: "Indore",
+      text: "Professional SOPs. Yield exceeded expectations by 20% due to climate design.",
+      avatar: "DM",
+    },
+    {
+      name: "Suresh K.",
+      location: "Sagar",
+      text: "Honest ROI analysis. No hidden costs, just pure business growth.",
+      avatar: "SK",
+    },
+  ];
+
   return (
     <section className="section-padding">
       <div className="max-w-7xl mx-auto">
@@ -16,31 +38,11 @@ const Testimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
-          {[
-            {
-              name: "Rahul S.",
-              location: "Bhopal",
-              text: "Turnkey setup changed my perspective. Outstanding support even after 2 years.",
-              avatar: "RS",
-            },
-            {
-              name: "Deepak M.",
-              location: "Indore",
-              text: "Professional SOPs. Yield exceeded expectations by 20% due to climate design.",
-              avatar: "DM",
-            },
-            {
-              name: "Suresh K.",
-              location: "Sagar",
-              text: "Honest ROI analysis. No hidden costs, just pure business growth.",
-              avatar: "SK",
-            },
-          ].map((t, i) => (
+          {testimonials.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              
               className="glass p-3 rounded-3xl border dark:border-white/5 border-black/5 flex flex-col h-full"
             >
               <Quote
@@ -70,5 +72,3 @@ const Testimonials = () => {
     </section>
   );
 };
-
-export default Testimonials;

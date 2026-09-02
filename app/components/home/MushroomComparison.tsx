@@ -1,9 +1,9 @@
-"use client";
-import React from 'react';
-import { Link } from "react-router-dom";
-import { motion } from 'motion/react';
+'use client';
 
-const MushroomComparison = () => {
+import React from 'react';
+import Link from 'next/link';
+
+export const MushroomComparison: React.FC = () => {
   const mushrooms = [
     {
       name: "Button Mushroom",
@@ -43,7 +43,7 @@ const MushroomComparison = () => {
             Top Searched Product Variants
           </div>
           <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
-            <Link to="/blog" className="hover:text-current transition-colors">
+            <Link href="/blog" className="hover:text-current transition-colors">
               High-Yield Commercial Mushroom{" "}
               <span className="gradient-text">Genetics</span>
             </Link>
@@ -100,37 +100,31 @@ const MushroomComparison = () => {
           {mushrooms.map((m, i) => (
             <div
               key={i}
-              className="min-w-[280px] snap-center glass border dark:border-white/10 border-black/10 p-3 rounded-2xl"
+              className="glass p-3 rounded-2xl border dark:border-white/5 border-black/5 min-w-[260px] snap-center"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className={`w-4 h-4 rounded-full ${m.color} shadow-lg shadow-black/50`}
-                ></div>
-                <h3 className="dark:text-white text-slate-900 font-bold text-sm">
+              <div className="flex items-center gap-2 mb-3">
+                <div className={`w-2.5 h-2.5 rounded-full ${m.color}`}></div>
+                <h3 className="font-bold dark:text-white text-slate-900 text-sm">
                   {m.name}
                 </h3>
               </div>
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
-                  <div className="text-[8px] font-black text-slate-500 uppercase mb-1">
-                    Difficulty
-                  </div>
-                  <div className="text-[11px] font-bold dark:text-slate-300 text-slate-700">
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Difficulty:</span>
+                  <span className="dark:text-slate-300 text-slate-700 font-medium">
                     {m.difficulty}
-                  </div>
+                  </span>
                 </div>
-                <div className="p-3 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5">
-                  <div className="text-[8px] font-black text-slate-500 uppercase mb-1">
-                    Scale
-                  </div>
-                  <div className="text-[11px] font-bold dark:text-slate-300 text-slate-700">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Complexity:</span>
+                  <span className="dark:text-slate-300 text-slate-700 font-medium">
                     {m.speed}
-                  </div>
+                  </span>
                 </div>
+                <p className="text-[11px] text-slate-500 pt-2 border-t dark:border-white/5 border-black/5 leading-relaxed">
+                  {m.text}
+                </p>
               </div>
-              <p className="text-[13px] dark:text-slate-400 text-slate-600 leading-relaxed font-medium">
-                {m.text}
-              </p>
             </div>
           ))}
         </div>
@@ -138,5 +132,3 @@ const MushroomComparison = () => {
     </section>
   );
 };
-
-export default MushroomComparison;

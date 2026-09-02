@@ -1,10 +1,19 @@
-"use client";
-import React from 'react';
-import { Link } from "react-router-dom";
-import { motion } from 'motion/react';
-import { ArrowRight, Award, CheckCircle, ShieldCheck, Layers, TrendingUp, Zap } from 'lucide-react';
+'use client';
 
-const Hero = () => {
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
+import {
+  CheckCircle2,
+  Award,
+  ArrowRight,
+  ShieldCheck,
+  Layers,
+  TrendingUp,
+  Zap,
+} from 'lucide-react';
+
+export const Hero: React.FC = () => {
   const features = [
     { text: "Complete Mushroom Farm Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
     { text: "Mushroom Farming Training Program" },
@@ -22,12 +31,10 @@ const Hero = () => {
           initial={{ opacity: 1, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          
           className="text-center md:text-left"
         >
           <div className="text-[10px] md:text-sm font-bold text-green-700 dark:text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
-            Button, Oyster, Milky, Shiitake & More | Setup, Training & Business
-            Support
+            Button, Oyster, Milky, Shiitake & More | Setup, Training & Business Support
           </div>
           <h1 className="text-[1.5rem] md:text-sm lg:text-xl font-bold dark:text-white text-slate-900 leading-tight mb-4 md:mb-5 tracking-tighter">
             <span className="gradient-text">
@@ -45,9 +52,9 @@ const Hero = () => {
                 key={i}
                 className="flex items-center gap-3 justify-center md:justify-start"
               >
-                <CheckCircle size={16} className="text-primary-start" />
+                <CheckCircle2 size={16} className="text-primary-start" />
                 {f.link ? (
-                  <Link to={f.link} className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight hover:text-primary-start transition-colors">
+                  <Link href={f.link} className="text-[13px] md:text-sm font-bold text-slate-900 dark:text-white tracking-tight hover:text-primary-start transition-colors">
                     {f.text}
                   </Link>
                 ) : (
@@ -61,7 +68,7 @@ const Hero = () => {
 
           <div className="flex flex-col gap-3 mb-6 max-w-md mx-auto md:mx-0">
             <Link
-              to="/training"
+              href="/training"
               className="group flex items-center justify-between p-3 rounded-2xl border border-purple-500/30 bg-linear-to-r from-purple-500/5 via-fuchsia-400/5 to-indigo-500/5 dark:from-purple-900/10 dark:via-fuchsia-900/10 dark:to-indigo-900/10 hover:from-purple-500/15 hover:via-fuchsia-400/15 hover:to-indigo-500/15 transition-all duration-300 shadow-xs"
             >
               <div className="flex items-center gap-3">
@@ -81,12 +88,12 @@ const Hero = () => {
             </Link>
 
             <Link
-              to="/turnkey-projects"
+              href="/turnkey-projects"
               className="group flex items-center justify-between p-3 rounded-2xl border border-emerald-500/30 bg-linear-to-r from-emerald-500/5 via-teal-400/5 to-cyan-500/5 dark:from-emerald-900/10 dark:via-teal-900/10 dark:to-cyan-900/10 hover:from-emerald-500/15 hover:via-teal-400/15 hover:to-cyan-500/15 transition-all duration-300 shadow-xs"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-300">
-                  <CheckCircle size={18} />
+                  <CheckCircle2 size={18} />
                 </div>
                 <div className="text-left">
                   <span className="block text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors">
@@ -103,7 +110,7 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-6 md:mb-5">
             <Link
-              to="/enquiry"
+              href="/enquiry"
               className="btn-primary w-full sm:w-auto px-6 min-h-[50px] rounded-xl text-sm shadow-2xl shadow-brand-blue/30 flex items-center justify-center font-bold bg-[#7b51f8] hover:bg-[#6841d8] text-white"
             >
               Enquiry Now
@@ -148,7 +155,6 @@ const Hero = () => {
           initial={{ opacity: 1, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          
           className="relative lg:block hidden"
         >
           <div className="absolute inset-0 gradient-bg opacity-20 blur-[100px] rounded-full animate-pulse"></div>
@@ -242,7 +248,7 @@ const Hero = () => {
             className="absolute -top-6 -right-6 glass p-3 rounded-2xl border-white/20 flex items-center gap-3 shadow-xl"
           >
             <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
-              <CheckCircle className="text-green-500" size={16} />
+              <CheckCircle2 className="text-green-500" size={16} />
             </div>
             <div className="pr-4">
               <div className="text-[10px] dark:text-slate-400 text-slate-600 font-bold uppercase">
@@ -258,6 +264,3 @@ const Hero = () => {
     </section>
   );
 };
-
-
-export default Hero;

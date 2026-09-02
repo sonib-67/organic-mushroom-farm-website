@@ -1,11 +1,19 @@
+'use client';
 
-"use client";
 import React from 'react';
-import { Link } from "react-router-dom";
+import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ShoppingCart, Layers, Home, Sprout, Zap, TrendingUp, ArrowRight } from 'lucide-react';
+import {
+  ShoppingCart,
+  Layers,
+  Home,
+  Sprout,
+  Zap,
+  TrendingUp,
+  ArrowRight,
+} from 'lucide-react';
 
-const EcosystemFlow = () => {
+export const EcosystemFlow: React.FC = () => {
   const steps = [
     {
       label: "Raw Material",
@@ -45,7 +53,7 @@ const EcosystemFlow = () => {
         <div className="flex items-center gap-4 md:gap-5 overflow-x-auto pb-8 scrollbar-hide snap-x">
           {steps.map((s, i) => (
             <React.Fragment key={i}>
-              <Link to={s.href}>
+              <Link href={s.href}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   className="flex flex-col items-center gap-4 min-w-[140px] md:min-w-[160px] snap-center shrink-0 cursor-pointer group"
@@ -73,5 +81,3 @@ const EcosystemFlow = () => {
     </section>
   );
 };
-
-export default EcosystemFlow;

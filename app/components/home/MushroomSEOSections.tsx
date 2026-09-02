@@ -1,14 +1,15 @@
-"use client";
+'use client';
+
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Sprout, Award, TrendingUp, HelpCircle, ChevronDown, 
-  ChevronUp, BookOpen, MapPin, CheckCircle2, ShieldCheck, 
-  Map, MessageCircle, ArrowRight, Zap, Target, HelpCircle as HelpIcon 
+  Sprout, Award, TrendingUp, ChevronDown, 
+  ChevronUp, BookOpen, MapPin, ShieldCheck, 
+  ArrowRight, Zap, Target 
 } from 'lucide-react';
-import { Link } from "react-router-dom";
 
-export default function MushroomSEOSections() {
+export const MushroomSEOSections: React.FC = () => {
   // FAQ toggles
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -161,7 +162,7 @@ export default function MushroomSEOSections() {
               <span className="text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300">Certified Agri-Education</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-black tracking-tight dark:text-white text-slate-900 uppercase">
-              <Link to="/training" className="hover:text-current transition-colors">
+              <Link href="/training" className="hover:text-current transition-colors">
                 About <span className="gradient-text font-serif">Mushroom Training</span> in India
               </Link>
             </h2>
@@ -182,7 +183,7 @@ export default function MushroomSEOSections() {
                   <div>
                     <h4 className="text-xs font-bold dark:text-white text-slate-900">{loc.name}</h4>
                     {loc.link ? (
-                      <Link to={loc.link} className="text-[10px] text-primary-start hover:underline mt-0.5 block">{loc.desc}</Link>
+                      <Link href={loc.link} className="text-[10px] text-primary-start hover:underline mt-0.5 block">{loc.desc}</Link>
                     ) : (
                       <p className="text-[10px] dark:text-slate-400 text-slate-600 mt-0.5">{loc.desc}</p>
                     )}
@@ -202,7 +203,7 @@ export default function MushroomSEOSections() {
           <div className="max-w-4xl mx-auto space-y-6 text-center">
             <div className="badge bg-green-500/10 text-[#25D366] border border-[#25D366]/20 mx-auto">High Demand Industry</div>
             <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight dark:text-white text-slate-900 uppercase">
-              <Link to="/subsidy" className="hover:text-current transition-colors">
+              <Link href="/subsidy" className="hover:text-current transition-colors">
                 Mushroom Farming <span className="gradient-text">Business Opportunity</span>
               </Link>
             </h2>
@@ -375,7 +376,7 @@ export default function MushroomSEOSections() {
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
             <div className="badge bg-[#25D366]/10 text-[#25D366] border border-[#25D366]/20 mx-auto">Commercial Authority</div>
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight uppercase dark:text-white text-slate-900">
-              Why Choose Our <Link to="/states" className="gradient-text">Mushroom Training Program</Link>?
+              Why Choose Our <Link href="/states" className="gradient-text">Mushroom Training Program</Link>?
             </h2>
             <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed">
               We aren't simple theoreticians or online aggregators. We operate one of the premier physical commercial organic labs and production farms in central India. Sourcing high-grade seed cultures, structuring automated vertical growth rooms, obtaining state agro-subsidies, and closing high-volume commercial vendor deals can be intimidating without expert support.
@@ -465,12 +466,14 @@ export default function MushroomSEOSections() {
               Stop waiting and start your journey with India's best practical education system. Learn correct composting techniques, buy contaminated-free pure grains, get certified status, and secure maximum local state marketing setup linkages!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/training-checkout"
+              <Link
+                href="/training-checkout"
                 className="px-8 py-4 bg-gradient-to-r from-primary-start to-primary-end font-bold rounded-xl text-xs uppercase tracking-wider text-white shadow-lg hover:shadow-primary-start/50 hover:scale-105 transition-all flex items-center justify-center gap-2"
               >
                 Enroll in Training Online <ArrowRight size={14} />
               </Link>
-              <Link to="/book-consultant"
+              <Link
+                href="/book-consultant"
                 className="px-8 py-4 dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 hover:bg-black/10 border dark:border-white/10 border-black/10 font-bold rounded-xl text-xs uppercase tracking-wider dark:text-slate-300 text-slate-700 hover:dark:text-white hover:text-slate-900 transition-all flex items-center justify-center gap-2"
               >
                 Book 1-on-1 Consultation <Zap size={14} />
@@ -483,4 +486,4 @@ export default function MushroomSEOSections() {
       </div>
     </div>
   );
-}
+};

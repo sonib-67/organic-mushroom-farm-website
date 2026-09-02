@@ -1,68 +1,12 @@
-"use client";
-import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { motion, useInView } from 'motion/react';
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
 import { Zap, Waves, Info, TrendingUp } from 'lucide-react';
+import { Counter } from './Counter';
 
-const Counter = ({
-  value,
-  duration = 1.5,
-}: {
-  value: string;
-  duration?: number;
-}) => {
-  const [displayValue, setDisplayValue] = useState("0");
-  const nodeRef = React.useRef<HTMLSpanElement>(null);
-  const isInView = useInView(nodeRef, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      // Check if it's a number or a range
-      const numericValue = parseInt(value.replace(/[^0-9]/g, ""));
-      if (!isNaN(numericValue) && !value.includes("–")) {
-        let start = 0;
-        const end = numericValue;
-        const totalFrames = Math.min(60, duration * 60);
-        let frame = 0;
-
-        const timer = setInterval(() => {
-          frame++;
-          const progress = frame / totalFrames;
-          const current = Math.round(end * progress);
-
-          if (frame === totalFrames) {
-            setDisplayValue(value);
-            clearInterval(timer);
-          } else {
-            // Keep the prefix/suffix if it exists (like < 1000)
-            const prefix = value.match(/^[^d]*/)?.[0] || "";
-            setDisplayValue(`${prefix}${current}`);
-          }
-        }, 1000 / 60);
-
-        return () => clearInterval(timer);
-      } else if (value.includes("–")) {
-        // For ranges like 14–18, let's just fade it in or do a simpler animation
-        setDisplayValue(value);
-      } else {
-        setDisplayValue(value);
-      }
-    }
-  }, [value, isInView, duration]);
-
-  return (
-    <motion.span
-      ref={nodeRef}
-      initial={{ opacity: 1, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      className="text-sm md:text-sm font-bold dark:text-white text-slate-900 tracking-tighter"
-    >
-      {displayValue}
-    </motion.span>
-  );
-};
-
-const CriticalParameters = () => {
+export const CriticalParameters: React.FC = () => {
   const params = [
     {
       label: "Production Temp",
@@ -100,7 +44,7 @@ const CriticalParameters = () => {
         <div className="text-center mb-5">
           <div className="badge mx-auto mb-4">Precision Metrics</div>
           <h2 className="mb-4 text-[18px] md:text-xl uppercase tracking-tight">
-            <Link to="/mushroom-types" className="hover:text-current transition-colors">
+            <Link href="/mushroom-types" className="hover:text-current transition-colors">
               Critical{" "}
               <span className="gradient-text">
                 Parameters for High-Yield Production
@@ -108,8 +52,7 @@ const CriticalParameters = () => {
             </Link>
           </h2>
           <p className="dark:text-slate-400 text-slate-600 text-[13px] md:text-sm">
-            Scientific boundaries for consistent commercial yields in organic
-            mushroom farming across India and USA.
+            Scientific boundaries for consistent commercial yields in organic mushroom farming across India and USA.
           </p>
         </div>
 
@@ -147,5 +90,3 @@ const CriticalParameters = () => {
     </section>
   );
 };
-
-export default CriticalParameters;

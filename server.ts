@@ -31,11 +31,7 @@ app.use(cors());
 
 // Global SEO Header
 app.use((req, res, next) => {
-  if (
-    req.path.startsWith('/payment-cancelled') ||
-    req.path.startsWith('/payment-success') ||
-    req.path.startsWith('/oldhomepage')
-  ) {
+  if (req.path.startsWith('/payment-cancelled') || req.path.startsWith('/payment-success')) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
   } else {
     res.setHeader('X-Robots-Tag', 'index, follow');

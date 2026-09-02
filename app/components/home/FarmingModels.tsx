@@ -1,10 +1,11 @@
-"use client";
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { motion } from 'motion/react';
-import { CheckCircle, ShieldCheck } from 'lucide-react';
+'use client';
 
-const FarmingModels = () => {
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { motion } from 'motion/react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
+
+export const FarmingModels: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"fixed" | "custom">("fixed");
   const [customArea, setCustomArea] = useState<number>(1000);
   const [customBudget, setCustomBudget] = useState<number>(500000);
@@ -65,12 +66,10 @@ const FarmingModels = () => {
           <div className="max-w-xl">
             <div className="badge mb-4 mx-auto lg:mx-0">Investment Paths</div>
             <h2 className="mb-4">
-              Commercial Farming <span className="gradient-text">Models</span>,
-              Setup Cost & ROI
+              Commercial Farming <span className="gradient-text">Models</span>, Setup Cost & ROI
             </h2>
             <p className="dark:text-slate-400 text-slate-600">
-              Scientifically designed mushroom grow rooms optimized for Indian
-              and diverse global climate conditions.
+              Scientifically designed mushroom grow rooms optimized for Indian and diverse global climate conditions.
             </p>
           </div>
           <div className="glass p-1 rounded-xl flex gap-1 w-fit">
@@ -96,7 +95,6 @@ const FarmingModels = () => {
                 key={i}
                 initial={{ opacity: 1, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                
                 className={`relative glass card-padding flex flex-col ${m.recommended ? "border-primary-mid/40 shadow-2xl lg:scale-105 z-10" : "dark:border-white/5 border-black/5"}`}
               >
                 {m.recommended && (
@@ -141,14 +139,14 @@ const FarmingModels = () => {
                       key={f}
                       className="flex items-center gap-2 dark:text-slate-400 text-slate-600 text-[12px] md:text-sm"
                     >
-                      <CheckCircle size={14} className="text-primary-start" />{" "}
+                      <CheckCircle2 size={14} className="text-primary-start" />{" "}
                       {f}
                     </li>
                   ))}
                 </ul>
 
                 <Link
-                  to="/model-details"
+                  href="/model-details"
                   className={`w-full min-h-[44px] py-2 rounded-xl font-bold transition-all text-sm flex justify-center items-center ${m.recommended ? "btn-primary" : "btn-outline"}`}
                 >
                   Get Details
@@ -204,20 +202,19 @@ const FarmingModels = () => {
                   </div>
                 </div>
               </div>
-
               <div className="p-3 rounded-[2rem] dark:bg-white/5 bg-black/5 border border-primary-start/20 text-center flex flex-col items-center justify-center">
                 <ShieldCheck size={48} className="text-primary-start mb-6" />
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">
                   Recommended Commercial Setup
                 </div>
                 <h3 className="text-sm font-bold dark:text-white text-slate-900 mb-4 leading-tight">
-                    {getRecommendedSetup().title}
-                  </h3>
+                  {getRecommendedSetup().title}
+                </h3>
                 <p className="dark:text-slate-400 text-slate-600 text-sm leading-relaxed mb-5 max-w-sm">
                   {getRecommendedSetup().desc}
                 </p>
                 <Link
-                  to="/model-details"
+                  href="/model-details"
                   className="btn-primary px-5 py-2 rounded-xl text-sm font-bold"
                 >
                   View Detailed Specs
@@ -230,5 +227,3 @@ const FarmingModels = () => {
     </section>
   );
 };
-
-export default FarmingModels;

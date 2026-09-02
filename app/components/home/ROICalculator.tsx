@@ -1,8 +1,9 @@
-"use client";
-import React, { useState, useMemo } from 'react';
-import { Link } from "react-router-dom";
+'use client';
 
-const ROICalculator = () => {
+import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
+
+export const ROICalculator: React.FC = () => {
   const [bags, setBags] = useState(2000);
   const [sellingPrice, setSellingPrice] = useState(120);
   const [operatingCost, setOperatingCost] = useState(40);
@@ -57,7 +58,10 @@ const ROICalculator = () => {
 
   return (
     <section id="roi-calculator" className="section-padding overflow-hidden">
-      <script type="application/ld+json">{JSON.stringify(webmcpSchema)}</script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webmcpSchema) }}
+      />
       <div className="max-w-7xl mx-auto">
         <div
           className="glass card-padding border dark:border-white/10 border-black/10 relative"
@@ -70,14 +74,13 @@ const ROICalculator = () => {
             <div className="text-center lg:text-left">
               <div className="badge mb-4 mx-auto lg:mx-0">Profit Analytics</div>
               <h2 className="mb-4">
-                <Link to="/roi-calculator" className="hover:text-current transition-colors">
+                <Link href="/roi-calculator" className="hover:text-current transition-colors">
                   Personalized Mushroom Business{" "}
                   <span className="gradient-text">ROI Estimator</span>
                 </Link>
               </h2>
               <p className="mb-5 max-w-lg mx-auto lg:mx-0">
-                Estimate your mushroom farming profits based on real-time market
-                averages.
+                Estimate your mushroom farming profits based on real-time market averages.
               </p>
 
               <div className="space-y-8 text-left">
@@ -109,6 +112,7 @@ const ROICalculator = () => {
                     className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
                   />
                 </div>
+
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
                     <label
@@ -137,6 +141,7 @@ const ROICalculator = () => {
                     className="w-full h-1.5 dark:bg-white/10 bg-black/10 rounded-lg appearance-none cursor-pointer accent-primary-start"
                   />
                 </div>
+
                 <div className="space-y-3">
                   <div className="flex justify-between items-end">
                     <label
@@ -183,7 +188,6 @@ const ROICalculator = () => {
                   ₹{monthlyProfit.toLocaleString()}
                 </div>
               </div>
-
               <div className="glass p-3 rounded-3xl border dark:border-white/10 border-black/10 text-center">
                 <div className="text-[10px] uppercase font-black text-slate-500 tracking-widest mb-2">
                   Estimated Payback Period
@@ -201,5 +205,3 @@ const ROICalculator = () => {
     </section>
   );
 };
-
-export default ROICalculator;
