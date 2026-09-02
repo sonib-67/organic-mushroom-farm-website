@@ -6710,6 +6710,7 @@ const AnimatedRoutes = () => {
           <Route path="/newarticles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
 
           <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
+          <Route path="/newblog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
 
           <Route path="/" element={<HomePage />} />
           <Route path="/oldhomepage" element={<HomePage />} />
