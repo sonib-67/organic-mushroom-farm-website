@@ -6688,16 +6688,26 @@ const AnimatedRoutes = () => {
           <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
           <Route path="/newblog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
+          <Route path="/newcities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
+          <Route path="/newcities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
           <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
+          <Route path="/newblog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
           <Route path="/operations" element={<ArticleOperations />} />
+          <Route path="/newoperations" element={<ArticleOperations />} />
           <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterCultivation />} />
+          <Route path="/newarticles/oyster-mushroom-cultivation-india" element={<ArticleOysterCultivation />} />
           <Route path="/compost-unit" element={<ArticleCompostUnit />} />
+          <Route path="/newcompost-unit" element={<ArticleCompostUnit />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
+          <Route path="/newarticles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
+          <Route path="/newarticles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
           <Route path="/articles/organic-mushroom-farm-everything-you-need-to-know" element={<ArticleOrganicMushroomFarmGuide />} />
+          <Route path="/newarticles/organic-mushroom-farm-everything-you-need-to-know" element={<ArticleOrganicMushroomFarmGuide />} />
           <Route path="/articles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
+          <Route path="/newarticles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
 
           <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
 

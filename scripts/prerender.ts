@@ -14,7 +14,9 @@ function getAppRoutes(): string[] {
     const fullTag = match[0];
     if (!fullTag.includes('<Navigate ')) {
       if (match[1] !== '*' && match[1] !== '/') {
-        routes.push(match[1]);
+        if (!match[1].startsWith('/new') && match[1] !== '/oldhomepage') {
+          routes.push(match[1]);
+        }
       }
     }
   }
