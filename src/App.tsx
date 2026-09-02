@@ -4789,6 +4789,43 @@ const HomePage = () => {
   );
 };
 
+const OldHomePage = () => { 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+  return (
+    <>
+      <SEO
+        title="Organic Mushrooms Farm | Setup, Spawn & Training (Archive)"
+        description="Buy premium organic mushroom spawn, join commercial mushroom farming training online/offline, get fresh & dry mushrooms."
+        noindex={true}
+      />
+      <ModularHero />
+      <ModularEcosystemFlow />
+      <ModularWhyChooseUs />
+      <ModularFarmingModels />
+      <ModularMushroomComparison />
+      <ModularROICalculator />
+      <ModularCriticalParameters />
+      <ModularProductionSOP />
+      <ModularCompostUnits />
+      <ModularTestimonials />
+      <ModularMarketplace />
+      <ModularResourcesSection />
+      <ModularMushroomSEOSections />
+      <ModularComparisonTable />
+      <ModularStatesSection />
+      <ModularCTASection />
+    </>
+  );
+};
+
 const PageHero = ({
   title,
   description,
@@ -6315,6 +6352,7 @@ const AnimatedRoutes = () => {
           <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
 
           <Route path="/" element={<HomePage />} />
+          <Route path="/oldhomepage" element={<OldHomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
           <Route
             path="/on-site-consultation"
