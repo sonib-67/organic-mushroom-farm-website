@@ -1,18 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-
-  "git": {
-    "deploymentEnabled": false
-  },
-
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     }
   ],
-
   "headers": [
     {
       "source": "/payment-cancelled",

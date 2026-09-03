@@ -42,7 +42,7 @@ const DisclaimerPage = () => {
                 <CheckCircle2 className="text-green-500 w-6 h-6" /> 1. Our Commitment to Transparency
               </h2>
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
-                Welcome to Organic Mushrooms Farm (a proud brand of Agrimotion Engineering Private Limited). We believe in complete honesty and transparency with our community of farmers and agro-entrepreneurs. We have built this platform (<Link to="/" className="text-primary-start hover:underline">https://organicmushroomsfarm.com</Link>) to share our years of hands-on experience, scientific SOPs, and commercial strategies in mushroom cultivation. However, to set the right expectations and protect both you and us, please read this disclaimer carefully.
+                Welcome to Organic Mushrooms Farm (a proud brand of Aerotech Engineering Private Limited). We believe in complete honesty and transparency with our community of farmers and agro-entrepreneurs. We have built this platform (<Link to="/" className="text-primary-start hover:underline">https://organicmushroomsfarm.com</Link>) to share our years of hands-on experience, scientific SOPs, and commercial strategies in mushroom cultivation. However, to set the right expectations and protect both you and us, please read this disclaimer carefully.
               </p>
             </motion.div>
 
@@ -206,7 +206,7 @@ const DisclaimerPage = () => {
               <ul className="space-y-4">
                 <li className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-slate-600 dark:text-slate-400">
                   <strong className="dark:text-slate-300 text-slate-800 min-w-32">Company:</strong>
-                  <span>Agrimotion Engineering Private Limited (Organic Mushrooms Farm)</span>
+                  <span>Aerotech Engineering Private Limited (Organic Mushrooms Farm)</span>
                 </li>
                 <li className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-slate-600 dark:text-slate-400">
                   <strong className="dark:text-slate-300 text-slate-800 min-w-32">Email:</strong>
