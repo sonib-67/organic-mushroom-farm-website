@@ -1461,7 +1461,7 @@ const Navbar = () => {
 
 const Hero = () => {
   const features = [
-    { text: "Complete Mushroom Farm Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
+    { text: "Complete Turnkey Project Setup", link: "/articles/turnkey-mushroom-farm-setup-india" },
     { text: "Mushroom Farming Training Program" },
     { text: "Government Subsidy Documentation" },
     { text: "Technical Support India & Worldwide" },
@@ -1589,7 +1589,7 @@ const Hero = () => {
             </div>
             <div>
               <div className="text-sm md:text-xl font-bold dark:text-white text-slate-900">
-                98.91%
+                98.93%
               </div>
               <div className="text-[9px] text-slate-500 uppercase tracking-[0.2em] mt-1 font-black">
                 Success Rate Globally
@@ -6662,58 +6662,33 @@ const AnimatedRoutes = () => {
           <Route path="/project-specs" element={<ArticleProjectSpecs />} />
           <Route path="/mushroom-farming-mangalore-karnataka" element={<ArticleMangaloreKarnataka />} />
           <Route path="/blog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
-          <Route path="/newblog/oyster-mushroom-cultivation-india" element={<ArticleOysterMushroomCultivationIndia />} />
           <Route path="/blog/button-mushroom-vs-oyster-mushroom" element={<ArticleButtonVsOysterMushroom />} />
-          <Route path="/newblog/button-mushroom-vs-oyster-mushroom" element={<ArticleButtonVsOysterMushroom />} />
           <Route path="/cities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
-          <Route path="/newcities/rajasthan/bikaner" element={<ArticleBikanerRajasthan />} />
           <Route path="/training/online" element={<ArticleOnlineTraining />} />
-          <Route path="/newtraining/online" element={<ArticleOnlineTraining />} />
           <Route path="/training/offline" element={<ArticleOfflineTraining />} />
-          <Route path="/newtraining/offline" element={<ArticleOfflineTraining />} />
           <Route path="/cities" element={<ArticleCitiesIndia />} />
-          <Route path="/newcities" element={<ArticleCitiesIndia />} />
           <Route path="/blog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuideEnglish />} />
-          <Route path="/newblog/mushroom-training-guide-english" element={<ArticleMushroomTrainingGuideEnglish />} />
           <Route path="/cities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramKerala />} />
-          <Route path="/newcities/kerala/thiruvananthapuram" element={<ArticleThiruvananthapuramKerala />} />
           <Route path="/mushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
-          <Route path="/newmushroom-farming-guwahati-assam" element={<ArticleGuwahatiAssam />} />
           <Route path="/contact-form" element={<ArticleContactForm />} />
-          <Route path="/newcontact-form" element={<ArticleContactForm />} />
           <Route path="/disclaimer" element={<DisclaimerPage />} />
-          <Route path="/newdisclaimer" element={<DisclaimerPage />} />
           <Route path="/cities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
-          <Route path="/newcities/rajasthan/udaipur" element={<ArticleUdaipurRajasthan />} />
           <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
-          <Route path="/newblog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
-          <Route path="/newcities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
-          <Route path="/newcities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
           <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
-          <Route path="/newblog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
           <Route path="/operations" element={<ArticleOperations />} />
-          <Route path="/newoperations" element={<ArticleOperations />} />
           <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterCultivation />} />
-          <Route path="/newarticles/oyster-mushroom-cultivation-india" element={<ArticleOysterCultivation />} />
           <Route path="/compost-unit" element={<ArticleCompostUnit />} />
-          <Route path="/newcompost-unit" element={<ArticleCompostUnit />} />
           {/* Legacy redirects */}
           <Route path="/articles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
-          <Route path="/newarticles/oyster-mushroom-cultivation-process" element={<ArticleOysterMushroomCultivation  metaDesc="Master the complete Oyster Mushroom cultivation process. Discover agricultural waste pasteurization, ideal spawn running rates, and commercial drying tips." />} />
           <Route path="/articles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
-          <Route path="/newarticles/white-button-mushroom-business-plan" element={<ArticleBusinessPlanIndia  metaDesc="Start a profitable white button mushroom business. Explore comprehensive EPC setup costs, infrastructure needs, marketing tips, and complete ROI estimates." />} />
           <Route path="/articles/organic-mushroom-farm-everything-you-need-to-know" element={<ArticleOrganicMushroomFarmGuide />} />
-          <Route path="/newarticles/organic-mushroom-farm-everything-you-need-to-know" element={<ArticleOrganicMushroomFarmGuide />} />
           <Route path="/articles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
-          <Route path="/newarticles/commercial-mushroom-farm-setup-training" element={<ArticleCommercialSetupTraining />} />
 
           <Route path="/blog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
-          <Route path="/newblog/mushroom-farming-training-online-offline-certificate" element={<ArticleMushroomTrainingGuide  metaDesc="Get certified in mushroom cultivation! Compare online vs offline training, explore course fees, government schemes, and learn how to generate farm profits." />} />
 
           <Route path="/" element={<HomePage />} />
-          <Route path="/oldhomepage" element={<HomePage />} />
           <Route path="/book-consultant" element={<BookConsultantPage />} />
           <Route
             path="/on-site-consultation"
