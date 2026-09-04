@@ -1467,45 +1467,17 @@ const Hero = () => {
     { text: "Technical Support India & Worldwide" },
   ];
 
-  // Dynamic Scroll Progress State (increases as user scrolls on Desktop & Mobile)
-  const [scrollProgress, setScrollProgress] = useState(25);
-
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight > 0) {
-        const ratio = Math.min(Math.max(scrollTop / docHeight, 0), 1);
-        // Start smoothly at 25% (Phase 1 Composting active) and reach 100% (Cropping) on scroll
-        const calculated = Math.min(Math.max(Math.round(25 + ratio * 75), 25), 100);
-        setScrollProgress(calculated);
-      }
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(handleScroll);
-        ticking = true;
-      }
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] md:min-h-screen flex items-center pt-28 pb-12 md:pt-40 md:pb-24 overflow-hidden section-padding"
+      className="relative min-h-[90vh] md:min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-24 overflow-hidden section-padding"
     >
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.15fr,0.85fr] gap-8 md:gap-10 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.2fr,0.8fr] gap-5 md:gap-8 items-center">
         <motion.div
           initial={{ opacity: 1, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
+          
           className="text-center md:text-left"
         >
           <div className="text-[10px] md:text-sm font-bold text-green-700 dark:text-green-500 uppercase tracking-[0.2em] mb-4 md:mb-6">
@@ -1626,36 +1598,36 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* 3D Visual Card (Fully Responsive for Desktop & Mobile) */}
+        {/* 3D Visual Mock (Glass Card) */}
         <motion.div
-          initial={{ opacity: 1, scale: 0.95 }}
+          initial={{ opacity: 1, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="relative block w-full mt-8 lg:mt-0 max-w-xl lg:max-w-none mx-auto"
+          transition={{ duration: 0.8 }}
+          
+          className="relative lg:block hidden"
         >
-          <div className="absolute inset-0 gradient-bg opacity-20 blur-[100px] rounded-full animate-pulse pointer-events-none"></div>
-          <div className="relative glass rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-6 border-white/20 shadow-2xl backdrop-blur-2xl">
-            <div className="flex items-center justify-between mb-4 sm:mb-6">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-accent/20 flex items-center justify-center">
-                  <ShieldCheck className="text-accent" size={20} />
+          <div className="absolute inset-0 gradient-bg opacity-20 blur-[100px] rounded-full animate-pulse"></div>
+          <div className="relative glass rounded-[2.5rem] p-3 border-white/20 shadow-2xl backdrop-blur-2xl">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <ShieldCheck className="text-accent" />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-base dark:text-white text-slate-900 font-bold">
+                  <div className="dark:text-white text-slate-900 font-bold">
                     Turnkey Setup Project
                   </div>
-                  <div className="text-[11px] sm:text-xs text-slate-500">
+                  <div className="text-xs text-slate-500">
                     Quality Certified Infrastructure
                   </div>
                 </div>
               </div>
-              <div className="px-2.5 sm:px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+              <div className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-[10px] font-bold uppercase tracking-widest">
                 Active
               </div>
             </div>
 
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-6">
               {[
                 {
                   label: "Commercial Room Size",
@@ -1667,96 +1639,71 @@ const Hero = () => {
                   value: "35,000+ kg",
                   icon: TrendingUp,
                 },
+                {
+                  label: "Cooling Sys (India)",
+                  value: "Daikin Industrial",
+                  icon: Zap,
+                },
               ].map((stat, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between dark:bg-white/5 bg-black/5 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl border dark:border-white/5 border-black/5 transition-all hover:bg-black/10 dark:hover:bg-white/10"
+                  className="flex items-center justify-between dark:bg-white/5 bg-black/5 p-3 rounded-2xl border dark:border-white/5 border-black/5"
                 >
-                  <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="flex items-center gap-3">
                     <stat.icon
-                      className="dark:text-slate-400 text-slate-600 shrink-0"
+                      className="dark:text-slate-400 text-slate-600"
                       size={18}
                     />
-                    <span className="text-xs sm:text-sm dark:text-slate-300 text-slate-700 font-medium">
+                    <span className="text-sm dark:text-slate-300 text-slate-700 font-medium">
                       {stat.label}
                     </span>
                   </div>
-                  <span className="text-xs sm:text-sm dark:text-white text-slate-900 font-bold">
+                  <span className="text-sm dark:text-white text-slate-900 font-bold">
                     {stat.value}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* LIVE PROGRESS - SCROLL RESPONSIVE (DESKTOP & MOBILE) */}
-            <div className="mt-5 sm:mt-8 p-3.5 sm:p-4.5 rounded-2xl sm:rounded-3xl bg-linear-to-br from-white/10 to-transparent border dark:border-white/10 border-black/10 backdrop-blur-md">
-              <div className="flex items-center justify-between mb-3 gap-2">
-                <div className="flex items-center gap-2 min-w-0">
-                  <span className="relative flex h-2.5 w-2.5 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-xs sm:text-sm font-semibold dark:text-slate-200 text-slate-800 truncate">
-                    {scrollProgress < 45
-                      ? "Phase 1: Commercial Composting"
-                      : scrollProgress < 75
-                      ? "Phase 2: Pasteurization & Spawn"
-                      : "Phase 3: Cropping & Harvest"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1 bg-emerald-500/15 dark:bg-emerald-500/20 px-2 py-0.5 rounded-full border border-emerald-500/30">
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    LIVE PROGRESS
-                  </span>
-                  <span className="text-xs font-black dark:text-white text-slate-900 tabular-nums bg-black/5 dark:bg-white/10 px-2 py-0.5 rounded-md border dark:border-white/10 border-black/5">
-                    {scrollProgress}%
-                  </span>
-                </div>
+            <div className="mt-10 p-3 rounded-3xl bg-linear-to-br from-white/10 to-transparent border dark:border-white/10 border-black/10">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-semibold dark:text-slate-300 text-slate-700">
+                  Phase 1 Commercial Cycle
+                </span>
+                <span className="text-[10px] text-accent font-bold">
+                  LIVE PROGRESS
+                </span>
               </div>
-
-              {/* Dynamic Scroll-linked Progress Bar */}
-              <div className="h-2.5 sm:h-3 w-full dark:bg-white/10 bg-black/10 rounded-full overflow-hidden p-0.5 relative">
-                <div
-                  style={{ width: `${scrollProgress}%` }}
-                  className="h-full rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-amber-400 transition-all duration-200 ease-out relative shadow-sm"
-                >
-                  <div className="absolute right-0 top-0 bottom-0 w-2.5 bg-white/70 rounded-full animate-pulse"></div>
-                </div>
+              <div className="h-2 w-full dark:bg-white/5 bg-black/5 rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: "65%" }}
+                  transition={{ duration: 2, delay: 1 }}
+                  className="h-full gradient-bg"
+                ></motion.div>
               </div>
-
-              {/* Active Milestone Indicators */}
-              <div className="flex justify-between mt-2.5 text-[9px] sm:text-[11px] font-bold uppercase tracking-wider">
-                <span className={`transition-colors duration-200 flex items-center gap-1 ${scrollProgress >= 20 ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-600'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${scrollProgress >= 20 ? 'bg-emerald-500' : 'bg-slate-400'}`}></span>
-                  Composting
-                </span>
-                <span className={`transition-colors duration-200 flex items-center gap-1 ${scrollProgress >= 45 ? 'text-teal-600 dark:text-teal-400' : 'text-slate-400 dark:text-slate-600'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${scrollProgress >= 45 ? 'bg-teal-500' : 'bg-slate-400'}`}></span>
-                  Pasteurization
-                </span>
-                <span className={`transition-colors duration-200 flex items-center gap-1 ${scrollProgress >= 75 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-400 dark:text-slate-600'}`}>
-                  <span className={`w-1.5 h-1.5 rounded-full ${scrollProgress >= 75 ? 'bg-amber-500' : 'bg-slate-400'}`}></span>
-                  Cropping
-                </span>
+              <div className="flex justify-between mt-2 text-[10px] text-slate-500 font-bold uppercase">
+                <span>Composting</span>
+                <span>Pasteurization</span>
+                <span>Cropping</span>
               </div>
             </div>
           </div>
 
-          {/* Floating Small Badge Card */}
+          {/* Floating Small Cards */}
           <motion.div
-            animate={{ y: [0, -8, 0] }}
+            animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-3 -right-2 sm:-top-5 sm:-right-4 glass p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border-white/20 flex items-center gap-2 sm:gap-3 shadow-xl backdrop-blur-md"
+            className="absolute -top-6 -right-6 glass p-3 rounded-2xl border-white/20 flex items-center gap-3 shadow-xl"
           >
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-green-500/20 flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
               <CheckCircle2 className="text-green-500" size={16} />
             </div>
-            <div className="pr-2 sm:pr-3">
-              <div className="text-[9px] sm:text-[10px] dark:text-slate-400 text-slate-600 font-bold uppercase">
+            <div className="pr-4">
+              <div className="text-[10px] dark:text-slate-400 text-slate-600 font-bold uppercase">
                 Global ROI Verified
               </div>
-              <div className="text-xs sm:text-xs dark:text-white text-slate-900 font-bold">
+              <div className="text-xs dark:text-white text-slate-900 font-bold">
                 120% Yearly Avg
               </div>
             </div>
