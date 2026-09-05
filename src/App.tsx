@@ -116,6 +116,7 @@ import ArticleOysterMushroom from "./pages/ArticleOysterMushroom";
 import ArticleMushroomBusinessPlanIndia from "./pages/ArticleMushroomBusinessPlanIndia";
 import ArticleMilkyMushroom from "./pages/ArticleMilkyMushroom";
 import ArticleTurnkeySetup from "./pages/ArticleTurnkeySetup";
+import ArticleSmartClimateControl from "./pages/ArticleSmartClimateControl";
 import ArticleOperations from "./pages/ArticleOperations";
 import ArticleOysterCultivation from "./pages/ArticleOysterCultivation";
 import ArticleCompostUnit from "./pages/ArticleCompostUnit";
@@ -6676,6 +6677,7 @@ const AnimatedRoutes = () => {
           <Route path="/blog/mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026" element={<ArticleHomeMushroomFarming />} />
           <Route path="/cities/karnataka/mysuru" element={<ArticleMysuruKarnataka />} />
           <Route path="/cities/west-bengal/siliguri" element={<ArticleSiliguriWestBengal />} />
+          <Route path="/blog/smart-climate-control-automation-mushroom-growing" element={<ArticleSmartClimateControl />} />
           <Route path="/blog/turnkey-commercial-setup" element={<ArticleTurnkeySetup />} />
           <Route path="/operations" element={<ArticleOperations />} />
           <Route path="/articles/oyster-mushroom-cultivation-india" element={<ArticleOysterCultivation />} />
