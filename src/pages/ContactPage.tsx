@@ -287,152 +287,35 @@ const ContactPage = () => {
                 </div>
              </section>
 
-             {/* Form Section */}
+             {/* Enquiry Now Section (Replaced Contact Form) */}
              <section id="enquiry-form" className="section-padding bg-black/5 dark:bg-white/5">
-                <div className="max-w-3xl mx-auto">
-                    <div className="text-center mb-10">
-                        <h2 className="text-3xl font-bold dark:text-white text-slate-900 mb-4 tracking-tight">Tell Us How We Can Help</h2>
-                        <p className="text-slate-600 dark:text-slate-400">Fill out the enquiry form with your requirements, and our team will get back to you with the relevant information.</p>
+                <div className="max-w-3xl mx-auto text-center">
+                    <div className="mb-10">
+                        <h2 className="text-3xl md:text-5xl font-bold dark:text-white text-slate-900 mb-6 tracking-tight">Ready to Start Your Mushroom Farm?</h2>
+                        <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto">
+                            Whether you need premium mushroom spawn, expert training, or a complete turnkey commercial setup, our specialists are ready to guide you step-by-step.
+                        </p>
                     </div>
 
-                    {submitted ? (
-                        <motion.div 
-                            initial={{ opacity: 1, scale: 0.95 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="glass p-12 text-center rounded-3xl border dark:border-white/10 border-black/10 shadow-xl bg-white dark:bg-transparent"
+                    <motion.div 
+                        initial={{ opacity: 1, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="glass p-10 md:p-14 rounded-3xl border dark:border-white/10 border-black/10 bg-white dark:bg-transparent shadow-xl relative overflow-hidden"
+                    >
+                        <div className="w-20 h-20 bg-primary-start/10 rounded-full flex items-center justify-center text-primary-start mx-auto mb-8">
+                            <Send size={36} />
+                        </div>
+                        <h3 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Submit Your Enquiry</h3>
+                        <p className="text-slate-600 dark:text-slate-400 mb-10 max-w-lg mx-auto">
+                            Fill out our detailed enquiry form and tell us exactly what you need. Our experts will review your requirements and get back to you with a tailored plan.
+                        </p>
+                        <a 
+                            href="/contact-form" 
+                            className="btn-primary inline-flex px-10 py-4 rounded-xl text-lg font-bold items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
                         >
-                            <div className="w-20 h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <CheckCircle2 size={40} />
-                            </div>
-                            <h2 className="text-3xl font-bold dark:text-white text-slate-900 mb-4">Success!</h2>
-                            <p className="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">Thank you for contacting us! Your enquiry has been submitted successfully. Our team will get in touch with you shortly.</p>
-                            <button 
-                                onClick={() => setSubmitted(false)}
-                                className="btn-outline px-8 py-3 rounded-full mx-auto"
-                            >
-                                Submit Another Enquiry
-                            </button>
-                        </motion.div>
-                    ) : (
-                        <motion.div 
-                            initial={{ opacity: 1, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            
-                            className="glass p-8 md:p-12 rounded-3xl border dark:border-white/10 border-black/10 bg-white dark:bg-transparent shadow-xl relative overflow-hidden"
-                        >
-                            <form 
-                                action="/api/contact" 
-                                method="POST" 
-                                onSubmit={handleSubmit} 
-                                className="relative z-10 space-y-6"
-                            >
-                                {apiError && (
-                                    <div className="bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 p-4 rounded-xl text-sm font-medium flex items-start gap-2 mb-4">
-                                        <Info className="w-5 h-5 shrink-0 mt-0.5" />
-                                        <p>{apiError}</p>
-                                    </div>
-                                )}
-                                
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Name</label>
-                                        <input 
-                                            type="text" 
-                                            name="name"
-                                            required
-                                            placeholder="Your Full Name"
-                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Phone Number</label>
-                                        <input 
-                                            type="tel" 
-                                            name="phone"
-                                            required
-                                            placeholder="Ex. 9876543210"
-                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <div className="grid md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Email</label>
-                                        <input 
-                                            type="email" 
-                                            name="email"
-                                            required
-                                            placeholder="you@example.com"
-                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                                        />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Location</label>
-                                        <input 
-                                            type="text" 
-                                            name="location"
-                                            required
-                                            placeholder="City, State"
-                                            className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">How can we help you? *</label>
-                                    <textarea 
-                                        name="message"
-                                        required
-                                        rows={4}
-                                        placeholder="Please describe your requirements..."
-                                        className="w-full bg-transparent dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:border-primary-start focus:ring-1 focus:ring-primary-start transition-all resize-none"
-                                    ></textarea>
-                                </div>
-                                
-                                <input type="text" name="hp_website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-                                <input type="hidden" name="load_time" value={loadTime} />
-
-                                <div className="space-y-2">
-                                    <label className="text-[12px] font-bold text-slate-500 uppercase tracking-widest pl-1">Security Question: What is {captcha.num1} + {captcha.num2}? *</label>
-                                    <input 
-                                        required 
-                                        type="number" 
-                                        value={captchaAnswer}
-                                        onChange={(e) => {
-                                            setCaptchaAnswer(e.target.value);
-                                            if (captchaError) setCaptchaError('');
-                                        }}
-                                        className={`w-full bg-transparent dark:bg-white/5 border ${captchaError ? 'border-red-500' : 'border-slate-200 dark:border-white/10'} rounded-xl px-4 py-3.5 dark:text-white text-slate-900 focus:outline-none focus:ring-1 focus:ring-primary-start transition-all`} 
-                                        placeholder="Your answer" 
-                                    />
-                                    {captchaError && (
-                                        <p className="text-red-500 text-xs mt-1 font-medium">{captchaError}</p>
-                                    )}
-                                </div>
-
-                                <div className="pt-2">
-                                    <button 
-                                        type="submit" 
-                                        disabled={submitting || (apiError && apiError.includes('2 hours'))} 
-                                        className="btn-primary w-full py-4 rounded-xl text-sm font-bold flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-                                    >
-                                        {submitting ? (
-                                            <span className="flex items-center">
-                                                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                                </svg>
-                                                <span>Submitting...</span>
-                                            </span>
-                                        ) : (
-                                            <><span>Submit Enquiry</span> <Send size={18} /></>
-                                        )}
-                                    </button>
-                                </div>
-                            </form>
-                        </motion.div>
-                    )}
+                            Enquiry Now <ArrowRight size={20} />
+                        </a>
+                    </motion.div>
                 </div>
              </section>
 
