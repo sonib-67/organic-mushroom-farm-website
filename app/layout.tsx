@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { MyceliumBackground } from "@/components/MyceliumBackground";
@@ -70,6 +71,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://organicmushroomsfarm.com/",
   },
+  verification: {
+    google: [
+      "520546c7ef1f49ea",
+      "T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q",
+      "Ca2ApiBcsYgNBj1_2r78MpVoymOH90MvqxDh1dMDVPY"
+    ],
+    other: {
+      "google-adsense-account": "ca-pub-8976157136173429",
+      "ahrefs-site-verification": "d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130",
+      "msvalidate.01": "C2D1783AC6AE837F8BE7F263E322C2B8"
+    }
+  },
   robots: {
     index: true,
     follow: true,
@@ -90,7 +103,83 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-IN" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
+      <head>
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-T6PD72F4');`}
+        </Script>
+
+        {/* Google Analytics 4 & Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DQ7XCLKDW6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-DQ7XCLKDW6', { page_path: window.location.pathname });
+            gtag('config', 'AW-11268929095');
+          `}
+        </Script>
+
+        {/* Google AdSense */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8976157136173429"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+
+        {/* Ahrefs Analytics */}
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="1AeC4dCToDOOlFFul5svgA"
+          strategy="afterInteractive"
+        />
+
+        {/* Meta Pixel */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '925374987123460');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+      </head>
       <body className="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+        {/* Google Tag Manager (noscript fallback) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-T6PD72F4"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
+        {/* Meta Pixel (noscript fallback) */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=925374987123460&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+
         {/* Animated Canvas Background */}
         <MyceliumBackground />
 
