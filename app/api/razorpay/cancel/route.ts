@@ -1,17 +1,19 @@
 import { NextResponse } from 'next/server';
-import { sendTrainingEmail } from '@/lib/email';
+import { sendTrainingEmailService } from '@/lib/trainingMailService';
 
 export async function POST(req: Request) {
   try {
-    const { amount, currency, email, name } = await req.json();
+    const { amount, currency, email, name, phone, orderId } = await req.json();
 
-    // Send Payment Cancelled Email explicitly when user closes the modal
-    await sendTrainingEmail({
+    // Send Payment Cancelled Email explicitly when user closes the modal (Admin + Customer)
+    await sendTrainingEmailService({
       type: 'CANCELLED',
       customerEmail: email,
       customerName: name,
-      amount: amount.toString(),
-      currency,
+      customerPhone: phone,
+      amount: amount ? amount.toString() : "299",
+      currency: currency || "INR",
+      orderId: orderId,
     });
 
     return NextResponse.json({ success: true });

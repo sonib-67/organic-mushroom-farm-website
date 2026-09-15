@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import Razorpay from 'razorpay';
-import { sendTrainingEmail } from '@/lib/email';
+import { sendTrainingEmailService } from '@/lib/trainingMailService';
 import { trainingContent } from '@/lib/training-content';
 
 // Trusted server-side plan pricing lookup derived from trainingContent
@@ -21,14 +21,16 @@ function resolveRazorpayPlan(planIdentifier?: string | null): { price: number; n
   if (offlinePlan) return { price: offlinePlan.price, name: offlinePlan.title };
 
   // Handle common product/plan aliases used across the project
-  if (id === 'training_basic' || id === 'basic_training' || id === 'basic-training' || id === 'basic mushroom farming') {
+  if (id === 'training_basic' || id === 'basic_training' || id === 'basic-training' || id === 'basic mushroom farming' || id === 'basic' || id === '299') {
     const p = trainingContent.in.online.find(item => item.id === 'basic');
     if (p) return { price: p.price, name: p.title };
+    return { price: 299, name: "Basic Online Training (₹299)" };
   }
 
-  if (id === 'training_advanced' || id === 'advanced_training' || id === 'advanced-training' || id === 'commercial' || id === 'advanced commercial cultivation') {
+  if (id === 'training_advanced' || id === 'advanced_training' || id === 'advanced-training' || id === 'commercial' || id === 'advanced commercial cultivation' || id === 'advanced' || id === '699') {
     const p = trainingContent.in.online.find(item => item.id === 'advanced');
     if (p) return { price: p.price, name: p.title };
+    return { price: 699, name: "Commercial Training (₹699)" };
   }
 
   return null;
@@ -79,13 +81,16 @@ export async function POST(req: Request) {
 
     const order = await razorpay.orders.create(options);
 
-    // Send Payment Initiated Email
-    await sendTrainingEmail({
+    // Send Payment Initiated Email (Admin alert) via dedicated trainingMailService
+    await sendTrainingEmailService({
       type: 'INITIATED',
       customerEmail: email,
       customerName: name,
+      customerPhone: phone,
       amount: trustedAmount.toString(),
       currency: currency || 'INR',
+      planTitle: resolvedPlan.name,
+      orderId: order.id,
     });
 
     return NextResponse.json(order);

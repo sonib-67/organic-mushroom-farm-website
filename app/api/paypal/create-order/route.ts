@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import paypal from '@paypal/checkout-server-sdk';
 import client from '@/lib/paypal';
-import { sendTrainingEmail } from '@/lib/email';
+import { sendTrainingEmailService } from '@/lib/trainingMailService';
 import { trainingContent } from '@/lib/training-content';
 
 // Trusted server-side plan pricing lookup derived from trainingContent
@@ -16,12 +16,12 @@ function resolvePayPalPlan(planIdentifier?: string | null): { price: number; nam
   if (usPlan) return { price: usPlan.price, name: usPlan.title };
 
   // Common aliases
-  if (id === 'basic-us' || id === 'basic' || id === 'hobbyist' || id.includes('basic cultivation')) {
+  if (id === 'basic-us' || id === 'basic' || id === 'hobbyist' || id.includes('basic cultivation') || id === '39') {
     const p = trainingContent.us.online.find(item => item.id === 'basic-us');
     if (p) return { price: p.price, name: p.title };
   }
 
-  if (id === 'advanced-us' || id === 'advanced' || id === 'commercial' || id.includes('commercial farm advisory') || id.includes('advanced commercial')) {
+  if (id === 'advanced-us' || id === 'advanced' || id === 'commercial' || id.includes('commercial farm advisory') || id.includes('advanced commercial') || id === '97') {
     const p = trainingContent.us.online.find(item => item.id === 'advanced-us');
     if (p) return { price: p.price, name: p.title };
   }
@@ -32,7 +32,7 @@ function resolvePayPalPlan(planIdentifier?: string | null): { price: number; nam
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { planId, productId, courseId, type, planName, currency, email, name } = body;
+    const { planId, productId, courseId, type, planName, currency, email, name, phone } = body;
 
     const requestedPlan = planId || productId || courseId || type || planName;
     const resolvedPlan = resolvePayPalPlan(requestedPlan);
@@ -64,13 +64,16 @@ export async function POST(req: Request) {
 
     const response = await client.execute(request);
 
-    // Send Payment Initiated Email
-    await sendTrainingEmail({
+    // Send Payment Initiated Email via trainingMailService
+    await sendTrainingEmailService({
       type: 'INITIATED',
       customerEmail: email,
       customerName: name,
+      customerPhone: phone,
       amount: trustedAmount.toString(),
       currency: currency || 'USD',
+      planTitle: resolvedPlan.name,
+      orderId: response.result?.id,
     });
 
     return NextResponse.json({ id: response.result.id });

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import { sendTrainingEmail } from '@/lib/email';
+import { sendTrainingEmailService } from '@/lib/trainingMailService';
 
 export async function POST(req: Request) {
   try {
@@ -22,30 +22,38 @@ export async function POST(req: Request) {
     }
 
     const event = JSON.parse(bodyText);
-    const payment = event.payload.payment.entity;
+    const payment = event.payload?.payment?.entity || {};
     
-    // We can extract email/name from notes if we pass them, or from the contact/email fields
-    const customerEmail = payment.email || 'customer@example.com';
-    // Name might not be directly available unless passed in notes, using a fallback
-    const customerName = payment.notes?.name || 'Customer';
-    const amount = (payment.amount / 100).toString(); // convert back to rupees
-    const currency = payment.currency;
+    // Extract customer details from notes or payload
+    const customerEmail = payment.notes?.customerEmail || payment.email || '';
+    const customerName = payment.notes?.customerName || payment.notes?.name || 'Mushroom Grower';
+    const customerPhone = payment.notes?.customerPhone || payment.contact || '';
+    const amount = (payment.amount / 100).toString(); // convert back to rupees (e.g. 299 or 699)
+    const currency = payment.currency || 'INR';
+    const paymentId = payment.id || '';
+    const orderId = payment.order_id || '';
 
-    if (event.event === 'payment.captured') {
-      await sendTrainingEmail({
+    if (event.event === 'payment.captured' || event.event === 'order.paid') {
+      await sendTrainingEmailService({
         type: 'SUCCESS',
         customerEmail,
         customerName,
+        customerPhone,
         amount,
         currency,
+        paymentId,
+        orderId,
       });
     } else if (event.event === 'payment.failed') {
-      await sendTrainingEmail({
+      await sendTrainingEmailService({
         type: 'CANCELLED',
         customerEmail,
         customerName,
+        customerPhone,
         amount,
         currency,
+        paymentId,
+        orderId,
       });
     }
 

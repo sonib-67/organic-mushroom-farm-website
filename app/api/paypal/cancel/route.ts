@@ -1,16 +1,18 @@
 import { NextResponse } from 'next/server';
-import { sendTrainingEmail } from '@/lib/email';
+import { sendTrainingEmailService } from '@/lib/trainingMailService';
 
 export async function POST(req: Request) {
   try {
-    const { amount, currency, email, name } = await req.json();
+    const { amount, currency, email, name, phone, orderId } = await req.json();
 
-    await sendTrainingEmail({
+    await sendTrainingEmailService({
       type: 'CANCELLED',
       customerEmail: email,
       customerName: name,
-      amount: amount.toString(),
+      customerPhone: phone,
+      amount: amount ? amount.toString() : "39",
       currency: currency || 'USD',
+      orderId: orderId,
     });
 
     return NextResponse.json({ success: true });
