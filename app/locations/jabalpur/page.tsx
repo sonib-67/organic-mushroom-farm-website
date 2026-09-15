@@ -180,7 +180,7 @@ export default function JabalpurResourcesPage() {
         <header className="text-center pt-1 pb-1">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20 mb-2">
             <MapPin className="w-3.5 h-3.5 text-emerald-500" />
-            <span>Jabalpur Region • 90+ Dedicated Cultivation Guides & Centers</span>
+            <span>Jabalpur Region • Verified Cultivation Guides & Centers</span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-2">
