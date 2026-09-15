@@ -22,10 +22,10 @@ export default function ContactPage() {
 
   const services = [
     { title: "Mushroom Training", desc: "Learn the fundamentals and practical aspects of mushroom cultivation through our mushroom training programs.", icon: BookOpen, link: "/training", label: "Explore Training" },
-    { title: "Mushroom Farm Setup", desc: "Planning to start a mushroom farm? Get guidance related to farm planning, infrastructure, production setup, and other project requirements.", icon: Factory, link: "/farm-setup", label: "Explore Farm Setup" },
+    { title: "Mushroom Farm Setup", desc: "Planning to start a mushroom farm? Get guidance related to farm planning, infrastructure, production setup, and other project requirements.", icon: Factory, link: "/services/turnkey-setup", label: "Explore Farm Setup" },
     { title: "Turnkey Mushroom Project", desc: "Looking for complete support for your mushroom farming project? Contact us to discuss your project requirements and get suitable guidance.", icon: Settings, link: "/turnkey-projects", label: "Learn About Turnkey Projects" },
-    { title: "Mushroom Spawn", desc: "Contact us for information about mushroom spawn availability, varieties, quantities, and requirements.", icon: TestTube, link: "/spawn", label: "Enquire About Spawn" },
-    { title: "Compost Unit", desc: "Learn about mushroom compost requirements and compost unit setup for mushroom cultivation.", icon: Truck, link: "/compost", label: "Explore Compost Solutions" },
+    { title: "Mushroom Spawn", desc: "Contact us for information about mushroom spawn availability, varieties, quantities, and requirements.", icon: TestTube, link: "/spawn-seed", label: "Enquire About Spawn" },
+    { title: "Compost Unit", desc: "Learn about mushroom compost requirements and compost unit setup for mushroom cultivation.", icon: Truck, link: "/compost-unit", label: "Explore Compost Solutions" },
     { title: "Site Visit & Consultation", desc: "Get professional guidance based on your proposed mushroom farming project through site visit and consultation services.", icon: Calendar, link: "/on-site-consultation", label: "Book a Consultation" },
   ];
 
