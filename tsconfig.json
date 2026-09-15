@@ -33,20 +33,24 @@
     ],
     "strictNullChecks": true
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "scripts",
-    "build",
-    "coverage",
-    ".next"
-  ],
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
+    ".next/types/**/*.ts",
     "**/*.mts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "src",
+    "api",
+    "server",
+    "server.ts",
+    "scripts",
+    "test-helmet.ts",
+    "test-ssr.ts",
+    "vite.config.ts"
   ]
 }
