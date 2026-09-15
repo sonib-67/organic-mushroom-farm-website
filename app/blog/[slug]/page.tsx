@@ -5,11 +5,32 @@ import type { Metadata } from "next";
 import { getBlogPost, BLOG_POSTS } from "../../../lib/blog-data";
 import { notFound } from "next/navigation";
 
+const EXISTING_STATIC_FOLDERS = new Set([
+  "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+  "7-mushroom-farming-mistakes-india",
+  "best-mushroom-farming-training-guide-india",
+  "button-mushroom-farming-guide",
+  "button-mushroom-vs-oyster-mushroom",
+  "commercial-mushroom-farming-india",
+  "how-to-get-mushroom-farming-training",
+  "mushroom-farming-business-plan-india",
+  "mushroom-farming-business-practical-guide",
+  "mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026",
+  "mushroom-farming-russia",
+  "mushroom-farming-training-online-offline-certificate",
+  "mushroom-farming-training-tamil-guide",
+  "mushroom-training-guide-english",
+  "mushroom-training-guide-hindi",
+  "mushroom-training-guide-punjabi",
+  "organic-mushrooms-health-benefits-nutrition-cultivation-uses",
+  "oyster-mushroom-cultivation-india",
+  "smart-climate-control-automation-mushroom-growing",
+  "turnkey-commercial-setup"
+]);
+
 export async function generateStaticParams() {
   return BLOG_POSTS.filter(
-    (post) =>
-      post.slug !== "mushroom-farming-business-plan-india" &&
-      post.slug !== "button-mushroom-farming-guide"
+    (post) => !EXISTING_STATIC_FOLDERS.has(post.slug)
   ).map((post) => ({
     slug: post.slug,
   }));

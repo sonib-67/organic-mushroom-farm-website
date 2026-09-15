@@ -2,12 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from "next";
 import { BLOG_POSTS } from "../../lib/blog-data";
-import { BookOpen } from "lucide-react";
+import { BookOpen, Calendar, User, ArrowRight, Sparkles, Sprout, HeartPulse, TrendingUp } from "lucide-react";
+import BlogListClient from "./BlogListClient";
 
 export const metadata: Metadata = {
-  title: "Mushroom Farming Blog | Guides, Tips & Farming Insights",
+  title: "Mushroom Farming Blog – Guides, Tips & Expert Insights",
   description:
-    "Explore mushroom farming guides, cultivation tips, growing methods, farm management, mushroom business insights, harvesting and practical information for growers.",
+    "Explore practical mushroom farming guides, cultivation techniques, mushroom growing tips, farm setup ideas, harvesting methods, business insights, and expert advice for beginners and commercial growers. Learn how to start, manage, and grow a successful mushroom farming business.",
   alternates: {
     canonical: "https://organicmushroomsfarm.com/blog",
   },
@@ -23,18 +24,18 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Mushroom Farming Blog | Guides, Tips & Farming Insights",
+    title: "Mushroom Farming Blog – Guides, Tips & Expert Insights",
     description:
-      "Read mushroom farming guides, cultivation tips, growing methods, farm management and practical insights for growers.",
+      "Explore practical mushroom farming guides, cultivation techniques, mushroom growing tips, farm setup ideas, harvesting methods, business insights, and expert advice for beginners and commercial growers.",
     url: "https://organicmushroomsfarm.com/blog",
     siteName: "Organic Mushroom Farm",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mushroom Farming Blog | Guides, Tips & Farming Insights",
+    title: "Mushroom Farming Blog – Guides, Tips & Expert Insights",
     description:
-      "Explore mushroom farming guides, cultivation tips and practical growing information.",
+      "Explore practical mushroom farming guides, cultivation techniques, and expert insights for growers.",
   },
 };
 
@@ -46,9 +47,9 @@ export default function BlogIndexPage() {
         "@type": "CollectionPage",
         "@id": "https://organicmushroomsfarm.com/blog#webpage",
         "url": "https://organicmushroomsfarm.com/blog",
-        "name": "Mushroom Farming Blog",
+        "name": "Mushroom Farming Blog – Guides, Tips & Expert Insights",
         "description":
-          "Mushroom farming guides, cultivation tips, growing methods, farm management and practical mushroom farming insights.",
+          "Explore practical mushroom farming guides, cultivation techniques, mushroom growing tips, farm setup ideas, harvesting methods, business insights, and expert advice for beginners and commercial growers.",
         "isPartOf": {
           "@id": "https://organicmushroomsfarm.com/#website"
         },
@@ -91,51 +92,43 @@ export default function BlogIndexPage() {
   };
 
   return (
-    <div className="min-h-screen pt-24 md:pt-28 pb-12 relative z-20">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-16 relative z-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blogJsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <nav aria-label="Breadcrumb" className="mb-6">
-          <ol className="flex items-center gap-2 text-xs md:text-sm text-slate-500 dark:text-slate-400 font-medium">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Breadcrumb Navigation */}
+        <nav aria-label="Breadcrumb" className="mb-4 sm:mb-6">
+          <ol className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">
             <li>
-              <Link href="/" className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Home</Link>
+              <Link href="/" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</Link>
             </li>
             <li aria-hidden="true" className="text-slate-400 dark:text-slate-500">/</li>
-            <li aria-current="page" className="text-slate-800 dark:text-slate-200">Blog</li>
+            <li aria-current="page" className="text-slate-800 dark:text-slate-200 font-semibold">Blog</li>
           </ol>
         </nav>
 
-        <div className="mb-10">
-          <div className="flex items-center gap-2 text-xs text-purple-600 dark:text-purple-400 font-bold uppercase tracking-widest mb-3">
-            <BookOpen size={16} />
-            <span>Learning Center</span>
+        {/* Hero Header without heavy black boxes */}
+        <div className="mb-8 sm:mb-10 text-center sm:text-left">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider mb-3">
+            <Sparkles size={13} className="text-emerald-500" />
+            <span>Knowledge Hub & Cultivation Guides</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-black dark:text-white text-slate-900 mb-4 leading-tight tracking-tight">
-            Mushroom Farming Blog
+          
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3">
+            Mushroom Farming Blog – Guides, Tips & Expert Insights
           </h1>
-          <p className="text-slate-600 dark:text-slate-300 text-lg">
-            Explore guides, tips, and insights to master commercial and home-based mushroom cultivation.
+          
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-300 max-w-4xl leading-relaxed">
+            Explore practical mushroom farming guides, cultivation techniques, mushroom growing tips, farm setup ideas, harvesting methods, business insights, and expert advice for beginners and commercial growers. Learn how to start, manage, and grow a successful mushroom farming business.
           </p>
         </div>
 
-        <div className="grid gap-6">
-          {BLOG_POSTS.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="block group">
-              <article className="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                  {post.title}
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 line-clamp-2">
-                  {post.description}
-                </p>
-              </article>
-            </Link>
-          ))}
-        </div>
+        {/* Interactive Client Blog Directory with compact cards and glass design */}
+        <BlogListClient posts={BLOG_POSTS} />
       </div>
     </div>
   );
