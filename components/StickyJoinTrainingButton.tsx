@@ -42,14 +42,25 @@ export const StickyJoinTrainingButton = ({
             className="pointer-events-auto"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05, y: -1 }}
+              whileTap={{ scale: 0.96 }}
               onClick={() => setShowModal(true)}
-              className={`cursor-pointer rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white font-bold shadow-[0_4px_25px_rgba(139,92,246,0.35)] hover:shadow-[0_4px_35px_rgba(139,92,246,0.55)] border border-purple-400/30 flex items-center gap-2 group backdrop-blur-md relative overflow-hidden px-3 py-2 text-[11px]`}
+              className={`cursor-pointer rounded-full bg-linear-to-b from-sky-400/25 via-blue-500/20 to-sky-600/30 hover:from-sky-400/35 hover:via-blue-500/30 hover:to-sky-600/40 text-sky-950 dark:text-sky-100 font-bold shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.85),inset_0_-1px_2px_rgba(14,165,233,0.35),0_4px_16px_rgba(14,165,233,0.28)] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.95),inset_0_-1px_2.5px_rgba(14,165,233,0.5),0_6px_22px_rgba(14,165,233,0.42)] border border-sky-300/70 dark:border-sky-400/50 flex items-center gap-1.5 group backdrop-blur-xl relative overflow-hidden transition-all duration-200 ${
+                size === "small" ? "px-2.5 py-1 text-[10px]" : "px-3 py-1.5 text-[11px]"
+              }`}
+              aria-label="Join Mushroom Farming Training"
             >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full" />
-              <BookOpen size={14} className="text-purple-200 group-hover:-rotate-12 transition-transform duration-300 relative z-10" />
-              <span className="relative z-10 whitespace-nowrap">Join Training</span>
+              {/* Top Glass Specular Highlight */}
+              <div className="absolute inset-x-0 top-0 h-[45%] bg-linear-to-b from-white/45 to-transparent rounded-t-full pointer-events-none" />
+              
+              {/* Interactive Hover Sheen */}
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full pointer-events-none" />
+              
+              <BookOpen
+                size={size === "small" ? 12 : 13}
+                className="text-sky-600 dark:text-sky-300 group-hover:-rotate-12 transition-transform duration-300 relative z-10 shrink-0"
+              />
+              <span className="relative z-10 whitespace-nowrap tracking-tight">Join Training</span>
             </motion.button>
           </motion.div>
         )}

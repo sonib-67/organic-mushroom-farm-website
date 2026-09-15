@@ -125,14 +125,21 @@ export const FloatingButtons = () => {
         <motion.button
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ scale: 1.05, y: -1 }}
+          whileTap={{ scale: 0.96 }}
           onClick={() => setShowTrainingModal(true)}
-          className="pointer-events-auto cursor-pointer px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-linear-to-r from-purple-600 via-indigo-600 to-purple-700 text-white font-bold text-xs sm:text-sm shadow-xl shadow-purple-600/30 border border-purple-400/30 flex items-center gap-2 group backdrop-blur-md"
+          className="pointer-events-auto cursor-pointer px-3 py-1.5 rounded-full bg-linear-to-b from-sky-400/25 via-blue-500/20 to-sky-600/30 hover:from-sky-400/35 hover:via-blue-500/30 hover:to-sky-600/40 text-sky-950 dark:text-sky-100 font-bold text-[11px] shadow-[inset_0_1px_1.5px_rgba(255,255,255,0.85),inset_0_-1px_2px_rgba(14,165,233,0.35),0_4px_16px_rgba(14,165,233,0.28)] hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.95),inset_0_-1px_2.5px_rgba(14,165,233,0.5),0_6px_22px_rgba(14,165,233,0.42)] border border-sky-300/70 dark:border-sky-400/50 flex items-center gap-1.5 group backdrop-blur-xl relative overflow-hidden transition-all duration-200"
+          aria-label="Join Mushroom Farming Training"
         >
-          <BookOpen size={16} className="text-purple-200 group-hover:rotate-12 transition-transform" />
-          <span>Join Training</span>
-          <span className="px-2 py-0.5 rounded-full bg-white/20 text-[10px] uppercase font-black tracking-wider">
+          {/* Top Glass Specular Highlight */}
+          <div className="absolute inset-x-0 top-0 h-[45%] bg-linear-to-b from-white/45 to-transparent rounded-t-full pointer-events-none" />
+          
+          {/* Interactive Hover Sheen */}
+          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full pointer-events-none" />
+
+          <BookOpen size={13} className="text-sky-600 dark:text-sky-300 group-hover:-rotate-12 transition-transform duration-300 relative z-10 shrink-0" />
+          <span className="relative z-10 whitespace-nowrap tracking-tight">Join Training</span>
+          <span className="relative z-10 px-1.5 py-0.2 rounded-full bg-sky-500/20 text-sky-800 dark:text-sky-200 border border-sky-400/30 text-[9px] font-extrabold">
             ₹199
           </span>
         </motion.button>
