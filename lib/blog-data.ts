@@ -531,7 +531,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "What is Mushroom Farming? Complete Beginner Guide India 2026-2027",
     "description": "Mushroom farming in India 2026-2027: Complete beginner guide for mushroom cultivation (mushroom ki kheti), training, spawn, and business plan.",
-    "slug": "what-is-mushroom-farming-beginner-guide-india",
+    "slug": "/articles/mushroom-farming-beginner-guide-india-2026-2027",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {

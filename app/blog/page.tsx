@@ -67,7 +67,7 @@ export default function BlogIndexPage() {
           "@type": "ListItem",
           "position": index + 1,
           "name": post.title,
-          "url": `https://organicmushroomsfarm.com/blog/${post.slug}`
+          "url": post.slug.startsWith('/') ? `https://organicmushroomsfarm.com${post.slug}` : `https://organicmushroomsfarm.com/blog/${post.slug}`
         }))
       },
       {
