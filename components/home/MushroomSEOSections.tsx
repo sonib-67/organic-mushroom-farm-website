@@ -180,22 +180,22 @@ export default function MushroomSEOSections() {
           <div className="grid md:grid-cols-2 gap-5 mb-10 text-left">
             <div className="bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5 backdrop-blur-sm relative">
               <div className="absolute top-4 right-4 text-4xl font-black text-slate-200 dark:text-white/5">01</div>
-              <h5 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Composting Protocols</h5>
+              <h4 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Composting Protocols</h4>
               <p className="text-[11px] md:text-xs text-slate-600 dark:text-slate-400 leading-relaxed relative z-10">Master wet composting formulations, heap-turning schedules, pasteurization, and correct nutrient parameters.</p>
             </div>
             <div className="bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5 backdrop-blur-sm relative">
               <div className="absolute top-4 right-4 text-4xl font-black text-slate-200 dark:text-white/5">02</div>
-              <h5 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Aseptic Inoculation</h5>
+              <h4 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Aseptic Inoculation</h4>
               <p className="text-[11px] md:text-xs text-slate-600 dark:text-slate-400 leading-relaxed relative z-10">Practice dust-free clean room procedures, proper seed mixing densities, spawn run room controls, and bag placement logic.</p>
             </div>
             <div className="bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5 backdrop-blur-sm relative">
               <div className="absolute top-4 right-4 text-4xl font-black text-slate-200 dark:text-white/5">03</div>
-              <h5 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Casing Preparation</h5>
+              <h4 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Casing Preparation</h4>
               <p className="text-[11px] md:text-xs text-slate-600 dark:text-slate-400 leading-relaxed relative z-10">Prepare casing dirt overlays step-by-step with maximum hydration capacity, sterilization guidelines, and layering depth systems.</p>
             </div>
             <div className="bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-5 backdrop-blur-sm relative">
               <div className="absolute top-4 right-4 text-4xl font-black text-slate-200 dark:text-white/5">04</div>
-              <h5 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Pest & Hygiene Care</h5>
+              <h4 className="font-bold text-sm md:text-base dark:text-white text-slate-900 mb-2 relative z-10">Pest & Hygiene Care</h4>
               <p className="text-[11px] md:text-xs text-slate-600 dark:text-slate-400 leading-relaxed relative z-10">Implement clean bio-shield protocols to eliminate white mold, green mold, web disease, and agricultural fly cycles organically.</p>
             </div>
           </div>

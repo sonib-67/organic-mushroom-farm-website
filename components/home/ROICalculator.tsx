@@ -36,17 +36,17 @@ export const ROICalculator = () => {
           <div className="flex-1 space-y-4">
             <div className="bg-white/40 dark:bg-white/5 p-3 rounded-xl border border-white/60 dark:border-white/10 backdrop-blur-md shadow-sm">
               <label className="block text-[10px] font-bold text-slate-900 dark:text-white mb-1.5">Number of Bags/Beds</label>
-              <input type="range" min="500" max="10000" step="500" value={bags} onChange={(e) => setBags(Number(e.target.value))} className="w-full accent-blue-600 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+              <input type="range" aria-label="Number of Bags/Beds" min="500" max="10000" step="500" value={bags} onChange={(e) => setBags(Number(e.target.value))} className="w-full accent-blue-600 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
               <div className="text-right text-[10px] font-bold text-blue-600 dark:text-blue-400 mt-1">{bags.toLocaleString()} Bags</div>
             </div>
             <div className="bg-white/40 dark:bg-white/5 p-3 rounded-xl border border-white/60 dark:border-white/10 backdrop-blur-md shadow-sm">
               <label className="block text-[10px] font-bold text-slate-900 dark:text-white mb-1.5">Market Selling Price (₹/kg)</label>
-              <input type="range" min="80" max="250" step="10" value={sellingPrice} onChange={(e) => setSellingPrice(Number(e.target.value))} className="w-full accent-blue-600 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+              <input type="range" aria-label="Market Selling Price in Rupees per kg" min="80" max="250" step="10" value={sellingPrice} onChange={(e) => setSellingPrice(Number(e.target.value))} className="w-full accent-blue-600 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
               <div className="text-right text-[10px] font-bold text-blue-600 dark:text-blue-400 mt-1">₹{sellingPrice}</div>
             </div>
             <div className="bg-white/40 dark:bg-white/5 p-3 rounded-xl border border-white/60 dark:border-white/10 backdrop-blur-md shadow-sm">
               <label className="block text-[10px] font-bold text-slate-900 dark:text-white mb-1.5">Labor/Electricity Cost (₹/kg)</label>
-              <input type="range" min="20" max="100" step="5" value={costPrice} onChange={(e) => setCostPrice(Number(e.target.value))} className="w-full accent-blue-600 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
+              <input type="range" aria-label="Labor and Electricity Cost in Rupees per kg" min="20" max="100" step="5" value={costPrice} onChange={(e) => setCostPrice(Number(e.target.value))} className="w-full accent-blue-600 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700" />
               <div className="text-right text-[10px] font-bold text-blue-600 dark:text-blue-400 mt-1">₹{costPrice}</div>
             </div>
           </div>
