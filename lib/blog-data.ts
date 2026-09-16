@@ -540,7 +540,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming in India 2027 — Complete Guide",
     "description": "Your ultimate guide to mushroom spawn, training, setup kits, and supply across 28 states of India.",
-    "slug": "mushroom-farming-in-india-2027-guide",
+    "slug": "10",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -549,7 +549,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Future of Mushroom Farming in India 2027",
     "description": "Analyzing the market shifts and the move towards medicinal mushrooms.",
-    "slug": "future-of-mushroom-farming-in-india-2027",
+    "slug": "7",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -558,7 +558,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Selling Harvest in Local Mandis: A Practical Guide",
     "description": "Tips for negotiation and bulk logistics for first-time mushroom sellers.",
-    "slug": "selling-mushroom-harvest-in-local-mandis",
+    "slug": "8",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -567,7 +567,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Government Subsidies in MP: Step-by-Step Guide",
     "description": "How to navigate the MP state portal for horticulture grants.",
-    "slug": "government-subsidies-mushroom-farming-mp",
+    "slug": "9",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   }
 ];
