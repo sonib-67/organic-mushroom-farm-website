@@ -83,7 +83,13 @@ export default function ArticleMangaloreTrainingPage() {
       "@type": "LocalBusiness",
       name: "Organic Mushrooms Farm - Mangalore",
       image: "https://organicmushroomsfarm.com/logo.png",
-      url: "https://organicmushroomsfarm.com/mushroom-farming-mangalore-karnataka",
+      url: "https://organicmushroomsfarm.com/cities/karnataka/mangalore",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Mangalore",
+        addressRegion: "Karnataka",
+        addressCountry: "IN"
+      },
       areaServed: [
         "Mangalore",
         "Kadri",

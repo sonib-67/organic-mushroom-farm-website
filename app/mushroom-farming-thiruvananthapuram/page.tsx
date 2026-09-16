@@ -83,6 +83,12 @@ export default function ArticleThiruvananthapuramTrainingPage() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Thiruvananthapuram",
+        addressRegion: "Kerala",
+        addressCountry: "IN"
+      },
       name: "Organic Mushrooms Farm",
       image: "https://organicmushroomsfarm.com/logo.png",
       url: "https://organicmushroomsfarm.com/mushroom-farming-thiruvananthapuram-kerala",

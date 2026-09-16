@@ -133,6 +133,12 @@ const ArticleDehradunTraining = () => {
       },
       {
         "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Dehradun",
+        addressRegion: "Uttarakhand",
+        addressCountry: "IN"
+      },
         "@id":
           "https://organicmushroomsfarm.com/mushroom-farming-dehradun-uttarakhand#localbusiness",
         name: "Organic Mushrooms Farm",

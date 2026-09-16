@@ -123,6 +123,12 @@ export default function ArticleMysuruTrainingPage() {
       },
       {
         "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Mysuru",
+        addressRegion: "Karnataka",
+        addressCountry: "IN"
+      },
         "@id":
           "https://organicmushroomsfarm.com/mushroom-farming-mysuru-karnataka#localbusiness",
         name: "Organic Mushrooms Farm",

@@ -126,6 +126,12 @@ export default function BikanerTrainingPage() {
       },
       {
         "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bikaner",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN"
+      },
         "@id": "https://organicmushroomsfarm.com/mushroom-farming-bikaner-rajasthan#localbusiness",
         name: "Organic Mushrooms Farm",
         image: "https://organicmushroomsfarm.com/logo.png",

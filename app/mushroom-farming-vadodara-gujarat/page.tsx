@@ -98,6 +98,12 @@ export default function ArticleVadodaraTrainingPage() {
       "@type": "LocalBusiness",
       name: "Organic Mushrooms Farm",
       url: "https://organicmushroomsfarm.com/mushroom-farming-vadodara-gujarat",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Vadodara",
+        addressRegion: "Gujarat",
+        addressCountry: "IN"
+      },
       areaServed: [
         "Vadodara",
         "Alkapuri",

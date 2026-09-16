@@ -156,7 +156,6 @@ export default function ArticleVijayawadaTrainingPage() {
       "@type": "Organization",
       name: "Organic Mushrooms Farm",
     },
-    courseMode: ["online", "offline"],
     educationalCredentialAwarded: "Certificate of Completion",
     hasCourseInstance: [
       {

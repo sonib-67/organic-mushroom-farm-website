@@ -129,6 +129,12 @@ export default function ArticleSiliguriTrainingPage() {
       },
       {
         "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Siliguri",
+        addressRegion: "West Bengal",
+        addressCountry: "IN"
+      },
         "@id":
           "https://organicmushroomsfarm.com/mushroom-farming-siliguri-west-bengal#localbusiness",
         name: "Organic Mushrooms Farm",

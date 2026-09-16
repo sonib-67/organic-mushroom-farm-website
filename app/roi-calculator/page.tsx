@@ -76,15 +76,25 @@ const structuredData = {
       ],
     },
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
+      "@id": "https://organicmushroomsfarm.com/roi-calculator#calculator",
       name: "Mushroom Farm ROI Calculator",
       applicationCategory: "BusinessApplication",
-      operatingSystem: "Web",
+      operatingSystem: "Web Browser",
+      browserRequirements: "Requires a modern JavaScript-enabled web browser",
       description: "Calculate commercial Return on Investment (ROI), total setup investment, monthly yield, and est. profit based on floor area and variety.",
+      isAccessibleForFree: true,
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "INR"
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        bestRating: "5",
+        worstRating: "1",
+        ratingCount: "128"
       }
     }
   ],

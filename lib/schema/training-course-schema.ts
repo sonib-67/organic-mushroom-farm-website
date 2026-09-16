@@ -9,8 +9,11 @@ export const trainingCourseSchema = {
       "name": "Basic Mushroom Farming Training",
       "description": "Beginner-friendly online mushroom farming training covering mushroom cultivation fundamentals, Oyster and Button mushroom cultivation, small-scale farm setup, substrate preparation, spawning, bag preparation, and basic temperature and moisture management.",
       "url": `${siteUrl}/training`,
-      "courseMode": "online",
       "educationalLevel": "Beginner",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
@@ -31,8 +34,11 @@ export const trainingCourseSchema = {
       "name": "Advanced Commercial Mushroom Farming Training",
       "description": "Advanced online mushroom farming training covering Oyster, Button and Milky mushroom cultivation, commercial farm setup, low-cost sheds and racks, climate management, pest and disease management, packaging, shelf-life, marketing and commercial farming guidance.",
       "url": `${siteUrl}/training`,
-      "courseMode": "online",
       "educationalLevel": "Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
@@ -53,8 +59,11 @@ export const trainingCourseSchema = {
       "name": "Standard Button Mushroom Practical Workshop",
       "description": "Hands-on offline Button Mushroom farming training covering compost preparation, casing soil, bed layout, spawning, farm visits, temperature and moisture management, commercial setup guidance and market guidance.",
       "url": `${siteUrl}/training`,
-      "courseMode": "onsite",
       "educationalLevel": "Beginner",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "onsite"
+      },
       "provider": {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
@@ -75,8 +84,11 @@ export const trainingCourseSchema = {
       "name": "Master Commercial Mushroom Farming Workshop",
       "description": "Advanced practical mushroom farming workshop covering Button, Oyster and Milky mushroom cultivation, spawn production, sterilization, inoculation, climate control, commercial packaging, cold-chain practices, market strategies and farm setup consultancy.",
       "url": `${siteUrl}/training`,
-      "courseMode": "onsite",
       "educationalLevel": "Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "onsite"
+      },
       "provider": {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,

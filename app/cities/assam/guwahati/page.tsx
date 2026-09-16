@@ -258,6 +258,12 @@ export default function ArticleGuwahatiTrainingPage() {
 
   const localBusinessSchema = {
     "@type": "LocalBusiness",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Guwahati",
+      addressRegion: "Assam",
+      addressCountry: "IN"
+    },
     name: "Organic Mushrooms Farm - Guwahati",
     url: "https://organicmushroomsfarm.com/cities/assam/guwahati",
     telephone: "+919203544140",

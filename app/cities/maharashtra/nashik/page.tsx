@@ -97,6 +97,12 @@ export default function ArticleNashikTrainingPage() {
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Nashik",
+        addressRegion: "Maharashtra",
+        addressCountry: "IN"
+      },
       name: "Organic Mushrooms Farm",
       url: "https://organicmushroomsfarm.com/mushroom-farming-nashik-maharashtra",
       areaServed: [

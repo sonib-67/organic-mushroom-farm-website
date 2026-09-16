@@ -10,8 +10,11 @@ export const usaTrainingCourseSchema = {
       "description":
         "Online mushroom farming training designed for learners who want to understand commercial mushroom cultivation, including Oyster, Button and Milky mushroom cultivation, growing systems, environmental management, farm setup and commercial farming practices.",
       "url": `${siteUrl}/usatraining`,
-      "courseMode": "online",
       "educationalLevel": "Beginner to Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@id": `${siteUrl}/#organization`
       }
@@ -24,8 +27,11 @@ export const usaTrainingCourseSchema = {
       "description":
         "Commercial mushroom farming training covering farm planning, cultivation systems, environmental control, hygiene, pest and disease management, harvesting, post-harvest handling, packaging and commercial mushroom farm operations.",
       "url": `${siteUrl}/usatraining`,
-      "courseMode": "online",
       "educationalLevel": "Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@id": `${siteUrl}/#organization`
       }
@@ -38,8 +44,11 @@ export const usaTrainingCourseSchema = {
       "description":
         "Practical and commercial Button Mushroom cultivation training covering growing requirements, composting, casing, environmental management, cropping, harvesting and commercial production practices.",
       "url": `${siteUrl}/usatraining`,
-      "courseMode": "online",
       "educationalLevel": "Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@id": `${siteUrl}/#organization`
       }
@@ -52,8 +61,11 @@ export const usaTrainingCourseSchema = {
       "description":
         "Oyster Mushroom cultivation training covering substrate preparation, spawning, incubation, fruiting conditions, humidity and ventilation management, harvesting and commercial cultivation practices.",
       "url": `${siteUrl}/usatraining`,
-      "courseMode": "online",
       "educationalLevel": "Beginner to Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@id": `${siteUrl}/#organization`
       }
@@ -66,8 +78,11 @@ export const usaTrainingCourseSchema = {
       "description":
         "Milky Mushroom cultivation training covering substrate preparation, spawning, casing, environmental management, fruiting, harvesting and commercial production practices.",
       "url": `${siteUrl}/usatraining`,
-      "courseMode": "online",
       "educationalLevel": "Advanced",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online"
+      },
       "provider": {
         "@id": `${siteUrl}/#organization`
       }

@@ -78,6 +78,12 @@ export default function ArticleUdaipurTrainingPage() {
       name: "Organic Mushrooms Farm",
       image: "https://organicmushroomsfarm.com/logo.png",
       url: "https://organicmushroomsfarm.com/cities/rajasthan/udaipur",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Udaipur",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN"
+      },
       areaServed: [
         "Udaipur",
         "Hiran Magri",

@@ -31,7 +31,7 @@ export default function MushroomCalculatorSchema() {
       },
 
       {
-        "@type": "SoftwareApplication",
+        "@type": "WebApplication",
 
         "@id":
           "https://organicmushroomsfarm.com/mushroomfarmingcalculators#calculator",

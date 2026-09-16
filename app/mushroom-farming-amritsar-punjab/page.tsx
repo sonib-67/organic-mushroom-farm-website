@@ -126,6 +126,12 @@ export default function AmritsarTrainingPage() {
       },
       {
         "@type": "LocalBusiness",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Amritsar",
+        addressRegion: "Punjab",
+        addressCountry: "IN"
+      },
         "@id": "https://organicmushroomsfarm.com/mushroom-farming-amritsar-punjab#localbusiness",
         name: "Organic Mushrooms Farm",
         url: "https://organicmushroomsfarm.com/mushroom-farming-amritsar-punjab",
