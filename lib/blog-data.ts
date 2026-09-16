@@ -54,7 +54,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Milky Mushrooms: The Ultimate Summer Crop for Profitable Farming",
     "description": "When the summer heat kicks in, the Milky Mushroom (Calocybe indica) takes the spotlight. Discover why this tropical variety is perfect for profitable farming.",
-    "slug": "milky-mushrooms-summer-crop-profitable-farming",
+    "slug": "/services/milky-mushroom",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -81,7 +81,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "The Foundation of Every Great Harvest: Premium Organic Mushroom Spawn",
     "description": "Every successful mushroom farm starts with one critical decision: the quality of your seed. Discover why premium, lab-quality spawn is non-negotiable.",
-    "slug": "premium-organic-mushroom-spawn-quality",
+    "slug": "/spawn-seeds",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -90,7 +90,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "The Blueprint of a High-Yield Mushroom Farm: Why Technical Project Specs Matter",
     "description": "The secret to a highly profitable, industrial-scale mushroom business lies in precision engineering and detailed project specifications.",
-    "slug": "blueprint-high-yield-mushroom-farm-specs",
+    "slug": "/project-specs",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -99,7 +99,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Why Mangalore is the Next Big Hub for Commercial Mushroom Farming in Karnataka",
     "description": "Discover why coastal Karnataka is the perfect place to start your organic mushroom farm, from climate advantages to skyrocketing local market demand.",
-    "slug": "commercial-mushroom-farming-mangalore-karnataka",
+    "slug": "/mushroom-farming-mangalore-karnataka",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -126,7 +126,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Transforming the Desert: The Rise of Commercial Mushroom Farming in Bikaner, Rajasthan",
     "description": "Discover how progressive farmers in Bikaner are turning to highly profitable, climate-proof indoor mushroom farming in the arid Thar desert.",
-    "slug": "commercial-mushroom-farming-bikaner-rajasthan",
+    "slug": "/cities/rajasthan/bikaner",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -135,7 +135,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Master Mushroom Farming from Anywhere: Join the Ultimate Online Training",
     "description": "Learn the precise science of mushroom farming from the comfort of your home with a structured, expert-led online cultivation program.",
-    "slug": "online-mushroom-farming-training-india",
+    "slug": "/training/online",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -144,7 +144,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Get Hands-On: Why Offline Mushroom Farming Training is the Ultimate Game-Changer",
     "description": "Learn why physical, offline mushroom farming training is the smartest first investment for your agri-business. Experience a live commercial setup.",
-    "slug": "offline-mushroom-farming-training-jabalpur",
+    "slug": "/training/offline",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -171,7 +171,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming in Thiruvananthapuram: The New Cash Crop of Kerala's Capital",
     "description": "Discover why commercial mushroom farming is rapidly emerging as the ultimate high-profit, space-saving business model in Thiruvananthapuram, Kerala.",
-    "slug": "mushroom-farming-thiruvananthapuram-kerala",
+    "slug": "/cities/kerala/thiruvananthapuram",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -180,7 +180,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Unlocking the Potential of Commercial Mushroom Farming in Guwahati, Assam",
     "description": "Discover why Guwahati is the perfect launchpad for a high-return, low-space commercial mushroom farming business in Northeast India.",
-    "slug": "commercial-mushroom-farming-guwahati-assam",
+    "slug": "/mushroom-farming-guwahati-assam",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -189,7 +189,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Take the First Step Towards a Profitable Mushroom Farm Today! 🍄",
     "description": "Starting a commercial mushroom farming business is highly lucrative. Consult our agri-tech specialists for expert guidance, training, and turnkey setup.",
-    "slug": "start-profitable-commercial-mushroom-farm",
+    "slug": "/contact-form",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -198,7 +198,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming in Udaipur: A Royal Opportunity in the City of Lakes",
     "description": "For agri-entrepreneurs in the Mewar region, cultivating organic mushrooms is emerging as one of the most profitable, space-saving, and climate-smart investments today.",
-    "slug": "mushroom-farming-udaipur-rajasthan",
+    "slug": "/cities/rajasthan/udaipur",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -216,7 +216,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming in Mysuru: Harnessing Heritage, Climate & Demand in Karnataka",
     "description": "Discover why Mysuru is uniquely positioned to become a major hub for highly profitable, space-efficient commercial mushroom farming in Karnataka.",
-    "slug": "mushroom-farming-mysuru-karnataka",
+    "slug": "/cities/karnataka/mysuru",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -225,7 +225,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Why Siliguri is the Ultimate Strategic Hub for Commercial Mushroom Farming in West Bengal",
     "description": "Discover why Siliguri is the perfect location for your mushroom farm, offering a high-profit, low-space business model with an unparalleled strategic advantage.",
-    "slug": "commercial-mushroom-farming-siliguri-west-bengal",
+    "slug": "/cities/west-bengal/siliguri",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -234,7 +234,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Why Smart Investors Choose Turnkey Setups Over DIY Commercial Mushroom Farms",
     "description": "Discover why a Turnkey Commercial Mushroom Farm Setup is the smartest strategy to protect your capital and guarantee high yields in the booming commercial mushroom industry.",
-    "slug": "smart-investors-turnkey-commercial-mushroom-farms",
+    "slug": "/blog/turnkey-commercial-setup",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -243,7 +243,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Behind the Harvest: Why Seamless Operations Make or Break Your Mushroom Farm",
     "description": "Discover why mushroom farm operations require military-grade discipline, strict hygiene, and well-defined workflows to eliminate crop loss and maximize yield.",
-    "slug": "seamless-mushroom-farm-operations-hygiene",
+    "slug": "/operations",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -252,7 +252,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Oyster Mushroom Cultivation in India: The Ultimate Low-Cost, High-Profit Agri-Business",
     "description": "Across India, rural farmers, urban youth, and agri-startups are turning to Oyster Mushroom cultivation as a highly lucrative and scalable business model.",
-    "slug": "oyster-mushroom-cultivation-process",
+    "slug": "/articles/oyster-mushroom-cultivation-india",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -261,7 +261,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "The Heart of Button Mushroom Farming: The Science of a Commercial Compost Unit",
     "description": "Discover why understanding and investing in proper compost infrastructure is the most critical step for your button mushroom agri-business.",
-    "slug": "science-commercial-compost-unit-button-mushroom",
+    "slug": "/compost-unit",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -270,7 +270,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Why Oyster Mushrooms Are Taking the Culinary & Farming World by Storm",
     "description": "Discover the nutritional power and cultivation benefits of oyster mushrooms. Learn why they are a favorite for farmers and a delicious meat substitute.",
-    "slug": "why-oyster-mushrooms-popular-culinary-farming",
+    "slug": "/services/oyster-mushroom",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -279,7 +279,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Commercial Mushroom Farm Setup & Training: A Complete Guide to All Varieties",
     "description": "Starting a commercial mushroom venture requires more than just passion; it demands technical know-how, precise climate control, and practical training.",
-    "slug": "commercial-mushroom-farm-setup-training-guide",
+    "slug": "/articles/commercial-mushroom-farm-setup-training",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -288,7 +288,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Organic Mushroom Farm: Everything You Need to Know",
     "description": "Are you looking to dive into the world of sustainable agriculture, or simply trying to find the freshest produce from an organic mushroom farm?",
-    "slug": "organic-mushroom-farm-complete-guide",
+    "slug": "/articles/organic-mushroom-farm-everything-you-need-to-know",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -306,7 +306,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "How to Start Mushroom Farming at Home",
     "description": "A beginner's guide to growing your first batch of mushrooms in small spaces.",
-    "slug": "how-to-start-mushroom-farming-at-home",
+    "slug": "/blog/1",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -315,7 +315,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Top 5 Mistakes New Mushroom Farmers Make",
     "description": "Avoid these common pitfalls that often lead to crop failure in the first cycle.",
-    "slug": "top-5-mistakes-new-mushroom-farmers-make",
+    "slug": "/blog/2",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -324,7 +324,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "How to Prepare the Perfect Substrate",
     "description": "Master the art of pasteurization and moisture levels for high-yield harvests.",
-    "slug": "how-to-prepare-perfect-mushroom-substrate",
+    "slug": "/blog/3",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -396,7 +396,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming Training: The Complete Guide to Starting a Profitable Mushroom Cultivation Business",
     "description": "Where to get trained in mushroom farming, varieties to learn, training costs, government support, and how the profit works in 2026.",
-    "slug": "mushroom-farming-training-complete-guide",
+    "slug": "/blog/mushroom-training-guide-english",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -450,7 +450,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "The Complete Guide to Mushroom Training: How to Start Growing Mushrooms for Profit in the USA",
     "description": "Whether you're in New York, California, Texas, or Florida — this guide is for anyone ready to turn mushroom farming into a real business or side income.",
-    "slug": "mushroom-training-guide-usa",
+    "slug": "/articles/mushroom-training-profit-guide-usa",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -459,7 +459,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "How Much Can You Really Make Growing Medicinal Mushrooms? (Lion's Mane, Reishi & Chaga Income Guide for USA Growers)",
     "description": "The wellness industry is spending billions on these three mushrooms. Here's how everyday Americans are cashing in — from their garage, basement, or backyard.",
-    "slug": "medicinal-mushrooms-income-guide-usa",
+    "slug": "/articles/medicinal-mushrooms-income-guide-usa",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -468,7 +468,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming: Complete Guide for Spawn, Training, Setup, & Business in India",
     "description": "India's most exhaustive roadmap! Covers spawn seed varieties, online/offline training structures, design layout costs, buyback guarantee agreements, and our pan-India services in simple Hinglish.",
-    "slug": "mushroom-farming-complete-guide-india",
+    "slug": "/articles/mushroom-farming-complete-guide-hinglish-india",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -495,7 +495,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming Training — Complete Guide | Mushroom Ki Kheti Sikhein India Mein",
     "description": "India mein mushroom farming training kaise aur kahan se lein? Complete guide in Hindi for offline and online courses.",
-    "slug": "mushroom-farming-training-complete-guide-hindi",
+    "slug": "/articles/mushroom-farming-training-hindi-india",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -504,7 +504,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushroom Farming Business Plan Kya Hota Hai? | What is a Mushroom Farming Business Plan?",
     "description": "India mein 2026 ke liye complete mushroom farming business plan. Low investment mein mushroom ki kheti shuru karein aur acha profit kamayein.",
-    "slug": "mushroom-farming-business-plan-kya-hota-hai",
+    "slug": "/articles/mushroom-farming-business-plan-hindi-2026",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {
@@ -513,7 +513,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "What is Mushroom Spawn? Complete Beginner Guide (2026–27)",
     "description": "Learn what mushroom spawn is, the types of spawn, how to use it, and where to buy quality mushroom seeds in India.",
-    "slug": "what-is-mushroom-spawn-complete-guide",
+    "slug": "/articles/what-is-mushroom-spawn-beginner-guide-india",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -522,7 +522,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Oyster Mushroom Cultivation: Complete Guide for India",
     "description": "Oyster Mushroom Cultivation (Dhingri Mushroom ki Kheti) aaj India ka sabse fast-growing agribusiness ban chuka hai.",
-    "slug": "oyster-mushroom-cultivation-complete-guide-india",
+    "slug": "/articles/oyster-mushroom-cultivation-india",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
