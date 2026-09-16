@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   title: "Training Checkout & Secure Enrollment | Organic Mushroom Farm",
   description: "Secure online enrollment and registration for organic mushroom farming workshops.",
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
   alternates: {
     canonical: "https://organicmushroomsfarm.com/training-checkout",
