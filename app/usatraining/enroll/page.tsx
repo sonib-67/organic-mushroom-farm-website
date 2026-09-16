@@ -4,6 +4,9 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: "https://organicmushroomsfarm.com/usatraining/enroll",
+  },
 };
 
 import USATrainingPayment from "@/components/USATrainingPayment";

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: "https://organicmushroomsfarm.com/usatraining/cancel",
+  },
 };
 
 import Link from "next/link";

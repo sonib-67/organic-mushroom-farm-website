@@ -5,7 +5,13 @@ import TrainingSuccessClient from "./TrainingSuccessClient";
 export const metadata: Metadata = {
   title: "Training Registration Successful | Organic Mushroom Farm",
   description: "Your mushroom farming training registration has been confirmed.",
-  robots: { index: false, follow: false },
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: "https://organicmushroomsfarm.com/training/success",
+  },
 };
 
 export default function TrainingSuccessPage() {

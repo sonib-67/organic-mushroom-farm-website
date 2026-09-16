@@ -72,11 +72,7 @@ export const metadata: Metadata = {
     canonical: "https://organicmushroomsfarm.com/",
   },
   verification: {
-    google: [
-      "520546c7ef1f49ea",
-      "T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q",
-      "Ca2ApiBcsYgNBj1_2r78MpVoymOH90MvqxDh1dMDVPY"
-    ],
+    google: "Ca2ApiBcsYgNBj1_2r78MpVoymOH90MvqxDh1dMDVPY",
     other: {
       "google-adsense-account": "ca-pub-8976157136173429",
       "ahrefs-site-verification": "d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130",
@@ -104,6 +100,8 @@ export default function RootLayout({
   return (
     <html lang="en-IN" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
       <head>
+        <meta key="520546c7ef1f49ea" name="google-site-verification" content="520546c7ef1f49ea" />
+        <meta key="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" name="google-site-verification" content="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" />
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

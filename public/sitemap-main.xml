@@ -1568,18 +1568,8 @@
     <priority>0.90</priority>
   </url>
 
-  <url>
-    <loc>https://organicmushroomsfarm.com/training/cancel</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/training/enroll</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
+  
+  
   <url>
     <loc>https://organicmushroomsfarm.com/training/offline</loc>
     <lastmod>2026-09-15T13:22:56.523Z</lastmod>
@@ -1592,12 +1582,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/training/success</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
+  
   <url>
     <loc>https://organicmushroomsfarm.com/turnkey-projects</loc>
     <lastmod>2026-09-15T13:22:56.523Z</lastmod>
@@ -1610,36 +1595,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/usatraining/cancel</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/usatraining/enroll</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/usatraining/success</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/usatraining/success/advanced</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
-  <url>
-    <loc>https://organicmushroomsfarm.com/usatraining/success/basic</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.30</priority>
-  </url>
+  
+  
+  
+  
+  
   <url>
     <loc>https://organicmushroomsfarm.com/workshop</loc>
     <lastmod>2026-09-15T13:22:56.523Z</lastmod>

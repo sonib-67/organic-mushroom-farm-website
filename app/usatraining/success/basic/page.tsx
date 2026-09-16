@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: "https://organicmushroomsfarm.com/usatraining/success/basic",
+  },
 };
 
 export default function BasicSuccessPage() {

@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  alternates: {
+    canonical: "https://organicmushroomsfarm.com/payment-success",
+  },
 };
 
 export default function PaymentSuccessPage() {
