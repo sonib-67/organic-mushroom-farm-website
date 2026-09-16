@@ -233,7 +233,7 @@ export default function SpawnSupplyServicePage() {
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight mb-2">
-            Premium Mushroom Spawn Supply{" "}
+            Mushroom Spawn Supply{" "}
             <span className="gradient-text">in India</span>
           </h1>
 

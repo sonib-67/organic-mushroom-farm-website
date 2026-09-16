@@ -33,7 +33,7 @@ export default function FranchiseClient() {
             <Target className="w-3 h-3 text-violet-500" />
             <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest dark:text-slate-300 text-slate-700">Pan India Franchise Program</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
             Start Your Own <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-500 to-indigo-500">Mushroom Franchise</span>
           </h1>
           <p className="text-[10px] md:text-[11px] max-w-2xl mx-auto dark:text-slate-400 text-slate-600 leading-relaxed font-medium">
@@ -57,12 +57,12 @@ export default function FranchiseClient() {
                initial={{ opacity: 0, y: 10 }}
                animate={{ opacity: 1, y: 0 }}
                transition={{ duration: 0.5, delay: i * 0.1 }}
-               className="bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border dark:border-white/10 border-black/10 rounded-[2rem] p-6 shadow-sm hover:border-violet-500/50 hover:-translate-y-1 transition-all group"
+               className="bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border dark:border-white/10 border-black/10 rounded-3xl p-5 shadow-sm hover:border-violet-500/50 hover:-translate-y-1 transition-all group"
              >
-               <div className="w-10 h-10 rounded-xl bg-violet-500/10 text-violet-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                 <b.icon className="w-5 h-5" />
+               <div className="w-8 h-8 rounded-lg bg-violet-500/10 text-violet-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                 <b.icon className="w-4 h-4" />
                </div>
-               <h2 className="text-[12px] md:text-[13px] font-bold dark:text-white text-slate-900 mb-2">{b.title}</h2>
+               <h2 className="text-[11px] md:text-[12px] font-bold dark:text-white text-slate-900 mb-1.5">{b.title}</h2>
                <p className="text-[9px] md:text-[10px] dark:text-slate-400 text-slate-600 leading-relaxed">{b.desc}</p>
              </motion.div>
           ))}
@@ -72,7 +72,7 @@ export default function FranchiseClient() {
         <section className="bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm p-8 md:p-12 rounded-[2.5rem] border dark:border-white/10 border-black/10 shadow-sm relative overflow-hidden">
           <div className="absolute inset-0 bg-violet-500/5 pointer-events-none" />
           <div className="relative z-10">
-            <h2 className="text-[18px] md:text-[22px] font-bold dark:text-white text-slate-900 mb-2 text-center tracking-tight">Our Franchise Models</h2>
+            <h2 className="text-[16px] md:text-[20px] font-bold dark:text-white text-slate-900 mb-2 text-center tracking-tight">Our Franchise Models</h2>
             <p className="text-[10px] md:text-[11px] dark:text-slate-400 text-slate-600 text-center mb-8 max-w-2xl mx-auto leading-relaxed">
               Choose an investment model tailored to your available physical space and capital parameters. If you lack space but have capital, consider our <Link href="/roi-calculator" className="text-violet-600 font-bold hover:underline">ROI Calculator</Link> to estimate returns.
             </p>
@@ -81,16 +81,16 @@ export default function FranchiseClient() {
               {/* Tier 1 Model */}
               <div className="bg-black/5 dark:bg-black/40 border dark:border-white/10 border-black/10 rounded-[1.5rem] p-6 shadow-sm hover:border-violet-500/30 transition-colors">
                  <div className="text-[9px] uppercase font-black tracking-widest text-violet-500 mb-1">Tier 1</div>
-                 <h3 className="text-[15px] md:text-[17px] font-bold dark:text-white text-slate-900 mb-4">Mini Commercial</h3>
+                 <h3 className="text-[13px] md:text-[15px] font-bold dark:text-white text-slate-900 mb-4">Mini Commercial</h3>
                  <ul className="space-y-3 mb-6">
-                   <li className="flex items-center gap-2 text-[10px] md:text-[11px] dark:text-slate-300 text-slate-700 font-medium">
-                     <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" /> Required Space: 1,000 - 2,000 Sq Ft
+                   <li className="flex items-center gap-2 text-[9px] md:text-[10px] dark:text-slate-300 text-slate-700 font-medium">
+                     <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" /> Required Space: 1,000 - 2,000 Sq Ft
                    </li>
-                   <li className="flex items-center gap-2 text-[10px] md:text-[11px] dark:text-slate-300 text-slate-700 font-medium">
-                     <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" /> Focus: <Link href="/mushroom-types/oyster" className="hover:underline">Oyster</Link> & Milky Mushrooms
+                   <li className="flex items-center gap-2 text-[9px] md:text-[10px] dark:text-slate-300 text-slate-700 font-medium">
+                     <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" /> Focus: <Link href="/mushroom-types/oyster" className="hover:underline">Oyster</Link> & Milky Mushrooms
                    </li>
-                   <li className="flex items-center gap-2 text-[10px] md:text-[11px] dark:text-slate-300 text-slate-700 font-medium">
-                     <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" /> Yield Capability: ~ 200kg/month
+                   <li className="flex items-center gap-2 text-[9px] md:text-[10px] dark:text-slate-300 text-slate-700 font-medium">
+                     <CheckCircle2 className="w-3.5 h-3.5 text-green-500 shrink-0" /> Yield Capability: ~ 200kg/month
                    </li>
                  </ul>
                  <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-flex w-full justify-center items-center py-2.5 rounded-xl border border-violet-500/50 text-violet-600 dark:text-violet-400 font-bold hover:bg-violet-500/10 transition-colors text-[10px] md:text-[11px]">
@@ -102,16 +102,16 @@ export default function FranchiseClient() {
               <div className="bg-violet-600 border dark:border-white/10 border-black/10 rounded-[1.5rem] p-6 shadow-lg relative overflow-hidden group">
                  <div className="absolute -right-10 -top-10 w-32 h-32 bg-white/20 blur-2xl rounded-full pointer-events-none group-hover:scale-150 transition-transform"></div>
                  <div className="text-[9px] uppercase font-black tracking-widest text-white/80 mb-1 relative z-10">Tier 2</div>
-                 <h3 className="text-[15px] md:text-[17px] font-bold text-white mb-4 relative z-10">Industrial Plant</h3>
+                 <h3 className="text-[13px] md:text-[15px] font-bold text-white mb-4 relative z-10">Industrial Plant</h3>
                  <ul className="space-y-3 mb-6 relative z-10">
-                   <li className="flex items-center gap-2 text-[10px] md:text-[11px] text-white/90 font-medium">
-                     <CheckCircle2 className="w-4 h-4 text-white shrink-0" /> Required Space: 5,000+ Sq Ft
+                   <li className="flex items-center gap-2 text-[9px] md:text-[10px] text-white/90 font-medium">
+                     <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" /> Required Space: 5,000+ Sq Ft
                    </li>
-                   <li className="flex items-center gap-2 text-[10px] md:text-[11px] text-white/90 font-medium">
-                     <CheckCircle2 className="w-4 h-4 text-white shrink-0" /> Focus: Climate Controlled Button Mushrooms
+                   <li className="flex items-center gap-2 text-[9px] md:text-[10px] text-white/90 font-medium">
+                     <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" /> Focus: Climate Controlled Button Mushrooms
                    </li>
-                   <li className="flex items-center gap-2 text-[10px] md:text-[11px] text-white/90 font-medium">
-                     <CheckCircle2 className="w-4 h-4 text-white shrink-0" /> Yield Capability: 20-30 Tons/Cycle
+                   <li className="flex items-center gap-2 text-[9px] md:text-[10px] text-white/90 font-medium">
+                     <CheckCircle2 className="w-3.5 h-3.5 text-white shrink-0" /> Yield Capability: 20-30 Tons/Cycle
                    </li>
                  </ul>
                  <a href="https://wa.me/919203544140" target="_blank" rel="noopener noreferrer" className="inline-flex w-full justify-center items-center py-2.5 rounded-xl bg-white text-violet-600 font-bold hover:bg-white/90 transition-colors text-[10px] md:text-[11px] relative z-10">

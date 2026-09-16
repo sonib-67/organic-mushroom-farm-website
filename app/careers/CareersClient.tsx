@@ -58,10 +58,10 @@ export default function CareersClient() {
             <Briefcase className="w-3 h-3 text-blue-500" />
             <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest dark:text-slate-300 text-slate-700">Join Our Ecosystem</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
+          <h1 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white leading-tight tracking-tight">
             Grow Your Career in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Sustainable Tech-Agriculture</span>
           </h1>
-          <p className="text-[10px] md:text-[11px] max-w-2xl mx-auto dark:text-slate-400 text-slate-600 leading-relaxed font-medium">
+          <p className="text-[9px] md:text-[10px] max-w-2xl mx-auto dark:text-slate-400 text-slate-600 leading-relaxed font-medium">
             We are revolutionizing the commercial mushroom ecosystem across India and the globe. Join the network powering thousands of agro-entrepreneurs and <Link href="/training" className="text-blue-600 font-bold hover:underline">commercial setups</Link>.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -84,17 +84,17 @@ export default function CareersClient() {
                transition={{ duration: 0.5, delay: i * 0.1 }}
                className="bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border dark:border-white/10 border-black/10 rounded-3xl p-5 shadow-sm hover:-translate-y-1 transition-transform group"
              >
-               <b.icon className="w-6 h-6 text-blue-500 mb-3 group-hover:scale-110 transition-transform" />
-               <h2 className="text-[11px] md:text-[12px] font-bold dark:text-white text-slate-900 mb-1.5">{b.title}</h2>
-               <p className="text-[9px] md:text-[10px] dark:text-slate-400 text-slate-600 leading-relaxed">{b.desc}</p>
+               <b.icon className="w-3.5 h-3.5 text-blue-500 mb-3 group-hover:scale-110 transition-transform" />
+               <h2 className="text-[10px] md:text-[11px] font-bold dark:text-white text-slate-900 mb-1.5">{b.title}</h2>
+               <p className="text-[8px] md:text-[9px] dark:text-slate-400 text-slate-600 leading-relaxed">{b.desc}</p>
              </motion.div>
           ))}
         </section>
 
         {/* Open Positions Section */}
         <section id="open-positions" className="scroll-mt-32 pt-8">
-          <h2 className="text-xl md:text-2xl font-bold dark:text-white text-slate-900 mb-6 flex items-center gap-3">
-            <Briefcase className="text-blue-500 w-6 h-6" /> Open Positions
+          <h2 className="text-lg md:text-xl font-bold dark:text-white text-slate-900 mb-6 flex items-center gap-3">
+            <Briefcase className="text-blue-500 w-5 h-5" /> Open Positions
           </h2>
           <div className="grid gap-4">
             {jobs.map((job, i) => (
@@ -138,8 +138,8 @@ export default function CareersClient() {
         {/* Quick Apply Section */}
         <section className="bg-white/5 dark:bg-white/[0.02] backdrop-blur-sm border dark:border-white/10 border-black/10 rounded-[2rem] overflow-hidden flex flex-col md:flex-row items-stretch">
           <div className="p-8 md:p-10 flex-1 dark:bg-white/[0.02] bg-black/[0.02]">
-            <h2 className="text-[16px] md:text-[20px] font-bold dark:text-white text-slate-900 mb-3 tracking-tight">Don't see a fit? Send your resume!</h2>
-            <p className="text-[10px] md:text-[11px] dark:text-slate-400 text-slate-600 mb-6 leading-relaxed">
+            <h2 className="text-[14px] md:text-[16px] font-bold dark:text-white text-slate-900 mb-3 tracking-tight">Don't see a fit? Send your resume!</h2>
+            <p className="text-[9px] md:text-[10px] dark:text-slate-400 text-slate-600 mb-6 leading-relaxed">
               We are always on the lookout for talented individuals in agriculture, logistics, marketing, and sales. Submit your profile, and we'll reach out when an opportunity arises. You can also explore our <Link href="/equipment" className="text-blue-600 font-bold hover:underline">equipment operations</Link> or <Link href="/training" className="text-blue-600 font-bold hover:underline">agronomy programs</Link>.
             </p>
             <ul className="space-y-3">
@@ -153,8 +153,8 @@ export default function CareersClient() {
           </div>
           <div className="p-8 md:p-10 flex-1 flex flex-col items-center justify-center relative bg-gradient-to-br from-blue-500/5 to-purple-500/5 border-t md:border-t-0 md:border-l border-black/10 dark:border-white/10">
             <div className="w-full max-w-sm relative z-10 text-center">
-              <FileText className="w-10 h-10 text-blue-500 mx-auto mb-4 drop-shadow-md" />
-              <h3 className="text-[12px] md:text-[14px] font-bold dark:text-white text-slate-900 mb-4">Drop your details on WhatsApp</h3>
+              <FileText className="w-8 h-8 text-blue-500 mx-auto mb-4 drop-shadow-md" />
+              <h3 className="text-[11px] md:text-[13px] font-bold dark:text-white text-slate-900 mb-4">Drop your details on WhatsApp</h3>
               <a 
                 href="https://wa.me/919203544140?text=Hi! I am looking for career opportunities and would like to share my resume." 
                 target="_blank" 

@@ -185,27 +185,26 @@ export default function EquipmentCompleteListPage() {
         </div>
 
         {/* 3 Main Scale-wise Boxes */}
-        <section aria-labelledby="main-categories-heading" className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-12">
+        <section aria-labelledby="main-categories-heading" className="flex flex-col gap-2 max-w-sm mx-auto mb-8 md:mb-12">
           <h2 id="main-categories-heading" className="sr-only">Main Equipment Categories</h2>
           {mainCategories.map((cat, idx) => (
             <Link
               key={idx}
               href={cat.route}
-              className="group bg-white/40 dark:bg-white/[0.03] backdrop-blur-xs rounded-[1.5rem] p-4 md:p-6 shadow-sm hover:shadow-md border border-black/5 dark:border-white/5 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center sm:items-start sm:text-left hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]"
+              className="group bg-white/40 dark:bg-white/[0.03] backdrop-blur-xs rounded-xl p-2.5 sm:p-3 shadow-sm hover:shadow-md border border-black/5 dark:border-white/5 transition-all duration-300 flex items-center text-left hover:border-emerald-500/30 hover:bg-emerald-500/[0.02]"
             >
-              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-bl-[100px] -mr-10 -mt-10 transition-transform group-hover:scale-110 hidden sm:block pointer-events-none" />
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-white/50 dark:bg-slate-800/50 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center mb-3 md:mb-4 shrink-0 shadow-sm border border-black/5 dark:border-white/5">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/50 dark:bg-slate-800/50 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center justify-center mr-3 shrink-0 border border-black/5 dark:border-white/5">
                 {cat.icon}
               </div>
-              <h3 className="text-sm md:text-lg font-bold text-slate-900 dark:text-white mb-1 md:mb-2 leading-tight">
-                {cat.title}
-              </h3>
-              <p className="text-[10.5px] sm:text-[11px] text-slate-600 dark:text-slate-400 mb-3 md:mb-4 hidden sm:block leading-relaxed">
-                {cat.desc}
-              </p>
-              <div className="hidden sm:flex items-center text-emerald-600 dark:text-emerald-400 font-semibold text-[11px] sm:text-xs group-hover:gap-1.5 transition-all mt-auto">
-                View Full List <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              <div className="flex-1">
+                <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white leading-tight">
+                  {cat.title}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+                  {cat.desc}
+                </p>
               </div>
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
             </Link>
           ))}
         </section>

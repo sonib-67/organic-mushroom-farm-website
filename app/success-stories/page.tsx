@@ -276,20 +276,8 @@ export default function SuccessStoriesPage() {
               </div>
             </div>
 
-            {/* Middle: Photo + Story & Quote */}
+            {/* Middle: Story & Quote */}
             <div className="flex flex-col md:flex-row items-start gap-4">
-              <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-xs">
-                <Image
-                  src={s.image}
-                  alt={`${s.name} - Successful Mushroom Grower in ${s.location}`}
-                  width={80}
-                  height={80}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
               <div className="space-y-2 flex-1">
                 <div className="relative pl-3 border-l-2 border-emerald-500/40">
                   <Quote size={14} className="text-emerald-500 mb-1 opacity-70" />
