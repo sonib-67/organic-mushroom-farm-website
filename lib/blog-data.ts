@@ -342,7 +342,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "The Brain-Boosting Secrets of Lion’s Mane",
     "description": "Scientific insights into how this mushroom improves focus and memory.",
-    "slug": "brain-boosting-secrets-lions-mane-mushroom",
+    "slug": "4",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -351,7 +351,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Mushrooms vs Meat: The Ultimate Protein Showdown",
     "description": "Comprehensive comparison of nutritional density and environmental impact.",
-    "slug": "mushrooms-vs-meat-protein-nutrition-comparison",
+    "slug": "5",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/v1787977978/buttonmushroomyield_gpbiqf.webp"
   },
   {
@@ -360,7 +360,7 @@ export const BLOG_POSTS: BlogPost[] = [
     "author": "Expert Team",
     "title": "Vitamin D Deficiency? Eat Button Mushrooms",
     "description": "How to maximize Vitamin D absorption from your daily mushroom intake.",
-    "slug": "vitamin-d-deficiency-button-mushrooms",
+    "slug": "6",
     "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
   },
   {

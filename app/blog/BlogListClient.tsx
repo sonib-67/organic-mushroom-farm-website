@@ -142,6 +142,7 @@ export default function BlogListClient({ posts }: BlogListClientProps) {
               {/* Title (Compact Font) */}
               <h2 className="text-xs sm:text-[13px] font-bold text-slate-900 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug line-clamp-2 mb-1.5">
                 <Link href={post.slug.startsWith('/') ? post.slug : `/blog/${post.slug}`} className="focus:outline-none focus:underline">
+                  <span className="text-[10px] text-slate-400 font-normal mr-1">{idx + 1}.</span>
                   {post.title}
                 </Link>
               </h2>
