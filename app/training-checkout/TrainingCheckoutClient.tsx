@@ -128,9 +128,9 @@ export default function TrainingCheckoutClient() {
             currency: payload.currency
           });
 
-          // Redirect to success
+          // Redirect to registration form
           setTimeout(() => {
-             router.push(`/training/success?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
+             router.push(`/training/register?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
           }, 400);
         },
         modal: {
@@ -288,8 +288,14 @@ export default function TrainingCheckoutClient() {
                     type="tel" 
                     required
                     pattern="[0-9]{10}"
+                    maxLength={10}
                     value={formData.mobile}
-                    onChange={e => setFormData({ ...formData, mobile: e.target.value })}
+                    onChange={e => {
+                      const value = e.target.value.replace(/\D/g, '');
+                      if (value.length <= 10) {
+                        setFormData({ ...formData, mobile: value });
+                      }
+                    }}
                     className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                     placeholder="10-digit mobile number"
                   />

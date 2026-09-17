@@ -8,7 +8,7 @@ import { FloatingBottomMenu } from '@/components/FloatingBottomMenu';
 export function ConditionalWidgets() {
   const pathname = usePathname();
   // Hide on checkout pages
-  const isCheckoutPage = pathname?.includes('/training-checkout') || pathname?.includes('/checkout') || pathname?.includes('/training/success') || pathname?.includes('/training/cancel');
+  const isCheckoutPage = pathname?.includes('/training-checkout') || pathname?.includes('/checkout') || pathname?.includes('/training/success') || pathname?.includes('/training/cancel') || pathname?.includes('/training/register');
 
   if (isCheckoutPage) {
     return null;
