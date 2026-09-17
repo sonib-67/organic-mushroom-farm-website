@@ -24,24 +24,47 @@ export async function POST(req: Request) {
     });
 
     const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER || 'gamingbuddyzone@gmail.com';
+    const currentTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'short', timeStyle: 'medium' });
+
+    // CSS Styling for beautiful Admin emails (dark/light mode compatible)
+    const adminHtmlStyle = (headerTitle: string, headerColor: string, headerSubtitle: string, contentRows: string) => `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #1a1a1a; padding: 20px; color: #e5e5e5; max-width: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <div style="background-color: ${headerColor}; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+          <h2 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 700;">${headerTitle}</h2>
+          <p style="margin: 5px 0 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">${headerSubtitle}</p>
+        </div>
+        
+        <table style="width: 100%; border-collapse: collapse;">
+          ${contentRows}
+        </table>
+        
+        <div style="text-align: center; margin-top: 30px; font-size: 12px; color: #888;">
+          Organic Mushrooms Farm • Real-time Training Checkout Tracker
+        </div>
+      </div>
+    `;
+
+    const rowStyle = `border-bottom: 1px solid #333; padding: 12px 5px;`;
+    const labelStyle = `font-weight: 600; color: #b3b3b3; width: 35%;`;
+    const valueStyle = `font-weight: 500; color: #ffffff;`;
+    const highlightStyle = `font-weight: 700; color: #f59e0b;`;
 
     // 1. INITIATED (Admin Only)
     if (action === 'INITIATED') {
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">₹${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
+      `;
+
       const mailOptions = {
-        from: `"Website Training Form" <${user}>`,
+        from: `"Training Alert" <${user}>`,
         to: adminEmail,
-        subject: `[Initiated] Training Payment - ${data.name}`,
-        html: `
-          <h2>Payment Initiated</h2>
-          <p><strong>Training Type:</strong> ${data.trainingName} (₹${data.price})</p>
-          <hr />
-          <ul>
-            <li><strong>Name:</strong> ${data.name}</li>
-            <li><strong>Phone:</strong> ${data.phone}</li>
-            <li><strong>Email:</strong> ${data.email}</li>
-          </ul>
-          <p>User is currently on the payment gateway.</p>
-        `,
+        subject: `⚡ [Initiated] Training Payment - ${data.name}`,
+        html: adminHtmlStyle('⚡ Training Payment Initiated', '#f59e0b', `User opened checkout for ${data.trainingName}`, rows),
       };
       await transporter.sendMail(mailOptions);
       return NextResponse.json({ success: true });
@@ -49,22 +72,28 @@ export async function POST(req: Request) {
 
     // 2. CANCELLED / FAILED (Admin + Customer)
     if (action === 'CANCELLED' || action === 'FAILED') {
+      const isFailed = action === 'FAILED';
+      
       // Admin Mail
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">₹${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
+      `;
+
       const adminMailOptions = {
-        from: `"Website Training Form" <${user}>`,
+        from: `"Training Alert" <${user}>`,
         to: adminEmail,
-        subject: `[${action}] Training Payment - ${data.name}`,
-        html: `
-          <h2>Payment ${action}</h2>
-          <p><strong>Training Type:</strong> ${data.trainingName} (₹${data.price})</p>
-          <hr />
-          <ul>
-            <li><strong>Name:</strong> ${data.name}</li>
-            <li><strong>Phone:</strong> ${data.phone}</li>
-            <li><strong>Email:</strong> ${data.email}</li>
-          </ul>
-          <p>The user did not complete the payment.</p>
-        `,
+        subject: `❌ [${action}] Training Payment - ${data.name}`,
+        html: adminHtmlStyle(
+          isFailed ? '❌ Payment Failed' : '⚠️ Payment Cancelled/Dropped', 
+          isFailed ? '#dc2626' : '#ea580c', 
+          `User did not complete payment for ${data.trainingName}`, 
+          rows
+        ),
       };
       
       // Customer Mail
@@ -74,11 +103,13 @@ export async function POST(req: Request) {
         to: data.email,
         subject: `Incomplete Payment - Organic Mushroom Farm`,
         html: `
-          <h3>Hello ${data.name},</h3>
-          <p>We noticed you tried to enroll in the <strong>${data.trainingName}</strong> but the payment was not completed.</p>
-          <p>If you faced any issues during checkout or need help, please let us know by replying to this email or contacting our support on WhatsApp at +91 9203544140.</p>
-          <br/>
-          <p>Regards,<br/>Organic Mushroom Farm Team</p>
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <h3 style="color: #ea580c;">Hello ${data.name},</h3>
+            <p>We noticed you tried to enroll in the <strong>${data.trainingName}</strong> but the payment was not completed.</p>
+            <p>If you faced any issues during checkout or need help, please let us know by replying to this email or contacting our support on WhatsApp at <strong>+91 9203544140</strong>.</p>
+            <br/>
+            <p>Regards,<br/><strong>Organic Mushroom Farm Team</strong></p>
+          </div>
         `,
       };
 
@@ -90,46 +121,28 @@ export async function POST(req: Request) {
     // 3. DONE (Registration Complete) (Admin + Customer + PDF)
     if (action === 'DONE') {
       // Admin Mail (Detailed Registration Form)
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">₹${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Payment ID:</td><td style="${rowStyle} ${valueStyle} color: #10b981;">${data.paymentId}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">City & State:</td><td style="${rowStyle} ${valueStyle}">${data.city}, ${data.state}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Experience:</td><td style="${rowStyle} ${valueStyle}">${data.experience}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Interest:</td><td style="${rowStyle} ${valueStyle}">${data.interest?.join(', ')}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Goal:</td><td style="${rowStyle} ${valueStyle}">${data.goal}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Plan Time/Space:</td><td style="${rowStyle} ${valueStyle}">${data.planTime} | ${data.planSpace}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Investment:</td><td style="${rowStyle} ${valueStyle}">${data.investment}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Support Req:</td><td style="${rowStyle} ${valueStyle}">${data.support?.join(', ')}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Source:</td><td style="${rowStyle} ${valueStyle}">${data.source}</td></tr>
+      `;
+
       const adminMailOptions = {
-        from: `"Website Training Form" <${user}>`,
+        from: `"Training Alert" <${user}>`,
         to: adminEmail,
-        subject: `[SUCCESS] New Training Registration - ${data.name}`,
-        html: `
-          <h2>New Training Registration Received</h2>
-          <p><strong>Training Type:</strong> ${data.trainingName} (₹${data.price})</p>
-          <p><strong>Payment ID:</strong> ${data.paymentId}</p>
-          <hr />
-          <h3>1. Personal Details</h3>
-          <ul>
-            <li><strong>Name:</strong> ${data.name}</li>
-            <li><strong>Phone:</strong> ${data.phone}</li>
-            <li><strong>Email:</strong> ${data.email}</li>
-          </ul>
-          <h3>2. Location Details</h3>
-          <ul>
-            <li><strong>State:</strong> ${data.state}</li>
-            <li><strong>City:</strong> ${data.city}</li>
-          </ul>
-          <h3>3. Experience</h3>
-          <p>${data.experience}</p>
-          <h3>4. Mushroom Interest</h3>
-          <p>${data.interest?.join(', ')}</p>
-          <h3>5. Farming Goal</h3>
-          <p>${data.goal}</p>
-          <h3>6. Farming Plan</h3>
-          <ul>
-            <li><strong>Start Time:</strong> ${data.planTime}</li>
-            <li><strong>Space Availability:</strong> ${data.planSpace}</li>
-          </ul>
-          <h3>7. Investment Planning</h3>
-          <p>${data.investment}</p>
-          <h3>8. Support Required</h3>
-          <p>${data.support?.join(', ')}</p>
-          <h3>9. Heard About Us</h3>
-          <p>${data.source}</p>
-          <h3>10. WhatsApp Updates</h3>
-          <p>${data.whatsappUpdate}</p>
-        `,
+        subject: `✅ [SUCCESS] New Training Registration - ${data.name}`,
+        html: adminHtmlStyle('✅ Registration Successful', '#16a34a', `New enrollment for ${data.trainingName}`, rows),
       };
 
       // Customer Mail with PDF Attachment
@@ -150,12 +163,14 @@ export async function POST(req: Request) {
         to: data.email,
         subject: `Registration Successful & Invoice - Organic Mushroom Farm`,
         html: `
-          <h3>Hello ${data.name},</h3>
-          <p>Thank you for registering for the <strong>${data.trainingName}</strong> (₹${data.price}).</p>
-          <p>Your payment (ID: ${data.paymentId}) was successful. We have attached your invoice PDF with this email for your records.</p>
-          <p>Our team will share the training schedule, joining instructions, and other important updates with you through WhatsApp and/or email shortly.</p>
-          <br/>
-          <p>Regards,<br/>Organic Mushroom Farm Team</p>
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <h2 style="color: #16a34a;">Hello ${data.name},</h2>
+            <p>Thank you for registering for the <strong>${data.trainingName}</strong> (₹${data.price}).</p>
+            <p>Your payment (ID: ${data.paymentId}) was successful. We have attached your <strong>invoice PDF</strong> with this email for your records.</p>
+            <p>Our team will share the training schedule, joining instructions, and other important updates with you through WhatsApp and/or email shortly.</p>
+            <br/>
+            <p>Regards,<br/><strong>Organic Mushroom Farm Team</strong></p>
+          </div>
         `,
         attachments
       };
