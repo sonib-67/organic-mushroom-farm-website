@@ -204,7 +204,7 @@ export default function TrainingCheckoutClient() {
   };
 
   return (
-    <div className="min-h-screen dark:bg-[#070707] bg-transparent flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[99] overflow-hidden">
+    <div className="min-h-screen bg-transparent flex flex-col items-center justify-center pt-24 pb-12 px-4 relative z-[99] overflow-hidden">
       {/* Premium Background Effects */}
       <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
         <div className="absolute top-[10%] left-[10%] w-[30rem] h-[30rem] bg-indigo-500/20 dark:opacity-30 opacity-50 rounded-full blur-[100px] mix-blend-screen"></div>
@@ -248,7 +248,7 @@ export default function TrainingCheckoutClient() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative rounded-2xl sm:rounded-[2rem] border dark:border-white/10 border-black/10 dark:bg-[#0c0c0c]/80 bg-white/80 backdrop-blur-2xl shadow-2xl overflow-hidden"
+          className="relative rounded-2xl sm:rounded-[2rem] border dark:border-white/10 border-black/10 dark:bg-black/30 bg-white/40 backdrop-blur-xl shadow-2xl overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500"></div>
           <div className="p-5 sm:p-8">

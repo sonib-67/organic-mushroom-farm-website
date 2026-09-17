@@ -69,8 +69,8 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                 )}
               </div>
 
-              <div className="mt-3 border-b border-gray-200/20 dark:border-gray-700/50 pb-3 mb-3 flex justify-between items-start gap-3">
-                <div>
+              <div className="mt-3 border-b border-gray-200/20 dark:border-gray-700/50 pb-3 mb-3 flex justify-between items-start gap-4 md:gap-5">
+                <div className="flex-1 pr-2">
                   <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{plan.title}</h4>
                   {plan.target && <p className="text-[9px] text-blue-600 dark:text-blue-400 font-medium mb-1.5">{plan.target}</p>}
                   <div className="flex items-baseline gap-1.5">
@@ -82,21 +82,21 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                 </div>
                 {/* Clickable Image with SEO Description */}
                 {(plan as any).image && (
-                  <Link href={`/training-checkout?type=${plan.id}`} className="block overflow-hidden rounded-md border border-gray-200/50 dark:border-gray-700/50 hover:scale-105 transition-transform shrink-0 shadow-sm" prefetch={true}>
+                  <Link href={`/training-checkout?type=${plan.id}`} className="block overflow-hidden rounded-md border border-gray-200/50 dark:border-gray-700/50 hover:scale-105 transition-transform shrink-0 shadow-sm ml-1 md:ml-2" prefetch={true}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img 
                       src={(plan as any).image.url} 
                       alt={(plan as any).image.alt} 
                       title={(plan as any).image.title} 
-                      className="w-[52px] h-[52px] md:w-16 md:h-16 object-cover" 
+                      className="w-[72px] h-[48px] md:w-[90px] md:h-[60px] object-cover" 
                     />
                     <span className="sr-only">{(plan as any).image.seoDesc}</span>
                   </Link>
                 )}
               </div>
 
-              <div className="mb-1 flex flex-row justify-between items-end gap-3">
-                <div className="flex-1">
+              <div className="mb-1 flex flex-row justify-between items-end gap-4 md:gap-5">
+                <div className="flex-1 pr-2">
                   <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-2">
                     {region === 'in' ? 'What you will learn:' : 'Key Learnings:'}
                   </p>
@@ -116,7 +116,7 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                 <Link 
                   prefetch={true}
                   href={`/training-checkout?type=${plan.id}`}
-                  className={`inline-block py-2 px-3 md:px-4 rounded-lg text-center text-[10px] md:text-[11px] font-bold transition-all shadow-md shrink-0 whitespace-nowrap ${i === 1 ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
+                  className={`inline-block py-2.5 px-4 md:px-5 rounded-lg text-center text-[11px] md:text-xs font-bold transition-all shadow-md shrink-0 whitespace-nowrap ${i === 1 ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
                 >
                   {region === 'in' ? 'Join Training →' : 'Enroll Now'}
                 </Link>

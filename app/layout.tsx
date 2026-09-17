@@ -2,11 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { MyceliumBackground } from "@/components/MyceliumBackground";
-import { FloatingWidgetsLayer } from "@/components/FloatingWidgetsLayer";
-import { WhatsAppWidget } from "@/components/WhatsAppWidget";
-import { FloatingBottomMenu } from "@/components/FloatingBottomMenu";
+import { ConditionalWidgets } from "@/components/ConditionalWidgets";
 import "@/app/globals.css";
 
 const inter = Inter({
@@ -188,17 +185,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* Global Footer */}
-        <Footer />
-
-        {/* ================= FLOATING STACK LAYER ================= */}
-        <FloatingWidgetsLayer />
-
-        {/* Right Side: WhatsApp Floating Action */}
-        <WhatsAppWidget />
-
-        {/* Bottom Mobile Scrollable Dock (Zero overlap with floating widgets) */}
-        <FloatingBottomMenu />
+        <ConditionalWidgets />
       </body>
     </html>
   );
