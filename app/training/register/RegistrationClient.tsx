@@ -21,6 +21,7 @@ export default function RegistrationClient() {
   const trainingName = typeParam.includes('advanced') ? 'Advanced Commercial Cultivation' : 'Basic Mushroom Farming Training';
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(1);
 
@@ -56,10 +57,21 @@ export default function RegistrationClient() {
   const whatsappUrl = `https://wa.me/919203544140?text=${encodeURIComponent(whatsappText)}`;
 
   useEffect(() => {
+    if (isSubmitted && pdfUrl) {
+      const link = document.createElement("a");
+      link.href = pdfUrl;
+      link.download = `Invoice_${formData.name.replace(/\s+/g, '_')}_${paymentId}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }, [isSubmitted, pdfUrl, formData.name, paymentId]);
+
+  useEffect(() => {
     if (isSubmitted) {
       const timer = setTimeout(() => {
         window.location.href = whatsappUrl;
-      }, 4000);
+      }, 7000);
       return () => clearTimeout(timer);
     }
   }, [isSubmitted, whatsappUrl]);
@@ -134,7 +146,7 @@ export default function RegistrationClient() {
     doc.setTextColor(100, 100, 100);
     doc.text(`Thank you for registering for our INR ${price} ${trainingName}.`, 14, finalY + 25);
     
-    doc.save(`Invoice_${formData.name.replace(/\s+/g, '_')}_${paymentId}.pdf`);
+    // doc.save is removed so it doesn't download immediately
     return doc.output('datauristring');
   };
 
@@ -147,9 +159,12 @@ export default function RegistrationClient() {
 
     setLoading(true);
 
-    try {
-      // Generate PDF Base64 FIRST
-      const pdfBase64 = generatePDF();
+    // Use setTimeout to allow UI to render loading state before heavy PDF generation blocks thread
+    setTimeout(async () => {
+      try {
+        // Generate PDF Base64 FIRST
+        const pdfBase64 = generatePDF();
+        setPdfUrl(pdfBase64);
 
       const res = await fetch("/api/training-email", {
         method: "POST",
@@ -176,9 +191,10 @@ export default function RegistrationClient() {
     } catch (err) {
       console.error(err);
       alert("Something went wrong while submitting the form. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+      } finally {
+        setLoading(false);
+      }
+    }, 100);
   };
 
   if (isSubmitted) {
@@ -213,6 +229,24 @@ export default function RegistrationClient() {
             >
               Chat with us on WhatsApp
             </a>
+            
+            {pdfUrl && (
+              <button 
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = pdfUrl;
+                  link.download = `Invoice_${formData.name.replace(/\s+/g, '_')}_${paymentId}.pdf`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-900 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 font-bold py-3 px-6 rounded-xl transition-all mb-3 shadow-md"
+              >
+                <Download className="w-5 h-5" />
+                Download Invoice Again
+              </button>
+            )}
+            
             <p className="text-xs text-slate-500 dark:text-slate-400">
               If not redirected automatically, click the button above to share details and start your journey.
             </p>
