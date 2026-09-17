@@ -9,6 +9,12 @@ export const trainingContent = {
         title: "Basic Online Training",
         price: 299,
         feeType: "ONE-TIME FEE",
+        image: {
+          url: "https://res.cloudinary.com/dnw4fpk2y/image/upload/f_auto,q_auto,w_800,dpr_auto/v1789614353/advancemushroomfarmingtraining_pa2zoz.jpg",
+          alt: "₹299 Basic Mushroom Farming Training with commercial farm setup",
+          title: "₹299 Basic Mushroom Farming Training",
+          seoDesc: "Basic mushroom farming training featuring a commercial mushroom farm setup and training facilities."
+        },
         features: [
           { bold: "Basics:", text: "Mushroom growth fundamentals." },
           { bold: "Varieties:", text: "Grow Oyster & Button." },
@@ -24,6 +30,12 @@ export const trainingContent = {
         title: "Commercial Training",
         price: 699,
         feeType: "ONE-TIME FEE",
+        image: {
+          url: "https://res.cloudinary.com/dnw4fpk2y/image/upload/f_auto,q_auto,w_800,dpr_auto/v1789614353/basicmushroomtraining_z7abgb.jpg",
+          alt: "₹699 Advanced Mushroom Farming Training with commercial farm setup",
+          title: "₹699 Advanced Mushroom Farming Training",
+          seoDesc: "Advanced mushroom farming training featuring a commercial mushroom cultivation setup and professional farming facilities."
+        },
         features: [
           { bold: "All Basic Features:", text: "Plus Milky Mushroom." },
           { bold: "Farm Setup:", text: "Low-cost sheds & racks." },

@@ -4,9 +4,8 @@ import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { MyceliumBackground } from "@/components/MyceliumBackground";
-import { AIChatWidget } from "@/components/AIChatWidget";
+import { FloatingWidgetsLayer } from "@/components/FloatingWidgetsLayer";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
-import { StickyJoinTrainingButton } from "@/components/StickyJoinTrainingButton";
 import { FloatingBottomMenu } from "@/components/FloatingBottomMenu";
 import "@/app/globals.css";
 
@@ -193,20 +192,7 @@ export default function RootLayout({
         <Footer />
 
         {/* ================= FLOATING STACK LAYER ================= */}
-        {/* Left Side: AI Chat & Join Training Modal */}
-        <div className="fixed left-3 md:left-[30px] flex flex-col gap-2 md:gap-4 items-start pointer-events-none transition-all duration-300 ease-out bottom-[85px] md:bottom-[20px] z-[99999]">
-          <div className="pointer-events-auto">
-            <AIChatWidget />
-          </div>
-          <div className="pointer-events-auto">
-            <div className="hidden md:block">
-              <StickyJoinTrainingButton size="normal" />
-            </div>
-            <div className="md:hidden">
-              <StickyJoinTrainingButton size="small" />
-            </div>
-          </div>
-        </div>
+        <FloatingWidgetsLayer />
 
         {/* Right Side: WhatsApp Floating Action */}
         <WhatsAppWidget />

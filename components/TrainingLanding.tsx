@@ -69,41 +69,58 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                 )}
               </div>
 
-              <div className="mt-3 border-b border-gray-200/20 dark:border-gray-700/50 pb-3 mb-3">
-                <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{plan.title}</h4>
-                {plan.target && <p className="text-[9px] text-blue-600 dark:text-blue-400 font-medium mb-1.5">{plan.target}</p>}
-                <div className="flex items-baseline gap-1.5">
-                  <span className={`text-xl font-black ${i === 1 ? 'text-purple-700 dark:text-purple-400' : 'text-gray-900 dark:text-white'}`}>
-                    {data.currencySymbol}{plan.price}
-                  </span>
-                  <span className="text-[10px] text-gray-500 font-bold tracking-wide uppercase">{plan.feeType}</span>
+              <div className="mt-3 border-b border-gray-200/20 dark:border-gray-700/50 pb-3 mb-3 flex justify-between items-start gap-3">
+                <div>
+                  <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{plan.title}</h4>
+                  {plan.target && <p className="text-[9px] text-blue-600 dark:text-blue-400 font-medium mb-1.5">{plan.target}</p>}
+                  <div className="flex items-baseline gap-1.5">
+                    <span className={`text-xl font-black ${i === 1 ? 'text-purple-700 dark:text-purple-400' : 'text-gray-900 dark:text-white'}`}>
+                      {data.currencySymbol}{plan.price}
+                    </span>
+                    <span className="text-[10px] text-gray-500 font-bold tracking-wide uppercase">{plan.feeType}</span>
+                  </div>
                 </div>
+                {/* Clickable Image with SEO Description */}
+                {(plan as any).image && (
+                  <Link href={`/training-checkout?type=${plan.id}`} className="block overflow-hidden rounded-md border border-gray-200/50 dark:border-gray-700/50 hover:scale-105 transition-transform shrink-0 shadow-sm" prefetch={true}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img 
+                      src={(plan as any).image.url} 
+                      alt={(plan as any).image.alt} 
+                      title={(plan as any).image.title} 
+                      className="w-[52px] h-[52px] md:w-16 md:h-16 object-cover" 
+                    />
+                    <span className="sr-only">{(plan as any).image.seoDesc}</span>
+                  </Link>
+                )}
               </div>
 
-              <div className="mb-4">
-                <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-2">
-                  {region === 'in' ? 'What you will learn:' : 'Key Learnings:'}
-                </p>
-                <ul className="space-y-1.5">
-                  {plan.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-start gap-1.5 text-[11px]">
-                      <CheckCircle2 className={`w-3 h-3 shrink-0 mt-0.5 ${i === 1 ? 'text-purple-500' : 'text-gray-400 dark:text-gray-500'}`} />
-                      <span className="text-gray-700 dark:text-gray-300 leading-tight">
-                        {feat.bold && <strong className="text-gray-900 dark:text-gray-100 font-semibold">{feat.bold} </strong>}
-                        {feat.text}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <div className="mb-1 flex flex-row justify-between items-end gap-3">
+                <div className="flex-1">
+                  <p className="text-[9px] font-bold text-gray-500 uppercase tracking-wider mb-2">
+                    {region === 'in' ? 'What you will learn:' : 'Key Learnings:'}
+                  </p>
+                  <ul className="space-y-1.5">
+                    {plan.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-1.5 text-[11px]">
+                        <CheckCircle2 className={`w-3 h-3 shrink-0 mt-0.5 ${i === 1 ? 'text-purple-500' : 'text-gray-400 dark:text-gray-500'}`} />
+                        <span className="text-gray-700 dark:text-gray-300 leading-tight">
+                          {feat.bold && <strong className="text-gray-900 dark:text-gray-100 font-semibold">{feat.bold} </strong>}
+                          {feat.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <Link 
-                prefetch={true}
-                href={`/training-checkout?type=${plan.id}`}
-                className={`block w-full py-2 px-3 rounded-lg text-center text-[11px] font-bold transition-all shadow-md ${i === 1 ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
-              >
-                {region === 'in' ? 'Join Mushroom Training →' : 'Enroll Now'}
-              </Link>
+                <Link 
+                  prefetch={true}
+                  href={`/training-checkout?type=${plan.id}`}
+                  className={`inline-block py-2 px-3 md:px-4 rounded-lg text-center text-[10px] md:text-[11px] font-bold transition-all shadow-md shrink-0 whitespace-nowrap ${i === 1 ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
+                >
+                  {region === 'in' ? 'Join Training →' : 'Enroll Now'}
+                </Link>
+              </div>
             </div>
           ))}
         </div>
