@@ -123,6 +123,31 @@ export default function TrainingCheckoutClient() {
             value: payload.amount / 100,
             currency: payload.currency
           });
+          
+          // Send PAYMENT_DONE mail right after Razorpay completes successfully
+          fetch('/api/training-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'PAYMENT_DONE',
+              data: {
+                name: formData.name,
+                phone: formData.mobile,
+                email: formData.email,
+                price: selectedPrice,
+                trainingName: selectedTitle + ' Training',
+                paymentId: response.razorpay_payment_id
+              }
+            })
+          }).catch(console.error);
+
+          trackPaymentStep('PaymentSuccess', {
+            payment_id: response.razorpay_payment_id,
+            order_id: response.razorpay_order_id,
+            content_name: selectedProductType,
+            value: payload.amount / 100,
+            currency: payload.currency
+          });
 
           // Redirect to registration form
           setTimeout(() => {

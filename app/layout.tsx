@@ -99,20 +99,34 @@ export default function RootLayout({
         <meta key="520546c7ef1f49ea" name="google-site-verification" content="520546c7ef1f49ea" />
         <meta key="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" name="google-site-verification" content="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" />
         {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        
+
+        {/* Google Analytics 4 & Google Ads */}
+        
+        
+
+        {/* Google AdSense */}
+        
+
+        {/* Ahrefs Analytics */}
+        
+
+        {/* Meta Pixel */}
+        
+      </head>
+      <body className="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-T6PD72F4');`}
         </Script>
-
-        {/* Google Analytics 4 & Google Ads */}
-        <Script
+<Script
           src="https://www.googletagmanager.com/gtag/js?id=G-DQ7XCLKDW6"
           strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+<Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -121,23 +135,17 @@ export default function RootLayout({
             gtag('config', 'AW-11268929095');
           `}
         </Script>
-
-        {/* Google AdSense */}
-        <Script
+<Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8976157136173429"
           strategy="afterInteractive"
           crossOrigin="anonymous"
         />
-
-        {/* Ahrefs Analytics */}
-        <Script
+<Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="1AeC4dCToDOOlFFul5svgA"
           strategy="afterInteractive"
         />
-
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+<Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -151,8 +159,7 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-      </head>
-      <body className="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+
         {/* Google Tag Manager (noscript fallback) */}
         <noscript>
           <iframe

@@ -283,9 +283,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 1 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 1 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-4">
                     <div>
                       <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">Full Name*</label>
@@ -300,9 +300,9 @@ export default function RegistrationClient() {
                       <input type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your email address" />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 2: Location Details */}
@@ -314,9 +314,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 2 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 2 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-4">
                     <div>
                       <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">State*</label>
@@ -327,9 +327,9 @@ export default function RegistrationClient() {
                       <input type="text" required value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your city or district" />
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 3: Mushroom Farming Experience */}
@@ -341,9 +341,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 3 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 3 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">What is your current level of experience in mushroom farming?*</label>
                     {['Beginner – I am completely new to mushroom farming', 'Basic Knowledge – I have some knowledge', 'Experienced – I am already involved in mushroom farming'].map((opt, i) => (
@@ -353,9 +353,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 4: Mushroom Interest */}
@@ -367,9 +367,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 4 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 4 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Which mushroom are you interested in learning about?*</label>
                     {['Oyster Mushroom', 'Button Mushroom', 'Milky Mushroom', 'All of the above', 'Other'].map((opt, i) => (
@@ -379,9 +379,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 5: Farming Goal */}
@@ -393,9 +393,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 5 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 5 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Why are you joining this training?*</label>
                     {['I want to start a mushroom farming business', 'I want to learn mushroom farming', 'I want to start mushroom farming as a side business', 'I already have a farm and want to improve my production', 'I am exploring mushroom farming as a business opportunity', 'Other'].map((opt, i) => (
@@ -405,9 +405,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 6: Farming Plan */}
@@ -419,9 +419,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 6 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 6 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-6">
                     <div className="space-y-3">
                       <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">When are you planning to start mushroom farming?*</label>
@@ -442,9 +442,9 @@ export default function RegistrationClient() {
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 7: Investment Planning */}
@@ -456,9 +456,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 7 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 7 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">What is your approximate planned investment?</label>
                     {['Below ₹25,000', '₹25,000–₹50,000', '₹50,000–₹1 Lakh', '₹1–5 Lakh', 'Not decided yet'].map((opt, i) => (
@@ -468,9 +468,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 8: Support Required */}
@@ -482,9 +482,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 8 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 8 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">What type of support may you need after the training?</label>
                     {['Mushroom Farm Setup', 'Mushroom Spawn', 'Business Planning', 'Marketing Support', 'Government Subsidy Information', 'Consultancy', 'I am not sure yet'].map((opt, i) => (
@@ -494,9 +494,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 9: How Did You Hear About Us? */}
@@ -508,9 +508,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 9 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 9 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">How did you hear about our Mushroom Farming Training?*</label>
                     {['Google Search', 'Facebook', 'Instagram', 'YouTube', 'WhatsApp', 'Friend / Referral', 'Other'].map((opt, i) => (
@@ -520,9 +520,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Section 10: Communication Preference */}
@@ -534,9 +534,9 @@ export default function RegistrationClient() {
               </h3>
               <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 10 ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
+            
               {activeAccordion === 10 && (
-                <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="overflow-hidden">
+                <div className="overflow-hidden animate-in fade-in duration-200">
                   <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
                     <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Would you like to receive training-related updates on WhatsApp?*</label>
                     {['Yes', 'No'].map((opt, i) => (
@@ -546,9 +546,9 @@ export default function RegistrationClient() {
                       </label>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
+            
           </div>
 
           {/* Declaration */}
