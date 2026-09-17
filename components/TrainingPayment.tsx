@@ -60,6 +60,23 @@ export default function TrainingPayment({ title, amount }: { title: string; amou
           name: formData.name,
         },
         handler: async function (response: any) {
+          // Notify Admin immediately about the completed payment
+          fetch('/api/training-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'PAYMENT_COMPLETED',
+              data: {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email,
+                price: amount === 699 ? '₹699' : '₹299',
+                trainingName: title + ' Training',
+                paymentId: response.razorpay_payment_id
+              }
+            })
+          }).catch(console.error);
+
           // Send verification request to our backend (optional, webhook handles emails)
           // Redirect to success page
           router.push("/training/success");

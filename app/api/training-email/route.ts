@@ -3,201 +3,211 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { action, data, pdfBase64 } = await req.json();
+    const body = await req.json();
+    const { action, data, pdfBase64 } = body;
+
+    const user =
+      process.env.EMAIL_USER ||
+      process.env.SMTP_EMAIL ||
+      "organicmushroomsfarms@gmail.com";
+    const pass =
+      process.env.EMAIL_PASS ||
+      process.env.SMTP_PASSWORD ||
+      "jzqqntulcifrfyul";
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: "gmail",
       auth: {
-        user: 'gamingbuddyzone@gmail.com',
-        pass: 'ymuuvryfuvgndjod'
-      }
+        user,
+        pass,
+      },
     });
 
-    let adminSubject = '';
-    let adminHtml = '';
-    let sendToCustomer = false;
-    let customerSubject = '';
-    let customerHtml = '';
+    const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER || 'gamingbuddyzone@gmail.com';
+    const currentTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'short', timeStyle: 'medium' });
 
-    if (action === 'PAYMENT_DONE') {
-      adminSubject = `🟢 Payment Successful: ${data.name} (${data.trainingName})`;
-      adminHtml = `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #0f172a;">
-          <div style="background: #22c55e; padding: 20px; text-align: center;">
-            <h2 style="color: white; margin: 0; font-size: 20px;">Payment Successful</h2>
-            <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0; font-size: 14px;">User paid successfully and is now filling registration form.</p>
-          </div>
-          <div style="padding: 24px; color: #f8fafc;">
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; text-align: left;">
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8; width: 40%;">Name</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.name}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Phone</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.phone}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Email</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.email}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Training</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.trainingName}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Amount</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.price}</td></tr>
-            </table>
-          </div>
+    // CSS Styling for beautiful Admin emails (dark/light mode compatible)
+    const adminHtmlStyle = (headerTitle: string, headerColor: string, headerSubtitle: string, contentRows: string) => `
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #1a1a1a; padding: 20px; color: #e5e5e5; max-width: 600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <div style="background-color: ${headerColor}; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+          <h2 style="margin: 0; color: #ffffff; font-size: 22px; font-weight: 700;">${headerTitle}</h2>
+          <p style="margin: 5px 0 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">${headerSubtitle}</p>
         </div>
-      `;
-      sendToCustomer = false;
-    }
+        
+        <table style="width: 100%; border-collapse: collapse;">
+          ${contentRows}
+        </table>
+        
+        <div style="text-align: center; margin-top: 30px; font-size: 12px; color: #888;">
+          Organic Mushrooms Farm • Real-time Training Checkout Tracker
+        </div>
+      </div>
+    `;
 
+    const rowStyle = `border-bottom: 1px solid #333; padding: 12px 5px;`;
+    const labelStyle = `font-weight: 600; color: #b3b3b3; width: 35%;`;
+    const valueStyle = `font-weight: 500; color: #ffffff;`;
+    const highlightStyle = `font-weight: 700; color: #f59e0b;`;
+
+    // 1. INITIATED (Admin Only)
     if (action === 'INITIATED') {
-      adminSubject = `🟡 Payment Initiated: ${data.name} (${data.trainingName})`;
-      adminHtml = `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #0f172a;">
-          <div style="background: #f59e0b; padding: 20px; text-align: center;">
-            <h2 style="color: white; margin: 0; font-size: 20px;">Payment Initiated</h2>
-            <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0; font-size: 14px;">User clicked Pay Now.</p>
-          </div>
-          <div style="padding: 24px; color: #f8fafc;">
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; text-align: left;">
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8; width: 40%;">Name</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.name}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Phone</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.phone}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Email</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.email}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Training</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.trainingName}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Amount</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.price}</td></tr>
-            </table>
-          </div>
-        </div>
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
       `;
-      sendToCustomer = false;
+
+      const mailOptions = {
+        from: `"Training Alert" <${user}>`,
+        to: adminEmail,
+        subject: `⚡ [Initiated] Training Payment - ${data.name}`,
+        html: adminHtmlStyle('⚡ Training Payment Initiated', '#f59e0b', `User opened checkout for ${data.trainingName}`, rows),
+      };
+      await transporter.sendMail(mailOptions);
+      return NextResponse.json({ success: true });
     }
 
+    // 2. CANCELLED / FAILED (Admin + Customer)
     if (action === 'CANCELLED' || action === 'FAILED') {
       const isFailed = action === 'FAILED';
-      adminSubject = `${isFailed ? '🔴' : '🟡'} Payment ${isFailed ? 'Failed' : 'Cancelled'}: ${data.name} (${data.trainingName})`;
-      adminHtml = `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #0f172a;">
-          <div style="background: ${isFailed ? '#ef4444' : '#eab308'}; padding: 20px; text-align: center;">
-            <h2 style="color: white; margin: 0; font-size: 20px;">Payment ${isFailed ? 'Failed' : 'Cancelled'}</h2>
-            <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0; font-size: 14px;">User did not complete the transaction.</p>
-          </div>
-          <div style="padding: 24px; color: #f8fafc;">
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; text-align: left;">
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8; width: 40%;">Name</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.name}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Phone</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.phone}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Email</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.email}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Training</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.trainingName}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Amount</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.price}</td></tr>
-            </table>
-          </div>
-        </div>
-      `;
-      sendToCustomer = false;
-    }
-
-    if (action === 'DONE') {
-      adminSubject = `🟢 Registration Completed: ${data.name} (${data.trainingName})`;
       
-      let formFieldsHtml = '';
-      const skipKeys = ['trainingName', 'price', 'paymentId', 'name', 'phone', 'email'];
-      
-      for (const [key, value] of Object.entries(data)) {
-        if (!skipKeys.includes(key)) {
-          let displayValue = Array.isArray(value) ? value.join(', ') : value;
-          let displayKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
-          formFieldsHtml += `
-            <tr>
-              <td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">${displayKey}</td>
-              <td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${displayValue || 'N/A'}</td>
-            </tr>
-          `;
-        }
-      }
-
-      adminHtml = `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #0f172a;">
-          <div style="background: #22c55e; padding: 20px; text-align: center;">
-            <h2 style="color: white; margin: 0; font-size: 20px;">Registration Completed</h2>
-            <p style="color: rgba(255,255,255,0.9); margin: 5px 0 0; font-size: 14px;">User successfully paid and submitted the registration form.</p>
-          </div>
-          <div style="padding: 24px; color: #f8fafc;">
-            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; text-align: left;">
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8; width: 40%;">Name</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.name}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Phone</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.phone}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Email</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.email}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Training</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.trainingName}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Amount</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.price}</td></tr>
-              <tr><td style="padding: 12px; border-bottom: 1px solid #1e293b; color: #94a3b8;">Payment ID</td><td style="padding: 12px; border-bottom: 1px solid #1e293b; font-weight: bold; color: #f8fafc;">${data.paymentId || 'N/A'}</td></tr>
-              ${formFieldsHtml}
-            </table>
-          </div>
-        </div>
+      // Admin Mail
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
       `;
-      
-      sendToCustomer = true;
-      customerSubject = `Welcome to ${data.trainingName} - Registration Confirmed`;
-      customerHtml = `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background: #0f172a;">
-          <div style="background: #22c55e; padding: 30px 20px; text-align: center;">
-            <h2 style="color: white; margin: 0; font-size: 24px;">Welcome Aboard!</h2>
-            <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0; font-size: 16px;">Your registration is confirmed.</p>
-          </div>
-          <div style="padding: 30px; color: #f8fafc;">
-            <p style="margin-top: 0; font-size: 16px; line-height: 1.6;">Hi <strong>${data.name}</strong>,</p>
-            <p style="font-size: 16px; line-height: 1.6;">Thank you for registering for the <strong>${data.trainingName}</strong>. We have successfully received your payment of ${data.price}.</p>
-            <p style="font-size: 16px; line-height: 1.6;">Our team will contact you shortly via WhatsApp (${data.phone}) with the training schedule, access links, and further instructions.</p>
-            
-            <div style="background: #1e293b; border-radius: 8px; padding: 20px; margin: 25px 0;">
-              <h3 style="margin-top: 0; color: #22c55e; font-size: 16px;">What's Next?</h3>
-              <ul style="margin-bottom: 0; padding-left: 20px; color: #cbd5e1; font-size: 15px; line-height: 1.6;">
-                <li>You will be added to our WhatsApp support group.</li>
-                <li>Training materials and PDF notes will be shared.</li>
-                <li>Please find your invoice attached to this email.</li>
-              </ul>
-            </div>
-            
-            <p style="font-size: 15px; color: #94a3b8; margin-bottom: 0;">Best regards,<br><strong>Organic Mushrooms Farm Team</strong></p>
-          </div>
-        </div>
-      `;
-    }
 
-    if (adminHtml && adminSubject) {
-      const mailOptionsAdmin = {
-        from: '"Organic Mushrooms" <gamingbuddyzone@gmail.com>',
-        to: 'gamingbuddyzone@gmail.com',
-        subject: adminSubject,
-        html: adminHtml,
-        attachments: [] as any[]
+      const adminMailOptions = {
+        from: `"Training Alert" <${user}>`,
+        to: adminEmail,
+        subject: `❌ [${action}] Training Payment - ${data.name}`,
+        html: adminHtmlStyle(
+          isFailed ? '❌ Payment Failed' : '⚠️ Payment Cancelled/Dropped', 
+          isFailed ? '#dc2626' : '#ea580c', 
+          `User did not complete payment for ${data.trainingName}`, 
+          rows
+        ),
       };
       
-      if (action === 'DONE' && pdfBase64) {
-         const base64Data = pdfBase64.replace(/^data:application\/pdf;base64,/, "");
-         mailOptionsAdmin.attachments = [{
-           filename: `Invoice_${data.name.replace(/\s+/g, '_')}_${data.paymentId || 'N/A'}.pdf`,
-           content: Buffer.from(base64Data, 'base64'),
-           contentType: 'application/pdf'
-         }];
-      }
-
-      await transporter.sendMail(mailOptionsAdmin);
-    }
-
-    if (sendToCustomer && customerHtml && customerSubject && data.email) {
-      const mailOptionsCustomer = {
-        from: '"Organic Mushrooms" <gamingbuddyzone@gmail.com>',
+      // Customer Mail
+      const customerMailOptions = {
+        from: `"Organic Mushroom Farm" <${user}>`,
+        replyTo: "support@organicmushroomsfarm.com",
         to: data.email,
-        subject: customerSubject,
-        html: customerHtml,
-        attachments: [] as any[]
+        subject: `Incomplete Payment - Organic Mushroom Farm`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <h3 style="color: #ea580c;">Hello ${data.name},</h3>
+            <p>We noticed you tried to enroll in the <strong>${data.trainingName}</strong> but the payment was not completed.</p>
+            <p>If you faced any issues during checkout or need help, please let us know by replying to this email or contacting our support on WhatsApp at <strong>+91 9203544140</strong>.</p>
+            <br/>
+            <p>Regards,<br/><strong>Organic Mushroom Farm Team</strong></p>
+          </div>
+        `,
       };
-      
-      if (pdfBase64) {
-         const base64Data = pdfBase64.replace(/^data:application\/pdf;base64,/, "");
-         mailOptionsCustomer.attachments = [{
-           filename: `Invoice_${data.name.replace(/\s+/g, '_')}_${data.paymentId || 'N/A'}.pdf`,
-           content: Buffer.from(base64Data, 'base64'),
-           contentType: 'application/pdf'
-         }];
-      }
 
-      await transporter.sendMail(mailOptionsCustomer);
+      await transporter.sendMail(adminMailOptions);
+      if (data.email) await transporter.sendMail(customerMailOptions);
+      return NextResponse.json({ success: true });
     }
 
-    return NextResponse.json({ success: true, message: 'Email logic processed' });
-  } catch (error) {
-    console.error('Email error:', error);
-    return NextResponse.json({ success: false, error: 'Failed to send email' }, { status: 500 });
+    // 3. DONE (Registration Complete) (Admin + Customer + PDF)
+    if (action === 'DONE') {
+      // Admin Mail (Detailed Registration Form)
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Payment ID:</td><td style="${rowStyle} ${valueStyle} color: #10b981;">${data.paymentId}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">City & State:</td><td style="${rowStyle} ${valueStyle}">${data.city}, ${data.state}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Experience:</td><td style="${rowStyle} ${valueStyle}">${data.experience}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Interest:</td><td style="${rowStyle} ${valueStyle}">${data.interest?.join(', ')}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Goal:</td><td style="${rowStyle} ${valueStyle}">${data.goal}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Plan Time/Space:</td><td style="${rowStyle} ${valueStyle}">${data.planTime} | ${data.planSpace}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Investment:</td><td style="${rowStyle} ${valueStyle}">${data.investment}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Support Req:</td><td style="${rowStyle} ${valueStyle}">${data.support?.join(', ')}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Source:</td><td style="${rowStyle} ${valueStyle}">${data.source}</td></tr>
+      `;
+
+      const adminMailOptions = {
+        from: `"Training Alert" <${user}>`,
+        to: adminEmail,
+        subject: `✅ [SUCCESS] New Training Registration - ${data.name}`,
+        html: adminHtmlStyle('✅ Registration Successful', '#16a34a', `New enrollment for ${data.trainingName}`, rows),
+      };
+
+      // Customer Mail with PDF Attachment
+      let attachments: any[] = [];
+      if (pdfBase64) {
+        // Strip the data:application/pdf;filename=generated.pdf;base64, part if present
+        const base64Data = pdfBase64.split('base64,')[1] || pdfBase64;
+        attachments = [{
+          filename: `Invoice_${data.name.replace(/\s+/g, '_')}_${data.paymentId}.pdf`,
+          content: base64Data,
+          encoding: 'base64'
+        }];
+      }
+
+      const customerMailOptions = {
+        from: `"Organic Mushroom Farm" <${user}>`,
+        replyTo: "support@organicmushroomsfarm.com",
+        to: data.email,
+        subject: `Registration Successful & Invoice - Organic Mushroom Farm`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <h2 style="color: #16a34a;">Hello ${data.name},</h2>
+            <p>Thank you for registering for the <strong>${data.trainingName}</strong> (${data.price}).</p>
+            <p>Your payment (ID: ${data.paymentId}) was successful. We have attached your <strong>invoice PDF</strong> with this email for your records.</p>
+            <p>Our team will share the training schedule, joining instructions, and other important updates with you through WhatsApp and/or email shortly.</p>
+            <br/>
+            <p>Regards,<br/><strong>Organic Mushroom Farm Team</strong></p>
+          </div>
+        `,
+        attachments
+      };
+
+      await transporter.sendMail(adminMailOptions);
+      if (data.email) await transporter.sendMail(customerMailOptions);
+      
+      return NextResponse.json({ success: true });
+    }
+
+    
+    // 4. PAYMENT_COMPLETED (Admin Only) - When Razorpay is successful before registration form
+    if (action === 'PAYMENT_COMPLETED') {
+      const rows = `
+        <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Payment ID:</td><td style="${rowStyle} ${valueStyle} color: #10b981;">${data.paymentId}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
+      `;
+
+      const adminMailOptions = {
+        from: `"Training Alert" <${user}>`,
+        to: adminEmail,
+        subject: `💳 [PAID] Payment Received - ${data.name}`,
+        html: adminHtmlStyle('💳 Payment Completed!', '#3b82f6', `User successfully paid for ${data.trainingName}, pending registration form submission.`, rows),
+      };
+
+      await transporter.sendMail(adminMailOptions);
+      return NextResponse.json({ success: true });
+    }
+
+    return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
+  } catch (error: any) {
+    console.error('Training Email API Error:', error);
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }

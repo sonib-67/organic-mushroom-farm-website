@@ -116,20 +116,13 @@ export default function TrainingCheckoutClient() {
           // Notify Formspree that payment is successful
           // We no longer send DONE from here, we will send it from Registration form submission.
 
-          trackPaymentStep('PaymentSuccess', {
-            payment_id: response.razorpay_payment_id,
-            order_id: response.razorpay_order_id,
-            content_name: selectedProductType,
-            value: payload.amount / 100,
-            currency: payload.currency
-          });
           
-          // Send PAYMENT_DONE mail right after Razorpay completes successfully
+          // Notify Admin immediately about the completed payment
           fetch('/api/training-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              action: 'PAYMENT_DONE',
+              action: 'PAYMENT_COMPLETED',
               data: {
                 name: formData.name,
                 phone: formData.mobile,
