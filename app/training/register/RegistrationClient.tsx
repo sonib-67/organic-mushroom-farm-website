@@ -59,7 +59,7 @@ export default function RegistrationClient() {
     if (isSubmitted) {
       const timer = setTimeout(() => {
         window.location.href = whatsappUrl;
-      }, 1500);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [isSubmitted, whatsappUrl]);

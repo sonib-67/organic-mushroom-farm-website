@@ -69,7 +69,7 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                 )}
               </div>
 
-              <div className="mt-3 flex justify-between items-start gap-4 md:gap-5 mb-2">
+              <div className="mt-3 flex justify-between items-stretch gap-4 md:gap-5 mb-2">
                 <div className="flex-1 pr-2">
                   <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-0.5">{plan.title}</h4>
                   {plan.target && <p className="text-[9px] text-blue-600 dark:text-blue-400 font-medium mb-1.5">{plan.target}</p>}
@@ -113,18 +113,15 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                       <span className="sr-only">{(plan as any).image.seoDesc}</span>
                     </Link>
                   )}
+                  
+                  <Link 
+                    prefetch={true}
+                    href={`/training-checkout?type=${plan.id}`}
+                    className={`w-full py-2.5 px-4 rounded-lg text-center text-[11px] md:text-xs font-bold transition-all shadow-md shrink-0 whitespace-nowrap mt-auto ${i === 1 ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
+                  >
+                    {region === 'in' ? 'Join Training →' : 'Enroll Now'}
+                  </Link>
                 </div>
-              </div>
-              
-              {/* Button moved to the bottom of the card */}
-              <div className="mt-4 pt-3 border-t border-gray-100/10 flex justify-center">
-                <Link 
-                  prefetch={true}
-                  href={`/training-checkout?type=${plan.id}`}
-                  className={`w-full max-w-[280px] py-3 px-4 rounded-lg text-center text-[12px] md:text-sm font-bold transition-all shadow-md shrink-0 whitespace-nowrap ${i === 1 ? 'bg-purple-600 hover:bg-purple-700 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
-                >
-                  {region === 'in' ? 'Join Training →' : 'Enroll Now'}
-                </Link>
               </div>
             </div>
           ))}

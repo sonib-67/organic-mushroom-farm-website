@@ -87,7 +87,7 @@ Thank you.`;
     if (name !== 'N/A' || paymentId !== 'N/A') {
       const timer = setTimeout(() => {
         window.location.href = whatsappUrl;
-      }, 1500);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [paymentId, name, phone, email, type, whatsappUrl, courseOrServiceName]);
