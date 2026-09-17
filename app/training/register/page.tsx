@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RegistrationPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#070707] flex items-center justify-center text-white">Loading...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-transparent flex items-center justify-center text-white">Loading...</div>}>
       <RegistrationClient />
     </Suspense>
   );
