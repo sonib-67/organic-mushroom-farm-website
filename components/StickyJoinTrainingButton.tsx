@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { BookOpen } from "lucide-react";
 import { TrainingModal } from "@/app/components/TrainingModal";
@@ -11,6 +12,7 @@ export const StickyJoinTrainingButton = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleMobileMenuToggle = (e: CustomEvent) => {
@@ -29,6 +31,10 @@ export const StickyJoinTrainingButton = ({
       window.removeEventListener('mobileMenuToggle', handleMobileMenuToggle as EventListener);
     };
   }, []);
+
+  if (pathname === "/training") {
+    return null;
+  }
 
   return (
     <>
