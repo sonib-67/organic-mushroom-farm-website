@@ -6,13 +6,20 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { action, data, pdfBase64 } = body;
 
+    const user =
+      process.env.EMAIL_USER ||
+      process.env.SMTP_EMAIL ||
+      "organicmushroomsfarms@gmail.com";
+    const pass =
+      process.env.EMAIL_PASS ||
+      process.env.SMTP_PASSWORD ||
+      "jzqqntulcifrfyul";
+
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.SMTP_PORT || '465'),
-      secure: true,
+      service: "gmail",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        user,
+        pass,
       },
     });
 
@@ -21,7 +28,7 @@ export async function POST(req: Request) {
     // 1. INITIATED (Admin Only)
     if (action === 'INITIATED') {
       const mailOptions = {
-        from: `"Organic Mushroom Farm" <${process.env.SMTP_USER}>`,
+        from: `"Website Training Form" <${user}>`,
         to: adminEmail,
         subject: `[Initiated] Training Payment - ${data.name}`,
         html: `
@@ -36,7 +43,7 @@ export async function POST(req: Request) {
           <p>User is currently on the payment gateway.</p>
         `,
       };
-      if (process.env.SMTP_USER) await transporter.sendMail(mailOptions);
+      await transporter.sendMail(mailOptions);
       return NextResponse.json({ success: true });
     }
 
@@ -44,7 +51,7 @@ export async function POST(req: Request) {
     if (action === 'CANCELLED' || action === 'FAILED') {
       // Admin Mail
       const adminMailOptions = {
-        from: `"Organic Mushroom Farm" <${process.env.SMTP_USER}>`,
+        from: `"Website Training Form" <${user}>`,
         to: adminEmail,
         subject: `[${action}] Training Payment - ${data.name}`,
         html: `
@@ -62,7 +69,8 @@ export async function POST(req: Request) {
       
       // Customer Mail
       const customerMailOptions = {
-        from: `"Organic Mushroom Farm" <${process.env.SMTP_USER}>`,
+        from: `"Organic Mushroom Farm" <${user}>`,
+        replyTo: "support@organicmushroomsfarm.com",
         to: data.email,
         subject: `Incomplete Payment - Organic Mushroom Farm`,
         html: `
@@ -74,10 +82,8 @@ export async function POST(req: Request) {
         `,
       };
 
-      if (process.env.SMTP_USER) {
-        await transporter.sendMail(adminMailOptions);
-        if (data.email) await transporter.sendMail(customerMailOptions);
-      }
+      await transporter.sendMail(adminMailOptions);
+      if (data.email) await transporter.sendMail(customerMailOptions);
       return NextResponse.json({ success: true });
     }
 
@@ -85,7 +91,7 @@ export async function POST(req: Request) {
     if (action === 'DONE') {
       // Admin Mail (Detailed Registration Form)
       const adminMailOptions = {
-        from: `"Organic Mushroom Farm" <${process.env.SMTP_USER}>`,
+        from: `"Website Training Form" <${user}>`,
         to: adminEmail,
         subject: `[SUCCESS] New Training Registration - ${data.name}`,
         html: `
@@ -139,7 +145,8 @@ export async function POST(req: Request) {
       }
 
       const customerMailOptions = {
-        from: `"Organic Mushroom Farm" <${process.env.SMTP_USER}>`,
+        from: `"Organic Mushroom Farm" <${user}>`,
+        replyTo: "support@organicmushroomsfarm.com",
         to: data.email,
         subject: `Registration Successful & Invoice - Organic Mushroom Farm`,
         html: `
@@ -153,10 +160,9 @@ export async function POST(req: Request) {
         attachments
       };
 
-      if (process.env.SMTP_USER) {
-        await transporter.sendMail(adminMailOptions);
-        if (data.email) await transporter.sendMail(customerMailOptions);
-      }
+      await transporter.sendMail(adminMailOptions);
+      if (data.email) await transporter.sendMail(customerMailOptions);
+      
       return NextResponse.json({ success: true });
     }
 

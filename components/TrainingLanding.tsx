@@ -88,7 +88,7 @@ export default function TrainingLanding({ region }: { region: "in" | "us" }) {
                       src={(plan as any).image.url} 
                       alt={(plan as any).image.alt} 
                       title={(plan as any).image.title} 
-                      className="w-[110px] h-[72px] md:w-[140px] md:h-[90px] object-cover" 
+                      className="w-[150px] sm:w-[180px] h-auto object-contain bg-white dark:bg-black" 
                     />
                     <span className="sr-only">{(plan as any).image.seoDesc}</span>
                   </Link>
