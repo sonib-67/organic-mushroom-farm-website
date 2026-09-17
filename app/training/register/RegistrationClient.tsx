@@ -134,7 +134,8 @@ export default function RegistrationClient() {
     doc.setTextColor(100, 100, 100);
     doc.text(`Thank you for registering for our INR ${price} ${trainingName}.`, 14, finalY + 25);
     
-    doc.save(`Invoice_${formData.name.replace(/\\s+/g, '_')}_${paymentId}.pdf`);
+    doc.save(`Invoice_${formData.name.replace(/\s+/g, '_')}_${paymentId}.pdf`);
+    return doc.output('datauristring');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -147,23 +148,27 @@ export default function RegistrationClient() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/registration-mail", {
+      // Generate PDF Base64 FIRST
+      const pdfBase64 = generatePDF();
+
+      const res = await fetch("/api/training-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...formData,
-          trainingType: trainingName,
-          price: price,
-          paymentId: paymentId
+          action: 'DONE',
+          data: {
+            ...formData,
+            trainingName: trainingName,
+            price: price,
+            paymentId: paymentId
+          },
+          pdfBase64: pdfBase64
         })
       });
 
       if (!res.ok) {
         throw new Error("Failed to submit form data");
       }
-
-      // Generate PDF
-      generatePDF();
 
       // Show success
       setIsSubmitted(true);

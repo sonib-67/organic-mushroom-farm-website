@@ -5,7 +5,7 @@ import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCh
 import { useRouter, useSearchParams } from 'next/navigation';
 import { trackPaymentStep, pixelTrackCustom } from '@/lib/utils/pixel';
 import { loadRazorpayScript } from '@/lib/utils/razorpay';
-import { sendPaymentNotificationToFormspree } from '@/lib/utils/formspree';
+// Removed Formspree import
 
 export default function TrainingCheckoutClient() {
   const router = useRouter();
@@ -81,15 +81,20 @@ export default function TrainingCheckoutClient() {
       if (!res.ok) throw new Error(payload?.error || 'Failed to fetch payload');
 
       // Send INITIATED notification to Formspree
-      sendPaymentNotificationToFormspree({
-        name: formData.name,
-        phone: formData.mobile,
-        email: formData.email,
-        productType: `${selectedTitle} Training`,
-        amount: selectedPrice,
-        status: 'INITIATED',
-        orderId: payload.id
-      });
+      fetch('/api/training-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'INITIATED',
+          data: {
+            name: formData.name,
+            phone: formData.mobile,
+            email: formData.email,
+            price: selectedPrice,
+            trainingName: selectedTitle + ' Training',
+          }
+        })
+      }).catch(console.error);
 
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || payload.key,
@@ -109,16 +114,7 @@ export default function TrainingCheckoutClient() {
         },
         handler: function (response: any) {
           // Notify Formspree that payment is successful
-          sendPaymentNotificationToFormspree({
-            name: formData.name,
-            phone: formData.mobile,
-            email: formData.email,
-            productType: `${selectedTitle} Training`,
-            amount: selectedPrice,
-            status: 'DONE',
-            orderId: payload.id,
-            paymentId: response.razorpay_payment_id
-          });
+          // We no longer send DONE from here, we will send it from Registration form submission.
 
           trackPaymentStep('PaymentSuccess', {
             payment_id: response.razorpay_payment_id,
@@ -137,15 +133,20 @@ export default function TrainingCheckoutClient() {
           ondismiss: function() {
             setLoading(false);
             // Notify Formspree that payment form cancelled/not complete
-            sendPaymentNotificationToFormspree({
-              name: formData.name,
-              phone: formData.mobile,
-              email: formData.email,
-              productType: `${selectedTitle} Training`,
-              amount: selectedPrice,
-              status: 'CANCELLED',
-              orderId: payload.id
-            });
+            fetch('/api/training-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                action: 'CANCELLED',
+                data: {
+                  name: formData.name,
+                  phone: formData.mobile,
+                  email: formData.email,
+                  price: selectedPrice,
+                  trainingName: selectedTitle + ' Training',
+                }
+              })
+            }).catch(console.error);
 
             trackPaymentStep('PaymentCancelled', {
               order_id: payload.id,
@@ -170,16 +171,20 @@ export default function TrainingCheckoutClient() {
           console.error(response.error);
           setLoading(false);
           // Notify Formspree of failed payment
-          sendPaymentNotificationToFormspree({
-            name: formData.name,
-            phone: formData.mobile,
-            email: formData.email,
-            productType: `${selectedTitle} Training`,
-            amount: selectedPrice,
-            status: 'FAILED',
-            orderId: payload.id,
-            paymentId: response.error?.metadata?.payment_id
-          });
+          fetch('/api/training-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              action: 'FAILED',
+              data: {
+                name: formData.name,
+                phone: formData.mobile,
+                email: formData.email,
+                price: selectedPrice,
+                trainingName: selectedTitle + ' Training',
+              }
+            })
+          }).catch(console.error);
 
           trackPaymentStep('PaymentFailed', {
             content_name: `PaymentFailed: ${response.error?.code || 'error'}`,
