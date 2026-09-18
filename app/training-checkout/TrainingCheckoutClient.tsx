@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck } from 'lucide-react';
+import { User, Mail, Phone, Loader2, ArrowLeft, Sprout, Leaf, Sparkles, ShieldCheck, CheckCircle2, Lock } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { trackPaymentStep, pixelTrackCustom } from '@/lib/utils/pixel';
 import { loadRazorpayScript } from '@/lib/utils/razorpay';
@@ -13,6 +13,7 @@ export default function TrainingCheckoutClient() {
   const typeParam = searchParams ? (searchParams.get('type') || 'basic') : 'basic';
   const type = typeParam as "basic" | "advanced" | "offline-basic" | "offline-advanced";
   const [loading, setLoading] = useState(false);
+  const [paymentStage, setPaymentStage] = useState<'idle' | 'initiating' | 'processing' | 'success'>('idle');
   
   const [formData, setFormData] = useState({
     name: "",
@@ -47,6 +48,7 @@ export default function TrainingCheckoutClient() {
     }
 
     setLoading(true);
+    setPaymentStage('initiating');
 
     try {
       trackPaymentStep('AddPaymentInfo', { 
@@ -113,10 +115,8 @@ export default function TrainingCheckoutClient() {
           color: "#4f46e5"
         },
         handler: function (response: any) {
-          // Notify Formspree that payment is successful
-          // We no longer send DONE from here, we will send it from Registration form submission.
+          setPaymentStage('success');
 
-          
           // Notify Admin immediately about the completed payment
           fetch('/api/training-email', {
             method: 'POST',
@@ -145,11 +145,12 @@ export default function TrainingCheckoutClient() {
           // Redirect to registration form
           setTimeout(() => {
              router.push(`/training/register?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
-          }, 400);
+          }, 800);
         },
         modal: {
           ondismiss: function() {
             setLoading(false);
+            setPaymentStage('idle');
             // Notify Formspree that payment form cancelled/not complete
             fetch('/api/training-email', {
               method: 'POST',
@@ -184,10 +185,12 @@ export default function TrainingCheckoutClient() {
           content_name: `Training - ${selectedTitle}`
         });
 
+        setPaymentStage('processing');
         const rzp = new (window as any).Razorpay(options);
         rzp.on('payment.failed', function (response: any) {
           console.error(response.error);
           setLoading(false);
+          setPaymentStage('idle');
           // Notify Formspree of failed payment
           fetch('/api/training-email', {
             method: 'POST',
@@ -218,11 +221,13 @@ export default function TrainingCheckoutClient() {
         console.error("Razorpay script not loaded properly");
         alert("Payment gateway not loaded. Please refresh the page.");
         setLoading(false);
+        setPaymentStage('idle');
       }
     } catch (err: any) {
       console.error(err);
       alert(err.message || 'Something went wrong');
       setLoading(false);
+      setPaymentStage('idle');
     }
   };
 
@@ -365,6 +370,70 @@ export default function TrainingCheckoutClient() {
           100% Secured by Razorpay
         </div>
       </div>
+
+      {/* Full-Screen Background Loading Overlay while Razorpay is open / processing */}
+      {loading && paymentStage !== 'idle' && (
+        <div className="fixed inset-0 z-[120] bg-slate-950/75 dark:bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 text-center select-none animate-in fade-in duration-300">
+          <div className="w-full max-w-sm mx-auto bg-white/95 dark:bg-slate-900/95 border border-slate-200/80 dark:border-white/10 rounded-2xl p-6 sm:p-7 shadow-2xl shadow-black/50 flex flex-col items-center relative overflow-hidden">
+            {/* Top glowing gradient line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 animate-pulse" />
+
+            {paymentStage === 'success' ? (
+              <>
+                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-500 mb-3.5">
+                  <CheckCircle2 size={38} className="animate-in zoom-in duration-300" />
+                </div>
+                <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white mb-1">
+                  Payment Verified!
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+                  Thank you, <strong className="text-slate-900 dark:text-white">{formData.name || 'Grower'}</strong>! Redirecting you to the registration form...
+                </p>
+                <div className="flex items-center gap-2 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                  <Loader2 size={13} className="animate-spin" />
+                  <span>Opening registration form...</span>
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Animated pulsing spinner with lock icon */}
+                <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
+                  <div className="absolute inset-0 rounded-full border-2 border-indigo-500/20 animate-ping" />
+                  <div className="w-14 h-14 rounded-full border-2 border-indigo-500/20 border-t-indigo-600 dark:border-t-indigo-400 animate-spin flex items-center justify-center">
+                    <Lock size={16} className="text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                </div>
+
+                <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white mb-1">
+                  {paymentStage === 'initiating' ? 'Connecting to Razorpay...' : 'Payment in Progress'}
+                </h3>
+
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4 max-w-xs">
+                  {paymentStage === 'initiating'
+                    ? 'Securing payment gateway and preparing your training enrollment...'
+                    : 'Please complete the payment in the Razorpay window. Please do not refresh or close this page.'}
+                </p>
+
+                <div className="w-full bg-slate-100 dark:bg-slate-800/60 rounded-xl p-3 mb-4 border border-slate-200/60 dark:border-white/5 text-left">
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    <span className="text-slate-500 dark:text-slate-400">Course:</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200">{selectedTitle}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-500 dark:text-slate-400">Amount:</span>
+                    <span className="font-extrabold text-indigo-600 dark:text-indigo-400 text-sm">{selectedPrice}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400 font-medium">
+                  <ShieldCheck size={13} className="text-emerald-500" />
+                  <span>256-Bit SSL Encrypted • Razorpay Certified</span>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
