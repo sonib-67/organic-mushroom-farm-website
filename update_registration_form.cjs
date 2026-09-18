@@ -1,6 +1,8 @@
-"use client";
+const fs = require('fs');
 
-import React, { useState, useEffect, useCallback } from 'react';
+const registrationClientCode = `"use client";
+
+import React, { useState, useEffect, useCallback, memo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { CheckCircle2, Loader2, CheckSquare } from 'lucide-react';
 import jsPDF from 'jspdf';
@@ -52,14 +54,14 @@ export default function RegistrationClient() {
     }));
   }, [nameParam, phoneParam, emailParam]);
 
-  const whatsappText = `Hello Organic Mushrooms Farm Team,
+  const whatsappText = \`Hello Organic Mushrooms Farm Team,
 ✅ Payment Successful
-Name: ${formData.name}
-Mobile: ${formData.phone}
-Email: ${formData.email}
-Payment ID: ${paymentId}
+Name: \${formData.name}
+Mobile: \${formData.phone}
+Email: \${formData.email}
+Payment ID: \${paymentId}
 
-I have successfully enrolled in the ${trainingName} (₹${price}).
+I have successfully enrolled in the \${trainingName} (₹\${price}).
 
 Please share:
 • Training access details
@@ -69,15 +71,15 @@ Please share:
 
 I am excited to start my mushroom farming journey.
 
-Thank you.`;
+Thank you.\`;
 
-  const whatsappUrl = `https://wa.me/919203544140?text=${encodeURIComponent(whatsappText)}`;
+  const whatsappUrl = \`https://wa.me/919203544140?text=\${encodeURIComponent(whatsappText)}\`;
 
   useEffect(() => {
     if (isSubmitted && pdfUrl) {
       const link = document.createElement("a");
       link.href = pdfUrl;
-      link.download = `Invoice_${formData.name.replace(/\s+/g, '_')}_${paymentId}.pdf`;
+      link.download = \`Invoice_\${formData.name.replace(/\\s+/g, '_')}_\${paymentId}.pdf\`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -93,7 +95,7 @@ Thank you.`;
     }
   }, [isSubmitted, whatsappUrl]);
 
-  // Instant native option handlers - 0ms delay, no re-render lag, no scroll jumps
+  // Lag-free and jump-free option handlers
   const handleRadioSelect = useCallback((field: 'experience' | 'goal' | 'investment' | 'source', value: string) => {
     setFormData(prev => (prev[field] === value ? prev : { ...prev, [field]: value }));
   }, []);
@@ -122,27 +124,27 @@ Thank you.`;
 
     doc.setFontSize(10);
     doc.setTextColor(150, 150, 150);
-    doc.text(`Payment ID: ${paymentId}`, 14, 36);
-    doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 42);
+    doc.text(\`Payment ID: \${paymentId}\`, 14, 36);
+    doc.text(\`Date: \${new Date().toLocaleDateString()}\`, 14, 42);
 
     doc.setFontSize(14);
     doc.setTextColor(40, 40, 40);
     doc.text("Customer Details", 14, 55);
 
     doc.setFontSize(11);
-    doc.text(`Full Name: ${formData.name}`, 14, 63);
-    doc.text(`Mobile Number: ${formData.phone}`, 14, 69);
-    doc.text(`Email Address: ${formData.email}`, 14, 75);
-    doc.text(`City: ${formData.city}`, 14, 81);
-    doc.text(`State: ${formData.state}`, 14, 87);
+    doc.text(\`Full Name: \${formData.name}\`, 14, 63);
+    doc.text(\`Mobile Number: \${formData.phone}\`, 14, 69);
+    doc.text(\`Email Address: \${formData.email}\`, 14, 75);
+    doc.text(\`City: \${formData.city}\`, 14, 81);
+    doc.text(\`State: \${formData.state}\`, 14, 87);
 
     autoTable(doc, {
       startY: 100,
       head: [['Description', 'Amount']],
       body: [
-        [trainingName, `Rs. ${price}`],
+        [trainingName, \`Rs. \${price}\`],
         ['Tax (GST 18% included)', 'Included'],
-        ['Total Paid', `Rs. ${price}`]
+        ['Total Paid', \`Rs. \${price}\`]
       ],
       theme: 'grid',
       headStyles: { fillColor: [126, 34, 206] }
@@ -196,7 +198,7 @@ Thank you.`;
             investment: formData.investment,
             support: formData.support,
             source: formData.source,
-            price: `Rs. ${price}`,
+            price: \`Rs. \${price}\`,
             trainingName: trainingName,
             paymentId: paymentId,
           },
@@ -220,13 +222,13 @@ Thank you.`;
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-10 pb-6 px-4 flex flex-col items-center justify-center">
-        <div className="text-center max-w-sm w-full space-y-2.5">
-          <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto" />
-          <h2 className="text-base font-bold dark:text-white text-slate-900">Registration Complete!</h2>
-          <p className="text-[11px] dark:text-slate-300 text-slate-700">Your invoice is downloading automatically...</p>
-          <p className="text-[10px] text-indigo-500 font-semibold">Redirecting to WhatsApp for course access...</p>
-          <Loader2 className="w-4 h-4 animate-spin text-indigo-500 mx-auto mt-2" />
+      <div className="min-h-screen bg-transparent relative z-[99] pt-12 pb-6 px-4 flex flex-col items-center justify-center">
+        <div className="bg-transparent text-center max-w-sm w-full space-y-3">
+          <CheckCircle2 className="w-12 h-12 text-green-500 mx-auto" />
+          <h2 className="text-lg font-bold dark:text-white text-slate-900">Registration Complete!</h2>
+          <p className="text-xs dark:text-slate-300 text-slate-700">Your invoice is downloading...</p>
+          <p className="text-[11px] text-indigo-500 font-medium">Redirecting to WhatsApp for course access...</p>
+          <Loader2 className="w-5 h-5 animate-spin text-indigo-500 mx-auto mt-3" />
         </div>
       </div>
     );
@@ -234,35 +236,35 @@ Thank you.`;
 
   return (
     <div 
-      className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-4 pb-10 px-3"
-      style={{ isolation: 'isolate' }}
+      className="min-h-screen bg-transparent relative z-[99] pt-6 pb-12 px-3.5"
+      style={{ scrollBehavior: 'auto' }}
     >
-      <div className="max-w-md mx-auto">
-        {/* Flat Minimal Header - No box, completely transparent so background design shines through */}
-        <div className="text-center mb-3">
-          <span className="inline-block text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 tracking-wider uppercase">
+      <div className="max-w-lg mx-auto bg-transparent">
+        {/* Top Minimal Header - No box, 100% transparent */}
+        <div className="text-center mb-4 bg-transparent">
+          <div className="text-[11px] font-bold text-green-500 tracking-wide uppercase">
             Payment Verified (₹{price})
-          </span>
-          <h1 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white tracking-tight mt-0.5">
+          </div>
+          <h1 className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
             {trainingName} Registration
           </h1>
         </div>
 
-        {/* 100% Flat & Box-Free Lightweight Form */}
-        <form onSubmit={handleSubmit} className="space-y-3 text-slate-800 dark:text-slate-200">
+        {/* Completely Box-Free Transparent Form */}
+        <form onSubmit={handleSubmit} className="bg-transparent space-y-3.5">
           
           {/* 1. Personal Details */}
-          <div className="space-y-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1.5 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               1. Personal Details
-            </h2>
-            <div className="space-y-1.5">
+            </h3>
+            <div className="space-y-1.5 bg-transparent">
               <input 
                 type="text" 
                 required 
                 value={formData.name} 
                 onChange={e => handleTextChange('name', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none transition-colors" 
                 placeholder="Full Name *" 
               />
               <input 
@@ -270,7 +272,7 @@ Thank you.`;
                 required 
                 value={formData.phone} 
                 onChange={e => handleTextChange('phone', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none transition-colors" 
                 placeholder="Mobile Number *" 
               />
               <input 
@@ -278,24 +280,24 @@ Thank you.`;
                 required 
                 value={formData.email} 
                 onChange={e => handleTextChange('email', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none transition-colors" 
                 placeholder="Email Address *" 
               />
             </div>
           </div>
 
           {/* 2. Location Details */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1.5 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               2. Location Details
-            </h2>
-            <div className="grid grid-cols-2 gap-2.5">
+            </h3>
+            <div className="grid grid-cols-2 gap-3 bg-transparent">
               <input 
                 type="text" 
                 required 
                 value={formData.state} 
                 onChange={e => handleTextChange('state', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none transition-colors" 
                 placeholder="State *" 
               />
               <input 
@@ -303,99 +305,103 @@ Thank you.`;
                 required 
                 value={formData.city} 
                 onChange={e => handleTextChange('city', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none transition-colors" 
                 placeholder="City *" 
               />
             </div>
           </div>
 
           {/* 3. Farming Experience */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               3. Farming Experience
-            </h2>
-            <div className="flex flex-col gap-1">
+            </h3>
+            <div className="flex flex-col gap-0.5 bg-transparent">
               {['No experience, beginner', 'Have basic knowledge', 'Currently growing', 'Traditional farmer'].map((opt) => (
-                <label 
+                <div 
                   key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
+                  onClick={(e) => { e.preventDefault(); handleRadioSelect('experience', opt); }}
+                  className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
                 >
                   <input 
                     type="radio" 
-                    name="farming_experience"
+                    readOnly
+                    tabIndex={-1}
                     checked={formData.experience === opt} 
-                    onChange={() => handleRadioSelect('experience', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
+                    className="w-3.5 h-3.5 accent-indigo-600 pointer-events-none" 
                   />
                   <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
                     {opt}
                   </span>
-                </label>
+                </div>
               ))}
             </div>
           </div>
 
           {/* 4. Mushroom Interest */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               4. Mushroom Interest
-            </h2>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+            </h3>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 bg-transparent">
               {['Button (Winter)', 'Oyster (All season)', 'Milky (Summer)', 'Cordyceps'].map((opt) => (
-                <label 
+                <div 
                   key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
+                  onClick={(e) => { e.preventDefault(); handleCheckboxToggle('interest', opt); }}
+                  className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
                 >
                   <input 
                     type="checkbox" 
+                    readOnly
+                    tabIndex={-1}
                     checked={formData.interest.includes(opt)} 
-                    onChange={() => handleCheckboxToggle('interest', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 rounded cursor-pointer shrink-0" 
+                    className="w-3.5 h-3.5 accent-indigo-600 rounded pointer-events-none" 
                   />
                   <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
                     {opt}
                   </span>
-                </label>
+                </div>
               ))}
             </div>
           </div>
 
           {/* 5. Your Goal */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               5. Your Goal
-            </h2>
-            <div className="flex flex-col gap-1">
+            </h3>
+            <div className="flex flex-col gap-0.5 bg-transparent">
               {['Start a commercial farm', 'Grow for personal use', 'Add to existing farm', 'Educational'].map((opt) => (
-                <label 
+                <div 
                   key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
+                  onClick={(e) => { e.preventDefault(); handleRadioSelect('goal', opt); }}
+                  className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
                 >
                   <input 
                     type="radio" 
-                    name="user_goal"
+                    readOnly
+                    tabIndex={-1}
                     checked={formData.goal === opt} 
-                    onChange={() => handleRadioSelect('goal', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
+                    className="w-3.5 h-3.5 accent-indigo-600 pointer-events-none" 
                   />
                   <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
                     {opt}
                   </span>
-                </label>
+                </div>
               ))}
             </div>
           </div>
 
           {/* 6. Farming Plan */}
-          <div className="space-y-1.5 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1.5 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               6. Farming Plan
-            </h2>
-            <div className="flex flex-col gap-2">
+            </h3>
+            <div className="flex flex-col gap-2 bg-transparent">
               <select 
                 value={formData.planTime} 
                 onChange={e => handleTextChange('planTime', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 text-xs dark:text-white text-slate-900 focus:outline-none focus:border-indigo-500 rounded-none cursor-pointer"
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 focus:outline-none focus:border-indigo-500 rounded-none cursor-pointer"
               >
                 <option value="" disabled className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">When do you plan to start?</option>
                 <option value="Immediately (Within 1 month)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Immediately (Within 1 month)</option>
@@ -407,7 +413,7 @@ Thank you.`;
               <select 
                 value={formData.planSpace} 
                 onChange={e => handleTextChange('planSpace', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 text-xs dark:text-white text-slate-900 focus:outline-none focus:border-indigo-500 rounded-none cursor-pointer"
+                className="w-full bg-transparent border-0 border-b border-black/15 dark:border-white/15 py-1 text-xs dark:text-white text-slate-900 focus:outline-none focus:border-indigo-500 rounded-none cursor-pointer"
               >
                 <option value="" disabled className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Space Available?</option>
                 <option value="No space yet (Planning to rent)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">No space yet (Planning to rent)</option>
@@ -419,102 +425,110 @@ Thank you.`;
           </div>
 
           {/* 7. Planned Investment */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               7. Planned Investment
-            </h2>
-            <div className="flex flex-col gap-1">
+            </h3>
+            <div className="flex flex-col gap-0.5 bg-transparent">
               {['Under ₹50,000', '₹50,000 - ₹2 Lakhs', '₹2 Lakhs - ₹10 Lakhs', 'Above ₹10 Lakhs'].map((opt) => (
-                <label 
+                <div 
                   key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
+                  onClick={(e) => { e.preventDefault(); handleRadioSelect('investment', opt); }}
+                  className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
                 >
                   <input 
                     type="radio" 
-                    name="planned_investment"
+                    readOnly
+                    tabIndex={-1}
                     checked={formData.investment === opt} 
-                    onChange={() => handleRadioSelect('investment', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
+                    className="w-3.5 h-3.5 accent-indigo-600 pointer-events-none" 
                   />
                   <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
                     {opt}
                   </span>
-                </label>
+                </div>
               ))}
             </div>
           </div>
 
           {/* 8. Required Support */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               8. Required Support
-            </h2>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+            </h3>
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 bg-transparent">
               {['Spawn (Seeds) Supply', 'Mushroom Buyback', 'Farm Setup & Machinery', 'Subsidy Guidance'].map((opt) => (
-                <label 
+                <div 
                   key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
+                  onClick={(e) => { e.preventDefault(); handleCheckboxToggle('support', opt); }}
+                  className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
                 >
                   <input 
                     type="checkbox" 
+                    readOnly
+                    tabIndex={-1}
                     checked={formData.support.includes(opt)} 
-                    onChange={() => handleCheckboxToggle('support', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 rounded cursor-pointer shrink-0" 
+                    className="w-3.5 h-3.5 accent-indigo-600 rounded pointer-events-none" 
                   />
                   <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
                     {opt}
                   </span>
-                </label>
+                </div>
               ))}
             </div>
           </div>
 
           {/* 9. How did you hear about us? */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+          <div className="space-y-1 bg-transparent">
+            <h3 className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider">
               9. How did you hear about us?
-            </h2>
-            <div className="flex flex-col gap-1">
+            </h3>
+            <div className="flex flex-col gap-0.5 bg-transparent">
               {['Google Search', 'YouTube', 'Facebook / Instagram', 'WhatsApp'].map((opt) => (
-                <label 
+                <div 
                   key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
+                  onClick={(e) => { e.preventDefault(); handleRadioSelect('source', opt); }}
+                  className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
                 >
                   <input 
                     type="radio" 
-                    name="hear_source"
+                    readOnly
+                    tabIndex={-1}
                     checked={formData.source === opt} 
-                    onChange={() => handleRadioSelect('source', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
+                    className="w-3.5 h-3.5 accent-indigo-600 pointer-events-none" 
                   />
                   <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
                     {opt}
                   </span>
-                </label>
+                </div>
               ))}
             </div>
           </div>
 
           {/* 10. Updates Declaration */}
-          <div className="pt-2">
-            <label className="flex items-start gap-2 cursor-pointer py-0.5 select-none touch-manipulation">
+          <div className="pt-1 bg-transparent">
+            <div 
+              onClick={(e) => { e.preventDefault(); setFormData(prev => ({ ...prev, declaration: !prev.declaration })); }}
+              className="flex items-center gap-2 cursor-pointer py-1 select-none touch-manipulation active:opacity-75"
+            >
               <input 
                 type="checkbox" 
+                readOnly
+                tabIndex={-1}
                 checked={formData.declaration} 
-                onChange={e => setFormData(prev => ({ ...prev, declaration: e.target.checked }))}
-                className="w-3.5 h-3.5 mt-0.5 accent-indigo-600 rounded cursor-pointer shrink-0" 
+                className="w-3.5 h-3.5 accent-indigo-600 rounded pointer-events-none" 
               />
-              <span className="text-[10px] dark:text-slate-400 text-slate-600 leading-normal">
+              <span className="text-[10px] dark:text-slate-400 text-slate-600 leading-tight">
                 I want to receive PDF notes, class links, and farming updates on WhatsApp and Email.
               </span>
-            </label>
+            </div>
           </div>
 
-          {/* Submit Button - Compact, high performance */}
+          {/* Submit Button */}
           <button 
             type="submit" 
             disabled={loading || !formData.declaration} 
-            className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white font-bold py-2.5 px-4 rounded-lg text-xs disabled:opacity-50 flex items-center justify-center gap-2 mt-3 cursor-pointer active:opacity-90 touch-manipulation"
+            className="w-full bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700 text-white font-bold py-2 rounded-lg text-xs transition-all disabled:opacity-50 flex items-center justify-center gap-2 mt-3 shadow-md shadow-indigo-500/20 active:scale-[0.99] touch-manipulation"
           >
             {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <CheckSquare className="w-3.5 h-3.5" />}
             {loading ? 'Submitting Details...' : 'Submit Form & Download Invoice'}
@@ -524,3 +538,7 @@ Thank you.`;
     </div>
   );
 }
+`;
+
+fs.writeFileSync('app/training/register/RegistrationClient.tsx', registrationClientCode);
+console.log('Successfully wrote streamlined, box-free RegistrationClient.tsx');

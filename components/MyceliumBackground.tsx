@@ -89,12 +89,16 @@ export const MyceliumBackground = () => {
         
         if (isDark) {
           ctx.fillStyle = this.isBlue ? "rgba(6, 182, 212, 0.9)" : "rgba(168, 85, 247, 0.9)";
-          ctx.shadowBlur = 20;
-          ctx.shadowColor = this.isBlue ? "rgba(34, 211, 238, 0.8)" : "rgba(192, 132, 252, 0.8)";
+          if (width >= 768) {
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = this.isBlue ? "rgba(34, 211, 238, 0.5)" : "rgba(192, 132, 252, 0.5)";
+          }
         } else {
           ctx.fillStyle = this.isBlue ? "rgba(14, 165, 233, 0.7)" : "rgba(147, 51, 234, 0.7)";
-          ctx.shadowBlur = 12;
-          ctx.shadowColor = this.isBlue ? "rgba(56, 189, 248, 0.4)" : "rgba(168, 85, 247, 0.4)";
+          if (width >= 768) {
+            ctx.shadowBlur = 6;
+            ctx.shadowColor = this.isBlue ? "rgba(56, 189, 248, 0.3)" : "rgba(168, 85, 247, 0.3)";
+          }
         }
         ctx.fill();
         ctx.shadowBlur = 0;
@@ -103,7 +107,8 @@ export const MyceliumBackground = () => {
 
     const initParticles = () => {
       particles = [];
-      const numParticles = Math.min(Math.floor((width * height) / 12000), 120);
+      const isMobile = width < 768;
+      const numParticles = isMobile ? 22 : Math.min(Math.floor((width * height) / 12000), 90);
       for (let i = 0; i < numParticles; i++) particles.push(new Particle());
     };
 
@@ -137,8 +142,12 @@ export const MyceliumBackground = () => {
             const midY = (particles[i].y + particles[j].y) / 2;
             const offset = distance * 0.15;
             
-            if (i % 2 === 0) ctx.quadraticCurveTo(midX + offset, midY - offset, particles[j].x, particles[j].y);
-            else ctx.quadraticCurveTo(midX - offset, midY + offset, particles[j].x, particles[j].y);
+            if (isMobile) {
+              ctx.lineTo(particles[j].x, particles[j].y);
+            } else {
+              if (i % 2 === 0) ctx.quadraticCurveTo(midX + offset, midY - offset, particles[j].x, particles[j].y);
+              else ctx.quadraticCurveTo(midX - offset, midY + offset, particles[j].x, particles[j].y);
+            }
             ctx.stroke();
           }
         }
@@ -153,7 +162,7 @@ export const MyceliumBackground = () => {
 
     window.addEventListener("resize", setSize);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
     window.addEventListener("mouseout", handleMouseLeave);
 
     setSize();

@@ -1,5 +1,6 @@
 export interface BlogPost {
   slug: string;
+  date?: string;
   title: string;
   description: string;
   category: "Educational" | "Health & Wellness" | "Business Trends";

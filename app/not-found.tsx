@@ -6,8 +6,8 @@ import { motion } from "motion/react";
 export default function NotFound() {
   return (
     <div className="min-h-[80vh] md:min-h-[85vh] flex flex-col items-center justify-center px-4 py-4 md:py-10 text-center relative z-20">
-      <title>404 - Page Not Found | Organic Mushroom Farm</title>
-      <meta name="robots" content="noindex, nofollow" />
+      
+      
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
