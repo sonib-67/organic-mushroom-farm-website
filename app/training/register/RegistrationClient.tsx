@@ -1,39 +1,30 @@
 "use client";
-
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { CheckCircle2, Loader2, CheckSquare, ShieldCheck, AlertTriangle, MessageCircle, Home } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { CheckCircle2, ChevronDown, Loader2, Download, CheckSquare } from 'lucide-react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 export default function RegistrationClient() {
-  const router = useRouter();
   const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Extract payment details
   const paymentId = searchParams?.get('id') || 'Unknown';
-  const tokenParam = searchParams?.get('token') || '';
   const nameParam = searchParams?.get('name') || '';
   const phoneParam = searchParams?.get('phone') || '';
   const emailParam = searchParams?.get('email') || '';
   const typeParam = searchParams?.get('type') || 'training_basic';
 
-  const isAdvancedInitial = typeParam.includes('advanced');
-  const initialPrice = isAdvancedInitial ? '699' : '299';
-  const initialTrainingName = isAdvancedInitial 
-    ? 'Advanced Commercial Cultivation' 
-    : 'Basic Mushroom Farming Training';
-
-  const [verifying, setVerifying] = useState(true);
-  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
-  const [alreadySubmittedData, setAlreadySubmittedData] = useState<any>(null);
-  const [verifiedPrice, setVerifiedPrice] = useState<string>(initialPrice);
-  const [verifiedTrainingName, setVerifiedTrainingName] = useState<string>(initialTrainingName);
-  const [tamperedAlert, setTamperedAlert] = useState<string | null>(null);
+  const price = typeParam.includes('advanced') ? '699' : '299';
+  const trainingName = typeParam.includes('advanced') ? 'Advanced Commercial Cultivation' : 'Basic Mushroom Farming Training';
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [activeAccordion, setActiveAccordion] = useState<number | null>(1);
 
-  // Form State
   const [formData, setFormData] = useState({
     name: nameParam,
     phone: phoneParam,
@@ -49,67 +40,11 @@ export default function RegistrationClient() {
     support: [] as string[],
     source: '',
     whatsappUpdate: '',
-    declaration: true,
+    declaration: false,
   });
 
-  // Verify payment status and guard against multiple submissions / tampering
   useEffect(() => {
-    if (!paymentId || paymentId === 'Unknown') {
-      setVerifying(false);
-      return;
-    }
-
-    let isMounted = true;
-    async function verifyPayment() {
-      try {
-        const queryParams = new URLSearchParams({
-          id: paymentId,
-          token: tokenParam,
-          type: typeParam,
-          name: nameParam,
-          phone: phoneParam,
-          email: emailParam
-        });
-
-        const res = await fetch(`/api/training-registration/verify?${queryParams.toString()}`);
-        const data = await res.json();
-
-        if (!isMounted) return;
-
-        if (data.alreadySubmitted) {
-          setAlreadySubmitted(true);
-          setAlreadySubmittedData(data);
-          setVerifying(false);
-          return;
-        }
-
-        if (data.valid) {
-          setVerifiedPrice(String(data.amount));
-          setVerifiedTrainingName(data.planName);
-          if (data.tampered) {
-            setTamperedAlert(data.tamperMessage || `Payment verified as ₹${data.amount}. Training plan is locked to ${data.planName}.`);
-          }
-          if (data.customerName && !nameParam) {
-            setFormData(prev => ({
-              ...prev,
-              name: data.customerName || prev.name,
-              email: data.customerEmail || prev.email,
-              phone: data.customerPhone || prev.phone
-            }));
-          }
-        }
-      } catch (err) {
-        console.error("Verification error:", err);
-      } finally {
-        if (isMounted) setVerifying(false);
-      }
-    }
-
-    verifyPayment();
-    return () => { isMounted = false; };
-  }, [paymentId, tokenParam, typeParam, nameParam, phoneParam, emailParam]);
-
-  useEffect(() => {
+    // If user lands here directly without search params, wait a moment to ensure client load
     setFormData(prev => ({
       ...prev,
       name: nameParam || prev.name,
@@ -118,25 +53,7 @@ export default function RegistrationClient() {
     }));
   }, [nameParam, phoneParam, emailParam]);
 
-  const whatsappText = `Hello Organic Mushrooms Farm Team,
-✅ Payment Successful
-Name: ${formData.name}
-Mobile: ${formData.phone}
-Email: ${formData.email}
-Payment ID: ${paymentId}
-
-I have successfully enrolled in the ${verifiedTrainingName} (₹${verifiedPrice}).
-
-Please share:
-• Training access details
-• Learning materials/PDF notes
-• Training schedule
-• WhatsApp support group link
-
-I am excited to start my mushroom farming journey.
-
-Thank you.`;
-
+  const whatsappText = `Hello Organic Mushrooms Farm Team,\n\n✅ Payment Successful\n\nName: ${formData.name}\nMobile: ${formData.phone}\nEmail: ${formData.email}\nPayment ID: ${paymentId}\n\nI have successfully enrolled in the ${trainingName} (₹${price}).\n\nPlease share:\n• Training access details\n• Learning materials/PDF notes\n• Training schedule\n• WhatsApp support group link\n\nI am excited to start my mushroom farming journey.\n\nThank you.`;
   const whatsappUrl = `https://wa.me/919203544140?text=${encodeURIComponent(whatsappText)}`;
 
   useEffect(() => {
@@ -159,537 +76,506 @@ Thank you.`;
     }
   }, [isSubmitted, whatsappUrl]);
 
-  // Instant native option handlers - 0ms delay, no re-render lag, no scroll jumps
-  const handleRadioSelect = useCallback((field: 'experience' | 'goal' | 'investment' | 'source', value: string) => {
-    setFormData(prev => (prev[field] === value ? prev : { ...prev, [field]: value }));
-  }, []);
+  const toggleAccordion = (index: number) => {
+    setActiveAccordion(activeAccordion === index ? null : index);
+  };
 
-  const handleCheckboxToggle = useCallback((field: 'interest' | 'support', value: string) => {
+  const handleCheckboxChange = (field: 'interest' | 'support', value: string) => {
     setFormData(prev => {
-      const list = prev[field];
-      const nextList = list.includes(value) ? list.filter(item => item !== value) : [...list, value];
-      return { ...prev, [field]: nextList };
+      const currentList = prev[field];
+      if (currentList.includes(value)) {
+        return { ...prev, [field]: currentList.filter(item => item !== value) };
+      } else {
+        return { ...prev, [field]: [...currentList, value] };
+      }
     });
-  }, []);
-
-  const handleTextChange = useCallback((field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  }, []);
+  };
 
   const generatePDF = () => {
     const doc = new jsPDF();
+    
+    // Header
     doc.setFontSize(22);
     doc.setTextColor(40, 40, 40);
     doc.text("Organic Mushroom Farm", 14, 20);
-
+    
     doc.setFontSize(16);
     doc.setTextColor(100, 100, 100);
     doc.text("Tax Invoice / Receipt", 14, 30);
-
+    
     doc.setFontSize(10);
     doc.setTextColor(150, 150, 150);
     doc.text(`Payment ID: ${paymentId}`, 14, 36);
     doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 42);
 
+    // Customer Details
     doc.setFontSize(14);
     doc.setTextColor(40, 40, 40);
     doc.text("Customer Details", 14, 55);
-
+    
     doc.setFontSize(11);
+    doc.setTextColor(80, 80, 80);
     doc.text(`Full Name: ${formData.name}`, 14, 63);
     doc.text(`Mobile Number: ${formData.phone}`, 14, 69);
     doc.text(`Email Address: ${formData.email}`, 14, 75);
     doc.text(`City: ${formData.city}`, 14, 81);
     doc.text(`State: ${formData.state}`, 14, 87);
 
+    // Table
     autoTable(doc, {
-      startY: 100,
-      head: [['Description', 'Amount']],
+      startY: 95,
+      head: [['Description', 'Qty', 'Amount']],
       body: [
-        [verifiedTrainingName, `Rs. ${verifiedPrice}`],
-        ['Tax (GST 18% included)', 'Included'],
-        ['Total Paid', `Rs. ${verifiedPrice}`]
+        [trainingName, '1', `INR ${price}`],
       ],
       theme: 'grid',
-      headStyles: { fillColor: [126, 34, 206] }
+      headStyles: { fillColor: [79, 70, 229] },
+      styles: { fontSize: 11, cellPadding: 5 }
     });
 
-    doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    const finalY = (doc as any).lastAutoTable.finalY + 20;
-    doc.text("Thank you for choosing Organic Mushroom Farm.", 14, finalY);
-    doc.text("For support, contact: +91 9203544140", 14, finalY + 6);
+    const finalY = (doc as any).lastAutoTable.finalY || 130;
+    
+    // Total Amount
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.text(`Total Paid: INR ${price}`, 14, finalY + 10);
 
-    return doc;
+    // Footer
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(100, 100, 100);
+    doc.text(`Thank you for registering for our INR ${price} ${trainingName}.`, 14, finalY + 25);
+    
+    // doc.save is removed so it doesn't download immediately
+    return doc.output('datauristring');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email) {
-      alert("Please fill your Personal Details.");
-      return;
-    }
-    if (!formData.experience) {
-      alert("Please select your Farming Experience.");
-      return;
-    }
-    if (!formData.goal) {
-      alert("Please select your Goal.");
+    if (!formData.state || !formData.city || !formData.experience || formData.interest.length === 0 || !formData.goal || !formData.planTime || !formData.planSpace || !formData.source || !formData.whatsappUpdate || !formData.declaration) {
+      alert("Please fill in all mandatory fields before submitting.");
       return;
     }
 
     setLoading(true);
-    try {
-      const doc = generatePDF();
-      const pdfBase64 = doc.output('datauristring');
 
-      const res = await fetch('/api/training-registration/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+    // Use setTimeout to allow UI to render loading state before heavy PDF generation blocks thread
+    setTimeout(async () => {
+      try {
+        // Generate PDF Base64 FIRST
+        const pdfBase64 = generatePDF();
+        setPdfUrl(pdfBase64);
+
+      const res = await fetch("/api/training-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          paymentId: paymentId,
-          token: tokenParam,
+          action: 'DONE',
           data: {
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email,
-            state: formData.state,
-            city: formData.city,
-            experience: formData.experience,
-            interest: formData.interest,
-            goal: formData.goal,
-            planTime: formData.planTime,
-            planSpace: formData.planSpace,
-            investment: formData.investment,
-            support: formData.support,
-            source: formData.source,
-            price: `Rs. ${verifiedPrice}`,
-            trainingName: verifiedTrainingName,
-            paymentId: paymentId,
+            ...formData,
+            trainingName: trainingName,
+            price: price,
+            paymentId: paymentId
           },
           pdfBase64: pdfBase64
         })
       });
 
-      const resData = await res.json();
-
-      if (res.status === 409 || resData.alreadySubmitted) {
-        setAlreadySubmitted(true);
-        setAlreadySubmittedData({
-          planName: resData.record?.planName || verifiedTrainingName,
-          amount: resData.record?.amount || Number(verifiedPrice),
-          completedAt: resData.record?.completedAtFormatted || 'Earlier Today',
-          customerName: resData.record?.customerName || formData.name,
-          paymentId: paymentId
-        });
-        return;
+      if (!res.ok) {
+        throw new Error("Failed to submit form data");
       }
 
-      if (res.ok) {
-        setPdfUrl(String(doc.output('bloburl')));
-        setIsSubmitted(true);
-      } else {
-        alert(resData.error || "Failed to submit registration. Please try again.");
+      // Show success
+      setIsSubmitted(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong while submitting the form. Please try again.");
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please take a screenshot and send to WhatsApp: +91 9203544140");
-    } finally {
-      setLoading(false);
-    }
+    }, 100);
   };
-
-  if (verifying) {
-    return (
-      <div className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-16 px-4 flex flex-col items-center justify-center">
-        <div className="text-center space-y-2">
-          <Loader2 className="w-8 h-8 animate-spin text-indigo-500 mx-auto" />
-          <p className="text-xs font-medium text-slate-700 dark:text-slate-300">
-            Verifying payment security & registration status...
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (alreadySubmitted) {
-    return (
-      <div className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-12 pb-10 px-4 flex flex-col items-center justify-center">
-        <div className="max-w-md w-full text-center space-y-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xl">
-          <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-950/60 rounded-full flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400">
-            <ShieldCheck className="w-7 h-7" />
-          </div>
-          
-          <div>
-            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-              Registration Already Completed!
-            </h2>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-              Your one-time registration form for this payment has already been recorded successfully.
-            </p>
-          </div>
-
-          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3.5 text-left text-xs space-y-1.5 border border-slate-200/60 dark:border-slate-700/60">
-            <div className="flex justify-between">
-              <span className="text-slate-500 dark:text-slate-400">Customer Name:</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">{alreadySubmittedData?.customerName || formData.name || 'Enrolled Student'}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-slate-500 dark:text-slate-400">Payment ID:</span>
-              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{paymentId}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-slate-500 dark:text-slate-400">Training Plan:</span>
-              <span className="font-semibold text-indigo-600 dark:text-indigo-400">{alreadySubmittedData?.planName || verifiedTrainingName}</span>
-            </div>
-            <div className="flex justify-between">
-              <span className="text-slate-500 dark:text-slate-400">Amount Paid:</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">₹{alreadySubmittedData?.amount || verifiedPrice} (Verified)</span>
-            </div>
-            {alreadySubmittedData?.completedAt && (
-              <div className="flex justify-between border-t border-slate-200/40 dark:border-slate-700/40 pt-1.5 mt-1.5">
-                <span className="text-slate-500 dark:text-slate-400">Completed At:</span>
-                <span className="text-slate-600 dark:text-slate-400">{alreadySubmittedData.completedAt}</span>
-              </div>
-            )}
-          </div>
-
-          <p className="text-[11px] text-slate-500 dark:text-slate-400">
-            You do not need to fill out this form again. Our training team is preparing your batch details and joining link.
-          </p>
-
-          <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
-            <a
-              href={whatsappUrl}
-              className="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-all shadow-md shadow-emerald-600/20"
-            >
-              <MessageCircle size={15} />
-              WhatsApp Support
-            </a>
-            <button
-              type="button"
-              onClick={() => router.push('/')}
-              className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-medium py-2.5 px-4 rounded-xl transition-all"
-            >
-              <Home size={15} />
-              Home
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-10 pb-6 px-4 flex flex-col items-center justify-center">
-        <div className="text-center max-w-sm w-full space-y-2.5">
-          <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto" />
-          <h2 className="text-base font-bold dark:text-white text-slate-900">Registration Complete!</h2>
-          <p className="text-[11px] dark:text-slate-300 text-slate-700">Your invoice is downloading automatically...</p>
-          <p className="text-[10px] text-indigo-500 font-semibold">Redirecting to WhatsApp for course access...</p>
-          <Loader2 className="w-4 h-4 animate-spin text-indigo-500 mx-auto mt-2" />
-        </div>
+      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 relative z-[99] pt-24 pb-12 overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }} 
+          animate={{ opacity: 1, scale: 1 }}
+          className="dark:bg-black/30 bg-white/40 backdrop-blur-xl rounded-3xl shadow-2xl p-8 max-w-lg w-full text-center border dark:border-white/10 border-black/10 relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500"></div>
+          <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="w-10 h-10 text-green-500" />
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black dark:text-white text-slate-900 mb-4 tracking-tight">Registration Submitted Successfully! 🎉</h1>
+          <p className="dark:text-slate-300 text-slate-700 mb-6 leading-relaxed text-sm">
+            Your registration details have been received successfully.
+            Our team will share the training schedule, joining instructions and other important updates with you through WhatsApp and/or email.
+          </p>
+
+          <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-100 dark:border-indigo-500/20 rounded-xl p-4 mb-6">
+            <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300 mb-3">
+              We are automatically redirecting you to WhatsApp to receive your training/joining details instantly.
+            </p>
+            <div className="flex items-center justify-center gap-2 text-green-600 dark:text-green-400 font-bold animate-pulse mb-4">
+              <span className="w-2.5 h-2.5 bg-green-500 rounded-full"></span> Redirecting to WhatsApp chat...
+            </div>
+            
+            <a 
+              href={whatsappUrl}
+              className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3 px-6 rounded-xl transition-all mb-3 shadow-[0_4px_14px_0_rgba(37,211,102,0.39)]"
+            >
+              Chat with us on WhatsApp
+            </a>
+            
+            {pdfUrl && (
+              <button 
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = pdfUrl;
+                  link.download = `Invoice_${formData.name.replace(/\s+/g, '_')}_${paymentId}.pdf`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-900 dark:bg-white dark:hover:bg-slate-200 text-white dark:text-slate-900 font-bold py-3 px-6 rounded-xl transition-all mb-3 shadow-md"
+              >
+                <Download className="w-5 h-5" />
+                Download Invoice Again
+              </button>
+            )}
+            
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              If not redirected automatically, click the button above to share details and start your journey.
+            </p>
+          </div>
+
+          <button 
+            onClick={() => router.push('/')}
+            className="w-full bg-slate-200 dark:bg-white/10 hover:bg-slate-300 hover:dark:bg-white/20 text-slate-800 dark:text-white font-bold tracking-wide py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center"
+          >
+            Back to Home
+          </button>
+        </motion.div>
       </div>
     );
   }
 
   return (
-    <div 
-      className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-4 pb-10 px-3"
-      style={{ isolation: 'isolate' }}
-    >
-      <div className="max-w-md mx-auto">
-        {/* Flat Minimal Header - No box, completely transparent so background design shines through */}
-        <div className="text-center mb-3">
-          <span className="inline-block text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 tracking-wider uppercase">
-            Payment Verified (₹{verifiedPrice})
-          </span>
-          <h1 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white tracking-tight mt-0.5">
-            {verifiedTrainingName} Registration
-          </h1>
+    <div className="min-h-screen bg-transparent relative z-[99] pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="dark:bg-black/30 bg-white/40 backdrop-blur-xl border-x border-t dark:border-white/10 border-black/10 rounded-t-3xl p-6 sm:p-10 shadow-sm border-b-4 border-indigo-500">
+          <h1 className="text-2xl sm:text-3xl font-black dark:text-white text-slate-900 tracking-tight mb-2">{trainingName}</h1>
+          <h2 className="text-xl font-bold text-indigo-600 mb-4">Registration Form</h2>
+          <p className="dark:text-slate-300 text-slate-600 text-sm">Please fill in the details below to complete your enrollment.</p>
         </div>
 
-        {/* Security Tamper Warning Banner if URL was altered */}
-        {tamperedAlert && (
-          <div className="mb-3 p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-2 text-left">
-            <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-            <div className="text-[11px] text-amber-700 dark:text-amber-300 leading-tight">
-              {tamperedAlert}
-            </div>
-          </div>
-        )}
-
-        {/* 100% Flat & Box-Free Lightweight Form */}
-        <form onSubmit={handleSubmit} className="space-y-3 text-slate-800 dark:text-slate-200">
+        <form onSubmit={handleSubmit} className="dark:bg-black/30 bg-white/40 backdrop-blur-xl border-x border-b dark:border-white/10 border-black/10 rounded-b-3xl shadow-lg p-6 sm:p-10 space-y-6">
           
-          {/* 1. Personal Details */}
-          <div className="space-y-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              1. Personal Details
-            </h2>
-            <div className="space-y-1.5">
-              <input 
-                type="text" 
-                required 
-                value={formData.name} 
-                onChange={e => handleTextChange('name', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
-                placeholder="Full Name *" 
-              />
-              <input 
-                type="tel" 
-                required 
-                value={formData.phone} 
-                onChange={e => handleTextChange('phone', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
-                placeholder="Mobile Number *" 
-              />
-              <input 
-                type="email" 
-                required 
-                value={formData.email} 
-                onChange={e => handleTextChange('email', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
-                placeholder="Email Address *" 
-              />
-            </div>
+          {/* Section 1: Personal Details */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(1)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">1</span> 
+                Personal Details
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 1 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 1 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">Full Name*</label>
+                      <input type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your full name" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">Number*</label>
+                      <input type="tel" required value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your number" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">Email Address*</label>
+                      <input type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your email address" />
+                    </div>
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 2. Location Details */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              2. Location Details
-            </h2>
-            <div className="grid grid-cols-2 gap-2.5">
-              <input 
-                type="text" 
-                required 
-                value={formData.state} 
-                onChange={e => handleTextChange('state', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
-                placeholder="State *" 
-              />
-              <input 
-                type="text" 
-                required 
-                value={formData.city} 
-                onChange={e => handleTextChange('city', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 px-0.5 text-xs dark:text-white text-slate-900 placeholder:text-slate-400/80 focus:outline-none focus:border-indigo-500 rounded-none" 
-                placeholder="City *" 
-              />
-            </div>
+          {/* Section 2: Location Details */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(2)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">2</span> 
+                Location Details
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 2 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 2 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-4">
+                    <div>
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">State*</label>
+                      <input type="text" required value={formData.state} onChange={e => setFormData({...formData, state: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Select your state" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-1">City / District*</label>
+                      <input type="text" required value={formData.city} onChange={e => setFormData({...formData, city: e.target.value})} className="w-full dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 rounded-xl px-4 py-2.5 dark:text-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your city or district" />
+                    </div>
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 3. Farming Experience */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              3. Farming Experience
-            </h2>
-            <div className="flex flex-col gap-1">
-              {['No experience, beginner', 'Have basic knowledge', 'Currently growing', 'Traditional farmer'].map((opt) => (
-                <label 
-                  key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
-                >
-                  <input 
-                    type="radio" 
-                    name="farming_experience"
-                    checked={formData.experience === opt} 
-                    onChange={() => handleRadioSelect('experience', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
-                  />
-                  <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
+          {/* Section 3: Mushroom Farming Experience */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(3)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">3</span> 
+                Mushroom Farming Experience
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 3 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 3 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">What is your current level of experience in mushroom farming?*</label>
+                    {['Beginner – I am completely new to mushroom farming', 'Basic Knowledge – I have some knowledge', 'Experienced – I am already involved in mushroom farming'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="radio" name="experience" value={opt} checked={formData.experience === opt} onChange={e => { setFormData({...formData, experience: e.target.value}); setActiveAccordion(4); }} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 4. Mushroom Interest */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              4. Mushroom Interest
-            </h2>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-              {['Button (Winter)', 'Oyster (All season)', 'Milky (Summer)', 'Cordyceps'].map((opt) => (
-                <label 
-                  key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
-                >
-                  <input 
-                    type="checkbox" 
-                    checked={formData.interest.includes(opt)} 
-                    onChange={() => handleCheckboxToggle('interest', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 rounded cursor-pointer shrink-0" 
-                  />
-                  <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
+          {/* Section 4: Mushroom Interest */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(4)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">4</span> 
+                Mushroom Interest
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 4 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 4 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Which mushroom are you interested in learning about?*</label>
+                    {['Oyster Mushroom', 'Button Mushroom', 'Milky Mushroom', 'All of the above', 'Other'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="checkbox" checked={formData.interest.includes(opt)} onChange={() => handleCheckboxChange('interest', opt)} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 rounded focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 5. Your Goal */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              5. Your Goal
-            </h2>
-            <div className="flex flex-col gap-1">
-              {['Start a commercial farm', 'Grow for personal use', 'Add to existing farm', 'Educational'].map((opt) => (
-                <label 
-                  key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
-                >
-                  <input 
-                    type="radio" 
-                    name="user_goal"
-                    checked={formData.goal === opt} 
-                    onChange={() => handleRadioSelect('goal', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
-                  />
-                  <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
+          {/* Section 5: Farming Goal */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(5)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">5</span> 
+                Your Farming Goal
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 5 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 5 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Why are you joining this training?*</label>
+                    {['I want to start a mushroom farming business', 'I want to learn mushroom farming', 'I want to start mushroom farming as a side business', 'I already have a farm and want to improve my production', 'I am exploring mushroom farming as a business opportunity', 'Other'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="radio" name="goal" value={opt} checked={formData.goal === opt} onChange={e => { setFormData({...formData, goal: e.target.value}); setActiveAccordion(6); }} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 6. Farming Plan */}
-          <div className="space-y-1.5 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              6. Farming Plan
-            </h2>
-            <div className="flex flex-col gap-2">
-              <select 
-                value={formData.planTime} 
-                onChange={e => handleTextChange('planTime', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 text-xs dark:text-white text-slate-900 focus:outline-none focus:border-indigo-500 rounded-none cursor-pointer"
-              >
-                <option value="" disabled className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">When do you plan to start?</option>
-                <option value="Immediately (Within 1 month)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Immediately (Within 1 month)</option>
-                <option value="Within 3 months" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Within 3 months</option>
-                <option value="Within 6 months" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Within 6 months</option>
-                <option value="Just exploring right now" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Just exploring right now</option>
-              </select>
-
-              <select 
-                value={formData.planSpace} 
-                onChange={e => handleTextChange('planSpace', e.target.value)} 
-                className="w-full bg-transparent border-0 border-b border-black/20 dark:border-white/20 py-1 text-xs dark:text-white text-slate-900 focus:outline-none focus:border-indigo-500 rounded-none cursor-pointer"
-              >
-                <option value="" disabled className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Space Available?</option>
-                <option value="No space yet (Planning to rent)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">No space yet (Planning to rent)</option>
-                <option value="Small Room (100 - 500 sq ft)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Small Room (100 - 500 sq ft)</option>
-                <option value="Medium (500 - 2000 sq ft)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Medium (500 - 2000 sq ft)</option>
-                <option value="Large Commercial (2000+ sq ft)" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Large Commercial (2000+ sq ft)</option>
-              </select>
-            </div>
+          {/* Section 6: Farming Plan */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(6)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">6</span> 
+                Farming Plan
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 6 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 6 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-6">
+                    <div className="space-y-3">
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">When are you planning to start mushroom farming?*</label>
+                      {['Immediately', 'Within 1–3 months', 'Within 3–6 months', 'After 6 months', 'Not decided yet'].map((opt, i) => (
+                        <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                          <input type="radio" name="planTime" value={opt} checked={formData.planTime === opt} onChange={e => setFormData({...formData, planTime: e.target.value})} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                          <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                    <div className="space-y-3">
+                      <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Do you currently have space available for mushroom farming?*</label>
+                      {['Yes', 'No', 'I am planning to arrange it'].map((opt, i) => (
+                        <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                          <input type="radio" name="planSpace" value={opt} checked={formData.planSpace === opt} onChange={e => { setFormData({...formData, planSpace: e.target.value}); if (formData.planTime) setActiveAccordion(7); }} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                          <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 7. Planned Investment */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              7. Planned Investment
-            </h2>
-            <div className="flex flex-col gap-1">
-              {['Under ₹50,000', '₹50,000 - ₹2 Lakhs', '₹2 Lakhs - ₹10 Lakhs', 'Above ₹10 Lakhs'].map((opt) => (
-                <label 
-                  key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
-                >
-                  <input 
-                    type="radio" 
-                    name="planned_investment"
-                    checked={formData.investment === opt} 
-                    onChange={() => handleRadioSelect('investment', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
-                  />
-                  <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
+          {/* Section 7: Investment Planning */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(7)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">7</span> 
+                Investment Planning
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 7 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 7 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">What is your approximate planned investment?</label>
+                    {['Below ₹25,000', '₹25,000–₹50,000', '₹50,000–₹1 Lakh', '₹1–5 Lakh', 'Not decided yet'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="radio" name="investment" value={opt} checked={formData.investment === opt} onChange={e => { setFormData({...formData, investment: e.target.value}); setActiveAccordion(8); }} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 8. Required Support */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              8. Required Support
-            </h2>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-              {['Spawn (Seeds) Supply', 'Mushroom Buyback', 'Farm Setup & Machinery', 'Subsidy Guidance'].map((opt) => (
-                <label 
-                  key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
-                >
-                  <input 
-                    type="checkbox" 
-                    checked={formData.support.includes(opt)} 
-                    onChange={() => handleCheckboxToggle('support', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 rounded cursor-pointer shrink-0" 
-                  />
-                  <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
+          {/* Section 8: Support Required */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(8)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">8</span> 
+                Support Required
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 8 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 8 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">What type of support may you need after the training?</label>
+                    {['Mushroom Farm Setup', 'Mushroom Spawn', 'Business Planning', 'Marketing Support', 'Government Subsidy Information', 'Consultancy', 'I am not sure yet'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="checkbox" checked={formData.support.includes(opt)} onChange={() => handleCheckboxChange('support', opt)} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 rounded focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 9. How did you hear about us? */}
-          <div className="space-y-1 pt-1">
-            <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-              9. How did you hear about us?
-            </h2>
-            <div className="flex flex-col gap-1">
-              {['Google Search', 'YouTube', 'Facebook / Instagram', 'WhatsApp'].map((opt) => (
-                <label 
-                  key={opt} 
-                  className="flex items-center gap-2 cursor-pointer py-0.5 select-none touch-manipulation"
-                >
-                  <input 
-                    type="radio" 
-                    name="hear_source"
-                    checked={formData.source === opt} 
-                    onChange={() => handleRadioSelect('source', opt)}
-                    className="w-3.5 h-3.5 accent-indigo-600 cursor-pointer shrink-0" 
-                  />
-                  <span className="text-[11px] dark:text-slate-300 text-slate-700 leading-tight">
-                    {opt}
-                  </span>
-                </label>
-              ))}
-            </div>
+          {/* Section 9: How Did You Hear About Us? */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(9)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">9</span> 
+                How Did You Hear About Us?
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 9 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 9 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">How did you hear about our Mushroom Farming Training?*</label>
+                    {['Google Search', 'Facebook', 'Instagram', 'YouTube', 'WhatsApp', 'Friend / Referral', 'Other'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="radio" name="source" value={opt} checked={formData.source === opt} onChange={e => { setFormData({...formData, source: e.target.value}); setActiveAccordion(10); }} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
           </div>
 
-          {/* 10. Updates Declaration */}
-          <div className="pt-2">
-            <label className="flex items-start gap-2 cursor-pointer py-0.5 select-none touch-manipulation">
-              <input 
-                type="checkbox" 
-                checked={formData.declaration} 
-                onChange={e => setFormData(prev => ({ ...prev, declaration: e.target.checked }))}
-                className="w-3.5 h-3.5 mt-0.5 accent-indigo-600 rounded cursor-pointer shrink-0" 
-              />
-              <span className="text-[10px] dark:text-slate-400 text-slate-600 leading-normal">
-                I want to receive PDF notes, class links, and farming updates on WhatsApp and Email.
+          {/* Section 10: Communication Preference */}
+          <div className="border dark:border-white/10 border-black/10 rounded-2xl overflow-hidden">
+            <button type="button" onClick={() => toggleAccordion(10)} className="w-full dark:bg-white/5 bg-black/5 flex items-center justify-between p-4 sm:p-5 hover:dark:bg-white/10 hover:bg-black/10 transition-colors text-left">
+              <h3 className="font-bold dark:text-white text-slate-900 flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">10</span> 
+                Communication Preference
+              </h3>
+              <ChevronDown className={`w-5 h-5 dark:text-slate-400 text-slate-500 transition-transform ${activeAccordion === 10 ? 'rotate-180' : ''}`} />
+            </button>
+            
+              {activeAccordion === 10 && (
+                <div className="overflow-hidden animate-in fade-in duration-200">
+                  <div className="p-4 sm:p-5 border-t dark:border-white/10 border-black/10 space-y-3">
+                    <label className="block text-sm font-semibold dark:text-slate-300 text-slate-700 mb-2">Would you like to receive training-related updates on WhatsApp?*</label>
+                    {['Yes', 'No'].map((opt, i) => (
+                      <label key={i} className="flex items-center gap-3 p-3 border rounded-xl hover:dark:bg-white/5 bg-black/5 cursor-pointer transition-colors">
+                        <input type="radio" name="whatsappUpdate" value={opt} checked={formData.whatsappUpdate === opt} onChange={e => setFormData({...formData, whatsappUpdate: e.target.value})} className="w-4 h-4 text-indigo-600 dark:border-slate-600 border-slate-300 focus:ring-indigo-500" />
+                        <span className="text-sm dark:text-slate-300 text-slate-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            
+          </div>
+
+          {/* Declaration */}
+          <div className="pt-6 border-t dark:border-white/10 border-black/10">
+            <h3 className="font-bold dark:text-white text-slate-900 mb-4">Declaration</h3>
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input type="checkbox" required checked={formData.declaration} onChange={e => setFormData({...formData, declaration: e.target.checked})} className="w-5 h-5 mt-0.5 text-indigo-600 dark:border-slate-600 border-slate-300 rounded focus:ring-indigo-500" />
+              <span className="text-sm dark:text-slate-400 text-slate-600 leading-relaxed">
+                I confirm that the information provided above is correct. I understand that this registration is for the ₹{price} {trainingName}.
               </span>
             </label>
           </div>
 
-          {/* Submit Button - Compact, high performance */}
-          <button 
-            type="submit" 
-            disabled={loading || !formData.declaration} 
-            className="w-full bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white font-bold py-2.5 px-4 rounded-lg text-xs disabled:opacity-50 flex items-center justify-center gap-2 mt-3 cursor-pointer active:opacity-90 touch-manipulation"
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500 hover:shadow-\[0_0_30px_rgba(99,102,241,0.4)\] text-white hover:scale-\[1.02\] active:scale-95 font-black text-lg py-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-3"
           >
-            {loading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <CheckSquare className="w-3.5 h-3.5" />}
-            {loading ? 'Submitting Details...' : 'Submit Form & Download Invoice'}
+            {loading ? (
+              <span className="flex items-center gap-2">
+                <Loader2 className="w-6 h-6 animate-spin" /> Processing & Generating Invoice...
+              </span>
+            ) : (
+              <span className="flex items-center gap-2">
+                Submit Now <Download className="w-5 h-5 ml-1" />
+              </span>
+            )}
           </button>
         </form>
       </div>

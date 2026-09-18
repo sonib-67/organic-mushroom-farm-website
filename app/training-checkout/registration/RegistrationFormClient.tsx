@@ -1,5 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function RegistrationFormClient({ 
   type, 
@@ -80,165 +82,157 @@ export default function RegistrationFormClient({
 
   if (success) {
     return (
-      <main className="relative flex flex-col items-center justify-center min-h-[100dvh] bg-transparent py-8 px-4 z-20 pointer-events-auto" style={{ isolation: 'isolate' }}>
-        <div className="w-full max-w-md mx-auto text-center space-y-3">
-          <div className="w-14 h-14 mx-auto bg-emerald-500/20 rounded-full flex items-center justify-center border border-emerald-500/40">
-            <span className="text-2xl">✅</span>
-          </div>
-          <h1 className="text-lg font-bold text-emerald-500">Registration Completed</h1>
-          <h2 className="text-xs font-semibold text-slate-700 dark:text-gray-300">
-            {isAdvanced ? "Advanced Mushroom Farming Training" : "Basic Mushroom Farming Training"}
-          </h2>
-          
-          <div className="py-2.5 px-3 text-left border-y border-black/10 dark:border-white/10 text-xs space-y-1 text-slate-700 dark:text-gray-300">
-            <div className="flex justify-between">
-              <span className="font-semibold text-slate-500 dark:text-gray-400">Payment Status:</span>
-              <span className="text-emerald-500 font-bold">PAID (₹{paymentData.amount})</span>
+      <main className="relative flex flex-col items-center justify-center min-h-[100dvh] overflow-hidden bg-transparent">
+        <div className="z-10 w-full max-w-lg mx-auto px-4 py-8 flex flex-col items-center justify-center h-[100dvh]">
+          <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="backdrop-blur-xl bg-black/40 border border-green-500/30 p-8 rounded-2xl shadow-2xl relative z-10 text-white text-center w-full">
+            <div className="w-20 h-20 mx-auto bg-green-500/20 rounded-full flex items-center justify-center mb-6 border border-green-500/50">
+              <span className="text-4xl">✅</span>
             </div>
-            <div className="flex justify-between">
-              <span className="font-semibold text-slate-500 dark:text-gray-400">Registration Status:</span>
-              <span className="text-indigo-500 font-bold">COMPLETED</span>
+            <h1 className="text-2xl font-bold mb-2 text-green-400">Registration Completed</h1>
+            <h2 className="text-lg font-semibold text-gray-200 mb-6">
+              {isAdvanced ? "Advanced Mushroom Farming Training" : "Basic Mushroom Farming Training"}
+            </h2>
+            
+            <div className="bg-black/30 rounded-xl p-4 text-left border border-white/10 mb-6 space-y-2 text-sm text-gray-300">
+              <div className="flex justify-between border-b border-white/10 pb-2">
+                <span className="font-semibold text-gray-400">Payment Status:</span>
+                <span className="text-green-400 font-bold">PAID</span>
+              </div>
+              <div className="flex justify-between pt-2">
+                <span className="font-semibold text-gray-400">Registration Status:</span>
+                <span className="text-blue-400 font-bold">COMPLETED</span>
+              </div>
             </div>
-          </div>
 
-          <p className="text-[11px] text-slate-600 dark:text-gray-400">Your training registration has been received.</p>
-          <p className="text-[11px] text-slate-600 dark:text-gray-400">Our team will contact you with the training access details shortly.</p>
+            <p className="text-sm text-gray-300 mb-2">Your training registration has been received.</p>
+            <p className="text-sm text-gray-300">Our team will contact you with the training access details shortly.</p>
+          </motion.div>
         </div>
       </main>
     );
   }
 
   return (
-    <main className="relative flex flex-col items-center min-h-[100dvh] bg-transparent py-6 px-3 z-20 pointer-events-auto" style={{ isolation: 'isolate' }}>
-      <div className="w-full max-w-lg mx-auto">
-        {/* Flat Minimal Header */}
-        <div className="text-center mb-3">
-          <span className="inline-block text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 tracking-wider uppercase">
-            Payment Successful (₹{paymentData.amount}) ✅
-          </span>
-          <h1 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white tracking-tight mt-0.5">
-            Complete Your Training Registration
-          </h1>
+    <main className="relative flex flex-col items-center min-h-[100dvh] overflow-y-auto bg-transparent py-10">
+      <div className="z-10 w-full max-w-2xl mx-auto px-4">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center justify-center bg-green-500/20 text-green-400 px-4 py-1.5 rounded-full border border-green-500/30 font-bold text-sm mb-4 backdrop-blur-md">
+            Payment Successful ✅
+          </div>
+          <h1 className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">Complete Your Training Registration</h1>
         </div>
 
-        {/* 100% Flat & Box-Free Lightweight Form */}
-        <div className="relative z-20 text-slate-900 dark:text-white">
-          <form onSubmit={handleSubmit} className="space-y-3.5">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="backdrop-blur-xl bg-black/40 border border-white/20 p-6 md:p-8 rounded-2xl shadow-2xl relative z-10 text-white">
+          <form onSubmit={handleSubmit} className="space-y-8">
             
             {/* SECTION 1: Personal Details */}
-            <section className="space-y-1.5">
-              <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                1. Personal Details
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <section className="space-y-4">
+              <h3 className="text-lg font-bold text-purple-300 border-b border-white/20 pb-2">1. Personal Details</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-500 dark:text-gray-400 mb-0.5">Full Name *</label>
-                  <input type="text" disabled value={paymentData.name} className="w-full px-2.5 py-1 text-xs bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded text-slate-500 dark:text-gray-400 cursor-not-allowed" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Full Name *</label>
+                  <input type="text" disabled value={paymentData.name} className="w-full px-3 py-2 text-sm bg-black/50 border border-white/10 rounded-lg text-gray-400 cursor-not-allowed" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-500 dark:text-gray-400 mb-0.5">Email Address *</label>
-                  <input type="email" disabled value={paymentData.email} className="w-full px-2.5 py-1 text-xs bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded text-slate-500 dark:text-gray-400 cursor-not-allowed" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Email Address *</label>
+                  <input type="email" disabled value={paymentData.email} className="w-full px-3 py-2 text-sm bg-black/50 border border-white/10 rounded-lg text-gray-400 cursor-not-allowed" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">WhatsApp Number *</label>
-                  <input type="tel" name="whatsapp" required value={formData.whatsapp} onChange={handleChange} className="w-full px-2.5 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white placeholder-slate-400" placeholder="Active WhatsApp number" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">WhatsApp Number *</label>
+                  <input type="tel" name="whatsapp" required value={formData.whatsapp} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all text-white placeholder-gray-400" placeholder="Your active WhatsApp number" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Alternate Mobile Number</label>
-                  <input type="tel" name="altPhone" value={formData.altPhone} onChange={handleChange} className="w-full px-2.5 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white placeholder-slate-400" placeholder="Optional" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Alternate Mobile Number</label>
+                  <input type="tel" name="altPhone" value={formData.altPhone} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all text-white placeholder-gray-400" placeholder="Optional" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Country *</label>
-                  <input type="text" name="country" required value={formData.country} onChange={handleChange} className="w-full px-2.5 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Country *</label>
+                  <input type="text" name="country" required value={formData.country} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all text-white placeholder-gray-400" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">State / City *</label>
-                  <input type="text" name="state" required value={formData.state} onChange={handleChange} className="w-full px-2.5 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white placeholder-slate-400" placeholder="e.g. Maharashtra, Mumbai" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">State / City</label>
+                  <input type="text" name="state" value={formData.state} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all text-white placeholder-gray-400" placeholder="e.g. Maharashtra, Mumbai" />
                 </div>
               </div>
             </section>
 
             {/* SECTION 2: Training Details */}
-            <section className="space-y-1.5 pt-1">
-              <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                2. Training Details
-              </h2>
-              <div className="py-1 px-1 border-b border-black/10 dark:border-white/10 text-xs flex flex-wrap gap-x-4 gap-y-1 text-slate-600 dark:text-gray-300">
-                <span><strong>Course:</strong> {isAdvanced ? "Advanced Mushroom Training" : "Basic Mushroom Training"}</span>
-                <span><strong>Fee:</strong> ₹{paymentData.amount}</span>
-                <span><strong>Mode:</strong> Online</span>
+            <section className="space-y-4">
+              <h3 className="text-lg font-bold text-purple-300 border-b border-white/20 pb-2">2. Training Details</h3>
+              <div className="bg-black/30 p-4 rounded-xl border border-white/10 text-sm space-y-2 text-gray-300 mb-4">
+                <p><span className="font-semibold text-gray-400">Course Name:</span> {isAdvanced ? "Advanced Mushroom Farming Training" : "Basic Mushroom Farming Training"}</p>
+                <p><span className="font-semibold text-gray-400">Course Fee:</span> ₹{paymentData.amount}</p>
+                <p><span className="font-semibold text-gray-400">Training Mode:</span> Online</p>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Preferred Training Slot *</label>
-                  <select name="slot" required value={formData.slot} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                    <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select a slot</option>
-                    <option value="9:00 AM - 10:30 AM" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">9:00 AM – 10:30 AM</option>
-                    <option value="2:00 PM - 3:30 PM" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">2:00 PM – 3:30 PM</option>
-                    <option value="4:00 PM - 5:30 PM" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">4:00 PM – 5:30 PM</option>
-                    <option value="7:00 PM - 8:30 PM" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">7:00 PM – 8:30 PM</option>
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Preferred Training Slot *</label>
+                  <select name="slot" required value={formData.slot} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                    <option value="">Select a slot</option>
+                    <option value="9:00 AM - 10:30 AM">9:00 AM – 10:30 AM</option>
+                    <option value="2:00 PM - 3:30 PM">2:00 PM – 3:30 PM</option>
+                    <option value="4:00 PM - 5:30 PM">4:00 PM – 5:30 PM</option>
+                    <option value="7:00 PM - 8:30 PM">7:00 PM – 8:30 PM</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Preferred Start Date</label>
-                  <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer" />
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Preferred Start Date</label>
+                  <input type="date" name="startDate" value={formData.startDate} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white" />
                 </div>
               </div>
             </section>
 
             {/* SECTION 3: Farming Information */}
-            <section className="space-y-1.5 pt-1">
-              <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                3. {isAdvanced ? "Mushroom Farming Information" : "Basic Farming Details"}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <section className="space-y-4">
+              <h3 className="text-lg font-bold text-purple-300 border-b border-white/20 pb-2">3. {isAdvanced ? "Mushroom Farming Information" : "Basic Farming Details"}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Mushroom to learn? *</label>
-                  <select name="mushroom" required value={formData.mushroom} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                    <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select type</option>
-                    <option value="Button" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Button Mushroom</option>
-                    <option value="Oyster" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Oyster Mushroom</option>
-                    <option value="Milky" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Milky Mushroom</option>
-                    <option value="Multiple" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Multiple Types</option>
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Which mushroom do you want to learn? *</label>
+                  <select name="mushroom" required value={formData.mushroom} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                    <option value="">Select type</option>
+                    <option value="Button">Button Mushroom</option>
+                    <option value="Oyster">Oyster Mushroom</option>
+                    <option value="Milky">Milky Mushroom</option>
+                    <option value="Multiple">Multiple Types</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Current Experience *</label>
-                  <select name="experience" required value={formData.experience} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                    <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select experience</option>
-                    <option value="Beginner" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Beginner</option>
-                    <option value="Some Experience" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Some Experience</option>
-                    <option value="Experienced" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Experienced</option>
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Current Experience *</label>
+                  <select name="experience" required value={formData.experience} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                    <option value="">Select experience</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Some Experience">Some Experience</option>
+                    <option value="Experienced">Experienced</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Do you already have a farm? *</label>
-                  <select name="haveFarm" required value={formData.haveFarm} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                    <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select option</option>
-                    <option value="Yes" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Yes</option>
-                    <option value="No" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">No</option>
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Do you already have a farm? *</label>
+                  <select name="haveFarm" required value={formData.haveFarm} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                    <option value="">Select option</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Planned Farm Size</label>
-                  <select name="farmSize" value={formData.farmSize} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                    <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select size</option>
-                    <option value="Small" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Home / Small</option>
-                    <option value="Medium" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Medium</option>
-                    <option value="Commercial" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Commercial</option>
-                    <option value="Not Decided" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Not Decided</option>
+                  <label className="block text-xs font-medium text-gray-300 mb-1">Planned Farm Size</label>
+                  <select name="farmSize" value={formData.farmSize} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                    <option value="">Select size</option>
+                    <option value="Small">Home / Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Not Decided">Not Decided</option>
                   </select>
                 </div>
                 {isAdvanced && (
-                  <div className="sm:col-span-2">
-                    <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">Main Purpose *</label>
-                    <select name="purpose" required value={formData.purpose} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                      <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select purpose</option>
-                      <option value="Learn" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Learn Mushroom Farming</option>
-                      <option value="Start" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Start a Farm</option>
-                      <option value="Expand" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Expand Existing Farm</option>
-                      <option value="Commercial" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Commercial Production</option>
-                      <option value="Other" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Other</option>
+                  <div className="md:col-span-2">
+                    <label className="block text-xs font-medium text-gray-300 mb-1">Main Purpose *</label>
+                    <select name="purpose" required value={formData.purpose} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                      <option value="">Select purpose</option>
+                      <option value="Learn">Learn Mushroom Farming</option>
+                      <option value="Start">Start a Farm</option>
+                      <option value="Expand">Expand Existing Farm</option>
+                      <option value="Commercial">Commercial Production</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 )}
@@ -246,40 +240,59 @@ export default function RegistrationFormClient({
             </section>
 
             {/* SECTION 4: Payment Information */}
-            <section className="space-y-1 pt-1">
-              <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                4. Payment Information
-              </h2>
-              <div className="py-1 px-1 border-y border-black/10 dark:border-white/10 text-[11px] grid grid-cols-2 gap-1 text-slate-700 dark:text-gray-300">
-                <div>Status: <span className="font-bold text-emerald-500">PAID</span></div>
-                <div>Amount: <span className="font-bold">₹{paymentData.amount}</span></div>
-                <div className="col-span-2 truncate">Payment ID: <span className="font-mono text-[10px]">{paymentData.payment_id}</span></div>
-                <div className="col-span-2 truncate">Order ID: <span className="font-mono text-[10px]">{paymentData.order_id}</span></div>
+            <section className="space-y-4">
+              <h3 className="text-lg font-bold text-purple-300 border-b border-white/20 pb-2">4. Payment Information</h3>
+              <div className="bg-green-500/10 p-4 rounded-xl border border-green-500/20 text-sm space-y-2 text-green-100">
+                <p className="text-xs text-green-300/70 uppercase tracking-widest mb-3">Auto-filled via Razorpay</p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <span className="block text-xs font-semibold text-green-400/80">Status</span>
+                    <span className="font-bold">PAID</span>
+                  </div>
+                  <div>
+                    <span className="block text-xs font-semibold text-green-400/80">Amount</span>
+                    <span className="font-bold">₹{paymentData.amount}</span>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="block text-xs font-semibold text-green-400/80">Payment ID</span>
+                    <span className="font-mono text-xs break-all">{paymentData.payment_id}</span>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="block text-xs font-semibold text-green-400/80">Order ID</span>
+                    <span className="font-mono text-xs break-all">{paymentData.order_id}</span>
+                  </div>
+                  <div className="col-span-2">
+                    <span className="block text-xs font-semibold text-green-400/80">Date</span>
+                    <span>{paymentData.payment_date}</span>
+                  </div>
+                </div>
               </div>
             </section>
 
             {/* SECTION 5: Additional Info */}
-            <section className="space-y-1.5 pt-1">
-              <details className="group cursor-pointer">
-                <summary className="text-[11px] font-bold text-slate-600 dark:text-gray-300 outline-none flex justify-between items-center py-1 border-b border-black/10 dark:border-white/10">
+            <section className="space-y-4">
+              <details className="group bg-black/20 border border-white/10 rounded-xl overflow-hidden cursor-pointer">
+                <summary className="px-4 py-3 text-sm font-bold text-gray-200 outline-none flex justify-between items-center bg-white/5 hover:bg-white/10 transition-colors">
                   5. Additional Information (Optional)
-                  <span className="transition-transform group-open:rotate-180 text-xs">▼</span>
+                  <span className="transition group-open:rotate-180">
+                    <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                  </span>
                 </summary>
-                <div className="py-2 space-y-2">
+                <div className="px-4 py-4 space-y-4 bg-black/30 border-t border-white/10">
                   <div>
-                    <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">{isAdvanced ? "Your Question / Requirement" : "Any question or requirement"}</label>
-                    <textarea name="requirement" rows={2} value={formData.requirement} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border border-black/20 dark:border-white/20 rounded focus:outline-none focus:border-indigo-500 text-slate-900 dark:text-white resize-none" placeholder="Write any specific requirements..."></textarea>
+                    <label className="block text-xs font-medium text-gray-300 mb-1">{isAdvanced ? "Your Question / Requirement" : "Any question or requirement"}</label>
+                    <textarea name="requirement" rows={3} value={formData.requirement} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white resize-none" placeholder="Write any specific requirements here..."></textarea>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-medium text-slate-600 dark:text-gray-300 mb-0.5">How did you hear about us?</label>
-                    <select name="hearAbout" value={formData.hearAbout} onChange={handleChange} className="w-full px-2 py-1 text-xs bg-transparent border-0 border-b border-black/20 dark:border-white/20 focus:outline-none focus:border-indigo-500 rounded-none text-slate-900 dark:text-white cursor-pointer">
-                      <option value="" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Select option</option>
-                      <option value="Google" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Google</option>
-                      <option value="YouTube" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">YouTube</option>
-                      <option value="Instagram" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Instagram</option>
-                      <option value="Facebook" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Facebook</option>
-                      <option value="Referral" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Referral</option>
-                      <option value="Other" className="dark:bg-slate-900 text-slate-800 dark:text-slate-200">Other</option>
+                    <label className="block text-xs font-medium text-gray-300 mb-1">How did you hear about us?</label>
+                    <select name="hearAbout" value={formData.hearAbout} onChange={handleChange} className="w-full px-3 py-2 text-sm bg-[#1a1a2e] border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 text-white">
+                      <option value="">Select option</option>
+                      <option value="Google">Google</option>
+                      <option value="YouTube">YouTube</option>
+                      <option value="Instagram">Instagram</option>
+                      <option value="Facebook">Facebook</option>
+                      <option value="Referral">Referral</option>
+                      <option value="Other">Other</option>
                     </select>
                   </div>
                 </div>
@@ -287,18 +300,16 @@ export default function RegistrationFormClient({
             </section>
 
             {/* SECTION 6: Agreement */}
-            <section className="space-y-1.5 pt-2 border-t border-black/10 dark:border-white/10">
-              <h2 className="text-[10px] font-extrabold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                6. Agreement
-              </h2>
-              <div className="space-y-1">
-                <label className="flex items-start gap-2 cursor-pointer py-0.5 select-none touch-manipulation">
-                  <input type="checkbox" name="agreeCorrect" required checked={formData.agreeCorrect} onChange={handleChange} className="mt-0.5 w-3.5 h-3.5 rounded accent-indigo-600 cursor-pointer shrink-0" />
-                  <span className="text-[11px] text-slate-600 dark:text-gray-300 leading-tight">I confirm that the information provided by me is correct.</span>
+            <section className="space-y-4 pt-4 border-t border-white/20">
+              <h3 className="text-lg font-bold text-purple-300 mb-2">6. Agreement</h3>
+              <div className="space-y-3">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input type="checkbox" name="agreeCorrect" required checked={formData.agreeCorrect} onChange={handleChange} className="mt-1 w-4 h-4 rounded border-white/30 bg-white/10 text-purple-600 focus:ring-purple-500" />
+                  <span className="text-sm text-gray-300">I confirm that the information provided by me is correct.</span>
                 </label>
-                <label className="flex items-start gap-2 cursor-pointer py-0.5 select-none touch-manipulation">
-                  <input type="checkbox" name="agreeTerms" required checked={formData.agreeTerms} onChange={handleChange} className="mt-0.5 w-3.5 h-3.5 rounded accent-indigo-600 cursor-pointer shrink-0" />
-                  <span className="text-[11px] text-slate-600 dark:text-gray-300 leading-tight">I agree to the Training Terms & Conditions and Privacy Policy.</span>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input type="checkbox" name="agreeTerms" required checked={formData.agreeTerms} onChange={handleChange} className="mt-1 w-4 h-4 rounded border-white/30 bg-white/10 text-purple-600 focus:ring-purple-500" />
+                  <span className="text-sm text-gray-300">I agree to the Training Terms & Conditions and Privacy Policy.</span>
                 </label>
               </div>
             </section>
@@ -306,13 +317,13 @@ export default function RegistrationFormClient({
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white rounded-lg text-xs font-bold transition-opacity cursor-pointer disabled:opacity-50 mt-4 active:opacity-90 touch-manipulation"
+              className="w-full py-4 px-4 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-lg font-bold transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-xl mt-6 border border-white/10"
             >
               {loading ? "Submitting Details..." : "Complete Registration"}
             </button>
             
           </form>
-        </div>
+        </motion.div>
       </div>
     </main>
   );

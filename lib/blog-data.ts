@@ -3,8 +3,7 @@ export interface BlogPost {
   title: string;
   description: string;
   category: "Educational" | "Health & Wellness" | "Business Trends";
-  datePublished?: string;
-  date?: string;
+  datePublished: string;
   dateModified?: string;
   author: string;
   image: string;
