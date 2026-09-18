@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { recordPaymentInit, completeRegistration } from '@/lib/registrationStore';
 
 export async function POST(req: Request) {
   try {
@@ -120,6 +121,17 @@ export async function POST(req: Request) {
 
     // 3. DONE (Registration Complete) (Admin + Customer + PDF)
     if (action === 'DONE') {
+      if (data.paymentId) {
+        const result = completeRegistration(data.paymentId, data);
+        if (!result.success && result.error === 'ALREADY_COMPLETED') {
+          return NextResponse.json({
+            success: false,
+            error: 'ALREADY_COMPLETED',
+            message: 'This registration has already been submitted for this Payment ID.',
+          }, { status: 400 });
+        }
+      }
+
       // Admin Mail (Detailed Registration Form)
       const rows = `
         <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
@@ -184,6 +196,18 @@ export async function POST(req: Request) {
     
     // 4. PAYMENT_COMPLETED (Admin Only) - When Razorpay is successful before registration form
     if (action === 'PAYMENT_COMPLETED') {
+      const numericPrice = Number(String(data.price).replace(/[^0-9]/g, '')) || 299;
+      const regRecord = recordPaymentInit({
+        paymentId: data.paymentId,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        amount: numericPrice,
+      });
+
+      const baseUrl = process.env.APP_URL || "https://organicmushroomsfarm.com";
+      const registrationUrl = `${baseUrl}/training/register?id=${data.paymentId}&name=${encodeURIComponent(data.name)}&phone=${encodeURIComponent(data.phone)}&email=${encodeURIComponent(data.email)}&type=${regRecord.courseType}`;
+
       const rows = `
         <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
@@ -192,17 +216,26 @@ export async function POST(req: Request) {
         <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">${data.price}</td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Payment ID:</td><td style="${rowStyle} ${valueStyle} color: #10b981;">${data.paymentId}</td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
+        <tr>
+          <td colspan="2" style="padding: 16px 5px 6px 5px;">
+            <div style="background: #1e293b; border: 1px solid #3b82f6; border-radius: 8px; padding: 12px;">
+              <div style="font-size: 13px; font-weight: 700; color: #60a5fa; margin-bottom: 6px;">🔗 User Registration Form Link (Admin Copy):</div>
+              <a href="${registrationUrl}" style="color: #38bdf8; font-size: 12.5px; word-break: break-all; text-decoration: underline;">${registrationUrl}</a>
+              <div style="margin-top: 8px; font-size: 11.5px; color: #94a3b8;">💡 If the user does not fill this form within 5 minutes, an automated reminder email will be dispatched to ${data.email} automatically.</div>
+            </div>
+          </td>
+        </tr>
       `;
 
       const adminMailOptions = {
         from: `"Training Alert" <${user}>`,
         to: adminEmail,
         subject: `💳 [PAID] Payment Received - ${data.name}`,
-        html: adminHtmlStyle('💳 Payment Completed!', '#3b82f6', `User successfully paid for ${data.trainingName}, pending registration form submission.`, rows),
+        html: adminHtmlStyle('💳 Payment Completed!', '#3b82f6', `User successfully paid for ${data.trainingName}. Form link generated below.`, rows),
       };
 
       await transporter.sendMail(adminMailOptions);
-      return NextResponse.json({ success: true });
+      return NextResponse.json({ success: true, registrationUrl });
     }
 
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });

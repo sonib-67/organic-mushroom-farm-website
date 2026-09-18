@@ -1,9 +1,22 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { completeRegistration } from "@/lib/registrationStore";
 
 export async function POST(req: Request) {
   try {
     const { type, payment, form } = await req.json();
+    const paymentId = payment?.payment_id || payment?.paymentId;
+
+    if (paymentId) {
+      const lockRes = completeRegistration(paymentId, { ...payment, ...form });
+      if (!lockRes.success && lockRes.error === 'ALREADY_COMPLETED') {
+        return NextResponse.json({
+          error: "ALREADY_COMPLETED",
+          message: "This payment has already been used for registration.",
+        }, { status: 400 });
+      }
+    }
+
     const isAdvanced = type === "advanced";
     const courseTitle = isAdvanced ? "Advanced Mushroom Farming Training" : "Basic Mushroom Farming Training";
 
