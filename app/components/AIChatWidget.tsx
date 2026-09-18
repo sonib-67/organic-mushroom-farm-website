@@ -18,7 +18,7 @@ import {
   HelpCircle,
   TrendingUp,
   Maximize2,
-  Minimize2
+  Minimize2,
 } from "lucide-react";
 
 interface ChatMessage {
@@ -33,7 +33,7 @@ const QUICK_PROMPTS = [
   "🍄 Button vs Oyster Farming?",
   "🎓 Training Masterclass (₹199)?",
   "🌡️ Ideal Temperature & Humidity?",
-  "📦 How to buy F1 Spawn?"
+  "📦 How to buy F1 Spawn?",
 ];
 
 export const AIChatWidget = () => {
@@ -42,6 +42,7 @@ export const AIChatWidget = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome-1",
@@ -68,53 +69,134 @@ export const AIChatWidget = () => {
 
   const handleSendMessage = async (textToSend?: string) => {
     const messageContent = (textToSend || inputMessage).trim();
+
     if (!messageContent || isLoading) return;
 
     const userMessage: ChatMessage = {
       id: `user-${Date.now()}`,
       role: "user",
       content: messageContent,
-      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      timestamp: new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }),
     };
 
     setMessages((prev) => [...prev, userMessage]);
     setInputMessage("");
     setIsLoading(true);
 
+    const assistantId = `ai-${Date.now()}`;
+
+    // Empty assistant message for live streaming
+    setMessages((prev) => [
+      ...prev,
+      {
+        id: assistantId,
+        role: "assistant",
+        content: "",
+        timestamp: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      },
+    ]);
+
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           message: messageContent,
-          messages: [...messages, userMessage].map((m) => ({
-            role: m.role,
-            content: m.content,
-          })),
+
+          // Only recent messages are sent for faster response
+          history: [...messages, userMessage]
+            .slice(-12)
+            .map((m) => ({
+              role: m.role,
+              text: m.content,
+            })),
         }),
       });
 
-      const data = await response.json();
-      const replyText = data.reply || data.text || "Thank you for reaching out. Please connect directly on WhatsApp: +91 9203544140.";
+      if (!response.ok) {
+        throw new Error(`Chat API error: ${response.status}`);
+      }
 
-      const assistantMessage: ChatMessage = {
-        id: `ai-${Date.now()}`,
-        role: "assistant",
-        content: replyText,
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      };
+      if (!response.body) {
+        throw new Error("No response stream received");
+      }
 
-      setMessages((prev) => [...prev, assistantMessage]);
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      let fullResponse = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) break;
+
+        const chunk = decoder.decode(value, {
+          stream: true,
+        });
+
+        if (!chunk) continue;
+
+        fullResponse += chunk;
+
+        // Update AI message instantly as chunks arrive
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === assistantId
+              ? {
+                  ...msg,
+                  content: fullResponse,
+                }
+              : msg
+          )
+        );
+      }
+
+      // Flush remaining decoder content
+      const finalChunk = decoder.decode();
+
+      if (finalChunk) {
+        fullResponse += finalChunk;
+
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === assistantId
+              ? {
+                  ...msg,
+                  content: fullResponse,
+                }
+              : msg
+          )
+        );
+      }
+
+      if (!fullResponse.trim()) {
+        throw new Error("Empty AI response");
+      }
     } catch (error) {
       console.error("Chat error:", error);
-      const errorMessage: ChatMessage = {
-        id: `error-${Date.now()}`,
-        role: "assistant",
-        content:
-          "I experienced a slight connection delay. You can also chat directly with our head agronomist on WhatsApp at **+91 9203544140**.",
-        timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-      };
-      setMessages((prev) => [...prev, errorMessage]);
+
+      const errorText =
+        "I experienced a slight connection delay. You can also chat directly with our head agronomist on WhatsApp at **+91 9203544140**.";
+
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === assistantId
+            ? {
+                ...msg,
+                content: errorText,
+              }
+            : msg
+        )
+      );
     } finally {
       setIsLoading(false);
     }
@@ -123,6 +205,7 @@ export const AIChatWidget = () => {
   const copyMessage = (id: string, text: string) => {
     navigator.clipboard.writeText(text);
     setCopiedId(id);
+
     setTimeout(() => setCopiedId(null), 2000);
   };
 
@@ -150,6 +233,7 @@ export const AIChatWidget = () => {
           aria-label="Open AI Mushroom Advisor"
         >
           <div className="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-25" />
+
           <AnimatePresence mode="wait">
             {isOpen ? (
               <motion.div
@@ -168,7 +252,11 @@ export const AIChatWidget = () => {
                 exit={{ rotate: -90, opacity: 0 }}
                 className="relative"
               >
-                <Bot size={26} className="group-hover:rotate-12 transition-transform" />
+                <Bot
+                  size={26}
+                  className="group-hover:rotate-12 transition-transform"
+                />
+
                 <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-slate-900 rounded-full animate-pulse" />
               </motion.div>
             )}
@@ -180,10 +268,27 @@ export const AIChatWidget = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 30, originX: 0, originY: 1 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 30 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            initial={{
+              opacity: 0,
+              scale: 0.9,
+              y: 30,
+              originX: 0,
+              originY: 1,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              y: 0,
+            }}
+            exit={{
+              opacity: 0,
+              scale: 0.9,
+              y: 30,
+            }}
+            transition={{
+              duration: 0.25,
+              ease: "easeOut",
+            }}
             className={`fixed z-50 left-3 sm:left-6 bottom-36 md:bottom-24 bg-slate-950/95 backdrop-blur-2xl border border-purple-500/30 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col overflow-hidden transition-all duration-300 ${
               isExpanded
                 ? "w-[calc(100vw-24px)] sm:w-[600px] h-[80vh] max-h-[700px]"
@@ -195,15 +300,21 @@ export const AIChatWidget = () => {
               <div className="flex items-center gap-3">
                 <div className="relative w-10 h-10 rounded-2xl bg-purple-600/30 border border-purple-400/30 flex items-center justify-center">
                   <Bot size={22} className="text-purple-300" />
+
                   <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border border-slate-900" />
                 </div>
+
                 <div>
                   <div className="flex items-center gap-1.5">
-                    <h4 className="text-sm font-black text-white">MycoBot Advisor</h4>
+                    <h4 className="text-sm font-black text-white">
+                      MycoBot Advisor
+                    </h4>
+
                     <span className="px-1.5 py-0.2 rounded bg-purple-500/20 text-[9px] font-bold text-purple-300 uppercase tracking-wider">
                       Gemini 3.8
                     </span>
                   </div>
+
                   <p className="text-[11px] text-slate-400 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
                     Online • Jabalpur Farm Agronomist
@@ -219,13 +330,19 @@ export const AIChatWidget = () => {
                 >
                   <RefreshCw size={15} />
                 </button>
+
                 <button
                   onClick={() => setIsExpanded((prev) => !prev)}
                   title={isExpanded ? "Collapse" : "Expand"}
                   className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors hidden sm:block"
                 >
-                  {isExpanded ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+                  {isExpanded ? (
+                    <Minimize2 size={15} />
+                  ) : (
+                    <Maximize2 size={15} />
+                  )}
                 </button>
+
                 <button
                   onClick={() => setIsOpen(false)}
                   className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
@@ -253,12 +370,23 @@ export const AIChatWidget = () => {
             <div className="flex-1 p-4 overflow-y-auto space-y-3.5 scrollbar-thin text-xs sm:text-sm">
               {messages.map((msg) => {
                 const isUser = msg.role === "user";
+
                 return (
                   <motion.div
                     key={msg.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`flex items-start gap-2.5 ${isUser ? "flex-row-reverse" : "flex-row"}`}
+                    initial={{
+                      opacity: 0,
+                      y: 10,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    className={`flex items-start gap-2.5 ${
+                      isUser
+                        ? "flex-row-reverse"
+                        : "flex-row"
+                    }`}
                   >
                     <div
                       className={`w-7 h-7 rounded-full shrink-0 flex items-center justify-center text-xs ${
@@ -267,10 +395,20 @@ export const AIChatWidget = () => {
                           : "bg-purple-600/30 border border-purple-500/30 text-purple-300"
                       }`}
                     >
-                      {isUser ? <User size={14} /> : <Bot size={14} />}
+                      {isUser ? (
+                        <User size={14} />
+                      ) : (
+                        <Bot size={14} />
+                      )}
                     </div>
 
-                    <div className={`max-w-[82%] relative group ${isUser ? "text-right" : "text-left"}`}>
+                    <div
+                      className={`max-w-[82%] relative group ${
+                        isUser
+                          ? "text-right"
+                          : "text-left"
+                      }`}
+                    >
                       <div
                         className={`p-3 rounded-2xl leading-relaxed ${
                           isUser
@@ -285,13 +423,26 @@ export const AIChatWidget = () => {
 
                       <div className="flex items-center gap-2 mt-1 px-1 text-[10px] text-slate-500">
                         <span>{msg.timestamp}</span>
+
                         {!isUser && (
                           <button
-                            onClick={() => copyMessage(msg.id, msg.content)}
+                            onClick={() =>
+                              copyMessage(
+                                msg.id,
+                                msg.content
+                              )
+                            }
                             className="opacity-0 group-hover:opacity-100 transition-opacity hover:text-slate-300"
                             title="Copy reply"
                           >
-                            {copiedId === msg.id ? <Check size={11} className="text-emerald-400" /> : <Copy size={11} />}
+                            {copiedId === msg.id ? (
+                              <Check
+                                size={11}
+                                className="text-emerald-400"
+                              />
+                            ) : (
+                              <Copy size={11} />
+                            )}
                           </button>
                         )}
                       </div>
@@ -302,13 +453,20 @@ export const AIChatWidget = () => {
 
               {isLoading && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{
+                    opacity: 0,
+                    y: 10,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
                   className="flex items-center gap-2.5"
                 >
                   <div className="w-7 h-7 rounded-full bg-purple-600/30 border border-purple-500/30 text-purple-300 flex items-center justify-center">
                     <Bot size={14} />
                   </div>
+
                   <div className="p-3 rounded-2xl bg-white/5 border border-white/10 rounded-tl-xs flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-purple-400 animate-bounce" />
                     <div className="w-2 h-2 rounded-full bg-purple-400 animate-bounce [animation-delay:0.2s]" />
@@ -316,12 +474,16 @@ export const AIChatWidget = () => {
                   </div>
                 </motion.div>
               )}
+
               <div ref={messagesEndRef} />
             </div>
 
             {/* WhatsApp Fallback Bar */}
             <div className="px-3 py-1.5 bg-emerald-950/30 border-t border-emerald-500/10 flex items-center justify-between text-[11px]">
-              <span className="text-emerald-300 font-medium">Need instant human agronomist?</span>
+              <span className="text-emerald-300 font-medium">
+                Need instant human agronomist?
+              </span>
+
               <a
                 href="https://wa.me/919203544140?text=Hi,%20I%20was%20chatting%20with%20AI%20Advisor%20and%20need%20farm%20guidance."
                 target="_blank"
@@ -344,14 +506,19 @@ export const AIChatWidget = () => {
                 ref={inputRef}
                 type="text"
                 value={inputMessage}
-                onChange={(e) => setInputMessage(e.target.value)}
+                onChange={(e) =>
+                  setInputMessage(e.target.value)
+                }
                 placeholder="Ask about spawn, cost, setup, climate..."
                 disabled={isLoading}
                 className="flex-1 bg-white/5 border border-white/10 focus:border-purple-500 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all"
               />
+
               <button
                 type="submit"
-                disabled={!inputMessage.trim() || isLoading}
+                disabled={
+                  !inputMessage.trim() || isLoading
+                }
                 className="w-10 h-10 rounded-xl bg-purple-600 hover:bg-purple-500 disabled:opacity-40 disabled:cursor-not-allowed text-white flex items-center justify-center transition-all cursor-pointer shrink-0"
               >
                 <Send size={16} />
