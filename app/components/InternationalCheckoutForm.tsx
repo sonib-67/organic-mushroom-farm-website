@@ -248,6 +248,7 @@ const InternationalCheckoutForm = ({
   };
 
   const handleFailure = async (errorMsg: string) => {
+    setError(errorMsg);
     try {
       await fetch("/api/intl?action=fail", {
         method: "POST",
@@ -259,9 +260,8 @@ const InternationalCheckoutForm = ({
         }),
       });
     } catch (err) {
-      console.error(err);
+      console.error("Error logging failure:", err);
     }
-    alert(errorMsg);
   };
 
   return (
@@ -350,7 +350,7 @@ const InternationalCheckoutForm = ({
 
           {step === 2 && (
             <div className="space-y-3">
-              <div className="text-center p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-white/5 mb-4">
+              <div className="text-center p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-white/5 mb-3">
                 <p className="text-[11px] text-slate-500 dark:text-slate-400 mb-0.5">
                   Amount to Pay
                 </p>
@@ -358,6 +358,20 @@ const InternationalCheckoutForm = ({
                   ${price}
                 </p>
               </div>
+
+              {error && (
+                <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 rounded-xl text-center space-y-1.5">
+                  <p className="text-xs font-semibold text-red-600 dark:text-red-400">
+                    {error}
+                  </p>
+                  <button
+                    onClick={() => setError("")}
+                    className="text-[11px] text-blue-600 dark:text-blue-400 underline font-medium hover:text-blue-700"
+                  >
+                    Dismiss & Try Again
+                  </button>
+                </div>
+              )}
 
               <div className="min-h-[140px] relative">
                 {isLoading && (
@@ -373,7 +387,10 @@ const InternationalCheckoutForm = ({
                   <div className="text-center p-3 border border-red-500/20 bg-red-500/5 rounded-xl">
                     <p className="text-red-500 text-xs font-bold mb-3">Payment was cancelled.</p>
                     <button
-                      onClick={() => setIsCancelled(false)}
+                      onClick={() => {
+                        setIsCancelled(false);
+                        setError("");
+                      }}
                       className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs transition-all"
                     >
                       Retry Payment
@@ -403,7 +420,10 @@ const InternationalCheckoutForm = ({
               </div>
 
               <button
-                onClick={() => setStep(1)}
+                onClick={() => {
+                  setError("");
+                  setStep(1);
+                }}
                 className="w-full text-center text-xs text-slate-500 hover:text-slate-900 dark:hover:text-white mt-3 transition-colors"
               >
                 &larr; Back to Details

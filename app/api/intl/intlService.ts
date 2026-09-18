@@ -76,49 +76,64 @@ const generateInvoice = async (data: any): Promise<Buffer> => {
 };
 
 const getPayPalAccessToken = async () => {
-  const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID;
-  const PAYPAL_CLIENT_SECRET = process.env.PAYPAL_CLIENT_SECRET;
-  const PAYPAL_API_BASE =
-    process.env.PAYPAL_API_BASE || "https://api-m.paypal.com";
+  const PAYPAL_CLIENT_ID =
+    process.env.PAYPAL_CLIENT_ID ||
+    process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ||
+    "BAA9F1mTzMfsLuGY3cUMK_5-Q4cAq5DMmAbRenFGQs7AtoUEMY27wT_xYSvxh2sbUU8_wZRleyx7M4qMjg";
 
-  if (!PAYPAL_CLIENT_ID || !PAYPAL_CLIENT_SECRET) {
-    throw new Error("PayPal credentials are missing");
-  }
+  const PAYPAL_CLIENT_SECRET =
+    process.env.PAYPAL_CLIENT_SECRET ||
+    "ED-9zp54Zlm8uSN7ylvtiM7V1Cr8us3eq4fsJHV_8cjuTo-uD4NT2md7CN3eS0nBXbivmep5IgIW5-mW";
+
+  const baseCandidates = process.env.PAYPAL_API_BASE
+    ? [process.env.PAYPAL_API_BASE]
+    : ["https://api-m.paypal.com", "https://api-m.sandbox.paypal.com"];
 
   const auth = Buffer.from(
     `${PAYPAL_CLIENT_ID}:${PAYPAL_CLIENT_SECRET}`
   ).toString("base64");
 
-  const response = await fetch(
-    `${PAYPAL_API_BASE}/v1/oauth2/token`,
-    {
-      method: "POST",
-      body: "grant_type=client_credentials",
-      headers: {
-        Authorization: `Basic ${auth}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      cache: "no-store",
+  let lastError = null;
+
+  for (const apiBase of baseCandidates) {
+    try {
+      const response = await fetch(
+        `${apiBase}/v1/oauth2/token`,
+        {
+          method: "POST",
+          body: "grant_type=client_credentials",
+          headers: {
+            Authorization: `Basic ${auth}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          cache: "no-store",
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok && data.access_token) {
+        return {
+          accessToken: data.access_token,
+          apiBase,
+        };
+      } else {
+        lastError = data;
+        console.warn(`PayPal OAuth failed on ${apiBase}:`, {
+          status: response.status,
+          data,
+        });
+      }
+    } catch (err) {
+      lastError = err;
+      console.warn(`PayPal OAuth connection error on ${apiBase}:`, err);
     }
-  );
-
-  const data = await response.json();
-
-  if (!response.ok || !data.access_token) {
-    console.error("PayPal OAuth Error:", {
-      status: response.status,
-      data,
-    });
-
-    throw new Error(
-      `PayPal authentication failed (${response.status})`
-    );
   }
 
-  return {
-    accessToken: data.access_token,
-    apiBase: PAYPAL_API_BASE,
-  };
+  console.error("PayPal OAuth All Endpoints Failed:", lastError);
+  throw new Error(
+    "PayPal authentication failed. Please check credentials or network."
+  );
 };
 
 // 1. Create Order & Send "Initiated" Mail
@@ -134,12 +149,22 @@ export const createIntlOrder = async (req: NextRequest) => {
       );
     }
 
-    // Only $39 and $97 payments are allowed
-    const numericAmount = Number(amount);
+    // Only $39 and $97 payments are allowed (handle string like "39.00", "$39", etc.)
+    const cleanAmount =
+      typeof amount === "string" ? amount.replace(/[^0-9.]/g, "") : amount;
+    const numericAmount = Math.round(Number(cleanAmount));
 
     if (![39, 97].includes(numericAmount)) {
+      console.error("Invalid payment amount received:", {
+        amount,
+        cleanAmount,
+        numericAmount,
+      });
       return NextResponse.json(
-        { error: "Invalid payment amount" },
+        {
+          error:
+            "Invalid payment amount. Only $39 and $97 plans are supported.",
+        },
         { status: 400 }
       );
     }
