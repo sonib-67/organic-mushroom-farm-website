@@ -112,27 +112,36 @@ export default function TrainingCheckoutClient() {
         theme: {
           color: "#4f46e5"
         },
-        handler: function (response: any) {
+        handler: async function (response: any) {
           // Notify Formspree that payment is successful
           // We no longer send DONE from here, we will send it from Registration form submission.
 
           
-          // Notify Admin immediately about the completed payment
-          fetch('/api/training-email', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              action: 'PAYMENT_COMPLETED',
-              data: {
-                name: formData.name,
-                phone: formData.mobile,
-                email: formData.email,
-                price: selectedPrice,
-                trainingName: selectedTitle + ' Training',
-                paymentId: response.razorpay_payment_id
-              }
-            })
-          }).catch(console.error);
+          // Notify Admin immediately and obtain secure one-time registration token
+          let secureToken = '';
+          try {
+            const emailRes = await fetch('/api/training-email', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                action: 'PAYMENT_COMPLETED',
+                data: {
+                  name: formData.name,
+                  phone: formData.mobile,
+                  email: formData.email,
+                  price: selectedPrice,
+                  trainingName: selectedTitle + ' Training',
+                  paymentId: response.razorpay_payment_id
+                }
+              })
+            });
+            const emailData = await emailRes.json();
+            if (emailData?.token) {
+              secureToken = emailData.token;
+            }
+          } catch (e) {
+            console.error("Failed to notify payment completion:", e);
+          }
 
           trackPaymentStep('PaymentSuccess', {
             payment_id: response.razorpay_payment_id,
@@ -142,10 +151,11 @@ export default function TrainingCheckoutClient() {
             currency: payload.currency
           });
 
-          // Redirect to registration form
+          // Redirect to secure registration form with cryptographic token
+          const tokenParam = secureToken ? `&token=${encodeURIComponent(secureToken)}` : '';
           setTimeout(() => {
-             router.push(`/training/register?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}`);
-          }, 400);
+             router.push(`/training/register?id=${response.razorpay_payment_id}&name=${encodeURIComponent(formData.name)}&phone=${encodeURIComponent(formData.mobile)}&email=${encodeURIComponent(formData.email)}&type=${selectedProductType}${tokenParam}`);
+          }, 300);
         },
         modal: {
           ondismiss: function() {
@@ -292,10 +302,10 @@ export default function TrainingCheckoutClient() {
                 <label className="text-[9px] sm:text-[10px] font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Full Name</label>
                 <div className="relative">
                   <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-slate-400 text-slate-400 transition-colors group-focus-within/input:text-indigo-500 sm:w-[18px] sm:h-[18px]" />
-                  <FastInput type="text" 
+                  <input type="text" 
                     required
                     value={formData.name}
-                    onChange={(val: string) => setFormData({ ...formData, name: val })}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full box-border dark:bg-transparent bg-transparent border dark:border-transparent border-transparent rounded-xl sm:rounded-2xl py-2 pl-9 pr-3 text-xs sm:pl-10 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                     placeholder="Enter your full name"
                   />
@@ -328,10 +338,10 @@ export default function TrainingCheckoutClient() {
                 <label className="text-[9px] sm:text-[10px] font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Email Address</label>
                 <div className="relative">
                   <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-slate-400 text-slate-400 transition-colors group-focus-within/input:text-indigo-500 sm:w-[18px] sm:h-[18px]" />
-                  <FastInput type="email" 
+                  <input type="email" 
                     required
                     value={formData.email}
-                    onChange={(val: string) => setFormData({ ...formData, email: val })}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full box-border dark:bg-transparent bg-transparent border dark:border-transparent border-transparent rounded-xl sm:rounded-2xl py-2 pl-9 pr-3 text-xs sm:pl-10 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                     placeholder="Enter your email address"
                   />

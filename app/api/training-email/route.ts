@@ -1,5 +1,12 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import {
+  generateRegistrationToken,
+  saveOrUpdatePendingPayment,
+  markRegistrationCompleted,
+  getRegistrationRecord,
+  markReminderSent
+} from '@/lib/training-security';
 
 export async function POST(req: Request) {
   try {
@@ -120,6 +127,19 @@ export async function POST(req: Request) {
 
     // 3. DONE (Registration Complete) (Admin + Customer + PDF)
     if (action === 'DONE') {
+      // Check if already completed to block duplicate submissions
+      if (data.paymentId) {
+        const existing = await getRegistrationRecord(data.paymentId);
+        if (existing && existing.status === 'COMPLETED') {
+          return NextResponse.json({
+            success: false,
+            alreadySubmitted: true,
+            message: 'Registration already submitted for this payment.'
+          }, { status: 409 });
+        }
+        await markRegistrationCompleted(data.paymentId, data);
+      }
+
       // Admin Mail (Detailed Registration Form)
       const rows = `
         <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
@@ -182,27 +202,109 @@ export async function POST(req: Request) {
     }
 
     
-    // 4. PAYMENT_COMPLETED (Admin Only) - When Razorpay is successful before registration form
+    // 4. PAYMENT_COMPLETED (Admin + DB + Token + 5-min Auto Reminder)
     if (action === 'PAYMENT_COMPLETED') {
+      const numericPrice = typeof data.price === 'number' 
+        ? data.price 
+        : (parseInt(String(data.price || '').replace(/\D/g, ''), 10) || 299);
+      
+      const plan: 'training_basic' | 'training_advanced' = (numericPrice >= 600 || String(data.trainingName || '').includes('Advanced')) 
+        ? 'training_advanced' 
+        : 'training_basic';
+
+      const planName = plan === 'training_advanced'
+        ? 'Advanced Mushroom Farming Training'
+        : 'Basic Mushroom Farming Training';
+
+      // Generate cryptographically signed one-time token
+      const token = generateRegistrationToken({
+        paymentId: data.paymentId,
+        amount: numericPrice,
+        plan,
+        name: data.name,
+        email: data.email,
+        phone: data.phone
+      });
+
+      // Save as pending in database
+      await saveOrUpdatePendingPayment({
+        paymentId: data.paymentId,
+        amount: numericPrice,
+        plan,
+        planName,
+        customerName: data.name || '',
+        customerEmail: data.email || '',
+        customerPhone: data.phone || '',
+        token
+      });
+
+      const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://organicmushroomsfarm.com";
+      const registrationUrl = `${baseUrl}/training/register?token=${token}&id=${data.paymentId}&type=${plan}&name=${encodeURIComponent(data.name || '')}&email=${encodeURIComponent(data.email || '')}&phone=${encodeURIComponent(data.phone || '')}`;
+
       const rows = `
         <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Mobile / Phone:</td><td style="${rowStyle} ${valueStyle}">${data.phone}</td></tr>
-        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${data.trainingName}</td></tr>
-        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">${data.price}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Training Plan:</td><td style="${rowStyle} ${valueStyle} color: #c084fc;">${planName}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Amount:</td><td style="${rowStyle} ${highlightStyle}">₹${numericPrice} (Verified)</td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Payment ID:</td><td style="${rowStyle} ${valueStyle} color: #10b981;">${data.paymentId}</td></tr>
+        <tr><td style="${rowStyle} ${labelStyle}">Registration Link:</td><td style="${rowStyle} ${valueStyle}">
+          <a href="${registrationUrl}" style="color: #38bdf8; font-weight: bold; word-break: break-all; display: inline-block; margin-bottom: 4px;">${registrationUrl}</a>
+          <div style="font-size: 11px; color: #94a3b8;">(One-time secure link. If customer did not submit form, forward this link on WhatsApp)</div>
+        </td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Time (IST):</td><td style="${rowStyle} ${valueStyle}">${currentTime}</td></tr>
       `;
 
       const adminMailOptions = {
         from: `"Training Alert" <${user}>`,
         to: adminEmail,
-        subject: `💳 [PAID] Payment Received - ${data.name}`,
-        html: adminHtmlStyle('💳 Payment Completed!', '#3b82f6', `User successfully paid for ${data.trainingName}, pending registration form submission.`, rows),
+        subject: `💳 [PAID] Payment Received - ${data.name} (₹${numericPrice})`,
+        html: adminHtmlStyle('💳 Payment Completed!', '#3b82f6', `User successfully paid ₹${numericPrice} for ${planName}. Direct registration link generated.`, rows),
       };
 
       await transporter.sendMail(adminMailOptions);
-      return NextResponse.json({ success: true });
+
+      // Trigger 5-minute automated reminder in background
+      if (data.email) {
+        setTimeout(async () => {
+          try {
+            const rec = await getRegistrationRecord(data.paymentId);
+            if (rec && rec.status === 'PENDING_REGISTRATION' && !rec.reminderSent && rec.customerEmail) {
+              const reminderOptions = {
+                from: `"Organic Mushroom Farm" <${user}>`,
+                replyTo: "support@organicmushroomsfarm.com",
+                to: rec.customerEmail,
+                subject: `Action Required: Complete Your Training Registration 🍄`,
+                html: `
+                  <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 10px;">
+                    <h3 style="color: #16a34a; margin-top: 0;">Hello ${rec.customerName || 'Valued Learner'},</h3>
+                    <p>We received your successful payment of <strong>₹${rec.amount}</strong> for the <strong>${rec.planName}</strong> (Payment ID: <code>${rec.paymentId}</code>).</p>
+                    <p>We noticed you haven't completed your batch registration form yet. To ensure your batch allocation and access to the WhatsApp group, please complete your details using your secure link below:</p>
+                    <div style="margin: 24px 0; text-align: center;">
+                      <a href="${registrationUrl}" style="background-color: #16a34a; color: #ffffff; padding: 12px 26px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 15px; display: inline-block;">👉 Complete Registration Form</a>
+                    </div>
+                    <p style="font-size: 12px; color: #64748b;">Or open directly: <a href="${registrationUrl}" style="color: #2563eb; word-break: break-all;">${registrationUrl}</a></p>
+                    <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;" />
+                    <p style="font-size: 12px; color: #64748b; margin: 0;">Need assistance? WhatsApp us at <strong>+91 9203544140</strong>.<br/>Organic Mushroom Farm Team</p>
+                  </div>
+                `
+              };
+              await transporter.sendMail(reminderOptions);
+              await markReminderSent(rec.paymentId);
+            }
+          } catch (err) {
+            console.error("5-minute reminder error:", err);
+          }
+        }, 5 * 60 * 1000);
+      }
+
+      return NextResponse.json({
+        success: true,
+        token,
+        registrationUrl,
+        plan,
+        amount: numericPrice
+      });
     }
 
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });

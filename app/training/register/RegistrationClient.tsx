@@ -1,24 +1,33 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { CheckCircle2, Loader2, CheckSquare } from 'lucide-react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { CheckCircle2, Loader2, CheckSquare, ShieldCheck, AlertTriangle, MessageCircle, Home } from 'lucide-react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 export default function RegistrationClient() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const paymentId = searchParams?.get('id') || 'Unknown';
+  const tokenParam = searchParams?.get('token') || '';
   const nameParam = searchParams?.get('name') || '';
   const phoneParam = searchParams?.get('phone') || '';
   const emailParam = searchParams?.get('email') || '';
   const typeParam = searchParams?.get('type') || 'training_basic';
 
-  const isAdvanced = typeParam.includes('advanced');
-  const price = isAdvanced ? '699' : '299';
-  const trainingName = isAdvanced 
+  const isAdvancedInitial = typeParam.includes('advanced');
+  const initialPrice = isAdvancedInitial ? '699' : '299';
+  const initialTrainingName = isAdvancedInitial 
     ? 'Advanced Commercial Cultivation' 
     : 'Basic Mushroom Farming Training';
+
+  const [verifying, setVerifying] = useState(true);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+  const [alreadySubmittedData, setAlreadySubmittedData] = useState<any>(null);
+  const [verifiedPrice, setVerifiedPrice] = useState<string>(initialPrice);
+  const [verifiedTrainingName, setVerifiedTrainingName] = useState<string>(initialTrainingName);
+  const [tamperedAlert, setTamperedAlert] = useState<string | null>(null);
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
@@ -43,6 +52,63 @@ export default function RegistrationClient() {
     declaration: true,
   });
 
+  // Verify payment status and guard against multiple submissions / tampering
+  useEffect(() => {
+    if (!paymentId || paymentId === 'Unknown') {
+      setVerifying(false);
+      return;
+    }
+
+    let isMounted = true;
+    async function verifyPayment() {
+      try {
+        const queryParams = new URLSearchParams({
+          id: paymentId,
+          token: tokenParam,
+          type: typeParam,
+          name: nameParam,
+          phone: phoneParam,
+          email: emailParam
+        });
+
+        const res = await fetch(`/api/training-registration/verify?${queryParams.toString()}`);
+        const data = await res.json();
+
+        if (!isMounted) return;
+
+        if (data.alreadySubmitted) {
+          setAlreadySubmitted(true);
+          setAlreadySubmittedData(data);
+          setVerifying(false);
+          return;
+        }
+
+        if (data.valid) {
+          setVerifiedPrice(String(data.amount));
+          setVerifiedTrainingName(data.planName);
+          if (data.tampered) {
+            setTamperedAlert(data.tamperMessage || `Payment verified as ₹${data.amount}. Training plan is locked to ${data.planName}.`);
+          }
+          if (data.customerName && !nameParam) {
+            setFormData(prev => ({
+              ...prev,
+              name: data.customerName || prev.name,
+              email: data.customerEmail || prev.email,
+              phone: data.customerPhone || prev.phone
+            }));
+          }
+        }
+      } catch (err) {
+        console.error("Verification error:", err);
+      } finally {
+        if (isMounted) setVerifying(false);
+      }
+    }
+
+    verifyPayment();
+    return () => { isMounted = false; };
+  }, [paymentId, tokenParam, typeParam, nameParam, phoneParam, emailParam]);
+
   useEffect(() => {
     setFormData(prev => ({
       ...prev,
@@ -59,7 +125,7 @@ Mobile: ${formData.phone}
 Email: ${formData.email}
 Payment ID: ${paymentId}
 
-I have successfully enrolled in the ${trainingName} (₹${price}).
+I have successfully enrolled in the ${verifiedTrainingName} (₹${verifiedPrice}).
 
 Please share:
 • Training access details
@@ -140,9 +206,9 @@ Thank you.`;
       startY: 100,
       head: [['Description', 'Amount']],
       body: [
-        [trainingName, `Rs. ${price}`],
+        [verifiedTrainingName, `Rs. ${verifiedPrice}`],
         ['Tax (GST 18% included)', 'Included'],
-        ['Total Paid', `Rs. ${price}`]
+        ['Total Paid', `Rs. ${verifiedPrice}`]
       ],
       theme: 'grid',
       headStyles: { fillColor: [126, 34, 206] }
@@ -177,11 +243,12 @@ Thank you.`;
       const doc = generatePDF();
       const pdfBase64 = doc.output('datauristring');
 
-      const res = await fetch('/api/training-email', {
+      const res = await fetch('/api/training-registration/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          action: 'DONE',
+          paymentId: paymentId,
+          token: tokenParam,
           data: {
             name: formData.name,
             phone: formData.phone,
@@ -196,19 +263,33 @@ Thank you.`;
             investment: formData.investment,
             support: formData.support,
             source: formData.source,
-            price: `Rs. ${price}`,
-            trainingName: trainingName,
+            price: `Rs. ${verifiedPrice}`,
+            trainingName: verifiedTrainingName,
             paymentId: paymentId,
           },
           pdfBase64: pdfBase64
         })
       });
 
+      const resData = await res.json();
+
+      if (res.status === 409 || resData.alreadySubmitted) {
+        setAlreadySubmitted(true);
+        setAlreadySubmittedData({
+          planName: resData.record?.planName || verifiedTrainingName,
+          amount: resData.record?.amount || Number(verifiedPrice),
+          completedAt: resData.record?.completedAtFormatted || 'Earlier Today',
+          customerName: resData.record?.customerName || formData.name,
+          paymentId: paymentId
+        });
+        return;
+      }
+
       if (res.ok) {
-        setPdfUrl(doc.output('bloburl'));
+        setPdfUrl(String(doc.output('bloburl')));
         setIsSubmitted(true);
       } else {
-        alert("Failed to submit registration. Please try again.");
+        alert(resData.error || "Failed to submit registration. Please try again.");
       }
     } catch (error) {
       console.error(error);
@@ -217,6 +298,87 @@ Thank you.`;
       setLoading(false);
     }
   };
+
+  if (verifying) {
+    return (
+      <div className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-16 px-4 flex flex-col items-center justify-center">
+        <div className="text-center space-y-2">
+          <Loader2 className="w-8 h-8 animate-spin text-indigo-500 mx-auto" />
+          <p className="text-xs font-medium text-slate-700 dark:text-slate-300">
+            Verifying payment security & registration status...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (alreadySubmitted) {
+    return (
+      <div className="min-h-screen bg-transparent relative z-20 pointer-events-auto pt-12 pb-10 px-4 flex flex-col items-center justify-center">
+        <div className="max-w-md w-full text-center space-y-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xl">
+          <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-950/60 rounded-full flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400">
+            <ShieldCheck className="w-7 h-7" />
+          </div>
+          
+          <div>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+              Registration Already Completed!
+            </h2>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+              Your one-time registration form for this payment has already been recorded successfully.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-3.5 text-left text-xs space-y-1.5 border border-slate-200/60 dark:border-slate-700/60">
+            <div className="flex justify-between">
+              <span className="text-slate-500 dark:text-slate-400">Customer Name:</span>
+              <span className="font-semibold text-slate-800 dark:text-slate-200">{alreadySubmittedData?.customerName || formData.name || 'Enrolled Student'}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-slate-500 dark:text-slate-400">Payment ID:</span>
+              <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">{paymentId}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-slate-500 dark:text-slate-400">Training Plan:</span>
+              <span className="font-semibold text-indigo-600 dark:text-indigo-400">{alreadySubmittedData?.planName || verifiedTrainingName}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-slate-500 dark:text-slate-400">Amount Paid:</span>
+              <span className="font-semibold text-slate-800 dark:text-slate-200">₹{alreadySubmittedData?.amount || verifiedPrice} (Verified)</span>
+            </div>
+            {alreadySubmittedData?.completedAt && (
+              <div className="flex justify-between border-t border-slate-200/40 dark:border-slate-700/40 pt-1.5 mt-1.5">
+                <span className="text-slate-500 dark:text-slate-400">Completed At:</span>
+                <span className="text-slate-600 dark:text-slate-400">{alreadySubmittedData.completedAt}</span>
+              </div>
+            )}
+          </div>
+
+          <p className="text-[11px] text-slate-500 dark:text-slate-400">
+            You do not need to fill out this form again. Our training team is preparing your batch details and joining link.
+          </p>
+
+          <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+            <a
+              href={whatsappUrl}
+              className="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition-all shadow-md shadow-emerald-600/20"
+            >
+              <MessageCircle size={15} />
+              WhatsApp Support
+            </a>
+            <button
+              type="button"
+              onClick={() => router.push('/')}
+              className="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-medium py-2.5 px-4 rounded-xl transition-all"
+            >
+              <Home size={15} />
+              Home
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (isSubmitted) {
     return (
@@ -241,12 +403,22 @@ Thank you.`;
         {/* Flat Minimal Header - No box, completely transparent so background design shines through */}
         <div className="text-center mb-3">
           <span className="inline-block text-[10px] font-extrabold text-emerald-600 dark:text-emerald-400 tracking-wider uppercase">
-            Payment Verified (₹{price})
+            Payment Verified (₹{verifiedPrice})
           </span>
           <h1 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white tracking-tight mt-0.5">
-            {trainingName} Registration
+            {verifiedTrainingName} Registration
           </h1>
         </div>
+
+        {/* Security Tamper Warning Banner if URL was altered */}
+        {tamperedAlert && (
+          <div className="mb-3 p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-xl flex items-start gap-2 text-left">
+            <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+            <div className="text-[11px] text-amber-700 dark:text-amber-300 leading-tight">
+              {tamperedAlert}
+            </div>
+          </div>
+        )}
 
         {/* 100% Flat & Box-Free Lightweight Form */}
         <form onSubmit={handleSubmit} className="space-y-3 text-slate-800 dark:text-slate-200">

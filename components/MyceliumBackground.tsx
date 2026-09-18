@@ -114,6 +114,7 @@ export const MyceliumBackground = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
+      const isMobile = width < 768;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;

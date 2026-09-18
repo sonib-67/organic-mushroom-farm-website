@@ -1,10 +1,10 @@
 export interface BlogPost {
   slug: string;
-  date?: string;
   title: string;
   description: string;
   category: "Educational" | "Health & Wellness" | "Business Trends";
-  datePublished: string;
+  datePublished?: string;
+  date?: string;
   dateModified?: string;
   author: string;
   image: string;
