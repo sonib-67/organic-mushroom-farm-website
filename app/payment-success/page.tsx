@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function PaymentSuccessPage() {
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-20 pb-16 flex items-center justify-center">
+    <main className="min-h-screen bg-transparent pt-20 pb-16 flex items-center justify-center relative z-20">
       <Suspense
         fallback={
           <div className="text-center py-20 text-slate-500 dark:text-slate-400 text-xs">

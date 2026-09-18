@@ -385,15 +385,16 @@ export default function RegistrationClient() {
   };
 
   // -------------------------------------------------------------
+  // -------------------------------------------------------------
   // VIEW 1: LOADING STATE (Checking Payment Security)
   // -------------------------------------------------------------
   if (verifying) {
     return (
-      <div className="min-h-screen bg-[#0c1322] flex flex-col items-center justify-center p-4 relative z-20">
-        <div className="bg-[#162033]/90 backdrop-blur-xl border border-slate-700 rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
-          <Loader2 className="w-12 h-12 text-emerald-400 animate-spin mx-auto mb-4" />
-          <h2 className="text-xl font-bold text-white mb-2">Verifying Payment Security...</h2>
-          <p className="text-slate-400 text-sm">
+      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 relative z-20">
+        <div className="bg-white/90 dark:bg-[#162033]/90 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
+          <Loader2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400 animate-spin mx-auto mb-4" />
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Verifying Payment Security...</h2>
+          <p className="text-slate-600 dark:text-slate-400 text-sm">
             Please wait while we authenticate your transaction credentials with the secure gateway.
           </p>
         </div>
@@ -406,13 +407,13 @@ export default function RegistrationClient() {
   // -------------------------------------------------------------
   if (!isValidPayment) {
     return (
-      <div className="min-h-screen bg-[#0c1322] flex flex-col items-center justify-center p-4 relative z-20">
-        <div className="bg-[#162033]/90 backdrop-blur-xl border border-red-500/30 rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
-          <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <AlertTriangle className="w-8 h-8 text-red-400" />
+      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 relative z-20">
+        <div className="bg-white/90 dark:bg-[#162033]/90 backdrop-blur-xl border border-red-500/30 rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
+          <div className="w-16 h-16 bg-red-500/10 dark:bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <AlertTriangle className="w-8 h-8 text-red-600 dark:text-red-400" />
           </div>
-          <h2 className="text-xl font-bold text-white mb-2">Invalid or Missing Payment</h2>
-          <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Invalid or Missing Payment</h2>
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-6 leading-relaxed">
             {verificationError || 'No verified payment was found for this registration session. Registrations are strictly reserved for students with verified payments.'}
           </p>
           <div className="space-y-3">
@@ -425,7 +426,7 @@ export default function RegistrationClient() {
             </a>
             <button
               onClick={() => router.push('/training')}
-              className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2.5 px-6 rounded-xl transition-all"
+              className="flex items-center justify-center gap-2 w-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-semibold py-2.5 px-6 rounded-xl transition-all border border-slate-200 dark:border-slate-700"
             >
               <Home className="w-4 h-4" />
               Go to Training Page
@@ -441,44 +442,44 @@ export default function RegistrationClient() {
   // -------------------------------------------------------------
   if (isAlreadySubmitted) {
     return (
-      <div className="min-h-screen bg-[#0c1322] flex flex-col items-center justify-center p-4 relative z-20">
+      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 relative z-20">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-[#162033]/95 backdrop-blur-xl border border-emerald-500/40 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl"
+          className="bg-white/90 dark:bg-[#162033]/95 backdrop-blur-xl border border-emerald-500/40 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl"
         >
-          <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <ShieldCheck className="w-10 h-10 text-emerald-400" />
+          <div className="w-16 h-16 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <ShieldCheck className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
           </div>
 
-          <div className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
             Registration Locked & Verified
           </div>
 
-          <h2 className="text-2xl font-bold text-white mb-2">
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
             Registration Already Submitted!
           </h2>
 
-          <p className="text-slate-300 text-sm mb-6 leading-relaxed">
-            Your registration for <strong>{actualCourseTitle}</strong> (Payment ID: <code className="text-emerald-400">{currentPaymentId}</code>) has already been recorded and secured. Multiple submissions for the same payment are prevented.
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-6 leading-relaxed">
+            Your registration for <strong>{actualCourseTitle}</strong> (Payment ID: <code className="text-emerald-600 dark:text-emerald-400 font-bold">{currentPaymentId}</code>) has already been recorded and secured. Multiple submissions for the same payment are prevented.
           </p>
 
-          <div className="bg-[#0c1322]/80 border border-slate-700/60 rounded-xl p-4 text-left text-sm space-y-2 mb-6">
-            <div className="flex justify-between border-b border-slate-800 pb-2">
-              <span className="text-slate-400">Student Name:</span>
-              <span className="text-white font-semibold">{customerName}</span>
+          <div className="bg-slate-50 dark:bg-[#0c1322]/80 border border-slate-200 dark:border-slate-700/60 rounded-xl p-4 text-left text-sm space-y-2 mb-6">
+            <div className="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+              <span className="text-slate-500 dark:text-slate-400">Student Name:</span>
+              <span className="text-slate-900 dark:text-white font-semibold">{customerName}</span>
             </div>
-            <div className="flex justify-between border-b border-slate-800 pb-2">
-              <span className="text-slate-400">Registered Phone:</span>
-              <span className="text-white font-semibold">{customerPhone}</span>
+            <div className="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+              <span className="text-slate-500 dark:text-slate-400">Registered Phone:</span>
+              <span className="text-slate-900 dark:text-white font-semibold">{customerPhone}</span>
             </div>
-            <div className="flex justify-between border-b border-slate-800 pb-2">
-              <span className="text-slate-400">Verified Amount:</span>
-              <span className="text-emerald-400 font-bold">₹{actualAmount} (PAID)</span>
+            <div className="flex justify-between border-b border-slate-200 dark:border-slate-800 pb-2">
+              <span className="text-slate-500 dark:text-slate-400">Verified Amount:</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">₹{actualAmount} (PAID)</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-400">Status:</span>
-              <span className="text-emerald-400 font-semibold flex items-center gap-1">
+              <span className="text-slate-500 dark:text-slate-400">Status:</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
                 <Check className="w-4 h-4" /> Admission Confirmed
               </span>
             </div>
@@ -487,7 +488,7 @@ export default function RegistrationClient() {
           <div className="space-y-3">
             <button
               onClick={handleDownloadInvoice}
-              className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-xl transition-all border border-slate-600 shadow-md"
+              className="flex items-center justify-center gap-2 w-full bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-xl transition-all border border-slate-700 shadow-md cursor-pointer"
             >
               <Download className="w-5 h-5 text-emerald-400" />
               Download Invoice PDF Again
@@ -505,7 +506,7 @@ export default function RegistrationClient() {
 
             <button
               onClick={() => router.push('/')}
-              className="flex items-center justify-center gap-2 w-full bg-transparent hover:bg-white/5 text-slate-400 hover:text-white font-semibold py-2.5 px-6 rounded-xl transition-all"
+              className="flex items-center justify-center gap-2 w-full bg-transparent hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white font-semibold py-2.5 px-6 rounded-xl transition-all cursor-pointer"
             >
               <Home className="w-4 h-4" />
               Return to Homepage
@@ -521,30 +522,30 @@ export default function RegistrationClient() {
   // -------------------------------------------------------------
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-[#0c1322] flex flex-col items-center justify-center p-4 relative z-20">
+      <div className="min-h-screen bg-transparent flex flex-col items-center justify-center p-4 relative z-20">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-[#162033]/95 backdrop-blur-xl border border-emerald-500/40 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl"
+          className="bg-white/90 dark:bg-[#162033]/95 backdrop-blur-xl border border-emerald-500/40 rounded-3xl p-8 max-w-lg w-full text-center shadow-2xl"
         >
-          <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle2 className="w-10 h-10 text-emerald-400" />
+          <div className="w-16 h-16 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
           </div>
 
-          <h1 className="text-2xl font-bold text-white mb-2">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
             Registration Submitted Successfully! 🎉
           </h1>
 
-          <p className="text-slate-300 text-sm mb-6 leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-300 text-sm mb-6 leading-relaxed">
             Thank you, <strong>{customerName}</strong>! Your registration details have been securely recorded. Your official Tax Invoice and Admission Pass have been generated below.
           </p>
 
-          <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-4 mb-6 text-left text-sm space-y-2">
-            <p className="text-emerald-300 font-semibold mb-2">
+          <div className="bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-500/30 rounded-xl p-4 mb-6 text-left text-sm space-y-2">
+            <p className="text-emerald-700 dark:text-emerald-300 font-semibold mb-2">
               📲 Next Step: Join the Training WhatsApp Group
             </p>
-            <p className="text-slate-300 text-xs leading-relaxed">
-              Our training coordinator is adding your number (<span className="text-white font-bold">{customerPhone}</span>) to the private student batch. Tap the button below to connect directly with the farm agronomy team:
+            <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
+              Our training coordinator is adding your number (<span className="text-slate-900 dark:text-white font-bold">{customerPhone}</span>) to the private student batch. Tap the button below to connect directly with the farm agronomy team:
             </p>
           </div>
 
@@ -553,7 +554,7 @@ export default function RegistrationClient() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] text-base"
+              className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] text-base cursor-pointer"
             >
               <MessageCircle className="w-5 h-5" />
               Chat on WhatsApp & Get Batch Timings
@@ -561,7 +562,7 @@ export default function RegistrationClient() {
 
             <button
               onClick={handleDownloadInvoice}
-              className="flex items-center justify-center gap-2 w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-xl transition-all border border-slate-600"
+              className="flex items-center justify-center gap-2 w-full bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 dark:hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-xl transition-all border border-slate-700 cursor-pointer"
             >
               <Download className="w-5 h-5 text-emerald-400" />
               Download Official Invoice PDF
@@ -569,7 +570,7 @@ export default function RegistrationClient() {
 
             <button
               onClick={() => router.push('/')}
-              className="flex items-center justify-center gap-2 w-full bg-transparent hover:bg-white/5 text-slate-400 hover:text-white font-semibold py-2.5 px-6 rounded-xl transition-all text-sm"
+              className="flex items-center justify-center gap-2 w-full bg-transparent hover:bg-slate-100 dark:hover:bg-white/5 text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white font-semibold py-2.5 px-6 rounded-xl transition-all text-sm cursor-pointer"
             >
               <Home className="w-4 h-4" />
               Back to Home
@@ -581,25 +582,26 @@ export default function RegistrationClient() {
   }
 
   // -------------------------------------------------------------
+  // -------------------------------------------------------------
   // VIEW 5: PRIMARY REGISTRATION FORM (Matches User Screenshots Exactly)
-  // Supports Dark Mode & Light Mode seamlessly!
+  // Supports Dark Mode & Light Mode seamlessly with transparent background!
   // -------------------------------------------------------------
   return (
-    <div className="min-h-screen bg-[#0c1322] dark:bg-[#0c1322] text-slate-100 relative z-20 pt-8 pb-16 px-4 sm:px-6">
-      <div className="max-w-xl mx-auto">
+    <div className="min-h-screen bg-transparent text-slate-800 dark:text-slate-100 relative z-20 pt-8 pb-16 px-4 sm:px-6">
+      <div className="max-w-xl mx-auto bg-white/70 dark:bg-[#0c1322]/70 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-2xl">
         
-        {/* Top Header Badge & Course Title (Exact match to screenshot) */}
+        {/* Top Header Badge & Course Title */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm font-bold tracking-wider uppercase mb-3 shadow-[0_0_15px_rgba(52,211,153,0.15)]">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs sm:text-sm font-bold tracking-wider uppercase mb-3 shadow-[0_0_15px_rgba(52,211,153,0.15)]">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             PAYMENT VERIFIED (₹{actualAmount})
           </div>
           
-          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
             {actualCourseTitle}
           </h1>
-          <p className="text-slate-400 text-xs mt-1.5">
-            Payment ID: <code className="text-emerald-400">{currentPaymentId}</code> • One-time registration lock active
+          <p className="text-slate-600 dark:text-slate-400 text-xs mt-1.5">
+            Payment ID: <code className="text-emerald-600 dark:text-emerald-400 font-bold">{currentPaymentId}</code> • One-time registration lock active
           </p>
         </div>
 
@@ -608,9 +610,9 @@ export default function RegistrationClient() {
 
           {/* 1. PERSONAL DETAILS (Verified / Read-Only to prevent tampering) */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400 flex items-center gap-1.5">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
               1. PERSONAL DETAILS
-              <span className="text-[10px] text-emerald-400 font-normal lowercase bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-normal lowercase bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                 verified
               </span>
             </h2>
@@ -621,9 +623,9 @@ export default function RegistrationClient() {
                   type="text"
                   readOnly
                   value={customerName}
-                  className="w-full bg-[#162033]/90 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none cursor-not-allowed"
+                  className="w-full bg-slate-100/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-4 py-3 text-slate-800 dark:text-white text-sm focus:outline-none cursor-not-allowed"
                 />
-                <Lock className="w-4 h-4 text-slate-500 absolute right-4 top-3.5" />
+                <Lock className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-4 top-3.5" />
               </div>
 
               <div className="relative">
@@ -631,9 +633,9 @@ export default function RegistrationClient() {
                   type="text"
                   readOnly
                   value={customerPhone}
-                  className="w-full bg-[#162033]/90 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none cursor-not-allowed"
+                  className="w-full bg-slate-100/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-4 py-3 text-slate-800 dark:text-white text-sm focus:outline-none cursor-not-allowed"
                 />
-                <Lock className="w-4 h-4 text-slate-500 absolute right-4 top-3.5" />
+                <Lock className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-4 top-3.5" />
               </div>
 
               <div className="relative">
@@ -641,16 +643,16 @@ export default function RegistrationClient() {
                   type="email"
                   readOnly
                   value={customerEmail}
-                  className="w-full bg-[#162033]/90 border border-slate-700/80 rounded-xl px-4 py-3 text-white text-sm focus:outline-none cursor-not-allowed"
+                  className="w-full bg-slate-100/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 rounded-xl px-4 py-3 text-slate-800 dark:text-white text-sm focus:outline-none cursor-not-allowed"
                 />
-                <Lock className="w-4 h-4 text-slate-500 absolute right-4 top-3.5" />
+                <Lock className="w-4 h-4 text-slate-400 dark:text-slate-500 absolute right-4 top-3.5" />
               </div>
             </div>
           </div>
 
           {/* 2. LOCATION DETAILS */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               2. LOCATION DETAILS
             </h2>
 
@@ -662,7 +664,7 @@ export default function RegistrationClient() {
                   placeholder="State *"
                   value={stateVal}
                   onChange={(e) => setStateVal(e.target.value)}
-                  className="w-full bg-[#162033]/90 border border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full bg-white/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 shadow-sm"
                 />
               </div>
 
@@ -673,7 +675,7 @@ export default function RegistrationClient() {
                   placeholder="City *"
                   value={cityVal}
                   onChange={(e) => setCityVal(e.target.value)}
-                  className="w-full bg-[#162033]/90 border border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                  className="w-full bg-white/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 shadow-sm"
                 />
               </div>
             </div>
@@ -681,7 +683,7 @@ export default function RegistrationClient() {
 
           {/* 3. FARMING EXPERIENCE */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               3. FARMING EXPERIENCE
             </h2>
 
@@ -696,8 +698,8 @@ export default function RegistrationClient() {
                   key={opt.id}
                   className={`flex items-center gap-3 p-3 rounded-xl border transition-colors cursor-pointer ${
                     experience === opt.label
-                      ? 'bg-indigo-950/40 border-indigo-500/80 text-white'
-                      : 'bg-[#162033]/60 border-slate-700/60 text-slate-300 hover:bg-[#162033]'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-500/80 text-indigo-950 dark:text-white font-medium shadow-sm'
+                      : 'bg-white/80 dark:bg-[#162033]/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#162033]'
                   }`}
                 >
                   <input
@@ -715,7 +717,7 @@ export default function RegistrationClient() {
 
           {/* 4. MUSHROOM INTEREST */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               4. MUSHROOM INTEREST
             </h2>
 
@@ -730,8 +732,8 @@ export default function RegistrationClient() {
                   key={item.id}
                   className={`flex items-center gap-2.5 p-3 rounded-xl border transition-colors cursor-pointer ${
                     mushroomInterests.includes(item.label)
-                      ? 'bg-emerald-950/30 border-emerald-500/70 text-white'
-                      : 'bg-[#162033]/60 border-slate-700/60 text-slate-300 hover:bg-[#162033]'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500/70 text-emerald-950 dark:text-white font-medium shadow-sm'
+                      : 'bg-white/80 dark:bg-[#162033]/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#162033]'
                   }`}
                 >
                   <input
@@ -748,7 +750,7 @@ export default function RegistrationClient() {
 
           {/* 5. YOUR GOAL */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               5. YOUR GOAL
             </h2>
 
@@ -763,8 +765,8 @@ export default function RegistrationClient() {
                   key={opt.id}
                   className={`flex items-center gap-3 p-3 rounded-xl border transition-colors cursor-pointer ${
                     goal === opt.label
-                      ? 'bg-indigo-950/40 border-indigo-500/80 text-white'
-                      : 'bg-[#162033]/60 border-slate-700/60 text-slate-300 hover:bg-[#162033]'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-500/80 text-indigo-950 dark:text-white font-medium shadow-sm'
+                      : 'bg-white/80 dark:bg-[#162033]/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#162033]'
                   }`}
                 >
                   <input
@@ -782,7 +784,7 @@ export default function RegistrationClient() {
 
           {/* 6. FARMING PLAN */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               6. FARMING PLAN
             </h2>
 
@@ -791,21 +793,21 @@ export default function RegistrationClient() {
                 required
                 value={planStart}
                 onChange={(e) => setPlanStart(e.target.value)}
-                className="w-full bg-[#162033]/90 border border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="w-full bg-white/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 shadow-sm"
               >
-                <option value="" disabled className="bg-[#162033] text-slate-400">
+                <option value="" disabled className="text-slate-400">
                   When do you plan to start?
                 </option>
-                <option value="Immediately (within 15 days)" className="bg-[#162033]">
+                <option value="Immediately (within 15 days)">
                   Immediately (within 15 days)
                 </option>
-                <option value="Within 1 month" className="bg-[#162033]">
+                <option value="Within 1 month">
                   Within 1 month
                 </option>
-                <option value="Within 2-3 months" className="bg-[#162033]">
+                <option value="Within 2-3 months">
                   Within 2-3 months
                 </option>
-                <option value="Just planning & exploring" className="bg-[#162033]">
+                <option value="Just planning & exploring">
                   Just planning & exploring
                 </option>
               </select>
@@ -814,21 +816,21 @@ export default function RegistrationClient() {
                 required
                 value={planSpace}
                 onChange={(e) => setPlanSpace(e.target.value)}
-                className="w-full bg-[#162033]/90 border border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                className="w-full bg-white/90 dark:bg-[#162033]/90 border border-slate-300 dark:border-slate-700/80 focus:border-indigo-500 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 shadow-sm"
               >
-                <option value="" disabled className="bg-[#162033] text-slate-400">
+                <option value="" disabled className="text-slate-400">
                   Space Available?
                 </option>
-                <option value="100 - 500 sq.ft (Room / Garage)" className="bg-[#162033]">
+                <option value="100 - 500 sq.ft (Room / Garage)">
                   100 - 500 sq.ft (Room / Garage)
                 </option>
-                <option value="500 - 2,000 sq.ft (Shed / Warehouse)" className="bg-[#162033]">
+                <option value="500 - 2,000 sq.ft (Shed / Warehouse)">
                   500 - 2,000 sq.ft (Shed / Warehouse)
                 </option>
-                <option value="1/2 Acre to 1 Acre (Open Land)" className="bg-[#162033]">
+                <option value="1/2 Acre to 1 Acre (Open Land)">
                   1/2 Acre to 1 Acre (Open Land)
                 </option>
-                <option value="Above 1 Acre (Commercial Setup)" className="bg-[#162033]">
+                <option value="Above 1 Acre (Commercial Setup)">
                   Above 1 Acre (Commercial Setup)
                 </option>
               </select>
@@ -837,7 +839,7 @@ export default function RegistrationClient() {
 
           {/* 7. PLANNED INVESTMENT */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               7. PLANNED INVESTMENT
             </h2>
 
@@ -852,8 +854,8 @@ export default function RegistrationClient() {
                   key={opt.id}
                   className={`flex items-center gap-3 p-3 rounded-xl border transition-colors cursor-pointer ${
                     investment === opt.label
-                      ? 'bg-indigo-950/40 border-indigo-500/80 text-white'
-                      : 'bg-[#162033]/60 border-slate-700/60 text-slate-300 hover:bg-[#162033]'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-500/80 text-indigo-950 dark:text-white font-medium shadow-sm'
+                      : 'bg-white/80 dark:bg-[#162033]/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#162033]'
                   }`}
                 >
                   <input
@@ -871,7 +873,7 @@ export default function RegistrationClient() {
 
           {/* 8. REQUIRED SUPPORT */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               8. REQUIRED SUPPORT
             </h2>
 
@@ -886,8 +888,8 @@ export default function RegistrationClient() {
                   key={item.id}
                   className={`flex items-center gap-2.5 p-3 rounded-xl border transition-colors cursor-pointer ${
                     supportRequired.includes(item.label)
-                      ? 'bg-emerald-950/30 border-emerald-500/70 text-white'
-                      : 'bg-[#162033]/60 border-slate-700/60 text-slate-300 hover:bg-[#162033]'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500/70 text-emerald-950 dark:text-white font-medium shadow-sm'
+                      : 'bg-white/80 dark:bg-[#162033]/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#162033]'
                   }`}
                 >
                   <input
@@ -904,7 +906,7 @@ export default function RegistrationClient() {
 
           {/* 9. HOW DID YOU HEAR ABOUT US? */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-400">
+            <h2 className="text-xs font-bold tracking-wider uppercase text-indigo-600 dark:text-indigo-400">
               9. HOW DID YOU HEAR ABOUT US?
             </h2>
 
@@ -919,8 +921,8 @@ export default function RegistrationClient() {
                   key={opt.id}
                   className={`flex items-center gap-3 p-3 rounded-xl border transition-colors cursor-pointer ${
                     hearAbout === opt.label
-                      ? 'bg-indigo-950/40 border-indigo-500/80 text-white'
-                      : 'bg-[#162033]/60 border-slate-700/60 text-slate-300 hover:bg-[#162033]'
+                      ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-500/80 text-indigo-950 dark:text-white font-medium shadow-sm'
+                      : 'bg-white/80 dark:bg-[#162033]/60 border-slate-200 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-[#162033]'
                   }`}
                 >
                   <input
@@ -946,7 +948,7 @@ export default function RegistrationClient() {
                 onChange={(e) => setWhatsappConsent(e.target.checked)}
                 className="w-5 h-5 rounded mt-0.5 accent-emerald-500 cursor-pointer shrink-0"
               />
-              <span className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <span className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 I want to receive PDF notes, class links, and farming updates on WhatsApp and Email.
               </span>
             </label>
@@ -954,7 +956,7 @@ export default function RegistrationClient() {
 
           {/* Error Message if any */}
           {formError && (
-            <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-xs sm:text-sm flex items-center gap-2">
+            <div className="p-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-600 dark:text-red-400 text-xs sm:text-sm flex items-center gap-2">
               <AlertTriangle className="w-4 h-4 shrink-0" />
               <span>{formError}</span>
             </div>
@@ -981,8 +983,8 @@ export default function RegistrationClient() {
         </form>
 
         {/* Security badge at bottom */}
-        <div className="mt-8 text-center text-xs text-slate-500 flex items-center justify-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-emerald-500" />
+        <div className="mt-8 text-center text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1.5">
+          <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-500" />
           <span>Secured with 256-bit SSL & One-time Verified Transaction ID</span>
         </div>
 

@@ -271,12 +271,12 @@ export default function TrainingCheckoutClient() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative rounded-2xl sm:rounded-[2rem] border dark:border-white/10 border-black/10 dark:bg-black/30 bg-white/40 backdrop-blur-xl shadow-2xl overflow-hidden"
+          className="relative rounded-2xl sm:rounded-[2rem] border dark:border-white/10 border-slate-200/80 dark:bg-black/40 bg-white/85 backdrop-blur-xl shadow-2xl overflow-hidden"
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-green-500"></div>
           <div className="p-5 sm:p-8">
             <div className="text-center mb-6 sm:mb-8">
-              <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/5 border mb-3 sm:mb-4">
+              <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full dark:bg-white/5 bg-slate-100 dark:border-white/10 border-slate-200 border mb-3 sm:mb-4">
                 <Sparkles className="text-yellow-500 w-3 h-3" />
                 <span className="text-[9px] font-bold uppercase tracking-widest dark:text-slate-300 text-slate-700">Access</span>
               </div>
@@ -289,7 +289,7 @@ export default function TrainingCheckoutClient() {
             
             <form onSubmit={handleSubmit} className="flex flex-col space-y-3.5 sm:space-y-5">
               <div className="group/input">
-                <label className="text-[10px] sm:text-[11px] font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Full Name</label>
+                <label className="text-[10px] sm:text-[11px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Full Name</label>
                 <div className="relative">
                   <User size={16} className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-slate-400 text-slate-400 transition-colors group-focus-within/input:text-indigo-500 sm:w-[18px] sm:h-[18px]" />
                   <input 
@@ -297,14 +297,14 @@ export default function TrainingCheckoutClient() {
                     required
                     value={formData.name}
                     onChange={e => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
+                    className="w-full box-border dark:bg-black/40 bg-white/90 border dark:border-white/10 border-slate-300 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                     placeholder="Enter your full name"
                   />
                 </div>
               </div>
               
               <div className="group/input">
-                <label className="text-[10px] sm:text-[11px] font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Mobile Number</label>
+                <label className="text-[10px] sm:text-[11px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Mobile Number</label>
                 <div className="relative">
                   <Phone size={16} className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-slate-400 text-slate-400 transition-colors group-focus-within/input:text-indigo-500 sm:w-[18px] sm:h-[18px]" />
                   <input 
@@ -319,14 +319,14 @@ export default function TrainingCheckoutClient() {
                         setFormData({ ...formData, mobile: value });
                       }
                     }}
-                    className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
+                    className="w-full box-border dark:bg-black/40 bg-white/90 border dark:border-white/10 border-slate-300 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                     placeholder="10-digit mobile number"
                   />
                 </div>
               </div>
 
               <div className="group/input">
-                <label className="text-[10px] sm:text-[11px] font-bold dark:text-slate-400 text-slate-500 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Email Address</label>
+                <label className="text-[10px] sm:text-[11px] font-bold dark:text-slate-400 text-slate-600 uppercase tracking-widest mb-1.5 block ml-1 transition-colors group-focus-within/input:text-indigo-500">Email Address</label>
                 <div className="relative">
                   <Mail size={16} className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-slate-400 text-slate-400 transition-colors group-focus-within/input:text-indigo-500 sm:w-[18px] sm:h-[18px]" />
                   <input 
@@ -334,7 +334,7 @@ export default function TrainingCheckoutClient() {
                     required
                     value={formData.email}
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full box-border dark:bg-black/40 bg-white/5 border dark:border-white/10 border-black/10 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
+                    className="w-full box-border dark:bg-black/40 bg-white/90 border dark:border-white/10 border-slate-300 rounded-xl sm:rounded-2xl py-3 pl-10 pr-4 text-sm sm:pl-12 dark:text-white text-slate-900 placeholder:dark:text-slate-500 placeholder:text-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 ring-offset-0 transition-all shadow-sm hover:dark:bg-white/[0.02] hover:bg-white"
                     placeholder="Enter your email address"
                   />
                 </div>

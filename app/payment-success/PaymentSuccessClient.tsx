@@ -183,7 +183,7 @@ Thank you.`;
       </div>
 
       {/* Main Success Card */}
-      <div className="bg-white dark:bg-slate-900 border border-emerald-500/30 dark:border-emerald-500/20 rounded-2xl p-6 sm:p-8 shadow-xl text-left relative overflow-hidden">
+      <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-emerald-500/30 dark:border-emerald-500/20 rounded-2xl p-6 sm:p-8 shadow-2xl text-left relative overflow-hidden">
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500" />
 
         {/* Icon & Title */}
