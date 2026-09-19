@@ -1,14 +1,47 @@
 "use client";
-import { usePathname } from 'next/navigation';
-import Footer from '@/components/Footer';
-import { FloatingWidgetsLayer } from '@/components/FloatingWidgetsLayer';
-import { WhatsAppWidget } from '@/components/WhatsAppWidget';
-import { FloatingBottomMenu } from '@/components/FloatingBottomMenu';
+import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Footer from "@/components/Footer";
+import { FloatingWidgetsLayer } from "@/components/FloatingWidgetsLayer";
+import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { FloatingBottomMenu } from "@/components/FloatingBottomMenu";
 
 export function ConditionalWidgets() {
   const pathname = usePathname();
+  const [isOfflineModalOpen, setIsOfflineModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleToggle = (e: Event) => {
+      const customEvent = e as CustomEvent<{ isOpen: boolean }>;
+      setIsOfflineModalOpen(Boolean(customEvent.detail?.isOpen));
+    };
+
+    window.addEventListener(
+      "omf-offline-checklist-toggle",
+      handleToggle as EventListener
+    );
+
+    if (typeof document !== "undefined") {
+      setIsOfflineModalOpen(
+        document.body.classList.contains("offline-checklist-open")
+      );
+    }
+
+    return () => {
+      window.removeEventListener(
+        "omf-offline-checklist-toggle",
+        handleToggle as EventListener
+      );
+    };
+  }, []);
+
   // Hide on checkout pages
-  const isCheckoutPage = pathname?.includes('/training-checkout') || pathname?.includes('/checkout') || pathname?.includes('/training/success') || pathname?.includes('/training/cancel') || pathname?.includes('/training/register');
+  const isCheckoutPage =
+    pathname?.includes("/training-checkout") ||
+    pathname?.includes("/checkout") ||
+    pathname?.includes("/training/success") ||
+    pathname?.includes("/training/cancel") ||
+    pathname?.includes("/training/register");
 
   if (isCheckoutPage) {
     return null;
@@ -19,14 +52,20 @@ export function ConditionalWidgets() {
       {/* Global Footer */}
       <Footer />
 
-      {/* ================= FLOATING STACK LAYER ================= */}
-      <FloatingWidgetsLayer />
+      {/* Floating Widgets Layer - Automatically hidden when offline checklist is active */}
+      {!isOfflineModalOpen && (
+        <>
+          {/* ================= FLOATING STACK LAYER ================= */}
+          <FloatingWidgetsLayer />
 
-      {/* Right Side: WhatsApp Floating Action */}
-      <WhatsAppWidget />
+          {/* Right Side: WhatsApp Floating Action */}
+          <WhatsAppWidget />
 
-      {/* Bottom Mobile Scrollable Dock */}
-      <FloatingBottomMenu />
+          {/* Bottom Mobile Scrollable Dock */}
+          <FloatingBottomMenu />
+        </>
+      )}
     </>
   );
 }
+

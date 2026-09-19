@@ -156,3 +156,13 @@ html {
   animation-play-state: paused;
 }
 
+/* Hide floating sticky widgets when offline checklist modal is active */
+body.offline-checklist-open .glass.pb-safe,
+body.offline-checklist-open [class*="fixed bottom-0"],
+body.offline-checklist-open [class*="bottom-[calc(65px"],
+body.offline-checklist-open [class*="bottom-[85px"] {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+

@@ -162,6 +162,33 @@ export function OfflineInspectionChecklist() {
     };
   }, []);
 
+  // Dispatch active state to hide/restore floating sticky widgets (AIChat, WhatsApp, BottomMenu)
+  useEffect(() => {
+    const active = isOffline && isOpen;
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("omf-offline-checklist-toggle", {
+          detail: { isOpen: active },
+        })
+      );
+      if (active) {
+        document.body.classList.add("offline-checklist-open");
+      } else {
+        document.body.classList.remove("offline-checklist-open");
+      }
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        document.body.classList.remove("offline-checklist-open");
+        window.dispatchEvent(
+          new CustomEvent("omf-offline-checklist-toggle", {
+            detail: { isOpen: false },
+          })
+        );
+      }
+    };
+  }, [isOffline, isOpen]);
+
   // Save tasks to localStorage whenever modified
   const saveTasks = (updated: ChecklistItem[]) => {
     setTasks(updated);
@@ -279,23 +306,11 @@ export function OfflineInspectionChecklist() {
                     height="36"
                   />
                   <div className="min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white tracking-tight leading-tight truncate">
-                        Daily Farm Inspection Checklist
-                      </h2>
-                      {isOffline ? (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30">
-                          <WifiOff className="w-3 h-3" /> Offline Mode Active
-                        </span>
-                      ) : (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                          <Wifi className="w-3 h-3" /> Online & Auto-Sync
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
-                      Bina internet ke bhi kaam karega • Sabhi progress phone
-                      mein safe rahegi
+                    <h2 className="text-sm sm:text-base font-black text-slate-900 dark:text-white tracking-tight leading-tight truncate">
+                      Daily Farm Inspection Checklist
+                    </h2>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate mt-0.5">
+                      Offline Grower Routine • 100% Saved to Device
                     </p>
                   </div>
                 </div>
@@ -324,6 +339,28 @@ export function OfflineInspectionChecklist() {
                   </button>
                 </div>
               </div>
+
+              {/* Prominent English Offline Alert Notice Card */}
+              {!isMinimized && (
+                <div className="mt-3 p-3 sm:p-3.5 rounded-2xl bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 flex items-start gap-2.5 sm:gap-3 text-left">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-amber-500/20 text-amber-700 dark:text-amber-300 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                    <WifiOff className="w-4 h-4" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <h3 className="text-xs sm:text-sm font-black text-amber-900 dark:text-amber-300 tracking-tight">
+                        You Are Currently Offline
+                      </h3>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-900 dark:text-amber-200 border border-amber-500/30">
+                        Auto-Saved Locally
+                      </span>
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 leading-relaxed mt-1">
+                      No internet connection detected. Your <strong>Daily Farm Inspection Checklist</strong> is active in offline mode — all tick marks, custom tasks, and inputs are safely saved on this device. The app will automatically reconnect as soon as you are back online.
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* Shift Switcher & Progress Bar (When not minimized) */}
               {!isMinimized && (
@@ -513,7 +550,7 @@ export function OfflineInspectionChecklist() {
                 </form>
 
                 {/* Footer Controls & Emergency Offline Phone Helpline */}
-                <div className="p-3 sm:p-4 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-slate-950 flex flex-wrap items-center justify-between gap-2.5 shrink-0">
+                <div className="p-3 sm:p-4 pb-6 sm:pb-4 border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-slate-950 flex flex-wrap items-center justify-between gap-2.5 shrink-0">
                   <div className="flex items-center gap-2">
                     <button
                       type="button"
