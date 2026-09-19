@@ -273,14 +273,14 @@ export function OfflineInspectionChecklist() {
             setIsOpen(true);
             setIsMinimized(false);
           }}
-          className="fixed bottom-20 left-4 z-40 flex items-center gap-2 px-3.5 py-2 rounded-2xl backdrop-blur-xl border border-amber-400 bg-amber-500/90 text-white shadow-lg shadow-amber-500/25 active:scale-95 transition-all duration-200"
+          className="fixed bottom-[calc(185px+env(safe-area-inset-bottom))] md:bottom-[150px] left-3 sm:left-4 z-[99999] flex items-center gap-2 px-3.5 py-2.5 rounded-2xl backdrop-blur-xl border border-amber-400/90 bg-amber-500 text-white shadow-xl shadow-amber-500/35 active:scale-95 transition-all duration-200"
           title="Open Offline Farm Inspection Checklist"
         >
-          <WifiOff className="w-4 h-4 text-white" />
+          <WifiOff className="w-4 h-4 text-white shrink-0" />
           <span className="text-xs font-bold whitespace-nowrap">
             Offline Farm Checklist
           </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/20 font-bold">
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/25 font-bold">
             {completedCount}/{totalCount}
           </span>
         </button>
