@@ -35,12 +35,16 @@ export function ConditionalWidgets() {
     };
   }, []);
 
-  // Hide on checkout pages
+  // Hide entirely on checkout pages
   const isCheckoutPage =
     pathname?.includes("/training-checkout") ||
     pathname?.includes("/checkout") ||
     pathname?.includes("/training/success") ||
-    pathname?.includes("/training/cancel") ||
+    pathname?.includes("/training/cancel");
+
+  // Hide sticky floating buttons on registration form pages so fields are completely unobstructed
+  const isFormPage =
+    pathname?.includes("/mushroomtrainingregistrationform") ||
     pathname?.includes("/training/register");
 
   if (isCheckoutPage) {
@@ -52,8 +56,8 @@ export function ConditionalWidgets() {
       {/* Global Footer */}
       <Footer />
 
-      {/* Floating Widgets Layer - Automatically hidden when offline checklist is active */}
-      {!isOfflineModalOpen && (
+      {/* Floating Widgets Layer - Automatically hidden when offline checklist is active OR on registration form */}
+      {!isOfflineModalOpen && !isFormPage && (
         <>
           {/* ================= FLOATING STACK LAYER ================= */}
           <FloatingWidgetsLayer />

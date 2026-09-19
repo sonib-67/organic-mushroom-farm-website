@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import {
   WifiOff,
   Wifi,
@@ -107,6 +108,12 @@ const DEFAULT_TASKS: ChecklistItem[] = [
 ];
 
 export function OfflineInspectionChecklist() {
+  const pathname = usePathname();
+  const isFormOrCheckoutPage =
+    pathname?.includes("/mushroomtrainingregistrationform") ||
+    pathname?.includes("/training-checkout") ||
+    pathname?.includes("/checkout");
+
   const [isOffline, setIsOffline] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -266,8 +273,8 @@ export function OfflineInspectionChecklist() {
         </div>
       )}
 
-      {/* Floating Trigger Dock Button (ONLY visible when offline and modal was dismissed/closed) */}
-      {isOffline && !isOpen && (
+      {/* Floating Trigger Dock Button (ONLY visible when offline and modal was dismissed/closed and not on form/checkout) */}
+      {isOffline && !isOpen && !isFormOrCheckoutPage && (
         <button
           onClick={() => {
             setIsOpen(true);
