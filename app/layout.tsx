@@ -3,6 +3,7 @@ import { Inter, Poppins } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
 import { TopLoadingBar } from "@/components/TopLoadingBar";
+import { OfflineInspectionChecklist } from "@/components/OfflineInspectionChecklist";
 import { MyceliumBackground } from "@/components/MyceliumBackground";
 import { ConditionalWidgets } from "@/components/ConditionalWidgets";
 import "@/app/globals.css";
@@ -197,6 +198,9 @@ export default function RootLayout({
         </main>
 
         <ConditionalWidgets />
+
+        {/* Offline Farm Inspection Checklist (Works 100% without internet) */}
+        <OfflineInspectionChecklist />
       </body>
     </html>
   );
