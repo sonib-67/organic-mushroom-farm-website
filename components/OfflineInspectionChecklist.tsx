@@ -144,10 +144,12 @@ export function OfflineInspectionChecklist() {
 
     const handleOnline = () => {
       setIsOffline(false);
+      setIsOpen(false);
+      setIsMinimized(false);
       setShowOnlineToast(true);
       const timer = setTimeout(() => {
         setShowOnlineToast(false);
-      }, 4000);
+      }, 3500);
       return () => clearTimeout(timer);
     };
 
@@ -237,36 +239,28 @@ export function OfflineInspectionChecklist() {
         </div>
       )}
 
-      {/* Floating Trigger Dock Button (Always accessible when offline or clicked) */}
-      {!isOpen && (
+      {/* Floating Trigger Dock Button (ONLY visible when offline and modal was dismissed/closed) */}
+      {isOffline && !isOpen && (
         <button
           onClick={() => {
             setIsOpen(true);
             setIsMinimized(false);
           }}
-          className={`fixed bottom-20 left-4 z-40 flex items-center gap-2 px-3.5 py-2 rounded-2xl backdrop-blur-xl border transition-all duration-200 shadow-lg active:scale-95 group ${
-            isOffline
-              ? "bg-amber-500/90 text-white border-amber-400 shadow-amber-500/25 animate-bounce"
-              : "bg-white/80 dark:bg-slate-900/80 text-slate-800 dark:text-slate-200 border-purple-500/30 hover:border-purple-500/50 shadow-purple-500/10"
-          }`}
-          title="Daily Farm Inspection Checklist (Works Offline)"
+          className="fixed bottom-20 left-4 z-40 flex items-center gap-2 px-3.5 py-2 rounded-2xl backdrop-blur-xl border border-amber-400 bg-amber-500/90 text-white shadow-lg shadow-amber-500/25 active:scale-95 transition-all duration-200"
+          title="Open Offline Farm Inspection Checklist"
         >
-          {isOffline ? (
-            <WifiOff className="w-4 h-4 text-white" />
-          ) : (
-            <ClipboardList className="w-4 h-4 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform" />
-          )}
+          <WifiOff className="w-4 h-4 text-white" />
           <span className="text-xs font-bold whitespace-nowrap">
-            {isOffline ? "Offline Farm Checklist" : "Daily Farm Checklist"}
+            Offline Farm Checklist
           </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/10 dark:bg-white/10 font-bold">
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-black/20 font-bold">
             {completedCount}/{totalCount}
           </span>
         </button>
       )}
 
-      {/* Main Checklist Modal / Drawer */}
-      {isOpen && (
+      {/* Main Checklist Modal - ONLY visible when user is offline */}
+      {isOffline && isOpen && (
         <div className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/50 backdrop-blur-sm transition-all duration-200">
           <div
             className={`w-full max-w-2xl bg-white dark:bg-slate-950 rounded-t-3xl sm:rounded-3xl border border-white/60 dark:border-white/10 shadow-2xl overflow-hidden flex flex-col transition-all duration-300 ${
