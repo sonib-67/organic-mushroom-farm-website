@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
+import { TopLoadingBar } from "@/components/TopLoadingBar";
 import { MyceliumBackground } from "@/components/MyceliumBackground";
 import { ConditionalWidgets } from "@/components/ConditionalWidgets";
 import "@/app/globals.css";
@@ -180,6 +181,9 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+
+        {/* Top Browser Progress Loading Bar */}
+        <TopLoadingBar />
 
         {/* Animated Canvas Background */}
         <MyceliumBackground />

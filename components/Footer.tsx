@@ -51,12 +51,18 @@ const Footer = () => {
           
           {/* Col 1: Brand & Details */}
           <div className="md:col-span-5 lg:col-span-4">
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 rounded-full bg-white/80 dark:bg-white/10 flex items-center justify-center text-xl shadow-inner border border-black/10 dark:border-white/20 backdrop-blur-md">🍄</div>
-              <div className="text-xl md:text-2xl font-black tracking-tight leading-tight text-white drop-shadow-sm">
-                Organic <span className="text-purple-300">Mushroom Farm</span>
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-5 group" aria-label="Organic Mushroom Farm Home">
+              <img
+                src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
+                alt="Organic Mushroom Farm Logo"
+                className="w-9 h-9 sm:w-10 sm:h-10 shrink-0 object-contain group-hover:scale-105 transition-transform"
+                width="40"
+                height="40"
+              />
+              <div className="text-xl md:text-2xl font-black tracking-tight leading-tight text-slate-900 dark:text-white drop-shadow-sm">
+                Organic <span className="text-purple-600 dark:text-purple-300">Mushroom Farm</span>
               </div>
-            </div>
+            </Link>
             
             <p className="dark:text-slate-400 text-slate-600 text-[11px] md:text-xs mb-6 leading-relaxed pr-4">
               Empowering high-yield organic button & oyster mushroom cultivation across India and the globe through standardized SOPs, expert commercial training, and industrial-grade turnkey projects.

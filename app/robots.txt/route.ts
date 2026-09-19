@@ -4,12 +4,6 @@ export async function GET() {
   const robots = `User-agent: *
 Allow: /
 
-# Block sensitive endpoints
-Disallow: /api/checkout-payload
-Disallow: /api/razorpay-webhook
-
-# Sitemaps
-Sitemap: https://organicmushroomsfarm.com/sitemap.xml
 Sitemap: https://organicmushroomsfarm.com/sitemap-main.xml
 `;
   return new NextResponse(robots, {

@@ -218,14 +218,31 @@ export const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center pointer-events-none">
-        {/* Floating Main Navigation Bar - Zero Lag, Composited Layer */}
+        {/* Floating Main Navigation Bar - 3D Liquid Glass with Soft Light Purple, Blue & Green Neon */}
         <nav
-          className={`pointer-events-auto w-[calc(100%-16px)] sm:w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-7xl rounded-2xl md:rounded-3xl border will-change-transform transition-[background-color,border-color,box-shadow] duration-150 ease-out py-2 px-3 sm:px-5 ${
+          className={`pointer-events-auto relative w-[calc(100%-16px)] sm:w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-7xl rounded-2xl md:rounded-3xl border will-change-transform transition-all duration-200 ease-out py-2 px-3 sm:px-5 backdrop-blur-xl sm:backdrop-blur-2xl ${
             isScrolled
-              ? "mt-1.5 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-slate-300 dark:border-slate-800 shadow-md"
-              : "mt-2.5 bg-white/90 dark:bg-slate-950/85 backdrop-blur-md border-slate-200/80 dark:border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.35)]"
+              ? "mt-1.5 bg-white/65 dark:bg-slate-950/75 border-white/70 dark:border-white/15 shadow-[0_10px_30px_-6px_rgba(168,85,247,0.10),0_4px_16px_-2px_rgba(56,189,248,0.08),0_8px_20px_-5px_rgba(16,185,129,0.08),inset_0_1.5px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(147,51,234,0.06)] dark:shadow-[0_12px_36px_-6px_rgba(168,85,247,0.20),0_4px_20px_-2px_rgba(56,189,248,0.15),0_8px_25px_-5px_rgba(16,185,129,0.15),inset_0_1.5px_1px_rgba(255,255,255,0.25)]"
+              : "mt-2.5 bg-white/55 dark:bg-slate-950/65 border-white/60 dark:border-white/12 shadow-[0_8px_25px_-6px_rgba(168,85,247,0.08),0_4px_14px_-2px_rgba(56,189,248,0.06),0_6px_18px_-5px_rgba(16,185,129,0.06),inset_0_1.5px_1px_rgba(255,255,255,0.9),inset_0_-1px_1px_rgba(147,51,234,0.05)] dark:shadow-[0_10px_30px_-6px_rgba(168,85,247,0.16),0_4px_18px_-2px_rgba(56,189,248,0.12),0_6px_20px_-5px_rgba(16,185,129,0.12),inset_0_1.5px_1px_rgba(255,255,255,0.2)]"
           }`}
         >
+          {/* 3D Liquid Glass Multi-Tone Neon Background (Soft Pastel Purple, Blue & Green) */}
+          <div className="absolute inset-0 rounded-[inherit] overflow-hidden pointer-events-none -z-10">
+            {/* Fluid Soft Neon Liquid Mesh Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/[0.06] via-sky-400/[0.05] to-emerald-400/[0.06] dark:from-purple-500/[0.12] dark:via-sky-400/[0.09] dark:to-emerald-400/[0.11]" />
+
+            {/* Soft Luminous Neon Liquid Blobs */}
+            <div className="absolute -top-10 -left-6 w-48 h-28 rounded-full bg-purple-400/12 dark:bg-purple-500/20 blur-2xl pointer-events-none" />
+            <div className="absolute -top-8 left-1/3 w-56 h-28 rounded-full bg-sky-400/10 dark:bg-sky-400/16 blur-2xl pointer-events-none" />
+            <div className="absolute -top-10 -right-6 w-52 h-28 rounded-full bg-emerald-400/12 dark:bg-emerald-400/18 blur-2xl pointer-events-none" />
+
+            {/* 3D Curved Specular Top Glass Reflection */}
+            <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/50 dark:from-white/12 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-3 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/85 dark:via-white/45 to-transparent pointer-events-none" />
+
+            {/* Subtle Neon Horizon Line (Bottom) */}
+            <div className="absolute inset-x-4 bottom-0 h-[1px] bg-gradient-to-r from-purple-500/15 via-sky-400/22 to-emerald-400/18 dark:from-purple-500/25 dark:via-sky-400/30 dark:to-emerald-400/25 pointer-events-none" />
+          </div>
           <div className="flex items-center justify-between w-full max-w-7xl mx-auto gap-2">
             {/* Branding & Dynamic Greeting */}
             <Link
@@ -294,12 +311,12 @@ export const Navbar = () => {
               })}
             </div>
 
-            {/* Mobile Hamburger Toggle (Original Text Colors) */}
+            {/* Mobile Hamburger Toggle (Liquid Glass Aesthetic) */}
             <div className="flex items-center gap-2 lg:hidden ml-auto">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-xl dark:text-white text-slate-900 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors focus:outline-none"
+                className="p-2 rounded-xl dark:text-white text-slate-900 bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] hover:bg-white/60 dark:hover:bg-white/15 transition-all active:scale-95 focus:outline-none"
                 aria-label="Open Mobile Menu"
               >
                 <Menu size={22} />
