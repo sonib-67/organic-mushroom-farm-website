@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export const GlobalHubs = () => {
   return (
@@ -17,9 +18,18 @@ export const GlobalHubs = () => {
           LOCATION-BASED <span className="text-purple-600 dark:text-[#8B5CF6]">LEARNING</span> <span className="text-emerald-500 dark:text-[#10B981]">VERTICALS</span>
         </h2>
         
-        <p className="text-[10px] md:text-[11px] dark:text-slate-400 text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
+        <p className="text-[10px] md:text-[11px] dark:text-slate-400 text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium mb-6">
           Comprehensive Mushroom Training
         </p>
+
+        <div>
+          <Link
+            href="/pan-india-global-operations"
+            className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-[10px] md:text-[11px] font-black uppercase tracking-widest text-purple-700 dark:text-purple-300 bg-white/10 dark:bg-black/20 border-t border-l border-white/40 dark:border-white/10 border-r border-b border-black/10 dark:border-black/50 shadow-[4px_4px_10px_rgba(0,0,0,0.1),-4px_-4px_10px_rgba(255,255,255,0.1)] dark:shadow-[4px_4px_10px_rgba(0,0,0,0.4),-2px_-2px_10px_rgba(255,255,255,0.05)] transition-all backdrop-blur-xl hover:scale-105 hover:bg-white/20 dark:hover:bg-white/5"
+          >
+            Pan India & Global Operations
+          </Link>
+        </div>
       </div>
     </section>
   );

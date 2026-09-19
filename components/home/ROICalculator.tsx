@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { Calculator } from "lucide-react";
 
@@ -25,7 +26,9 @@ export const ROICalculator = () => {
             PROFIT ANALYTICS
           </div>
           <h2 className="text-sm md:text-base font-black dark:text-white text-slate-900 leading-tight mb-2 tracking-tight">
-            Personalized Mushroom <span className="text-blue-600 dark:text-blue-500">Business ROI Estimator</span>
+            <Link href="/roi-calculator" className="hover:text-current transition-colors">
+              Personalized Mushroom <span className="text-blue-600 dark:text-blue-500">Business ROI Estimator</span>
+            </Link>
           </h2>
           <p className="text-[9px] dark:text-slate-400 text-slate-600 leading-relaxed max-w-lg mx-auto font-medium">
             Estimate your mushroom farming profits based on real-time market averages.

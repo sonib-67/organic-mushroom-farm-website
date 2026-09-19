@@ -234,6 +234,16 @@ const PayPalButtonsInner = ({
             setIsLoading(false);
             setPaymentStage('idle');
             setIsCancelled(true);
+            fetch("/api/intl?action=fail", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                ...formData,
+                planName,
+                amount: price,
+                errorMsg: "User cancelled the PayPal checkout window.",
+              }),
+            }).catch((err) => console.warn("Failed to notify cancel:", err));
           }}
           onError={(err) => {
             console.error("PayPal Checkout Error:", err);
@@ -285,6 +295,7 @@ const InternationalCheckoutForm = ({
         body: JSON.stringify({
           ...formData,
           planName,
+          amount: price,
           errorMsg,
         }),
       });
@@ -298,7 +309,21 @@ const InternationalCheckoutForm = ({
       <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative border border-slate-200 dark:border-white/10 animate-in fade-in zoom-in duration-300">
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={() => {
+            if (step === 2 && formData.name) {
+              fetch("/api/intl?action=fail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  ...formData,
+                  planName,
+                  amount: price,
+                  errorMsg: "User closed the checkout form window.",
+                }),
+              }).catch(() => {});
+            }
+            onClose();
+          }}
           className="absolute top-3 right-3 p-1.5 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors"
         >
           <X size={16} />

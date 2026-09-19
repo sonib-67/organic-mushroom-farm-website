@@ -24,7 +24,9 @@ export const WhyChooseUs = () => {
             Mushroom Infrastructure Leaders
           </div>
           <h2 className="text-xl md:text-2xl font-black dark:text-white text-slate-900 leading-tight mb-3 tracking-tight">
-            Why Choose <span className="text-purple-600 dark:text-[#8B5CF6]">Organic Mushrooms</span> Farm for Your Project?
+            <Link href="/states" className="hover:text-current transition-colors">
+              Why Choose <span className="text-purple-600 dark:text-[#8B5CF6]">Organic Mushrooms</span> Farm for Your Project?
+            </Link>
           </h2>
           <p className="text-[10px] md:text-[11px] dark:text-slate-400 text-slate-600 mb-6 leading-relaxed max-w-2xl mx-auto font-medium">
             India's most trusted commercial mushroom farming infrastructure partner delivering unmatched value, transparency, and high-yield performance globally.

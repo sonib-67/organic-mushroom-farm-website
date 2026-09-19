@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 
 export const WhyChooseProgram = () => {
@@ -21,10 +22,12 @@ export const WhyChooseProgram = () => {
 
             <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-center leading-[1.15] mb-5 tracking-tight uppercase max-w-2xl">
               <span className="dark:text-white text-slate-900">Why Choose Our </span>
-              <span className="text-purple-600 dark:text-[#8B5CF6]">Mushroom </span>
-              <span className="text-teal-600 dark:text-[#2DD4BF]">Training </span>
-              <br className="hidden md:block" />
-              <span className="text-green-600 dark:text-[#10B981]">Program?</span>
+              <Link href="/states" className="hover:text-current transition-colors">
+                <span className="text-purple-600 dark:text-[#8B5CF6]">Mushroom </span>
+                <span className="text-teal-600 dark:text-[#2DD4BF]">Training </span>
+                <br className="hidden md:block" />
+                <span className="text-green-600 dark:text-[#10B981]">Program?</span>
+              </Link>
             </h2>
 
             <p className="text-[10px] md:text-[11px] lg:text-xs dark:text-slate-300 text-slate-700 font-medium leading-relaxed max-w-3xl text-center mb-8">

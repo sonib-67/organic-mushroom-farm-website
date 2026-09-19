@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { MapPin, TrendingUp, RefreshCw, Box, Sprout, LayoutGrid, BadgeCheck } from "lucide-react";
 
 export default function MushroomSEOSections() {
@@ -18,6 +19,12 @@ export default function MushroomSEOSections() {
           <p className="text-[11px] md:text-[13px] dark:text-slate-400 text-slate-600 leading-relaxed font-medium">
             Master scientific cultivation under the <strong>best mushroom training institute in India</strong>. We provide expert-curated <strong>mushroom farming training</strong>, high-yield premium spawn, and complete turnkey commercial setup consulting across all major states.
           </p>
+          <div className="mt-4">
+            <Link href="/madhya-pradesh/how-to-start-mushroom-farming-india" className="text-purple-600 dark:text-purple-400 hover:underline font-bold text-[10px] md:text-xs inline-flex items-center gap-1.5">
+              <MapPin size={13} />
+              Premium hubs around Jabalpur, Indore, Bhopal & Gwalior
+            </Link>
+          </div>
         </div>
 
         {/* ABOUT MUSHROOM TRAINING IN INDIA */}
@@ -26,7 +33,9 @@ export default function MushroomSEOSections() {
             CERTIFIED AGRI-EDUCATION
           </div>
           <h3 className="text-xl md:text-2xl font-black mb-4 uppercase tracking-tight dark:text-white text-slate-900">
-            ABOUT MUSHROOM TRAINING IN INDIA
+            <Link href="/training" className="hover:text-current transition-colors">
+              ABOUT MUSHROOM TRAINING IN INDIA
+            </Link>
           </h3>
           <p className="text-[11px] md:text-[13px] dark:text-slate-400 text-slate-600 leading-relaxed font-medium mb-4">
             Farming mushrooms requires an ideal balance of moisture, hygiene, ventilation, and strict temperature protocols. Our institute bridges the gap between traditional agricultural limitations and scientific agro-entrepreneurship. From raw beginners seeking a <strong>mushroom training near me</strong> to experienced large-scale farmers ready to update their existing commercial infrastructure, we provide the ultimate platform for learning and implementation.
@@ -42,7 +51,9 @@ export default function MushroomSEOSections() {
             HIGH DEMAND INDUSTRY
           </div>
           <h3 className="text-xl md:text-3xl font-black mb-6 uppercase tracking-tight dark:text-white text-slate-900">
-            MUSHROOM FARMING <span className="text-purple-600 dark:text-[#8B5CF6]">BUSINESS OPPORTUNITY</span>
+            <Link href="/subsidy" className="hover:text-current transition-colors">
+              MUSHROOM FARMING <span className="text-purple-600 dark:text-[#8B5CF6]">BUSINESS OPPORTUNITY</span>
+            </Link>
           </h3>
           <p className="text-[11px] md:text-[13px] dark:text-slate-400 text-slate-600 leading-relaxed font-medium mb-10 max-w-2xl mx-auto">
             As consumption grows rapidly across residential households, hotels, and retail outlets, commercial mushroom growing presents a highly scalable, <strong>low investment farming business</strong> opportunity. Unlike classic crops that require massive acreages of soil and open skies, high-density mushroom setups are stacked vertically in insulated, space-efficient grow rooms.

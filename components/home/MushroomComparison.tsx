@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export const MushroomComparison = () => {
   const mushrooms = [
@@ -18,7 +19,9 @@ export const MushroomComparison = () => {
             TOP SEARCHED PRODUCT VARIANTS
           </div>
           <h2 className="text-xl md:text-2xl font-black mb-3 uppercase tracking-tight dark:text-white text-slate-900 leading-tight">
-            High-Yield Commercial Mushroom <span className="text-purple-600 dark:text-[#8B5CF6]">GEN</span><span className="text-emerald-500 dark:text-[#10B981]">ETICS</span>
+            <Link href="/blog" className="hover:text-current transition-colors">
+              High-Yield Commercial Mushroom <span className="text-purple-600 dark:text-[#8B5CF6]">GEN</span><span className="text-emerald-500 dark:text-[#10B981]">ETICS</span>
+            </Link>
           </h2>
         </div>
 
@@ -72,6 +75,48 @@ export const MushroomComparison = () => {
               <p className="text-[10px] dark:text-slate-400 text-slate-600 leading-relaxed font-medium">{m.text}</p>
             </div>
           ))}
+        </div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 max-w-5xl mx-auto">
+          <Link
+            href="/expertise-details"
+            className="p-4 rounded-xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border border-black/5 dark:border-white/5 shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all flex items-center justify-between group"
+          >
+            <div>
+              <div className="text-[9px] uppercase tracking-wider font-bold text-slate-500 mb-0.5">Commercial Infrastructure</div>
+              <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                Turnkey Execution
+              </div>
+            </div>
+            <ArrowRight size={14} className="text-slate-400 group-hover:translate-x-1 group-hover:text-purple-500 transition-all" />
+          </Link>
+
+          <Link
+            href="/expertise-details"
+            className="p-4 rounded-xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border border-black/5 dark:border-white/5 shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all flex items-center justify-between group"
+          >
+            <div>
+              <div className="text-[9px] uppercase tracking-wider font-bold text-slate-500 mb-0.5">Commercial Infrastructure</div>
+              <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                Expert Training
+              </div>
+            </div>
+            <ArrowRight size={14} className="text-slate-400 group-hover:translate-x-1 group-hover:text-purple-500 transition-all" />
+          </Link>
+
+          <Link
+            href="/expertise-details"
+            className="p-4 rounded-xl bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border border-black/5 dark:border-white/5 shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all flex items-center justify-between group"
+          >
+            <div>
+              <div className="text-[9px] uppercase tracking-wider font-bold text-slate-500 mb-0.5">Commercial Infrastructure</div>
+              <div className="text-xs md:text-sm font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                Quality Guarantee
+              </div>
+            </div>
+            <ArrowRight size={14} className="text-slate-400 group-hover:translate-x-1 group-hover:text-purple-500 transition-all" />
+          </Link>
         </div>
       </div>
     </section>

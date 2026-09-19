@@ -15,6 +15,15 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     "category": "Educational",
+    "date": "September 19, 2026",
+    "author": "Expert Team",
+    "title": "Mushroom Farming Training Guide : Button Mushroom, Spawn, Compost & Marketing",
+    "description": "Learn mushroom farming in 2026 with practical guidance on Button mushroom cultivation, spawn preparation, compost, casing, farm setup and mushroom marketing.",
+    "slug": "mushroom-farming-training-guide-2026",
+    "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/w_1280,c_limit,q_auto,f_auto/mushroom-farming-training-guide-2026_qnxsup.png"
+  },
+  {
+    "category": "Educational",
     "date": "September 04, 2026",
     "author": "Expert Team",
     "title": "The Brain of the Farm: Smart Climate Control & CO2 Automation",

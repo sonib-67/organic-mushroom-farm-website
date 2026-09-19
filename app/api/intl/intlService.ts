@@ -169,30 +169,34 @@ export const createIntlOrder = async (req: NextRequest) => {
       );
     }
 
-    // Send "Initiated" Email to Admin asynchronously
-    transporter
-      .sendMail({
-        from:
-          process.env.EMAIL_USER ||
-          "organicmushroomsfarms@gmail.com",
-
-        to:
-          process.env.EMAIL_USER ||
-          "organicmushroomsfarms@gmail.com",
-
-        subject: `Payment INITIATED: ${name} (${planName})`,
-
+    // Send "Initiated" Email to Admin
+    try {
+      await transporter.sendMail({
+        from: `"Organic Mushroom Farm" <${
+          process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"
+        }>`,
+        to: "organicmushroomsfarms@gmail.com",
+        subject: `Payment INITIATED: ${name} ($${numericAmount} USD - ${planName})`,
         html: `
-        <h3>New International Payment Initiated (PayPal)</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Plan:</strong> ${planName}</p>
-        <p><strong>Amount:</strong> $${numericAmount} USD</p>
-        <p><em>Status: Waiting for user to complete PayPal checkout...</em></p>
-      `,
-      })
-      .catch(console.error);
+          <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">
+            <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 8px;">New International Payment Initiated</h2>
+            <p>A customer has opened the PayPal payment window for international training:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold; width: 35%;">Plan:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${planName}</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Amount:</td><td style="padding: 8px; border: 1px solid #e2e8f0;"><strong>$${numericAmount}.00 USD</strong></td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Name:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${name}</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Email:</td><td style="padding: 8px; border: 1px solid #e2e8f0;"><a href="mailto:${email}">${email}</a></td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Phone:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${phone}</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Status:</td><td style="padding: 8px; border: 1px solid #e2e8f0; color: #d97706; font-weight: bold;">CHECKOUT IN PROGRESS</td></tr>
+            </table>
+            <p style="margin-top: 20px; font-size: 12px; color: #64748b;">Organic Mushroom Farm USA Training System</p>
+          </div>
+        `,
+      });
+      console.log("Initiated email successfully sent to organicmushroomsfarms@gmail.com");
+    } catch (mailErr) {
+      console.error("Failed to send initiated email to admin:", mailErr);
+    }
 
     try {
       const { accessToken, apiBase } = await getPayPalAccessToken();
@@ -305,31 +309,35 @@ export const captureIntlOrder = async (req: NextRequest) => {
         planName,
       });
 
-      // Send "Done" Email to Admin
-      await transporter
-        .sendMail({
-          from:
-            process.env.EMAIL_USER ||
-            "organicmushroomsfarms@gmail.com",
-
-          to:
-            process.env.EMAIL_USER ||
-            "organicmushroomsfarms@gmail.com",
-
-          subject: `Payment SUCCESS: ${name} ($${amount})`,
-
+      // Send "Done" Email to Admin FIRST
+      try {
+        await transporter.sendMail({
+          from: `"Organic Mushroom Farm" <${
+            process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"
+          }>`,
+          to: "organicmushroomsfarms@gmail.com",
+          subject: `Payment DONE (SUCCESS): ${name} - $${amount} USD (${planName})`,
           html: `
-          <h3 style="color: green;">International Payment Successful!</h3>
-          <p><strong>Transaction ID:</strong> ${orderID}</p>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone}</p>
-          <p><strong>Plan:</strong> ${planName}</p>
-          <p><strong>Amount:</strong> $${amount} USD</p>
-          <p>The PDF invoice has been generated and sent to the user.</p>
-        `,
-        })
-        .catch(console.error);
+            <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">
+              <h2 style="color: #16a34a; border-bottom: 2px solid #16a34a; padding-bottom: 8px;">International Payment Successful!</h2>
+              <p>A customer has successfully completed payment for training:</p>
+              <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold; width: 35%;">Transaction ID:</td><td style="padding: 8px; border: 1px solid #e2e8f0;"><strong>${orderID}</strong></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Plan:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${planName}</td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Amount Paid:</td><td style="padding: 8px; border: 1px solid #e2e8f0; color: #16a34a; font-weight: bold;">$${amount} USD</td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Name:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${name}</td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Email:</td><td style="padding: 8px; border: 1px solid #e2e8f0;"><a href="mailto:${email}">${email}</a></td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Phone:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${phone}</td></tr>
+                <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Status:</td><td style="padding: 8px; border: 1px solid #e2e8f0; color: #16a34a; font-weight: bold;">COMPLETED / PAID</td></tr>
+              </table>
+              <p style="margin-top: 20px; font-size: 12px; color: #64748b;">Organic Mushroom Farm USA Training System</p>
+            </div>
+          `,
+        });
+        console.log("Success email successfully sent to organicmushroomsfarms@gmail.com");
+      } catch (adminMailErr) {
+        console.error("Failed to send admin success email:", adminMailErr);
+      }
 
       // Send "Done" Email to User with PDF
       if (email) {
@@ -342,10 +350,9 @@ export const captureIntlOrder = async (req: NextRequest) => {
             to: email,
             subject:
               "Payment Successful - Welcome to Organic Mushroom Farm Training!",
-
             html: `
             <h3>Welcome, ${name}!</h3>
-            <p>Your payment of $${amount} for <strong>${planName}</strong> was successful.</p>
+            <p>Your payment of $${amount} USD for <strong>${planName}</strong> was successful.</p>
             <p>Your transaction ID is: <strong>${orderID}</strong></p>
             <p>Please find your official invoice attached to this email as a PDF.</p>
             <p>We will contact you shortly with the next steps for your training.</p>
@@ -353,7 +360,6 @@ export const captureIntlOrder = async (req: NextRequest) => {
             <p>Best Regards,</p>
             <p>Organic Mushroom Farm Team</p>
           `,
-
             attachments: [
               {
                 filename: `Invoice_${orderID}.pdf`,
@@ -383,33 +389,36 @@ export const captureIntlOrder = async (req: NextRequest) => {
 export const failIntlOrder = async (req: NextRequest) => {
   try {
     const body = await req.json();
-    const { name, email, phone, planName, errorMsg } = body;
+    const { name, email, phone, planName, amount, errorMsg } = body;
 
-    // Notify Admin
-    await transporter
-      .sendMail({
-        from:
-          process.env.EMAIL_USER ||
-          "organicmushroomsfarms@gmail.com",
-
-        to:
-          process.env.EMAIL_USER ||
-          "organicmushroomsfarms@gmail.com",
-
-        subject: `Payment FAILED/CANCELLED: ${name}`,
-
+    // Send "CANCELLED" Email to Admin
+    try {
+      await transporter.sendMail({
+        from: `"Organic Mushroom Farm" <${
+          process.env.EMAIL_USER || "organicmushroomsfarms@gmail.com"
+        }>`,
+        to: "organicmushroomsfarms@gmail.com",
+        subject: `Payment CANCELLED: ${name || "Unknown"} (${planName || "USA Training"})`,
         html: `
-        <h3 style="color: red;">International Payment Failed</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Plan:</strong> ${planName}</p>
-        <p><strong>Reason/Error:</strong> ${
-          errorMsg || "User cancelled or card declined"
-        }</p>
-      `,
-      })
-      .catch(console.error);
+          <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px;">
+            <h2 style="color: #dc2626; border-bottom: 2px solid #dc2626; padding-bottom: 8px;">International Payment Cancelled / Incomplete</h2>
+            <p>A checkout attempt was cancelled or failed:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold; width: 35%;">Plan:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${planName || "N/A"}</td></tr>
+              ${amount ? `<tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Amount:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">$${amount} USD</td></tr>` : ""}
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Name:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${name || "N/A"}</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Email:</td><td style="padding: 8px; border: 1px solid #e2e8f0;"><a href="mailto:${email}">${email || "N/A"}</a></td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Customer Phone:</td><td style="padding: 8px; border: 1px solid #e2e8f0;">${phone || "N/A"}</td></tr>
+              <tr><td style="padding: 8px; border: 1px solid #e2e8f0; font-weight: bold;">Reason / Status:</td><td style="padding: 8px; border: 1px solid #e2e8f0; color: #dc2626; font-weight: bold;">${errorMsg || "User cancelled the PayPal checkout window"}</td></tr>
+            </table>
+            <p style="margin-top: 20px; font-size: 12px; color: #64748b;">Organic Mushroom Farm USA Training System</p>
+          </div>
+        `,
+      });
+      console.log("Cancel email successfully sent to organicmushroomsfarms@gmail.com");
+    } catch (mailErr) {
+      console.error("Failed to send cancel email to admin:", mailErr);
+    }
 
     // Notify User
     if (email) {
