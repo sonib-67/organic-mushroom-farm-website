@@ -1617,85 +1617,85 @@ export function RegistrationFormClient() {
 
 
         {/* SECTION 5: ADVANCE BOOKING FEE & PAYMENT RECEIPT */}
-        <div id="payment-receipt-upload-section" className="space-y-4 pt-2">
-          <div className="border-b border-slate-200/80 dark:border-white/10 pb-3 flex items-center justify-between">
+        <div id="payment-receipt-upload-section" className="space-y-3 pt-2">
+          <div className="border-b border-slate-200/80 dark:border-white/10 pb-2.5 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center font-bold text-xs">
+              <div className="w-6 h-6 rounded-md bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center font-bold text-[11px]">
                 5
               </div>
-              <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5">
-                <span>💳</span> Seat Booking Advance & Payment Receipt
+              <h2 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5">
+                <span className="text-sm">💳</span> Seat Booking Advance & Payment Receipt
               </h2>
             </div>
-            <span className="text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+            <span className="text-[9px] sm:text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
               ₹500 Advance
             </span>
           </div>
 
-          <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-            To reserve your training seat and syllabus kit, an advance booking fee of <strong>₹500</strong> is required. Pay via 1-tap on mobile or scan QR on desktop, then upload the receipt screenshot below.
+          <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            To reserve your training seat and syllabus kit, an advance booking fee of <strong className="text-slate-700 dark:text-slate-200">₹500</strong> is required. Pay via 1-tap on mobile or scan QR on desktop, then upload the receipt screenshot below.
           </p>
 
           {/* PAYMENT OPTIONS CARD */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 via-emerald-50/20 to-teal-50/20 dark:from-slate-950 dark:via-emerald-950/20 dark:to-teal-950/20 border border-emerald-200 dark:border-emerald-800/60 shadow-sm space-y-4">
+          <div className="p-3 sm:p-4 rounded-xl bg-gradient-to-br from-slate-50 via-emerald-50/20 to-teal-50/20 dark:from-slate-950 dark:via-emerald-950/20 dark:to-teal-950/20 border border-emerald-200 dark:border-emerald-800/60 shadow-sm space-y-3">
             {/* Payee Info Banner */}
-            <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-white dark:bg-slate-900 rounded-xl border border-emerald-100 dark:border-emerald-900/40">
+            <div className="flex flex-wrap items-center justify-between gap-2 p-2 sm:p-2.5 bg-white dark:bg-slate-900 rounded-lg border border-emerald-100 dark:border-emerald-900/40">
               <div>
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                <div className="text-[9px] font-bold uppercase tracking-wider text-slate-400">
                   Official Payee
                 </div>
-                <div className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">
+                <div className="text-xs font-bold text-slate-900 dark:text-white">
                   {OFFICIAL_PAYEE_NAME}
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                <div className="text-[9px] font-bold uppercase tracking-wider text-slate-400">
                   Fixed Advance Fee
                 </div>
-                <div className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400">
+                <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
                   ₹500 Only
                 </div>
               </div>
             </div>
 
             {/* MOBILE VIEW: 1-Tap Direct UPI Payment */}
-            <div className="block sm:hidden space-y-3">
-              <div className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                <Smartphone className="w-4 h-4 text-emerald-600" />
+            <div className="block sm:hidden space-y-2.5">
+              <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                <Smartphone className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Mobile 1-Tap Instant Payment:</span>
               </div>
 
               {/* Universal UPI App Opener */}
               <a
                 href={UNIVERSAL_UPI_URI}
-                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:opacity-95 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-98 transition-all"
+                className="w-full py-2.5 px-3.5 rounded-lg bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:opacity-95 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 active:scale-98 transition-all"
               >
                 <span>Pay ₹500 via Any UPI App</span>
-                <ExternalLink className="w-4 h-4 shrink-0" />
+                <ExternalLink className="w-3.5 h-3.5 shrink-0" />
               </a>
 
               {/* Direct Specific App Deep Links */}
-              <div className="grid grid-cols-3 gap-2 pt-1">
+              <div className="grid grid-cols-3 gap-1.5 pt-0.5">
                 <a
                   href={GPAY_UPI_URI}
-                  className="py-2.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center font-bold text-xs flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition-all"
+                  className="py-1.5 px-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center text-xs flex flex-col items-center justify-center shadow-xs active:scale-95 transition-all"
                 >
-                  <span className="font-black text-emerald-600">GPay</span>
-                  <span className="text-[9px] text-slate-400">Google Pay</span>
+                  <span className="font-bold text-[11px] text-emerald-600">GPay</span>
+                  <span className="text-[8px] text-slate-400">Google Pay</span>
                 </a>
                 <a
                   href={PHONEPE_UPI_URI}
-                  className="py-2.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center font-bold text-xs flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition-all"
+                  className="py-1.5 px-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center text-xs flex flex-col items-center justify-center shadow-xs active:scale-95 transition-all"
                 >
-                  <span className="font-black text-purple-600">PhonePe</span>
-                  <span className="text-[9px] text-slate-400">PhonePe App</span>
+                  <span className="font-bold text-[11px] text-purple-600">PhonePe</span>
+                  <span className="text-[8px] text-slate-400">PhonePe App</span>
                 </a>
                 <a
                   href={PAYTM_UPI_URI}
-                  className="py-2.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center font-bold text-xs flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition-all"
+                  className="py-1.5 px-1 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center text-xs flex flex-col items-center justify-center shadow-xs active:scale-95 transition-all"
                 >
-                  <span className="font-black text-sky-600">Paytm</span>
-                  <span className="text-[9px] text-slate-400">Paytm App</span>
+                  <span className="font-bold text-[11px] text-sky-600">Paytm</span>
+                  <span className="text-[8px] text-slate-400">Paytm App</span>
                 </a>
               </div>
 
@@ -1703,22 +1703,22 @@ export function RegistrationFormClient() {
               <button
                 type="button"
                 onClick={() => setShowQrOnMobile(!showQrOnMobile)}
-                className="w-full py-2 px-3 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-400 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                className="w-full py-1.5 px-2.5 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-400 text-[11px] font-medium flex items-center justify-center gap-1.5 transition-colors"
               >
-                <QrCode className="w-3.5 h-3.5" />
+                <QrCode className="w-3 h-3" />
                 <span>{showQrOnMobile ? "Hide QR Code" : "Pay from another phone? Show QR Code"}</span>
               </button>
 
               {showQrOnMobile && qrCodeUrl && (
-                <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-emerald-200 dark:border-emerald-800 text-center space-y-2 animate-fadeIn">
-                  <div className="w-48 h-48 mx-auto bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center">
+                <div className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-emerald-200 dark:border-emerald-800 text-center space-y-1.5 animate-fadeIn">
+                  <div className="w-36 h-36 mx-auto bg-white p-1.5 rounded-lg border border-slate-200 shadow-xs flex items-center justify-center">
                     <img
                       src={qrCodeUrl}
                       alt="₹500 UPI QR Code"
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                  <div className="text-[10px] text-slate-500 dark:text-slate-400">
                     Scan using any UPI app on another phone to pay ₹500
                   </div>
                 </div>
@@ -1726,14 +1726,14 @@ export function RegistrationFormClient() {
             </div>
 
             {/* DESKTOP / TABLET VIEW: QR Code + 1-Tap Links + Copy UPI ID */}
-            <div className="hidden sm:grid sm:grid-cols-2 gap-4 items-center">
+            <div className="hidden sm:grid sm:grid-cols-2 gap-3 items-center">
               {/* Left Column: QR Code */}
-              <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-2 shadow-sm">
-                <div className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-700 dark:text-slate-300">
-                  <Laptop className="w-3.5 h-3.5 text-emerald-600" />
+              <div className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-1.5 shadow-xs">
+                <div className="inline-flex items-center gap-1 text-[10px] font-semibold text-slate-700 dark:text-slate-300">
+                  <Laptop className="w-3 h-3 text-emerald-600" />
                   <span>Scan via Phone to Pay ₹500</span>
                 </div>
-                <div className="w-44 h-44 mx-auto bg-white p-2 rounded-xl border border-slate-200 shadow-inner flex items-center justify-center">
+                <div className="w-36 h-36 mx-auto bg-white p-1.5 rounded-lg border border-slate-200 shadow-inner flex items-center justify-center">
                   {qrCodeUrl ? (
                     <img
                       src={qrCodeUrl}
@@ -1741,45 +1741,45 @@ export function RegistrationFormClient() {
                       className="w-full h-full object-contain"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-xs text-slate-400">
+                    <div className="w-full h-full flex items-center justify-center text-[10px] text-slate-400">
                       Loading QR...
                     </div>
                   )}
                 </div>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                <p className="text-[9px] text-slate-400 dark:text-slate-500">
                   Scan via Google Pay, PhonePe, Paytm, or BHIM
                 </p>
               </div>
 
               {/* Right Column: Copy UPI & Direct Links */}
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 <div>
-                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  <div className="text-[10px] font-semibold text-slate-600 dark:text-slate-400 mb-1">
                     Official Payment Receiver:
                   </div>
-                  <div className="flex items-center justify-between p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl gap-2">
+                  <div className="flex items-center justify-between p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg gap-2">
                     <div className="truncate">
                       <span className="font-bold text-xs text-slate-900 dark:text-white block truncate">
                         {OFFICIAL_PAYEE_NAME}
                       </span>
-                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
-                        <Check className="w-3 h-3 text-emerald-500" /> Bank Verified Training Account
+                      <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
+                        <Check className="w-2.5 h-2.5 text-emerald-500" /> Bank Verified Training Account
                       </span>
                     </div>
                     <button
                       type="button"
                       onClick={handleCopyUpi}
                       title="Copy UPI ID to clipboard"
-                      className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 shadow-sm"
+                      className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-semibold flex items-center gap-1 transition-all shrink-0 shadow-xs"
                     >
                       {copiedUpi ? (
                         <>
-                          <Check className="w-3.5 h-3.5" />
+                          <Check className="w-3 h-3" />
                           <span>Copied!</span>
                         </>
                       ) : (
                         <>
-                          <Copy className="w-3.5 h-3.5" />
+                          <Copy className="w-3 h-3" />
                           <span>Copy UPI ID</span>
                         </>
                       )}
@@ -1787,44 +1787,44 @@ export function RegistrationFormClient() {
                   </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                <div className="space-y-1">
+                  <div className="text-[10px] font-semibold text-slate-600 dark:text-slate-400">
                     Direct UPI Apps:
                   </div>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-1.5">
                     <a
                       href={GPAY_UPI_URI}
-                      className="py-2 px-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-emerald-600 transition-colors shadow-sm"
+                      className="py-1.5 px-1 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-center text-[11px] font-semibold text-slate-800 dark:text-slate-200 hover:text-emerald-600 transition-colors shadow-xs"
                     >
                       GPay
                     </a>
                     <a
                       href={PHONEPE_UPI_URI}
-                      className="py-2 px-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 text-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-purple-600 transition-colors shadow-sm"
+                      className="py-1.5 px-1 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 text-center text-[11px] font-semibold text-slate-800 dark:text-slate-200 hover:text-purple-600 transition-colors shadow-xs"
                     >
                       PhonePe
                     </a>
                     <a
                       href={PAYTM_UPI_URI}
-                      className="py-2 px-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 text-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-sky-600 transition-colors shadow-sm"
+                      className="py-1.5 px-1 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 text-center text-[11px] font-semibold text-slate-800 dark:text-slate-200 hover:text-sky-600 transition-colors shadow-xs"
                     >
                       Paytm
                     </a>
                   </div>
                 </div>
 
-                <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed bg-white/60 dark:bg-slate-900/60 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800">
-                  💡 <strong>Tip:</strong> After completing the ₹500 payment, please take a screenshot of the confirmation page and upload it below.
+                <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-normal bg-white/60 dark:bg-slate-900/60 p-2 rounded-lg border border-slate-200/80 dark:border-slate-800">
+                  💡 <strong>Tip:</strong> Payment complete hone ke baad screenshot le kar neeche upload karein.
                 </p>
               </div>
             </div>
 
             {/* Copy UPI Bar for Mobile */}
-            <div className="block sm:hidden pt-1">
-              <div className="flex items-center justify-between p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl gap-2">
+            <div className="block sm:hidden pt-0.5">
+              <div className="flex items-center justify-between p-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg gap-2">
                 <div className="truncate">
-                  <div className="text-[9px] uppercase font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                    <Check className="w-2.5 h-2.5" /> Verified Payee
+                  <div className="text-[8px] uppercase font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                    <Check className="w-2 h-2" /> Verified Payee
                   </div>
                   <span className="font-bold text-xs text-slate-900 dark:text-white truncate block">
                     {OFFICIAL_PAYEE_NAME}
@@ -1833,16 +1833,16 @@ export function RegistrationFormClient() {
                 <button
                   type="button"
                   onClick={handleCopyUpi}
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 shadow-sm"
+                  className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-semibold flex items-center gap-1 transition-all shrink-0 shadow-xs"
                 >
                   {copiedUpi ? (
                     <>
-                      <Check className="w-3.5 h-3.5" />
+                      <Check className="w-3 h-3" />
                       <span>Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5" />
+                      <Copy className="w-3 h-3" />
                       <span>Copy UPI</span>
                     </>
                   )}
@@ -1860,26 +1860,26 @@ export function RegistrationFormClient() {
           />
 
           {/* STEP 2: RECEIPT UPLOAD BOX */}
-          <div className="space-y-2">
-            <div className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
-              <span className="flex items-center gap-1.5">
-                <span>📸</span> Upload Payment Receipt Screenshot <span className="text-red-500">*</span>
+          <div className="space-y-1.5 pt-1">
+            <div className="text-[11px] font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
+              <span className="flex items-center gap-1">
+                <span className="text-xs">📸</span> Upload Payment Receipt Screenshot <span className="text-red-500">*</span>
               </span>
-              <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+              <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-semibold">
                 Auto-compressed for fast upload
               </span>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-4">
+            <div className="p-3 sm:p-4 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-3">
               {compressingReceipt ? (
-                <div className="border border-emerald-300 dark:border-emerald-700/60 rounded-2xl p-6 text-center bg-emerald-50/60 dark:bg-emerald-950/30">
-                  <div className="w-8 h-8 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-2.5" />
-                  <div className="text-xs font-bold text-emerald-950 dark:text-emerald-100 flex items-center justify-center gap-1.5">
-                    <Zap className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-                    Compressing receipt for fast upload on slow networks...
+                <div className="border border-emerald-300 dark:border-emerald-700/60 rounded-xl p-4 text-center bg-emerald-50/60 dark:bg-emerald-950/30">
+                  <div className="w-6 h-6 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-2" />
+                  <div className="text-[11px] font-bold text-emerald-950 dark:text-emerald-100 flex items-center justify-center gap-1">
+                    <Zap className="w-3 h-3 text-emerald-600 animate-pulse" />
+                    Compressing receipt for fast upload...
                   </div>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                    Resizing image to ~100 KB so it uploads quickly on any 2G/3G/4G network without losing readability.
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+                    Resizing to ~100 KB for fast submission on 2G/3G networks.
                   </p>
                 </div>
               ) : !receiptPreview ? (
@@ -1895,31 +1895,31 @@ export function RegistrationFormClient() {
                     handleReceiptFileChange(e.dataTransfer.files?.[0]);
                   }}
                   onClick={() => fileInputRef.current?.click()}
-                  className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all ${
+                  className={`border-2 border-dashed rounded-xl p-4 sm:p-5 text-center cursor-pointer transition-all ${
                     isDragging
                       ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 scale-[1.01]"
                       : "border-slate-300 dark:border-slate-700 hover:border-emerald-500 hover:bg-slate-100/60 dark:hover:bg-slate-900/60"
                   }`}
                 >
-                  <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center mx-auto mb-3 shadow-sm">
-                    <UploadCloud className="w-6 h-6" />
+                  <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center mx-auto mb-2 shadow-xs">
+                    <UploadCloud className="w-4 h-4" />
                   </div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                  <div className="text-xs font-semibold text-slate-900 dark:text-white">
                     Click to upload payment receipt screenshot
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    or drag and drop screenshot here (PNG, JPG, WEBP - Auto compressed for fast upload)
+                  <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
+                    PNG, JPG, WEBP (Auto compressed for fast upload)
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-950/80 px-4 py-2 rounded-xl border border-emerald-300 dark:border-emerald-800 shadow-sm">
-                    <UploadCloud className="w-4 h-4" />
+                  <div className="mt-2.5 inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-950/80 px-3 py-1.5 rounded-lg border border-emerald-300 dark:border-emerald-800 shadow-xs">
+                    <UploadCloud className="w-3 h-3" />
                     <span>Choose Receipt File</span>
                   </div>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {/* Preview Card */}
-                  <div className="flex items-center gap-4 p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-emerald-200 dark:border-emerald-900/50 shadow-sm">
-                    <div className="w-16 h-16 rounded-xl overflow-hidden border border-emerald-300 dark:border-emerald-700 shrink-0 bg-black">
+                  <div className="flex items-center gap-3 p-2.5 bg-white dark:bg-slate-900 rounded-lg border border-emerald-200 dark:border-emerald-900/50 shadow-xs">
+                    <div className="w-12 h-12 rounded-lg overflow-hidden border border-emerald-300 dark:border-emerald-700 shrink-0 bg-black">
                       <img
                         src={receiptPreview}
                         alt="Uploaded Receipt Preview"
@@ -1927,11 +1927,11 @@ export function RegistrationFormClient() {
                       />
                     </div>
                     <div className="flex-1 overflow-hidden text-xs">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white truncate">
-                        <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                        <span className="truncate">{receiptFile?.name || "Payment Receipt Screenshot"}</span>
+                      <div className="flex items-center gap-1 font-semibold text-slate-900 dark:text-white truncate text-[11px]">
+                        <FileCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span className="truncate">{receiptFile?.name || "Receipt Screenshot"}</span>
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 flex flex-wrap items-center gap-1.5">
+                      <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 flex flex-wrap items-center gap-1">
                         {compressionStats ? (
                           <>
                             <span className="line-through text-slate-400">
@@ -1940,22 +1940,22 @@ export function RegistrationFormClient() {
                             <span className="font-bold text-emerald-600 dark:text-emerald-400">
                               → {compressionStats.compressedKB} KB
                             </span>
-                            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 rounded text-[9px] font-black uppercase">
-                              <Zap className="w-2.5 h-2.5" /> Auto Compressed
+                            <span className="inline-flex items-center gap-0.5 px-1 py-0.2 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 rounded text-[8px] font-bold uppercase">
+                              <Zap className="w-2 h-2" /> Auto Compressed
                             </span>
                           </>
                         ) : (
-                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                          <span className="text-emerald-600 dark:text-emerald-400 font-medium">
                             Ready to attach
                           </span>
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5">
                       <button
                         type="button"
                         onClick={() => fileInputRef.current?.click()}
-                        className="px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-[11px] font-bold text-slate-700 dark:text-slate-300 transition-colors"
+                        className="px-2 py-1 rounded-md border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-[10px] font-semibold text-slate-700 dark:text-slate-300 transition-colors"
                       >
                         Change
                       </button>
@@ -1963,16 +1963,16 @@ export function RegistrationFormClient() {
                         type="button"
                         onClick={handleRemoveReceipt}
                         title="Remove receipt"
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
+                        className="p-1 rounded-md text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
 
                   {/* Optional UTR / Reference Field */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    <label className="block text-[10px] font-semibold text-slate-600 dark:text-slate-400 mb-0.5">
                       UPI Ref / UTR / Transaction ID (Optional)
                     </label>
                     <input
@@ -1980,9 +1980,9 @@ export function RegistrationFormClient() {
                       value={receiptUtr}
                       onChange={(e) => setReceiptUtr(e.target.value)}
                       placeholder="e.g. 423987123456 or Transaction Reference Number"
-                      className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                      className="w-full px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg text-xs text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-emerald-500/50"
                     />
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-[9px] text-slate-400 dark:text-slate-500 mt-0.5">
                       If visible on your receipt, you can enter your 12-digit UTR or reference ID.
                     </p>
                   </div>
