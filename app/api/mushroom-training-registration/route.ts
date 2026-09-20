@@ -48,40 +48,33 @@ export async function POST(req: Request) {
       );
     }
 
-    // Require ₹500 Payment Receipt Screenshot
-    if (!receiptBase64) {
-      return NextResponse.json(
-        {
-          error:
-            "₹500 payment receipt screenshot is required to confirm training registration seat.",
-        },
-        { status: 400 }
+    // Clean base64 and calculate hash if receipt was uploaded
+    let cleanBase64 = "";
+    let receiptHash = clientReceiptHash || "";
+    if (receiptBase64) {
+      cleanBase64 = receiptBase64.replace(
+        /^data:image\/[a-zA-Z0-9+.-]+;base64,/,
+        ""
       );
-    }
+      receiptHash = receiptHash || computeReceiptHash(cleanBase64);
 
-    // Clean base64 and calculate hash
-    const cleanBase64 = receiptBase64.replace(
-      /^data:image\/[a-zA-Z0-9+.-]+;base64,/,
-      ""
-    );
-    const receiptHash = clientReceiptHash || computeReceiptHash(cleanBase64);
+      // Enforce Duplicate Protection (Screenshot hash, UTR, Phone)
+      const dupCheck = checkDuplicateReceipt({
+        receiptHash,
+        utr,
+        phone,
+      });
 
-    // Enforce Duplicate Protection (Screenshot hash, UTR, Phone)
-    const dupCheck = checkDuplicateReceipt({
-      receiptHash,
-      utr,
-      phone,
-    });
-
-    if (dupCheck.isDuplicate) {
-      return NextResponse.json(
-        {
-          error:
-            dupCheck.reason ||
-            "Duplicate submission detected. Each phone number and payment receipt can only be registered once.",
-        },
-        { status: 400 }
-      );
+      if (dupCheck.isDuplicate) {
+        return NextResponse.json(
+          {
+            error:
+              dupCheck.reason ||
+              "Duplicate submission detected. Each phone number and payment receipt can only be registered once.",
+          },
+          { status: 400 }
+        );
+      }
     }
 
     const regId = `OMF-BTN-${Math.floor(100000 + Math.random() * 900000)}`;
@@ -89,19 +82,21 @@ export async function POST(req: Request) {
       timeZone: "Asia/Kolkata",
     });
 
-    // Record verified receipt in storage
-    recordReceipt({
-      registrationId: regId,
-      fullName,
-      phone,
-      email,
-      amount: 500,
-      utr: utr || "UPI-REF-" + Date.now().toString().slice(-6),
-      paymentApp,
-      receiptHash,
-      fileName: receiptFileName,
-      verifiedAt: submissionTime,
-    });
+    // Record verified receipt in storage if present
+    if (receiptHash) {
+      recordReceipt({
+        registrationId: regId,
+        fullName,
+        phone,
+        email,
+        amount: 500,
+        utr: utr || "UPI-REF-" + Date.now().toString().slice(-6),
+        paymentApp,
+        receiptHash,
+        fileName: receiptFileName,
+        verifiedAt: submissionTime,
+      });
+    }
 
     // ----------------------------------------------------
     // Nodemailer: Send Full Details & Attached Receipt Image
@@ -148,49 +143,63 @@ export async function POST(req: Request) {
               }
         );
 
-        const safeExt = receiptMimeType.includes("png")
-          ? "png"
-          : receiptMimeType.includes("webp")
-          ? "webp"
-          : "jpg";
-        const attachmentFilename = `Payment_Receipt_${regId}_${fullName.replace(
-          /[^a-zA-Z0-9]/g,
-          "_"
-        )}.${safeExt}`;
+        const mailAttachments: any[] = [];
+        let attachmentNote = "";
 
-        const mailAttachments: any[] = [
-          {
+        if (cleanBase64) {
+          const safeExt = receiptMimeType.includes("png")
+            ? "png"
+            : receiptMimeType.includes("webp")
+            ? "webp"
+            : "jpg";
+          const attachmentFilename = `Payment_Receipt_${regId}_${fullName.replace(
+            /[^a-zA-Z0-9]/g,
+            "_"
+          )}.${safeExt}`;
+
+          mailAttachments.push({
             filename: attachmentFilename,
             content: Buffer.from(cleanBase64, "base64"),
             contentType: receiptMimeType || "image/jpeg",
-          },
-        ];
+          });
+
+          attachmentNote = `
+            <div style="margin-top: 20px; padding: 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #475569;">
+              📎 <strong>Attachment:</strong> The candidate's payment receipt screenshot (<code>${attachmentFilename}</code>) is attached to this email.
+            </div>
+          `;
+        }
+
+        const paymentHighlightBox = cleanBase64
+          ? `
+            <div style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+              <h3 style="margin: 0 0 6px 0; color: #065f46; font-size: 15px; font-weight: bold;">
+                ✅ ₹500 Payment Verified (Receipt Attached)
+              </h3>
+              <div style="font-size: 13px; color: #047857;">
+                <p style="margin: 2px 0;"><strong>Paid Amount:</strong> ₹500 (Advance Seat Booking Fee)</p>
+                <p style="margin: 2px 0;"><strong>Payment Mode / App:</strong> ${paymentApp}</p>
+                <p style="margin: 2px 0;"><strong>UPI UTR / Transaction No.:</strong> <span style="font-family: monospace; font-weight: bold; color: #0f172a;">${utr || "Verified Screenshot"}</span></p>
+                <p style="margin: 2px 0;"><strong>Receipt Hash:</strong> <span style="font-family: monospace; font-size: 11px; color: #64748b;">${receiptHash.slice(0, 20)}...</span></p>
+              </div>
+            </div>
+          `
+          : "";
 
         const emailHtml = `
           <div style="font-family: Arial, -apple-system, BlinkMacSystemFont, sans-serif; max-width: 650px; margin: 0 auto; color: #0f172a; line-height: 1.6; background: #f8fafc; padding: 16px;">
             <div style="background: #0f172a; padding: 24px; border-radius: 12px 12px 0 0; text-align: center; color: white;">
               <h1 style="margin: 0; font-size: 22px; letter-spacing: 0.5px;">🍄 ORGANIC MUSHROOM FARM</h1>
               <p style="margin: 6px 0 0; font-size: 13px; color: #38bdf8; font-weight: bold;">
-                New Training Registration & ₹500 Seat Booking Slip
+                New Mushroom Training Registration
               </p>
               <div style="display: inline-block; background: #059669; color: white; padding: 6px 16px; border-radius: 20px; font-weight: bold; margin-top: 12px; font-size: 13px;">
-                Reg ID: ${regId} | Status: PAID & VERIFIED
+                Reg ID: ${regId} | Status: CONFIRMED
               </div>
             </div>
 
             <div style="background: #ffffff; padding: 24px; border: 1px solid #e2e8f0; border-top: none;">
-              <!-- ₹500 Payment Verification Highlight Box -->
-              <div style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
-                <h3 style="margin: 0 0 6px 0; color: #065f46; font-size: 15px; font-weight: bold;">
-                  ✅ ₹500 Payment Verified (Receipt Attached)
-                </h3>
-                <div style="font-size: 13px; color: #047857;">
-                  <p style="margin: 2px 0;"><strong>Paid Amount:</strong> ₹500 (Advance Seat Booking Fee)</p>
-                  <p style="margin: 2px 0;"><strong>Payment Mode / App:</strong> ${paymentApp}</p>
-                  <p style="margin: 2px 0;"><strong>UPI UTR / Transaction No.:</strong> <span style="font-family: monospace; font-weight: bold; color: #0f172a;">${utr || "Verified Screenshot"}</span></p>
-                  <p style="margin: 2px 0;"><strong>Receipt Hash:</strong> <span style="font-family: monospace; font-size: 11px; color: #64748b;">${receiptHash.slice(0, 20)}...</span></p>
-                </div>
-              </div>
+              ${paymentHighlightBox}
 
               <h3 style="color: #4338ca; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px; margin-top: 15px;">
                 1. Candidate Particulars
@@ -227,9 +236,7 @@ export async function POST(req: Request) {
                 <tr><td style="padding: 6px 0; color: #64748b;">How did you hear:</td><td style="padding: 6px 0; color: #0f172a;">${hearAboutUs || "N/A"}</td></tr>
               </table>
 
-              <div style="margin-top: 20px; padding: 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #475569;">
-                📎 <strong>Attachment:</strong> The candidate's ₹500 payment receipt screenshot (<code>${attachmentFilename}</code>) is attached to this email for your accounting records.
-              </div>
+              ${attachmentNote}
             </div>
 
             <div style="background: #f8fafc; padding: 14px; text-align: center; border-radius: 0 0 12px 12px; font-size: 11px; color: #64748b; border: 1px solid #e2e8f0; border-top: none;">
@@ -238,21 +245,23 @@ export async function POST(req: Request) {
           </div>
         `;
 
-        // 1. Send to Admin(s) with attachment
+        // 1. Send to Admin(s)
         await transporter.sendMail({
           from: `"Organic Mushroom Farm" <${smtpUser}>`,
           to: uniqueAdminEmails.join(", "),
-          subject: `🍄 [₹500 PAID] Training Registration - ${fullName} [${regId}]`,
+          subject: cleanBase64
+            ? `🍄 [₹500 PAID] Training Registration - ${fullName} [${regId}]`
+            : `🍄 Training Registration - ${fullName} [${regId}]`,
           html: emailHtml,
           attachments: mailAttachments,
         });
 
-        // 2. Send Acknowledgment to Candidate with attached receipt
+        // 2. Send Acknowledgment to Candidate
         if (email && email.includes("@")) {
           await transporter.sendMail({
             from: `"Organic Mushroom Farm" <${smtpUser}>`,
             to: email,
-            subject: `Registration Confirmed [${regId}] - ₹500 Received for ${trainingName}`,
+            subject: `Registration Confirmed [${regId}] - ${trainingName}`,
             html: emailHtml,
             attachments: mailAttachments,
           });
