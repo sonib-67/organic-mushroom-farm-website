@@ -292,6 +292,18 @@ export function RegistrationFormClient() {
     };
   }, []);
 
+  // Close Know More modal on Escape key press
+  useEffect(() => {
+    if (!showKnowMoreModal) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShowKnowMoreModal(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [showKnowMoreModal]);
+
   const handleCopyUpi = () => {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(OFFICIAL_UPI_ID);
@@ -2235,14 +2247,15 @@ export function RegistrationFormClient() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-5 sm:p-6 bg-gradient-to-r from-purple-700 via-sky-700 to-emerald-700 text-white relative">
+            <div className="p-5 sm:p-6 bg-gradient-to-r from-purple-700 via-sky-700 to-emerald-700 text-white relative pr-14 sm:pr-16">
               <button
                 type="button"
                 onClick={() => setShowKnowMoreModal(false)}
-                className="absolute top-4 right-4 p-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
-                title="Close"
+                className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer z-20 border border-slate-200/80"
+                title="Close (बंद करें)"
+                aria-label="Close modal"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 stroke-[2.5]" />
               </button>
 
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold text-emerald-200 mb-2 border border-white/20">

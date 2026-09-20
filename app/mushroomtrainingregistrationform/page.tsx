@@ -2,12 +2,12 @@ import { Metadata } from "next";
 import { RegistrationFormClient } from "./RegistrationFormClient";
 
 export const metadata: Metadata = {
-  title: "Button Mushroom Farming Training Registration | Organic Mushroom Farm",
+  title: "Mushroom Training Registration | Organic Mushroom Farm",
   description:
-    "Register online for certified button mushroom cultivation training. Step-by-step practical guidance, compost formula, raw material sourcing, climate control SOPs & lifetime support.",
+    "Register online for certified mushroom cultivation training. Step-by-step practical guidance, compost formula, raw material sourcing, climate control SOPs & lifetime support.",
   keywords: [
     "mushroom training registration form",
-    "button mushroom cultivation training",
+    "mushroom cultivation training",
     "commercial mushroom farming admission",
     "mushroom farming course registration 2026",
     "organic mushroom farm training",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     canonical: "https://organicmushroomsfarm.com/mushroomtrainingregistrationform",
   },
   openGraph: {
-    title: "Button Mushroom Farming Training Registration | Organic Mushroom Farm",
+    title: "Mushroom Training Registration | Organic Mushroom Farm",
     description:
-      "Register online for certified commercial button mushroom farming training. 100% practical guidance, compost formula, climate control rooms & lifetime handholding.",
+      "Register online for certified commercial mushroom farming training. 100% practical guidance, compost formula, climate control rooms & lifetime handholding.",
     url: "https://organicmushroomsfarm.com/mushroomtrainingregistrationform",
     siteName: "Organic Mushroom Farm",
     type: "website",
@@ -31,15 +31,15 @@ export const metadata: Metadata = {
         url: "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,g_auto,w_1200,h_630,f_auto,q_auto/v1788594243/mushroomtraining_yftrft.png",
         width: 1200,
         height: 630,
-        alt: "Button Mushroom Farming Training Registration - Organic Mushroom Farm",
+        alt: "Mushroom Training Registration - Organic Mushroom Farm",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Button Mushroom Training Registration | Organic Mushroom Farm",
+    title: "Mushroom Training Registration | Organic Mushroom Farm",
     description:
-      "Register online for commercial button mushroom training. Complete SOPs, compost calculations, farm setup & lifetime guidance.",
+      "Register online for commercial mushroom training. Complete SOPs, compost calculations, farm setup & lifetime guidance.",
     images: [
       "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,g_auto,w_1200,h_630,f_auto,q_auto/v1788594243/mushroomtraining_yftrft.png",
     ],
@@ -85,9 +85,9 @@ export default function MushroomTrainingRegistrationPage() {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "Commercial Button Mushroom Cultivation Training Program",
+    name: "Commercial Mushroom Cultivation Training Program",
     description:
-      "Hands-on commercial button mushroom cultivation training covering bunker composting, climate control parameters, spawning, casing sterilisation, pest management, and marketing linkages.",
+      "Hands-on commercial mushroom cultivation training covering bunker composting, climate control parameters, spawning, casing sterilisation, pest management, and marketing linkages.",
     provider: {
       "@type": "EducationalOrganization",
       name: "Organic Mushroom Farm",
