@@ -27,7 +27,93 @@ import {
   UploadCloud,
   FileCheck,
   Trash2,
+  Zap,
+  Copy,
+  Check,
+  QrCode,
+  ExternalLink,
+  Smartphone,
+  Laptop,
 } from "lucide-react";
+import QRCode from "qrcode";
+
+const OFFICIAL_UPI_ID = "tanishsoni787941-4@okicici";
+const OFFICIAL_PAYEE_NAME = "Organic Mushroom Farm";
+const ADVANCE_BOOKING_FEE = 500;
+const UPI_TRANSACTION_NOTE = "Mushroom Training Seat Booking";
+const UNIVERSAL_UPI_URI = `upi://pay?pa=${OFFICIAL_UPI_ID}&pn=${encodeURIComponent(
+  OFFICIAL_PAYEE_NAME
+)}&am=${ADVANCE_BOOKING_FEE}&cu=INR&tn=${encodeURIComponent(UPI_TRANSACTION_NOTE)}`;
+const GPAY_UPI_URI = `gpay://upi/pay?pa=${OFFICIAL_UPI_ID}&pn=${encodeURIComponent(
+  OFFICIAL_PAYEE_NAME
+)}&am=${ADVANCE_BOOKING_FEE}&cu=INR&tn=${encodeURIComponent(UPI_TRANSACTION_NOTE)}`;
+const PHONEPE_UPI_URI = `phonepe://pay?pa=${OFFICIAL_UPI_ID}&pn=${encodeURIComponent(
+  OFFICIAL_PAYEE_NAME
+)}&am=${ADVANCE_BOOKING_FEE}&cu=INR&tn=${encodeURIComponent(UPI_TRANSACTION_NOTE)}`;
+const PAYTM_UPI_URI = `paytmmp://pay?pa=${OFFICIAL_UPI_ID}&pn=${encodeURIComponent(
+  OFFICIAL_PAYEE_NAME
+)}&am=${ADVANCE_BOOKING_FEE}&cu=INR&tn=${encodeURIComponent(UPI_TRANSACTION_NOTE)}`;
+
+// Client-side automatic image compressor for ultra-fast upload on 2G/3G/slow networks
+const compressImage = (
+  file: File,
+  maxDimension = 1200,
+  quality = 0.75
+): Promise<{ base64: string; originalSize: number; compressedSize: number }> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error("Failed to read image file"));
+    reader.onload = (e) => {
+      const img = new (window as any).Image();
+      img.onerror = () => reject(new Error("Failed to parse image"));
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+
+        // Scale proportionally if larger than maxDimension (1200px retains full readability of text and UTR)
+        if (width > maxDimension || height > maxDimension) {
+          if (width > height) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          } else {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          resolve({
+            base64: e.target?.result as string,
+            originalSize: file.size,
+            compressedSize: file.size,
+          });
+          return;
+        }
+
+        // Solid white background prevents black backgrounds on transparent PNGs
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Convert to optimized JPEG (~80-150KB typically)
+        const compressedBase64 = canvas.toDataURL("image/jpeg", quality);
+        const approxSize = Math.round((compressedBase64.length * 3) / 4);
+
+        resolve({
+          base64: compressedBase64,
+          originalSize: file.size,
+          compressedSize: approxSize,
+        });
+      };
+      img.src = e.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  });
+};
 
 const INDIAN_STATES = [
   "Andhra Pradesh",
@@ -111,14 +197,62 @@ export function RegistrationFormClient() {
 
   const [previousSubmissionWarning, setPreviousSubmissionWarning] = useState<string>("");
 
-  // Payment receipt states (Upload-only, NO QR, NO UPI, NO phone number)
+  // UPI Payment & QR states
+  const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
+  const [copiedUpi, setCopiedUpi] = useState<boolean>(false);
+  const [showQrOnMobile, setShowQrOnMobile] = useState<boolean>(false);
+
+  // Payment receipt states
   const [receiptFile, setReceiptFile] = useState<File | null>(null);
   const [receiptPreview, setReceiptPreview] = useState<string | null>(null);
   const [receiptUtr, setReceiptUtr] = useState<string>("");
   const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [compressingReceipt, setCompressingReceipt] = useState<boolean>(false);
+  const [compressionStats, setCompressionStats] = useState<{
+    originalKB: number;
+    compressedKB: number;
+  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleReceiptFileChange = (file: File | null | undefined) => {
+  useEffect(() => {
+    let isMounted = true;
+    QRCode.toDataURL(UNIVERSAL_UPI_URI, {
+      width: 320,
+      margin: 1,
+      color: {
+        dark: "#0f172a",
+        light: "#ffffff",
+      },
+      errorCorrectionLevel: "M",
+    })
+      .then((url) => {
+        if (isMounted) setQrCodeUrl(url);
+      })
+      .catch((err) => {
+        console.error("QR generation error:", err);
+        if (isMounted) {
+          setQrCodeUrl(
+            `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(
+              UNIVERSAL_UPI_URI
+            )}`
+          );
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handleCopyUpi = () => {
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(OFFICIAL_UPI_ID);
+      setCopiedUpi(true);
+      setTimeout(() => setCopiedUpi(false), 2200);
+    }
+  };
+
+  const handleReceiptFileChange = async (file: File | null | undefined) => {
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
@@ -126,27 +260,43 @@ export function RegistrationFormClient() {
       return;
     }
 
-    if (file.size > 10 * 1024 * 1024) {
-      setErrorMsg("File size exceeds 10MB. Please upload a smaller image.");
+    if (file.size > 25 * 1024 * 1024) {
+      setErrorMsg("File size exceeds 25MB. Please upload a standard mobile screenshot.");
       return;
     }
 
     setReceiptFile(file);
     setErrorMsg("");
+    setCompressingReceipt(true);
 
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setReceiptPreview(event.target?.result as string);
-    };
-    reader.onerror = () => {
-      setErrorMsg("Failed to read image file. Please try selecting the image again.");
-    };
-    reader.readAsDataURL(file);
+    try {
+      // Automatic client-side compression (resizes large camera/screenshots to ~100KB without losing text clarity)
+      const result = await compressImage(file, 1200, 0.75);
+      setReceiptPreview(result.base64);
+      setCompressionStats({
+        originalKB: Math.max(1, Math.round(result.originalSize / 1024)),
+        compressedKB: Math.max(1, Math.round(result.compressedSize / 1024)),
+      });
+    } catch {
+      // Fallback to standard reader
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setReceiptPreview(event.target?.result as string);
+        setCompressionStats(null);
+      };
+      reader.onerror = () => {
+        setErrorMsg("Failed to read image file. Please try selecting the image again.");
+      };
+      reader.readAsDataURL(file);
+    } finally {
+      setCompressingReceipt(false);
+    }
   };
 
   const handleRemoveReceipt = () => {
     setReceiptFile(null);
     setReceiptPreview(null);
+    setCompressionStats(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -584,6 +734,7 @@ export function RegistrationFormClient() {
                     setReceiptFile(null);
                     setReceiptPreview(null);
                     setReceiptUtr("");
+                    setCompressionStats(null);
                   }}
                   className="py-2.5 px-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
                 >
@@ -1465,7 +1616,7 @@ export function RegistrationFormClient() {
 
 
 
-        {/* SECTION 5: PAYMENT RECEIPT UPLOAD (NO QR, NO UPI ID, NO NUMBER) */}
+        {/* SECTION 5: ADVANCE BOOKING FEE & PAYMENT RECEIPT */}
         <div id="payment-receipt-upload-section" className="space-y-4 pt-2">
           <div className="border-b border-slate-200/80 dark:border-white/10 pb-3 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -1473,17 +1624,224 @@ export function RegistrationFormClient() {
                 5
               </div>
               <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5">
-                <span>🧾</span> Payment Receipt Upload
+                <span>💳</span> Seat Booking Advance & Payment Receipt
               </h2>
             </div>
             <span className="text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-              Receipt Required
+              ₹500 Advance
             </span>
           </div>
 
           <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-            Please upload your payment receipt screenshot or transaction slip below (JPG, PNG, or WEBP). Your uploaded receipt will be attached to your registration application.
+            To reserve your training seat and syllabus kit, an advance booking fee of <strong>₹500</strong> is required. Pay via 1-tap on mobile or scan QR on desktop, then upload the receipt screenshot below.
           </p>
+
+          {/* PAYMENT OPTIONS CARD */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-slate-50 via-emerald-50/20 to-teal-50/20 dark:from-slate-950 dark:via-emerald-950/20 dark:to-teal-950/20 border border-emerald-200 dark:border-emerald-800/60 shadow-sm space-y-4">
+            {/* Payee Info Banner */}
+            <div className="flex flex-wrap items-center justify-between gap-2 p-3 bg-white dark:bg-slate-900 rounded-xl border border-emerald-100 dark:border-emerald-900/40">
+              <div>
+                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  Official Payee
+                </div>
+                <div className="text-xs sm:text-sm font-black text-slate-900 dark:text-white">
+                  {OFFICIAL_PAYEE_NAME}
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  Fixed Advance Fee
+                </div>
+                <div className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400">
+                  ₹500 Only
+                </div>
+              </div>
+            </div>
+
+            {/* MOBILE VIEW: 1-Tap Direct UPI Payment */}
+            <div className="block sm:hidden space-y-3">
+              <div className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                <Smartphone className="w-4 h-4 text-emerald-600" />
+                <span>Mobile 1-Tap Instant Payment:</span>
+              </div>
+
+              {/* Universal UPI App Opener */}
+              <a
+                href={UNIVERSAL_UPI_URI}
+                className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:opacity-95 text-white font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-98 transition-all"
+              >
+                <span>Pay ₹500 via Any UPI App</span>
+                <ExternalLink className="w-4 h-4 shrink-0" />
+              </a>
+
+              {/* Direct Specific App Deep Links */}
+              <div className="grid grid-cols-3 gap-2 pt-1">
+                <a
+                  href={GPAY_UPI_URI}
+                  className="py-2.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center font-bold text-xs flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition-all"
+                >
+                  <span className="font-black text-emerald-600">GPay</span>
+                  <span className="text-[9px] text-slate-400">Google Pay</span>
+                </a>
+                <a
+                  href={PHONEPE_UPI_URI}
+                  className="py-2.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center font-bold text-xs flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition-all"
+                >
+                  <span className="font-black text-purple-600">PhonePe</span>
+                  <span className="text-[9px] text-slate-400">PhonePe App</span>
+                </a>
+                <a
+                  href={PAYTM_UPI_URI}
+                  className="py-2.5 px-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-800 dark:text-slate-200 text-center font-bold text-xs flex flex-col items-center justify-center gap-1 shadow-sm active:scale-95 transition-all"
+                >
+                  <span className="font-black text-sky-600">Paytm</span>
+                  <span className="text-[9px] text-slate-400">Paytm App</span>
+                </a>
+              </div>
+
+              {/* Toggle QR Code on mobile if paying from another phone */}
+              <button
+                type="button"
+                onClick={() => setShowQrOnMobile(!showQrOnMobile)}
+                className="w-full py-2 px-3 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-400 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <QrCode className="w-3.5 h-3.5" />
+                <span>{showQrOnMobile ? "Hide QR Code" : "Pay from another phone? Show QR Code"}</span>
+              </button>
+
+              {showQrOnMobile && qrCodeUrl && (
+                <div className="p-4 bg-white dark:bg-slate-900 rounded-xl border border-emerald-200 dark:border-emerald-800 text-center space-y-2 animate-fadeIn">
+                  <div className="w-48 h-48 mx-auto bg-white p-2 rounded-xl border border-slate-200 shadow-sm flex items-center justify-center">
+                    <img
+                      src={qrCodeUrl}
+                      alt="₹500 UPI QR Code"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="text-[11px] text-slate-600 dark:text-slate-400">
+                    Scan using any UPI app on another phone to pay ₹500
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* DESKTOP / TABLET VIEW: QR Code + 1-Tap Links + Copy UPI ID */}
+            <div className="hidden sm:grid sm:grid-cols-2 gap-4 items-center">
+              {/* Left Column: QR Code */}
+              <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-center space-y-2 shadow-sm">
+                <div className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                  <Laptop className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Scan via Phone to Pay ₹500</span>
+                </div>
+                <div className="w-44 h-44 mx-auto bg-white p-2 rounded-xl border border-slate-200 shadow-inner flex items-center justify-center">
+                  {qrCodeUrl ? (
+                    <img
+                      src={qrCodeUrl}
+                      alt="₹500 UPI QR Code"
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-xs text-slate-400">
+                      Loading QR...
+                    </div>
+                  )}
+                </div>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400">
+                  Scan via Google Pay, PhonePe, Paytm, or BHIM
+                </p>
+              </div>
+
+              {/* Right Column: Copy UPI & Direct Links */}
+              <div className="space-y-3">
+                <div>
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    Official UPI ID:
+                  </div>
+                  <div className="flex items-center justify-between p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl gap-2">
+                    <span className="font-mono font-black text-xs text-slate-900 dark:text-white select-all truncate">
+                      {OFFICIAL_UPI_ID}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleCopyUpi}
+                      className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 shadow-sm"
+                    >
+                      {copiedUpi ? (
+                        <>
+                          <Check className="w-3.5 h-3.5" />
+                          <span>Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Copy UPI ID</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
+                    Direct UPI Apps:
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    <a
+                      href={GPAY_UPI_URI}
+                      className="py-2 px-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-emerald-600 transition-colors shadow-sm"
+                    >
+                      GPay
+                    </a>
+                    <a
+                      href={PHONEPE_UPI_URI}
+                      className="py-2 px-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 text-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-purple-600 transition-colors shadow-sm"
+                    >
+                      PhonePe
+                    </a>
+                    <a
+                      href={PAYTM_UPI_URI}
+                      className="py-2 px-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500 text-center text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-sky-600 transition-colors shadow-sm"
+                    >
+                      Paytm
+                    </a>
+                  </div>
+                </div>
+
+                <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed bg-white/60 dark:bg-slate-900/60 p-2.5 rounded-xl border border-slate-200/80 dark:border-slate-800">
+                  💡 <strong>Tip:</strong> After completing the ₹500 payment, please take a screenshot of the confirmation page and upload it below.
+                </p>
+              </div>
+            </div>
+
+            {/* Copy UPI Bar for Mobile */}
+            <div className="block sm:hidden pt-1">
+              <div className="flex items-center justify-between p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl gap-2">
+                <div className="truncate">
+                  <div className="text-[9px] uppercase font-bold text-slate-400">UPI ID</div>
+                  <span className="font-mono font-black text-xs text-slate-900 dark:text-white select-all truncate block">
+                    {OFFICIAL_UPI_ID}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleCopyUpi}
+                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 shadow-sm"
+                >
+                  {copiedUpi ? (
+                    <>
+                      <Check className="w-3.5 h-3.5" />
+                      <span>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
 
           <input
             ref={fileInputRef}
@@ -1493,104 +1851,136 @@ export function RegistrationFormClient() {
             className="hidden"
           />
 
-          {/* Upload Box */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-4">
-            {!receiptPreview ? (
-              <div
-                onDragOver={(e) => {
-                  e.preventDefault();
-                  setIsDragging(true);
-                }}
-                onDragLeave={() => setIsDragging(false)}
-                onDrop={(e) => {
-                  e.preventDefault();
-                  setIsDragging(false);
-                  handleReceiptFileChange(e.dataTransfer.files?.[0]);
-                }}
-                onClick={() => fileInputRef.current?.click()}
-                className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all ${
-                  isDragging
-                    ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 scale-[1.01]"
-                    : "border-slate-300 dark:border-slate-700 hover:border-emerald-500 hover:bg-slate-100/60 dark:hover:bg-slate-900/60"
-                }`}
-              >
-                <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <UploadCloud className="w-6 h-6" />
-                </div>
-                <div className="text-sm font-bold text-slate-900 dark:text-white">
-                  Click to upload payment receipt screenshot
-                </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  or drag and drop screenshot here (PNG, JPG, WEBP - Max 10MB)
-                </p>
-                <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-950/80 px-4 py-2 rounded-xl border border-emerald-300 dark:border-emerald-800 shadow-sm">
-                  <UploadCloud className="w-4 h-4" />
-                  <span>Choose Receipt File</span>
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {/* Preview Card */}
-                <div className="flex items-center gap-4 p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-emerald-200 dark:border-emerald-900/50 shadow-sm">
-                  <div className="w-16 h-16 rounded-xl overflow-hidden border border-emerald-300 dark:border-emerald-700 shrink-0 bg-black">
-                    <img
-                      src={receiptPreview}
-                      alt="Uploaded Receipt Preview"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1 overflow-hidden text-xs">
-                    <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white truncate">
-                      <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                      <span className="truncate">{receiptFile?.name || "Payment Receipt Screenshot"}</span>
-                    </div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                      {receiptFile?.size
-                        ? `${(receiptFile.size / 1024).toFixed(1)} KB`
-                        : "Ready to attach"}
-                      {" • "}
-                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                        Ready to attach
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => fileInputRef.current?.click()}
-                      className="px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-[11px] font-bold text-slate-700 dark:text-slate-300 transition-colors"
-                    >
-                      Change
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleRemoveReceipt}
-                      title="Remove receipt"
-                      className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
+          {/* STEP 2: RECEIPT UPLOAD BOX */}
+          <div className="space-y-2">
+            <div className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
+                <span>📸</span> Upload Payment Receipt Screenshot <span className="text-red-500">*</span>
+              </span>
+              <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">
+                Auto-compressed for fast upload
+              </span>
+            </div>
 
-                {/* Optional UTR / Reference Field */}
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
-                    UPI Ref / UTR / Transaction ID (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    value={receiptUtr}
-                    onChange={(e) => setReceiptUtr(e.target.value)}
-                    placeholder="e.g. 423987123456 or Transaction Reference Number"
-                    className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
-                  />
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
-                    If visible on your receipt, you can enter your 12-digit UTR or reference ID.
+            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-4">
+              {compressingReceipt ? (
+                <div className="border border-emerald-300 dark:border-emerald-700/60 rounded-2xl p-6 text-center bg-emerald-50/60 dark:bg-emerald-950/30">
+                  <div className="w-8 h-8 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin mx-auto mb-2.5" />
+                  <div className="text-xs font-bold text-emerald-950 dark:text-emerald-100 flex items-center justify-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
+                    Compressing receipt for fast upload on slow networks...
+                  </div>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                    Resizing image to ~100 KB so it uploads quickly on any 2G/3G/4G network without losing readability.
                   </p>
                 </div>
-              </div>
-            )}
+              ) : !receiptPreview ? (
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setIsDragging(true);
+                  }}
+                  onDragLeave={() => setIsDragging(false)}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    setIsDragging(false);
+                    handleReceiptFileChange(e.dataTransfer.files?.[0]);
+                  }}
+                  onClick={() => fileInputRef.current?.click()}
+                  className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all ${
+                    isDragging
+                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 scale-[1.01]"
+                      : "border-slate-300 dark:border-slate-700 hover:border-emerald-500 hover:bg-slate-100/60 dark:hover:bg-slate-900/60"
+                  }`}
+                >
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center mx-auto mb-3 shadow-sm">
+                    <UploadCloud className="w-6 h-6" />
+                  </div>
+                  <div className="text-sm font-bold text-slate-900 dark:text-white">
+                    Click to upload payment receipt screenshot
+                  </div>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    or drag and drop screenshot here (PNG, JPG, WEBP - Auto compressed for fast upload)
+                  </p>
+                  <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-950/80 px-4 py-2 rounded-xl border border-emerald-300 dark:border-emerald-800 shadow-sm">
+                    <UploadCloud className="w-4 h-4" />
+                    <span>Choose Receipt File</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {/* Preview Card */}
+                  <div className="flex items-center gap-4 p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-emerald-200 dark:border-emerald-900/50 shadow-sm">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden border border-emerald-300 dark:border-emerald-700 shrink-0 bg-black">
+                      <img
+                        src={receiptPreview}
+                        alt="Uploaded Receipt Preview"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="flex-1 overflow-hidden text-xs">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white truncate">
+                        <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span className="truncate">{receiptFile?.name || "Payment Receipt Screenshot"}</span>
+                      </div>
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 flex flex-wrap items-center gap-1.5">
+                        {compressionStats ? (
+                          <>
+                            <span className="line-through text-slate-400">
+                              {compressionStats.originalKB} KB
+                            </span>
+                            <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                              → {compressionStats.compressedKB} KB
+                            </span>
+                            <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-200 rounded text-[9px] font-black uppercase">
+                              <Zap className="w-2.5 h-2.5" /> Auto Compressed
+                            </span>
+                          </>
+                        ) : (
+                          <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                            Ready to attach
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        className="px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-[11px] font-bold text-slate-700 dark:text-slate-300 transition-colors"
+                      >
+                        Change
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleRemoveReceipt}
+                        title="Remove receipt"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Optional UTR / Reference Field */}
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                      UPI Ref / UTR / Transaction ID (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      value={receiptUtr}
+                      onChange={(e) => setReceiptUtr(e.target.value)}
+                      placeholder="e.g. 423987123456 or Transaction Reference Number"
+                      className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                    />
+                    <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
+                      If visible on your receipt, you can enter your 12-digit UTR or reference ID.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -1606,7 +1996,7 @@ export function RegistrationFormClient() {
                 className="mt-0.5 w-5 h-5 rounded-md text-purple-600 focus:ring-purple-500 border-slate-300 dark:border-slate-700 cursor-pointer accent-purple-600 shrink-0"
               />
               <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 leading-relaxed">
-                21. I confirm that the information provided by me is correct and the attached payment receipt is authentic. ☑️
+                I confirm that the information provided by me is correct and the attached payment receipt is authentic. ☑️
               </span>
             </label>
           </div>
@@ -1614,10 +2004,15 @@ export function RegistrationFormClient() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={loading}
+            disabled={loading || compressingReceipt}
             className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-purple-600 via-sky-600 to-emerald-600 hover:opacity-95 disabled:opacity-50 text-white font-black text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-xl shadow-purple-600/25 active:scale-98"
           >
-            {loading ? (
+            {compressingReceipt ? (
+              <span className="flex items-center gap-2">
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Optimizing Receipt Image...
+              </span>
+            ) : loading ? (
               <span className="flex items-center gap-2">
                 <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 Submitting Registration...
