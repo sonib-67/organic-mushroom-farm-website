@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { isDuplicateUserEmail } from "@/lib/userSimpleMailService";
 
 export interface TrainingMailPayload {
   type: "INITIATED" | "SUCCESS" | "CANCELLED" | "FAILED";
@@ -254,14 +255,19 @@ export async function sendTrainingEmailService(payload: TrainingMailPayload) {
       `;
 
       try {
-        await transporter.sendMail({
-          from: '"Organic Mushrooms Farm" <organicmushroomsfarms@gmail.com>',
-          replyTo: "support@organicmushroomsfarm.com",
-          to: customerEmail,
-          subject: `Enrollment Incomplete - ${planInfo.title} | Organic Mushrooms Farm`,
-          html: customerCancelHtml,
-        });
-        console.log(`[TrainingMailService] Customer cancel email sent to: ${customerEmail}`);
+        const dedupKey = `training_cancel:${customerEmail.toLowerCase()}:${orderId || paymentId || planInfo.title}`;
+        if (!isDuplicateUserEmail(dedupKey)) {
+          await transporter.sendMail({
+            from: '"Organic Mushrooms Farm" <organicmushroomsfarms@gmail.com>',
+            replyTo: "support@organicmushroomsfarm.com",
+            to: customerEmail,
+            subject: `Enrollment Incomplete - ${planInfo.title} | Organic Mushrooms Farm`,
+            html: customerCancelHtml,
+          });
+          console.log(`[TrainingMailService] Customer cancel email sent to: ${customerEmail}`);
+        } else {
+          console.log(`[TrainingMailService] Duplicate customer cancel email suppressed for: ${customerEmail}`);
+        }
       } catch (err) {
         console.error("[TrainingMailService] Error sending customer cancel email:", err);
       }
@@ -360,14 +366,19 @@ export async function sendTrainingEmailService(payload: TrainingMailPayload) {
       `;
 
       try {
-        await transporter.sendMail({
-          from: '"Organic Mushrooms Farm" <organicmushroomsfarms@gmail.com>',
-          replyTo: "support@organicmushroomsfarm.com",
-          to: customerEmail,
-          subject: `Enrollment Confirmed - Welcome to ${planInfo.title}! | Organic Mushrooms Farm`,
-          html: customerSuccessHtml,
-        });
-        console.log(`[TrainingMailService] Customer success email sent to: ${customerEmail}`);
+        const dedupKey = `training_success:${customerEmail.toLowerCase()}:${paymentId || orderId || planInfo.title}`;
+        if (!isDuplicateUserEmail(dedupKey)) {
+          await transporter.sendMail({
+            from: '"Organic Mushrooms Farm" <organicmushroomsfarms@gmail.com>',
+            replyTo: "support@organicmushroomsfarm.com",
+            to: customerEmail,
+            subject: `Enrollment Confirmed - Welcome to ${planInfo.title}! | Organic Mushrooms Farm`,
+            html: customerSuccessHtml,
+          });
+          console.log(`[TrainingMailService] Customer success email sent to: ${customerEmail}`);
+        } else {
+          console.log(`[TrainingMailService] Duplicate customer success email suppressed for: ${customerEmail}`);
+        }
       } catch (err) {
         console.error("[TrainingMailService] Error sending customer success email:", err);
       }

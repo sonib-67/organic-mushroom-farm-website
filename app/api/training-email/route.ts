@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { recordPaymentInit, completeRegistration } from '@/lib/registrationStore';
+import { isDuplicateUserEmail } from '@/lib/userSimpleMailService';
 
 export async function POST(req: Request) {
   try {
@@ -115,7 +116,9 @@ export async function POST(req: Request) {
       };
 
       await transporter.sendMail(adminMailOptions);
-      if (data.email) await transporter.sendMail(customerMailOptions);
+      if (data.email && !isDuplicateUserEmail(`training_email_incomplete:${data.email}:${data.trainingName}`)) {
+        await transporter.sendMail(customerMailOptions);
+      }
       return NextResponse.json({ success: true });
     }
 
@@ -188,7 +191,9 @@ export async function POST(req: Request) {
       };
 
       await transporter.sendMail(adminMailOptions);
-      if (data.email) await transporter.sendMail(customerMailOptions);
+      if (data.email && !isDuplicateUserEmail(`training_email_done:${data.email}:${data.paymentId || data.trainingName}`)) {
+        await transporter.sendMail(customerMailOptions);
+      }
       
       return NextResponse.json({ success: true });
     }

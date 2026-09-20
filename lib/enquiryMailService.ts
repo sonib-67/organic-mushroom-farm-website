@@ -1,4 +1,5 @@
 import nodemailer, { SendMailOptions } from "nodemailer";
+import { sendSimpleEnquiryEmail } from "@/lib/userSimpleMailService";
 
 export interface EnquiryPayload {
   serviceType: string;
@@ -306,20 +307,15 @@ export async function sendEnquiryEmails(payload: EnquiryPayload) {
     console.error("[EnquiryMail] Error sending admin alert email:", err);
   }
 
-  // Send Customer Email
+  // Send Simple Clean Customer Email (from userSimpleMailService)
+  // Deduplicated: prevents double mailing and replaces complex raw template
   if (customerEmail && customerEmail.includes("@") && !customerEmail.includes("no-reply")) {
-    try {
-      await transporter.sendMail({
-        from: `"Organic Mushroom Farm" <organicmushroomsfarms@gmail.com>`,
-        replyTo: "support@organicmushroomsfarm.com",
-        to: customerEmail,
-        subject: `Thank you for reaching out, ${payload.fullName}! | Organic Mushrooms Farm`,
-        html: customerHtml,
-      });
-      console.log(`[EnquiryMail] Customer smart auto-reply dispatched to: ${customerEmail}`);
-    } catch (err) {
-      console.error("[EnquiryMail] Error sending customer reply email:", err);
-    }
+    await sendSimpleEnquiryEmail({
+      toEmail: customerEmail,
+      fullName: payload.fullName,
+      serviceType: payload.serviceType,
+      customMessage: customSmartReply,
+    });
   }
 
   return { success: true };

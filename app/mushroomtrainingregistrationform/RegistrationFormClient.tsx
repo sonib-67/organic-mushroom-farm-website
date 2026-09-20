@@ -66,8 +66,8 @@ const PAYTM_UPI_URI = `paytmmp://pay?pa=${OFFICIAL_UPI_ID}&pn=${encodeURICompone
 // Client-side automatic image compressor for ultra-fast upload on 2G/3G/slow networks
 const compressImage = (
   file: File,
-  maxDimension = 960,
-  quality = 0.70
+  maxDimension = 1200,
+  quality = 0.75
 ): Promise<{ base64: string; originalSize: number; compressedSize: number }> => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -318,8 +318,8 @@ export function RegistrationFormClient() {
     setCompressingReceipt(true);
 
     try {
-      // Automatic client-side compression (resizes large camera/screenshots to ~50KB without losing text clarity)
-      const result = await compressImage(file, 960, 0.70);
+      // Automatic client-side compression (resizes large camera/screenshots to ~100KB without losing text clarity)
+      const result = await compressImage(file, 1200, 0.75);
       setReceiptPreview(result.base64);
       setCompressionStats({
         originalKB: Math.max(1, Math.round(result.originalSize / 1024)),
