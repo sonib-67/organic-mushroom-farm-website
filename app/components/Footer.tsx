@@ -151,6 +151,7 @@ export const Footer = () => {
             <ul className="space-y-2.5 text-xs text-slate-600 dark:text-slate-400">
               {[
                 { name: "Commercial ROI Calculator", href: "/roi-calculator" },
+                { name: "Training Registration Form", href: "/mushroomtrainingregistrationform" },
                 { name: "NABARD / NHB Subsidy Guide", href: "/subsidy" },
                 { name: "Live Farm Weather Tracker", href: "/mushroom-farm-climate-tracker" },
                 { name: "Growing Equipment Directory", href: "/equipment" },

@@ -130,6 +130,7 @@ const Footer = () => {
                   { name: "Government Subsidy", href: "/subsidy" },
                   { name: "Spawn Supply", href: "/spawn-seed" },
                   { name: "Live Weather", href: "/mushroom-farm-climate-tracker" },
+                  { name: "Training Registration", href: "/mushroomtrainingregistrationform" },
                   { name: "Blog", href: "/blog" },
                   { name: "FAQ", href: "/faq" },
                   { name: "Cities Pages", href: "/states" },
