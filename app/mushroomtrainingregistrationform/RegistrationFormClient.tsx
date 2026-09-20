@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   CheckCircle2,
@@ -24,6 +24,9 @@ import {
   FileText,
   Eye,
   EyeOff,
+  UploadCloud,
+  FileCheck,
+  Trash2,
 } from "lucide-react";
 
 const INDIAN_STATES = [
@@ -108,6 +111,47 @@ export function RegistrationFormClient() {
 
   const [previousSubmissionWarning, setPreviousSubmissionWarning] = useState<string>("");
 
+  // Payment receipt states (Upload-only, NO QR, NO UPI, NO phone number)
+  const [receiptFile, setReceiptFile] = useState<File | null>(null);
+  const [receiptPreview, setReceiptPreview] = useState<string | null>(null);
+  const [receiptUtr, setReceiptUtr] = useState<string>("");
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleReceiptFileChange = (file: File | null | undefined) => {
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      setErrorMsg("Please upload a valid image file (JPG, PNG, or WEBP).");
+      return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      setErrorMsg("File size exceeds 10MB. Please upload a smaller image.");
+      return;
+    }
+
+    setReceiptFile(file);
+    setErrorMsg("");
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setReceiptPreview(event.target?.result as string);
+    };
+    reader.onerror = () => {
+      setErrorMsg("Failed to read image file. Please try selecting the image again.");
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemoveReceipt = () => {
+    setReceiptFile(null);
+    setReceiptPreview(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
   // Check on client mount if this device already completed a registration
   useEffect(() => {
     try {
@@ -184,6 +228,15 @@ export function RegistrationFormClient() {
       return;
     }
 
+    if (!receiptPreview) {
+      setErrorMsg(
+        "Please upload your payment receipt screenshot to complete the registration."
+      );
+      const el = document.getElementById("payment-receipt-upload-section");
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+
     if (!formData.confirmed) {
       setErrorMsg(
         "Please check the confirmation box to verify that your provided details are correct."
@@ -209,6 +262,11 @@ export function RegistrationFormClient() {
       mushroomInterested: finalMushroom,
       investment: finalInvestment,
       trainingName: `${formData.trainingName} Mushroom Training`,
+      receiptBase64: receiptPreview || "",
+      receiptMimeType: receiptFile?.type || "image/jpeg",
+      receiptFileName: receiptFile?.name || "payment_receipt.jpg",
+      utr: receiptUtr.trim(),
+      paymentApp: "Payment Receipt Uploaded",
     };
 
     try {
@@ -238,6 +296,8 @@ export function RegistrationFormClient() {
         ...submissionPayload,
         registrationId: json.registrationId || "OMF-TRN-" + Date.now(),
         submittedAt: json.submittedAt || new Date().toLocaleString("en-IN"),
+        receiptPreview: receiptPreview,
+        utr: receiptUtr.trim() || json.utr || "Attached with Registration",
       });
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err: any) {
@@ -428,6 +488,33 @@ export function RegistrationFormClient() {
               </div>
             </div>
 
+            {/* Attached Payment Receipt Record */}
+            {submittedData.receiptPreview && (
+              <div className="bg-emerald-50/80 dark:bg-emerald-950/40 rounded-2xl p-4 border border-emerald-200 dark:border-emerald-800/60 flex items-center gap-3.5">
+                <div className="w-14 h-14 rounded-xl overflow-hidden border border-emerald-300 dark:border-emerald-700 shrink-0 bg-black shadow-sm">
+                  <img
+                    src={submittedData.receiptPreview}
+                    alt="Uploaded Payment Receipt"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-xs flex-1">
+                  <div className="font-bold text-emerald-950 dark:text-emerald-100 flex items-center gap-1.5">
+                    <FileCheck className="w-4 h-4 text-emerald-600" />
+                    Payment Receipt Attached & Dispatched
+                  </div>
+                  {submittedData.utr && (
+                    <div className="text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 mt-0.5">
+                      Ref / UTR: {submittedData.utr}
+                    </div>
+                  )}
+                  <div className="text-[10px] text-emerald-700 dark:text-emerald-400 mt-0.5">
+                    Receipt screenshot is securely attached to your registration and emailed to the training cell.
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Action Buttons */}
             <div className="space-y-3 pt-2">
               <a
@@ -494,6 +581,9 @@ export function RegistrationFormClient() {
                       learningGoals: "",
                       confirmed: false,
                     }));
+                    setReceiptFile(null);
+                    setReceiptPreview(null);
+                    setReceiptUtr("");
                   }}
                   className="py-2.5 px-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
                 >
@@ -721,10 +811,31 @@ export function RegistrationFormClient() {
             </div>
           </div>
 
-          {/* Section 4: Instructions for Registered Candidate */}
+          {/* Section 4: Payment Receipt Status */}
+          <div className="mt-4">
+            <div className="bg-black text-white px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
+              4. Payment Receipt Status
+            </div>
+            <div className="border border-t-0 border-black p-2 text-xs bg-neutral-50 grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
+              <div>
+                <span className="font-bold text-neutral-700">Receipt Attachment: </span>
+                <span className="font-black text-black">
+                  {submittedData.receiptPreview ? "Screenshot Uploaded & Dispatched" : "Not Provided"}
+                </span>
+              </div>
+              <div className="sm:pl-2 pt-1 sm:pt-0">
+                <span className="font-bold text-neutral-700">Ref / UTR Number: </span>
+                <span className="font-mono font-bold text-black">
+                  {submittedData.utr || "Verified & Logged"}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 5: Instructions for Registered Candidate */}
           <div className="mt-4 border border-black p-3 bg-neutral-50 text-[11px] leading-relaxed">
             <div className="font-black uppercase text-xs mb-1 text-black">
-              4. Important Instructions for Registered Candidate:
+              5. Important Instructions for Registered Candidate:
             </div>
             <ul className="list-decimal pl-4 space-y-0.5 text-neutral-800">
               <li>
@@ -1354,7 +1465,136 @@ export function RegistrationFormClient() {
 
 
 
-        {/* SECTION 5: FINAL CONFIRMATION */}
+        {/* SECTION 5: PAYMENT RECEIPT UPLOAD (NO QR, NO UPI ID, NO NUMBER) */}
+        <div id="payment-receipt-upload-section" className="space-y-4 pt-2">
+          <div className="border-b border-slate-200/80 dark:border-white/10 pb-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center font-bold text-xs">
+                5
+              </div>
+              <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-1.5">
+                <span>🧾</span> Payment Receipt Upload
+              </h2>
+            </div>
+            <span className="text-[10px] sm:text-xs font-bold uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+              Receipt Required
+            </span>
+          </div>
+
+          <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            Please upload your payment receipt screenshot or transaction slip below (JPG, PNG, or WEBP). Your uploaded receipt will be attached to your registration application.
+          </p>
+
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={(e) => handleReceiptFileChange(e.target.files?.[0])}
+            className="hidden"
+          />
+
+          {/* Upload Box */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 space-y-4">
+            {!receiptPreview ? (
+              <div
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setIsDragging(true);
+                }}
+                onDragLeave={() => setIsDragging(false)}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  setIsDragging(false);
+                  handleReceiptFileChange(e.dataTransfer.files?.[0]);
+                }}
+                onClick={() => fileInputRef.current?.click()}
+                className={`border-2 border-dashed rounded-2xl p-6 sm:p-8 text-center cursor-pointer transition-all ${
+                  isDragging
+                    ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 scale-[1.01]"
+                    : "border-slate-300 dark:border-slate-700 hover:border-emerald-500 hover:bg-slate-100/60 dark:hover:bg-slate-900/60"
+                }`}
+              >
+                <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center mx-auto mb-3 shadow-sm">
+                  <UploadCloud className="w-6 h-6" />
+                </div>
+                <div className="text-sm font-bold text-slate-900 dark:text-white">
+                  Click to upload payment receipt screenshot
+                </div>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  or drag and drop screenshot here (PNG, JPG, WEBP - Max 10MB)
+                </p>
+                <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/80 dark:bg-emerald-950/80 px-4 py-2 rounded-xl border border-emerald-300 dark:border-emerald-800 shadow-sm">
+                  <UploadCloud className="w-4 h-4" />
+                  <span>Choose Receipt File</span>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {/* Preview Card */}
+                <div className="flex items-center gap-4 p-3.5 bg-white dark:bg-slate-900 rounded-xl border border-emerald-200 dark:border-emerald-900/50 shadow-sm">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden border border-emerald-300 dark:border-emerald-700 shrink-0 bg-black">
+                    <img
+                      src={receiptPreview}
+                      alt="Uploaded Receipt Preview"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 overflow-hidden text-xs">
+                    <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white truncate">
+                      <FileCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                      <span className="truncate">{receiptFile?.name || "Payment Receipt Screenshot"}</span>
+                    </div>
+                    <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                      {receiptFile?.size
+                        ? `${(receiptFile.size / 1024).toFixed(1)} KB`
+                        : "Ready to attach"}
+                      {" • "}
+                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                        Ready to attach
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      className="px-2.5 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-[11px] font-bold text-slate-700 dark:text-slate-300 transition-colors"
+                    >
+                      Change
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleRemoveReceipt}
+                      title="Remove receipt"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 transition-colors"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Optional UTR / Reference Field */}
+                <div>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                    UPI Ref / UTR / Transaction ID (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    value={receiptUtr}
+                    onChange={(e) => setReceiptUtr(e.target.value)}
+                    placeholder="e.g. 423987123456 or Transaction Reference Number"
+                    className="w-full px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs sm:text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/50"
+                  />
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
+                    If visible on your receipt, you can enter your 12-digit UTR or reference ID.
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* SECTION 6: FINAL CONFIRMATION */}
         <div className="pt-2 border-t border-slate-200/80 dark:border-white/10 space-y-4">
           <div className="p-4 rounded-2xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40">
             <label className="flex items-start gap-3 cursor-pointer select-none">
@@ -1366,7 +1606,7 @@ export function RegistrationFormClient() {
                 className="mt-0.5 w-5 h-5 rounded-md text-purple-600 focus:ring-purple-500 border-slate-300 dark:border-slate-700 cursor-pointer accent-purple-600 shrink-0"
               />
               <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 leading-relaxed">
-                21. I confirm that the information provided by me is correct. ☑️
+                21. I confirm that the information provided by me is correct and the attached payment receipt is authentic. ☑️
               </span>
             </label>
           </div>
