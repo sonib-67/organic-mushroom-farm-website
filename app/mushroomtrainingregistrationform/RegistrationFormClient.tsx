@@ -37,7 +37,7 @@ import {
 } from "lucide-react";
 import QRCode from "qrcode";
 
-const OFFICIAL_UPI_ID = "tanishsoni787941-4@okicici";
+const OFFICIAL_UPI_ID = "tanishsoni787941-8@okaxis";
 const OFFICIAL_PAYEE_NAME = "Organic Mushroom Farm";
 const ADVANCE_BOOKING_FEE = 500;
 const UPI_TRANSACTION_NOTE = "Mushroom Training Seat Booking";
@@ -1755,15 +1755,21 @@ export function RegistrationFormClient() {
               <div className="space-y-3">
                 <div>
                   <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
-                    Official UPI ID:
+                    Official Payment Receiver:
                   </div>
                   <div className="flex items-center justify-between p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl gap-2">
-                    <span className="font-mono font-black text-xs text-slate-900 dark:text-white select-all truncate">
-                      {OFFICIAL_UPI_ID}
-                    </span>
+                    <div className="truncate">
+                      <span className="font-bold text-xs text-slate-900 dark:text-white block truncate">
+                        {OFFICIAL_PAYEE_NAME}
+                      </span>
+                      <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1">
+                        <Check className="w-3 h-3 text-emerald-500" /> Bank Verified Training Account
+                      </span>
+                    </div>
                     <button
                       type="button"
                       onClick={handleCopyUpi}
+                      title="Copy UPI ID to clipboard"
                       className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 transition-all shrink-0 shadow-sm"
                     >
                       {copiedUpi ? (
@@ -1817,9 +1823,11 @@ export function RegistrationFormClient() {
             <div className="block sm:hidden pt-1">
               <div className="flex items-center justify-between p-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl gap-2">
                 <div className="truncate">
-                  <div className="text-[9px] uppercase font-bold text-slate-400">UPI ID</div>
-                  <span className="font-mono font-black text-xs text-slate-900 dark:text-white select-all truncate block">
-                    {OFFICIAL_UPI_ID}
+                  <div className="text-[9px] uppercase font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                    <Check className="w-2.5 h-2.5" /> Verified Payee
+                  </div>
+                  <span className="font-bold text-xs text-slate-900 dark:text-white truncate block">
+                    {OFFICIAL_PAYEE_NAME}
                   </span>
                 </div>
                 <button
@@ -1835,7 +1843,7 @@ export function RegistrationFormClient() {
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>Copy</span>
+                      <span>Copy UPI</span>
                     </>
                   )}
                 </button>
