@@ -73,7 +73,7 @@ const NAV_ITEMS = [
       { name: "Turnkey Setup", href: "/services/turnkey-setup" },
     ],
   },
-  { name: "Turnkey Projects", href: "/turnkey-projects", icon: Briefcase },
+  { name: "Work", href: "/turnkey-projects", icon: Briefcase },
   { name: "Workshop", href: "/workshop", icon: Calendar },
   { name: "Gallery", href: "/gallery", icon: ImageIcon },
   { name: "Live Weather", href: "/mushroom-farm-climate-tracker", icon: Cloud },
@@ -275,16 +275,24 @@ export const Navbar = () => {
                   <div key={item.name} className="relative group">
                     <Link
                       href={item.href}
-                      className={`text-[10px] xl:text-[12px] font-bold transition-colors flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg leading-tight ${
+                      className={`text-[10px] xl:text-[11.5px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg leading-tight group ${
                         isActive
                           ? "dark:text-white text-slate-900 dark:bg-white/10 bg-slate-900/5 font-extrabold"
                           : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900 hover:bg-slate-100/60 dark:hover:bg-white/5"
                       }`}
                     >
+                      <item.icon
+                        size={12}
+                        className={`shrink-0 transition-transform duration-150 group-hover:scale-110 ${
+                          isActive
+                            ? "text-purple-600 dark:text-purple-400"
+                            : "text-slate-400 dark:text-slate-500 group-hover:text-purple-600 dark:group-hover:text-purple-400"
+                        }`}
+                      />
                       <span>{item.name}</span>
                       {hasSubMenu && (
                         <ChevronDown
-                          size={12}
+                          size={11}
                           className="group-hover:rotate-180 transition-transform dark:text-slate-400 text-slate-500"
                         />
                       )}

@@ -1569,7 +1569,13 @@
   </url>
   <url>
     <loc>https://organicmushroomsfarm.com/training</loc>
-    <lastmod>2026-09-15T13:22:56.523Z</lastmod>
+    <lastmod>2026-09-20T11:00:00.000Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://organicmushroomsfarm.com/mushroomtrainingregistrationform</loc>
+    <lastmod>2026-09-20T11:00:00.000Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>

@@ -6,8 +6,8 @@ export const MyceliumBackground = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // Delay to prevent blocking hydration in Next.js
-    const timer = setTimeout(() => setIsReady(true), 2000);
+    // Immediate activation for instant animated background response
+    const timer = setTimeout(() => setIsReady(true), 50);
     return () => clearTimeout(timer);
   }, []);
 
@@ -181,7 +181,7 @@ export const MyceliumBackground = () => {
 
       <canvas
         ref={canvasRef}
-        className={`absolute inset-0 w-full h-full mix-blend-multiply dark:mix-blend-screen transition-opacity duration-[2000ms] ease-in-out ${isReady ? 'opacity-90' : 'opacity-0'}`}
+        className={`absolute inset-0 w-full h-full mix-blend-multiply dark:mix-blend-screen transition-opacity duration-700 ease-in-out ${isReady ? 'opacity-90' : 'opacity-0'}`}
       />
     </div>
   );

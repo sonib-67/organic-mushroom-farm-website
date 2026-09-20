@@ -5,6 +5,10 @@ import {
   recordReceipt,
   computeReceiptHash,
 } from "@/lib/mushroomReceiptStore";
+import {
+  getDeviceRegistrationStatus,
+  recordDeviceRegistration,
+} from "@/lib/deviceSecurityStore";
 
 export async function POST(req: Request) {
   try {
@@ -39,7 +43,35 @@ export async function POST(req: Request) {
       receiptHash: clientReceiptHash,
       utr,
       paymentApp = "UPI Payment",
+      deviceId,
     } = data;
+
+    // ----------------------------------------------------
+    // STRICT SECURITY: Maximum 3 Registrations per Device/Mobile
+    // ----------------------------------------------------
+    const forwarded = req.headers.get("x-forwarded-for");
+    const clientIp = forwarded ? forwarded.split(",")[0].trim() : req.headers.get("x-real-ip") || "";
+
+    if (deviceId) {
+      const deviceStatus = getDeviceRegistrationStatus(deviceId, clientIp);
+      if (deviceStatus.isBlocked || deviceStatus.count >= 3) {
+        return NextResponse.json(
+          {
+            error:
+              deviceStatus.reason ||
+              "Security Alert: Is mobile device se registration ki maximum seema (3 registrations) poori ho chuki hai. Security niyam anusar ab is device se aur registration nahi kiya ja sakta. Kripya helpline +91 9203544140 par sampark karein.",
+            isDeviceBlocked: true,
+            deviceLimitReached: true,
+            deviceQuota: {
+              used: deviceStatus.count,
+              maxAllowed: 3,
+              remaining: 0,
+            },
+          },
+          { status: 403 }
+        );
+      }
+    }
 
     if (!fullName || !phone || !email || !city || !state || !confirmed) {
       return NextResponse.json(
@@ -96,6 +128,30 @@ export async function POST(req: Request) {
         fileName: receiptFileName,
         verifiedAt: submissionTime,
       });
+    }
+
+    // Record device registration count (Strict maximum 3 registrations per physical device)
+    let deviceQuotaResult = {
+      used: 1,
+      max: 3,
+      remaining: 2,
+      isBlocked: false,
+    };
+
+    if (deviceId) {
+      const recResult = recordDeviceRegistration({
+        deviceId,
+        registrationId: regId,
+        phone,
+        ip: clientIp,
+      });
+
+      deviceQuotaResult = {
+        used: recResult.newCount,
+        max: 3,
+        remaining: recResult.remaining,
+        isBlocked: recResult.isBlocked,
+      };
     }
 
     // ----------------------------------------------------
@@ -279,6 +335,7 @@ export async function POST(req: Request) {
       paymentApp,
       amount: 500,
       receiptHash,
+      deviceQuota: deviceQuotaResult,
       data: {
         fullName,
         phone,

@@ -7,10 +7,10 @@ export const MyceliumBackground = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    // 2.5 second delay before starting the animation to prevent lag during initial load
+    // Immediate activation for instant animated background response
     const timer = setTimeout(() => {
       setIsReady(true);
-    }, 2500);
+    }, 50);
     return () => clearTimeout(timer);
   }, []);
 

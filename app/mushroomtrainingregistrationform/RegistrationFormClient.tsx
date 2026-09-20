@@ -34,8 +34,17 @@ import {
   ExternalLink,
   Smartphone,
   Laptop,
+  Info,
+  X,
+  BookOpen,
+  Award,
+  ShieldAlert,
+  Lock,
+  Home,
+  GraduationCap,
 } from "lucide-react";
 import QRCode from "qrcode";
+import { getDeviceFingerprint } from "@/lib/deviceFingerprint";
 
 const OFFICIAL_UPI_ID = "tanishsoni787941-8@okaxis";
 const OFFICIAL_PAYEE_NAME = "Organic Mushroom Farm";
@@ -194,8 +203,20 @@ export function RegistrationFormClient() {
   const [errorMsg, setErrorMsg] = useState("");
   const [submittedData, setSubmittedData] = useState<any>(null);
   const [showSlipPreview, setShowSlipPreview] = useState(false);
+  const [showKnowMoreModal, setShowKnowMoreModal] = useState(false);
 
   const [previousSubmissionWarning, setPreviousSubmissionWarning] = useState<string>("");
+
+  // Device registration limit states (Strict max 3 per physical mobile/device)
+  const [deviceId, setDeviceId] = useState<string>("");
+  const [deviceQuota, setDeviceQuota] = useState<{
+    count: number;
+    maxAllowed: number;
+    remaining: number;
+    isBlocked: boolean;
+    reason?: string;
+  } | null>(null);
+  const [checkingDeviceQuota, setCheckingDeviceQuota] = useState<boolean>(true);
 
   // UPI Payment & QR states
   const [qrCodeUrl, setQrCodeUrl] = useState<string>("");
@@ -214,8 +235,35 @@ export function RegistrationFormClient() {
   } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Initialize hardware device fingerprint and check server registration limit
   useEffect(() => {
     let isMounted = true;
+
+    (async () => {
+      try {
+        const dId = await getDeviceFingerprint();
+        if (isMounted) setDeviceId(dId);
+
+        const res = await fetch(
+          `/api/mushroom-training-registration/device-limit?deviceId=${encodeURIComponent(dId)}`
+        );
+        const json = await res.json();
+        if (isMounted && json.success) {
+          setDeviceQuota({
+            count: json.count || 0,
+            maxAllowed: json.maxAllowed || 3,
+            remaining: json.remaining ?? 3,
+            isBlocked: !!json.isBlocked,
+            reason: json.reason,
+          });
+        }
+      } catch (err) {
+        console.error("Device fingerprint verification error:", err);
+      } finally {
+        if (isMounted) setCheckingDeviceQuota(false);
+      }
+    })();
+
     QRCode.toDataURL(UNIVERSAL_UPI_URI, {
       width: 320,
       margin: 1,
@@ -394,6 +442,14 @@ export function RegistrationFormClient() {
       return;
     }
 
+    if (deviceQuota?.isBlocked || (deviceQuota && deviceQuota.count >= 3)) {
+      setErrorMsg(
+        deviceQuota.reason ||
+          "Security Alert: Is mobile device se registration ki adhiktam seema (3 registrations) poori ho chuki hai. Security niyam anusar aur registration allow nahi hai. Kripya helpline +91 9203544140 par sampark karein."
+      );
+      return;
+    }
+
     setLoading(true);
 
     const finalMushroom =
@@ -407,8 +463,15 @@ export function RegistrationFormClient() {
         ? `Other (₹${Number(formData.investmentCustom).toLocaleString("en-IN")})`
         : formData.investment;
 
+    const currentDeviceId =
+      deviceId ||
+      (typeof window !== "undefined"
+        ? localStorage.getItem("__omf_device_id") || ""
+        : "");
+
     const submissionPayload = {
       ...formData,
+      deviceId: currentDeviceId,
       mushroomInterested: finalMushroom,
       investment: finalInvestment,
       trainingName: `${formData.trainingName} Mushroom Training`,
@@ -429,9 +492,27 @@ export function RegistrationFormClient() {
       const json = await res.json();
 
       if (!res.ok || json.error) {
+        if (json.isDeviceBlocked || json.deviceLimitReached) {
+          setDeviceQuota({
+            count: 3,
+            maxAllowed: 3,
+            remaining: 0,
+            isBlocked: true,
+            reason: json.error,
+          });
+        }
         throw new Error(
           json.error || "Failed to submit registration. Please try again."
         );
+      }
+
+      if (json.deviceQuota) {
+        setDeviceQuota({
+          count: json.deviceQuota.used,
+          maxAllowed: json.deviceQuota.max,
+          remaining: json.deviceQuota.remaining,
+          isBlocked: json.deviceQuota.isBlocked || json.deviceQuota.remaining <= 0,
+        });
       }
 
       // Record in device storage to prevent multiple duplicate registrations from this phone
@@ -484,10 +565,38 @@ export function RegistrationFormClient() {
   // SUCCESS SCREEN
   if (submittedData) {
     return (
-      <div className="min-h-screen py-8 px-3 sm:px-6">
-        {/* Inline style specifically protecting print media flow */}
+      <div className="min-h-screen py-8 px-3 sm:px-6 print:min-h-0 print:py-0 print:px-0 print:m-0 relative z-10">
+        {/* Animated Spore & Fluid Liquid Neon Background Auras (Screen Only, Hidden on Print) */}
+        <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10 no-print">
+          <div className="absolute -top-16 -left-16 w-80 h-80 rounded-full bg-purple-500/15 dark:bg-purple-500/20 blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -right-16 w-96 h-96 rounded-full bg-emerald-500/15 dark:bg-emerald-500/20 blur-3xl animate-pulse delay-700" />
+          <div className="absolute -bottom-16 left-1/4 w-80 h-80 rounded-full bg-sky-500/15 dark:bg-sky-500/20 blur-3xl animate-pulse delay-1000" />
+        </div>
+
+        {/* Inline style strictly enforcing EXACTLY 1 SINGLE PAGE A4 print flow */}
         <style dangerouslySetInnerHTML={{ __html: `
           @media print {
+            @page {
+              size: A4 portrait;
+              margin: 6mm 8mm 6mm 8mm;
+            }
+            *, *:before, *:after {
+              box-sizing: border-box !important;
+            }
+            html, body {
+              width: 100% !important;
+              height: 100% !important;
+              max-height: 100vh !important;
+              margin: 0 !important;
+              padding: 0 !important;
+              background: #ffffff !important;
+              color: #000000 !important;
+              font-size: 10px !important;
+              line-height: 1.25 !important;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+              overflow: hidden !important;
+            }
             nav, header, footer, canvas, .no-print, #navbar, .conditional-widgets,
             .offline-checklist-container, #offline-inspection-modal, #floating-bottom-menu,
             #whatsapp-floating-widget, .top-loading-bar, .screen-only, button:not(.allow-print) {
@@ -497,32 +606,31 @@ export function RegistrationFormClient() {
               margin: 0 !important;
               padding: 0 !important;
             }
-            body, html {
-              background: #ffffff !important;
-              color: #000000 !important;
-              margin: 0 !important;
-              padding: 0 !important;
-            }
             .official-print-slip {
               display: block !important;
               visibility: visible !important;
               width: 100% !important;
               max-width: 100% !important;
-              margin: 0 auto !important;
-              padding: 0 !important;
+              margin: 0 !important;
+              padding: 6px 10px !important;
               background: #ffffff !important;
               color: #000000 !important;
-              border: 2px solid #000000 !important;
+              border: 1.5px solid #000000 !important;
+              box-sizing: border-box !important;
+              page-break-inside: avoid !important;
+              break-inside: avoid !important;
+              page-break-before: avoid !important;
+              page-break-after: avoid !important;
             }
-            @page {
-              size: A4 portrait;
-              margin: 12mm 15mm 12mm 15mm;
+            .official-print-slip * {
+              page-break-inside: avoid !important;
+              break-inside: avoid !important;
             }
           }
         ` }} />
 
         {/* 1. SCREEN VIEW: Interactive Summary Card (Hidden when printing) */}
-        <div className="no-print screen-only w-full max-w-2xl mx-auto bg-white dark:bg-slate-900/95 rounded-3xl border border-slate-200/80 dark:border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl mb-8">
+        <div className="no-print screen-only w-full max-w-2xl mx-auto bg-white/90 dark:bg-slate-900/80 rounded-3xl border border-slate-200/80 dark:border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl mb-8">
           {/* Header Banner */}
           <div className="p-6 sm:p-8 bg-gradient-to-r from-purple-600 via-sky-600 to-emerald-600 text-white text-center relative">
             <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-3 border border-white/30 shadow-inner">
@@ -683,7 +791,7 @@ export function RegistrationFormClient() {
                   className="py-3 px-4 rounded-xl bg-slate-900 hover:bg-black text-white dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-colors shadow-md"
                 >
                   <Printer className="w-4 h-4" />
-                  <span>Print / Save Slip (PDF)</span>
+                  <span>Print / Save 1-Page PDF</span>
                 </button>
                 <button
                   onClick={() => setShowSlipPreview((prev) => !prev)}
@@ -697,7 +805,7 @@ export function RegistrationFormClient() {
                   ) : (
                     <>
                       <Eye className="w-4 h-4 text-purple-500" />
-                      <span>Preview Official Slip (B&W)</span>
+                      <span>Preview Official Slip (1 Page)</span>
                     </>
                   )}
                 </button>
@@ -746,121 +854,110 @@ export function RegistrationFormClient() {
           </div>
         </div>
 
-        {/* 2. OFFICIAL BLACK & WHITE A4 REGISTRATION SLIP */}
-        {/* Displayed cleanly on screen when preview is toggled, and ALWAYS rendered cleanly in print / PDF */}
+        {/* 2. OFFICIAL BLACK & WHITE 1-PAGE A4 REGISTRATION SLIP */}
+        {/* Strictly formatted to fit 100% on a single A4 page without breaking or cutting */}
         <div
           id="official-registration-slip"
           className={`${
-            showSlipPreview ? "block my-6" : "hidden"
-          } print:block official-print-slip w-full max-w-3xl mx-auto bg-white text-black p-6 sm:p-8 border-2 border-black font-sans shadow-xl print:shadow-none print:border-2 print:border-black print:p-6 print:m-0`}
+            showSlipPreview ? "block my-4" : "hidden"
+          } print:block official-print-slip w-full max-w-3xl mx-auto bg-white text-black p-3 sm:p-5 border-2 border-black font-sans shadow-xl print:shadow-none print:border-[1.5px] print:border-black print:p-2.5 print:m-0`}
           style={{ color: "#000000", backgroundColor: "#ffffff" }}
         >
           {/* Screen-Only Preview Control Bar */}
           {showSlipPreview && (
-            <div className="no-print -mt-6 -mx-6 sm:-mt-8 sm:-mx-8 mb-6 px-4 py-3 bg-neutral-900 text-white flex flex-wrap items-center justify-between gap-3 text-xs font-bold">
-              <div className="flex items-center gap-2">
-                <FileText className="w-4 h-4 text-emerald-400" />
-                <span>Official A4 Registration Slip Preview (Black & White Format)</span>
+            <div className="no-print -mt-3 -mx-3 sm:-mt-5 sm:-mx-5 mb-3 px-3 py-2 bg-neutral-900 text-white flex flex-wrap items-center justify-between gap-2 text-xs font-bold">
+              <div className="flex items-center gap-1.5">
+                <FileText className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Official 1-Page A4 Registration Slip Preview</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => window.print()}
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1.5 transition-all text-xs"
+                  className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white flex items-center gap-1 transition-all text-xs font-bold"
                 >
-                  <Printer className="w-3.5 h-3.5" />
-                  <span>Print / Save as PDF</span>
+                  <Printer className="w-3 h-3" />
+                  <span>Print / Save PDF (1 Page)</span>
                 </button>
                 <button
                   onClick={() => setShowSlipPreview(false)}
-                  className="px-2.5 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs"
+                  className="px-2 py-1 rounded-md bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs"
                 >
-                  Close Preview
+                  Close
                 </button>
               </div>
             </div>
           )}
 
-          {/* Letterhead Header Section */}
-          <div className="border-b-2 border-black pb-4 text-center">
-            <div className="text-2xl sm:text-3xl font-black tracking-wider uppercase text-black">
-              ORGANIC MUSHROOM FARM
+          {/* Letterhead Header Section - Compact */}
+          <div className="border-b-2 border-black pb-2 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <div className="text-xl sm:text-2xl font-black tracking-wide uppercase text-black leading-tight">
+                ORGANIC MUSHROOM FARM
+              </div>
+              <div className="text-[10px] sm:text-[11px] font-bold text-neutral-800 uppercase tracking-wide">
+                Commercial Mushroom Cultivation & Agro Training Center
+              </div>
+              <div className="text-[9px] text-neutral-600 mt-0.5 leading-tight">
+                Village & Post Katangi, Jabalpur Road, Madhya Pradesh - 483105 | Helpline: +91 9203544140
+              </div>
             </div>
-            <div className="text-xs sm:text-sm font-bold text-neutral-900 uppercase tracking-wide mt-0.5">
-              Commercial Mushroom Cultivation & Agro Training Center
-            </div>
-            <div className="text-[11px] text-neutral-800 mt-1 leading-snug">
-              Village & Post Katangi, Jabalpur Road, Madhya Pradesh - 483105, India
-            </div>
-            <div className="text-[11px] text-neutral-900 font-semibold mt-0.5">
-              Helpline / WhatsApp: +91 9203544140 | Email: support@organicmushroomfarm.com | Web: www.organicmushroomsfarm.com
+            <div className="text-right border border-black px-2.5 py-1 bg-neutral-50 shrink-0">
+              <span className="block text-[8.5px] uppercase font-bold text-neutral-600">
+                Registration ID
+              </span>
+              <span className="font-mono font-black text-xs sm:text-sm text-black block tracking-wider">
+                {submittedData.registrationId}
+              </span>
+              <span className="text-[8px] font-extrabold uppercase text-black bg-neutral-200 px-1 py-0.2 rounded inline-block mt-0.5">
+                PROVISIONAL CONFIRMED
+              </span>
             </div>
           </div>
 
-          {/* Document Title Banner */}
-          <div className="my-3 text-center">
-            <span className="inline-block border border-black px-4 py-1 text-xs font-black uppercase tracking-widest bg-neutral-100 text-black">
+          {/* Document Title Banner & Recorded Notice */}
+          <div className="my-1.5 flex items-center justify-between border border-black bg-neutral-100 px-2.5 py-1 text-[9.5px]">
+            <span className="font-black uppercase tracking-wider text-black">
               Official Training Registration Acknowledgement Slip
+            </span>
+            <span className="font-medium text-neutral-700">
+              Registered Date: <strong className="text-black">{submittedData.submittedAt}</strong>
             </span>
           </div>
 
-          {/* Official Confirmation Statement (Exact text requested by user) */}
-          <div className="border border-black bg-neutral-50 p-2.5 sm:p-3 my-3 text-center">
-            <p className="text-xs sm:text-sm font-bold text-black">
+          {/* Confirmation note */}
+          <div className="border border-black bg-neutral-50 px-2 py-1 text-center text-[9.5px]">
+            <span className="font-bold text-black">
               Your details have been successfully recorded with Organic Mushroom Farm.
-            </p>
-            <p className="text-[11px] text-neutral-700 mt-0.5">
-              Please preserve this slip (Print / PDF) as official proof of registration for batch confirmation, syllabus kit, and session access.
-            </p>
+            </span>{" "}
+            <span className="text-neutral-600">
+              Preserve this slip as official proof for batch seat reservation and syllabus kit dispatch.
+            </span>
           </div>
 
-          {/* Registration Metadata Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 border border-black divide-x divide-black text-xs my-3 bg-neutral-100 font-medium">
-            <div className="p-2">
-              <span className="block text-[10px] uppercase font-bold text-neutral-600">
-                Registration ID
-              </span>
-              <span className="font-mono font-black text-sm text-black">
-                {submittedData.registrationId}
-              </span>
+          {/* Section 1: Candidate Particulars */}
+          <div className="mt-2">
+            <div className="bg-black text-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider">
+              1. Candidate Particulars & Location
             </div>
-            <div className="p-2">
-              <span className="block text-[10px] uppercase font-bold text-neutral-600">
-                Date & Time
-              </span>
-              <span className="font-bold text-black">{submittedData.submittedAt}</span>
-            </div>
-            <div className="p-2 col-span-2 sm:col-span-1 border-t sm:border-t-0 border-black">
-              <span className="block text-[10px] uppercase font-bold text-neutral-600">
-                Registration Status
-              </span>
-              <span className="font-black text-black">CONFIRMED (PROVISIONAL)</span>
-            </div>
-          </div>
-
-          {/* Section 1: Candidate Personal Details */}
-          <div className="mt-4">
-            <div className="bg-black text-white px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
-              1. Candidate Particulars
-            </div>
-            <div className="border border-t-0 border-black divide-y divide-black text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Full Name: </span>
+            <div className="border border-t-0 border-black text-[9.5px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black border-b border-black">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Full Name: </span>
                   <span className="font-black text-black">{submittedData.fullName}</span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">WhatsApp / Mobile: </span>
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">WhatsApp / Mobile: </span>
                   <span className="font-black text-black">+91 {submittedData.phone}</span>
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Email Address: </span>
-                  <span className="font-semibold text-black">{submittedData.email}</span>
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Email Address: </span>
+                  <span className="font-medium text-black">{submittedData.email}</span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">City & State: </span>
-                  <span className="font-semibold text-black">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">City, State & Pin: </span>
+                  <span className="font-medium text-black">
                     {submittedData.city},{" "}
                     {submittedData.district ? `${submittedData.district}, ` : ""}
                     {submittedData.state} - {submittedData.pincode}
@@ -868,8 +965,8 @@ export function RegistrationFormClient() {
                 </div>
               </div>
               {submittedData.fullAddress && (
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Full Address: </span>
+                <div className="p-1.5 border-t border-black">
+                  <span className="font-bold text-neutral-600">Full Address: </span>
                   <span className="text-black">{submittedData.fullAddress}</span>
                 </div>
               )}
@@ -877,155 +974,126 @@ export function RegistrationFormClient() {
           </div>
 
           {/* Section 2: Training Program Details */}
-          <div className="mt-4">
-            <div className="bg-black text-white px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
-              2. Training Program & Schedule
+          <div className="mt-2">
+            <div className="bg-black text-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider">
+              2. Training Program & Seat Confirmation
             </div>
-            <div className="border border-t-0 border-black divide-y divide-black text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-black">
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700 block text-[10px]">
+            <div className="border border-t-0 border-black text-[9.5px]">
+              <div className="grid grid-cols-3 divide-x divide-black border-b border-black">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600 block text-[8px] uppercase">
                     Selected Program
                   </span>
-                  <span className="font-black text-black text-sm">
+                  <span className="font-black text-black text-[10px]">
                     {submittedData.trainingName}
                   </span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700 block text-[10px]">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600 block text-[8px] uppercase">
                     Training Mode
                   </span>
-                  <span className="font-black text-black text-sm">
+                  <span className="font-black text-black text-[10px]">
                     {submittedData.trainingMode}
                   </span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700 block text-[10px]">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600 block text-[8px] uppercase">
                     Session Timing
                   </span>
-                  <span className="font-black text-black">
+                  <span className="font-black text-black text-[10px]">
                     {submittedData.trainingTime}
                   </span>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Section 3: Project & Farming Plan */}
-          <div className="mt-4">
-            <div className="bg-black text-white px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
-              3. Cultivation Background & Project Plan
-            </div>
-            <div className="border border-t-0 border-black divide-y divide-black text-xs">
-              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Mushroom Variety: </span>
-                  <span className="font-black text-black">
-                    {submittedData.mushroomInterested}
-                  </span>
+              <div className="grid grid-cols-2 divide-x divide-black bg-neutral-50">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Advance Seat Booking: </span>
+                  <span className="font-black text-black">₹500 (Advance Paid / Attached)</span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Planned Investment: </span>
-                  <span className="font-black text-black">
-                    {submittedData.investment}
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Payment Receipt: </span>
+                  <span className="font-semibold text-black">
+                    {submittedData.receiptPreview ? "Screenshot Uploaded & Dispatched" : "Logged"}
+                    {submittedData.utr ? ` (UTR: ${submittedData.utr})` : ""}
                   </span>
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Currently Farming: </span>
+            </div>
+          </div>
+
+          {/* Section 3: Farming Background & Project Plan */}
+          <div className="mt-2">
+            <div className="bg-black text-white px-2 py-0.5 text-[9px] font-black uppercase tracking-wider">
+              3. Cultivation Plan & Candidate Background
+            </div>
+            <div className="border border-t-0 border-black text-[9.5px]">
+              <div className="grid grid-cols-2 divide-x divide-black border-b border-black">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Mushroom Variety: </span>
+                  <span className="font-black text-black">{submittedData.mushroomInterested}</span>
+                </div>
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Planned Investment: </span>
+                  <span className="font-black text-black">{submittedData.investment}</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 divide-x divide-black">
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Currently Farming: </span>
                   <span className="text-black">{submittedData.currentlyFarming}</span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Farming Experience: </span>
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Experience: </span>
                   <span className="text-black">{submittedData.experience}</span>
                 </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Farm Setup Space: </span>
+                <div className="p-1.5">
+                  <span className="font-bold text-neutral-600">Farm Space: </span>
                   <span className="text-black">{submittedData.hasSetup}</span>
                 </div>
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">Primary Goal: </span>
-                  <span className="text-black">{submittedData.reason}</span>
-                </div>
-              </div>
-              {submittedData.learningGoals && (
-                <div className="p-2">
-                  <span className="font-bold text-neutral-700">
-                    Specific Learning Goals:{" "}
-                  </span>
-                  <span className="text-black">{submittedData.learningGoals}</span>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Section 4: Payment Receipt Status */}
-          <div className="mt-4">
-            <div className="bg-black text-white px-2.5 py-1 text-[11px] font-black uppercase tracking-wider">
-              4. Payment Receipt Status
-            </div>
-            <div className="border border-t-0 border-black p-2 text-xs bg-neutral-50 grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-black">
-              <div>
-                <span className="font-bold text-neutral-700">Receipt Attachment: </span>
-                <span className="font-black text-black">
-                  {submittedData.receiptPreview ? "Screenshot Uploaded & Dispatched" : "Not Provided"}
-                </span>
-              </div>
-              <div className="sm:pl-2 pt-1 sm:pt-0">
-                <span className="font-bold text-neutral-700">Ref / UTR Number: </span>
-                <span className="font-mono font-bold text-black">
-                  {submittedData.utr || "Verified & Logged"}
-                </span>
               </div>
             </div>
           </div>
 
-          {/* Section 5: Instructions for Registered Candidate */}
-          <div className="mt-4 border border-black p-3 bg-neutral-50 text-[11px] leading-relaxed">
-            <div className="font-black uppercase text-xs mb-1 text-black">
-              5. Important Instructions for Registered Candidate:
+          {/* Section 4: Instructions for Registered Candidate */}
+          <div className="mt-2 border border-black p-2 bg-neutral-50 text-[9px] leading-snug">
+            <div className="font-black uppercase text-[9.5px] mb-0.5 text-black">
+              4. Important Instructions for Candidate:
             </div>
-            <ul className="list-decimal pl-4 space-y-0.5 text-neutral-800">
+            <ul className="list-decimal pl-3.5 space-y-0.5 text-neutral-800">
               <li>
-                <strong>Batch Coordination:</strong> Our senior training coordinator will verify your registration and communicate batch credentials / venue reporting details directly on your WhatsApp number (+91 9203544140).
+                <strong>Batch Credentials:</strong> Senior training coordinator will verify registration and send batch link / reporting details on your WhatsApp (+91 9203544140).
               </li>
               <li>
-                <strong>Training Materials & Kit:</strong> Complete Standard Operating Procedures (SOPs), compost calculation formula sheet, and raw material vendor directory will be provided.
+                <strong>Training Kit & Materials:</strong> Complete mushroom SOPs, compost formula calculation sheet, and spawn vendor directory will be provided.
               </li>
               <li>
-                <strong>Helpline Support:</strong> For any assistance regarding your training registration, please contact our support team at <strong>+91 9203544140</strong> quoting your Registration ID: <strong>{submittedData.registrationId}</strong>.
+                <strong>Helpline:</strong> Call or WhatsApp <strong>+91 9203544140</strong> quoting your Registration ID: <strong>{submittedData.registrationId}</strong>.
               </li>
             </ul>
           </div>
 
           {/* Verification & Stamp Footer */}
-          <div className="mt-6 pt-4 border-t-2 border-black flex flex-wrap items-end justify-between gap-4 text-xs">
-            <div className="space-y-1">
-              <div className="text-[10px] text-neutral-600 uppercase font-semibold">
+          <div className="mt-2 pt-1.5 border-t-2 border-black flex items-center justify-between gap-3 text-[9px]">
+            <div className="space-y-0.5">
+              <div className="text-[8px] text-neutral-600 uppercase font-semibold">
                 Official Digital Acknowledgment
               </div>
-              <div className="font-bold text-black">
-                System Generated Training Registration Record
+              <div className="font-bold text-black text-[9.5px]">
+                System Generated Training Registration Record • Organic Mushroom Farm
               </div>
-              <div className="text-[10px] text-neutral-600">
-                Organic Mushroom Farm • Katangi Road, Jabalpur (M.P.) - 483105
-              </div>
-              <div className="text-[10px] text-neutral-600">
-                Helpline: +91 9203544140 | Support: support@organicmushroomfarm.com
+              <div className="text-[8px] text-neutral-600">
+                Katangi Road, Jabalpur (M.P.) - 483105 | Helpline: +91 9203544140 | support@organicmushroomfarm.com
               </div>
             </div>
 
-            <div className="border-2 border-black p-2.5 text-center min-w-[170px] bg-neutral-50">
-              <div className="text-[9px] font-black uppercase tracking-wider text-neutral-700">
+            <div className="border border-black px-2 py-1 text-center min-w-[150px] bg-neutral-50 shrink-0">
+              <div className="text-[7.5px] font-black uppercase tracking-wider text-neutral-700">
                 ORGANIC MUSHROOM FARM
               </div>
-              <div className="text-xs font-black text-black my-0.5">
+              <div className="text-[10px] font-black text-black my-0.2">
                 ★ REGISTERED & VERIFIED ★
               </div>
-              <div className="text-[9px] font-bold text-neutral-600">
+              <div className="text-[7.5px] font-bold text-neutral-600">
                 Training Cell • Jabalpur
               </div>
             </div>
@@ -1036,7 +1104,41 @@ export function RegistrationFormClient() {
   }
 
   return (
-    <div className="min-h-screen py-6 sm:py-10 px-3 sm:px-6 max-w-4xl mx-auto">
+    <div className="min-h-screen py-4 sm:py-8 px-3 sm:px-6 max-w-4xl mx-auto relative z-10">
+      {/* Animated Floating Glow Auras Behind Registration Page */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+        <div className="absolute top-10 -left-10 w-96 h-96 rounded-full bg-purple-500/12 dark:bg-purple-500/20 blur-3xl animate-pulse" />
+        <div className="absolute top-1/3 -right-10 w-[420px] h-[420px] rounded-full bg-sky-500/10 dark:bg-sky-500/15 blur-3xl animate-pulse delay-500" />
+        <div className="absolute bottom-10 left-1/4 w-96 h-96 rounded-full bg-emerald-500/12 dark:bg-emerald-500/18 blur-3xl animate-pulse delay-1000" />
+      </div>
+
+      {/* SEO & UX Breadcrumb Navigation */}
+      <nav
+        aria-label="Breadcrumb"
+        className="mb-4 sm:mb-6 flex items-center gap-1.5 sm:gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/60 dark:border-white/10 w-fit"
+      >
+        <Link
+          href="/"
+          className="flex items-center gap-1 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+        >
+          <Home className="w-3.5 h-3.5" />
+          <span>Home</span>
+        </Link>
+        <ChevronRight className="w-3 h-3 text-slate-400 dark:text-slate-600 shrink-0" />
+        <Link
+          href="/training"
+          className="flex items-center gap-1 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+        >
+          <GraduationCap className="w-3.5 h-3.5" />
+          <span>Mushroom Training</span>
+        </Link>
+        <ChevronRight className="w-3 h-3 text-slate-400 dark:text-slate-600 shrink-0" />
+        <span className="text-purple-600 dark:text-purple-300 font-bold flex items-center gap-1">
+          <FileText className="w-3.5 h-3.5" />
+          <span>Registration Form</span>
+        </span>
+      </nav>
+
       {/* Top Header Card */}
       <div className="mb-6 sm:mb-8 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-400 text-xs font-bold mb-3">
@@ -1055,7 +1157,7 @@ export function RegistrationFormClient() {
       </div>
 
       {/* Program Summary Badge */}
-      <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-purple-500/10 via-sky-400/10 to-emerald-400/10 border border-purple-500/20 backdrop-blur-md flex flex-wrap items-center justify-between gap-4">
+      <div className="mb-6 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-purple-500/15 via-sky-400/15 to-emerald-400/15 border border-purple-500/20 backdrop-blur-xl flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <img
             src="https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
@@ -1092,8 +1194,47 @@ export function RegistrationFormClient() {
       {/* Main Form Container */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white dark:bg-slate-900/85 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-xl overflow-hidden backdrop-blur-xl p-5 sm:p-8 space-y-8"
+        className="bg-white/85 dark:bg-slate-900/75 rounded-3xl border border-slate-200/90 dark:border-white/10 shadow-2xl overflow-hidden backdrop-blur-xl p-5 sm:p-8 space-y-8"
       >
+        {/* Device Limit Security Alert (Strict 3 per physical mobile) */}
+        {deviceQuota?.isBlocked ? (
+          <div className="p-4 sm:p-5 rounded-2xl bg-red-50 dark:bg-red-950/40 border-2 border-red-500/50 text-red-800 dark:text-red-200 text-xs sm:text-sm flex items-start gap-3 shadow-md animate-in fade-in">
+            <ShieldAlert className="w-6 h-6 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+            <div className="space-y-1.5 flex-1">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className="font-black text-red-900 dark:text-red-100 text-sm sm:text-base flex items-center gap-1.5">
+                  <Lock className="w-4 h-4 text-red-600 inline" />
+                  Device Security Limit Reached (3/3 Registrations Used)
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-red-600 text-white font-black text-[11px]">
+                  Registration Blocked
+                </span>
+              </div>
+              <p className="leading-relaxed">
+                Is mobile device se maximum 3 registrations pehle hi complete ho chuki hain. Security niyam anusar is mobile se ab aur registration submit nahi kiya ja sakta (Browser data ya cache clear karne ke baad bhi yeh niyam 100% active rehta hai).
+              </p>
+              <div className="pt-1 text-[11px] text-red-700 dark:text-red-300 font-semibold flex items-center gap-2 flex-wrap">
+                <span>Kisi bhi sahayata ya special approval ke liye helpline par call karein:</span>
+                <a href="tel:+919203544140" className="underline font-bold text-red-900 dark:text-white">
+                  +91 9203544140
+                </a>
+              </div>
+            </div>
+          </div>
+        ) : deviceQuota && deviceQuota.count > 0 ? (
+          <div className="p-3 sm:p-3.5 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 text-emerald-900 dark:text-emerald-200 text-xs flex items-center justify-between gap-2 flex-wrap">
+            <div className="flex items-center gap-2">
+              <Smartphone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span className="font-semibold">
+                Device Security Status: <strong>{deviceQuota.count}/3</strong> Registrations Used on this Mobile
+              </span>
+            </div>
+            <span className="px-2.5 py-1 rounded-xl bg-emerald-600/15 text-emerald-700 dark:text-emerald-300 font-extrabold text-[11px] shrink-0">
+              {deviceQuota.remaining} registration remaining
+            </span>
+          </div>
+        ) : null}
+
         {errorMsg && (
           <div className="p-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/60 text-red-700 dark:text-red-300 text-xs sm:text-sm flex items-start gap-2.5 animate-in fade-in">
             <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-red-500" />
@@ -1994,44 +2135,81 @@ export function RegistrationFormClient() {
 
         {/* SECTION 6: FINAL CONFIRMATION */}
         <div className="pt-2 border-t border-slate-200/80 dark:border-white/10 space-y-4">
-          <div className="p-4 rounded-2xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200/80 dark:border-purple-900/40">
-            <label className="flex items-start gap-3 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                name="confirmed"
-                checked={formData.confirmed}
-                onChange={handleChange}
-                className="mt-0.5 w-5 h-5 rounded-md text-purple-600 focus:ring-purple-500 border-slate-300 dark:border-slate-700 cursor-pointer accent-purple-600 shrink-0"
-              />
-              <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 leading-relaxed">
-                I confirm that the information provided by me is correct and the attached payment receipt is authentic. ☑️
+          <div className="p-4 sm:p-5 rounded-2xl bg-purple-50/70 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-900/40 space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <label className="flex items-start gap-3 cursor-pointer select-none flex-1">
+                <input
+                  type="checkbox"
+                  name="confirmed"
+                  checked={formData.confirmed}
+                  onChange={handleChange}
+                  className="mt-0.5 w-5 h-5 rounded-md text-purple-600 focus:ring-purple-500 border-slate-300 dark:border-slate-700 cursor-pointer accent-purple-600 shrink-0"
+                />
+                <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 leading-relaxed">
+                  I confirm that the information provided by me is correct and the attached payment receipt is authentic. ☑️
+                </span>
+              </label>
+
+              <button
+                type="button"
+                onClick={() => setShowKnowMoreModal(true)}
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 active:scale-95 text-white font-bold text-xs shadow-md shadow-purple-600/20 transition-all shrink-0 self-start sm:self-auto cursor-pointer"
+              >
+                <Info className="w-3.5 h-3.5" />
+                <span>Know More</span>
+              </button>
+            </div>
+
+            <div className="pt-2.5 border-t border-purple-200/60 dark:border-purple-900/40 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-600 dark:text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
+                <span>Need batch details, syllabus kit, daily timing & seat policies?</span>
               </span>
-            </label>
+              <button
+                type="button"
+                onClick={() => setShowKnowMoreModal(true)}
+                className="text-purple-600 dark:text-purple-400 font-extrabold underline hover:text-purple-700 dark:hover:text-purple-300 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Click here for Know More (अधिक जानकारी)</span>
+                <ChevronRight className="w-3 h-3" />
+              </button>
+            </div>
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={loading || compressingReceipt}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-purple-600 via-sky-600 to-emerald-600 hover:opacity-95 disabled:opacity-50 text-white font-black text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-xl shadow-purple-600/25 active:scale-98"
-          >
-            {compressingReceipt ? (
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Optimizing Receipt Image...
-              </span>
-            ) : loading ? (
-              <span className="flex items-center gap-2">
-                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Submitting Registration...
-              </span>
-            ) : (
-              <span className="flex items-center gap-2">
-                <span>Submit Training Registration</span>
-                <ChevronRight className="w-5 h-5" />
-              </span>
-            )}
-          </button>
+          {deviceQuota?.isBlocked ? (
+            <button
+              type="button"
+              disabled
+              className="w-full py-4 px-6 rounded-2xl bg-red-100 text-red-700 dark:bg-red-950/60 dark:text-red-300 border-2 border-red-300 dark:border-red-800 font-black text-sm sm:text-base flex items-center justify-center gap-2 cursor-not-allowed shadow-inner"
+            >
+              <Lock className="w-5 h-5 text-red-500" />
+              <span>Device Limit Reached (3/3 Used) — Registration Blocked</span>
+            </button>
+          ) : (
+            <button
+              type="submit"
+              disabled={loading || compressingReceipt}
+              className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-purple-600 via-sky-600 to-emerald-600 hover:opacity-95 disabled:opacity-50 text-white font-black text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-xl shadow-purple-600/25 active:scale-98"
+            >
+              {compressingReceipt ? (
+                <span className="flex items-center gap-2">
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Optimizing Receipt Image...
+                </span>
+              ) : loading ? (
+                <span className="flex items-center gap-2">
+                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  Submitting Registration...
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  <span>Submit Training Registration</span>
+                  <ChevronRight className="w-5 h-5" />
+                </span>
+              )}
+            </button>
+          )}
 
           <p className="text-center text-[11px] text-slate-500 dark:text-slate-400">
             Submitting this form connects you directly to our lead trainer. Need
@@ -2045,6 +2223,152 @@ export function RegistrationFormClient() {
           </p>
         </div>
       </form>
+
+      {/* KNOW MORE & TRAINING GUIDELINES MODAL */}
+      {showKnowMoreModal && (
+        <div
+          className="fixed inset-0 z-50 bg-slate-950/45 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+          onClick={() => setShowKnowMoreModal(false)}
+        >
+          <div
+            className="relative w-full max-w-2xl bg-white/95 dark:bg-slate-900/90 backdrop-blur-2xl rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="p-5 sm:p-6 bg-gradient-to-r from-purple-700 via-sky-700 to-emerald-700 text-white relative">
+              <button
+                type="button"
+                onClick={() => setShowKnowMoreModal(false)}
+                className="absolute top-4 right-4 p-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white transition-colors cursor-pointer"
+                title="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold text-emerald-200 mb-2 border border-white/20">
+                <Sprout className="w-3.5 h-3.5" />
+                <span>Organic Mushroom Farm • Official Training Portal</span>
+              </div>
+              <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+                Training Admission & Guidelines (Know More)
+              </h2>
+              <p className="text-xs sm:text-sm text-white/90 mt-1">
+                Review complete curriculum, kit details, daily batch schedule, and seat allocation rules.
+              </p>
+            </div>
+
+            {/* Modal Content / Body */}
+            <div className="p-5 sm:p-6 space-y-4 max-h-[65vh] overflow-y-auto text-xs sm:text-sm">
+              {/* Card 1: Curriculum & What You Learn */}
+              <div className="p-4 rounded-2xl bg-purple-50/70 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-900/40">
+                <h3 className="font-bold text-purple-700 dark:text-purple-300 flex items-center gap-2 text-sm mb-2">
+                  <BookOpen className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
+                  <span>1. Commercial Curriculum & Practical Learning</span>
+                </h3>
+                <ul className="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300 text-xs leading-relaxed">
+                  <li><strong>Cultivation Methods:</strong> Button, Oyster, and Milky Mushroom commercial production.</li>
+                  <li><strong>Compost Preparation:</strong> Short method & bunker composting, formulation of raw materials (wheat straw, poultry manure, gypsum).</li>
+                  <li><strong>Climate & Room Control:</strong> Precise management of temperature (18°C–25°C), relative humidity (85–90%), and CO2 ventilation.</li>
+                  <li><strong>Casing & Pinhead Initiation:</strong> Casing soil sterilisation, spawning ratios, and optimum harvest flushing cycles.</li>
+                  <li><strong>Hygiene & Disease Control:</strong> Zero-chemical disease prevention, pest mitigation, and green mold protection.</li>
+                  <li><strong>Marketing & Pricing:</strong> Direct farm-gate sales, wholesale mandi supply, retail packaging, and value addition.</li>
+                </ul>
+              </div>
+
+              {/* Card 2: Free Kit & Materials */}
+              <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/40">
+                <h3 className="font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-2 text-sm mb-2">
+                  <FileText className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>2. Candidate Study Kit & Raw Material Support</span>
+                </h3>
+                <ul className="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300 text-xs leading-relaxed">
+                  <li><strong>Official SOP Handbook:</strong> Step-by-step printed/digital operation manual covering entire cultivation lifecycle.</li>
+                  <li><strong>Compost Calculator:</strong> Master formula chart to calculate exact raw material weights for any batch size.</li>
+                  <li><strong>Certified Vendor Directory:</strong> Contact list of certified Spawn (Beej), Casing Soil, PP bags, and equipment suppliers across India.</li>
+                  <li><strong>Lifetime Grower Advisory:</strong> Direct helpline support from our lead trainers during your initial crop cycles.</li>
+                </ul>
+              </div>
+
+              {/* Card 3: Batch Timings & Mode */}
+              <div className="p-4 rounded-2xl bg-sky-50/70 dark:bg-sky-950/30 border border-sky-200/80 dark:border-sky-900/40">
+                <h3 className="font-bold text-sky-700 dark:text-sky-300 flex items-center gap-2 text-sm mb-2">
+                  <Clock className="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
+                  <span>3. Daily Timing & Training Modes</span>
+                </h3>
+                <div className="space-y-1.5 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                  <p>
+                    <strong>Standard Timing:</strong> 10:00 AM to 4:00 PM IST (including 1 hour lunch & doubt clearing session).
+                  </p>
+                  <p>
+                    <strong>Online Mode:</strong> Live interactive high-definition session + instant doubt solving + full batch session recording.
+                  </p>
+                  <p>
+                    <strong>Offline Farm Mode:</strong> Direct hands-on practical at Organic Mushroom Farm, Katangi Road, Jabalpur (M.P.).
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4: Seat Reservation & Fee Policy */}
+              <div className="p-4 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-900/40">
+                <h3 className="font-bold text-amber-800 dark:text-amber-300 flex items-center gap-2 text-sm mb-2">
+                  <Award className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+                  <span>4. Seat Reservation & ₹500 Advance Token</span>
+                </h3>
+                <ul className="list-disc pl-5 space-y-1 text-slate-700 dark:text-slate-300 text-xs leading-relaxed">
+                  <li>To ensure individual mentoring, each training batch is capped at <strong>25 candidates only</strong>.</li>
+                  <li>The <strong>₹500 advance fee</strong> reserves your seat slot and initiates candidate kit dispatch.</li>
+                  <li>This ₹500 is fully adjusted in the final course fee upon batch confirmation.</li>
+                  <li>Official Digital Registration Slip with unique Registration ID is generated immediately.</li>
+                </ul>
+              </div>
+
+              {/* Card 5: Helpline & Verification */}
+              <div className="p-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <span className="font-bold text-slate-900 dark:text-white block">Official Farm Helpline:</span>
+                  <span>Call or WhatsApp: +91 9203544140 | support@organicmushroomfarm.com</span>
+                </div>
+                <a
+                  href="https://wa.me/919203544140?text=Hello%20Organic%20Mushroom%20Farm,%20I%20have%20a%20question%20regarding%20training%20registration."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition-colors"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>Ask on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 sm:p-5 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 text-center sm:text-left">
+                Pressing agree will confirm guidelines and auto-tick the declaration.
+              </span>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <button
+                  type="button"
+                  onClick={() => setShowKnowMoreModal(false)}
+                  className="flex-1 sm:flex-none px-4 py-2 rounded-xl border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFormData((prev) => ({ ...prev, confirmed: true }));
+                    setShowKnowMoreModal(false);
+                  }}
+                  className="flex-1 sm:flex-none px-5 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md shadow-purple-600/25 transition-all cursor-pointer"
+                >
+                  <Check className="w-4 h-4" />
+                  <span>I Understand & Agree (समझ गया)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
