@@ -571,11 +571,11 @@ export function OfflineInspectionChecklist() {
 
                   {/* Direct Phone Call Button (Works without internet via cellular dialer) */}
                   <a
-                    href="tel:+919179126868"
+                    href="tel:+919203544140"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-all shadow-sm active:scale-95 ml-auto"
                   >
                     <Phone className="w-3.5 h-3.5" />
-                    <span>Emergency Call: +91 91791 26868</span>
+                    <span>Emergency Call: +91 9203544140</span>
                   </a>
                 </div>
               </>

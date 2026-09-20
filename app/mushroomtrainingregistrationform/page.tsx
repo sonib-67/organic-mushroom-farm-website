@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { RegistrationFormClient } from "./RegistrationFormClient";
 
 export const metadata: Metadata = {
-  title: "1-Day Button Mushroom Training Registration Form | Organic Mushroom Farm",
+  title: "Mushroom Training Registration | Organic Mushroom Farm",
   description:
-    "Register for the 1-Day Button Mushroom Commercial Cultivation Training. Master compost preparation, climate control, spawn management, and disease prevention.",
+    "Please enter your accurate details below to confirm your training registration. You will receive practical guidance on button mushroom cultivation, complete SOPs, compost preparation and calculations, raw material sourcing, and live Q&A support.",
 };
 
 export default function MushroomTrainingRegistrationPage() {

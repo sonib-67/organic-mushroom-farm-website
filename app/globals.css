@@ -166,3 +166,79 @@ body.offline-checklist-open [class*="bottom-[85px"] {
   opacity: 0 !important;
 }
 
+/* =========================================================
+   OFFICIAL BLACK & WHITE PRINT / PDF STYLESHEET
+   Ensures ONLY the clean formal registration slip prints
+   ========================================================= */
+@media print {
+  /* 1. Hide all website chrome, navigation, headers, footers & background */
+  nav,
+  header,
+  footer,
+  canvas,
+  .no-print,
+  #navbar,
+  .conditional-widgets,
+  .offline-checklist-container,
+  #offline-inspection-modal,
+  #floating-bottom-menu,
+  #whatsapp-floating-widget,
+  .top-loading-bar,
+  .screen-only,
+  button:not(.allow-print) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* 2. Reset Page Background & Typography for B&W printing */
+  html,
+  body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-family: Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Display the official Black & White A4 Registration Slip */
+  .official-print-slip {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+}
+
+

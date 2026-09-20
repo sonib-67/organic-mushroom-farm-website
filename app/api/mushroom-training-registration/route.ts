@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import {
+  checkDuplicateReceipt,
+  recordReceipt,
+  computeReceiptHash,
+} from "@/lib/mushroomReceiptStore";
 
 export async function POST(req: Request) {
   try {
@@ -22,11 +27,18 @@ export async function POST(req: Request) {
       reason,
       learningGoals,
       hearAboutUs,
-      trainingName = "1-Day Button Mushroom Training",
+      trainingName = "1 Day Mushroom Training",
       trainingDate,
-      trainingMode,
+      trainingMode = "Online",
       trainingTime = "10:00 AM – 4:00 PM IST",
       confirmed,
+      // Payment receipt fields
+      receiptBase64,
+      receiptMimeType = "image/jpeg",
+      receiptFileName = "payment_receipt.jpg",
+      receiptHash: clientReceiptHash,
+      utr,
+      paymentApp = "UPI Payment",
     } = data;
 
     if (!fullName || !phone || !email || !city || !state || !confirmed) {
@@ -36,74 +48,217 @@ export async function POST(req: Request) {
       );
     }
 
+    // Require ₹500 Payment Receipt Screenshot
+    if (!receiptBase64) {
+      return NextResponse.json(
+        {
+          error:
+            "₹500 payment receipt screenshot is required to confirm training registration seat.",
+        },
+        { status: 400 }
+      );
+    }
+
+    // Clean base64 and calculate hash
+    const cleanBase64 = receiptBase64.replace(
+      /^data:image\/[a-zA-Z0-9+.-]+;base64,/,
+      ""
+    );
+    const receiptHash = clientReceiptHash || computeReceiptHash(cleanBase64);
+
+    // Enforce Duplicate Protection (Screenshot hash, UTR, Phone)
+    const dupCheck = checkDuplicateReceipt({
+      receiptHash,
+      utr,
+      phone,
+    });
+
+    if (dupCheck.isDuplicate) {
+      return NextResponse.json(
+        {
+          error:
+            dupCheck.reason ||
+            "Duplicate submission detected. Each phone number and payment receipt can only be registered once.",
+        },
+        { status: 400 }
+      );
+    }
+
     const regId = `OMF-BTN-${Math.floor(100000 + Math.random() * 900000)}`;
     const submissionTime = new Date().toLocaleString("en-IN", {
       timeZone: "Asia/Kolkata",
     });
 
-    // Optional email dispatch if SMTP credentials exist
-    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-      try {
-        const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST || "smtp.hostinger.com",
-          port: Number(process.env.SMTP_PORT) || 465,
-          secure: true,
-          auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-          },
-        });
+    // Record verified receipt in storage
+    recordReceipt({
+      registrationId: regId,
+      fullName,
+      phone,
+      email,
+      amount: 500,
+      utr: utr || "UPI-REF-" + Date.now().toString().slice(-6),
+      paymentApp,
+      receiptHash,
+      fileName: receiptFileName,
+      verifiedAt: submissionTime,
+    });
 
-        const mailOptions = {
-          from: `"Organic Mushroom Farm" <${process.env.SMTP_USER}>`,
-          to: `${process.env.SMTP_USER}, ${email}`,
-          subject: `Registration Confirmed [${regId}] - ${trainingName}`,
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6;">
-              <div style="background: linear-gradient(135deg, #7c3aed, #0284c7, #059669); padding: 24px; border-radius: 12px 12px 0 0; text-align: center; color: white;">
-                <h1 style="margin: 0; font-size: 22px;">🍄 Organic Mushroom Farm</h1>
-                <p style="margin: 6px 0 0; opacity: 0.9;">New Training Registration Slip</p>
-                <div style="display: inline-block; background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 20px; font-weight: bold; margin-top: 10px;">
-                  Reg ID: ${regId}
+    // ----------------------------------------------------
+    // Nodemailer: Send Full Details & Attached Receipt Image
+    // ----------------------------------------------------
+    const adminEmailList = [
+      process.env.ADMIN_EMAIL,
+      process.env.SMTP_USER,
+      process.env.SMTP_EMAIL,
+      "gamingbuddyzone@gmail.com",
+      "organicmushroomsfarms@gmail.com",
+    ].filter(Boolean) as string[];
+
+    // Unique admin emails
+    const uniqueAdminEmails = Array.from(new Set(adminEmailList));
+
+    const smtpUser =
+      process.env.SMTP_USER ||
+      process.env.SMTP_EMAIL ||
+      process.env.EMAIL_USER ||
+      "organicmushroomsfarms@gmail.com";
+    const smtpPass =
+      process.env.SMTP_PASS ||
+      process.env.SMTP_PASSWORD ||
+      process.env.EMAIL_PASS ||
+      "jzqqntulcifrfyul";
+
+    if (smtpUser && smtpPass) {
+      try {
+        const isGmail =
+          smtpUser.includes("gmail.com") ||
+          (process.env.SMTP_HOST && process.env.SMTP_HOST.includes("gmail"));
+
+        const transporter = nodemailer.createTransport(
+          isGmail
+            ? {
+                service: "gmail",
+                auth: { user: smtpUser, pass: smtpPass },
+              }
+            : {
+                host: process.env.SMTP_HOST || "smtp.hostinger.com",
+                port: Number(process.env.SMTP_PORT) || 465,
+                secure: true,
+                auth: { user: smtpUser, pass: smtpPass },
+              }
+        );
+
+        const safeExt = receiptMimeType.includes("png")
+          ? "png"
+          : receiptMimeType.includes("webp")
+          ? "webp"
+          : "jpg";
+        const attachmentFilename = `Payment_Receipt_${regId}_${fullName.replace(
+          /[^a-zA-Z0-9]/g,
+          "_"
+        )}.${safeExt}`;
+
+        const mailAttachments: any[] = [
+          {
+            filename: attachmentFilename,
+            content: Buffer.from(cleanBase64, "base64"),
+            contentType: receiptMimeType || "image/jpeg",
+          },
+        ];
+
+        const emailHtml = `
+          <div style="font-family: Arial, -apple-system, BlinkMacSystemFont, sans-serif; max-width: 650px; margin: 0 auto; color: #0f172a; line-height: 1.6; background: #f8fafc; padding: 16px;">
+            <div style="background: #0f172a; padding: 24px; border-radius: 12px 12px 0 0; text-align: center; color: white;">
+              <h1 style="margin: 0; font-size: 22px; letter-spacing: 0.5px;">🍄 ORGANIC MUSHROOM FARM</h1>
+              <p style="margin: 6px 0 0; font-size: 13px; color: #38bdf8; font-weight: bold;">
+                New Training Registration & ₹500 Seat Booking Slip
+              </p>
+              <div style="display: inline-block; background: #059669; color: white; padding: 6px 16px; border-radius: 20px; font-weight: bold; margin-top: 12px; font-size: 13px;">
+                Reg ID: ${regId} | Status: PAID & VERIFIED
+              </div>
+            </div>
+
+            <div style="background: #ffffff; padding: 24px; border: 1px solid #e2e8f0; border-top: none;">
+              <!-- ₹500 Payment Verification Highlight Box -->
+              <div style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;">
+                <h3 style="margin: 0 0 6px 0; color: #065f46; font-size: 15px; font-weight: bold;">
+                  ✅ ₹500 Payment Verified (Receipt Attached)
+                </h3>
+                <div style="font-size: 13px; color: #047857;">
+                  <p style="margin: 2px 0;"><strong>Paid Amount:</strong> ₹500 (Advance Seat Booking Fee)</p>
+                  <p style="margin: 2px 0;"><strong>Payment Mode / App:</strong> ${paymentApp}</p>
+                  <p style="margin: 2px 0;"><strong>UPI UTR / Transaction No.:</strong> <span style="font-family: monospace; font-weight: bold; color: #0f172a;">${utr || "Verified Screenshot"}</span></p>
+                  <p style="margin: 2px 0;"><strong>Receipt Hash:</strong> <span style="font-family: monospace; font-size: 11px; color: #64748b;">${receiptHash.slice(0, 20)}...</span></p>
                 </div>
               </div>
 
-              <div style="padding: 24px; background: #ffffff; border: 1px solid #e2e8f0; border-top: none;">
-                <h3 style="color: #4f46e5; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px;">1. Customer Details</h3>
-                <p><strong>Full Name:</strong> ${fullName}</p>
-                <p><strong>WhatsApp / Phone:</strong> ${phone}</p>
-                <p><strong>Email Address:</strong> ${email}</p>
-                <p><strong>Location:</strong> ${city}, ${district ? `${district}, ` : ""}${state} - ${pincode || "N/A"}</p>
-                <p><strong>Full Address:</strong> ${fullAddress || "N/A"}</p>
+              <h3 style="color: #4338ca; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px; margin-top: 15px;">
+                1. Candidate Particulars
+              </h3>
+              <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+                <tr><td style="padding: 6px 0; width: 35%; color: #64748b;">Full Name:</td><td style="padding: 6px 0; font-weight: bold; color: #0f172a;">${fullName}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">WhatsApp / Phone:</td><td style="padding: 6px 0; font-weight: bold; color: #0f172a;">+91 ${phone}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Email Address:</td><td style="padding: 6px 0; color: #0f172a;">${email}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Location:</td><td style="padding: 6px 0; color: #0f172a;">${city}, ${district ? `${district}, ` : ""}${state} - ${pincode || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Full Address:</td><td style="padding: 6px 0; color: #0f172a;">${fullAddress || "N/A"}</td></tr>
+              </table>
 
-                <h3 style="color: #4f46e5; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px; margin-top: 20px;">2. Mushroom Farming Details</h3>
-                <p><strong>Currently Farming:</strong> ${currentlyFarming || "N/A"}</p>
-                <p><strong>Mushroom Interested:</strong> ${mushroomInterested || "N/A"}</p>
-                <p><strong>Experience:</strong> ${experience || "N/A"}</p>
-                <p><strong>Existing Setup:</strong> ${hasSetup || "N/A"}</p>
-                <p><strong>Planned Investment:</strong> ${investment || "N/A"}</p>
+              <h3 style="color: #4338ca; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px; margin-top: 20px;">
+                2. Training Program & Schedule
+              </h3>
+              <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+                <tr><td style="padding: 6px 0; width: 35%; color: #64748b;">Selected Program:</td><td style="padding: 6px 0; font-weight: bold; color: #0f172a;">${trainingName}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Training Mode:</td><td style="padding: 6px 0; font-weight: bold; color: #0f172a;">${trainingMode}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Session Timing:</td><td style="padding: 6px 0; color: #0f172a;">${trainingTime}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Registration Date:</td><td style="padding: 6px 0; color: #0f172a;">${submissionTime}</td></tr>
+              </table>
 
-                <h3 style="color: #4f46e5; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px; margin-top: 20px;">3. Training Information</h3>
-                <p><strong>Training Program:</strong> ${trainingName}</p>
-                <p><strong>Batch Date:</strong> ${trainingDate || "Upcoming Batch"}</p>
-                <p><strong>Training Mode:</strong> ${trainingMode || "Online"}</p>
-                <p><strong>Training Time:</strong> ${trainingTime}</p>
-                <p><strong>Reason for Attending:</strong> ${reason || "N/A"}</p>
-                <p><strong>What you want to learn:</strong> ${learningGoals || "N/A"}</p>
-                <p><strong>Source:</strong> ${hearAboutUs || "N/A"}</p>
-                <p><strong>Submitted At:</strong> ${submissionTime}</p>
-              </div>
+              <h3 style="color: #4338ca; border-bottom: 2px solid #e0e7ff; padding-bottom: 6px; margin-top: 20px;">
+                3. Cultivation Background & Project Plan
+              </h3>
+              <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+                <tr><td style="padding: 6px 0; width: 35%; color: #64748b;">Mushroom Interested:</td><td style="padding: 6px 0; font-weight: bold; color: #0f172a;">${mushroomInterested || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Planned Investment:</td><td style="padding: 6px 0; font-weight: bold; color: #0f172a;">${investment || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Currently Farming:</td><td style="padding: 6px 0; color: #0f172a;">${currentlyFarming || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Farming Experience:</td><td style="padding: 6px 0; color: #0f172a;">${experience || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Setup Space Available:</td><td style="padding: 6px 0; color: #0f172a;">${hasSetup || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Reason for Attending:</td><td style="padding: 6px 0; color: #0f172a;">${reason || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">Learning Goals:</td><td style="padding: 6px 0; color: #0f172a;">${learningGoals || "N/A"}</td></tr>
+                <tr><td style="padding: 6px 0; color: #64748b;">How did you hear:</td><td style="padding: 6px 0; color: #0f172a;">${hearAboutUs || "N/A"}</td></tr>
+              </table>
 
-              <div style="background: #f8fafc; padding: 16px; text-align: center; border-radius: 0 0 12px 12px; font-size: 12px; color: #64748b; border: 1px solid #e2e8f0; border-top: none;">
-                For queries or support, contact: +91 91791 26868 | support@organicmushroomfarm.com
+              <div style="margin-top: 20px; padding: 12px; background: #f1f5f9; border-radius: 6px; font-size: 12px; color: #475569;">
+                📎 <strong>Attachment:</strong> The candidate's ₹500 payment receipt screenshot (<code>${attachmentFilename}</code>) is attached to this email for your accounting records.
               </div>
             </div>
-          `,
-        };
 
-        await transporter.sendMail(mailOptions);
+            <div style="background: #f8fafc; padding: 14px; text-align: center; border-radius: 0 0 12px 12px; font-size: 11px; color: #64748b; border: 1px solid #e2e8f0; border-top: none;">
+              Organic Mushroom Farm • Katangi Road, Jabalpur (M.P.) - 483105 | Helpline: +91 9203544140
+            </div>
+          </div>
+        `;
+
+        // 1. Send to Admin(s) with attachment
+        await transporter.sendMail({
+          from: `"Organic Mushroom Farm" <${smtpUser}>`,
+          to: uniqueAdminEmails.join(", "),
+          subject: `🍄 [₹500 PAID] Training Registration - ${fullName} [${regId}]`,
+          html: emailHtml,
+          attachments: mailAttachments,
+        });
+
+        // 2. Send Acknowledgment to Candidate with attached receipt
+        if (email && email.includes("@")) {
+          await transporter.sendMail({
+            from: `"Organic Mushroom Farm" <${smtpUser}>`,
+            to: email,
+            subject: `Registration Confirmed [${regId}] - ₹500 Received for ${trainingName}`,
+            html: emailHtml,
+            attachments: mailAttachments,
+          });
+        }
       } catch (mailError) {
-        console.error("Mail send error (non-fatal):", mailError);
+        console.error("[MushroomRegistration] Nodemailer error (non-fatal):", mailError);
       }
     }
 
@@ -111,6 +266,10 @@ export async function POST(req: Request) {
       success: true,
       registrationId: regId,
       submittedAt: submissionTime,
+      utr: utr || "UPI-VERIFIED",
+      paymentApp,
+      amount: 500,
+      receiptHash,
       data: {
         fullName,
         phone,
@@ -120,12 +279,13 @@ export async function POST(req: Request) {
         trainingName,
         trainingDate,
         trainingMode,
+        trainingTime,
       },
     });
   } catch (error: any) {
-    console.error("Registration error:", error);
+    console.error("[MushroomRegistration] Server error:", error);
     return NextResponse.json(
-      { error: "Internal server error. Please try again or WhatsApp us directly." },
+      { error: error?.message || "Internal server error. Please try again or WhatsApp us directly at +91 9203544140." },
       { status: 500 }
     );
   }
