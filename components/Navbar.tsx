@@ -33,6 +33,7 @@ import {
   Droplets,
 } from "lucide-react";
 import DynamicGreeting from "./DynamicGreeting";
+import { CountryLanguageSelector } from "./CountryLanguageSelector";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/", icon: Home },
@@ -265,69 +266,78 @@ export const Navbar = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links (Original Text Colors) */}
-            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1 ml-auto">
-              {NAV_ITEMS.map((item) => {
-                const isActive = pathname === item.href;
-                const hasSubMenu = item.subMenu && item.subMenu.length > 0;
+            {/* Desktop Navigation Links & Language Selector */}
+            <div className="hidden lg:flex items-center gap-1 xl:gap-2 ml-auto">
+              <div className="flex items-center gap-0.5 xl:gap-1">
+                {NAV_ITEMS.map((item) => {
+                  const isActive = pathname === item.href;
+                  const hasSubMenu = item.subMenu && item.subMenu.length > 0;
 
-                return (
-                  <div key={item.name} className="relative group">
-                    <Link
-                      href={item.href}
-                      className={`text-[10px] xl:text-[11.5px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg leading-tight group ${
-                        isActive
-                          ? "dark:text-white text-slate-900 dark:bg-white/10 bg-slate-900/5 font-extrabold"
-                          : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900 hover:bg-slate-100/60 dark:hover:bg-white/5"
-                      }`}
-                    >
-                      <item.icon
-                        size={12}
-                        className={`shrink-0 transition-transform duration-150 group-hover:scale-110 ${
+                  return (
+                    <div key={item.name} className="relative group">
+                      <Link
+                        href={item.href}
+                        className={`text-[10px] xl:text-[11.5px] font-bold transition-all flex items-center gap-1 xl:gap-1.5 px-2 py-1.5 rounded-lg leading-tight group ${
                           isActive
-                            ? "text-purple-600 dark:text-purple-400"
-                            : "text-slate-400 dark:text-slate-500 group-hover:text-purple-600 dark:group-hover:text-purple-400"
+                            ? "dark:text-white text-slate-900 dark:bg-white/10 bg-slate-900/5 font-extrabold"
+                            : "dark:text-slate-400 text-slate-600 hover:dark:text-white hover:text-slate-900 hover:bg-slate-100/60 dark:hover:bg-white/5"
                         }`}
-                      />
-                      <span>{item.name}</span>
-                      {hasSubMenu && (
-                        <ChevronDown
-                          size={11}
-                          className="group-hover:rotate-180 transition-transform dark:text-slate-400 text-slate-500"
+                      >
+                        <item.icon
+                          size={12}
+                          className={`shrink-0 transition-transform duration-150 group-hover:scale-110 ${
+                            isActive
+                              ? "text-purple-600 dark:text-purple-400"
+                              : "text-slate-400 dark:text-slate-500 group-hover:text-purple-600 dark:group-hover:text-purple-400"
+                          }`}
                         />
-                      )}
-                    </Link>
+                        <span>{item.name}</span>
+                        {hasSubMenu && (
+                          <ChevronDown
+                            size={11}
+                            className="group-hover:rotate-180 transition-transform dark:text-slate-400 text-slate-500"
+                          />
+                        )}
+                      </Link>
 
-                    {/* Desktop Submenu Dropdown */}
-                    {hasSubMenu && (
-                      <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-1.5 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-[100]">
-                        <div className="bg-white dark:bg-slate-900 p-2 min-w-[210px] rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl dark:shadow-2xl">
-                          {item.subMenu!.map((sub) => (
-                            <Link
-                              key={sub.name}
-                              href={sub.href}
-                              className="block px-3 py-2 text-xs font-semibold dark:text-slate-400 text-slate-600 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/80 rounded-lg transition-colors"
-                            >
-                              {sub.name}
-                            </Link>
-                          ))}
+                      {/* Desktop Submenu Dropdown */}
+                      {hasSubMenu && (
+                        <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-1.5 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all z-[100]">
+                          <div className="bg-white dark:bg-slate-900 p-2 min-w-[210px] rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl dark:shadow-2xl">
+                            {item.subMenu!.map((sub) => (
+                              <Link
+                                key={sub.name}
+                                href={sub.href}
+                                className="block px-3 py-2 text-xs font-semibold dark:text-slate-400 text-slate-600 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/80 rounded-lg transition-colors"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Desktop Country & Language Translate Selector */}
+              <div className="pl-1 border-l border-slate-200/80 dark:border-slate-800 shrink-0">
+                <CountryLanguageSelector />
+              </div>
             </div>
 
-            {/* Mobile Hamburger Toggle (Liquid Glass Aesthetic) */}
-            <div className="flex items-center gap-2 lg:hidden ml-auto">
+            {/* Mobile Hamburger Toggle & Country/Language Selector */}
+            {/* User Request: Button placed between "Organic Mushroom Farm" and the three-line hamburger menu with clean spacing */}
+            <div className="flex items-center gap-3 sm:gap-4 lg:hidden ml-auto shrink-0">
+              <CountryLanguageSelector />
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(true)}
-                className="p-2 rounded-xl dark:text-white text-slate-900 bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] hover:bg-white/60 dark:hover:bg-white/15 transition-all active:scale-95 focus:outline-none"
+                className="p-2 rounded-xl dark:text-white text-slate-900 bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] hover:bg-white/60 dark:hover:bg-white/15 transition-all active:scale-95 focus:outline-none shrink-0"
                 aria-label="Open Mobile Menu"
               >
-                <Menu size={22} />
+                <Menu size={21} />
               </button>
             </div>
           </div>

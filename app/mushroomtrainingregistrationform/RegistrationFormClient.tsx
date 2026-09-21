@@ -1223,10 +1223,10 @@ export function RegistrationFormClient() {
                 </span>
               </div>
               <p className="leading-relaxed">
-                Is mobile device se maximum 3 registrations pehle hi complete ho chuki hain. Security niyam anusar is mobile se ab aur registration submit nahi kiya ja sakta (Browser data ya cache clear karne ke baad bhi yeh niyam 100% active rehta hai).
+                A maximum of 3 registrations have already been completed from this mobile device. According to our security policy, no further registrations can be submitted from this device (this policy remains 100% active even after clearing browser history or cache).
               </p>
               <div className="pt-1 text-[11px] text-red-700 dark:text-red-300 font-semibold flex items-center gap-2 flex-wrap">
-                <span>Kisi bhi sahayata ya special approval ke liye helpline par call karein:</span>
+                <span>For any assistance or special approval, please call our helpline:</span>
                 <a href="tel:+919203544140" className="underline font-bold text-red-900 dark:text-white">
                   +91 9203544140
                 </a>
@@ -2239,7 +2239,7 @@ export function RegistrationFormClient() {
       {/* KNOW MORE & TRAINING GUIDELINES MODAL */}
       {showKnowMoreModal && (
         <div
-          className="fixed inset-0 z-50 bg-slate-950/45 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 overflow-y-auto"
+          className="fixed inset-0 z-[100000] bg-slate-950/60 backdrop-blur-md flex items-start sm:items-center justify-center p-3 sm:p-5 pt-16 sm:pt-8 pb-20 sm:pb-8 overflow-y-auto"
           onClick={() => setShowKnowMoreModal(false)}
         >
           <div
@@ -2247,23 +2247,25 @@ export function RegistrationFormClient() {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-5 sm:p-6 bg-gradient-to-r from-purple-700 via-sky-700 to-emerald-700 text-white relative pr-14 sm:pr-16">
-              <button
-                type="button"
-                onClick={() => setShowKnowMoreModal(false)}
-                className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-10 h-10 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer z-20 border border-slate-200/80"
-                title="Close (बंद करें)"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5 stroke-[2.5]" />
-              </button>
-
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold text-emerald-200 mb-2 border border-white/20">
-                <Sprout className="w-3.5 h-3.5" />
-                <span>Organic Mushroom Farm • Official Training Portal</span>
+            <div className="p-5 sm:p-6 bg-gradient-to-r from-purple-700 via-sky-700 to-emerald-700 text-white relative">
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold text-emerald-200 border border-white/20">
+                  <Sprout className="w-3.5 h-3.5" />
+                  <span className="truncate max-w-[200px] sm:max-w-none">Training Guidelines (Know More)</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowKnowMoreModal(false)}
+                  className="w-10 h-10 rounded-full bg-white text-slate-800 hover:bg-slate-100 hover:text-red-600 shadow-xl flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shrink-0 border border-slate-200"
+                  title="Close (बंद करें)"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5 stroke-[2.5]" />
+                </button>
               </div>
-              <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
-                Training Admission & Guidelines (Know More)
+
+              <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white pr-2">
+                Training Admission & Guidelines
               </h2>
               <p className="text-xs sm:text-sm text-white/90 mt-1">
                 Review complete curriculum, kit details, daily batch schedule, and seat allocation rules.

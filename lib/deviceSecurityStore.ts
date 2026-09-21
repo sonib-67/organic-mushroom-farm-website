@@ -109,7 +109,7 @@ export function getDeviceRegistrationStatus(deviceId: string, ip?: string): {
     isBlocked,
     allowed: !isBlocked,
     reason: isBlocked
-      ? `Security Alert: Is mobile device se registration ki adhiktam seema (${MAX_REGISTRATIONS_PER_DEVICE} registrations) poori ho chuki hai. Ab is device se aur registration nahi kiya ja sakta. Kripya helpline +91 9203544140 par sampark karein.`
+      ? `Security Alert: The maximum registration limit (${MAX_REGISTRATIONS_PER_DEVICE} registrations) for this mobile device has already been reached. No further registrations can be submitted from this device. Please contact helpline at +91 9203544140 for assistance.`
       : undefined,
   };
 }
@@ -166,7 +166,7 @@ export function recordDeviceRegistration(params: {
       newCount: record.count,
       remaining: 0,
       isBlocked: true,
-      error: `Security Limit Exceeded: Is mobile device se pehle hi ${MAX_REGISTRATIONS_PER_DEVICE} registrations darj hain.`,
+      error: `Security Limit Exceeded: Maximum ${MAX_REGISTRATIONS_PER_DEVICE} registrations have already been completed from this mobile device.`,
     };
   }
 

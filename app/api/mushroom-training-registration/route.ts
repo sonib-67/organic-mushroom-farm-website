@@ -60,7 +60,7 @@ export async function POST(req: Request) {
           {
             error:
               deviceStatus.reason ||
-              "Security Alert: Is mobile device se registration ki maximum seema (3 registrations) poori ho chuki hai. Security niyam anusar ab is device se aur registration nahi kiya ja sakta. Kripya helpline +91 9203544140 par sampark karein.",
+              "Security Alert: The maximum limit of 3 registrations for this mobile device has already been reached. Under security policy, no further registrations can be submitted from this device. Please contact helpline at +91 9203544140 for assistance.",
             isDeviceBlocked: true,
             deviceLimitReached: true,
             deviceQuota: {
