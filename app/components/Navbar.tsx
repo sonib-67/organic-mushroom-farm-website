@@ -40,7 +40,7 @@ interface SubMenuItem {
 interface NavItem {
   name: string;
   href: string;
-  icon: React.ComponentType<{ size?: number; className?: string }> | any;
+  icon: React.ElementType;
   badge?: string;
   subMenu?: SubMenuItem[];
 }
@@ -71,7 +71,6 @@ const NAV_ITEMS: NavItem[] = [
       { name: "Model B (24×80 ft - 3,500 Bags)", href: "#commercial-models", description: "High-yield dual climate unit" },
       { name: "Model C (4-Room - 6,000 Bags)", href: "#commercial-models", description: "Industrial multi-room capacity" },
       { name: "Interactive Setup Estimator", href: "#commercial-models", description: "Custom room size & CapEx calculator" },
-      { name: "3D Farm Interactive Model", href: "/3dcommercialfarmsetup", badge: "3D CAD", description: "Explore 360° & X-Ray Dutch farm setup" },
     ],
   },
   {

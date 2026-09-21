@@ -46,7 +46,7 @@ import {
 import QRCode from "qrcode";
 import { getDeviceFingerprint } from "@/lib/deviceFingerprint";
 
-const OFFICIAL_UPI_ID = "tanishsoni787941-8@okaxis";
+const OFFICIAL_UPI_ID = "tanishsoni787941-2@okaxis";
 const OFFICIAL_PAYEE_NAME = "Organic Mushroom Farm";
 const ADVANCE_BOOKING_FEE = 500;
 const UPI_TRANSACTION_NOTE = "Mushroom Training Seat Booking";
@@ -1915,6 +1915,9 @@ export function RegistrationFormClient() {
                       <span className="font-bold text-xs text-slate-900 dark:text-white block truncate">
                         {OFFICIAL_PAYEE_NAME}
                       </span>
+                      <span className="text-[10px] text-slate-600 dark:text-slate-300 font-mono block truncate">
+                        UPI: {OFFICIAL_UPI_ID}
+                      </span>
                       <span className="text-[9px] text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
                         <Check className="w-2.5 h-2.5 text-emerald-500" /> Bank Verified Training Account
                       </span>
@@ -1981,6 +1984,9 @@ export function RegistrationFormClient() {
                   </div>
                   <span className="font-bold text-xs text-slate-900 dark:text-white truncate block">
                     {OFFICIAL_PAYEE_NAME}
+                  </span>
+                  <span className="text-[10px] text-slate-600 dark:text-slate-300 font-mono block truncate">
+                    UPI: {OFFICIAL_UPI_ID}
                   </span>
                 </div>
                 <button
