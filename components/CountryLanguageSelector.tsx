@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { Globe, ChevronDown, Check, X, RotateCcw, Languages, Sparkles } from "lucide-react";
+import { ArrowLeft, ChevronDown, Check, X, RotateCcw, Languages, Sparkles } from "lucide-react";
 
 export interface LanguageOption {
   code: string;
@@ -150,10 +150,23 @@ declare global {
 
 export function CountryLanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);
+  const [currentStep, setCurrentStep] = useState<"country" | "language">("country");
   const [selectedCountryCode, setSelectedCountryCode] = useState<string>("IN");
   const [currentLangCode, setCurrentLangCode] = useState<string>("en");
   const [isTranslating, setIsTranslating] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  // Close modal on ESC key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+        setCurrentStep("country");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
   // Read cookies & localStorage on client mount
   useEffect(() => {
@@ -201,6 +214,46 @@ export function CountryLanguageSelector() {
       script.async = true;
       document.body.appendChild(script);
     }
+  }, []);
+
+  // Aggressively suppress Google Translate top toolbar banner and keep body at top: 0
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const suppressBanner = () => {
+      // Keep document body and html fixed at top 0
+      if (document.body.style.top && document.body.style.top !== "0px") {
+        document.body.style.setProperty("top", "0px", "important");
+      }
+      if (document.documentElement.style.top && document.documentElement.style.top !== "0px") {
+        document.documentElement.style.setProperty("top", "0px", "important");
+      }
+
+      // Hide all Google banner frames and overlays
+      const banners = document.querySelectorAll<HTMLElement>(
+        ".goog-te-banner-frame, iframe.goog-te-banner-frame, iframe.skiptranslate, body > .skiptranslate, body > div.skiptranslate, [class*='VIpgJd'], #goog-gt-tt"
+      );
+      banners.forEach((el) => {
+        el.style.setProperty("display", "none", "important");
+        el.style.setProperty("visibility", "hidden", "important");
+        el.style.setProperty("height", "0", "important");
+        el.style.setProperty("opacity", "0", "important");
+        el.style.setProperty("pointer-events", "none", "important");
+      });
+    };
+
+    suppressBanner();
+    const interval = setInterval(suppressBanner, 400);
+
+    const observer = new MutationObserver(() => {
+      suppressBanner();
+    });
+    observer.observe(document.body, { childList: true, attributes: true, subtree: true });
+
+    return () => {
+      clearInterval(interval);
+      observer.disconnect();
+    };
   }, []);
 
   // Close modal on Escape key press
@@ -310,7 +363,10 @@ export function CountryLanguageSelector() {
       {/* Language / Country Trigger Button - Clean Lucide Languages Translate Icon */}
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setCurrentStep("country");
+          setIsOpen(true);
+        }}
         className="relative p-1 text-slate-800 dark:text-white hover:text-blue-600 dark:hover:text-sky-400 transition-all hover:scale-110 active:scale-95 cursor-pointer shrink-0 flex items-center justify-center group focus:outline-none mr-0.5"
         title={`Translate / भाषा बदलें (${activeCountry.name} - ${displayLangName})`}
         aria-label="Translate Website - भाषा बदलें"
@@ -324,157 +380,187 @@ export function CountryLanguageSelector() {
       {/* Floating Modal for Country & Language Selection */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-[100002] bg-slate-950/60 backdrop-blur-md flex items-start sm:items-center justify-center p-3 sm:p-5 pt-16 sm:pt-8 pb-16 overflow-y-auto"
-          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 z-[100002] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4"
+          onClick={() => {
+            setIsOpen(false);
+            setCurrentStep("country");
+          }}
         >
           <div
             ref={modalRef}
-            className="relative w-full max-w-xl bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
+            className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[86vh] animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-4 sm:p-5 bg-gradient-to-r from-purple-700 via-indigo-700 to-emerald-700 text-white relative">
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
-                    <Languages className="w-5 h-5 text-white" />
+            <div className="p-3.5 sm:p-4 bg-gradient-to-r from-purple-700 via-indigo-700 to-emerald-700 text-white relative shrink-0">
+              <div className="flex items-center justify-between gap-2.5">
+                <div className="flex items-center gap-2 min-w-0">
+                  {/* Small Header Icon requested by user */}
+                  <div className="w-6 h-6 rounded-md bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+                    <Languages className="w-3.5 h-3.5 text-white" />
                   </div>
-                  <div>
-                    <h3 className="font-extrabold text-sm sm:text-base text-white tracking-tight flex items-center gap-1.5">
-                      <span>Select Country & Language</span>
+                  <div className="min-w-0">
+                    <h3 className="font-extrabold text-xs sm:text-sm text-white tracking-tight truncate">
+                      {currentStep === "country"
+                        ? "Choose Your Country (देश चुनें)"
+                        : `Choose Language for ${activeCountry.name}`}
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-emerald-200 font-medium">
-                      देश और अपनी भाषा चुनें (Instant Translation)
+                    <p className="text-[10px] sm:text-[11px] text-emerald-200 font-medium truncate">
+                      {currentStep === "country"
+                        ? "Step 1 of 2: Pehle apna desh chunein"
+                        : `${activeCountry.hindiName} ki bhasha chunein (Instant Translation)`}
                     </p>
                   </div>
                 </div>
 
                 <button
                   type="button"
-                  onClick={() => setIsOpen(false)}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shrink-0 border border-white/40"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setCurrentStep("country");
+                  }}
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer shrink-0 border border-white/40"
                   title="Close (बंद करें)"
                   aria-label="Close translation menu"
                 >
-                  <X className="w-4 h-4 stroke-[2.5]" />
+                  <X className="w-3.5 h-3.5 stroke-[2.5]" />
                 </button>
               </div>
             </div>
 
             {/* Modal Body */}
-            <div className="p-4 sm:p-6 space-y-5 max-h-[72vh] overflow-y-auto">
-              {/* Step 1: Country Selection */}
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                    <span className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-[11px] font-bold flex items-center justify-center">
-                      1
+            <div className="p-4 sm:p-5 space-y-4 overflow-y-auto flex-1">
+              {currentStep === "country" ? (
+                /* STEP 1: COUNTRIES VIEW */
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200">
+                      Select Your Country / अपना देश चुनें:
                     </span>
-                    <span>Step 1: Choose Country (देश चुनें)</span>
-                  </span>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
-                    {activeCountry.flag} {activeCountry.name}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {COUNTRIES.map((country) => {
-                    const isSelected = country.code === selectedCountryCode;
-                    return (
-                      <button
-                        key={country.code}
-                        type="button"
-                        onClick={() => setSelectedCountryCode(country.code)}
-                        className={`p-2.5 rounded-2xl border text-left flex items-center gap-2.5 transition-all cursor-pointer ${
-                          isSelected
-                            ? "bg-purple-50 dark:bg-purple-950/40 border-purple-500 shadow-sm ring-2 ring-purple-500/20"
-                            : "bg-slate-50/70 dark:bg-slate-800/50 border-slate-200/80 dark:border-slate-700/80 hover:bg-white dark:hover:bg-slate-800 hover:border-purple-300"
-                        }`}
-                      >
-                        <span className="text-xl sm:text-2xl shrink-0">{country.flag}</span>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                            {country.name}
-                          </p>
-                          <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
-                            {country.hindiName}
-                          </p>
-                        </div>
-                        {isSelected && (
-                          <Check className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Step 2: Language Selection for selected Country */}
-              <div>
-                <div className="flex items-center justify-between gap-2 mb-2.5">
-                  <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                    <span className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold flex items-center justify-center">
-                      2
+                    <span className="text-[11px] text-purple-600 dark:text-purple-400 font-bold">
+                      Tap country to view languages →
                     </span>
-                    <span>Step 2: Choose Language for {activeCountry.name}</span>
-                  </span>
-                  <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                    <Sparkles className="w-3 h-3" />
-                    <span>Instant Translate</span>
-                  </span>
-                </div>
+                  </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                  {activeCountry.languages.map((lang) => {
-                    const isLangActive = currentLangCode === lang.code;
-                    return (
-                      <button
-                        key={lang.code}
-                        type="button"
-                        onClick={() => applyTranslation(lang.code, activeCountry.code)}
-                        className={`p-3 rounded-2xl border text-left flex items-center justify-between gap-2 transition-all cursor-pointer ${
-                          isLangActive
-                            ? "bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/50 dark:to-teal-950/40 border-emerald-500 shadow-md ring-2 ring-emerald-500/25"
-                            : "bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-emerald-400 hover:bg-emerald-50/40 dark:hover:bg-slate-750"
-                        }`}
-                      >
-                        <div className="min-w-0">
-                          <p
-                            className={`text-xs sm:text-sm font-black ${
-                              isLangActive
-                                ? "text-emerald-900 dark:text-emerald-200"
-                                : "text-slate-900 dark:text-white"
-                            }`}
-                          >
-                            {lang.nativeName}
-                          </p>
-                          <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-                            {lang.name}
-                          </p>
-                        </div>
-                        {isLangActive ? (
-                          <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 text-[10px]">
-                            ✓
-                          </span>
-                        ) : (
-                          <span className="text-[10px] text-slate-400 font-mono">
-                            {lang.code.toUpperCase()}
-                          </span>
-                        )}
-                      </button>
-                    );
-                  })}
+                  <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
+                    {COUNTRIES.map((country) => {
+                      const isSelected = country.code === selectedCountryCode;
+                      return (
+                        <button
+                          key={country.code}
+                          type="button"
+                          onClick={() => {
+                            setSelectedCountryCode(country.code);
+                            try {
+                              localStorage.setItem("omf_selected_country", country.code);
+                            } catch {}
+                            setCurrentStep("language");
+                          }}
+                          className={`p-2.5 sm:p-3 rounded-2xl border text-left flex items-center gap-2.5 transition-all cursor-pointer hover:scale-[1.02] active:scale-95 ${
+                            isSelected
+                              ? "bg-purple-50 dark:bg-purple-950/40 border-purple-500 shadow-sm ring-2 ring-purple-500/20"
+                              : "bg-slate-50/80 dark:bg-slate-800/60 border-slate-200/90 dark:border-slate-700/80 hover:bg-white dark:hover:bg-slate-800 hover:border-purple-300"
+                          }`}
+                        >
+                          <span className="text-2xl sm:text-3xl shrink-0">{country.flag}</span>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">
+                              {country.name}
+                            </p>
+                            <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                              {country.hindiName}
+                            </p>
+                          </div>
+                          <span className="text-slate-400 text-xs shrink-0 font-bold">→</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                /* STEP 2: LANGUAGES VIEW (Country list disappears, languages appear!) */
+                <div>
+                  {/* Back to Country Button */}
+                  <div className="mb-3.5 flex items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setCurrentStep("country")}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-100 hover:bg-purple-200 dark:bg-purple-950/60 dark:hover:bg-purple-900/80 text-purple-800 dark:text-purple-200 border border-purple-300 dark:border-purple-800 text-xs font-bold transition-all cursor-pointer active:scale-95 shadow-xs"
+                    >
+                      <ArrowLeft className="w-3.5 h-3.5" />
+                      <span>← Change Country (वापस देश बदलें)</span>
+                    </button>
+
+                    <span className="text-xs font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">
+                      <span>{activeCountry.flag}</span>
+                      <span>{activeCountry.name}</span>
+                    </span>
+                  </div>
+
+                  <div className="mb-2.5 flex items-center justify-between gap-2">
+                    <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                      <span>Choose Your Language (अपनी भाषा चुनें):</span>
+                    </span>
+                    <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
+                      <Sparkles className="w-3 h-3" />
+                      <span>Instant</span>
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
+                    {activeCountry.languages.map((lang) => {
+                      const isLangActive = currentLangCode === lang.code;
+                      return (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => {
+                            applyTranslation(lang.code, activeCountry.code);
+                          }}
+                          className={`p-3 rounded-2xl border text-left flex items-center justify-between gap-2 transition-all cursor-pointer hover:scale-[1.02] active:scale-95 ${
+                            isLangActive
+                              ? "bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/50 dark:to-teal-950/40 border-emerald-500 shadow-md ring-2 ring-emerald-500/25"
+                              : "bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700 hover:border-emerald-400 hover:bg-emerald-50/40 dark:hover:bg-slate-750"
+                          }`}
+                        >
+                          <div className="min-w-0">
+                            <p
+                              className={`text-xs sm:text-sm font-black ${
+                                isLangActive
+                                  ? "text-emerald-900 dark:text-emerald-200"
+                                  : "text-slate-900 dark:text-white"
+                              }`}
+                            >
+                              {lang.nativeName}
+                            </p>
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
+                              {lang.name}
+                            </p>
+                          </div>
+                          {isLangActive ? (
+                            <span className="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 text-[10px] font-bold">
+                              ✓
+                            </span>
+                          ) : (
+                            <span className="text-[10px] text-slate-400 font-mono">
+                              {lang.code.toUpperCase()}
+                            </span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               {/* Status & Reset to Original */}
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-3 flex-wrap">
+              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2 flex-wrap">
                 <div className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
                   <Languages className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
                   <span>
-                    Current Language:{" "}
+                    Selected:{" "}
                     <strong className="text-slate-800 dark:text-white">
-                      {displayLangName} ({currentLangCode.toUpperCase()})
+                      {activeCountry.flag} {displayLangName} ({currentLangCode.toUpperCase()})
                     </strong>
                   </span>
                 </div>
@@ -482,10 +568,10 @@ export function CountryLanguageSelector() {
                 <button
                   type="button"
                   onClick={handleResetToEnglish}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition-all cursor-pointer active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-[11px] font-bold transition-all cursor-pointer active:scale-95"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  <span>Reset to English (मूल भाषा)</span>
+                  <span>Reset English</span>
                 </button>
               </div>
 

@@ -242,32 +242,44 @@ body.offline-checklist-open [class*="bottom-[85px"] {
 }
 
 /* ==========================================================================
-   Google Translate Layout Isolation (Zero UI Distortion)
+   Google Translate Layout Isolation (Zero UI Distortion & Hide Top Banner)
    ========================================================================== */
 .goog-te-banner-frame.skiptranslate,
 .goog-te-banner-frame,
 iframe.goog-te-banner-frame,
-.goog-te-balloon-frame {
+iframe.skiptranslate,
+body > .skiptranslate,
+body > div.skiptranslate,
+.skiptranslate > iframe,
+#goog-gt-tt,
+#goog-gt-vt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-text-highlight,
+iframe[id*=":1.container"],
+iframe[id*=":2.container"],
+[class*="VIpgJd"],
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO,
+.VIpgJd-yAWNEb-hvhGLS-j7Ihvf,
+.VIpgJd-ZVi9od-OR9Gae-content {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
+  max-height: 0 !important;
+  width: 0 !important;
   opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  z-index: -9999 !important;
 }
 
-body {
+html, body {
   top: 0px !important;
   position: static !important;
-}
-
-#goog-gt-tt,
-#goog-gt-vt {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-.goog-text-highlight {
-  background: transparent !important;
-  box-shadow: none !important;
 }
 
 .goog-te-gadget {
