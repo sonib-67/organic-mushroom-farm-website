@@ -123,20 +123,133 @@ const DynamicGreeting = () => {
 
   // 3. Slides list
   const rawSlides = weather ? [
-    { id: 'welcome', content: <>Welcome To Organic Mushroom Farm <span className="inline-block">🍄</span></> },
-    { id: 'greeting', content: <>{greeting.text} <span className="inline-block">{greeting.icon}</span></> },
-    { id: 'temp', content: <>{weather.locationStr}: {weather.temp}°C, Humidity {weather.humidity}% <span className="inline-block">🌡️</span></> },
-    { id: 'cloud', content: <>Cloud Cover: {weather.cloudCover}% <span className="inline-block">☁️</span></> },
-    { id: 'dew', content: <>Dew Point: {weather.dewPoint}°C <span className="inline-block">🌫️</span></> },
-    { id: 'wind', content: <>Wind Speed: {weather.windSpeed} km/h <span className="inline-block">💨</span></> },
-    { id: 'uv', content: <>UV Index: {weather.uvIndex} <span className="inline-block">☀️</span></> },
-    (weather.rain ?? 0) > 0 ? { id: 'rain', content: <>Rain: {weather.rain} mm <span className="inline-block">🌧️</span></> } : null,
-    { id: 'pressure', content: <>Air Pressure: {weather.airPressure} hPa <span className="inline-block">📉</span></> },
-    { id: 'suggestion', content: <>{weather.temp !== undefined ? getSuggestion(weather.temp) : ''}</> }
+    {
+      id: 'welcome',
+      content: (
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-1 text-[9px] xs:text-[10px] sm:text-xs leading-tight">
+          <span>Welcome To</span>
+          <span className="whitespace-nowrap font-bold text-emerald-700 dark:text-emerald-300">
+            Organic Mushroom Farm <span className="inline-block">🍄</span>
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'greeting',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>{greeting.text}</span>
+          <span className="inline-block">{greeting.icon}</span>
+        </div>
+      )
+    },
+    {
+      id: 'temp',
+      content: (
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-1 text-[9px] xs:text-[10px] sm:text-xs leading-tight">
+          <span className="font-semibold text-slate-700 dark:text-slate-300 truncate max-w-[140px] xs:max-w-[170px] sm:max-w-none">
+            {weather.locationStr}
+          </span>
+          <span className="whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-bold">
+            {weather.temp}°C, Humidity {weather.humidity}% <span className="inline-block">🌡️</span>
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'cloud',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>Cloud Cover:</span>
+          <span className="font-bold text-emerald-700 dark:text-emerald-300">{weather.cloudCover}% <span className="inline-block">☁️</span></span>
+        </div>
+      )
+    },
+    {
+      id: 'dew',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>Dew Point:</span>
+          <span className="font-bold text-emerald-700 dark:text-emerald-300">{weather.dewPoint}°C <span className="inline-block">🌫️</span></span>
+        </div>
+      )
+    },
+    {
+      id: 'wind',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>Wind Speed:</span>
+          <span className="font-bold text-emerald-700 dark:text-emerald-300">{weather.windSpeed} km/h <span className="inline-block">💨</span></span>
+        </div>
+      )
+    },
+    {
+      id: 'uv',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>UV Index:</span>
+          <span className="font-bold text-emerald-700 dark:text-emerald-300">{weather.uvIndex} <span className="inline-block">☀️</span></span>
+        </div>
+      )
+    },
+    (weather.rain ?? 0) > 0 ? {
+      id: 'rain',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>Rain:</span>
+          <span className="font-bold text-emerald-700 dark:text-emerald-300">{weather.rain} mm <span className="inline-block">🌧️</span></span>
+        </div>
+      )
+    } : null,
+    {
+      id: 'pressure',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>Air Pressure:</span>
+          <span className="font-bold text-emerald-700 dark:text-emerald-300">{weather.airPressure} hPa <span className="inline-block">📉</span></span>
+        </div>
+      )
+    },
+    {
+      id: 'suggestion',
+      content: (
+        <div className="flex items-center gap-1 text-[9px] xs:text-[10px] sm:text-xs leading-tight font-bold text-purple-600 dark:text-purple-300 truncate max-w-[160px] xs:max-w-[200px] sm:max-w-none">
+          {weather.temp !== undefined ? getSuggestion(weather.temp) : ''}
+        </div>
+      )
+    }
   ] : [
-    { id: 'welcome', content: <>Welcome To Organic Mushroom Farm <span className="inline-block">🍄</span></> },
-    { id: 'greeting', content: <>{greeting.text} <span className="inline-block">{greeting.icon}</span></> },
-    { id: 'weather-default', content: <>India: 24°C, Humidity 96% <span className="inline-block">🌡️</span></> }
+    {
+      id: 'welcome',
+      content: (
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-1 text-[9px] xs:text-[10px] sm:text-xs leading-tight">
+          <span>Welcome To</span>
+          <span className="whitespace-nowrap font-bold text-emerald-700 dark:text-emerald-300">
+            Organic Mushroom Farm <span className="inline-block">🍄</span>
+          </span>
+        </div>
+      )
+    },
+    {
+      id: 'greeting',
+      content: (
+        <div className="flex items-center gap-1 text-[9.5px] xs:text-[10px] sm:text-xs leading-tight whitespace-nowrap">
+          <span>{greeting.text}</span>
+          <span className="inline-block">{greeting.icon}</span>
+        </div>
+      )
+    },
+    {
+      id: 'weather-default',
+      content: (
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-1 text-[9px] xs:text-[10px] sm:text-xs leading-tight">
+          <span className="font-semibold text-slate-700 dark:text-slate-300">India:</span>
+          <span className="whitespace-nowrap text-emerald-600 dark:text-emerald-400 font-bold">
+            24°C, Humidity 96% <span className="inline-block">🌡️</span>
+          </span>
+        </div>
+      )
+    }
   ];
 
   // Filter out any null slides
@@ -153,15 +266,15 @@ const DynamicGreeting = () => {
   }, [slideIndex, slides.length]);
 
   return (
-    <div className="relative text-[10px] xs:text-[11px] sm:text-xs font-semibold text-emerald-600 dark:text-emerald-400 tracking-normal flex items-center h-4.5 sm:h-5 overflow-hidden will-change-transform">
+    <div className="relative text-[10px] xs:text-[11px] sm:text-xs font-semibold text-emerald-600 dark:text-emerald-400 tracking-normal flex items-center min-h-[16px] sm:h-5 max-w-full overflow-hidden will-change-transform">
       <AnimatePresence mode="wait">
         <motion.div
           key={slides[slideIndex]?.id || 'fallback'}
-          initial={{ y: 10, opacity: 0 }}
+          initial={{ y: 6, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -10, opacity: 0 }}
+          exit={{ y: -6, opacity: 0 }}
           transition={{ duration: 0.22, ease: "easeOut" }}
-          className="flex items-center gap-1 whitespace-nowrap"
+          className="flex items-center gap-1 w-full min-w-0"
         >
           {slides[slideIndex]?.content}
         </motion.div>

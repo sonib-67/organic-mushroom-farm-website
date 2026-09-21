@@ -244,11 +244,11 @@ export const Navbar = () => {
             {/* Subtle Neon Horizon Line (Bottom) */}
             <div className="absolute inset-x-4 bottom-0 h-[1px] bg-gradient-to-r from-purple-500/15 via-sky-400/22 to-emerald-400/18 dark:from-purple-500/25 dark:via-sky-400/30 dark:to-emerald-400/25 pointer-events-none" />
           </div>
-          <div className="flex items-center justify-between w-full max-w-7xl mx-auto gap-2">
+          <div className="flex items-center justify-between w-full max-w-7xl mx-auto gap-1.5 sm:gap-2 min-w-0">
             {/* Branding & Dynamic Greeting */}
             <Link
               href="/"
-              className="flex items-center gap-1.5 sm:gap-2.5 group shrink-0"
+              className="flex items-center gap-1.5 sm:gap-2.5 group min-w-0 flex-1 lg:flex-initial overflow-hidden mr-1"
               aria-label="Organic Mushroom Farm Home"
             >
               <img
@@ -258,8 +258,8 @@ export const Navbar = () => {
                 width="40"
                 height="40"
               />
-              <div className="flex flex-col">
-                <span className="text-[13px] xs:text-[15px] sm:text-base md:text-lg font-black tracking-tight leading-tight text-slate-900 dark:text-white drop-shadow-sm">
+              <div className="flex flex-col min-w-0 max-w-full">
+                <span className="text-[13px] xs:text-[15px] sm:text-base md:text-lg font-black tracking-tight leading-tight text-slate-900 dark:text-white drop-shadow-sm truncate">
                   Organic <span className="text-purple-500 dark:text-purple-300">Mushroom Farm</span>
                 </span>
                 <DynamicGreeting />
@@ -329,7 +329,7 @@ export const Navbar = () => {
 
             {/* Mobile Hamburger Toggle & Country/Language Selector */}
             {/* User Request: Button placed between "Organic Mushroom Farm" and the three-line hamburger menu with clean spacing */}
-            <div className="flex items-center gap-3 sm:gap-4 lg:hidden ml-auto shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 lg:hidden ml-auto shrink-0">
               <CountryLanguageSelector />
               <button
                 type="button"
@@ -337,7 +337,7 @@ export const Navbar = () => {
                 className="p-2 rounded-xl dark:text-white text-slate-900 bg-white/40 dark:bg-white/5 border border-white/50 dark:border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)] hover:bg-white/60 dark:hover:bg-white/15 transition-all active:scale-95 focus:outline-none shrink-0"
                 aria-label="Open Mobile Menu"
               >
-                <Menu size={21} />
+                <Menu size={20} />
               </button>
             </div>
           </div>

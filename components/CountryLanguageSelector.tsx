@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { ArrowLeft, ChevronDown, Check, X, RotateCcw, Languages, Sparkles } from "lucide-react";
 
 export interface LanguageOption {
@@ -149,12 +150,17 @@ declare global {
 }
 
 export function CountryLanguageSelector() {
+  const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState<"country" | "language">("country");
   const [selectedCountryCode, setSelectedCountryCode] = useState<string>("IN");
   const [currentLangCode, setCurrentLangCode] = useState<string>("en");
   const [isTranslating, setIsTranslating] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close modal on ESC key
   useEffect(() => {
@@ -377,10 +383,10 @@ export function CountryLanguageSelector() {
         </span>
       </button>
 
-      {/* Floating Modal for Country & Language Selection */}
-      {isOpen && (
+      {/* Floating Modal for Country & Language Selection - Portal to document.body ensures perfect screen centering */}
+      {mounted && isOpen && typeof document !== "undefined" && createPortal(
         <div
-          className="fixed inset-0 z-[100002] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4"
+          className="fixed inset-0 z-[999999] bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
           onClick={() => {
             setIsOpen(false);
             setCurrentStep("country");
@@ -388,7 +394,7 @@ export function CountryLanguageSelector() {
         >
           <div
             ref={modalRef}
-            className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[86vh] animate-in fade-in zoom-in-95 duration-200"
+            className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[82vh] my-auto animate-in fade-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
@@ -578,12 +584,13 @@ export function CountryLanguageSelector() {
               {isTranslating && (
                 <div className="p-2.5 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-300 dark:border-purple-800 text-center text-xs font-bold text-purple-800 dark:text-purple-200 animate-pulse flex items-center justify-center gap-2">
                   <div className="w-3.5 h-3.5 border-2 border-purple-600 border-t-transparent rounded-full animate-spin" />
-                  <span>Translating website... Kripya 1 second pratiksha karein...</span>
+                  <span>Translating website... Please wait a moment...</span>
                 </div>
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
