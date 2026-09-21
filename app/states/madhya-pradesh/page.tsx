@@ -87,12 +87,12 @@ const structuredData = {
 
 export default function MadhyaPradeshPage() {
   return (
-    <main className="min-h-screen pt-24 md:pt-32 pb-12 relative z-10 font-sans">
+    <div className="w-full pb-16 relative z-10 font-sans">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <MadhyaPradeshClient />
-    </main>
+    </div>
   );
 }
