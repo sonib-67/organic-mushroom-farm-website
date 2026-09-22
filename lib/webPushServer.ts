@@ -10,7 +10,14 @@ interface VapidKeys {
 
 const DATA_DIR = path.join(process.cwd(), ".data");
 const VAPID_FILE = path.join(DATA_DIR, "vapid_keys.json");
-const VAPID_SUBJECT = process.env.VAPID_SUBJECT || "mailto:support@organicmushroomfarm.com";
+export const VAPID_SUBJECT = process.env.VAPID_SUBJECT || "mailto:support@organicmushroomsfarm.com";
+
+export const VAPID_BUSINESS_IDENTITY = {
+  subject: VAPID_SUBJECT,
+  company: "Organic Mushrooms Farm India",
+  website: "https://organicmushroomsfarm.com",
+  supportEmail: "support@organicmushroomsfarm.com"
+};
 
 let cachedKeys: VapidKeys | null = null;
 

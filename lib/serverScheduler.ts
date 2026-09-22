@@ -1,6 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { getAllPushSubscribers, recordPushSent } from "./notificationStore";
+import {
+  getAllPushSubscribers,
+  recordPushSent,
+  evaluateAntiFatigueCooldown,
+  AntiFatigueStatus
+} from "./notificationStore";
 import { generateDailyAiNotification } from "./aiNotificationGenerator";
 import { sendWebPushNotification } from "./webPushServer";
 
@@ -35,7 +40,10 @@ function recordExecution(slotKey: string) {
   }
 }
 
-export async function executeDailyNotificationDispatch(forcedSlot?: "10am" | "5pm") {
+export async function executeDailyNotificationDispatch(
+  forcedSlot?: "10am" | "5pm",
+  bypassCooldown?: boolean
+) {
   const subscribers = getAllPushSubscribers();
   const nowIst = new Date(Date.now() + 5.5 * 60 * 60 * 1000);
   const hour = nowIst.getUTCHours();
@@ -53,11 +61,39 @@ export async function executeDailyNotificationDispatch(forcedSlot?: "10am" | "5p
     url: string;
     pushSent: boolean;
     pushError?: string;
+    skipped?: boolean;
+    reason?: string;
   }> = [];
 
   for (const sub of subscribers) {
     const state = sub.state || "Madhya Pradesh";
     const lang = sub.language || "hi";
+
+    // 🛡️ ANTI-FATIGUE & COOLDOWN ENGINE CHECK
+    // Protects users from spam notifications:
+    // - Enforces 4-hour minimum interval between notifications
+    // - Enforces max 2 notifications per calendar day
+    // - Enforces quiet hours (9:00 PM to 8:00 AM IST)
+    const fatigue = evaluateAntiFatigueCooldown(sub, {
+      minCooldownMinutes: 240, // 4 hours
+      maxPerDay: 2,
+      bypassQuietHours: Boolean(forcedSlot)
+    });
+
+    if (!fatigue.allowed && !bypassCooldown) {
+      results.push({
+        subscriberId: sub.id,
+        state,
+        slot: activeSlot,
+        title: "Protected by Anti-Fatigue Engine",
+        url: "",
+        pushSent: false,
+        skipped: true,
+        reason: fatigue.reason
+      });
+      continue;
+    }
+
     const cacheKey = `${state}_${lang}_${activeSlot}`;
 
     if (!stateCache[cacheKey]) {

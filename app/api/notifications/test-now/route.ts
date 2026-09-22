@@ -7,14 +7,16 @@ export async function GET(req: Request) {
     const url = new URL(req.url);
     const slot = (url.searchParams.get("slot") as "10am" | "5pm") || "10am";
     const state = url.searchParams.get("state") || "Madhya Pradesh";
+    const bypassCooldown = url.searchParams.get("bypassCooldown") === "true";
 
     const previewMessage = await generateDailyAiNotification(slot, state, "hi");
-    const dispatchReport = await executeDailyNotificationDispatch(slot);
+    const dispatchReport = await executeDailyNotificationDispatch(slot, bypassCooldown);
 
     return NextResponse.json({
       success: true,
       message: `Instant test dispatched for ${slot} slot!`,
       slot,
+      antiFatigueEngineActive: !bypassCooldown,
       previewMessage,
       dispatchReport
     });

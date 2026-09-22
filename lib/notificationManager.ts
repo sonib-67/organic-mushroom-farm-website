@@ -443,6 +443,16 @@ export function scheduleFunnelRecovery(funnel: FunnelType, stateName?: string, l
     return;
   }
 
+  // 🛡️ Client-Side Anti-Fatigue Engine:
+  // If a notification was sent in the last 4 hours on this device, skip recovery
+  const lastClientPush = localStorage.getItem("omf_last_push_timestamp");
+  if (lastClientPush) {
+    const elapsedMinutes = (Date.now() - Number(lastClientPush)) / (60 * 1000);
+    if (elapsedMinutes < 240) {
+      return;
+    }
+  }
+
   const state = stateName || "आपके राज्य";
   const isHindi = !lang || lang === "hi" || ["Madhya Pradesh", "Uttar Pradesh", "Bihar", "Rajasthan", "Haryana", "Delhi", "Chhattisgarh", "Jharkhand", "Uttarakhand", "Himachal Pradesh", "Punjab"].includes(state);
 
@@ -454,6 +464,7 @@ export function scheduleFunnelRecovery(funnel: FunnelType, stateName?: string, l
 
   try {
     sessionStorage.setItem(sessionKey, "true");
+    localStorage.setItem("omf_last_push_timestamp", String(Date.now()));
 
     if (navigator.serviceWorker && navigator.serviceWorker.controller) {
       navigator.serviceWorker.controller.postMessage({
