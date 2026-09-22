@@ -143,19 +143,40 @@ export async function subscribeToPush(): Promise<{ success: boolean; permission:
       }
 
       // 6. EXACT USER REQUIREMENT: Trigger confirmation notification after 5 seconds
+      // We send it to Service Worker so even if user closes/refreshes tab, it triggers!
+      const notifPayload = {
+        title: "🍄 Organic Mushroom Farm: Alerts Active!",
+        options: {
+          body: `Welcome! You will now receive timely ${geo.state} training batch alerts, daily profit tips & subsidy updates.`,
+          icon: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
+          badge: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
+          tag: "omf-confirmation-5s",
+          vibrate: [200, 100, 200],
+          data: { url: "/mushroomtrainingregistrationform" }
+        }
+      };
+
+      try {
+        if (navigator.serviceWorker.controller) {
+          navigator.serviceWorker.controller.postMessage({
+            type: "SCHEDULE_NOTIFICATION",
+            delayMs: 5000,
+            title: notifPayload.title,
+            options: notifPayload.options
+          });
+        }
+      } catch (postErr) {
+        console.warn("Could not postMessage to SW controller:", postErr);
+      }
+
+      // Also keep window fallback timer
       setTimeout(async () => {
         try {
           if (registration) {
-            registration.showNotification("🍄 Organic Mushroom Farm: Alerts Active!", {
-              body: `Welcome! You will now receive timely ${geo.state} training batch alerts, daily profit tips & subsidy updates.`,
-              icon: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-              badge: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-              tag: "omf-confirmation-5s",
-              data: { url: "/mushroomtrainingregistrationform" }
-            });
+            registration.showNotification(notifPayload.title, notifPayload.options);
           }
         } catch (notifErr) {
-          console.warn("Notice showing 5s confirmation notification:", notifErr);
+          console.warn("Notice showing 5s confirmation notification fallback:", notifErr);
         }
       }, 5000);
 
@@ -194,17 +215,9 @@ export function isBannerDismissedOrMuted(): boolean {
       return true;
     }
 
-    // Check 14-day mute expiration
-    const mutedUntil = localStorage.getItem("omf_notif_muted_until");
-    if (mutedUntil && Number(mutedUntil) > Date.now()) {
-      return true;
-    }
-
-    // Check dismiss count (2 times rule requested by user)
-    const count = parseInt(localStorage.getItem("omf_notif_dismiss_count") || "0", 10);
-    if (count >= 2) {
-      return true;
-    }
+    // User requirement: Removed the 2-times limit and 14-days mute.
+    // The banner will show on visits until user allows or explicitly blocks.
+    return false;
   } catch {
     // ignore
   }
@@ -217,13 +230,61 @@ export function recordBannerDismiss(): void {
   try {
     const count = parseInt(localStorage.getItem("omf_notif_dismiss_count") || "0", 10) + 1;
     localStorage.setItem("omf_notif_dismiss_count", count.toString());
-
-    // If dismissed twice, mute for 14 days
-    if (count >= 2) {
-      const twoWeeksLater = Date.now() + 14 * 24 * 60 * 60 * 1000;
-      localStorage.setItem("omf_notif_muted_until", twoWeeksLater.toString());
-    }
   } catch {
     // ignore
+  }
+}
+
+/**
+ * 10-Second Abandoned Training Flow Recovery Trigger
+ * When a visitor views the training registration page and leaves without completing payment,
+ * this schedules a personalized notification 10 seconds after leaving.
+ */
+export function scheduleAbandonedTrainingRecovery(stateName?: string, lang?: string): void {
+  if (typeof window === "undefined" || !("Notification" in window)) return;
+  if (Notification.permission !== "granted" && localStorage.getItem("omf_push_status") !== "granted") {
+    return;
+  }
+
+  const state = stateName || "आपके राज्य";
+  const isHindi = !lang || lang === "hi" || ["Madhya Pradesh", "Uttar Pradesh", "Bihar", "Rajasthan", "Haryana", "Delhi", "Chhattisgarh", "Jharkhand", "Uttarakhand", "Himachal Pradesh", "Punjab"].includes(state);
+
+  const title = isHindi
+    ? `🍄 [${state}] मशरूम ट्रेनिंग सीट पेंडिंग!`
+    : `🍄 [${state}] Mushroom Training Seat on Hold!`;
+
+  const body = isHindi
+    ? `बैच में सिर्फ 25 सीटें हैं। क्या आपको फॉर्म भरने में सहायता चाहिए? ₹500 टोकन से सीट सुरक्षित करें।`
+    : `Only 25 seats per batch. Need help completing your registration? Reserve your seat now.`;
+
+  try {
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        type: "SCHEDULE_ABANDONED_TRAINING",
+        delayMs: 10000,
+        title,
+        options: {
+          body,
+          url: "/mushroomtrainingregistrationform",
+          icon: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
+          badge: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png"
+        }
+      });
+    }
+  } catch (err) {
+    console.warn("Could not postMessage SCHEDULE_ABANDONED_TRAINING:", err);
+  }
+}
+
+export function cancelAbandonedTrainingRecovery(): void {
+  if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
+  try {
+    if (navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        type: "CANCEL_ABANDONED_TRAINING"
+      });
+    }
+  } catch (err) {
+    console.warn("Could not postMessage CANCEL_ABANDONED_TRAINING:", err);
   }
 }

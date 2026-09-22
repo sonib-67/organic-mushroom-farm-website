@@ -6,6 +6,7 @@ import { TopLoadingBar } from "@/components/TopLoadingBar";
 import { OfflineInspectionChecklist } from "@/components/OfflineInspectionChecklist";
 import { MyceliumBackground } from "@/components/MyceliumBackground";
 import { ConditionalWidgets } from "@/components/ConditionalWidgets";
+import { TrainingAbandonmentTracker } from "@/components/TrainingAbandonmentTracker";
 import "@/app/globals.css";
 
 const inter = Inter({
@@ -198,6 +199,9 @@ export default function RootLayout({
         </main>
 
         <ConditionalWidgets />
+
+        {/* 10-Second Abandoned Training Recovery Tracker */}
+        <TrainingAbandonmentTracker />
 
         {/* Offline Farm Inspection Checklist (Works 100% without internet) */}
         <OfflineInspectionChecklist />

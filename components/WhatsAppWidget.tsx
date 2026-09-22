@@ -2,23 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle } from "lucide-react";
-import {
-  isNotificationSupported,
-  getNotificationPermission,
-  subscribeToPush,
-} from "@/lib/notificationManager";
 
 export const WhatsAppWidget = () => {
   // Replace with your actual WhatsApp number with country code (e.g., 91 for India)
   const whatsappNumber = "919203544140"; 
   const [isHidden, setIsHidden] = useState(false);
-
-  const handleWhatsAppClick = () => {
-    // Seamlessly trigger notification permission request on user tap if not already decided
-    if (isNotificationSupported() && getNotificationPermission() === "default") {
-      subscribeToPush().catch(() => {});
-    }
-  };
 
   useEffect(() => {
     const handleMobileMenuToggle = (e: CustomEvent) => {
@@ -52,12 +40,11 @@ export const WhatsAppWidget = () => {
               href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleWhatsAppClick}
               aria-label="Contact us on WhatsApp"
               initial={{ scale: 0, opacity: 1 }}
               animate={{ scale: 1, opacity: 1 }}
               whileHover={{ scale: 1.1 }}
-              className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all z-10 shrink-0 group relative"
+              className="w-10 h-10 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] hover:shadow-[0_0_25px_rgba(37,211,102,0.6)] transition-all z-10 shrink-0 group relative cursor-pointer"
             >
               {/* Ping Animation Effect */}
               <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 group-hover:opacity-40" />
