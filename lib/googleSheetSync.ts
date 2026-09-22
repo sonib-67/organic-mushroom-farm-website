@@ -128,6 +128,7 @@ export async function fetchSubscribersFromGoogleSheet(): Promise<any[]> {
   try {
     const url = new URL(webhookUrl);
     url.searchParams.set("action", "get_subscribers");
+    url.searchParams.set("type", "push");
 
     const res = await fetch(url.toString(), {
       method: "GET",
@@ -144,7 +145,39 @@ export async function fetchSubscribersFromGoogleSheet(): Promise<any[]> {
       }
     }
   } catch (err) {
-    console.warn("[GoogleSheetSync] Could not fetch subscribers from Google Sheet:", err);
+    console.warn("[GoogleSheetSync] Could not fetch push subscribers from Google Sheet:", err);
+  }
+  return [];
+}
+
+/**
+ * Fetches newsletter email subscribers from Google Sheets.
+ */
+export async function fetchNewsletterEmailsFromGoogleSheet(): Promise<Array<{ email: string; state?: string; subscribedAt?: string }>> {
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  if (!webhookUrl) return [];
+
+  try {
+    const url = new URL(webhookUrl);
+    url.searchParams.set("action", "get_subscribers");
+    url.searchParams.set("type", "newsletter");
+
+    const res = await fetch(url.toString(), {
+      method: "GET",
+      signal: AbortSignal.timeout(8000)
+    });
+
+    if (res.ok) {
+      const json = await res.json();
+      if (json.newsletters && Array.isArray(json.newsletters)) {
+        return json.newsletters;
+      }
+      if (Array.isArray(json)) {
+        return json;
+      }
+    }
+  } catch (err) {
+    console.warn("[GoogleSheetSync] Could not fetch newsletter emails from Google Sheet:", err);
   }
   return [];
 }
@@ -203,14 +236,16 @@ function doGet(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet();
     var pushSheet = sheet.getSheetByName("Push_Subscribers");
+    var newsletterSheet = sheet.getSheetByName("Newsletter_Subscribers");
+    
     var subscribers = [];
+    var newsletters = [];
     
     if (pushSheet) {
-      var rows = pushSheet.getDataRange().getValues();
-      // Skip header row
-      for (var i = 1; i < rows.length; i++) {
-        var r = rows[i];
-        if (r[4]) { // has endpoint
+      var pRows = pushSheet.getDataRange().getValues();
+      for (var i = 1; i < pRows.length; i++) {
+        var r = pRows[i];
+        if (r[4]) {
           subscribers.push({
             id: r[1],
             state: r[2] || "Madhya Pradesh",
@@ -224,10 +259,30 @@ function doGet(e) {
       }
     }
     
-    return ContentService.createTextOutput(JSON.stringify({ status: "success", count: subscribers.length, subscribers: subscribers }))
-      .setMimeType(ContentService.MimeType.JSON);
+    if (newsletterSheet) {
+      var nRows = newsletterSheet.getDataRange().getValues();
+      for (var j = 1; j < nRows.length; j++) {
+        var nr = nRows[j];
+        if (nr[1] && nr[1].toString().indexOf("@") > 0) {
+          newsletters.push({
+            subscribedAt: nr[0],
+            email: nr[1].toString().trim().toLowerCase(),
+            state: nr[2] || "All India",
+            source: nr[3] || "Website"
+          });
+        }
+      }
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "success",
+      count: subscribers.length,
+      subscribers: subscribers,
+      newsletterCount: newsletters.length,
+      newsletters: newsletters
+    })).setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString(), subscribers: [] }))
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString(), subscribers: [], newsletters: [] }))
       .setMimeType(ContentService.MimeType.JSON);
   }
 }

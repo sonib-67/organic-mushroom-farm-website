@@ -13,6 +13,7 @@ import {
   Send
 } from "lucide-react";
 import Image from "next/image";
+import NewsletterSubscribeBox from "./NewsletterSubscribeBox";
 
 const PinterestIcon = ({ size = 24, color = "currentColor", strokeWidth = 2, ...props }: any) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -46,6 +47,9 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
+        {/* Reddit-Style 2-Day Farmers Digest Newsletter Box */}
+        <NewsletterSubscribeBox variant="footer" source="Website Footer Digest" />
+
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 lg:gap-16 pb-16 border-b dark:border-white/5 border-black/5">
           
