@@ -107,6 +107,14 @@ export function savePushSubscriber(data: {
   return record;
 }
 
+export function removePushSubscriber(id: string): void {
+  initStore();
+  if (subscribersMap.has(id)) {
+    subscribersMap.delete(id);
+    persistStore();
+  }
+}
+
 export function getAllPushSubscribers(): PushSubscriptionRecord[] {
   initStore();
   return Array.from(subscribersMap.values());

@@ -10,6 +10,7 @@ import {
   isBannerDismissedOrMuted,
   recordBannerDismiss,
   getVisitorGeo,
+  syncDailyNotificationSchedule,
   VisitorGeo
 } from "@/lib/notificationManager";
 
@@ -24,8 +25,13 @@ export function NotificationBanner() {
     // Check if browser supports notifications
     if (!isNotificationSupported()) return;
 
-    // If user already granted or dismissed twice, do not show
-    if (getNotificationPermission() === "granted" || isBannerDismissedOrMuted()) {
+    // If user already granted permission, ensure daily 10am/5pm IST schedule is synced!
+    if (getNotificationPermission() === "granted") {
+      syncDailyNotificationSchedule();
+      return;
+    }
+
+    if (isBannerDismissedOrMuted()) {
       return;
     }
 

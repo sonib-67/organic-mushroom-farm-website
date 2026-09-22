@@ -26,7 +26,6 @@ const MORNING_LINKS = [
   "/mushroom-price-today",
   "/training",
   "/spawn-seed",
-  "/mushroomtrainingregistrationform",
   "/articles/mushroom-farming-beginner-guide-india-2026-2027"
 ];
 
@@ -108,7 +107,8 @@ Parameters:
 
 Constraints:
 - Title must be under 50 characters, starting with 🍄 or 🏛️ or 💰. Must include [${stateName}].
-- Body must be under 110 characters, punchy and persuasive.
+- Body must be under 110 characters, punchy, educational, and farmer-friendly.
+- ANTI-SPAM SAFETY: Never use trigger words like 'टोकन', 'पेंडिंग', 'पैसा तुरंत भेजें', 'ऑफर केवल अभी के लिए', 'advance payment'. Keep tone polite, informative and genuine.
 - Recommended URL: Pick the most appropriate path from: ${slot === "10am" ? MORNING_LINKS.join(", ") : EVENING_LINKS.join(", ")}
 - Output MUST be strictly valid JSON without any markdown formatting or backticks:
 {

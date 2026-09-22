@@ -3,69 +3,102 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import {
   getVisitorGeo,
-  scheduleAbandonedTrainingRecovery,
-  cancelAbandonedTrainingRecovery
+  scheduleFunnelRecovery,
+  cancelFunnelRecovery,
+  FunnelType
 } from "@/lib/notificationManager";
 
 export function TrainingAbandonmentTracker() {
   const pathname = usePathname();
-  const hasEnteredTrainingRef = useRef(false);
+  const currentActiveFunnelRef = useRef<FunnelType | null>(null);
   const geoRef = useRef<{ state: string; language: string }>({
     state: "Madhya Pradesh",
     language: "hi"
   });
 
   useEffect(() => {
-    // Resolve location quietly for tailored messaging
+    // Resolve location quietly for state-tailored messaging
     getVisitorGeo().then((res) => {
       geoRef.current = { state: res.state, language: res.language };
     });
 
     const isSuccess =
-      pathname?.includes("/training/success") ||
       pathname?.includes("/success") ||
-      pathname?.includes("/confirmation");
+      pathname?.includes("/confirmation") ||
+      pathname?.includes("/payment-success");
 
     if (isSuccess) {
-      // Payment or registration completed, cancel any pending abandonment triggers
-      cancelAbandonedTrainingRecovery();
+      // User converted, cancel all pending recoveries
+      cancelFunnelRecovery();
       if (typeof window !== "undefined") {
-        sessionStorage.setItem("omf_training_paid", "true");
+        sessionStorage.setItem("omf_converted_session", "true");
       }
+      currentActiveFunnelRef.current = null;
       return;
     }
 
-    const isTrainingFunnel =
+    // Determine current funnel based on active route
+    let activeFunnel: FunnelType | null = null;
+
+    if (
       pathname?.includes("/mushroomtrainingregistrationform") ||
       pathname?.includes("/training") ||
-      pathname?.includes("/checkout");
+      pathname?.includes("/training-checkout") ||
+      pathname?.includes("/workshop")
+    ) {
+      activeFunnel = "training";
+    } else if (
+      pathname?.includes("/spawn-seed") ||
+      pathname?.includes("/spawn-seeds")
+    ) {
+      activeFunnel = "spawn";
+    } else if (pathname?.includes("/subsidy")) {
+      activeFunnel = "subsidy";
+    } else if (
+      pathname?.includes("/business-plan") ||
+      pathname?.includes("/roi-calculator") ||
+      pathname?.includes("/mushroomfarmingcalculators")
+    ) {
+      activeFunnel = "calculator";
+    } else if (
+      pathname?.includes("/book-consultant") ||
+      pathname?.includes("/on-site-consultation")
+    ) {
+      activeFunnel = "consultant";
+    } else if (pathname?.includes("/equipment")) {
+      activeFunnel = "equipment";
+    }
 
-    if (isTrainingFunnel) {
-      hasEnteredTrainingRef.current = true;
-      // If user came back, cancel previous scheduled recovery
-      cancelAbandonedTrainingRecovery();
+    if (activeFunnel) {
+      currentActiveFunnelRef.current = activeFunnel;
+      // If user came back or navigated inside the funnel, cancel previous recovery for this funnel
+      cancelFunnelRecovery(activeFunnel);
     }
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "hidden") {
-        const isPaid = sessionStorage.getItem("omf_training_paid") === "true";
-        if (hasEnteredTrainingRef.current && !isPaid) {
-          // User exited or switched tabs without paying - schedule 10s recovery notification
-          scheduleAbandonedTrainingRecovery(
+        const isConverted = sessionStorage.getItem("omf_converted_session") === "true";
+        if (currentActiveFunnelRef.current && !isConverted) {
+          // User exited or switched tabs without converting - schedule 10s recovery notification
+          scheduleFunnelRecovery(
+            currentActiveFunnelRef.current,
             geoRef.current.state,
             geoRef.current.language
           );
         }
       } else if (document.visibilityState === "visible") {
-        // User came back to the website, cancel the 10s recovery notification
-        cancelAbandonedTrainingRecovery();
+        // User came back to the website, cancel pending recovery
+        if (currentActiveFunnelRef.current) {
+          cancelFunnelRecovery(currentActiveFunnelRef.current);
+        }
       }
     };
 
     const handlePageHide = () => {
-      const isPaid = sessionStorage.getItem("omf_training_paid") === "true";
-      if (hasEnteredTrainingRef.current && !isPaid) {
-        scheduleAbandonedTrainingRecovery(
+      const isConverted = sessionStorage.getItem("omf_converted_session") === "true";
+      if (currentActiveFunnelRef.current && !isConverted) {
+        scheduleFunnelRecovery(
+          currentActiveFunnelRef.current,
           geoRef.current.state,
           geoRef.current.language
         );

@@ -24,8 +24,8 @@ self.addEventListener('message', (event) => {
     }, delayMs || 5000);
   }
 
-  if (type === 'SCHEDULE_ABANDONED_TRAINING') {
-    const key = timerKey || 'abandoned_training';
+  if (type === 'SCHEDULE_FUNNEL_RECOVERY' || type === 'SCHEDULE_ABANDONED_TRAINING') {
+    const key = timerKey || 'funnel_recovery';
     // Clear any previous timer with this key
     if (activeTimers[key]) {
       clearTimeout(activeTimers[key]);
@@ -35,37 +35,60 @@ self.addEventListener('message', (event) => {
       delete activeTimers[key];
       try {
         const clientList = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-        // Check if user is already actively looking at the site
+        // Check if user is actively looking at the site on this path
+        const checkPath = options?.checkUrl || options?.url || '';
         const isUserActiveOnSite = clientList.some(
-          (c) => c.visibilityState === 'visible' && (c.url.includes('/training') || c.url.includes('/mushroomtrainingregistrationform'))
+          (c) => c.visibilityState === 'visible' && (checkPath ? c.url.includes(checkPath) : true)
         );
 
         if (!isUserActiveOnSite) {
           self.registration.showNotification(title, {
-            body: options?.body || 'आपकी मशरूम ट्रेनिंग सीट रिज़र्वेशन पेंडिंग है। अभी फॉर्म पूरा करें।',
+            body: options?.body || 'मशरूम फार्म अपडेट्स और ऑफर्स के लिए अभी देखें।',
             icon: options?.icon || 'https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png',
             badge: options?.badge || 'https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png',
             vibrate: [200, 100, 200],
-            tag: 'omf-abandoned-training',
+            tag: options?.tag || `omf-${key}`,
             renotify: true,
             data: {
-              url: options?.url || '/mushroomtrainingregistrationform',
+              url: options?.url || '/',
               timestamp: Date.now()
             }
           });
         }
       } catch (err) {
-        console.warn('Could not show abandoned recovery notification:', err);
+        console.warn('Could not show funnel recovery notification:', err);
       }
     }, delayMs || 10000);
   }
 
-  if (type === 'CANCEL_ABANDONED_TRAINING') {
-    const key = timerKey || 'abandoned_training';
+  if (type === 'CANCEL_FUNNEL_RECOVERY' || type === 'CANCEL_ABANDONED_TRAINING') {
+    const key = timerKey || 'funnel_recovery';
     if (activeTimers[key]) {
       clearTimeout(activeTimers[key]);
       delete activeTimers[key];
     }
+  }
+
+  if (type === 'SCHEDULE_DAILY_SLOT') {
+    const key = timerKey || 'daily_slot';
+    if (activeTimers[key]) {
+      clearTimeout(activeTimers[key]);
+    }
+    activeTimers[key] = setTimeout(() => {
+      delete activeTimers[key];
+      self.registration.showNotification(title || '🍄 Organic Mushroom Farm', {
+        body: options?.body || 'नया मशरूम ट्रेनिंग व मंडी भाव अपडेट देखें।',
+        icon: options?.icon || 'https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png',
+        badge: options?.badge || 'https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png',
+        vibrate: [200, 100, 200],
+        tag: options?.tag || `omf-daily-${Date.now()}`,
+        renotify: true,
+        data: {
+          url: options?.url || '/',
+          timestamp: Date.now()
+        }
+      });
+    }, delayMs || 60000);
   }
 });
 
@@ -75,7 +98,7 @@ self.addEventListener('push', (event) => {
     body: 'Naya training batch aur daily farming updates!',
     icon: 'https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png',
     badge: 'https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png',
-    url: '/mushroomtrainingregistrationform',
+    url: '/training',
     tag: 'omf-general-update',
     timestamp: Date.now()
   };

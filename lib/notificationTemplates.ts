@@ -17,10 +17,10 @@ export const NOTIFICATION_TEMPLATES: NotificationTemplate[] = [
     id: "trn_batch_alert_1",
     category: "training",
     titleHi: "🍄 {state}: नई मशरूम ट्रेनिंग बैच की सीटें खुली!",
-    bodyHi: "घर बैठे सीखें बटन और ऑयस्टर मशरूम उत्पादन। लाइव प्रैक्टिकल क्लास और सरकारी सर्टिफिकेट। अभी बुक करें!",
+    bodyHi: "घर बैठे सीखें बटन और ऑयस्टर मशरूम उत्पादन। लाइव प्रैक्टिकल क्लास और सरकारी सर्टिफिकेट। पूरा सिलेबस देखें!",
     titleEn: "🍄 {state}: New Mushroom Training Batch Open!",
-    bodyEn: "Learn commercial Button & Oyster mushroom production with live practical training and certification. Reserve now!",
-    url: "/mushroomtrainingregistrationform",
+    bodyEn: "Learn commercial Button & Oyster mushroom production with live practical training and certification. View syllabus now!",
+    url: "/training",
     tag: "omf-training-batch"
   },
   {
@@ -66,11 +66,11 @@ export const NOTIFICATION_TEMPLATES: NotificationTemplate[] = [
   {
     id: "trn_seat_fast_6",
     category: "training",
-    titleHi: "⏳ सीट अलर्ट: सिर्फ 7 सीटें शेष रह गई हैं!",
-    bodyHi: "आगामी प्रैक्टिकल ट्रेनिंग के लिए रजिस्ट्रेशन जल्द बंद हो रहे हैं। ₹500 में अपनी सीट तुरंत सुरक्षित करें।",
-    titleEn: "⏳ Limited Seats Alert: Only 7 Spots Left!",
-    bodyEn: "Registrations closing soon for the upcoming practical training batch. Book your seat now with ₹500 advance.",
-    url: "/mushroomtrainingregistrationform",
+    titleHi: "🎓 आगामी प्रैक्टिकल मशरूम ट्रेनिंग बैच शेड्यूल",
+    bodyHi: "प्रैक्टिकल ट्रेनिंग का नया शेड्यूल जारी। पूरा सिलेबस, तारीखें और सरकारी प्रमाण-पत्र विवरण अभी देखें।",
+    titleEn: "🎓 Upcoming Practical Mushroom Training Schedule",
+    bodyEn: "New practical training schedule announced. View complete syllabus, dates, and certification details.",
+    url: "/training",
     tag: "omf-seat-alert"
   },
   {
