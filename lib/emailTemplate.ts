@@ -306,23 +306,32 @@ export function renderRedditStyleDigestHtml(
 
 /**
  * Beautiful welcome confirmation email sent to the new subscriber
+ * Supports smart language localization ("hi" for Hindi belt, "en" for English/other regions)
  */
 export function renderWelcomeEmailHtml(
   recipientEmail: string,
-  baseUrl: string = "https://organicmushroomsfarm.com"
+  baseUrl: string = "https://organicmushroomsfarm.com",
+  options?: {
+    language?: "hi" | "en";
+    city?: string;
+    state?: string;
+  }
 ): string {
   const unsubUrl = `${baseUrl}/api/newsletter/unsubscribe?email=${encodeURIComponent(recipientEmail)}`;
   const blogUrl = `${baseUrl}/blog`;
   const mandiUrl = `${baseUrl}/mushroom-price-today`;
-  const trainingUrl = `${baseUrl}/training`;
+  const isHindi = options?.language !== "en";
+  const locationText = options?.city && options.city !== "India"
+    ? `${options.city}, ${options.state || "India"}`
+    : (options?.state || "India");
 
   return `
 <!DOCTYPE html>
-<html lang="en">
+<html lang="${isHindi ? "hi" : "en"}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Organic Mushrooms Farm</title>
+  <title>${isHindi ? "Organic Mushrooms Farm में आपका स्वागत है" : "Welcome to Organic Mushrooms Farm"}</title>
   <style>
     body {
       margin: 0;
@@ -426,10 +435,10 @@ export function renderWelcomeEmailHtml(
         <td class="header">
           <div style="font-size: 36px; margin-bottom: 8px;">🍄</div>
           <h1 style="font-size: 24px; font-weight: 800; color: #ffffff; margin: 0 0 6px 0;">
-            Welcome to Organic Mushrooms Farm
+            ${isHindi ? "Organic Mushrooms Farm में आपका स्वागत है" : "Welcome to Organic Mushrooms Farm"}
           </h1>
           <div style="font-size: 13px; color: #a5d6a7;">
-            India's Leading Mushroom Cultivation & Training Authority
+            ${isHindi ? "भारत का अग्रणी मशरूम उत्पादन, बीज व ट्रेनिंग संस्थान" : "India's Leading Mushroom Cultivation & Training Authority"} • ${locationText}
           </div>
         </td>
       </tr>
@@ -437,53 +446,84 @@ export function renderWelcomeEmailHtml(
       <!-- Body Content -->
       <tr>
         <td class="card">
-          <div class="badge">✅ Subscription Active</div>
-          <h2 class="headline">You're All Set to Master Mushroom Cultivation!</h2>
+          <div class="badge">${isHindi ? "✅ सदस्यता सक्रिय (2-Day Digest)" : "✅ Subscription Active"}</div>
+          <h2 class="headline">
+            ${isHindi ? "मशरूम फार्मिंग की दुनिया में आपका स्वागत है!" : "You're All Set to Master Mushroom Cultivation!"}
+          </h2>
           <p style="font-size: 14px; color: #d7dadc; line-height: 1.6; margin: 0 0 20px 0;">
-            Thank you for subscribing! Every 48 hours (at 2:00 PM IST), you will receive our exclusive <strong>2-Day Farmers' Digest</strong> directly in your inbox. No fluff, no duplicates—only 100% practical, high-yield insights.
+            ${isHindi
+              ? `सब्सक्राइब करने के लिए धन्यवाद! अब हर 48 घंटे (दोपहर 2:00 बजे IST), आपको सीधे आपके इनबॉक्स में हमारा विशेष <strong>2-डे फार्मिंग डाइजेस्ट</strong> मिलेगा। कोई स्पैम नहीं—केवल 100% व्यावहारिक देसी व वैज्ञानिक मशरूम तकनीक।`
+              : `Thank you for subscribing! Every 48 hours (at 2:00 PM IST), you will receive our exclusive <strong>2-Day Farmers' Digest</strong> directly in your inbox. No fluff, no duplicates—only 100% practical, high-yield cultivation insights.`
+            }
           </p>
 
           <h3 style="font-size: 15px; color: #ffffff; font-weight: 700; margin: 0 0 12px 0;">
-            What you will receive every 2 days:
+            ${isHindi ? "आपको हर 2 दिन में क्या-क्या मिलेगा:" : "What you will receive every 2 days:"}
           </h3>
 
           <div class="feature-item">
-            <div class="feature-title">💡 Climate & Humidity Hacks (देसी जुगाड़)</div>
-            <p class="feature-desc">Low-cost cooling, moisture preservation, and ventilation tips for Button, Oyster & Milky mushrooms.</p>
+            <div class="feature-title">
+              ${isHindi ? "💡 देसी जुगाड़ व नमी (85-90% आर्द्रता नियंत्रण)" : "💡 Climate & Humidity Hacks (Low-Cost Techniques)"}
+            </div>
+            <p class="feature-desc">
+              ${isHindi
+                ? "कम लागत में देसी कूलिंग, बोरियों से नमी बनाए रखने, और ऑयस्टर, बटन व मिल्की मशरूम के लिए सटीक तापमान बनाए रखने के देसी नुस्खे।"
+                : "Low-cost cooling, moisture preservation, and ventilation tips for Button, Oyster & Milky mushrooms."}
+            </p>
           </div>
 
           <div class="feature-item">
-            <div class="feature-title">🛡️ Disease & Mold Prevention (रोग नियंत्रण)</div>
-            <p class="feature-desc">Proven remedies against Green Mold (Trichoderma), yellow mold, and pests using organic and biological methods.</p>
+            <div class="feature-title">
+              ${isHindi ? "🛡️ रोग व फफूंद नियंत्रण (Green Mold / Trichoderma)" : "🛡️ Disease & Mold Prevention (Crop Safety)"}
+            </div>
+            <p class="feature-desc">
+              ${isHindi
+                ? "ग्रीन मोल्ड, पीली फफूंद और कीटों से अपनी फसल को जैविक व प्राकृतिक तरीकों से सुरक्षित रखने के आज़माए हुए समाधान।"
+                : "Proven remedies against Green Mold (Trichoderma), yellow mold, and pests using organic and biological methods."}
+            </p>
           </div>
 
           <div class="feature-item">
-            <div class="feature-title">💰 Live Mandi Rates & B2B Sales (थोक भाव व बिक्री)</div>
-            <p class="feature-desc">Fresh wholesale price trends across Azadpur, Bhopal, Indore, Lucknow mandis & direct hotel supply secrets.</p>
+            <div class="feature-title">
+              ${isHindi ? `💰 ताज़ा थोक मंडी भाव व B2B बिक्री (${locationText})` : "💰 Live Mandi Rates & B2B Sales Secrets"}
+            </div>
+            <p class="feature-desc">
+              ${isHindi
+                ? "भोपाल, इंदौर, आज़ादपुर मंडी के ताज़ा थोक भाव, थोक व्यापारियों से सीधा संपर्क और होटलों में सीधे ऊंचे दाम पर बिक्री का तरीका।"
+                : "Fresh wholesale price trends across major agricultural mandis & direct hotel/restaurant supply secrets."}
+            </p>
           </div>
 
           <div class="feature-item">
-            <div class="feature-title">🎓 Hands-On Training & Subsidy Alerts (ट्रेनिंग व सब्सिडी)</div>
-            <p class="feature-desc">Upcoming practical on-farm training batches, National Horticulture Board (NHB) subsidies, and bank project DPRs.</p>
+            <div class="feature-title">
+              ${isHindi ? "🎓 फार्म पर प्रैक्टिकल ट्रेनिंग व सरकारी सब्सिडी" : "🎓 Hands-On Training & Subsidy Alerts"}
+            </div>
+            <p class="feature-desc">
+              ${isHindi
+                ? "फार्म पर आकर 100% प्रैक्टिकल ट्रेनिंग बैच, National Horticulture Board (NHB) सब्सिडी और बैंक लोन प्रोजेक्ट रिपोर्ट (DPR)।"
+                : "Upcoming practical on-farm training batches, National Horticulture Board (NHB) subsidies, and bank project DPRs."}
+            </p>
           </div>
 
           <!-- Action Buttons -->
           <div style="margin-top: 24px;">
             <a href="${blogUrl}" class="btn" target="_blank">
-              Read Latest Farming Guides ➔
+              ${isHindi ? "नवीनतम फार्मिंग गाइड्स पढ़ें ➔" : "Read Latest Farming Guides ➔"}
             </a>
             <a href="${mandiUrl}" class="btn btn-secondary" target="_blank">
-              Check Today's Mandi Rates
+              ${isHindi ? "आज के थोक मंडी भाव देखें" : "Check Today's Mandi Rates"}
             </a>
           </div>
 
           <!-- Farm Helpline Box -->
           <div style="margin-top: 24px; padding: 16px; background-color: #162019; border: 1px solid #1e3a24; border-radius: 8px;">
             <div style="font-size: 13px; font-weight: 700; color: #81c784; margin-bottom: 4px;">
-              📞 Direct Farm WhatsApp & Helpline
+              📞 ${isHindi ? "डायरेक्ट फार्म व्हाट्सएप व किसान हेल्पलाइन" : "Direct Farm WhatsApp & Helpline"}
             </div>
             <div style="font-size: 13px; color: #ffffff;">
-              Need commercial spawn, farm setup, or training consultation? Call or WhatsApp us at <strong>+91 93014 47348</strong>.
+              ${isHindi
+                ? "कमर्शियल स्पॉन (बीज), फार्म सेटअप या ट्रेनिंग की जानकारी के लिए हमें सीधे कॉल या व्हाट्सएप करें: <strong>+91 93014 47348</strong>."
+                : "Need commercial spawn, farm setup, or training consultation? Call or WhatsApp us at <strong>+91 93014 47348</strong>."}
             </div>
           </div>
         </td>
@@ -499,7 +539,9 @@ export function renderWelcomeEmailHtml(
             You received this email because you subscribed on <a href="${baseUrl}" style="color: #81c784;" target="_blank">organicmushroomsfarm.com</a>.
           </p>
           <p style="margin: 0;">
-            <a href="${unsubUrl}" style="color: #ef5350; text-decoration: underline;">Unsubscribe from digest</a>
+            <a href="${unsubUrl}" style="color: #ef5350; text-decoration: underline;">
+              ${isHindi ? "डाइजेस्ट से अनसब्सक्राइब करें" : "Unsubscribe from digest"}
+            </a>
           </p>
         </td>
       </tr>
@@ -519,12 +561,20 @@ export function renderAdminSubscriberAlertHtml(
   data: {
     email: string;
     subscribedAt: string;
+    city?: string;
     state?: string;
+    country?: string;
+    language?: "hi" | "en";
     source?: string;
     totalSubscribers: number;
   },
   baseUrl: string = "https://organicmushroomsfarm.com"
 ): string {
+  const languageLabel = (data.language || "hi") === "hi" ? "Hindi (हिंदी)" : "English (अंग्रेजी)";
+  const locationDisplay = data.city && data.city !== "India"
+    ? `${data.city}, ${data.state || "India"} (${data.country || "IN"})`
+    : `${data.state || "All India"} (${data.country || "IN"})`;
+
   return `
 <!DOCTYPE html>
 <html lang="en">
@@ -540,6 +590,7 @@ export function renderAdminSubscriberAlertHtml(
     .table td { padding: 10px 12px; border-bottom: 1px solid #edf2f7; font-size: 14px; }
     .table td:first-child { font-weight: 700; color: #4a5568; width: 38%; }
     .badge { display: inline-block; background-color: #e8f5e9; color: #2e7d32; font-weight: 700; padding: 4px 10px; border-radius: 20px; font-size: 12px; }
+    .badge-blue { display: inline-block; background-color: #e0f2fe; color: #0284c7; font-weight: 700; padding: 4px 10px; border-radius: 20px; font-size: 12px; }
     .footer { background-color: #fafbfc; border-top: 1px solid #e1e4e8; padding: 16px 24px; font-size: 12px; color: #718096; text-align: center; }
   </style>
 </head>
@@ -551,7 +602,7 @@ export function renderAdminSubscriberAlertHtml(
     </div>
     <div class="body">
       <p style="font-size: 14px; line-height: 1.5; margin: 0 0 16px 0;">
-        A new user has just subscribed to the 2-Day Farming Digest on your website:
+        A new farmer/grower has just subscribed to the 2-Day Farming Digest on your website:
       </p>
 
       <table class="table">
@@ -564,21 +615,25 @@ export function renderAdminSubscriberAlertHtml(
           <td>${data.subscribedAt}</td>
         </tr>
         <tr>
-          <td>State / Region:</td>
-          <td>${data.state || "All India"}</td>
+          <td>Location (Auto-detected):</td>
+          <td><strong>${locationDisplay}</strong></td>
+        </tr>
+        <tr>
+          <td>Digest Language Mode:</td>
+          <td><span class="badge-blue">${languageLabel}</span></td>
         </tr>
         <tr>
           <td>Source:</td>
-          <td><span class="badge">${data.source || "Website Footer"}</span></td>
+          <td><span class="badge">${data.source || "Website Stay Updated Form"}</span></td>
         </tr>
         <tr>
-          <td>Total Active Subscribers:</td>
-          <td><strong>${data.totalSubscribers}</strong></td>
+          <td>Total Subscribers in CSV:</td>
+          <td><strong style="color: #15803d; font-size: 15px;">${data.totalSubscribers}</strong></td>
         </tr>
       </table>
 
       <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #166534; line-height: 1.5;">
-        📎 <strong>Attached File:</strong> The updated <code>subscribers_backup.csv</code> file containing all active subscribers has been attached to this email for your offline backup and records.
+        📎 <strong>Attached CSV Backup:</strong> The updated <code>subscribers_list.csv</code> has been attached with full details (Email, City, State, Country, Language & Date) for your permanent offline records.
       </div>
     </div>
     <div class="footer">

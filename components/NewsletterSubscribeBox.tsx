@@ -12,6 +12,8 @@ export default function NewsletterSubscribeBox({
   source = "Website Footer"
 }: NewsletterSubscribeBoxProps) {
   const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [loadTime] = useState<number>(() => Date.now());
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -32,14 +34,20 @@ export default function NewsletterSubscribeBox({
       const res = await fetch("/api/newsletter/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), source })
+        body: JSON.stringify({
+          email: email.trim(),
+          source,
+          hp_website: honeypot,
+          load_time: loadTime
+        })
       });
 
       const data = await res.json();
       if (res.ok && data.success) {
         setStatus("success");
-        setMessage("Thank you for subscribing! You'll receive our latest updates directly in your inbox.");
+        setMessage(data.message || "Thank you for subscribing! You'll receive our latest updates directly in your inbox.");
         setEmail("");
+        setHoneypot("");
       } else {
         setStatus("error");
         setMessage(data.error || "Subscription failed, please try again.");
@@ -93,6 +101,18 @@ export default function NewsletterSubscribeBox({
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
+              {/* Invisible Honeypot Trap: Real users never see this, automated bots fill it */}
+              <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+                <input
+                  type="text"
+                  name="hp_website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-2">
                 <div className="relative flex-1">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">

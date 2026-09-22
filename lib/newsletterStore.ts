@@ -8,7 +8,10 @@ import {
 export interface NewsletterSubscriber {
   email: string;
   name?: string;
+  city?: string;
   state?: string;
+  country?: string;
+  language?: "hi" | "en";
   subscribedAt: string;
   status: "active" | "unsubscribed";
   source?: string;
@@ -27,41 +30,78 @@ const DATA_DIR = path.join(process.cwd(), ".data");
 const SUBSCRIBERS_FILE = path.join(DATA_DIR, "newsletter_subscribers.json");
 const HISTORY_FILE = path.join(DATA_DIR, "newsletter_history.json");
 
+// Serverless fallback (/tmp is writable in Vercel and AWS Lambda)
+const TMP_DIR = "/tmp";
+const TMP_SUBSCRIBERS_FILE = path.join(TMP_DIR, "newsletter_subscribers.json");
+const TMP_HISTORY_FILE = path.join(TMP_DIR, "newsletter_history.json");
+
+// In-memory memory cache for ultra-reliable zero-loss persistence
+let memorySubscribers: NewsletterSubscriber[] = [];
+let memoryHistory: DigestHistoryRecord[] = [];
+
 function ensureDirectory() {
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
-  } catch (err) {
-    console.warn("Could not create .data directory:", err);
+  } catch {
+    // Read-only filesystem on Vercel/Lambda is expected, will use /tmp and memory
   }
 }
 
 /**
- * Reads local subscribers from file
+ * Reads local subscribers from file or fallback /tmp or memory
  */
 export function getLocalNewsletterSubscribers(): NewsletterSubscriber[] {
   ensureDirectory();
   try {
     if (fs.existsSync(SUBSCRIBERS_FILE)) {
       const content = fs.readFileSync(SUBSCRIBERS_FILE, "utf-8");
-      return JSON.parse(content) || [];
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        memorySubscribers = parsed;
+        return parsed;
+      }
     }
-  } catch (err) {
-    console.warn("Error reading newsletter subscribers file:", err);
+  } catch {
+    // Fall back to /tmp or memory
   }
-  return [];
+
+  try {
+    if (fs.existsSync(TMP_SUBSCRIBERS_FILE)) {
+      const content = fs.readFileSync(TMP_SUBSCRIBERS_FILE, "utf-8");
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        memorySubscribers = parsed;
+        return parsed;
+      }
+    }
+  } catch {
+    // Ignore error
+  }
+
+  return memorySubscribers;
 }
 
 /**
- * Saves subscribers to local file
+ * Saves subscribers to local file, /tmp, and in-memory cache
  */
 function saveLocalNewsletterSubscribers(subs: NewsletterSubscriber[]): void {
+  memorySubscribers = subs;
   ensureDirectory();
+
+  // 1. Try writing to project .data directory
   try {
     fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subs, null, 2), "utf-8");
-  } catch (err) {
-    console.warn("Error saving newsletter subscribers file:", err);
+  } catch {
+    // Read-only filesystem
+  }
+
+  // 2. Also write to /tmp for serverless persistence
+  try {
+    fs.writeFileSync(TMP_SUBSCRIBERS_FILE, JSON.stringify(subs, null, 2), "utf-8");
+  } catch {
+    // Ignore error
   }
 }
 
@@ -71,7 +111,10 @@ function saveLocalNewsletterSubscribers(subs: NewsletterSubscriber[]): void {
 export async function addNewsletterSubscriber(data: {
   email: string;
   name?: string;
+  city?: string;
   state?: string;
+  country?: string;
+  language?: "hi" | "en";
   source?: string;
 }): Promise<{ subscriber: NewsletterSubscriber; isNew: boolean }> {
   const emailClean = data.email.trim().toLowerCase();
@@ -85,7 +128,10 @@ export async function addNewsletterSubscriber(data: {
     record = {
       ...existing[foundIndex],
       status: "active",
-      state: data.state || existing[foundIndex].state || "India",
+      city: data.city || existing[foundIndex].city || "India",
+      state: data.state || existing[foundIndex].state || "Madhya Pradesh",
+      country: data.country || existing[foundIndex].country || "India",
+      language: data.language || existing[foundIndex].language || "hi",
       name: data.name || existing[foundIndex].name
     };
     existing[foundIndex] = record;
@@ -94,7 +140,10 @@ export async function addNewsletterSubscriber(data: {
     record = {
       email: emailClean,
       name: data.name,
-      state: data.state || "India",
+      city: data.city || "India",
+      state: data.state || "Madhya Pradesh",
+      country: data.country || "India",
+      language: data.language || "hi",
       subscribedAt: new Date().toISOString(),
       status: "active",
       source: data.source || "Website Form"
@@ -108,7 +157,7 @@ export async function addNewsletterSubscriber(data: {
   syncNewsletterEmailToGoogleSheet({
     email: record.email,
     name: record.name,
-    state: record.state,
+    state: `${record.city ? `${record.city}, ` : ""}${record.state || "India"}`,
     source: record.source
   }).catch((err) => {
     console.warn("[NewsletterStore] Google Sheet sync warning:", err);

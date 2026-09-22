@@ -27,21 +27,33 @@ const DEFAULT_SENDER = `"Organic Mushrooms Farm" <organicmushroomsfarms@gmail.co
  */
 export async function sendWelcomeEmailToSubscriber(
   toEmail: string,
-  baseUrl: string = "https://organicmushroomsfarm.com"
+  baseUrl: string = "https://organicmushroomsfarm.com",
+  geoInfo?: {
+    language?: "hi" | "en";
+    city?: string;
+    state?: string;
+  }
 ): Promise<SendResult> {
   const mailer = getMailTransporter();
-  const html = renderWelcomeEmailHtml(toEmail, baseUrl);
+  const html = renderWelcomeEmailHtml(toEmail, baseUrl, geoInfo);
   const fromAddress =
     process.env.SMTP_FROM ||
     process.env.EMAIL_FROM ||
     DEFAULT_SENDER;
 
+  const isHindi = geoInfo?.language !== "en";
+  const subject = isHindi
+    ? "🍄 Organic Mushrooms Farm में आपका स्वागत है! 2-डे फार्मिंग डाइजेस्ट सक्रिय"
+    : "🍄 Welcome to Organic Mushrooms Farm! Your 2-Day Farming Digest is Active";
+
   try {
     const info = await mailer.sendMail({
       from: fromAddress,
       to: toEmail,
-      subject: "🍄 Welcome to Organic Mushrooms Farm! Your 2-Day Farming Digest is Active",
-      text: `Welcome to Organic Mushrooms Farm!\n\nThank you for subscribing to our 2-Day Farming Digest. You'll receive high-yield cultivation hacks, live Mandi rates, and training updates every 48 hours.\n\nVisit our farm portal: ${baseUrl}`,
+      subject,
+      text: isHindi
+        ? `Organic Mushrooms Farm में आपका स्वागत है!\n\n2-डे फार्मिंग डाइजेस्ट सब्सक्राइब करने के लिए धन्यवाद। आपको हर 48 घंटे में उच्च पैदावार वाले देसी नुस्खे, ताज़ा मंडी भाव और ट्रेनिंग अपडेट्स मिलेंगे।\n\nवेबसाइट: ${baseUrl}`
+        : `Welcome to Organic Mushrooms Farm!\n\nThank you for subscribing to our 2-Day Farming Digest. You'll receive high-yield cultivation hacks, live Mandi rates, and training updates every 48 hours.\n\nVisit our farm portal: ${baseUrl}`,
       html
     });
 
@@ -70,13 +82,19 @@ export async function sendAdminNewSubscriberAlert(
   data: {
     newSubscriber: {
       email: string;
+      city?: string;
       state?: string;
+      country?: string;
+      language?: "hi" | "en";
       source?: string;
       subscribedAt?: string;
     };
     allSubscribers: Array<{
       email: string;
+      city?: string;
       state?: string;
+      country?: string;
+      language?: "hi" | "en";
       source?: string;
       subscribedAt?: string;
     }>;
@@ -91,23 +109,54 @@ export async function sendAdminNewSubscriberAlert(
     `"Organic Mushrooms Farm Notifications" <organicmushroomsfarms@gmail.com>`;
 
   const nowIst = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+
+  // GUARANTEE: Never let the CSV have 0 subscribers! Always ensure newSubscriber is merged!
+  const mapByEmail = new Map<string, {
+    email: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    language?: "hi" | "en";
+    source?: string;
+    subscribedAt?: string;
+  }>();
+
+  for (const s of data.allSubscribers) {
+    if (s.email) {
+      mapByEmail.set(s.email.toLowerCase(), s);
+    }
+  }
+
+  // Always ensure current new subscriber is in the map
+  if (data.newSubscriber && data.newSubscriber.email) {
+    mapByEmail.set(data.newSubscriber.email.toLowerCase(), {
+      ...data.newSubscriber,
+      subscribedAt: data.newSubscriber.subscribedAt || nowIst
+    });
+  }
+
+  const finalExportList = Array.from(mapByEmail.values());
+
   const html = renderAdminSubscriberAlertHtml(
     {
       email: data.newSubscriber.email,
       subscribedAt: data.newSubscriber.subscribedAt || nowIst,
+      city: data.newSubscriber.city,
       state: data.newSubscriber.state || "All India",
+      country: data.newSubscriber.country || "India",
+      language: data.newSubscriber.language || "hi",
       source: data.newSubscriber.source || "Website Stay Updated Form",
-      totalSubscribers: data.allSubscribers.length
+      totalSubscribers: finalExportList.length
     },
     baseUrl
   );
 
-  // Generate complete CSV file content with all subscribers
-  const csvHeader = "Subscribed Date (IST),Email Address,State,Source\n";
-  const csvRows = data.allSubscribers
+  // Generate complete CSV file content with guaranteed non-zero rows
+  const csvHeader = "Subscribed Date (IST),Email Address,City,State,Country,Language,Source\n";
+  const csvRows = finalExportList
     .map(
       (s) =>
-        `"${(s.subscribedAt || "").replace(/"/g, '""')}","${s.email.replace(/"/g, '""')}","${(s.state || "All India").replace(/"/g, '""')}","${(s.source || "Website").replace(/"/g, '""')}"`
+        `"${(s.subscribedAt || nowIst).replace(/"/g, '""')}","${s.email.replace(/"/g, '""')}","${(s.city || "Auto-detected").replace(/"/g, '""')}","${(s.state || "All India").replace(/"/g, '""')}","${(s.country || "India").replace(/"/g, '""')}","${((s.language || "hi") === "hi" ? "HINDI" : "ENGLISH")}","${(s.source || "Website").replace(/"/g, '""')}"`
     )
     .join("\n");
   const csvContent = csvHeader + csvRows;
@@ -119,8 +168,8 @@ export async function sendAdminNewSubscriberAlert(
     const info = await mailer.sendMail({
       from: fromAddress,
       to: adminRecipients,
-      subject: `🎉 New Subscriber Alert: ${data.newSubscriber.email} joined Organic Mushrooms Farm`,
-      text: `New subscriber joined: ${data.newSubscriber.email}\nDate: ${nowIst}\nTotal subscribers: ${data.allSubscribers.length}\nSee attached CSV for updated list.`,
+      subject: `🎉 New Subscriber Alert: ${data.newSubscriber.email} joined (${data.newSubscriber.city || data.newSubscriber.state || "India"})`,
+      text: `New subscriber joined: ${data.newSubscriber.email}\nLocation: ${data.newSubscriber.city || ""}, ${data.newSubscriber.state || ""}\nDate: ${nowIst}\nTotal subscribers: ${finalExportList.length}\nSee attached CSV for complete updated list.`,
       html,
       attachments: [
         {
@@ -131,7 +180,7 @@ export async function sendAdminNewSubscriberAlert(
       ]
     });
 
-    console.log(`[NewsletterMail] Admin alert dispatched to: ${adminRecipients.join(", ")} with attachment ${csvFilename}`);
+    console.log(`[NewsletterMail] Admin alert dispatched to: ${adminRecipients.join(", ")} with attachment ${csvFilename} (${finalExportList.length} rows)`);
     return {
       email: adminRecipients[0] || "admin",
       success: true,
