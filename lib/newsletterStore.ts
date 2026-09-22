@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 import {
   syncNewsletterEmailToGoogleSheet,
   fetchNewsletterEmailsFromGoogleSheet
@@ -13,7 +14,9 @@ export interface NewsletterSubscriber {
   country?: string;
   language?: "hi" | "en";
   subscribedAt: string;
-  status: "active" | "unsubscribed";
+  status: "active" | "pending" | "unsubscribed";
+  verificationToken?: string;
+  verifiedAt?: string;
   source?: string;
 }
 
@@ -38,6 +41,44 @@ const TMP_HISTORY_FILE = path.join(TMP_DIR, "newsletter_history.json");
 // In-memory memory cache for ultra-reliable zero-loss persistence
 let memorySubscribers: NewsletterSubscriber[] = [];
 let memoryHistory: DigestHistoryRecord[] = [];
+
+const TOKEN_SALT = process.env.SESSION_SECRET || process.env.CRON_SECRET || "omf_newsletter_double_optin_salt_2026";
+
+/**
+ * Generates a tamper-proof verification token with timestamp & HMAC signature
+ */
+export function generateVerificationToken(email: string, timestamp: number = Date.now()): string {
+  const hmac = crypto.createHmac("sha256", TOKEN_SALT);
+  hmac.update(`${email.toLowerCase().trim()}_${timestamp}`);
+  return `${timestamp}.${hmac.digest("hex").slice(0, 32)}`;
+}
+
+/**
+ * Validates the HMAC signature and checks if token is within 14 days validity
+ */
+export function verifySubscriptionToken(email: string, token: string): boolean {
+  if (!token || !email || !token.includes(".")) return false;
+  const parts = token.split(".");
+  if (parts.length !== 2) return false;
+
+  const [timeStr, hash] = parts;
+  const timestamp = parseInt(timeStr, 10);
+  if (isNaN(timestamp)) return false;
+
+  // Link valid for 14 days
+  const maxAge = 14 * 24 * 60 * 60 * 1000;
+  if (Date.now() - timestamp > maxAge) return false;
+
+  const hmac = crypto.createHmac("sha256", TOKEN_SALT);
+  hmac.update(`${email.toLowerCase().trim()}_${timestamp}`);
+  const expectedHash = hmac.digest("hex").slice(0, 32);
+
+  try {
+    return crypto.timingSafeEqual(Buffer.from(hash), Buffer.from(expectedHash));
+  } catch {
+    return false;
+  }
+}
 
 function ensureDirectory() {
   try {
@@ -106,7 +147,8 @@ function saveLocalNewsletterSubscribers(subs: NewsletterSubscriber[]): void {
 }
 
 /**
- * Add or re-activate a subscriber
+ * Add a pending subscriber for Double Opt-in (Tareeka 1)
+ * If already active, flags duplicate to prevent spamming
  */
 export async function addNewsletterSubscriber(data: {
   email: string;
@@ -116,27 +158,60 @@ export async function addNewsletterSubscriber(data: {
   country?: string;
   language?: "hi" | "en";
   source?: string;
-}): Promise<{ subscriber: NewsletterSubscriber; isNew: boolean }> {
+}): Promise<{
+  subscriber: NewsletterSubscriber;
+  isNew: boolean;
+  alreadySubscribed?: boolean;
+  pendingVerification?: boolean;
+  isPendingReissue?: boolean;
+  verificationToken?: string;
+}> {
   const emailClean = data.email.trim().toLowerCase();
-  const existing = getLocalNewsletterSubscribers();
-  const foundIndex = existing.findIndex((s) => s.email.toLowerCase() === emailClean);
 
-  let isNew = false;
-  let record: NewsletterSubscriber;
+  // 1. Check if email is ALREADY actively subscribed (in local store or Google Sheet)
+  const allActive = await getAllActiveNewsletterSubscribers();
+  const alreadyActive = allActive.some(
+    (s) => s.email.toLowerCase() === emailClean && s.status === "active"
+  );
 
-  if (foundIndex >= 0) {
-    record = {
-      ...existing[foundIndex],
-      status: "active",
-      city: data.city || existing[foundIndex].city || "India",
-      state: data.state || existing[foundIndex].state || "Madhya Pradesh",
-      country: data.country || existing[foundIndex].country || "India",
-      language: data.language || existing[foundIndex].language || "hi",
-      name: data.name || existing[foundIndex].name
+  if (alreadyActive) {
+    const existing = getLocalNewsletterSubscribers().find((s) => s.email.toLowerCase() === emailClean) || {
+      email: emailClean,
+      city: data.city,
+      state: data.state,
+      subscribedAt: new Date().toISOString(),
+      status: "active" as const
     };
-    existing[foundIndex] = record;
+    return {
+      subscriber: existing,
+      isNew: false,
+      alreadySubscribed: true
+    };
+  }
+
+  // 2. Check if user was pending confirmation in local store
+  const existingList = getLocalNewsletterSubscribers();
+  const pendingIndex = existingList.findIndex(
+    (s) => s.email.toLowerCase() === emailClean && s.status === "pending"
+  );
+
+  const token = generateVerificationToken(emailClean);
+  let record: NewsletterSubscriber;
+  let isPendingReissue = false;
+
+  if (pendingIndex >= 0) {
+    isPendingReissue = true;
+    record = {
+      ...existingList[pendingIndex],
+      name: data.name || existingList[pendingIndex].name,
+      city: data.city || existingList[pendingIndex].city,
+      state: data.state || existingList[pendingIndex].state,
+      language: data.language || existingList[pendingIndex].language,
+      verificationToken: token,
+      subscribedAt: new Date().toISOString()
+    };
+    existingList[pendingIndex] = record;
   } else {
-    isNew = true;
     record = {
       email: emailClean,
       name: data.name,
@@ -145,25 +220,117 @@ export async function addNewsletterSubscriber(data: {
       country: data.country || "India",
       language: data.language || "hi",
       subscribedAt: new Date().toISOString(),
-      status: "active",
+      status: "pending",
+      verificationToken: token,
       source: data.source || "Website Form"
     };
-    existing.push(record);
+    existingList.push(record);
   }
 
-  saveLocalNewsletterSubscribers(existing);
+  saveLocalNewsletterSubscribers(existingList);
 
-  // Sync to Google Sheets in background
+  // Sync to Google Sheets in background with PENDING status
   syncNewsletterEmailToGoogleSheet({
     email: record.email,
     name: record.name,
     state: `${record.city ? `${record.city}, ` : ""}${record.state || "India"}`,
-    source: record.source
+    source: record.source,
+    status: "PENDING"
   }).catch((err) => {
-    console.warn("[NewsletterStore] Google Sheet sync warning:", err);
+    console.warn("[NewsletterStore] Google Sheet pending sync warning:", err);
   });
 
-  return { subscriber: record, isNew };
+  return {
+    subscriber: record,
+    isNew: true,
+    pendingVerification: true,
+    isPendingReissue,
+    verificationToken: token
+  };
+}
+
+/**
+ * Activates a pending subscriber upon clicking the email confirmation link (Tareeka 1)
+ */
+export async function confirmNewsletterSubscription(
+  email: string,
+  token: string
+): Promise<{
+  success: boolean;
+  alreadyActive?: boolean;
+  subscriber?: NewsletterSubscriber;
+  error?: string;
+}> {
+  const emailClean = email.trim().toLowerCase();
+
+  // 1. Verify token signature
+  const isValidSig = verifySubscriptionToken(emailClean, token);
+
+  const existingList = getLocalNewsletterSubscribers();
+  const foundIndex = existingList.findIndex((s) => s.email.toLowerCase() === emailClean);
+
+  // If subscriber is already active, return success without re-sending welcome
+  if (foundIndex >= 0 && existingList[foundIndex].status === "active") {
+    return {
+      success: true,
+      alreadyActive: true,
+      subscriber: existingList[foundIndex]
+    };
+  }
+
+  // Token must match either stored token or valid HMAC signature
+  const storedMatches = foundIndex >= 0 && existingList[foundIndex].verificationToken === token;
+  if (!isValidSig && !storedMatches) {
+    return {
+      success: false,
+      error: "Invalid or expired confirmation link. Please subscribe again on our website."
+    };
+  }
+
+  const nowIst = new Date().toISOString();
+  let record: NewsletterSubscriber;
+
+  if (foundIndex >= 0) {
+    record = {
+      ...existingList[foundIndex],
+      status: "active",
+      verifiedAt: nowIst,
+      verificationToken: undefined
+    };
+    existingList[foundIndex] = record;
+  } else {
+    record = {
+      email: emailClean,
+      subscribedAt: nowIst,
+      status: "active",
+      verifiedAt: nowIst,
+      source: "Double Opt-in Confirmation"
+    };
+    existingList.push(record);
+  }
+
+  saveLocalNewsletterSubscribers(existingList);
+
+  // Clear remote cache so fresh queries include this newly active user
+  cachedRemoteSubscribers = null;
+
+  // Sync to Google Sheets with status ACTIVE and action newsletter_confirm
+  syncNewsletterEmailToGoogleSheet({
+    email: record.email,
+    name: record.name,
+    state: `${record.city ? `${record.city}, ` : ""}${record.state || "India"}`,
+    source: record.source,
+    status: "ACTIVE",
+    action: "newsletter_confirm"
+  }).catch((err) => {
+    console.warn("[NewsletterStore] Google Sheet confirm sync warning:", err);
+  });
+
+  return {
+    success: true,
+    alreadyActive: false,
+    subscriber: record
+  };
 }
 
 /**

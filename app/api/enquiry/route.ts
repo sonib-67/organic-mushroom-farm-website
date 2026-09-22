@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { sendEnquiryEmails, EnquiryPayload } from "@/lib/enquiryMailService";
+import { syncEnquiryToGoogleSheet } from "@/lib/googleSheetSync";
 
 // In-memory store for rate limiting
 const ipRequestCounts = new Map<string, { count: number; resetTime: number }>();
@@ -108,8 +109,30 @@ export async function POST(req: NextRequest) {
       timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
     };
 
-    // Dispatch emails (Admin + Customer custom smart reply)
-    await sendEnquiryEmails(payload);
+    // Dispatch emails (Admin + Customer custom smart reply) AND sync to Google Sheet Website_Enquiries tab
+    await Promise.allSettled([
+      sendEnquiryEmails(payload),
+      syncEnquiryToGoogleSheet({
+        action: "website_enquiry",
+        type: "enquiry",
+        serviceType: payload.serviceType,
+        fullName: payload.fullName,
+        phone: payload.phone,
+        email: payload.email,
+        message: payload.message,
+        subjectOfEnquiry: payload.subjectOfEnquiry,
+        trainingMode: payload.trainingMode,
+        mushroomVariety: payload.mushroomVariety,
+        quantity: payload.quantity,
+        deliveryLocation: payload.deliveryLocation,
+        setupType: payload.setupType,
+        farmSize: payload.farmSize,
+        farmLocation: payload.farmLocation,
+        productForm: payload.productForm,
+        ip: payload.ip,
+        timestamp: payload.timestamp,
+      }),
+    ]);
 
     return NextResponse.json(
       { message: "Enquiry submitted successfully! Confirmation email has been dispatched." },

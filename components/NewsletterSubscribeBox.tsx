@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Mail, CheckCircle2, Sparkles, Send, ShieldCheck } from "lucide-react";
+import { Mail, CheckCircle2, Sparkles, Send, ShieldCheck, MailCheck, AlertTriangle } from "lucide-react";
 
 interface NewsletterSubscribeBoxProps {
   variant?: "footer" | "card" | "compact";
@@ -12,22 +12,26 @@ export default function NewsletterSubscribeBox({
   source = "Website Footer"
 }: NewsletterSubscribeBoxProps) {
   const [email, setEmail] = useState("");
+  const [submittedEmail, setSubmittedEmail] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [loadTime] = useState<number>(() => Date.now());
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "pending" | "success" | "error">("idle");
+  const [isDuplicate, setIsDuplicate] = useState(false);
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !email.includes("@")) {
       setStatus("error");
-      setMessage("Please enter a valid email address.");
+      setIsDuplicate(false);
+      setMessage("कृपया सही ईमेल एड्रेस दर्ज करें (Please enter a valid email address).");
       return;
     }
 
     setLoading(true);
     setStatus("idle");
+    setIsDuplicate(false);
     setMessage("");
 
     try {
@@ -43,18 +47,40 @@ export default function NewsletterSubscribeBox({
       });
 
       const data = await res.json();
-      if (res.ok && data.success) {
-        setStatus("success");
-        setMessage(data.message || "Thank you for subscribing! You'll receive our latest updates directly in your inbox.");
-        setEmail("");
-        setHoneypot("");
+
+      if (res.status === 409 || data.alreadySubscribed) {
+        // Duplicate email error
+        setStatus("error");
+        setIsDuplicate(true);
+        setMessage(
+          data.error ||
+          "⚠️ यह Email ID पहले से हमारे पास पंजीकृत (Registered) है! कृपया कोई दूसरा ईमेल एड्रेस दर्ज करें।"
+        );
+      } else if (res.ok && data.success) {
+        if (data.pendingVerification) {
+          // Double opt-in confirmation required (Tareeka 1)
+          setSubmittedEmail(email.trim());
+          setStatus("pending");
+          setMessage(
+            data.message ||
+            "हमने आपकी ईमेल पर एक कन्फर्मेशन लिंक भेजा है। कृपया इनबॉक्स खोलकर 'Confirm Subscription' पर क्लिक करें!"
+          );
+          setHoneypot("");
+        } else {
+          setStatus("success");
+          setMessage(data.message || "Thank you for subscribing! You'll receive our latest updates directly in your inbox.");
+          setEmail("");
+          setHoneypot("");
+        }
       } else {
         setStatus("error");
-        setMessage(data.error || "Subscription failed, please try again.");
+        setIsDuplicate(false);
+        setMessage(data.error || "सदस्यता में समस्या आई, कृपया पुनः प्रयास करें।");
       }
     } catch (err: any) {
       setStatus("error");
-      setMessage("Unable to connect to the server. Please try again.");
+      setIsDuplicate(false);
+      setMessage("सर्वर से संपर्क नहीं हो पाया। कृपया इंटरनेट चेक करके पुनः प्रयास करें।");
     } finally {
       setLoading(false);
     }
@@ -73,18 +99,49 @@ export default function NewsletterSubscribeBox({
         
         {/* Left: Headline & Subheadline */}
         <div className="text-center lg:text-left max-w-xl">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-semibold mb-2">
+            <Sparkles size={13} />
+            <span>2-Day Farmers' Technical Digest</span>
+          </div>
+
           <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
-            Stay Updated
+            Stay Updated (ताज़ा मंडी भाव व देसी नुस्खे)
           </h3>
 
           <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
-            Get the latest mushroom farming tips, training updates, and market news directly in your inbox.
+            हर 48 घंटे में सीधे अपने इनबॉक्स में उच्च पैदावार की तकनीक, आर्द्रता नियंत्रण के देसी जुगाड़ और ताज़ा थोक मंडी भाव पाएं।
           </p>
         </div>
 
         {/* Right: Form & Feedback */}
-        <div className="w-full lg:w-auto lg:min-w-[380px]">
-          {status === "success" ? (
+        <div className="w-full lg:w-auto lg:min-w-[400px]">
+          {status === "pending" ? (
+            <div className="p-4 sm:p-5 rounded-xl bg-emerald-950/80 border border-emerald-500/60 text-emerald-100 flex items-start gap-3.5 text-sm animate-in fade-in shadow-lg">
+              <div className="w-9 h-9 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                <MailCheck size={20} />
+              </div>
+              <div className="space-y-1.5 flex-1">
+                <strong className="block text-white font-bold text-sm sm:text-base leading-tight">
+                  📩 कृपया अपनी ईमेल चेक करें (Check Inbox)
+                </strong>
+                <p className="text-xs text-emerald-200/90 leading-relaxed">
+                  हमने <strong className="text-white underline">{submittedEmail}</strong> पर एक वेरिफिकेशन लिंक भेजा है। कृपया ईमेल खोलकर <strong className="text-emerald-300 font-semibold">'Confirm Subscription'</strong> बटन दबाएं ताकि आपका 2-Day Digest सक्रिय हो सके।
+                </p>
+                <div className="pt-1 flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setStatus("idle");
+                      setEmail("");
+                    }}
+                    className="text-xs text-emerald-300 underline font-semibold hover:text-white transition-colors"
+                  >
+                    गलत ईमेल डाला? दूसरा ईमेल दर्ज करें ➔
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : status === "success" ? (
             <div className="p-4 rounded-xl bg-emerald-900/40 border border-emerald-500/50 text-emerald-200 flex items-start gap-3 text-sm animate-in fade-in">
               <CheckCircle2 size={20} className="text-emerald-400 shrink-0 mt-0.5" />
               <div>
@@ -122,11 +179,21 @@ export default function NewsletterSubscribeBox({
                     id="newsletter-email-input"
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (status === "error") {
+                        setStatus("idle");
+                        setIsDuplicate(false);
+                      }
+                    }}
                     placeholder="Enter your email address"
                     required
                     disabled={loading}
-                    className="w-full pl-10 pr-4 py-3 bg-slate-900/90 text-white placeholder-slate-400 text-xs sm:text-sm rounded-xl border border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition-all"
+                    className={`w-full pl-10 pr-4 py-3 bg-slate-900/90 text-white placeholder-slate-400 text-xs sm:text-sm rounded-xl border transition-all ${
+                      isDuplicate
+                        ? "border-rose-500 ring-2 ring-rose-500/20 bg-rose-950/20"
+                        : "border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+                    } focus:outline-none`}
                   />
                 </div>
 
@@ -148,13 +215,27 @@ export default function NewsletterSubscribeBox({
               </div>
 
               {status === "error" && (
-                <p className="text-xs text-rose-400 font-medium pl-1">
-                  ⚠️ {message}
-                </p>
+                <div
+                  className={`p-3 rounded-xl text-xs font-medium flex items-start gap-2.5 animate-in fade-in ${
+                    isDuplicate
+                      ? "bg-rose-950/60 border border-rose-500/50 text-rose-200"
+                      : "bg-rose-950/40 border border-rose-600/40 text-rose-300"
+                  }`}
+                >
+                  <AlertTriangle size={16} className="text-rose-400 shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <p className="leading-relaxed font-semibold">{message}</p>
+                    {isDuplicate && (
+                      <p className="text-[11px] text-rose-300/80">
+                        सुझाव: यदि यह आपका ही ईमेल है तो आपका सब्सक्रिप्शन पहले से चालू है। आप कोई अन्य नया ईमेल दर्ज कर सकते हैं।
+                      </p>
+                    )}
+                  </div>
+                </div>
               )}
 
               <p className="text-xs text-slate-400 text-center lg:text-left pl-1">
-                No spam. Unsubscribe anytime.
+                🔒 100% सुरक्षित • कभी भी Unsubscribe करें • कोई स्पैम नहीं
               </p>
             </form>
           )}

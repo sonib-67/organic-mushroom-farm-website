@@ -4,8 +4,7 @@ import {
   getAllActiveNewsletterSubscribers
 } from "@/lib/newsletterStore";
 import {
-  sendWelcomeEmailToSubscriber,
-  sendAdminNewSubscriberAlert
+  sendVerificationEmailToSubscriber
 } from "@/lib/emailSender";
 import { detectSubscriberLocation } from "@/lib/geoDetector";
 
@@ -142,7 +141,7 @@ export async function POST(req: Request) {
     const geoInfo = await detectSubscriberLocation(req);
 
     // --- Shield 6: Store & Deduplication ---
-    const { subscriber, isNew } = await addNewsletterSubscriber({
+    const { subscriber, isNew, alreadySubscribed, verificationToken } = await addNewsletterSubscriber({
       email: cleanEmail,
       name: name?.trim(),
       city: geoInfo.city,
@@ -152,51 +151,39 @@ export async function POST(req: Request) {
       source: source || "Website Stay Updated Form"
     });
 
-    // If user was ALREADY subscribed, don't spam them or admin with duplicate alerts
-    if (!isNew) {
-      return NextResponse.json({
-        success: true,
-        isNew: false,
-        message: "You are already subscribed! You will continue to receive our 2-day updates.",
-        subscriber: {
-          email: subscriber.email,
-          city: subscriber.city,
-          state: subscriber.state,
-          language: subscriber.language,
-          subscribedAt: subscriber.subscribedAt
-        }
-      });
+    // If user is ALREADY actively subscribed, return clear error as requested:
+    // "Jaise aagr koi subscribe krte h tho ek he mail id se tho dobara same mail id dale tho error aaya connection ke fetch kare taaki dusre mail id ne dal sake"
+    if (!isNew || alreadySubscribed) {
+      return NextResponse.json(
+        {
+          success: false,
+          alreadySubscribed: true,
+          error: "⚠️ यह Email ID पहले से हमारे पास पंजीकृत (Registered) है! कृपया कोई दूसरा ईमेल एड्रेस दर्ज करें।"
+        },
+        { status: 409 }
+      );
     }
 
-    const allSubscribers = await getAllActiveNewsletterSubscribers();
+    // Double Opt-in (Tareeka 1): Send confirmation verification email
+    const confirmUrl = `${baseUrl}/newsletter/confirm?email=${encodeURIComponent(subscriber.email)}&token=${encodeURIComponent(verificationToken || "")}`;
 
-    // 1. Send beautiful Welcome Confirmation email to the subscriber (in their regional language)
-    // 2. Send instant alert with attached CSV backup to admin (organicmushroomsfarms@gmail.com)
-    // Await both dispatches so serverless/Node environment completes transmission before closing
-    await Promise.allSettled([
-      sendWelcomeEmailToSubscriber(subscriber.email, baseUrl, {
-        language: subscriber.language || geoInfo.language,
-        city: subscriber.city,
-        state: subscriber.state
-      }),
-      sendAdminNewSubscriberAlert(
-        {
-          newSubscriber: subscriber,
-          allSubscribers
-        },
-        baseUrl
-      )
-    ]);
+    // Send verification email to verify that the inbox is active and belongs to the user
+    await sendVerificationEmailToSubscriber(subscriber.email, confirmUrl, baseUrl, {
+      language: subscriber.language || geoInfo.language,
+      city: subscriber.city,
+      state: subscriber.state
+    });
 
     return NextResponse.json({
       success: true,
-      message: "Thank you for subscribing! You'll receive our latest updates directly in your inbox.",
-      isNew: true,
+      pendingVerification: true,
+      message: "कृपया अपनी ईमेल चेक करें! हमने आपके इनबॉक्स पर एक कन्फर्मेशन लिंक भेजा है। 'Confirm Subscription' बटन दबाते ही आपका 2-Day Farming Digest सक्रिय हो जाएगा।",
       subscriber: {
         email: subscriber.email,
         city: subscriber.city,
         state: subscriber.state,
         language: subscriber.language,
+        status: subscriber.status,
         subscribedAt: subscriber.subscribedAt
       }
     });
