@@ -1,5 +1,9 @@
 import fs from "fs";
 import path from "path";
+import {
+  syncPushSubscriberToGoogleSheet,
+  fetchSubscribersFromGoogleSheet
+} from "./googleSheetSync";
 
 export interface PushSubscriptionRecord {
   id: string; // generated client hash or endpoint hash
@@ -189,7 +193,47 @@ export function savePushSubscriber(data: {
   subscribersMap.set(id, record);
   persistStore();
 
+  // Asynchronously sync to Google Sheets (non-blocking)
+  syncPushSubscriberToGoogleSheet(record).catch((err) => {
+    console.warn("[GoogleSheetSync] Background sync failed:", err);
+  });
+
   return record;
+}
+
+/**
+ * Ensures subscribers are loaded, falling back to Google Sheets
+ * if local memory/file is empty (e.g. after Vercel serverless cold start).
+ */
+export async function ensureSubscribersLoaded(): Promise<PushSubscriptionRecord[]> {
+  initStore();
+  if (subscribersMap.size === 0) {
+    try {
+      const remoteSubs = await fetchSubscribersFromGoogleSheet();
+      if (Array.isArray(remoteSubs) && remoteSubs.length > 0) {
+        for (const item of remoteSubs) {
+          if (item && item.endpoint) {
+            const subId = item.id || Buffer.from(item.endpoint).toString("base64").slice(-32);
+            subscribersMap.set(subId, {
+              id: subId,
+              endpoint: item.endpoint,
+              keys: item.keys,
+              state: item.state || "Madhya Pradesh",
+              country: item.country || "India",
+              language: item.language || "hi",
+              deviceFingerprint: item.deviceFingerprint,
+              subscribedAt: item.subscribedAt || new Date().toISOString(),
+              sentTemplates: []
+            });
+          }
+        }
+        persistStore();
+      }
+    } catch (err) {
+      console.warn("Could not sync subscribers from Google Sheets fallback:", err);
+    }
+  }
+  return Array.from(subscribersMap.values());
 }
 
 export function removePushSubscriber(id: string): void {

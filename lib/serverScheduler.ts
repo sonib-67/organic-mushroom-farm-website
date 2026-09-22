@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import {
   getAllPushSubscribers,
+  ensureSubscribersLoaded,
   recordPushSent,
   evaluateAntiFatigueCooldown,
   AntiFatigueStatus
@@ -44,7 +45,7 @@ export async function executeDailyNotificationDispatch(
   forcedSlot?: "10am" | "5pm",
   bypassCooldown?: boolean
 ) {
-  const subscribers = getAllPushSubscribers();
+  const subscribers = await ensureSubscribersLoaded();
   const nowIst = new Date(Date.now() + 5.5 * 60 * 60 * 1000);
   const hour = nowIst.getUTCHours();
   const dateStr = nowIst.toISOString().slice(0, 10);
