@@ -47,23 +47,6 @@ export default function TrainingPayment({ title, amount }: { title: string; amou
         return;
       }
 
-      // Record INITIATED lead in Google Sheet and Admin Alert
-      fetch('/api/training-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          action: 'INITIATED',
-          data: {
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email,
-            price: amount === 699 ? '₹699' : '₹299',
-            trainingName: title + ' Training',
-            orderId: order.id,
-          }
-        })
-      }).catch(console.error);
-
       // 2. Open Razorpay Checkout Modal
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Use NEXT_PUBLIC for client
@@ -117,9 +100,6 @@ export default function TrainingPayment({ title, amount }: { title: string; amou
                 currency: CURRENCY,
                 name: formData.name,
                 email: formData.email,
-                phone: formData.phone,
-                orderId: order.id,
-                planName: title + ' Training',
               }),
             });
             router.push("/training/cancel");

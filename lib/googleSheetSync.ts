@@ -5,7 +5,7 @@
  */
 
 export interface GoogleSheetSubscriberPayload {
-  action: "save_subscriber" | "get_subscribers" | "newsletter_subscribe" | "newsletter_confirm" | string;
+  action: "save_subscriber" | "get_subscribers" | "newsletter_subscribe";
   type?: "push_subscriber" | "newsletter";
   id?: string;
   email?: string;
@@ -19,7 +19,6 @@ export interface GoogleSheetSubscriberPayload {
   userAgent?: string;
   subscribedAt?: string;
   source?: string;
-  status?: string;
 }
 
 /**
@@ -82,8 +81,6 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
   state?: string;
   name?: string;
   source?: string;
-  status?: string;
-  action?: string;
 }): Promise<{ success: boolean; error?: string }> {
   const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
   if (!webhookUrl) {
@@ -95,12 +92,11 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
 
   try {
     const payload: GoogleSheetSubscriberPayload = {
-      action: data.action || (data.status === "ACTIVE" ? "newsletter_confirm" : "newsletter_subscribe"),
+      action: "newsletter_subscribe",
       type: "newsletter",
       email: data.email.toLowerCase().trim(),
       state: data.state || "India",
       source: data.source || "Website Footer Digest",
-      status: data.status || "PENDING",
       subscribedAt: new Date().toISOString()
     };
 
@@ -149,40 +145,25 @@ export interface TrainingSyncPayload {
 }
 
 /**
- * Training / USA Training sync to Google Sheets (Disabled - website only uses Newsletter and Push in Google Sheets).
+ * Saves training lead, payment initiation, completed payment or dropped checkout to Google Sheets.
+ * Directs automatically to dedicated tabs (299_Payment_Done, 299_Pending_Leads, 699_Payment_Done, 699_Pending_Leads, etc.)
  */
-export async function syncTrainingToGoogleSheet(_data: TrainingSyncPayload): Promise<boolean> {
-  // Disabled as per request (only Newsletter and Push subscribers sync to Google Sheet)
-  return false;
-}
+export async function syncTrainingToGoogleSheet(data: TrainingSyncPayload): Promise<boolean> {
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  if (!webhookUrl) return false;
 
-export interface EnquirySyncPayload {
-  action?: "website_enquiry";
-  type: "enquiry";
-  serviceType: string;
-  fullName: string;
-  phone?: string;
-  email: string;
-  message?: string;
-  subjectOfEnquiry?: string;
-  trainingMode?: string;
-  mushroomVariety?: string;
-  quantity?: string;
-  deliveryLocation?: string;
-  setupType?: string;
-  farmSize?: string;
-  farmLocation?: string;
-  productForm?: string;
-  ip?: string;
-  timestamp?: string;
-}
-
-/**
- * Enquiry form sync to Google Sheets (Disabled - enquiries are dispatched directly via email).
- */
-export async function syncEnquiryToGoogleSheet(_data: EnquirySyncPayload): Promise<boolean> {
-  // Disabled as per request (only Newsletter and Push subscribers sync to Google Sheet)
-  return false;
+  try {
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+      signal: AbortSignal.timeout(12000),
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn("[GoogleSheetSync] Training sync warning (non-fatal):", err);
+    return false;
+  }
 }
 
 /**
@@ -254,51 +235,6 @@ export async function fetchNewsletterEmailsFromGoogleSheet(): Promise<Array<{ em
  * They paste this into Google Sheet -> Extensions -> Apps Script -> Deploy as Web App.
  */
 export const GOOGLE_APPS_SCRIPT_TEMPLATE = `
-/**
- * ORGANIC MUSHROOM FARM - Google Sheet Webhook Sync Engine
- * Handles ONLY:
- * 1. Newsletter Subscribers (Newsletter_Subscribers)
- * 2. Web Push Notification Subscribers (Push_Subscribers)
- */
-
-function getOrCreateSheet(sheet, name, headers, color) {
-  var s = sheet.getSheetByName(name);
-  if (!s) {
-    s = sheet.insertSheet(name);
-    s.appendRow(headers);
-    var range = s.getRange(1, 1, 1, headers.length);
-    range.setFontWeight("bold").setBackground(color).setFontColor("#ffffff");
-    s.setFrozenRows(1);
-  }
-  return s;
-}
-
-/**
- * ⚡ 1-CLICK SETUP FUNCTION
- * Apps Script टूलबार में 'setupAllSheets' चुनें और 'Run' (▶) दबाएं।
- * यह केवल 2 जरूरी शीट्स तैयार रखेगा।
- */
-function setupAllSheets() {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet();
-  
-  var tabs = [
-    {
-      name: "Newsletter_Subscribers",
-      color: "#2e7d32",
-      headers: ["Subscribed Date (IST)", "Email Address", "State", "Source", "Status", "Verified Date (IST)"]
-    },
-    {
-      name: "Push_Subscribers",
-      color: "#1565c0",
-      headers: ["Subscribed Date (IST)", "Subscriber ID", "State", "Language", "Endpoint", "p256dh", "auth", "Device Fingerprint"]
-    }
-  ];
-
-  for (var i = 0; i < tabs.length; i++) {
-    getOrCreateSheet(sheet, tabs[i].name, tabs[i].headers, tabs[i].color);
-  }
-}
-
 function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet();
@@ -307,40 +243,25 @@ function doPost(e) {
     
     // 1. NEWSLETTER SUBSCRIBERS
     if (data.type === "newsletter") {
-      var nSheet = getOrCreateSheet(
-        sheet,
-        "Newsletter_Subscribers",
-        ["Subscribed Date (IST)", "Email Address", "State", "Source", "Status", "Verified Date (IST)"],
-        "#2e7d32"
-      );
-      
-      // If confirming an existing subscriber, update their status to ACTIVE
-      if (data.action === "newsletter_confirm") {
-        var nData = nSheet.getDataRange().getValues();
-        var emailLower = (data.email || "").toString().trim().toLowerCase();
-        for (var k = 1; k < nData.length; k++) {
-          if (nData[k][1] && nData[k][1].toString().trim().toLowerCase() === emailLower) {
-            nSheet.getRange(k + 1, 5).setValue("ACTIVE");
-            nSheet.getRange(k + 1, 6).setValue(istDate);
-            return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Subscriber confirmed", row: k + 1 }))
-              .setMimeType(ContentService.MimeType.JSON);
-          }
-        }
+      var nSheet = sheet.getSheetByName("Newsletter_Subscribers");
+      if (!nSheet) {
+        nSheet = sheet.insertSheet("Newsletter_Subscribers");
+        nSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source"]);
+        nSheet.getRange("A1:D1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
       }
-      
-      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website", data.status || "PENDING", data.status === "ACTIVE" ? istDate : ""]);
+      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website"]);
       return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: "Newsletter_Subscribers" }))
         .setMimeType(ContentService.MimeType.JSON);
     }
     
     // 2. PUSH NOTIFICATION SUBSCRIBERS
     if (data.type === "push_subscriber" || data.type === "push") {
-      var pSheet = getOrCreateSheet(
-        sheet,
-        "Push_Subscribers",
-        ["Subscribed Date (IST)", "Subscriber ID", "State", "Language", "Endpoint", "p256dh", "auth", "Device Fingerprint"],
-        "#1565c0"
-      );
+      var pSheet = sheet.getSheetByName("Push_Subscribers");
+      if (!pSheet) {
+        pSheet = sheet.insertSheet("Push_Subscribers");
+        pSheet.appendRow(["Subscribed Date (IST)", "Subscriber ID", "State", "Language", "Endpoint", "p256dh", "auth", "Device Fingerprint"]);
+        pSheet.getRange("A1:H1").setFontWeight("bold").setBackground("#1565c0").setFontColor("#ffffff");
+      }
       pSheet.appendRow([
         istDate,
         data.id || "",
@@ -355,8 +276,97 @@ function doPost(e) {
         .setMimeType(ContentService.MimeType.JSON);
     }
     
-    // Any other events are ignored
-    return ContentService.createTextOutput(JSON.stringify({ status: "ignored", message: "Event ignored as per configuration" }))
+    // 3. TRAINING REGISTRATIONS & LEADS (299, 699, Offline, USA)
+    if (data.type === "training" || data.action === "training_lead" || data.action === "training_payment") {
+      var planStr = ((data.planType || "") + " " + (data.trainingName || "") + " " + (data.price || "")).toLowerCase();
+      var isUSA = data.planType === "usa" || data.currency === "USD" || planStr.indexOf("$") !== -1 || planStr.indexOf("usa") !== -1;
+      var isOffline = data.planType === "offline" || planStr.indexOf("offline") !== -1;
+      var is699 = data.planType === "699" || planStr.indexOf("699") !== -1 || planStr.indexOf("advanced") !== -1;
+      var is299 = data.planType === "299" || planStr.indexOf("299") !== -1 || planStr.indexOf("basic") !== -1;
+      
+      var isSuccess = data.status === "PAID" || data.status === "DONE" || data.status === "SUCCESS";
+      
+      var tabName = "299_Pending_Leads";
+      var headerColor = "#d97706";
+      
+      if (isUSA) {
+        tabName = "USA_Global_Training";
+        headerColor = "#1e40af";
+      } else if (isOffline) {
+        tabName = isSuccess ? "Offline_Payment_Done" : "Offline_Pending_Leads";
+        headerColor = isSuccess ? "#047857" : "#ea580c";
+      } else if (is699) {
+        tabName = isSuccess ? "699_Payment_Done" : "699_Pending_Leads";
+        headerColor = isSuccess ? "#7c3aed" : "#dc2626";
+      } else {
+        tabName = isSuccess ? "299_Payment_Done" : "299_Pending_Leads";
+        headerColor = isSuccess ? "#15803d" : "#d97706";
+      }
+      
+      var tSheet = sheet.getSheetByName(tabName);
+      if (!tSheet) {
+        tSheet = sheet.insertSheet(tabName);
+        if (tabName === "USA_Global_Training") {
+          tSheet.appendRow(["Date & Time (IST)", "Student Name", "Email Address", "Phone / WhatsApp", "Plan Enrolled", "Amount ($ USD)", "Payment Status", "PayPal / Order ID", "Location (Country/State)"]);
+          tSheet.getRange("A1:I1").setFontWeight("bold").setBackground(headerColor).setFontColor("#ffffff");
+        } else if (isSuccess) {
+          tSheet.appendRow(["Date & Time (IST)", "Student Name", "Mobile Number", "Email Address", "Course Name", "Amount Paid", "Razorpay Payment ID", "Order ID", "City & State", "Experience & Goal", "Registration Details"]);
+          tSheet.getRange("A1:K1").setFontWeight("bold").setBackground(headerColor).setFontColor("#ffffff");
+        } else {
+          tSheet.appendRow(["Date & Time (IST)", "Lead Name", "Mobile Number", "Email Address", "Course Selected", "Fee Amount", "Status (Lead/Cancelled)", "Order ID", "Notes / Drop Reason"]);
+          tSheet.getRange("A1:I1").setFontWeight("bold").setBackground(headerColor).setFontColor("#ffffff");
+        }
+      }
+      
+      if (tabName === "USA_Global_Training") {
+        tSheet.appendRow([
+          istDate,
+          data.name || "",
+          data.email || "",
+          data.phone || "",
+          data.trainingName || data.planName || (data.price ? "USA Training (" + data.price + ")" : "USA Training"),
+          data.price || data.amount || "$39 / $97",
+          data.status || "COMPLETED",
+          data.paymentId || data.orderID || data.orderId || "",
+          (data.city ? data.city + ", " : "") + (data.state || data.country || "USA / Global")
+        ]);
+      } else if (isSuccess) {
+        var extraDetails = "";
+        if (data.planSpace || data.investment) {
+          extraDetails = "Space: " + (data.planSpace || "-") + " | Inv: " + (data.investment || "-");
+        }
+        tSheet.appendRow([
+          istDate,
+          data.name || "",
+          data.phone || "",
+          data.email || "",
+          data.trainingName || (is699 ? "Advanced Commercial Cultivation" : "Basic Mushroom Farming"),
+          data.price || (is699 ? "₹699" : "₹299"),
+          data.paymentId || "",
+          data.orderId || "",
+          (data.city ? data.city + ", " : "") + (data.state || ""),
+          (data.experience ? "Exp: " + data.experience + " | " : "") + (data.goal || ""),
+          extraDetails
+        ]);
+      } else {
+        tSheet.appendRow([
+          istDate,
+          data.name || "",
+          data.phone || "",
+          data.email || "",
+          data.trainingName || (is699 ? "Advanced Commercial Cultivation (₹699)" : "Basic Mushroom Farming (₹299)"),
+          data.price || (is699 ? "₹699" : "₹299"),
+          data.status || "INITIATED",
+          data.orderId || "",
+          data.errorMsg || (data.status === "CANCELLED" ? "User cancelled payment window" : "Checkout Initiated / Drop-off")
+        ]);
+      }
+      
+      return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: tabName, message: "Saved to " + tabName }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({ status: "ignored", message: "Unknown event type" }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
