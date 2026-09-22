@@ -97,7 +97,7 @@ export function NotificationBanner() {
 
   if (!isVisible) return null;
 
-  const stateName = geo?.state || "भारत";
+  const stateName = geo?.state || "India";
 
   return (
     <AnimatePresence>
@@ -127,16 +127,16 @@ export function NotificationBanner() {
                 {isSubscribed ? (
                   <div className="flex items-center gap-1.5 text-xs sm:text-sm font-bold text-emerald-700 dark:text-emerald-400">
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>अलर्ट्स चालू हो गए हैं! (Notifications Active)</span>
+                    <span>Notifications Active!</span>
                   </div>
                 ) : (
                   <div className="flex flex-col">
                     <span className="text-[11px] sm:text-xs font-bold text-slate-800 dark:text-slate-100 truncate flex items-center gap-1">
-                      <span className="text-emerald-600 dark:text-emerald-400">[{stateName}]</span>
-                      <span>मशरूम ट्रेनिंग बैच व नए ब्लॉग अपडेट्स</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-extrabold">[{stateName}]</span>
+                      <span>Mushroom Training & Farm Updates</span>
                     </span>
                     <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 truncate">
-                      महत्वपूर्ण तारीखें और सरकारी सब्सिडी की जानकारी समय पर पाएं
+                      Get timely batch alerts, government subsidy guides & market rates
                     </span>
                   </div>
                 )}
@@ -150,11 +150,11 @@ export function NotificationBanner() {
                   type="button"
                   onClick={handleAllow}
                   disabled={isSubscribing}
-                  className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-[11px] sm:text-xs shadow-xs hover:shadow-md transition-all active:scale-95 flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                  className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-[11px] sm:text-xs shadow-xs hover:shadow-md transition-all active:scale-95 flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                   aria-label="Allow Notifications"
                 >
                   <Bell className="w-3 h-3" />
-                  <span>{isSubscribing ? "प्रक्रिया जारी..." : "Allow / चालू करें"}</span>
+                  <span>{isSubscribing ? "Activating..." : "Allow Notifications"}</span>
                 </button>
               )}
 

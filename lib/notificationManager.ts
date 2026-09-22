@@ -84,22 +84,34 @@ export async function subscribeToPush(): Promise<{ success: boolean; permission:
   }
 
   try {
-    // 1. Register or get Service Worker
-    const registration = await navigator.serviceWorker.register("/sw.js", {
-      scope: "/"
-    });
-
-    // 2. Request native permission
+    // 1. CRITICAL FOR MOBILE CHROME: Request permission IMMEDIATELY on the direct user click gesture!
+    // Never await other async tasks prior to this, otherwise Chrome revokes user gesture.
     const permission = await Notification.requestPermission();
 
     if (permission === "granted") {
+      // Mark granted in localStorage immediately so refreshes never prompt again
+      localStorage.setItem("omf_push_status", "granted");
+      localStorage.removeItem("omf_notif_dismiss_count");
+      localStorage.removeItem("omf_notif_muted_until");
+
+      // 2. Register Service Worker in parallel/subsequent
+      let registration: ServiceWorkerRegistration | null = null;
+      try {
+        registration = await navigator.serviceWorker.register("/sw.js", {
+          scope: "/"
+        });
+        await navigator.serviceWorker.ready;
+      } catch (swErr) {
+        console.warn("ServiceWorker registration notice:", swErr);
+      }
+
       // 3. Resolve location in background without blocking
       const geo = await getVisitorGeo();
 
       // 4. Try to get PushManager subscription if supported
       let pushSub: PushSubscription | null = null;
       try {
-        if ("pushManager" in registration) {
+        if (registration && "pushManager" in registration) {
           pushSub = await registration.pushManager.getSubscription();
         }
       } catch {
@@ -130,21 +142,22 @@ export async function subscribeToPush(): Promise<{ success: boolean; permission:
         console.warn("Could not sync push subscription to backend:", err);
       }
 
-      localStorage.setItem("omf_push_status", "granted");
-      localStorage.removeItem("omf_notif_dismiss_count");
-
-      // 6. Immediate welcome confirmation notification
-      try {
-        registration.showNotification("🍄 अलर्ट्स एक्टिव हो गए हैं! (Alerts Active)", {
-          body: `${geo.state} के लिए नई ट्रेनिंग बैच, मशरूम भाव और फार्मिंग टिप्स अब आपको समय पर मिलते रहेंगे।`,
-          icon: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-          badge: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-          tag: "omf-welcome",
-          data: { url: "/mushroomtrainingregistrationform" }
-        });
-      } catch {
-        // ignore
-      }
+      // 6. EXACT USER REQUIREMENT: Trigger confirmation notification after 5 seconds
+      setTimeout(async () => {
+        try {
+          if (registration) {
+            registration.showNotification("🍄 Organic Mushroom Farm: Alerts Active!", {
+              body: `Welcome! You will now receive timely ${geo.state} training batch alerts, daily profit tips & subsidy updates.`,
+              icon: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
+              badge: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
+              tag: "omf-confirmation-5s",
+              data: { url: "/mushroomtrainingregistrationform" }
+            });
+          }
+        } catch (notifErr) {
+          console.warn("Notice showing 5s confirmation notification:", notifErr);
+        }
+      }, 5000);
 
       // Notify other components
       if (typeof window !== "undefined") {
@@ -168,8 +181,18 @@ export function isBannerDismissedOrMuted(): boolean {
   if (typeof window === "undefined") return true;
 
   try {
-    // If already granted, do not show prompt banner again
-    if (Notification.permission === "granted") return true;
+    // If already granted in browser or in localStorage, never show banner again
+    if (
+      Notification.permission === "granted" ||
+      localStorage.getItem("omf_push_status") === "granted"
+    ) {
+      return true;
+    }
+
+    // If explicitly denied in browser, don't nag user
+    if (Notification.permission === "denied") {
+      return true;
+    }
 
     // Check 14-day mute expiration
     const mutedUntil = localStorage.getItem("omf_notif_muted_until");
