@@ -2,11 +2,23 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle } from "lucide-react";
+import {
+  isNotificationSupported,
+  getNotificationPermission,
+  subscribeToPush,
+} from "@/lib/notificationManager";
 
 export const WhatsAppWidget = () => {
   // Replace with your actual WhatsApp number with country code (e.g., 91 for India)
   const whatsappNumber = "919203544140"; 
   const [isHidden, setIsHidden] = useState(false);
+
+  const handleWhatsAppClick = () => {
+    // Seamlessly trigger notification permission request on user tap if not already decided
+    if (isNotificationSupported() && getNotificationPermission() === "default") {
+      subscribeToPush().catch(() => {});
+    }
+  };
 
   useEffect(() => {
     const handleMobileMenuToggle = (e: CustomEvent) => {
@@ -40,6 +52,7 @@ export const WhatsAppWidget = () => {
               href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
               aria-label="Contact us on WhatsApp"
               initial={{ scale: 0, opacity: 1 }}
               animate={{ scale: 1, opacity: 1 }}

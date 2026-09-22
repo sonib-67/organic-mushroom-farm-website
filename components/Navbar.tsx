@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import DynamicGreeting from "./DynamicGreeting";
 import { CountryLanguageSelector } from "./CountryLanguageSelector";
+import { NotificationBanner } from "./NotificationBanner";
 
 const NAV_ITEMS = [
   { name: "Home", href: "/", icon: Home },
@@ -342,6 +343,8 @@ export const Navbar = () => {
             </div>
           </div>
         </nav>
+        {/* Sleek Sub-Navbar Notification Banner (3s Delay + 10s Auto-hide + State Localized) */}
+        <NotificationBanner />
       </header>
 
       {/* Lag-Free Mobile Menu Overlay */}
