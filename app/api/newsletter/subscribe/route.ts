@@ -14,7 +14,7 @@ const ipRequestCounts = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour window
 const MAX_REQUESTS_PER_IP = 4; // Max 4 subscriptions per IP per hour
 
-// 2. Known Disposable / Temporary Email Domains
+// 2. Known Disposable / Temporary Email Domains & Bot Generators
 const DISPOSABLE_EMAIL_DOMAINS = new Set([
   "mailinator.com",
   "tempmail.com",
@@ -36,7 +36,21 @@ const DISPOSABLE_EMAIL_DOMAINS = new Set([
   "fakemailgenerator.com",
   "emailondeck.com",
   "burnermail.io",
-  "nada.ltd"
+  "nada.ltd",
+  "inboxkitten.com",
+  "disposablemail.com",
+  "tempinbox.com",
+  "trashmail.net",
+  "mailcatch.com",
+  "maildrop.cc",
+  "harakirimail.com",
+  "mytempmail.com",
+  "sharklasers.org",
+  "guerrillamailblock.com",
+  "guerrillamail.net",
+  "spam4.me",
+  "grr.la",
+  "pokemail.net"
 ]);
 
 // Email regex to ensure strict valid RFC-like format

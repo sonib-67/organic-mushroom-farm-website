@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import {
   syncNewsletterEmailToGoogleSheet,
+  removeNewsletterEmailFromGoogleSheet,
   fetchNewsletterEmailsFromGoogleSheet
 } from "./googleSheetSync";
 
@@ -173,6 +174,14 @@ export function unsubscribeEmail(email: string): boolean {
   const emailClean = email.trim().toLowerCase();
   const existing = getLocalNewsletterSubscribers();
   const foundIndex = existing.findIndex((s) => s.email.toLowerCase() === emailClean);
+
+  // Invalidate remote Google Sheets cache so old cache doesn't re-add them
+  cachedRemoteSubscribers = null;
+
+  // Trigger Google Sheet row deletion in background
+  removeNewsletterEmailFromGoogleSheet(emailClean).catch((err) => {
+    console.warn("[NewsletterStore] Google Sheet unsubscribe sync warning:", err);
+  });
 
   if (foundIndex >= 0) {
     existing[foundIndex].status = "unsubscribed";
