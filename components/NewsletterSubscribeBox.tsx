@@ -25,7 +25,7 @@ export default function NewsletterSubscribeBox({
     if (!email || !email.includes("@")) {
       setStatus("error");
       setIsDuplicate(false);
-      setMessage("कृपया सही ईमेल एड्रेस दर्ज करें (Please enter a valid email address).");
+      setMessage("Please enter a valid email address.");
       return;
     }
 
@@ -54,7 +54,7 @@ export default function NewsletterSubscribeBox({
         setIsDuplicate(true);
         setMessage(
           data.error ||
-          "⚠️ यह Email ID पहले से हमारे पास पंजीकृत (Registered) है! कृपया कोई दूसरा ईमेल एड्रेस दर्ज करें।"
+          "⚠️ This email ID is already registered with us! Please enter a different email address."
         );
       } else if (res.ok && data.success) {
         if (data.pendingVerification) {
@@ -63,7 +63,7 @@ export default function NewsletterSubscribeBox({
           setStatus("pending");
           setMessage(
             data.message ||
-            "हमने आपकी ईमेल पर एक कन्फर्मेशन लिंक भेजा है। कृपया इनबॉक्स खोलकर 'Confirm Subscription' पर क्लिक करें!"
+            "We have sent a verification link to your email. Please check your inbox and click 'Confirm Subscription'!"
           );
           setHoneypot("");
         } else {
@@ -75,12 +75,12 @@ export default function NewsletterSubscribeBox({
       } else {
         setStatus("error");
         setIsDuplicate(false);
-        setMessage(data.error || "सदस्यता में समस्या आई, कृपया पुनः प्रयास करें।");
+        setMessage(data.error || "Subscription failed. Please try again.");
       }
     } catch (err: any) {
       setStatus("error");
       setIsDuplicate(false);
-      setMessage("सर्वर से संपर्क नहीं हो पाया। कृपया इंटरनेट चेक करके पुनः प्रयास करें।");
+      setMessage("Unable to connect to server. Please check your internet connection and try again.");
     } finally {
       setLoading(false);
     }
@@ -105,11 +105,11 @@ export default function NewsletterSubscribeBox({
           </div>
 
           <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
-            Stay Updated (ताज़ा मंडी भाव व देसी नुस्खे)
+            Stay Updated (Mandi Rates & Farming Hacks)
           </h3>
 
           <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
-            हर 48 घंटे में सीधे अपने इनबॉक्स में उच्च पैदावार की तकनीक, आर्द्रता नियंत्रण के देसी जुगाड़ और ताज़ा थोक मंडी भाव पाएं।
+            Get high-yield cultivation techniques, humidity control hacks, and fresh wholesale mandi rates delivered directly to your inbox every 48 hours.
           </p>
         </div>
 
@@ -122,10 +122,10 @@ export default function NewsletterSubscribeBox({
               </div>
               <div className="space-y-1.5 flex-1">
                 <strong className="block text-white font-bold text-sm sm:text-base leading-tight">
-                  📩 कृपया अपनी ईमेल चेक करें (Check Inbox)
+                  📩 Please Check Your Inbox (Verify Subscription)
                 </strong>
                 <p className="text-xs text-emerald-200/90 leading-relaxed">
-                  हमने <strong className="text-white underline">{submittedEmail}</strong> पर एक वेरिफिकेशन लिंक भेजा है। कृपया ईमेल खोलकर <strong className="text-emerald-300 font-semibold">'Confirm Subscription'</strong> बटन दबाएं ताकि आपका 2-Day Digest सक्रिय हो सके।
+                  We have sent a verification link to <strong className="text-white underline">{submittedEmail}</strong>. Please open the email and click <strong className="text-emerald-300 font-semibold">'Confirm Subscription'</strong> to activate your 2-Day Farmers' Digest.
                 </p>
                 <div className="pt-1 flex items-center gap-3">
                   <button
@@ -136,7 +136,7 @@ export default function NewsletterSubscribeBox({
                     }}
                     className="text-xs text-emerald-300 underline font-semibold hover:text-white transition-colors"
                   >
-                    गलत ईमेल डाला? दूसरा ईमेल दर्ज करें ➔
+                    Entered wrong email? Enter another email ➔
                   </button>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function NewsletterSubscribeBox({
                     <p className="leading-relaxed font-semibold">{message}</p>
                     {isDuplicate && (
                       <p className="text-[11px] text-rose-300/80">
-                        सुझाव: यदि यह आपका ही ईमेल है तो आपका सब्सक्रिप्शन पहले से चालू है। आप कोई अन्य नया ईमेल दर्ज कर सकते हैं।
+                        Tip: If this is your email, your subscription is already active. You may enter a different email address.
                       </p>
                     )}
                   </div>
@@ -235,7 +235,7 @@ export default function NewsletterSubscribeBox({
               )}
 
               <p className="text-xs text-slate-400 text-center lg:text-left pl-1">
-                🔒 100% सुरक्षित • कभी भी Unsubscribe करें • कोई स्पैम नहीं
+                🔒 100% Secure • Unsubscribe Anytime • No Spam Ever
               </p>
             </form>
           )}
