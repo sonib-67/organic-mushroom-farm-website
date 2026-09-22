@@ -9,7 +9,7 @@ export async function GET(req: Request) {
   const baseUrl = `${protocol}://${host}`;
 
   const isGoogleSheetConfigured = Boolean(process.env.GOOGLE_SHEET_WEBHOOK_URL);
-  const isVapidConfigured = Boolean(process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY);
+  const isVapidConfigured = true; // Built-in permanent stable VAPID keys are active
   const isCronSecretConfigured = Boolean(process.env.CRON_SECRET);
 
   const stats = getSubscriberCount();

@@ -19,6 +19,12 @@ export const VAPID_BUSINESS_IDENTITY = {
   supportEmail: "support@organicmushroomsfarm.com"
 };
 
+// Built-in stable production VAPID key pair (Guarantees zero-mismatch across Vercel serverless cold starts)
+export const DEFAULT_VAPID_PUBLIC_KEY =
+  "BLcm7PDB5n_VtCd8DlE3X6i-JCpcYq80rrXcoxSg9QuvyfNOIn8juCf1bY-FricU7xxTF0MxgNOZazPNHwPmtO4";
+export const DEFAULT_VAPID_PRIVATE_KEY =
+  "e6DCAl_nYEa5vYAr8n9n7-R68I2zzXNNanyjS9zEr78";
+
 let cachedKeys: VapidKeys | null = null;
 
 export function getOrGenerateVapidKeys(): VapidKeys {
@@ -50,28 +56,26 @@ export function getOrGenerateVapidKeys(): VapidKeys {
       }
     }
   } catch (err) {
-    console.warn("Failed reading stored VAPID keys, generating fresh keys:", err);
+    console.warn("Failed reading stored VAPID keys:", err);
   }
 
-  // 3. Generate standard VAPID key pair
-  try {
-    const generated = webpush.generateVAPIDKeys();
-    cachedKeys = {
-      publicKey: generated.publicKey,
-      privateKey: generated.privateKey
-    };
+  // 3. Fallback to permanent stable production key pair (Guarantees no mismatch on Vercel cold boot)
+  cachedKeys = {
+    publicKey: DEFAULT_VAPID_PUBLIC_KEY,
+    privateKey: DEFAULT_VAPID_PRIVATE_KEY
+  };
 
+  try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     fs.writeFileSync(VAPID_FILE, JSON.stringify(cachedKeys, null, 2), "utf-8");
-
-    webpush.setVapidDetails(VAPID_SUBJECT, cachedKeys.publicKey, cachedKeys.privateKey);
-    return cachedKeys;
-  } catch (genErr) {
-    console.error("Critical error generating VAPID keys:", genErr);
-    throw genErr;
+  } catch {
+    // Non-blocking if disk is read-only in serverless
   }
+
+  webpush.setVapidDetails(VAPID_SUBJECT, cachedKeys.publicKey, cachedKeys.privateKey);
+  return cachedKeys;
 }
 
 export async function sendWebPushNotification(

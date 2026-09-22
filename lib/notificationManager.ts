@@ -127,12 +127,26 @@ export async function subscribeToPush(): Promise<{ success: boolean; permission:
           pushSub = await registration.pushManager.getSubscription();
 
           if (!pushSub) {
-            // Fetch VAPID public key from backend
-            const vapidRes = await fetch("/api/notifications/vapid-public-key");
-            const vapidData = await vapidRes.json();
+            // Fetch VAPID public key from backend (with stable fallback)
+            let pubKey = "";
+            try {
+              const vapidRes = await fetch("/api/notifications/vapid-public-key");
+              const vapidData = await vapidRes.json();
+              if (vapidData.publicKey) {
+                pubKey = vapidData.publicKey;
+              }
+            } catch (err) {
+              console.warn("VAPID fetch endpoint warning, using fallback:", err);
+            }
 
-            if (vapidData.publicKey) {
-              const convertedKey = urlBase64ToUint8Array(vapidData.publicKey);
+            if (!pubKey) {
+              pubKey =
+                process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ||
+                "BLcm7PDB5n_VtCd8DlE3X6i-JCpcYq80rrXcoxSg9QuvyfNOIn8juCf1bY-FricU7xxTF0MxgNOZazPNHwPmtO4";
+            }
+
+            if (pubKey) {
+              const convertedKey = urlBase64ToUint8Array(pubKey);
               pushSub = await registration.pushManager.subscribe({
                 userVisibleOnly: true,
                 applicationServerKey: convertedKey
