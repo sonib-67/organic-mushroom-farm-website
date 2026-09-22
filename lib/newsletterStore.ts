@@ -182,39 +182,69 @@ export function unsubscribeEmail(email: string): boolean {
   return false;
 }
 
+// In-memory cache for remote Google Sheet subscribers to prevent repeated network delays
+let cachedRemoteSubscribers: { timestamp: number; data: Array<{ email: string; state?: string; subscribedAt?: string }> } | null = null;
+
 /**
- * Get all active subscribers, falling back to Google Sheets if local file is empty (e.g. Vercel cold boot)
+ * Get all active subscribers, combining local store with Google Sheets (with email deduplication)
  */
 export async function getAllActiveNewsletterSubscribers(): Promise<NewsletterSubscriber[]> {
-  let list = getLocalNewsletterSubscribers().filter((s) => s.status === "active");
+  const localList = getLocalNewsletterSubscribers().filter((s) => s.status === "active");
+  const emailMap = new Map<string, NewsletterSubscriber>();
 
-  if (list.length === 0) {
-    try {
-      const remote = await fetchNewsletterEmailsFromGoogleSheet();
-      if (Array.isArray(remote) && remote.length > 0) {
-        const merged: NewsletterSubscriber[] = [];
-        for (const item of remote) {
-          if (item && item.email && item.email.includes("@")) {
-            merged.push({
-              email: item.email.toLowerCase().trim(),
-              state: item.state || "India",
-              subscribedAt: item.subscribedAt || new Date().toISOString(),
-              status: "active",
-              source: "Google Sheet Import"
-            });
-          }
-        }
-        if (merged.length > 0) {
-          saveLocalNewsletterSubscribers(merged);
-          list = merged;
-        }
-      }
-    } catch (err) {
-      console.warn("Could not sync newsletter emails from Google Sheet fallback:", err);
+  // 1. Load all local subscribers into map
+  for (const sub of localList) {
+    if (sub.email && sub.email.includes("@")) {
+      emailMap.set(sub.email.toLowerCase().trim(), sub);
     }
   }
 
-  return list;
+  // 2. Fetch and merge subscribers from Google Sheet (cached for 2 minutes to keep requests fast)
+  try {
+    const now = Date.now();
+    let remoteData: Array<{ email: string; state?: string; subscribedAt?: string }> = [];
+
+    if (cachedRemoteSubscribers && now - cachedRemoteSubscribers.timestamp < 2 * 60 * 1000) {
+      remoteData = cachedRemoteSubscribers.data;
+    } else {
+      remoteData = await fetchNewsletterEmailsFromGoogleSheet();
+      if (Array.isArray(remoteData) && remoteData.length > 0) {
+        cachedRemoteSubscribers = { timestamp: now, data: remoteData };
+      }
+    }
+
+    if (Array.isArray(remoteData) && remoteData.length > 0) {
+      for (const item of remoteData) {
+        if (item && item.email && item.email.includes("@")) {
+          const cleanEmail = item.email.toLowerCase().trim();
+          if (!emailMap.has(cleanEmail)) {
+            emailMap.set(cleanEmail, {
+              email: cleanEmail,
+              state: item.state || "India",
+              subscribedAt: item.subscribedAt || new Date().toISOString(),
+              status: "active",
+              source: "Google Sheet Sync"
+            });
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.warn("Could not sync newsletter emails from Google Sheet:", err);
+  }
+
+  const mergedList = Array.from(emailMap.values());
+
+  // If merged list discovered new remote subscribers, persist them locally so offline/cached reads have them too
+  if (mergedList.length > localList.length) {
+    try {
+      saveLocalNewsletterSubscribers(mergedList);
+    } catch (persistErr) {
+      console.warn("Could not persist merged subscribers locally:", persistErr);
+    }
+  }
+
+  return mergedList;
 }
 
 /**

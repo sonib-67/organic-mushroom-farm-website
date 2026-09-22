@@ -4,8 +4,6 @@ import {
   syncPushSubscriberToGoogleSheet,
   fetchSubscribersFromGoogleSheet
 } from "./googleSheetSync";
-import { getDb } from "./firebase";
-import { collection, doc, setDoc, getDocs, deleteDoc } from "firebase/firestore";
 
 export interface PushSubscriptionRecord {
   id: string; // generated client hash or endpoint hash
@@ -149,8 +147,8 @@ function persistStore() {
     }
     const list = Array.from(subscribersMap.values());
     fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(list, null, 2), "utf-8");
-  } catch {
-    // Expected on Vercel/Lambda read-only filesystem; handled via Firestore & memory
+  } catch (err) {
+    console.error("Failed to persist push subscribers store:", err);
   }
 }
 
@@ -195,19 +193,7 @@ export function savePushSubscriber(data: {
   subscribersMap.set(id, record);
   persistStore();
 
-  // 1. Asynchronously persist to Cloud Firestore (Guarantees persistence across Vercel Lambdas)
-  const db = getDb();
-  if (db) {
-    const docId = id.replace(/[^a-zA-Z0-9_-]/g, "_");
-    setDoc(doc(db, "push_subscribers", docId), {
-      ...record,
-      updatedAt: new Date().toISOString()
-    }, { merge: true }).catch((err) => {
-      console.warn("[Firestore] Push subscriber save notice:", err);
-    });
-  }
-
-  // 2. Asynchronously sync to Google Sheets (non-blocking)
+  // Asynchronously sync to Google Sheets (non-blocking)
   syncPushSubscriberToGoogleSheet(record).catch((err) => {
     console.warn("[GoogleSheetSync] Background sync failed:", err);
   });
@@ -216,41 +202,33 @@ export function savePushSubscriber(data: {
 }
 
 /**
- * Ensures subscribers are loaded from Firestore, memory, or Google Sheets
- * so Vercel serverless cold-start containers have all active subscribers.
+ * Ensures subscribers are loaded, falling back to Google Sheets
+ * if local memory/file is empty (e.g. after Vercel serverless cold start).
  */
+// In-memory cache for remote push subscribers to prevent repeated network delays
+let cachedRemotePushSubscribers: { timestamp: number; data: any[] } | null = null;
+
 export async function ensureSubscribersLoaded(): Promise<PushSubscriptionRecord[]> {
   initStore();
+  try {
+    const now = Date.now();
+    let remoteSubs: any[] = [];
 
-  // 1. First query Cloud Firestore
-  const db = getDb();
-  if (db) {
-    try {
-      const snap = await getDocs(collection(db, "push_subscribers"));
-      snap.forEach((d) => {
-        const item = d.data() as PushSubscriptionRecord;
-        if (item && item.endpoint) {
-          const subId = item.id || d.id;
-          subscribersMap.set(subId, {
-            ...item,
-            id: subId,
-            sentTemplates: item.sentTemplates || []
-          });
-        }
-      });
-    } catch (err) {
-      console.warn("[Firestore] Push subscribers fetch note:", err);
-    }
-  }
-
-  // 2. If still empty, fall back to Google Sheets
-  if (subscribersMap.size === 0) {
-    try {
-      const remoteSubs = await fetchSubscribersFromGoogleSheet();
+    if (cachedRemotePushSubscribers && now - cachedRemotePushSubscribers.timestamp < 2 * 60 * 1000) {
+      remoteSubs = cachedRemotePushSubscribers.data;
+    } else {
+      remoteSubs = await fetchSubscribersFromGoogleSheet();
       if (Array.isArray(remoteSubs) && remoteSubs.length > 0) {
-        for (const item of remoteSubs) {
-          if (item && item.endpoint) {
-            const subId = item.id || Buffer.from(item.endpoint).toString("base64").slice(-32);
+        cachedRemotePushSubscribers = { timestamp: now, data: remoteSubs };
+      }
+    }
+
+    if (Array.isArray(remoteSubs) && remoteSubs.length > 0) {
+      let addedNew = false;
+      for (const item of remoteSubs) {
+        if (item && item.endpoint) {
+          const subId = item.id || Buffer.from(item.endpoint).toString("base64").slice(-32);
+          if (!subscribersMap.has(subId)) {
             subscribersMap.set(subId, {
               id: subId,
               endpoint: item.endpoint,
@@ -262,13 +240,16 @@ export async function ensureSubscribersLoaded(): Promise<PushSubscriptionRecord[
               subscribedAt: item.subscribedAt || new Date().toISOString(),
               sentTemplates: []
             });
+            addedNew = true;
           }
         }
+      }
+      if (addedNew) {
         persistStore();
       }
-    } catch (err) {
-      console.warn("Could not sync subscribers from Google Sheets fallback:", err);
     }
+  } catch (err) {
+    console.warn("Could not sync subscribers from Google Sheets fallback:", err);
   }
   return Array.from(subscribersMap.values());
 }

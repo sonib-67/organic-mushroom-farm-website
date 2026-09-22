@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as nodemailer from "nodemailer";
 import PDFDocument from "pdfkit";
+import { syncTrainingToGoogleSheet } from "@/lib/googleSheetSync";
 
 // Setup Nodemailer Transporter
 const transporter = nodemailer.createTransport({
@@ -169,7 +170,20 @@ export const createIntlOrder = async (req: NextRequest) => {
       );
     }
 
-    // Send "Initiated" Email to Admin
+    // Send "Initiated" Email to Admin & Sync to Google Sheet
+    syncTrainingToGoogleSheet({
+      action: "training_lead",
+      type: "training",
+      planType: "usa",
+      status: "INITIATED",
+      name,
+      email,
+      phone: phone || "",
+      price: "$" + numericAmount,
+      trainingName: planName || "USA Training",
+      currency: "USD",
+    }).catch((e) => console.warn("Google Sheet USA sync note:", e));
+
     try {
       await transporter.sendMail({
         from: `"Organic Mushroom Farm" <${
@@ -299,6 +313,20 @@ export const captureIntlOrder = async (req: NextRequest) => {
     }
 
     // Always generate PDF and send confirmation email when client confirms approval
+    syncTrainingToGoogleSheet({
+      action: "training_payment",
+      type: "training",
+      planType: "usa",
+      status: "PAID",
+      name,
+      email,
+      phone: phone || "",
+      price: "$" + amount,
+      paymentId: orderID,
+      trainingName: planName || "USA Training",
+      currency: "USD",
+    }).catch((e) => console.warn("Google Sheet USA capture sync note:", e));
+
     try {
       const pdfBuffer = await generateInvoice({
         orderID,
@@ -390,6 +418,21 @@ export const failIntlOrder = async (req: NextRequest) => {
   try {
     const body = await req.json();
     const { name, email, phone, planName, amount, errorMsg } = body;
+
+    // Sync cancelled/failed USA order to Google Sheet
+    syncTrainingToGoogleSheet({
+      action: "training_lead",
+      type: "training",
+      planType: "usa",
+      status: "CANCELLED",
+      name: name || "Unknown",
+      email: email || "",
+      phone: phone || "",
+      price: amount ? "$" + amount : "",
+      trainingName: planName || "USA Training",
+      currency: "USD",
+      errorMsg: errorMsg || "User cancelled PayPal window",
+    }).catch((e) => console.warn("Google Sheet USA cancel sync note:", e));
 
     // Send "CANCELLED" Email to Admin
     try {

@@ -63,7 +63,7 @@ export async function syncPushSubscriberToGoogleSheet(sub: {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(6000)
+      signal: AbortSignal.timeout(12000)
     });
 
     return res.ok;
@@ -104,7 +104,7 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(6000)
+      signal: AbortSignal.timeout(12000)
     });
 
     if (!res.ok) {
@@ -115,6 +115,54 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
   } catch (err: any) {
     console.warn("[GoogleSheetSync] Newsletter sync warning:", err);
     return { success: false, error: err.message || "Failed to reach Google Sheets" };
+  }
+}
+
+export interface TrainingSyncPayload {
+  action?: "training_lead" | "training_payment";
+  type: "training";
+  planType?: "299" | "699" | "offline" | "usa" | "other" | string;
+  status: "INITIATED" | "PAID" | "DONE" | "CANCELLED" | "FAILED" | "SUCCESS" | string;
+  name: string;
+  email: string;
+  phone: string;
+  price?: string | number;
+  paymentId?: string;
+  orderId?: string;
+  trainingName?: string;
+  city?: string;
+  state?: string;
+  experience?: string;
+  interest?: string;
+  goal?: string;
+  planTime?: string;
+  planSpace?: string;
+  investment?: string;
+  support?: string;
+  source?: string;
+  currency?: string;
+  errorMsg?: string;
+}
+
+/**
+ * Saves training lead, payment initiation, completed payment or dropped checkout to Google Sheets.
+ * Directs automatically to dedicated tabs (299_Payment_Done, 299_Pending_Leads, 699_Payment_Done, 699_Pending_Leads, etc.)
+ */
+export async function syncTrainingToGoogleSheet(data: TrainingSyncPayload): Promise<boolean> {
+  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
+  if (!webhookUrl) return false;
+
+  try {
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+      signal: AbortSignal.timeout(12000),
+    });
+    return res.ok;
+  } catch (err) {
+    console.warn("[GoogleSheetSync] Training sync warning (non-fatal):", err);
+    return false;
   }
 }
 
@@ -132,7 +180,7 @@ export async function fetchSubscribersFromGoogleSheet(): Promise<any[]> {
 
     const res = await fetch(url.toString(), {
       method: "GET",
-      signal: AbortSignal.timeout(8000)
+      signal: AbortSignal.timeout(15000)
     });
 
     if (res.ok) {
@@ -164,7 +212,7 @@ export async function fetchNewsletterEmailsFromGoogleSheet(): Promise<Array<{ em
 
     const res = await fetch(url.toString(), {
       method: "GET",
-      signal: AbortSignal.timeout(8000)
+      signal: AbortSignal.timeout(15000)
     });
 
     if (res.ok) {
@@ -191,28 +239,30 @@ function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet();
     var data = JSON.parse(e.postData.contents);
-    
-    // Choose or create tab based on subscriber type
-    var tabName = data.type === "newsletter" ? "Newsletter_Subscribers" : "Push_Subscribers";
-    var targetSheet = sheet.getSheetByName(tabName);
-    
-    if (!targetSheet) {
-      targetSheet = sheet.insertSheet(tabName);
-      if (data.type === "newsletter") {
-        targetSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source"]);
-        targetSheet.getRange("A1:D1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
-      } else {
-        targetSheet.appendRow(["Subscribed Date (IST)", "Subscriber ID", "State", "Language", "Endpoint", "p256dh", "auth", "Device Fingerprint"]);
-        targetSheet.getRange("A1:H1").setFontWeight("bold").setBackground("#1565c0").setFontColor("#ffffff");
-      }
-    }
-    
     var istDate = Utilities.formatDate(new Date(), "Asia/Kolkata", "yyyy-MM-dd HH:mm:ss");
     
+    // 1. NEWSLETTER SUBSCRIBERS
     if (data.type === "newsletter") {
-      targetSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website"]);
-    } else {
-      targetSheet.appendRow([
+      var nSheet = sheet.getSheetByName("Newsletter_Subscribers");
+      if (!nSheet) {
+        nSheet = sheet.insertSheet("Newsletter_Subscribers");
+        nSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source"]);
+        nSheet.getRange("A1:D1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
+      }
+      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website"]);
+      return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: "Newsletter_Subscribers" }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    // 2. PUSH NOTIFICATION SUBSCRIBERS
+    if (data.type === "push_subscriber" || data.type === "push") {
+      var pSheet = sheet.getSheetByName("Push_Subscribers");
+      if (!pSheet) {
+        pSheet = sheet.insertSheet("Push_Subscribers");
+        pSheet.appendRow(["Subscribed Date (IST)", "Subscriber ID", "State", "Language", "Endpoint", "p256dh", "auth", "Device Fingerprint"]);
+        pSheet.getRange("A1:H1").setFontWeight("bold").setBackground("#1565c0").setFontColor("#ffffff");
+      }
+      pSheet.appendRow([
         istDate,
         data.id || "",
         data.state || "Madhya Pradesh",
@@ -222,9 +272,101 @@ function doPost(e) {
         data.auth || "",
         data.deviceFingerprint || ""
       ]);
+      return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: "Push_Subscribers" }))
+        .setMimeType(ContentService.MimeType.JSON);
     }
     
-    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Saved to Google Sheet" }))
+    // 3. TRAINING REGISTRATIONS & LEADS (299, 699, Offline, USA)
+    if (data.type === "training" || data.action === "training_lead" || data.action === "training_payment") {
+      var planStr = ((data.planType || "") + " " + (data.trainingName || "") + " " + (data.price || "")).toLowerCase();
+      var isUSA = data.planType === "usa" || data.currency === "USD" || planStr.indexOf("$") !== -1 || planStr.indexOf("usa") !== -1;
+      var isOffline = data.planType === "offline" || planStr.indexOf("offline") !== -1;
+      var is699 = data.planType === "699" || planStr.indexOf("699") !== -1 || planStr.indexOf("advanced") !== -1;
+      var is299 = data.planType === "299" || planStr.indexOf("299") !== -1 || planStr.indexOf("basic") !== -1;
+      
+      var isSuccess = data.status === "PAID" || data.status === "DONE" || data.status === "SUCCESS";
+      
+      var tabName = "299_Pending_Leads";
+      var headerColor = "#d97706";
+      
+      if (isUSA) {
+        tabName = "USA_Global_Training";
+        headerColor = "#1e40af";
+      } else if (isOffline) {
+        tabName = isSuccess ? "Offline_Payment_Done" : "Offline_Pending_Leads";
+        headerColor = isSuccess ? "#047857" : "#ea580c";
+      } else if (is699) {
+        tabName = isSuccess ? "699_Payment_Done" : "699_Pending_Leads";
+        headerColor = isSuccess ? "#7c3aed" : "#dc2626";
+      } else {
+        tabName = isSuccess ? "299_Payment_Done" : "299_Pending_Leads";
+        headerColor = isSuccess ? "#15803d" : "#d97706";
+      }
+      
+      var tSheet = sheet.getSheetByName(tabName);
+      if (!tSheet) {
+        tSheet = sheet.insertSheet(tabName);
+        if (tabName === "USA_Global_Training") {
+          tSheet.appendRow(["Date & Time (IST)", "Student Name", "Email Address", "Phone / WhatsApp", "Plan Enrolled", "Amount ($ USD)", "Payment Status", "PayPal / Order ID", "Location (Country/State)"]);
+          tSheet.getRange("A1:I1").setFontWeight("bold").setBackground(headerColor).setFontColor("#ffffff");
+        } else if (isSuccess) {
+          tSheet.appendRow(["Date & Time (IST)", "Student Name", "Mobile Number", "Email Address", "Course Name", "Amount Paid", "Razorpay Payment ID", "Order ID", "City & State", "Experience & Goal", "Registration Details"]);
+          tSheet.getRange("A1:K1").setFontWeight("bold").setBackground(headerColor).setFontColor("#ffffff");
+        } else {
+          tSheet.appendRow(["Date & Time (IST)", "Lead Name", "Mobile Number", "Email Address", "Course Selected", "Fee Amount", "Status (Lead/Cancelled)", "Order ID", "Notes / Drop Reason"]);
+          tSheet.getRange("A1:I1").setFontWeight("bold").setBackground(headerColor).setFontColor("#ffffff");
+        }
+      }
+      
+      if (tabName === "USA_Global_Training") {
+        tSheet.appendRow([
+          istDate,
+          data.name || "",
+          data.email || "",
+          data.phone || "",
+          data.trainingName || data.planName || (data.price ? "USA Training (" + data.price + ")" : "USA Training"),
+          data.price || data.amount || "$39 / $97",
+          data.status || "COMPLETED",
+          data.paymentId || data.orderID || data.orderId || "",
+          (data.city ? data.city + ", " : "") + (data.state || data.country || "USA / Global")
+        ]);
+      } else if (isSuccess) {
+        var extraDetails = "";
+        if (data.planSpace || data.investment) {
+          extraDetails = "Space: " + (data.planSpace || "-") + " | Inv: " + (data.investment || "-");
+        }
+        tSheet.appendRow([
+          istDate,
+          data.name || "",
+          data.phone || "",
+          data.email || "",
+          data.trainingName || (is699 ? "Advanced Commercial Cultivation" : "Basic Mushroom Farming"),
+          data.price || (is699 ? "₹699" : "₹299"),
+          data.paymentId || "",
+          data.orderId || "",
+          (data.city ? data.city + ", " : "") + (data.state || ""),
+          (data.experience ? "Exp: " + data.experience + " | " : "") + (data.goal || ""),
+          extraDetails
+        ]);
+      } else {
+        tSheet.appendRow([
+          istDate,
+          data.name || "",
+          data.phone || "",
+          data.email || "",
+          data.trainingName || (is699 ? "Advanced Commercial Cultivation (₹699)" : "Basic Mushroom Farming (₹299)"),
+          data.price || (is699 ? "₹699" : "₹299"),
+          data.status || "INITIATED",
+          data.orderId || "",
+          data.errorMsg || (data.status === "CANCELLED" ? "User cancelled payment window" : "Checkout Initiated / Drop-off")
+        ]);
+      }
+      
+      return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: tabName, message: "Saved to " + tabName }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    return ContentService.createTextOutput(JSON.stringify({ status: "ignored", message: "Unknown event type" }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
     return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
