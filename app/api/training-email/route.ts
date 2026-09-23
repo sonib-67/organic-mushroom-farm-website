@@ -2,16 +2,6 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { recordPaymentInit, completeRegistration } from '@/lib/registrationStore';
 import { isDuplicateUserEmail } from '@/lib/userSimpleMailService';
-import { syncTrainingToGoogleSheet } from '@/lib/googleSheetSync';
-
-function detectPlanType(price: any, trainingName: any): "299" | "699" | "offline" | "usa" | "other" {
-  const p = String(price || '').toLowerCase();
-  const n = String(trainingName || '').toLowerCase();
-  if (p.includes('699') || n.includes('699') || n.includes('advanced')) return '699';
-  if (n.includes('offline') || p.includes('1499') || p.includes('2999')) return 'offline';
-  if (p.includes('$') || p.includes('39') || p.includes('97') || n.includes('usa')) return 'usa';
-  return '299';
-}
 
 export async function POST(req: Request) {
   try {
@@ -63,20 +53,6 @@ export async function POST(req: Request) {
 
     // 1. INITIATED (Admin Only)
     if (action === 'INITIATED') {
-      const planType = detectPlanType(data.price, data.trainingName);
-      syncTrainingToGoogleSheet({
-        action: 'training_lead',
-        type: 'training',
-        planType,
-        status: 'INITIATED',
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        price: data.price,
-        trainingName: data.trainingName,
-        orderId: data.orderId,
-      }).catch(e => console.warn('Google Sheet training sync note:', e));
-
       const rows = `
         <tr><td style="${rowStyle} ${labelStyle}">Customer Name:</td><td style="${rowStyle} ${valueStyle}">${data.name}</td></tr>
         <tr><td style="${rowStyle} ${labelStyle}">Email:</td><td style="${rowStyle} ${valueStyle}"><a href="mailto:${data.email}" style="color: #60a5fa;">${data.email}</a></td></tr>
@@ -99,20 +75,6 @@ export async function POST(req: Request) {
     // 2. CANCELLED / FAILED (Admin + Customer)
     if (action === 'CANCELLED' || action === 'FAILED') {
       const isFailed = action === 'FAILED';
-      const planType = detectPlanType(data.price, data.trainingName);
-      syncTrainingToGoogleSheet({
-        action: 'training_lead',
-        type: 'training',
-        planType,
-        status: isFailed ? 'FAILED' : 'CANCELLED',
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        price: data.price,
-        trainingName: data.trainingName,
-        orderId: data.orderId,
-        errorMsg: isFailed ? 'Payment Failed' : 'Checkout Cancelled / Dropped',
-      }).catch(e => console.warn('Google Sheet training sync note:', e));
       
       // Admin Mail
       const rows = `
@@ -162,31 +124,6 @@ export async function POST(req: Request) {
 
     // 3. DONE (Registration Complete) (Admin + Customer + PDF)
     if (action === 'DONE') {
-      const planType = detectPlanType(data.price, data.trainingName);
-      syncTrainingToGoogleSheet({
-        action: 'training_payment',
-        type: 'training',
-        planType,
-        status: 'DONE',
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        price: data.price,
-        trainingName: data.trainingName,
-        paymentId: data.paymentId,
-        orderId: data.orderId,
-        city: data.city,
-        state: data.state,
-        experience: data.experience,
-        interest: Array.isArray(data.interest) ? data.interest.join(', ') : data.interest,
-        goal: data.goal,
-        planTime: data.planTime,
-        planSpace: data.planSpace,
-        investment: data.investment,
-        support: Array.isArray(data.support) ? data.support.join(', ') : data.support,
-        source: data.source,
-      }).catch(e => console.warn('Google Sheet training sync note:', e));
-
       if (data.paymentId) {
         const result = completeRegistration(data.paymentId, data);
         if (!result.success && result.error === 'ALREADY_COMPLETED') {
@@ -264,21 +201,6 @@ export async function POST(req: Request) {
     
     // 4. PAYMENT_COMPLETED (Admin Only) - When Razorpay is successful before registration form
     if (action === 'PAYMENT_COMPLETED') {
-      const planType = detectPlanType(data.price, data.trainingName);
-      syncTrainingToGoogleSheet({
-        action: 'training_payment',
-        type: 'training',
-        planType,
-        status: 'PAID',
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        price: data.price,
-        trainingName: data.trainingName,
-        paymentId: data.paymentId,
-        orderId: data.orderId,
-      }).catch(e => console.warn('Google Sheet training sync note:', e));
-
       const numericPrice = Number(String(data.price).replace(/[^0-9]/g, '')) || 299;
       const regRecord = recordPaymentInit({
         paymentId: data.paymentId,

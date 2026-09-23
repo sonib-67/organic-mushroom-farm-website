@@ -12,6 +12,14 @@
     {
       "path": "/api/newsletter/send-digest",
       "schedule": "30 8 */2 * *"
+    },
+    {
+      "path": "/api/cron/daily-visitor-report",
+      "schedule": "30 12 * * *"
+    },
+    {
+      "path": "/api/cron/cleanup-traffic",
+      "schedule": "0 13 * * *"
     }
   ]
 }

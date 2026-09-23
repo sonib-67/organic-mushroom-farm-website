@@ -7,6 +7,7 @@ import { OfflineInspectionChecklist } from "@/components/OfflineInspectionCheckl
 import { MyceliumBackground } from "@/components/MyceliumBackground";
 import { ConditionalWidgets } from "@/components/ConditionalWidgets";
 import { TrainingAbandonmentTracker } from "@/components/TrainingAbandonmentTracker";
+import SmartVisitorTracker from "@/components/SmartVisitorTracker";
 import "@/app/globals.css";
 
 const inter = Inter({
@@ -202,6 +203,9 @@ export default function RootLayout({
 
         {/* 10-Second Abandoned Training Recovery Tracker */}
         <TrainingAbandonmentTracker />
+
+        {/* 3.5-Second Delayed Smart Visitor Intelligence Tracker */}
+        <SmartVisitorTracker />
 
         {/* Offline Farm Inspection Checklist (Works 100% without internet) */}
         <OfflineInspectionChecklist />

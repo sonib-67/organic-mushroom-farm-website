@@ -645,3 +645,157 @@ export function renderAdminSubscriberAlertHtml(
   `.trim();
 }
 
+/**
+ * Double Opt-in Verification Email Template (Tareeka 1)
+ * Sends a confirmation link to the subscriber to verify that their email inbox is real and active.
+ */
+export function renderVerificationEmailHtml(
+  recipientEmail: string,
+  confirmUrl: string,
+  baseUrl: string = "https://organicmushroomsfarm.com",
+  geoInfo?: {
+    language?: "hi" | "en";
+    city?: string;
+    state?: string;
+  }
+): string {
+  const isHindi = geoInfo?.language !== "en";
+  const locationText = geoInfo?.city && geoInfo?.state ? `${geoInfo.city}, ${geoInfo.state}` : (geoInfo?.state || "India");
+
+  return `
+<!DOCTYPE html>
+<html lang="${isHindi ? "hi" : "en"}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${isHindi ? "अपनी ईमेल की पुष्टि करें" : "Confirm Your Subscription"} - Organic Mushrooms Farm</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0e1113;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #d7dadc;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #0e1113;
+      padding: 24px 0;
+    }
+    .main-table {
+      max-width: 580px;
+      margin: 0 auto;
+      background-color: #1a1a1b;
+      border-radius: 12px;
+      border: 1px solid #343536;
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #152219 0%, #0d1710 100%);
+      border-bottom: 2px solid #2e7d32;
+      padding: 24px 28px;
+      text-align: center;
+    }
+    .card {
+      padding: 32px 28px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #15803d;
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 36px;
+      border-radius: 9999px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(21, 128, 61, 0.4);
+    }
+    .btn:hover {
+      background-color: #16a34a;
+    }
+    .footer {
+      background-color: #121213;
+      padding: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: #818384;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table class="main-table" cellpadding="0" cellspacing="0" width="100%">
+      <!-- Header -->
+      <tr>
+        <td class="header">
+          <div style="font-size: 42px; margin-bottom: 10px;">🍄</div>
+          <h1 style="font-size: 22px; font-weight: 800; color: #ffffff; margin: 0 0 6px 0;">
+            Organic Mushrooms Farm
+          </h1>
+          <div style="font-size: 13px; color: #86efac; font-weight: 500;">
+            ${isHindi ? "2-डे फार्मिंग डाइजेस्ट एक्टिवेशन" : "2-Day Farming Digest Activation"} • ${locationText}
+          </div>
+        </td>
+      </tr>
+
+      <!-- Body -->
+      <tr>
+        <td class="card">
+          <div style="display: inline-block; background-color: #14532d; color: #86efac; padding: 4px 12px; border-radius: 9999px; font-size: 12px; font-weight: 700; margin-bottom: 16px; border: 1px solid #166534;">
+            ${isHindi ? "ईमेल पुष्टि आवश्यक (Step 1 of 1)" : "Verification Required (Step 1 of 1)"}
+          </div>
+
+          <h2 style="font-size: 20px; font-weight: 800; color: #ffffff; margin: 0 0 16px 0; line-height: 1.4;">
+            ${isHindi ? "बस 1 क्लिक और आपका 2-डे फार्मिंग डाइजेस्ट सक्रिय हो जाएगा!" : "Just 1 Click to Activate Your 2-Day Farming Digest!"}
+          </h2>
+
+          <p style="font-size: 14px; color: #d1d5db; line-height: 1.6; margin: 0 0 20px 0;">
+            ${isHindi
+              ? `नमस्ते! आपने Organic Mushrooms Farm की वेबसाइट पर <strong>${recipientEmail}</strong> के साथ 2-Day Farming Digest के लिए अनुरोध किया है। यह सुनिश्चित करने के लिए कि आपकी ईमेल सक्रिय है और आपको नियमित ताज़ा मंडी भाव व पैदावार टिप्स मिलें, कृपया नीचे दिए गए हरे बटन पर क्लिक करें:`
+              : `Hello! You recently requested to subscribe to our 2-Day Farming Digest using <strong>${recipientEmail}</strong>. To verify your email and activate your free subscription, please click the button below:`
+            }
+          </p>
+
+          <!-- Big Verification Button -->
+          <div style="text-align: center; margin: 28px 0;">
+            <a href="${confirmUrl}" class="btn" target="_blank">
+              ${isHindi ? "✅ सदस्यता सक्रिय करें (Confirm Subscription)" : "✅ Confirm My Subscription"}
+            </a>
+          </div>
+
+          <div style="background-color: #181d1a; border: 1px solid #27382d; border-radius: 8px; padding: 16px; margin: 24px 0 16px 0;">
+            <div style="font-size: 12px; color: #9ca3af; line-height: 1.5;">
+              ${isHindi ? "बटन काम नहीं कर रहा? नीचे दिए गए लिंक को कॉपी करके अपने ब्राउज़र में खोलें:" : "Button not working? Copy and paste this link in your browser:"}
+              <br>
+              <a href="${confirmUrl}" style="color: #4ade80; word-break: break-all; font-size: 11px; text-decoration: underline;">
+                ${confirmUrl}
+              </a>
+            </div>
+          </div>
+
+          <p style="font-size: 12px; color: #6b7280; line-height: 1.5; margin: 0;">
+            ${isHindi
+              ? "सुरक्षा सूचना: यदि आपने यह अनुरोध नहीं किया था, तो चिंता न करें। आप इस ईमेल को अनदेखा कर सकते हैं, कोई भी सब्सक्रिप्शन सक्रिय नहीं किया जाएगा।"
+              : "Security note: If you did not request this subscription, simply ignore this email. No active digest will be initiated."
+            }
+          </p>
+        </td>
+      </tr>
+
+      <!-- Footer -->
+      <tr>
+        <td class="footer">
+          Organic Mushrooms Farm • ${locationText}<br>
+          <a href="${baseUrl}" style="color: #4ade80; text-decoration: none;">organicmushroomsfarm.com</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
+  `.trim();
+}
+

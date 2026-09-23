@@ -101,9 +101,15 @@ export default function NewsletterSubscribeBox({
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-              {/* Invisible Honeypot Trap: Real users never see this, automated bots fill it */}
-              <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+              {/* Invisible Honeypot Trap: Real users never see this, automated spam bots fill it */}
+              <div
+                className="opacity-0 absolute -left-[9999px] top-0 pointer-events-none h-0 w-0 overflow-hidden"
+                aria-hidden="true"
+                tabIndex={-1}
+              >
+                <label htmlFor="hp_website_company">Leave this field empty</label>
                 <input
+                  id="hp_website_company"
                   type="text"
                   name="hp_website"
                   tabIndex={-1}

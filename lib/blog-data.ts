@@ -15,6 +15,15 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     "category": "Educational",
+    "date": "September 23, 2026",
+    "author": "Expert Team",
+    "title": "How to Make Button Mushroom Compost Using 100kg Wheat Straw (Long Method)",
+    "description": "Master button mushroom composting using 100 kg wheat straw: exact raw material matrix, moisture calibration via precision spraying, and rigid 28-day turning schedule.",
+    "slug": "how-to-make-button-mushroom-compost-100kg-wheat-straw-long-method",
+    "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
+  },
+  {
+    "category": "Educational",
     "date": "September 19, 2026",
     "author": "Expert Team",
     "title": "Mushroom Farming Training Guide : Button Mushroom, Spawn, Compost & Marketing",

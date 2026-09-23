@@ -13,6 +13,7 @@ const EXISTING_STATIC_FOLDERS = new Set([
   "button-mushroom-vs-oyster-mushroom",
   "commercial-mushroom-farming-india",
   "how-to-get-mushroom-farming-training",
+  "how-to-make-button-mushroom-compost-100kg-wheat-straw-long-method",
   "mushroom-farming-business-plan-india",
   "mushroom-farming-business-practical-guide",
   "mushroom-farming-ghar-par-kaise-ugayein-india-guide-2026",
