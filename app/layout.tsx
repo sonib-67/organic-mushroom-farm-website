@@ -7,6 +7,7 @@ import { OfflineInspectionChecklist } from "@/components/OfflineInspectionCheckl
 import { MyceliumBackground } from "@/components/MyceliumBackground";
 import { ConditionalWidgets } from "@/components/ConditionalWidgets";
 import { TrainingAbandonmentTracker } from "@/components/TrainingAbandonmentTracker";
+import SmartVisitorTracker from "@/components/SmartVisitorTracker";
 import "@/app/globals.css";
 
 const inter = Inter({
@@ -75,9 +76,7 @@ export const metadata: Metadata = {
     other: {
       "google-adsense-account": "ca-pub-8976157136173429",
       "ahrefs-site-verification": "d48267d7b8ee00a28f8051d5992c2cfd9373b8971e22a50f65b1829eae808130",
-      "msvalidate.01": "C2D1783AC6AE837F8BE7F263E322C2B8",
-      "google-site-verification-extra-1": "520546c7ef1f49ea",
-      "google-site-verification-extra-2": "T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q"
+      "msvalidate.01": "C2D1783AC6AE837F8BE7F263E322C2B8"
     }
   },
   robots: {
@@ -100,6 +99,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-IN" className={`${inter.variable} ${poppins.variable} scroll-smooth`}>
+      <head>
+        <meta key="520546c7ef1f49ea" name="google-site-verification" content="520546c7ef1f49ea" />
+        <meta key="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" name="google-site-verification" content="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" />
+        {/* Google Tag Manager */}
+        
+
+        {/* Google Analytics 4 & Google Ads */}
+        
+        
+
+        {/* Google AdSense */}
+        
+
+        {/* Ahrefs Analytics */}
+        
+
+        {/* Meta Pixel */}
+        
+      </head>
       <body className="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
 <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -185,6 +203,9 @@ export default function RootLayout({
 
         {/* 10-Second Abandoned Training Recovery Tracker */}
         <TrainingAbandonmentTracker />
+
+        {/* 3.5-Second Delayed Smart Visitor Intelligence Tracker */}
+        <SmartVisitorTracker />
 
         {/* Offline Farm Inspection Checklist (Works 100% without internet) */}
         <OfflineInspectionChecklist />

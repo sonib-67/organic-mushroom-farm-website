@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import {
   syncNewsletterEmailToGoogleSheet,
-  removeNewsletterEmailFromGoogleSheet,
   fetchNewsletterEmailsFromGoogleSheet
 } from "./googleSheetSync";
 
@@ -175,14 +174,6 @@ export function unsubscribeEmail(email: string): boolean {
   const existing = getLocalNewsletterSubscribers();
   const foundIndex = existing.findIndex((s) => s.email.toLowerCase() === emailClean);
 
-  // Invalidate remote Google Sheets cache so old cache doesn't re-add them
-  cachedRemoteSubscribers = null;
-
-  // Trigger Google Sheet row deletion in background
-  removeNewsletterEmailFromGoogleSheet(emailClean).catch((err) => {
-    console.warn("[NewsletterStore] Google Sheet unsubscribe sync warning:", err);
-  });
-
   if (foundIndex >= 0) {
     existing[foundIndex].status = "unsubscribed";
     saveLocalNewsletterSubscribers(existing);
@@ -254,6 +245,28 @@ export async function getAllActiveNewsletterSubscribers(): Promise<NewsletterSub
   }
 
   return mergedList;
+}
+
+/**
+ * Confirm a newsletter subscription (used by double opt-in / confirmation link)
+ */
+export async function confirmNewsletterSubscription(email: string): Promise<{
+  success: boolean;
+  subscriber?: NewsletterSubscriber;
+  isNew?: boolean;
+}> {
+  if (!email || !email.includes("@")) {
+    return { success: false };
+  }
+  const result = await addNewsletterSubscriber({
+    email,
+    source: "Email Confirmation"
+  });
+  return {
+    success: true,
+    subscriber: result.subscriber,
+    isNew: result.isNew
+  };
 }
 
 /**
