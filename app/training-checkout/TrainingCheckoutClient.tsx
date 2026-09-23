@@ -82,7 +82,7 @@ export default function TrainingCheckoutClient() {
       
       if (!res.ok) throw new Error(payload?.error || 'Failed to fetch payload');
 
-      // Send INITIATED notification
+      // Send INITIATED notification to Formspree
       fetch('/api/training-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -94,7 +94,6 @@ export default function TrainingCheckoutClient() {
             email: formData.email,
             price: selectedPrice,
             trainingName: selectedTitle + ' Training',
-            orderId: payload.id,
           }
         })
       }).catch(console.error);
@@ -152,7 +151,7 @@ export default function TrainingCheckoutClient() {
           ondismiss: function() {
             setLoading(false);
             setPaymentStage('idle');
-            // Notify that payment form cancelled/not complete
+            // Notify Formspree that payment form cancelled/not complete
             fetch('/api/training-email', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -164,7 +163,6 @@ export default function TrainingCheckoutClient() {
                   email: formData.email,
                   price: selectedPrice,
                   trainingName: selectedTitle + ' Training',
-                  orderId: payload.id,
                 }
               })
             }).catch(console.error);

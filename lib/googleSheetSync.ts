@@ -5,7 +5,7 @@
  */
 
 export interface GoogleSheetSubscriberPayload {
-  action: "save_subscriber" | "get_subscribers" | "newsletter_subscribe" | "newsletter_unsubscribe";
+  action: "save_subscriber" | "get_subscribers" | "newsletter_subscribe" | "newsletter_confirm" | string;
   type?: "push_subscriber" | "newsletter";
   id?: string;
   email?: string;
@@ -19,6 +19,7 @@ export interface GoogleSheetSubscriberPayload {
   userAgent?: string;
   subscribedAt?: string;
   source?: string;
+  status?: string;
 }
 
 /**
@@ -81,6 +82,8 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
   state?: string;
   name?: string;
   source?: string;
+  status?: string;
+  action?: string;
 }): Promise<{ success: boolean; error?: string }> {
   const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
   if (!webhookUrl) {
@@ -92,11 +95,12 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
 
   try {
     const payload: GoogleSheetSubscriberPayload = {
-      action: "newsletter_subscribe",
+      action: data.action || (data.status === "ACTIVE" ? "newsletter_confirm" : "newsletter_subscribe"),
       type: "newsletter",
       email: data.email.toLowerCase().trim(),
       state: data.state || "India",
       source: data.source || "Website Footer Digest",
+      status: data.status || "PENDING",
       subscribedAt: new Date().toISOString()
     };
 
@@ -115,34 +119,6 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
   } catch (err: any) {
     console.warn("[GoogleSheetSync] Newsletter sync warning:", err);
     return { success: false, error: err.message || "Failed to reach Google Sheets" };
-  }
-}
-
-/**
- * Removes or marks unsubscribed an email in Google Sheets when user clicks unsubscribe link.
- */
-export async function removeNewsletterEmailFromGoogleSheet(email: string): Promise<boolean> {
-  const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
-  if (!webhookUrl) return false;
-
-  try {
-    const payload: GoogleSheetSubscriberPayload = {
-      action: "newsletter_unsubscribe",
-      type: "newsletter",
-      email: email.toLowerCase().trim()
-    };
-
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(10000)
-    });
-
-    return res.ok;
-  } catch (err) {
-    console.warn("[GoogleSheetSync] Unsubscribe sync to Google Sheet warning (non-fatal):", err);
-    return false;
   }
 }
 
@@ -274,26 +250,25 @@ function doPost(e) {
       var nSheet = sheet.getSheetByName("Newsletter_Subscribers");
       if (!nSheet) {
         nSheet = sheet.insertSheet("Newsletter_Subscribers");
-        nSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source", "Status"]);
-        nSheet.getRange("A1:E1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
+        nSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source", "Status", "Verified Date (IST)"]);
+        nSheet.getRange("A1:F1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
       }
       
-      // If user is unsubscribing, remove the row or mark it Unsubscribed
-      if (data.action === "newsletter_unsubscribe") {
+      // If confirming an existing subscriber, update their status to ACTIVE
+      if (data.action === "newsletter_confirm") {
         var nData = nSheet.getDataRange().getValues();
-        var targetEmail = (data.email || "").toString().trim().toLowerCase();
-        for (var idx = nData.length - 1; idx >= 1; idx--) {
-          var rowEmail = (nData[idx][1] || "").toString().trim().toLowerCase();
-          if (rowEmail === targetEmail) {
-            // Delete the row so the user's details are completely removed from the Excel/Google sheet
-            nSheet.deleteRow(idx + 1);
+        var emailLower = (data.email || "").toString().trim().toLowerCase();
+        for (var k = 1; k < nData.length; k++) {
+          if (nData[k][1] && nData[k][1].toString().trim().toLowerCase() === emailLower) {
+            nSheet.getRange(k + 1, 5).setValue("ACTIVE");
+            nSheet.getRange(k + 1, 6).setValue(istDate);
+            return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Subscriber confirmed", row: k + 1 }))
+              .setMimeType(ContentService.MimeType.JSON);
           }
         }
-        return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Email removed from sheet", email: targetEmail }))
-          .setMimeType(ContentService.MimeType.JSON);
       }
-
-      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website", "Active"]);
+      
+      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website", data.status || "PENDING", data.status === "ACTIVE" ? istDate : ""]);
       return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: "Newsletter_Subscribers" }))
         .setMimeType(ContentService.MimeType.JSON);
     }
@@ -449,10 +424,6 @@ function doGet(e) {
       var nRows = newsletterSheet.getDataRange().getValues();
       for (var j = 1; j < nRows.length; j++) {
         var nr = nRows[j];
-        var rowStatus = (nr[4] || "Active").toString().trim().toLowerCase();
-        if (rowStatus === "unsubscribed") {
-          continue; // Skip unsubscribed contacts
-        }
         if (nr[1] && nr[1].toString().indexOf("@") > 0) {
           newsletters.push({
             subscribedAt: nr[0],
