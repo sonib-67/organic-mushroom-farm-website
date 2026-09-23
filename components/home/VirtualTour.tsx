@@ -31,6 +31,10 @@ export const VirtualTour = () => {
             src="https://images.unsplash.com/photo-1605557202138-097823c39fc2?q=80&w=2000&auto=format&fit=crop" 
             alt="Commercial Mushroom Farm 360 View" 
             className="w-full h-full object-cover opacity-80 mix-blend-overlay"
+            width={1280}
+            height={720}
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 flex items-center justify-center">
             <button className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group hover:bg-white/30 transition-all hover:scale-110">

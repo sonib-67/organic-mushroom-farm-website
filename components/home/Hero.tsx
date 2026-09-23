@@ -13,7 +13,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-24 overflow-hidden px-6 lg:px-8">
+    <section id="home" className="relative min-h-[90svh] md:min-h-screen flex items-center pt-32 pb-12 md:pt-40 md:pb-24 overflow-hidden px-6 lg:px-8">
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-[1.2fr,0.8fr] gap-5 md:gap-8 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}

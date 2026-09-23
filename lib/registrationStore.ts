@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import nodemailer from 'nodemailer';
+import { savePendingToFirebase, markRegistrationCompletedInFirebase } from './pendingRegistrationManager';
 
 export interface RegistrationRecord {
   paymentId: string;
@@ -106,7 +107,18 @@ export function recordPaymentInit(payment: {
   inMemoryStore.set(payment.paymentId, record);
   persistToFile();
 
-  // Schedule 5-minute reminder if email is present
+  // Save to Firebase for reliable Vercel 5-min tracking & 10-min auto purge
+  savePendingToFirebase({
+    paymentId: payment.paymentId,
+    name: record.name,
+    email: record.email,
+    phone: record.phone,
+    amount: record.amount,
+    courseType: record.courseType,
+    courseTitle: record.courseTitle,
+  }).catch((err) => console.warn("[RegistrationStore] Firebase save skipped:", err));
+
+  // Schedule 5-minute reminder if email is present (local fallback)
   scheduleAbandonedReminder(payment.paymentId);
 
   return record;
@@ -161,6 +173,12 @@ export function completeRegistration(paymentId: string, formData: any): { succes
 
   inMemoryStore.set(paymentId, record);
   persistToFile();
+
+  // Mark in Firebase so 5-min reminder is NEVER dispatched
+  markRegistrationCompletedInFirebase(paymentId).catch((err) =>
+    console.warn("[RegistrationStore] Firebase mark completed skipped:", err)
+  );
+
   return { success: true };
 }
 

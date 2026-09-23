@@ -82,9 +82,9 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
           strokeWidth="3"
         />
         <motion.circle
-          cx="50"
-          cy="4"
-          r="4.5"
+          cx={50}
+          cy={4}
+          r={4.5}
           fill="#10b981"
           animate={{
             fill: ["#10b981", "#fbbf24", "#38bdf8", "#10b981"],
@@ -116,9 +116,9 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
 
       {/* Chest Core Pulse */}
       <motion.circle
-        cx="50"
-        cy="65"
-        r="6"
+        cx={50}
+        cy={65}
+        r={6}
         fill="#ffffff"
         opacity="0.8"
         animate={{
@@ -131,7 +131,7 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
           ease: "easeInOut",
         }}
       />
-      <motion.circle cx="50" cy="65" r="3" fill="#38bdf8" />
+      <motion.circle cx={50} cy={65} r={3} fill="#38bdf8" />
 
       {/* Head Group */}
       <motion.g
@@ -212,15 +212,16 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
         />
 
         <motion.circle
-          cx="38"
-          cy="40"
-          r="4"
+          cx={38}
+          cy={40}
+          r={4}
           fill="#38bdf8"
           animate={
             isAnimating
               ? {
                   scaleY: [1, 0.2, 1],
                   scaleX: [1, 1.2, 1],
+                  cx: 38,
                 }
               : {
                   scaleY: [1, 0, 1, 1, 1],
@@ -239,15 +240,16 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
         />
 
         <motion.circle
-          cx="62"
-          cy="40"
-          r="4"
+          cx={62}
+          cy={40}
+          r={4}
           fill="#38bdf8"
           animate={
             isAnimating
               ? {
                   scaleY: [1, 0.2, 1],
                   scaleX: [1, 1.2, 1],
+                  cx: 62,
                 }
               : {
                   scaleY: [1, 0, 1, 1, 1],
