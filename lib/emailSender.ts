@@ -4,8 +4,7 @@ import { DigestContent } from "./geminiDigestGenerator";
 import {
   renderRedditStyleDigestHtml,
   renderWelcomeEmailHtml,
-  renderAdminSubscriberAlertHtml,
-  renderVerificationEmailHtml
+  renderAdminSubscriberAlertHtml
 } from "./emailTemplate";
 import {
   getMailTransporter,
@@ -23,60 +22,7 @@ export interface SendResult {
 const DEFAULT_SENDER = `"Organic Mushrooms Farm" <organicmushroomsfarms@gmail.com>`;
 
 /**
- * Sends a double opt-in verification link to the subscriber (Tareeka 1)
- * Users must click the link to activate their 2-Day Farming Digest.
- */
-export async function sendVerificationEmailToSubscriber(
-  toEmail: string,
-  confirmUrl: string,
-  baseUrl: string = "https://organicmushroomsfarm.com",
-  geoInfo?: {
-    language?: "hi" | "en";
-    city?: string;
-    state?: string;
-  }
-): Promise<SendResult> {
-  const mailer = getMailTransporter();
-  const html = renderVerificationEmailHtml(toEmail, confirmUrl, baseUrl, geoInfo);
-  const fromAddress =
-    process.env.SMTP_FROM ||
-    process.env.EMAIL_FROM ||
-    DEFAULT_SENDER;
-
-  const isHindi = geoInfo?.language !== "en";
-  const subject = isHindi
-    ? "🍄 अपनी ईमेल की पुष्टि करें: Organic Mushrooms Farm 2-डे डाइजेस्ट"
-    : "🍄 Confirm Your Subscription: Organic Mushrooms Farm 2-Day Digest";
-
-  try {
-    const info = await mailer.sendMail({
-      from: fromAddress,
-      to: toEmail,
-      subject,
-      text: isHindi
-        ? `नमस्ते!\n\nOrganic Mushrooms Farm के 2-Day Farming Digest को सक्रिय करने के लिए कृपया नीचे दिए गए लिंक पर क्लिक करें:\n\n${confirmUrl}\n\nयदि आपने यह अनुरोध नहीं किया था, तो इसे अनदेखा करें।\n\nवेबसाइट: ${baseUrl}`
-        : `Hello!\n\nPlease click the link below to confirm your subscription to the 2-Day Farming Digest by Organic Mushrooms Farm:\n\n${confirmUrl}\n\nIf you did not request this, please ignore this email.\n\nWebsite: ${baseUrl}`,
-      html
-    });
-
-    console.log(`[NewsletterMail] Verification email sent to ${toEmail}. MessageId: ${info.messageId}`);
-    return {
-      email: toEmail,
-      success: true,
-      messageId: info.messageId
-    };
-  } catch (err: any) {
-    console.error(`[NewsletterMail] Error sending verification email to ${toEmail}:`, err);
-    return {
-      email: toEmail,
-      success: false,
-      error: err.message || "Failed to send verification email"
-    };
-  }
-}
-
-/**
- * Sends a welcome confirmation email to the subscriber right upon subscribing or confirming
+ * Sends a welcome confirmation email to the subscriber right upon subscribing
  * Uses the exact same Nodemailer transporter as /enquiry
  */
 export async function sendWelcomeEmailToSubscriber(

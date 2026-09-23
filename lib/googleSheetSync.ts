@@ -5,7 +5,7 @@
  */
 
 export interface GoogleSheetSubscriberPayload {
-  action: "save_subscriber" | "get_subscribers" | "newsletter_subscribe" | "newsletter_confirm" | string;
+  action: "save_subscriber" | "get_subscribers" | "newsletter_subscribe";
   type?: "push_subscriber" | "newsletter";
   id?: string;
   email?: string;
@@ -19,7 +19,6 @@ export interface GoogleSheetSubscriberPayload {
   userAgent?: string;
   subscribedAt?: string;
   source?: string;
-  status?: string;
 }
 
 /**
@@ -82,8 +81,6 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
   state?: string;
   name?: string;
   source?: string;
-  status?: string;
-  action?: string;
 }): Promise<{ success: boolean; error?: string }> {
   const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
   if (!webhookUrl) {
@@ -95,12 +92,11 @@ export async function syncNewsletterEmailToGoogleSheet(data: {
 
   try {
     const payload: GoogleSheetSubscriberPayload = {
-      action: data.action || (data.status === "ACTIVE" ? "newsletter_confirm" : "newsletter_subscribe"),
+      action: "newsletter_subscribe",
       type: "newsletter",
       email: data.email.toLowerCase().trim(),
       state: data.state || "India",
       source: data.source || "Website Footer Digest",
-      status: data.status || "PENDING",
       subscribedAt: new Date().toISOString()
     };
 
@@ -250,25 +246,10 @@ function doPost(e) {
       var nSheet = sheet.getSheetByName("Newsletter_Subscribers");
       if (!nSheet) {
         nSheet = sheet.insertSheet("Newsletter_Subscribers");
-        nSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source", "Status", "Verified Date (IST)"]);
-        nSheet.getRange("A1:F1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
+        nSheet.appendRow(["Subscribed Date (IST)", "Email Address", "State", "Source"]);
+        nSheet.getRange("A1:D1").setFontWeight("bold").setBackground("#2e7d32").setFontColor("#ffffff");
       }
-      
-      // If confirming an existing subscriber, update their status to ACTIVE
-      if (data.action === "newsletter_confirm") {
-        var nData = nSheet.getDataRange().getValues();
-        var emailLower = (data.email || "").toString().trim().toLowerCase();
-        for (var k = 1; k < nData.length; k++) {
-          if (nData[k][1] && nData[k][1].toString().trim().toLowerCase() === emailLower) {
-            nSheet.getRange(k + 1, 5).setValue("ACTIVE");
-            nSheet.getRange(k + 1, 6).setValue(istDate);
-            return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Subscriber confirmed", row: k + 1 }))
-              .setMimeType(ContentService.MimeType.JSON);
-          }
-        }
-      }
-      
-      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website", data.status || "PENDING", data.status === "ACTIVE" ? istDate : ""]);
+      nSheet.appendRow([istDate, data.email, data.state || "All India", data.source || "Website"]);
       return ContentService.createTextOutput(JSON.stringify({ status: "success", tab: "Newsletter_Subscribers" }))
         .setMimeType(ContentService.MimeType.JSON);
     }
