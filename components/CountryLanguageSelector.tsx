@@ -195,30 +195,42 @@ export function CountryLanguageSelector() {
     }
   }, []);
 
-  // Initialize Google Translate script
-  useEffect(() => {
+  // Load Google Translate script strictly on-demand (when user clicks language selector OR if non-English was previously active)
+  const loadTranslateScript = () => {
     if (typeof window === "undefined") return;
 
-    window.googleTranslateElementInit = () => {
-      if (window.google?.translate?.TranslateElement) {
-        new window.google.translate.TranslateElement(
-          {
-            pageLanguage: "en",
-            autoDisplay: false,
-            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          },
-          "google_translate_element"
-        );
-      }
-    };
+    if (!window.googleTranslateElementInit) {
+      window.googleTranslateElementInit = () => {
+        if (window.google?.translate?.TranslateElement) {
+          new window.google.translate.TranslateElement(
+            {
+              pageLanguage: "en",
+              autoDisplay: false,
+              layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+            },
+            "google_translate_element"
+          );
+        }
+      };
+    }
 
-    const existingScript = document.getElementById("google-translate-script");
-    if (!existingScript) {
+    if (!document.getElementById("google-translate-script")) {
       const script = document.createElement("script");
       script.id = "google-translate-script";
       script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
       script.async = true;
       document.body.appendChild(script);
+    }
+  };
+
+  // Only load script if user already has an active translation from a previous session
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hasActiveTranslation =
+      document.cookie.includes("googtrans=/auto/") &&
+      !document.cookie.includes("googtrans=/auto/en");
+    if (hasActiveTranslation) {
+      loadTranslateScript();
     }
   }, []);
 
@@ -369,7 +381,10 @@ export function CountryLanguageSelector() {
       {/* Language / Country Trigger Button - Clean Lucide Languages Translate Icon */}
       <button
         type="button"
+        onMouseEnter={loadTranslateScript}
+        onTouchStart={loadTranslateScript}
         onClick={() => {
+          loadTranslateScript();
           setCurrentStep("country");
           setIsOpen(true);
         }}
