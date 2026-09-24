@@ -63,21 +63,21 @@ export default function NewsletterSubscribeBox({
   return (
     <div
       id="newsletter-subscribe-widget"
-      className="w-full relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-950/70 via-slate-900 to-slate-950 border border-emerald-500/25 p-6 sm:p-8 backdrop-blur-md shadow-xl my-8"
+      className="w-full relative overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-50/90 via-white to-slate-50/90 dark:from-emerald-950/70 dark:via-slate-900 dark:to-slate-950 border border-emerald-500/20 dark:border-emerald-500/25 p-6 sm:p-8 backdrop-blur-md shadow-lg shadow-emerald-500/5 dark:shadow-xl dark:shadow-black/40 my-8 transition-colors"
     >
       {/* Ambient background glow */}
-      <div className="absolute -top-16 -right-16 w-56 h-56 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-16 -right-16 w-56 h-56 bg-emerald-500/10 dark:bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-16 -left-16 w-56 h-56 bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
         
         {/* Left: Headline & Subheadline */}
         <div className="text-center lg:text-left max-w-xl">
-          <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-snug">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-snug">
             Stay Updated
           </h3>
 
-          <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
             Get the latest mushroom farming tips, training updates, and market news directly in your inbox.
           </p>
         </div>
@@ -85,15 +85,15 @@ export default function NewsletterSubscribeBox({
         {/* Right: Form & Feedback */}
         <div className="w-full lg:w-auto lg:min-w-[380px]">
           {status === "success" ? (
-            <div className="p-4 rounded-xl bg-emerald-900/40 border border-emerald-500/50 text-emerald-200 flex items-start gap-3 text-sm animate-in fade-in">
-              <CheckCircle2 size={20} className="text-emerald-400 shrink-0 mt-0.5" />
+            <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 border border-emerald-500/40 text-emerald-900 dark:text-emerald-200 flex items-start gap-3 text-sm animate-in fade-in shadow-sm">
+              <CheckCircle2 size={20} className="text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
               <div>
-                <strong className="block text-white font-bold mb-1">Subscribed Successfully!</strong>
-                <p className="text-xs text-emerald-300/90 leading-relaxed">{message}</p>
+                <strong className="block text-slate-900 dark:text-white font-bold mb-1">Subscribed Successfully!</strong>
+                <p className="text-xs text-emerald-800 dark:text-emerald-300/90 leading-relaxed">{message}</p>
                 <button
                   type="button"
                   onClick={() => setStatus("idle")}
-                  className="mt-2 text-[11px] text-emerald-400 underline font-semibold hover:text-emerald-300"
+                  className="mt-2 text-[11px] text-emerald-700 dark:text-emerald-400 underline font-semibold hover:text-emerald-800 dark:hover:text-emerald-300"
                 >
                   Add another email
                 </button>
@@ -121,7 +121,7 @@ export default function NewsletterSubscribeBox({
 
               <div className="flex flex-col sm:flex-row gap-2">
                 <div className="relative flex-1">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 dark:text-slate-500">
                     <Mail size={16} />
                   </div>
                   <input
@@ -132,7 +132,7 @@ export default function NewsletterSubscribeBox({
                     placeholder="Enter your email address"
                     required
                     disabled={loading}
-                    className="w-full pl-10 pr-4 py-3 bg-slate-900/90 text-white placeholder-slate-400 text-xs sm:text-sm rounded-xl border border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition-all"
+                    className="w-full pl-10 pr-4 py-3 bg-white dark:bg-slate-900/90 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-400 text-xs sm:text-sm rounded-xl border border-slate-300 dark:border-slate-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none transition-all shadow-sm"
                   />
                 </div>
 
@@ -141,7 +141,7 @@ export default function NewsletterSubscribeBox({
                   type="submit"
                   disabled={loading}
                   aria-label="Subscribe to newsletter"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-700 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold rounded-xl shadow-lg shadow-emerald-950/40 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shrink-0"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-md shadow-emerald-600/20 dark:shadow-emerald-950/40 transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shrink-0"
                 >
                   {loading ? (
                     <span>Subscribing...</span>
@@ -155,12 +155,12 @@ export default function NewsletterSubscribeBox({
               </div>
 
               {status === "error" && (
-                <p className="text-xs text-rose-400 font-medium pl-1">
+                <p className="text-xs text-rose-600 dark:text-rose-400 font-medium pl-1">
                   ⚠️ {message}
                 </p>
               )}
 
-              <p className="text-xs text-slate-400 text-center lg:text-left pl-1">
+              <p className="text-xs text-slate-500 dark:text-slate-400 text-center lg:text-left pl-1">
                 No spam. Unsubscribe anytime.
               </p>
             </form>
