@@ -2,28 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "crons": [
     {
-      "path": "/api/notifications/send-cron?slot=10am",
-      "schedule": "30 4 * * *"
-    },
-    {
-      "path": "/api/notifications/send-cron?slot=5pm",
-      "schedule": "30 11 * * *"
-    },
-    {
-      "path": "/api/newsletter/send-digest",
-      "schedule": "30 8 */2 * *"
-    },
-    {
       "path": "/api/cron/daily-visitor-report",
       "schedule": "30 12 * * *"
     },
     {
-      "path": "/api/cron/cleanup-traffic",
-      "schedule": "0 13 * * *"
-    },
-    {
-      "path": "/api/cron/registration-reminder",
-      "schedule": "*/5 * * * *"
+      "path": "/api/newsletter/send-digest",
+      "schedule": "30 8 */2 * *"
     }
   ]
 }

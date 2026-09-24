@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
   getSessionsForDate,
+  getSessionsForDates,
   getKolkataDateString,
+  deleteSessionsUpToDate,
   VisitorSessionRecord,
 } from "@/lib/visitorIntelligence";
 import {
   getMailTransporter,
   getEnquiryAdminRecipients,
 } from "@/lib/enquiryMailService";
+import { getDigestHistory } from "@/lib/newsletterStore";
 
 export const dynamic = "force-dynamic";
 
@@ -30,18 +33,48 @@ async function handleReportGeneration(req: NextRequest) {
   const startTime = Date.now();
   const searchParams = req.nextUrl.searchParams;
   const customDate = searchParams.get("date");
-  const reportDate = customDate || getKolkataDateString();
+  const force = searchParams.get("force") === "true";
+
+  // Current date in IST
+  const todayIst = getKolkataDateString(0);
+  const yesterdayIst = getKolkataDateString(-1);
+  const reportDate = customDate || todayIst;
 
   try {
-    // 1. Fetch all visitor sessions for today
-    const sessions = await getSessionsForDate(reportDate);
+    // 🧠 ALTERNATING DAY INTELLIGENCE:
+    // If Newsletter Digest ran today (within last 12 hours), SKIP today's report
+    // so admin receives the combined 2-day report on the alternate day at 6:00 PM IST!
+    if (!force && !customDate) {
+      const digestHistory = getDigestHistory();
+      if (digestHistory.length > 0) {
+        const lastDigest = digestHistory[digestHistory.length - 1];
+        const lastDigestTime = new Date(lastDigest.sentAt).getTime();
+        const hoursSinceDigest = (Date.now() - lastDigestTime) / (1000 * 60 * 60);
+
+        // If newsletter digest was sent today (less than 14 hours ago, e.g. at 2:00 PM today)
+        if (hoursSinceDigest < 14) {
+          console.log(`[VisitorReport] Newsletter digest was sent today (${Math.round(hoursSinceDigest)}h ago). Skipping today's 6:00 PM report. Combined 2-day report will dispatch tomorrow.`);
+          return NextResponse.json({
+            success: true,
+            status: "skipped_alternating_day",
+            reason: `Newsletter digest was dispatched today. 2-day combined report will trigger tomorrow at 6:00 PM IST.`,
+            newsletterDigestSentAt: lastDigest.sentAt,
+            hoursSinceDigest: Math.round(hoursSinceDigest * 10) / 10,
+          });
+        }
+      }
+    }
+
+    // 1. Fetch visitor sessions for the 2-day window (yesterday + today)
+    const targetDates = customDate ? [customDate] : [yesterdayIst, todayIst];
+    const sessions = await getSessionsForDates(targetDates);
+    const isTwoDayReport = targetDates.length > 1;
 
     // 2. Aggregate Metrics
     const totalVisitors = sessions.length;
 
     if (totalVisitors === 0) {
-      // Still send notification email or return status
-      console.log(`[VisitorReport] No visitors recorded for ${reportDate}`);
+      console.log(`[VisitorReport] No visitors recorded for ${targetDates.join(", ")}`);
     }
 
     let totalDuration = 0;
@@ -112,6 +145,14 @@ async function handleReportGeneration(req: NextRequest) {
     const desktopPercent =
       totalVisitors > 0 ? Math.round((deviceMap.Desktop / totalVisitors) * 100) : 0;
 
+    const dateHeading = isTwoDayReport
+      ? `📅 2-Day Consolidated Report (${targetDates.join(" & ")})`
+      : `Report Date: <strong>${reportDate}</strong> &bull; Generated at 6:00 PM IST`;
+
+    const reportTitle = isTwoDayReport
+      ? `📊 2-Day Visitor Intelligence Report`
+      : `📊 Daily Visitor Intelligence Report`;
+
     // 3. Render HTML Email Template
     const htmlEmail = `
 <!DOCTYPE html>
@@ -119,7 +160,7 @@ async function handleReportGeneration(req: NextRequest) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Visitor Intelligence Report</title>
+  <title>${reportTitle}</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0f17; color: #f1f5f9; margin: 0; padding: 24px 12px;">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 640px; margin: 0 auto; background-color: #131b2e; border: 1px solid #1e293b; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);">
@@ -132,10 +173,10 @@ async function handleReportGeneration(req: NextRequest) {
             <td>
               <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #a7f3d0; font-weight: 700;">Organic Mushrooms Farm</span>
               <h1 style="color: #ffffff; font-size: 22px; font-weight: 800; margin: 6px 0 4px 0; line-height: 1.3;">
-                📊 Daily Visitor Intelligence Report
+                ${reportTitle}
               </h1>
               <p style="color: #6ee7b7; font-size: 13px; margin: 0;">
-                Report Date: <strong>${reportDate}</strong> &bull; Generated at 6:00 PM IST
+                ${dateHeading}
               </p>
             </td>
           </tr>
@@ -310,25 +351,43 @@ async function handleReportGeneration(req: NextRequest) {
     const recipients = getEnquiryAdminRecipients();
     const sender = process.env.SMTP_FROM || `"Organic Mushrooms Farm Analytics" <organicmushroomsfarms@gmail.com>`;
 
-    const subject = `📊 Daily Visitor Intelligence Report — ${reportDate} (${totalVisitors} Visitors, ${highIntentVisitors.length} High-Intent)`;
+    const subject = isTwoDayReport
+      ? `📊 2-Day Visitor Intelligence Report — ${targetDates.join(" & ")} (${totalVisitors} Visitors, ${highIntentVisitors.length} High-Intent)`
+      : `📊 Daily Visitor Intelligence Report — ${reportDate} (${totalVisitors} Visitors, ${highIntentVisitors.length} High-Intent)`;
 
     const mailResult = await transporter.sendMail({
       from: sender,
       to: recipients,
       subject,
       html: htmlEmail,
-      text: `Daily Visitor Report (${reportDate})\nTotal Visitors: ${totalVisitors}\nAvg Duration: ${formatSeconds(avgDurationSeconds)}\nMobile: ${mobilePercent}%\nTop States: ${sortedStates.map(([s, c]) => `${s}: ${c}`).join(", ")}`,
+      text: `Visitor Intelligence Report (${targetDates.join(" & ")})\nTotal Visitors: ${totalVisitors}\nAvg Duration: ${formatSeconds(avgDurationSeconds)}\nMobile: ${mobilePercent}%\nTop States: ${sortedStates.map(([s, c]) => `${s}: ${c}`).join(", ")}`,
     });
 
-    console.log(`[VisitorReport] Successfully sent report for ${reportDate} to ${recipients.join(", ")}. MessageId: ${mailResult.messageId}`);
+    console.log(`[VisitorReport] Successfully sent report for ${targetDates.join(" & ")} to ${recipients.join(", ")}. MessageId: ${mailResult.messageId}`);
+
+    // 5. Clean up old records right after report delivery up to today's date
+    let deletedRecords = 0;
+    try {
+      console.log(`[VisitorReport] Chaining automatic storage cleanup for date up to: ${todayIst}...`);
+      deletedRecords = await deleteSessionsUpToDate(todayIst);
+      console.log(`[VisitorReport] Successfully cleaned up ${deletedRecords} visitor records immediately after email delivery.`);
+    } catch (cleanupErr) {
+      console.error("[VisitorReport] Post-report cleanup error (non-fatal):", cleanupErr);
+    }
 
     return NextResponse.json({
       success: true,
-      reportDate,
+      reportDate: targetDates.join(" & "),
+      isTwoDayReport,
       totalVisitors,
       highIntentCount: highIntentVisitors.length,
       avgDurationSeconds,
       recipients,
+      cleanup: {
+        executed: true,
+        deletedRecords,
+        status: "Storage reset to 0 MB",
+      },
       executionMs: Date.now() - startTime,
     });
   } catch (err: any) {

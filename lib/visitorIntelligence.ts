@@ -221,13 +221,22 @@ export async function saveVisitorSession(
  * Fetch all sessions for a specific date (YYYY-MM-DD in Asia/Kolkata)
  */
 export async function getSessionsForDate(dateStr: string): Promise<VisitorSessionRecord[]> {
+  return getSessionsForDates([dateStr]);
+}
+
+/**
+ * Fetch all sessions across multiple dates (e.g. 2-day combined period)
+ */
+export async function getSessionsForDates(dateStrings: string[]): Promise<VisitorSessionRecord[]> {
   const db = getDb();
-  if (!db) return [];
+  if (!db || dateStrings.length === 0) return [];
 
   try {
+    // Firestore 'in' query supports up to 10 array elements
+    const validDates = dateStrings.slice(0, 10);
     const q = query(
       collection(db, "daily_visitor_sessions"),
-      where("date", "==", dateStr)
+      where("date", "in", validDates)
     );
     const snap = await getDocs(q);
     const list: VisitorSessionRecord[] = [];
@@ -236,7 +245,7 @@ export async function getSessionsForDate(dateStr: string): Promise<VisitorSessio
     });
     return list;
   } catch (err) {
-    console.error(`[VisitorTracker] Error fetching sessions for date ${dateStr}:`, err);
+    console.error(`[VisitorTracker] Error fetching sessions for dates ${dateStrings.join(", ")}:`, err);
     return [];
   }
 }

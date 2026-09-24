@@ -182,43 +182,27 @@ export async function subscribeToPush(): Promise<{ success: boolean; permission:
         console.warn("Could not sync push subscription to backend:", err);
       }
 
-      // 6. EXACT USER REQUIREMENT: Trigger confirmation notification after 5 seconds
-      // We send it to Service Worker so even if user closes/refreshes tab, it triggers!
+      // 6. EXACT USER REQUIREMENT: Trigger welcome/alerts notification immediately when user allows
+      // Send directly to active service worker & show instantly on screen
       const notifPayload = {
         title: "🍄 Organic Mushroom Farm: Alerts Active!",
         options: {
           body: `Welcome! You will now receive timely ${geo.state} training batch alerts, daily profit tips & subsidy updates.`,
           icon: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
           badge: "https://res.cloudinary.com/dtpktdkqw/image/upload/v1782269097/IMG_1329_optimized_30_c6qtnw.png",
-          tag: "omf-confirmation-5s",
+          tag: "omf-welcome-active",
           vibrate: [200, 100, 200],
           data: { url: "/training" }
         }
       };
 
       try {
-        if (navigator.serviceWorker.controller) {
-          navigator.serviceWorker.controller.postMessage({
-            type: "SCHEDULE_NOTIFICATION",
-            delayMs: 5000,
-            title: notifPayload.title,
-            options: notifPayload.options
-          });
+        if (registration) {
+          registration.showNotification(notifPayload.title, notifPayload.options);
         }
-      } catch (postErr) {
-        console.warn("Could not postMessage to SW controller:", postErr);
+      } catch (notifErr) {
+        console.warn("Notice showing instant welcome notification:", notifErr);
       }
-
-      // Also keep window fallback timer
-      setTimeout(async () => {
-        try {
-          if (registration) {
-            registration.showNotification(notifPayload.title, notifPayload.options);
-          }
-        } catch (notifErr) {
-          console.warn("Notice showing 5s confirmation notification fallback:", notifErr);
-        }
-      }, 5000);
 
       // 7. Schedule today's and tomorrow's 10:00 AM & 5:00 PM IST notifications
       syncDailyNotificationSchedule(geo.state, geo.language);

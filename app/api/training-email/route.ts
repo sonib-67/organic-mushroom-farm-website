@@ -226,7 +226,7 @@ export async function POST(req: Request) {
             <div style="background: #1e293b; border: 1px solid #3b82f6; border-radius: 8px; padding: 12px;">
               <div style="font-size: 13px; font-weight: 700; color: #60a5fa; margin-bottom: 6px;">🔗 User Registration Form Link (Admin Copy):</div>
               <a href="${registrationUrl}" style="color: #38bdf8; font-size: 12.5px; word-break: break-all; text-decoration: underline;">${registrationUrl}</a>
-              <div style="margin-top: 8px; font-size: 11.5px; color: #94a3b8;">💡 If the user does not fill this form within 5 minutes, an automated reminder email will be dispatched to ${data.email} automatically.</div>
+              <div style="margin-top: 8px; font-size: 11.5px; color: #94a3b8;">💡 If the user has not completed the form, you can share this direct pre-filled registration link with the student via WhatsApp or Email.</div>
             </div>
           </td>
         </tr>
