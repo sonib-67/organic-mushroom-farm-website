@@ -362,7 +362,7 @@ export function RegistrationFormClient() {
     }
   };
 
-  // Check on client mount if this device already completed a registration
+  // Check on client mount if this device already completed a registration OR restore draft
   useEffect(() => {
     try {
       const savedPhone = localStorage.getItem("omf_registered_phone");
@@ -372,10 +372,69 @@ export function RegistrationFormClient() {
           `Notice: A registration slip was already generated from this device for phone number +91 ${savedPhone} (ID: ${savedRegId || "OMF"}). Single registration is permitted per phone number.`
         );
       }
+
+      // Restore form draft from cookie / localStorage if user dropped off earlier
+      const savedDraft = localStorage.getItem("omf_training_form_draft");
+      if (savedDraft) {
+        try {
+          const parsed = JSON.parse(savedDraft);
+          if (parsed && typeof parsed === "object") {
+            setFormData((prev) => ({
+              ...prev,
+              fullName: parsed.fullName || prev.fullName,
+              phone: parsed.phone || prev.phone,
+              email: parsed.email || prev.email,
+              city: parsed.city || prev.city,
+              district: parsed.district || prev.district,
+              state: parsed.state || prev.state,
+              pincode: parsed.pincode || prev.pincode,
+              fullAddress: parsed.fullAddress || prev.fullAddress,
+              currentlyFarming: parsed.currentlyFarming || prev.currentlyFarming,
+              mushroomInterested: parsed.mushroomInterested || prev.mushroomInterested,
+              experience: parsed.experience || prev.experience,
+              hasSetup: parsed.hasSetup || prev.hasSetup,
+              investment: parsed.investment || prev.investment,
+              trainingName: parsed.trainingName || prev.trainingName,
+              trainingMode: parsed.trainingMode || prev.trainingMode,
+            }));
+          }
+        } catch {}
+      }
     } catch {
       // ignore localStorage restriction
     }
   }, []);
+
+  // Auto-save form draft whenever key fields change
+  useEffect(() => {
+    if (formData.fullName || formData.phone || formData.email || formData.city) {
+      try {
+        const draft = {
+          fullName: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          city: formData.city,
+          district: formData.district,
+          state: formData.state,
+          pincode: formData.pincode,
+          fullAddress: formData.fullAddress,
+          currentlyFarming: formData.currentlyFarming,
+          mushroomInterested: formData.mushroomInterested,
+          experience: formData.experience,
+          hasSetup: formData.hasSetup,
+          investment: formData.investment,
+          trainingName: formData.trainingName,
+          trainingMode: formData.trainingMode,
+        };
+        localStorage.setItem("omf_training_form_draft", JSON.stringify(draft));
+        // Also persist light cookie for cross-session resumption
+        document.cookie = `omf_usr_nm=${encodeURIComponent(formData.fullName.slice(0, 30))}; path=/; max-age=2592000; SameSite=Lax`;
+        if (formData.phone) {
+          document.cookie = `omf_usr_ph=${encodeURIComponent(formData.phone.slice(0, 15))}; path=/; max-age=2592000; SameSite=Lax`;
+        }
+      } catch {}
+    }
+  }, [formData.fullName, formData.phone, formData.email, formData.city, formData.state, formData.trainingName, formData.trainingMode]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -527,10 +586,13 @@ export function RegistrationFormClient() {
         });
       }
 
-      // Record in device storage to prevent multiple duplicate registrations from this phone
+      // Record in device storage to prevent multiple duplicate registrations from this phone & clear draft
       try {
         localStorage.setItem("omf_registered_phone", formData.phone);
         localStorage.setItem("omf_registered_id", json.registrationId || "");
+        localStorage.removeItem("omf_training_form_draft");
+        document.cookie = "omf_usr_nm=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        document.cookie = "omf_usr_ph=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
       } catch {
         // ignore
       }

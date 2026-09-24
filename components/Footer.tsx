@@ -161,6 +161,7 @@ const Footer = () => {
                   { name: "Customer Support", href: "/support" },
                   { name: "Terms of Service", href: "/terms" },
                   { name: "Privacy Policy", href: "/privacy" },
+                  { name: "Cookies Policy", href: "/cookies-policy" },
                   { name: "Disclaimer Policy", href: "/disclaimer" },
                   { name: "Refund Policy", href: "/refund-policy" },
                   { name: "Shipping Policy", href: "/shipping-policy" },

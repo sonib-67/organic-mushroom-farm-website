@@ -1,12 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { MessageCircle } from "lucide-react";
+import { buildVisitorWhatsAppUrl, detectVisitorStatus } from "@/lib/visitorWhatsApp";
 
 export const WhatsAppWidget = () => {
   // Replace with your actual WhatsApp number with country code (e.g., 91 for India)
   const whatsappNumber = "919203544140"; 
+  const pathname = usePathname();
   const [isHidden, setIsHidden] = useState(false);
+  const [waUrl, setWaUrl] = useState(`https://wa.me/${whatsappNumber}`);
 
   useEffect(() => {
     const handleMobileMenuToggle = (e: CustomEvent) => {
@@ -25,6 +29,26 @@ export const WhatsAppWidget = () => {
     };
   }, []);
 
+  // Sync WhatsApp URL with visitor intelligence and current page
+  useEffect(() => {
+    try {
+      const url = buildVisitorWhatsAppUrl(whatsappNumber, pathname || "/");
+      setWaUrl(url);
+    } catch {
+      // fallback
+    }
+  }, [pathname]);
+
+  const handleWhatsAppClick = () => {
+    try {
+      // Regenerate with real-time status right before navigation
+      const freshUrl = buildVisitorWhatsAppUrl(whatsappNumber, pathname || "/");
+      setWaUrl(freshUrl);
+    } catch {
+      // ignore
+    }
+  };
+
   return (
     <AnimatePresence>
       {!isHidden && (
@@ -37,7 +61,8 @@ export const WhatsAppWidget = () => {
         >
           <div className="flex flex-col items-center gap-1.5 pointer-events-auto">
             <motion.a
-              href={`https://wa.me/${whatsappNumber}`}
+              href={waUrl}
+              onClick={handleWhatsAppClick}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Contact us on WhatsApp"
