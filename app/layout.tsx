@@ -102,6 +102,13 @@ export default function RootLayout({
       <head>
         <meta key="520546c7ef1f49ea" name="google-site-verification" content="520546c7ef1f49ea" />
         <meta key="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" name="google-site-verification" content="T08GKq12QZ4luzcstvFZsBt2z44RJf3TL5TSuWnUS_Q" />
+        {/* Preconnect & DNS-Prefetch for critical third-parties and assets */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         {/* Google Tag Manager */}
         
 

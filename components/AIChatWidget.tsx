@@ -82,10 +82,11 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
           strokeWidth="3"
         />
         <motion.circle
-          cx={50}
-          cy={4}
-          r={4.5}
+          cx="50"
+          cy="4"
+          r="4.5"
           fill="#10b981"
+          style={{ transformOrigin: "50px 4px" }}
           animate={{
             fill: ["#10b981", "#fbbf24", "#38bdf8", "#10b981"],
             scale: [1, 1.4, 1],
@@ -116,11 +117,12 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
 
       {/* Chest Core Pulse */}
       <motion.circle
-        cx={50}
-        cy={65}
-        r={6}
+        cx="50"
+        cy="65"
+        r="6"
         fill="#ffffff"
         opacity="0.8"
+        style={{ transformOrigin: "50px 65px" }}
         animate={{
           scale: [1, 1.5, 1],
           opacity: [0.5, 1, 0.5],
@@ -131,7 +133,7 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
           ease: "easeInOut",
         }}
       />
-      <motion.circle cx={50} cy={65} r={3} fill="#38bdf8" />
+      <circle cx="50" cy="65" r="3" fill="#38bdf8" />
 
       {/* Head Group */}
       <motion.g
@@ -211,21 +213,22 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
           }}
         />
 
+        {/* Left Eye */}
         <motion.circle
-          cx={38}
-          cy={40}
-          r={4}
+          cx="38"
+          cy="40"
+          r="4"
           fill="#38bdf8"
+          style={{ transformOrigin: "38px 40px" }}
           animate={
             isAnimating
               ? {
                   scaleY: [1, 0.2, 1],
                   scaleX: [1, 1.2, 1],
-                  cx: 38,
                 }
               : {
                   scaleY: [1, 0, 1, 1, 1],
-                  cx: [38, 38, 35, 41, 38],
+                  x: [0, 0, -3, 3, 0],
                 }
           }
           transition={
@@ -239,21 +242,22 @@ const BotAvatar = ({ isAnimating }: { isAnimating: boolean }) => (
           }
         />
 
+        {/* Right Eye */}
         <motion.circle
-          cx={62}
-          cy={40}
-          r={4}
+          cx="62"
+          cy="40"
+          r="4"
           fill="#38bdf8"
+          style={{ transformOrigin: "62px 40px" }}
           animate={
             isAnimating
               ? {
                   scaleY: [1, 0.2, 1],
                   scaleX: [1, 1.2, 1],
-                  cx: 62,
                 }
               : {
                   scaleY: [1, 0, 1, 1, 1],
-                  cx: [62, 62, 59, 65, 62],
+                  x: [0, 0, -3, 3, 0],
                 }
           }
           transition={
