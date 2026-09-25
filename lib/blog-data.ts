@@ -15,6 +15,16 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
   {
     "category": "Educational",
+    "date": "September 25, 2026",
+    "datePublished": "September 25, 2026",
+    "author": "Organic Mushroom Farm",
+    "title": "The Guide to Mushroom Farming in India: Complete 100% Organic Guide",
+    "description": "Learn how to start a profitable mushroom farm. Join Organic Mushroom Farm for hands-on, chemical-free mushroom cultivation training, natural composting, and business setups.",
+    "slug": "/organic-mushroom-farming-training-india",
+    "image": "https://res.cloudinary.com/dnw4fpk2y/image/upload/c_fill,w_1200,ar_16:9,f_auto,q_auto/v1788255569/organic-button-mushroom-farm-setup_kwlyo0.png"
+  },
+  {
+    "category": "Educational",
     "date": "September 23, 2026",
     "author": "Expert Team",
     "title": "How to Make Button Mushroom Compost Using 100kg Wheat Straw (Long Method)",

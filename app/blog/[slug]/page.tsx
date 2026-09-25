@@ -23,6 +23,8 @@ const EXISTING_STATIC_FOLDERS = new Set([
   "mushroom-training-guide-english",
   "mushroom-training-guide-hindi",
   "mushroom-training-guide-punjabi",
+  "mushroom-farming-training",
+  "organic-mushroom-farming-training-india",
   "organic-mushrooms-health-benefits-nutrition-cultivation-uses",
   "oyster-mushroom-cultivation-india",
   "smart-climate-control-automation-mushroom-growing",
