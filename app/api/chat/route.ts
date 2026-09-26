@@ -54,7 +54,7 @@ MUSHROOMS COVERED
 
 TRAINING & PRICING
 ------------------
-- Live Masterclass Training (India): ₹199 (Basic) / ₹499 (Advanced with 1-Year Support & Certification)
+- Live Masterclass Training (India): ₹299 (Basic) / ₹699 (Advanced with 1-Year Support & Certification)
 - International Online Training: $39 (Basic) / $97 (Advanced)
 - For custom farm setup or lab guidance, invite the user to connect on WhatsApp (+91 9203544140).
 
@@ -76,7 +76,7 @@ function generateFallbackResponse(userMessage: string): string {
   }
 
   if (query.includes("training") || query.includes("course") || query.includes("class") || query.includes("sikhna") || query.includes("fee") || query.includes("price") || query.includes("cost")) {
-    return `**🎓 Organic Mushroom Farm Training Programs:**\n\n1. **Basic Online Training (₹199 / $39 USD):**\n   - Oyster & Button basics, substrate preparation, sterilization, climate control, harvesting.\n\n2. **Advanced Commercial Masterclass (₹499 / $97 USD):**\n   - A-to-Z Commercial Farm Setup, Disease & Pest Management, Climate Automation, Marketing & 1-Year Handholding Support.\n\n👉 Aap website ke **"Live Training"** / **"Enroll Now"** button se register kar sakte hain ya direct WhatsApp (**+91 9203544140**) par contact kar sakte hain!`;
+    return `**🎓 Organic Mushroom Farm Training Programs:**\n\n1. **Basic Online Training (₹299 / $39 USD):**\n   - Oyster & Button basics, substrate preparation, sterilization, climate control, harvesting.\n\n2. **Advanced Commercial Masterclass (₹699 / $97 USD):**\n   - A-to-Z Commercial Farm Setup, Disease & Pest Management, Climate Automation, Marketing & 1-Year Handholding Support.\n\n👉 Aap website ke **"Live Training"** / **"Enroll Now"** button se register kar sakte hain ya direct WhatsApp (**+91 9203544140**) par contact kar sakte hain!`;
   }
 
   if (query.includes("setup") || query.includes("cost") || query.includes("investment") || query.includes("farm") || query.includes("shed") || query.includes("kheti")) {
@@ -91,7 +91,7 @@ function generateFallbackResponse(userMessage: string): string {
     return `**📍 Contact & Location Details:**\n\n- **Business Name:** Organic Mushroom Farm\n- **Owner:** Tanish Soni\n- **Location:** Jabalpur, Madhya Pradesh, India\n- **WhatsApp / Call:** **+91 9203544140**\n- **Email:** organicmushroomsfarms@gmail.com\n\nAap kisi bhi waqt training, spawn order ya farm setup guidance ke liye contact kar sakte hain!`;
   }
 
-  return `**Namaste! Welcome to Organic Mushroom Farm.** 🍄\n\nMain aapki help kar sakta hoon:\n- 🌾 **High-Yield F1 Spawn Supply** (Oyster, Button, Milky, Shiitake)\n- 🎓 **Live Training Masterclasses** (Basic ₹199 / Advanced ₹499)\n- 🏗️ **Commercial Farm Setup & Turnkey Projects**\n- 🌡️ **Temperature, Humidity & Substrate SOPs**\n\nAap apna sawal poochhein ya direct hamare head consultant se WhatsApp par baat karein: **+91 9203544140** (Jabalpur, MP).`;
+  return `**Namaste! Welcome to Organic Mushroom Farm.** 🍄\n\nMain aapki help kar sakta hoon:\n- 🌾 **High-Yield F1 Spawn Supply** (Oyster, Button, Milky, Shiitake)\n- 🎓 **Live Training Masterclasses** (Basic ₹299 / Advanced ₹699)\n- 🏗️ **Commercial Farm Setup & Turnkey Projects**\n- 🌡️ **Temperature, Humidity & Substrate SOPs**\n\nAap apna sawal poochhein ya direct hamare head consultant se WhatsApp par baat karein: **+91 9203544140** (Jabalpur, MP).`;
 }
 
 export async function POST(req: Request) {

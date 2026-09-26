@@ -187,7 +187,7 @@ export const CTASection = () => {
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white text-xs focus:outline-none focus:border-purple-500"
                     >
                       <option>Complete Farm Setup & Turnkey AC Room</option>
-                      <option>Live Training Program (₹199 / ₹499)</option>
+                      <option>Live Training Program (₹299 / ₹699)</option>
                       <option>High-Yield F1 Spawn Supply (Wholesale)</option>
                       <option>NABARD / NHB Subsidy DPR Project Report</option>
                     </select>

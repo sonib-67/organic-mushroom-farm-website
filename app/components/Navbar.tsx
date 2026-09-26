@@ -325,7 +325,7 @@ export const Navbar = () => {
             >
               <GraduationCap size={14} />
               <span>Book Training</span>
-              <span className="text-[10px] opacity-90 px-1 py-0.2 rounded bg-white/20">₹199</span>
+              <span className="text-[10px] opacity-90 px-1 py-0.2 rounded bg-white/20">₹299</span>
             </button>
 
             {/* Direct WhatsApp Call */}
@@ -438,7 +438,7 @@ export const Navbar = () => {
                       <span>Live Masterclass</span>
                     </div>
                     <div className="text-sm font-black">Book Training Program</div>
-                    <div className="text-[11px] opacity-90">Basic ₹199 / Commercial ₹499</div>
+                    <div className="text-[11px] opacity-90">Basic ₹299 / Advance ₹699</div>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                     <ArrowRight size={16} />

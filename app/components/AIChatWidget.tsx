@@ -31,7 +31,7 @@ interface ChatMessage {
 const QUICK_PROMPTS = [
   "💰 Commercial Farm Setup Cost?",
   "🍄 Button vs Oyster Farming?",
-  "🎓 Training Masterclass (₹199)?",
+  "🎓 Training Masterclass (₹299 / ₹699)?",
   "🌡️ Ideal Temperature & Humidity?",
   "📦 How to buy F1 Spawn?",
 ];
@@ -48,7 +48,7 @@ export const AIChatWidget = () => {
       id: "welcome-1",
       role: "assistant",
       content:
-        "**Namaste! Welcome to Organic Mushrooms Farm AI Advisor.** 🍄\n\nI can assist you with:\n- 📋 Commercial Farm Setup & Cost Estimates\n- 🌡️ Temperature, Humidity & Climate Controls\n- 🎓 Live Training Enrollment (₹199 / ₹499)\n- 🌾 High-Yield F1 Spawn Supply\n\nHow can I help you today?",
+        "**Namaste! Welcome to Organic Mushrooms Farm AI Advisor.** 🍄\n\nI can assist you with:\n- 📋 Commercial Farm Setup & Cost Estimates\n- 🌡️ Temperature, Humidity & Climate Controls\n- 🎓 Live Training Enrollment (Basic ₹299 / Advance ₹699)\n- 🌾 High-Yield F1 Spawn Supply\n\nHow can I help you today?",
       timestamp: "Just now",
     },
   ]);
