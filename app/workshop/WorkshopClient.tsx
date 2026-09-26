@@ -18,7 +18,6 @@ import {
   ArrowRight,
   ChevronDown,
   X,
-  PhoneCall,
   MessageCircle,
   HelpCircle,
   BookOpen,
@@ -1028,17 +1027,6 @@ export default function WorkshopClientPage() {
           </button>
         </div>
       </div>
-
-      {/* WhatsApp Floating Assistance Button */}
-      <a
-        href="https://wa.me/919203544140?text=Hi%20Organic%20Mushroom%20Farm,%20I%20want%20to%20know%20more%20about%20the%20Mushroom%20Farming%20Workshop"
-        target="_blank"
-        rel="noreferrer"
-        className="fixed bottom-[74px] md:bottom-6 right-4 z-50 bg-[#25D366] hover:bg-[#128C7E] w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110"
-        aria-label="Contact us on WhatsApp"
-      >
-        <PhoneCall size={20} className="text-white" />
-      </a>
 
       {/* Checkout / Registration Modal (with Full Name, Phone, and Email) */}
       {showCheckout && (

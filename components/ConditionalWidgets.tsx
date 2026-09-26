@@ -42,10 +42,11 @@ export function ConditionalWidgets() {
     pathname?.includes("/training/success") ||
     pathname?.includes("/training/cancel");
 
-  // Hide sticky floating buttons on registration form pages so fields are completely unobstructed
-  const isFormPage =
+  // Hide sticky floating buttons on registration form and workshop pages so UI and fields are completely unobstructed
+  const isFormOrWorkshopPage =
     pathname?.includes("/mushroomtrainingregistrationform") ||
-    pathname?.includes("/training/register");
+    pathname?.includes("/training/register") ||
+    pathname?.includes("/workshop");
 
   if (isCheckoutPage) {
     return null;
@@ -56,8 +57,8 @@ export function ConditionalWidgets() {
       {/* Global Footer */}
       <Footer />
 
-      {/* Floating Widgets Layer - Automatically hidden when offline checklist is active OR on registration form */}
-      {!isOfflineModalOpen && !isFormPage && (
+      {/* Floating Widgets Layer - Automatically hidden when offline checklist is active OR on registration form/workshop */}
+      {!isOfflineModalOpen && !isFormOrWorkshopPage && (
         <>
           {/* ================= FLOATING STACK LAYER ================= */}
           <FloatingWidgetsLayer />
