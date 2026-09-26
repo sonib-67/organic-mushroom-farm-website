@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { name, phone, reason } = await req.json();
+    const { name, phone, email, reason } = await req.json();
 
     // Send "Payment Cancelled" Email to Admin
     try {
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
           from: process.env.EMAIL_USER,
           to: process.env.EMAIL_USER, // Send to admin
           subject: `❌ Payment CANCELLED: Workshop by ${name}`,
-          text: `A user has cancelled or failed their payment for the Workshop.\n\nName: ${name}\nPhone: ${phone}\nReason: ${reason || 'User closed the checkout window or payment failed'}\nTime: ${new Date().toLocaleString()}\n\nYou may want to follow up with them.`,
+          text: `A user has cancelled or failed their payment for the Workshop.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nReason: ${reason || 'User closed the checkout window or payment failed'}\nTime: ${new Date().toLocaleString()}\n\nYou may want to follow up with them.`,
         });
       }
     } catch (emailError) {

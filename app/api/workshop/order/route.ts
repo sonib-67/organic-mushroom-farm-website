@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
-    const { name, phone, amount } = await req.json();
+    const { name, phone, email, amount, interest } = await req.json();
 
     if (!name || !phone) {
       return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 });
@@ -22,6 +22,8 @@ export async function POST(req: Request) {
       notes: {
         customerName: name,
         customerPhone: phone,
+        customerEmail: email || '',
+        interest: interest || 'General Workshop',
         productType: 'Mushroom Farming Workshop',
       },
     };
@@ -45,7 +47,7 @@ export async function POST(req: Request) {
           from: process.env.EMAIL_USER,
           to: process.env.EMAIL_USER, // Send to admin
           subject: `⚠️ Payment Initiated: Workshop by ${name}`,
-          text: `A user has initiated payment for the Workshop.\n\nName: ${name}\nPhone: ${phone}\nAmount: ₹${amount || 199}\nOrder ID: ${order.id}\nTime: ${new Date().toLocaleString()}`,
+          text: `A user has initiated payment for the Workshop.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email || 'Not provided'}\nInterest: ${interest || 'General'}\nAmount: ₹${amount || 199}\nOrder ID: ${order.id}\nTime: ${new Date().toLocaleString()}`,
         });
       }
     } catch (emailError) {
