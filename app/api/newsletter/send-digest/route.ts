@@ -125,7 +125,7 @@ async function handleDigestDispatch(req: Request) {
 
     if (subscribers.length === 0) {
       // Record sending so cooldown tracks, even if list is empty
-      recordDigestSent({
+      await recordDigestSent({
         topicTitle: content.topicTitle,
         category: content.categoryTag,
         recipientCount: 0
@@ -143,7 +143,7 @@ async function handleDigestDispatch(req: Request) {
     const successCount = results.filter((r) => r.success).length;
 
     // 4. Save to Anti-Duplication History
-    recordDigestSent({
+    await recordDigestSent({
       topicTitle: content.topicTitle,
       category: content.categoryTag,
       recipientCount: successCount

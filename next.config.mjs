@@ -18,6 +18,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/blog/mushroom-farming-training',
+        destination: '/organic-mushroom-farming-training-india',
+        permanent: true,
+      },
+      {
         source: '/spawn-supply',
         destination: '/services/spawn-supply',
         permanent: true,

@@ -164,14 +164,28 @@ OUTPUT MUST BE VALID JSON ONLY with this exact TypeScript structure:
 }
 `;
 
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: prompt,
-        config: {
-          temperature: 0.82,
-          responseMimeType: "application/json"
-        }
-      });
+      let response;
+      try {
+        response = await ai.models.generateContent({
+          model: "gemini-3.8-flash",
+          contents: prompt,
+          config: {
+            temperature: 0.82,
+            responseMimeType: "application/json"
+          }
+        });
+      } catch (firstErr) {
+        // Retry once after a brief 800ms pause if transient demand spike occurs
+        await new Promise((r) => setTimeout(r, 800));
+        response = await ai.models.generateContent({
+          model: "gemini-3.8-flash",
+          contents: prompt,
+          config: {
+            temperature: 0.82,
+            responseMimeType: "application/json"
+          }
+        });
+      }
 
       const text = response.text?.trim();
       if (text) {

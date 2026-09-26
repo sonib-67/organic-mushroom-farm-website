@@ -1,9 +1,17 @@
 import fs from "fs";
 import path from "path";
+import { getDb } from "./firebase";
 import {
-  syncNewsletterEmailToGoogleSheet,
-  fetchNewsletterEmailsFromGoogleSheet
-} from "./googleSheetSync";
+  collection,
+  doc,
+  setDoc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  limit
+} from "firebase/firestore";
 
 export interface NewsletterSubscriber {
   email: string;
@@ -15,6 +23,7 @@ export interface NewsletterSubscriber {
   subscribedAt: string;
   status: "active" | "unsubscribed";
   source?: string;
+  updatedAt?: string;
 }
 
 export interface DigestHistoryRecord {
@@ -35,9 +44,10 @@ const TMP_DIR = "/tmp";
 const TMP_SUBSCRIBERS_FILE = path.join(TMP_DIR, "newsletter_subscribers.json");
 const TMP_HISTORY_FILE = path.join(TMP_DIR, "newsletter_history.json");
 
-// In-memory memory cache for ultra-reliable zero-loss persistence
+// In-memory cache for ultra-reliable zero-loss persistence and instant reads
 let memorySubscribers: NewsletterSubscriber[] = [];
 let memoryHistory: DigestHistoryRecord[] = [];
+let isHistoryLoadedFromFirebase = false;
 
 function ensureDirectory() {
   try {
@@ -106,7 +116,7 @@ function saveLocalNewsletterSubscribers(subs: NewsletterSubscriber[]): void {
 }
 
 /**
- * Add or re-activate a subscriber
+ * Add or re-activate a subscriber in Firebase Firestore
  */
 export async function addNewsletterSubscriber(data: {
   email: string;
@@ -118,133 +128,141 @@ export async function addNewsletterSubscriber(data: {
   source?: string;
 }): Promise<{ subscriber: NewsletterSubscriber; isNew: boolean }> {
   const emailClean = data.email.trim().toLowerCase();
-  const existing = getLocalNewsletterSubscribers();
-  const foundIndex = existing.findIndex((s) => s.email.toLowerCase() === emailClean);
+  const db = getDb();
 
-  let isNew = false;
-  let record: NewsletterSubscriber;
+  let isNew = true;
+  let record: NewsletterSubscriber = {
+    email: emailClean,
+    name: data.name,
+    city: data.city || "India",
+    state: data.state || "Madhya Pradesh",
+    country: data.country || "India",
+    language: data.language || "hi",
+    subscribedAt: new Date().toISOString(),
+    status: "active",
+    source: data.source || "Website Form"
+  };
 
-  if (foundIndex >= 0) {
-    record = {
-      ...existing[foundIndex],
-      status: "active",
-      city: data.city || existing[foundIndex].city || "India",
-      state: data.state || existing[foundIndex].state || "Madhya Pradesh",
-      country: data.country || existing[foundIndex].country || "India",
-      language: data.language || existing[foundIndex].language || "hi",
-      name: data.name || existing[foundIndex].name
-    };
-    existing[foundIndex] = record;
-  } else {
-    isNew = true;
-    record = {
-      email: emailClean,
-      name: data.name,
-      city: data.city || "India",
-      state: data.state || "Madhya Pradesh",
-      country: data.country || "India",
-      language: data.language || "hi",
-      subscribedAt: new Date().toISOString(),
-      status: "active",
-      source: data.source || "Website Form"
-    };
-    existing.push(record);
+  // 1. Check & Persist in Firebase Firestore
+  if (db) {
+    try {
+      const docRef = doc(db, "newsletter_subscribers", emailClean);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const existingData = docSnap.data() as Partial<NewsletterSubscriber>;
+        if (existingData.status === "active") {
+          isNew = false;
+        }
+        record = {
+          email: emailClean,
+          name: data.name || existingData.name,
+          city: data.city || existingData.city || "India",
+          state: data.state || existingData.state || "Madhya Pradesh",
+          country: data.country || existingData.country || "India",
+          language: data.language || existingData.language || "hi",
+          subscribedAt: existingData.subscribedAt || record.subscribedAt,
+          status: "active",
+          source: data.source || existingData.source || "Website Form",
+          updatedAt: new Date().toISOString()
+        };
+      }
+
+      await setDoc(docRef, record, { merge: true });
+    } catch (firebaseErr) {
+      console.warn("[NewsletterStore] Firebase save warning, fallback to local:", firebaseErr);
+    }
   }
 
-  saveLocalNewsletterSubscribers(existing);
-
-  // Sync to Google Sheets in background
-  syncNewsletterEmailToGoogleSheet({
-    email: record.email,
-    name: record.name,
-    state: `${record.city ? `${record.city}, ` : ""}${record.state || "India"}`,
-    source: record.source
-  }).catch((err) => {
-    console.warn("[NewsletterStore] Google Sheet sync warning:", err);
-  });
+  // 2. Also update local cache for zero-latency retrieval
+  const existingLocal = getLocalNewsletterSubscribers();
+  const foundIndex = existingLocal.findIndex((s) => s.email.toLowerCase() === emailClean);
+  if (foundIndex >= 0) {
+    if (existingLocal[foundIndex].status === "active") {
+      isNew = false;
+    }
+    existingLocal[foundIndex] = record;
+  } else {
+    existingLocal.push(record);
+  }
+  saveLocalNewsletterSubscribers(existingLocal);
 
   return { subscriber: record, isNew };
 }
 
 /**
- * Unsubscribe an email
+ * Unsubscribe an email in Firebase Firestore
  */
-export function unsubscribeEmail(email: string): boolean {
+export async function unsubscribeEmail(email: string): Promise<boolean> {
   const emailClean = email.trim().toLowerCase();
+  const db = getDb();
+
+  // 1. Update in Firebase
+  if (db) {
+    try {
+      const docRef = doc(db, "newsletter_subscribers", emailClean);
+      await setDoc(
+        docRef,
+        {
+          status: "unsubscribed",
+          unsubscribedAt: new Date().toISOString()
+        },
+        { merge: true }
+      );
+    } catch (err) {
+      console.warn("[NewsletterStore] Firebase unsubscribe warning:", err);
+    }
+  }
+
+  // 2. Update in local cache
   const existing = getLocalNewsletterSubscribers();
   const foundIndex = existing.findIndex((s) => s.email.toLowerCase() === emailClean);
-
   if (foundIndex >= 0) {
     existing[foundIndex].status = "unsubscribed";
     saveLocalNewsletterSubscribers(existing);
     return true;
   }
-  return false;
+
+  return true;
 }
 
-// In-memory cache for remote Google Sheet subscribers to prevent repeated network delays
-let cachedRemoteSubscribers: { timestamp: number; data: Array<{ email: string; state?: string; subscribedAt?: string }> } | null = null;
-
 /**
- * Get all active subscribers, combining local store with Google Sheets (with email deduplication)
+ * Get all active subscribers from Firebase Firestore
+ * Eliminates all Google Sheets / Excel latency and timeout issues
  */
 export async function getAllActiveNewsletterSubscribers(): Promise<NewsletterSubscriber[]> {
-  const localList = getLocalNewsletterSubscribers().filter((s) => s.status === "active");
-  const emailMap = new Map<string, NewsletterSubscriber>();
+  const db = getDb();
 
-  // 1. Load all local subscribers into map
-  for (const sub of localList) {
-    if (sub.email && sub.email.includes("@")) {
-      emailMap.set(sub.email.toLowerCase().trim(), sub);
-    }
-  }
-
-  // 2. Fetch and merge subscribers from Google Sheet (cached for 2 minutes to keep requests fast)
-  try {
-    const now = Date.now();
-    let remoteData: Array<{ email: string; state?: string; subscribedAt?: string }> = [];
-
-    if (cachedRemoteSubscribers && now - cachedRemoteSubscribers.timestamp < 2 * 60 * 1000) {
-      remoteData = cachedRemoteSubscribers.data;
-    } else {
-      remoteData = await fetchNewsletterEmailsFromGoogleSheet();
-      if (Array.isArray(remoteData) && remoteData.length > 0) {
-        cachedRemoteSubscribers = { timestamp: now, data: remoteData };
-      }
-    }
-
-    if (Array.isArray(remoteData) && remoteData.length > 0) {
-      for (const item of remoteData) {
-        if (item && item.email && item.email.includes("@")) {
-          const cleanEmail = item.email.toLowerCase().trim();
-          if (!emailMap.has(cleanEmail)) {
-            emailMap.set(cleanEmail, {
-              email: cleanEmail,
-              state: item.state || "India",
-              subscribedAt: item.subscribedAt || new Date().toISOString(),
-              status: "active",
-              source: "Google Sheet Sync"
-            });
-          }
-        }
-      }
-    }
-  } catch (err) {
-    console.warn("Could not sync newsletter emails from Google Sheet:", err);
-  }
-
-  const mergedList = Array.from(emailMap.values());
-
-  // If merged list discovered new remote subscribers, persist them locally so offline/cached reads have them too
-  if (mergedList.length > localList.length) {
+  // 1. Fetch directly from Firebase Firestore (primary source of truth)
+  if (db) {
     try {
-      saveLocalNewsletterSubscribers(mergedList);
-    } catch (persistErr) {
-      console.warn("Could not persist merged subscribers locally:", persistErr);
+      const q = query(
+        collection(db, "newsletter_subscribers"),
+        where("status", "==", "active")
+      );
+      const snapshot = await getDocs(q);
+
+      if (!snapshot.empty) {
+        const firestoreSubs: NewsletterSubscriber[] = [];
+        snapshot.forEach((docSnap) => {
+          const data = docSnap.data() as NewsletterSubscriber;
+          if (data && data.email && data.email.includes("@")) {
+            firestoreSubs.push(data);
+          }
+        });
+
+        // Sync with local store for offline/cache fallback
+        saveLocalNewsletterSubscribers(firestoreSubs);
+        return firestoreSubs;
+      }
+    } catch (err) {
+      console.warn("[NewsletterStore] Firebase read error, falling back to cache:", err);
     }
   }
 
-  return mergedList;
+  // 2. Fallback to local store / memory cache
+  const localList = getLocalNewsletterSubscribers().filter((s) => s.status === "active");
+  return localList;
 }
 
 /**
@@ -274,43 +292,106 @@ export async function confirmNewsletterSubscription(email: string): Promise<{
  */
 export function getDigestHistory(): DigestHistoryRecord[] {
   ensureDirectory();
+
+  if (memoryHistory.length > 0) {
+    return memoryHistory;
+  }
+
   try {
     if (fs.existsSync(HISTORY_FILE)) {
       const content = fs.readFileSync(HISTORY_FILE, "utf-8");
-      return JSON.parse(content) || [];
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        memoryHistory = parsed;
+        return parsed;
+      }
     }
   } catch (err) {
-    console.warn("Error reading digest history:", err);
+    console.warn("Error reading local digest history:", err);
   }
-  return [];
+
+  // Trigger non-blocking async fetch from Firebase if not loaded yet
+  if (!isHistoryLoadedFromFirebase) {
+    fetchDigestHistoryFromFirebase().catch(() => {});
+  }
+
+  return memoryHistory;
 }
 
 /**
- * Records a dispatched digest topic in history
+ * Loads history from Firebase Firestore
  */
-export function recordDigestSent(record: {
+export async function fetchDigestHistoryFromFirebase(): Promise<DigestHistoryRecord[]> {
+  const db = getDb();
+  if (!db) return memoryHistory;
+
+  try {
+    isHistoryLoadedFromFirebase = true;
+    const q = query(
+      collection(db, "newsletter_digest_history"),
+      orderBy("sentAt", "asc"),
+      limit(100)
+    );
+    const snap = await getDocs(q);
+    const historyList: DigestHistoryRecord[] = [];
+    snap.forEach((d) => {
+      historyList.push(d.data() as DigestHistoryRecord);
+    });
+
+    if (historyList.length > 0) {
+      memoryHistory = historyList;
+      ensureDirectory();
+      try {
+        fs.writeFileSync(HISTORY_FILE, JSON.stringify(historyList, null, 2), "utf-8");
+      } catch {}
+    }
+    return memoryHistory;
+  } catch (err) {
+    console.warn("[NewsletterStore] Firebase history fetch warning:", err);
+    return memoryHistory;
+  }
+}
+
+/**
+ * Records a dispatched digest topic in history (Firebase + local)
+ */
+export async function recordDigestSent(record: {
   topicTitle: string;
   category: string;
   recipientCount: number;
-}): void {
+}): Promise<void> {
   ensureDirectory();
-  try {
-    const history = getDigestHistory();
-    const hash = record.topicTitle.toLowerCase().replace(/[^a-z0-9]/g, "");
-    history.push({
-      id: `digest_${Date.now()}`,
-      sentAt: new Date().toISOString(),
-      topicTitle: record.topicTitle,
-      category: record.category,
-      topicHash: hash,
-      recipientCount: record.recipientCount
-    });
+  const hash = record.topicTitle.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const id = `digest_${Date.now()}`;
+  const newRecord: DigestHistoryRecord = {
+    id,
+    sentAt: new Date().toISOString(),
+    topicTitle: record.topicTitle,
+    category: record.category,
+    topicHash: hash,
+    recipientCount: record.recipientCount
+  };
 
-    // Keep only last 100 entries to prevent infinite growth
-    const trimmed = history.slice(-100);
+  const history = getDigestHistory();
+  history.push(newRecord);
+  const trimmed = history.slice(-100);
+  memoryHistory = trimmed;
+
+  try {
     fs.writeFileSync(HISTORY_FILE, JSON.stringify(trimmed, null, 2), "utf-8");
   } catch (err) {
-    console.warn("Error writing digest history:", err);
+    console.warn("Error writing local digest history:", err);
+  }
+
+  // Persist to Firebase Firestore
+  const db = getDb();
+  if (db) {
+    try {
+      const docRef = doc(db, "newsletter_digest_history", id);
+      await setDoc(docRef, newRecord);
+    } catch (err) {
+      console.warn("[NewsletterStore] Firebase recordDigestSent warning:", err);
+    }
   }
 }
 
@@ -339,3 +420,4 @@ export function hasTwoDaysPassedSinceLastDigest(): {
     hoursSinceLast: Math.round(hoursSince * 10) / 10
   };
 }
+

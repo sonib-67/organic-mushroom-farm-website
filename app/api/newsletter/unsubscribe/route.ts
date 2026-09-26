@@ -12,7 +12,7 @@ export async function GET(req: Request) {
     );
   }
 
-  unsubscribeEmail(email);
+  await unsubscribeEmail(email);
 
   const html = `
 <!DOCTYPE html>
